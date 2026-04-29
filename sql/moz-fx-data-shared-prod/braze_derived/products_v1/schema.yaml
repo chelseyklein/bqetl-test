@@ -2,142 +2,238 @@ fields:
 - mode: NULLABLE
   name: external_id
   type: STRING
+  description: The unique identifier for a Braze user profile, sourced from the CTMS
+    FxA email ID. Used to associate product subscription data with a specific Braze
+    user.
 - fields:
   - mode: NULLABLE
     name: provider
     type: STRING
+    description: The subscription provider or platform (e.g. 'stripe', 'apple', 'google')
+      that manages the underlying subscription.
   - mode: NULLABLE
     name: payment_provider
     type: STRING
+    description: The payment provider used to process billing for this subscription
+      (e.g. 'stripe', 'paypal').
   - mode: NULLABLE
     name: product_name
     type: STRING
+    description: The human-readable name of the Mozilla product being subscribed to
+      (e.g. 'Mozilla VPN', 'Firefox Relay').
   - mode: NULLABLE
     name: service_name
     type: STRING
+    description: The internal service name associated with the subscription product,
+      as defined in the subscription platform services table.
   - mode: NULLABLE
     name: subscription_plan_id
     type: STRING
+    description: The provider-specific plan identifier for this subscription (e.g.
+      Stripe plan ID). Identifies the specific pricing plan within a product.
   - mode: NULLABLE
     name: subscription_product_id
     type: STRING
+    description: The provider-specific product identifier for this subscription (e.g.
+      Stripe product ID). Identifies the top-level product offering.
   - mode: NULLABLE
     name: subscription_started_at
     type: TIMESTAMP
+    description: The timestamp when the subscription became active or started for
+      the first time.
   - mode: NULLABLE
     name: subscription_ended_at
     type: TIMESTAMP
+    description: The timestamp when the subscription ended or was cancelled. Null
+      if the subscription is still active.
   - mode: NULLABLE
     name: subscription_summary
     type: STRING
+    description: A human-readable summary string describing the subscription plan
+      (e.g. billing interval and amount). Sourced from the plan_summary field in the
+      subscription platform.
   - mode: NULLABLE
     name: subscription_billing_interval
     type: STRING
+    description: The billing interval type for the subscription plan (e.g. 'month',
+      'year'). Indicates how frequently the user is billed.
   - mode: NULLABLE
     name: subscription_interval_count
     type: INTEGER
+    description: The number of billing interval units between charges (e.g. 1 for
+      monthly, 12 for annual billed as one yearly charge).
   - mode: NULLABLE
     name: subscription_currency
     type: STRING
+    description: The ISO 4217 currency code for the subscription billing (e.g. 'usd',
+      'eur').
   - mode: NULLABLE
     name: subscription_amount
     type: NUMERIC
+    description: The billing amount charged per interval for this subscription plan,
+      in the currency specified by subscription_currency.
   - mode: NULLABLE
     name: is_bundle
     type: BOOLEAN
+    description: Whether this subscription is part of a bundle offering. True if the
+      user subscribed through a bundled product package.
   - mode: NULLABLE
     name: is_trial
     type: BOOLEAN
+    description: Whether this subscription is currently in a free trial period. True
+      if the user has not yet been charged for the subscription.
   - mode: NULLABLE
     name: is_active
     type: BOOLEAN
+    description: Whether the subscription is currently active. True if the user has
+      a valid, non-cancelled subscription at the time of data extraction.
   - mode: NULLABLE
     name: subscription_status
     type: STRING
+    description: The raw subscription status string as reported by the provider (e.g.
+      'active', 'canceled', 'past_due', 'trialing').
   - mode: NULLABLE
     name: subscription_country_code
     type: STRING
+    description: The lowercase ISO 3166-1 alpha-2 country code associated with the
+      subscription (e.g. 'us', 'de'). Derived from the provider's country_code field.
   - mode: NULLABLE
     name: subscription_country_name
     type: STRING
+    description: The full country name associated with the subscription (e.g. 'United
+      States', 'Germany').
   - mode: NULLABLE
     name: current_period_started_at
     type: TIMESTAMP
+    description: The timestamp when the current billing period began for this subscription.
   - mode: NULLABLE
     name: current_period_ends_at
     type: TIMESTAMP
+    description: The timestamp when the current billing period is scheduled to end
+      for this subscription.
   - mode: NULLABLE
     name: is_auto_renew
     type: BOOLEAN
+    description: Whether the subscription is set to automatically renew at the end
+      of the current billing period. True if auto-renewal is enabled.
   - mode: NULLABLE
     name: auto_renew_disabled_at
     type: TIMESTAMP
+    description: The timestamp when auto-renewal was disabled for this subscription.
+      Null if auto-renewal is still enabled.
   - mode: NULLABLE
     name: has_refunds
     type: BOOLEAN
+    description: Whether the user has had any refunds processed for this subscription.
+      True if at least one refund is associated with this subscription.
   - mode: NULLABLE
     name: has_fraudulent_charges
     type: BOOLEAN
+    description: Whether any fraudulent charges have been associated with this subscription.
+      True if at least one charge has been flagged as fraudulent.
   - mode: NULLABLE
     name: first_touch_impression_at
     type: TIMESTAMP
+    description: The timestamp of the user's first attribution touchpoint impression.
+      Currently always null in this table as first-touch attribution is not yet populated.
   - mode: NULLABLE
     name: first_touch_entrypoint
     type: STRING
+    description: The entrypoint identifier for the user's first attribution touchpoint.
+      Currently always null as first-touch attribution is not yet populated.
   - mode: NULLABLE
     name: first_touch_entrypoint_experiment
     type: STRING
+    description: The experiment key associated with the first-touch entrypoint. Currently
+      always null as first-touch attribution is not yet populated.
   - mode: NULLABLE
     name: first_touch_entrypoint_variation
     type: STRING
+    description: The experiment variation associated with the first-touch entrypoint.
+      Currently always null as first-touch attribution is not yet populated.
   - mode: NULLABLE
     name: first_touch_utm_campaign
     type: STRING
+    description: The UTM campaign parameter from the user's first attribution touchpoint.
+      Currently always null as first-touch attribution is not yet populated.
   - mode: NULLABLE
     name: first_touch_utm_content
     type: STRING
+    description: The UTM content parameter from the user's first attribution touchpoint.
+      Currently always null as first-touch attribution is not yet populated.
   - mode: NULLABLE
     name: first_touch_utm_medium
     type: STRING
+    description: The UTM medium parameter from the user's first attribution touchpoint.
+      Currently always null as first-touch attribution is not yet populated.
   - mode: NULLABLE
     name: first_touch_utm_source
     type: STRING
+    description: The UTM source parameter from the user's first attribution touchpoint.
+      Currently always null as first-touch attribution is not yet populated.
   - mode: NULLABLE
     name: first_touch_utm_term
     type: STRING
+    description: The UTM term parameter from the user's first attribution touchpoint.
+      Currently always null as first-touch attribution is not yet populated.
   - mode: NULLABLE
     name: last_touch_impression_at
     type: TIMESTAMP
+    description: The timestamp of the last attribution touchpoint impression before
+      the subscription was created. Sourced from last_touch_attribution in the subscription
+      platform.
   - mode: NULLABLE
     name: last_touch_entrypoint
     type: STRING
+    description: The entrypoint identifier (e.g. 'homepage', 'vpn-pricing-page') from
+      the last attribution touchpoint before subscription.
   - mode: NULLABLE
     name: last_touch_entrypoint_experiment
     type: STRING
+    description: The experiment key associated with the last-touch entrypoint prior
+      to subscription. Used for A/B test attribution.
   - mode: NULLABLE
     name: last_touch_entrypoint_variation
     type: STRING
+    description: The experiment variation associated with the last-touch entrypoint
+      prior to subscription.
   - mode: NULLABLE
     name: last_touch_utm_campaign
     type: STRING
+    description: The UTM campaign parameter from the last attribution touchpoint before
+      subscription (e.g. a specific marketing campaign name).
   - mode: NULLABLE
     name: last_touch_utm_content
     type: STRING
+    description: The UTM content parameter from the last attribution touchpoint, used
+      to differentiate ads or links within the same campaign.
   - mode: NULLABLE
     name: last_touch_utm_medium
     type: STRING
+    description: The UTM medium parameter from the last attribution touchpoint (e.g.
+      'email', 'cpc', 'organic').
   - mode: NULLABLE
     name: last_touch_utm_source
     type: STRING
+    description: The UTM source parameter from the last attribution touchpoint (e.g.
+      'google', 'newsletter', 'twitter').
   - mode: NULLABLE
     name: last_touch_utm_term
     type: STRING
+    description: The UTM term parameter from the last attribution touchpoint, typically
+      used to identify paid search keywords.
   - mode: NULLABLE
     name: subscription_created_at
     type: TIMESTAMP
+    description: The timestamp when the subscription was originally created at the
+      provider level.
   - mode: NULLABLE
     name: subscription_updated_at
     type: TIMESTAMP
+    description: The timestamp when the subscription record was most recently updated
+      at the provider level.
   mode: REPEATED
   name: products
   type: RECORD
+  description: Array of Mozilla subscription product records for the user, sourced
+    from the subscription platform logical subscriptions table.
