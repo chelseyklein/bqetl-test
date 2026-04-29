@@ -2,42 +2,80 @@ fields:
 - mode: NULLABLE
   name: external_id
   type: STRING
+  description: The unique identifier for the user in Braze, sourced from the CTMS
+    email_id (a UUID). Used to link Braze user records back to the Contact Management
+    System.
 - mode: NULLABLE
   name: email
   type: STRING
+  description: The lowercased primary email address of the user, sourced from CTMS.
+    Users on the marketing suppression list or who have opted out of all newsletters
+    are excluded from this table.
 - mode: NULLABLE
   name: mailing_country
   type: STRING
+  description: The two-letter ISO country code representing the user's mailing country,
+    as stored in CTMS. NULL for approximately 36% of users where country information
+    is unavailable.
 - mode: NULLABLE
   name: email_subscribe
   type: STRING
+  description: The user's email subscription status in Braze. Values are 'opted_in'
+    (double opt-in confirmed), 'subscribed' (single opt-in, no opt-out), or 'unsubscribed'
+    (has opted out). Approximately 99% of users are 'opted_in'.
 - mode: NULLABLE
   name: basket_token
   type: STRING
+  description: A UUID token that uniquely identifies the user in Mozilla's Basket
+    email subscription service. Nearly always populated; NULL for fewer than 0.01%
+    of rows.
 - mode: NULLABLE
   name: email_lang
   type: STRING
+  description: The user's preferred language for email communications, stored as a
+    lowercased BCP 47 language code (e.g., 'en', 'fr', 'de'). Sourced from CTMS.
 - mode: NULLABLE
   name: create_timestamp
   type: TIMESTAMP
+  description: Timestamp when the user record was first created in the Contact Management
+    System (CTMS). Always populated.
 - mode: NULLABLE
   name: update_timestamp
   type: TIMESTAMP
+  description: Timestamp when the user record was most recently updated in the Contact
+    Management System (CTMS). Always populated.
 - mode: NULLABLE
   name: fxa_id_sha256
   type: STRING
+  description: SHA-256 hash of the user's Firefox Accounts (FxA) user ID. Used to
+    link to FxA records without exposing raw account identifiers. NULL (~7.5%) when
+    the user has no associated FxA account.
 - mode: NULLABLE
   name: has_fxa
   type: BOOLEAN
+  description: True if the user has an active, non-deleted Firefox Accounts (FxA)
+    account linked to their email; false otherwise. Approximately 92.5% of users in
+    this table have an FxA account.
 - mode: NULLABLE
   name: fxa_primary_email
   type: STRING
+  description: The primary email address registered in Firefox Accounts (FxA), lowercased.
+    Populated only when it differs from the CTMS email address; NULL for ~99.5% of
+    users.
 - mode: NULLABLE
   name: fxa_lang
   type: STRING
+  description: The browser-reported Accept-Language string from the user's Firefox
+    Accounts session (e.g., 'en-US,en;q=0.5'). NULL for ~47% of users where FxA language
+    data is unavailable.
 - mode: NULLABLE
   name: fxa_first_service
   type: STRING
+  description: The first Mozilla service the user used to create or authenticate their
+    Firefox Accounts (FxA) account (e.g., 'sync', 'fenix', 'pocket-web', 'firefox-ios').
+    NULL for ~49% of users.
 - mode: NULLABLE
   name: fxa_created_at
   type: TIMESTAMP
+  description: Timestamp when the user's Firefox Accounts (FxA) account was created.
+    NULL for ~7.6% of users who have no associated FxA account.
