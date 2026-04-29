@@ -2,25 +2,41 @@ fields:
 - mode: NULLABLE
   name: external_id
   type: STRING
+  description: The unique identifier for the user in Braze, matching the CTMS email_id
+    (UUID). Used to join across braze_derived tables.
 - fields:
   - mode: NULLABLE
     name: newsletter_name
     type: STRING
+    description: The slug identifier of the newsletter (e.g. 'mozilla-and-you', 'firefox-tips').
+      Sourced from the CTMS newsletter name field.
   - mode: NULLABLE
     name: subscribed
     type: BOOLEAN
+    description: True if the user is currently subscribed to this newsletter; false
+      if they have unsubscribed.
   - mode: NULLABLE
     name: newsletter_lang
     type: STRING
+    description: The user's preferred language for this newsletter, stored as a lowercased
+      BCP 47 language code (e.g. 'en', 'fr').
   - mode: NULLABLE
     name: newsletter_source
     type: STRING
+    description: The acquisition source that drove the newsletter subscription (e.g.
+      a referral URL or campaign identifier), lowercased.
   - mode: NULLABLE
     name: create_timestamp
     type: TIMESTAMP
+    description: Timestamp when the newsletter subscription record was first created
+      in CTMS.
   - mode: NULLABLE
     name: update_timestamp
     type: TIMESTAMP
+    description: Timestamp when the newsletter subscription record was most recently
+      updated in CTMS.
   mode: REPEATED
   name: newsletters
   type: RECORD
+  description: Array of newsletter subscription records for this user. Only users
+    with at least one active subscription are included.
