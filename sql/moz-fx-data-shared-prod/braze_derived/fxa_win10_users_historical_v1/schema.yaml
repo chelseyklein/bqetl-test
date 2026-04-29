@@ -2,15 +2,26 @@ fields:
 - name: submission_date
   type: DATE
   mode: NULLABLE
+  description: The date of the most recent Firefox Accounts ping for this user, lagged
+    14 days from the pipeline submission_date parameter.
 - name: external_id
   type: STRING
   mode: NULLABLE
+  description: The unique identifier for this user in Braze. Matches the CTMS email_id
+    UUID or a synthetic SHA-256 UUID for users without a CTMS record.
 - name: email
   type: STRING
   mode: NULLABLE
+  description: The email address used to contact this user. Sourced from the Braze
+    users table or the FxA primary email when no Braze record exists.
 - name: locale
   type: STRING
   mode: NULLABLE
+  description: The browser locale for the user at the time of their most recent FxA
+    ping on Windows 10 (e.g. 'en-US', 'de'). Only populated for Windows 10 locales
+    in scope ('de', 'en-US', 'en-GB', 'es-ES', 'fr', 'it', 'pl', 'pt-BR').
 - name: fxa_id_sha256
   type: STRING
   mode: NULLABLE
+  description: SHA-256 hash of the user's Firefox Accounts user ID. Used to link this
+    historical record back to FxA and Braze user records.
