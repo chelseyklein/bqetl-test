@@ -2,31 +2,47 @@ fields:
 - mode: NULLABLE
   name: external_id
   type: STRING
+  description: Unique identifier for the user in Braze, corresponding to the CTMS
+    email_id. Links waitlist records to the Braze user profile.
 - fields:
   - mode: NULLABLE
     name: waitlist_name
     type: STRING
+    description: Slug identifying the product waitlist in CTMS, e.g. 'vpn' or 'relay'.
   - mode: NULLABLE
     name: waitlist_geo
     type: STRING
+    description: Lowercased geographic region or country code indicating where the
+      user signed up for the waitlist.
   - mode: NULLABLE
     name: waitlist_platform
     type: STRING
+    description: Lowercased platform indicated by the user when joining the waitlist,
+      e.g. 'windows' or 'mac'.
   - mode: NULLABLE
     name: waitlist_source
     type: STRING
+    description: Lowercased channel or product that originated this waitlist signup,
+      as recorded in CTMS.
   - mode: NULLABLE
     name: create_timestamp
     type: TIMESTAMP
+    description: Timestamp when this waitlist record was first created in CTMS.
   - mode: NULLABLE
     name: subscribed
     type: BOOLEAN
+    description: Whether the user is currently on the waitlist; true means signed
+      up, false means removed or unsubscribed.
   - mode: NULLABLE
     name: unsub_reason
     type: STRING
+    description: The reason recorded when a user unsubscribed from the waitlist. NULL
+      if the user is still subscribed.
   - mode: NULLABLE
     name: update_timestamp
     type: TIMESTAMP
+    description: Timestamp when this waitlist record was most recently updated in
+      CTMS.
   mode: REPEATED
   name: waitlists
   type: RECORD
