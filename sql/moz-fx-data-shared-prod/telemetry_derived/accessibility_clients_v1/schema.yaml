@@ -10,60 +10,115 @@ fields:
 - name: nvda
   type: INTEGER
   mode: NULLABLE
+  description: Count of distinct clients that used the NVDA screen reader (nvda.exe)
+    or reported it via the a11y_consumers histogram (consumer index 0) on the submission
+    date.
 - name: jaws
   type: INTEGER
   mode: NULLABLE
+  description: Count of distinct clients that used the JAWS screen reader (jfw.exe)
+    or reported it via the a11y_consumers histogram (consumer index 1) on the submission
+    date.
 - name: oldjaws
   type: INTEGER
   mode: NULLABLE
+  description: Count of distinct clients that reported usage of an older version of
+    the JAWS screen reader via the a11y_consumers histogram (consumer index 2) on
+    the submission date.
 - name: we
   type: INTEGER
   mode: NULLABLE
+  description: Count of distinct clients that used the Window-Eyes screen reader (WindowEyes
+    process) or reported it via the a11y_consumers histogram (consumer index 3) on
+    the submission date.
 - name: dolphin
   type: INTEGER
   mode: NULLABLE
+  description: Count of distinct clients that used the Dolphin screen reader (Snova.exe)
+    or reported it via the a11y_consumers histogram (consumer index 4) on the submission
+    date.
 - name: serotek
   type: INTEGER
   mode: NULLABLE
+  description: Count of distinct clients that reported usage of the Serotek accessibility
+    software via the a11y_consumers histogram (consumer index 5) on the submission
+    date.
 - name: cobra
   type: INTEGER
   mode: NULLABLE
+  description: Count of distinct clients that reported usage of the Cobra screen reader
+    via the a11y_consumers histogram (consumer index 6) on the submission date.
 - name: zoomtext
   type: INTEGER
   mode: NULLABLE
+  description: Count of distinct clients that used the ZoomText magnification and
+    screen reading software (Zt.exe) or reported it via the a11y_consumers histogram
+    (consumer index 7) on the submission date.
 - name: kazaguru
   type: INTEGER
   mode: NULLABLE
+  description: Count of distinct clients that reported usage of the KazaGuru accessibility
+    tool via the a11y_consumers histogram (consumer index 8) on the submission date.
 - name: youdao
   type: INTEGER
   mode: NULLABLE
+  description: Count of distinct clients that reported usage of the Youdao accessibility
+    software via the a11y_consumers histogram (consumer index 9) on the submission
+    date.
 - name: unknown
   type: INTEGER
   mode: NULLABLE
+  description: Count of distinct clients that reported an unrecognized accessibility
+    consumer via the a11y_consumers histogram (consumer index 10) on the submission
+    date.
 - name: uiautomation
   type: INTEGER
   mode: NULLABLE
+  description: Count of distinct clients that reported usage of a UI Automation-based
+    accessibility tool via the a11y_consumers histogram (consumer index 11) on the
+    submission date.
 - name: visperoshared
   type: INTEGER
   mode: NULLABLE
+  description: Count of distinct clients that reported usage of the Vispero shared
+    accessibility component via the a11y_consumers histogram (consumer index 12) on
+    the submission date.
 - name: magnifier
   type: INTEGER
   mode: NULLABLE
+  description: Count of distinct clients that used the Windows Magnifier accessibility
+    tool (Magnify.exe) as detected via the a11y_instantiators scalar on the submission
+    date.
 - name: narrator
   type: INTEGER
   mode: NULLABLE
+  description: Count of distinct clients that used the Windows Narrator screen reader
+    (Narrator.exe) as detected via the a11y_instantiators scalar on the submission
+    date.
 - name: on_screen_keyboard
   type: INTEGER
   mode: NULLABLE
+  description: Count of distinct clients that used the Windows On-Screen Keyboard
+    (osk.exe) as detected via the a11y_instantiators scalar on the submission date.
 - name: speech_recognition
   type: INTEGER
   mode: NULLABLE
+  description: Count of distinct clients that used Windows Speech Recognition (sapisvr.exe)
+    as detected via the a11y_instantiators scalar on the submission date.
 - name: touch_keyboard_and_handwriting_panel
   type: INTEGER
   mode: NULLABLE
+  description: Count of distinct clients that used the Windows Touch Keyboard and
+    Handwriting Panel (TabTip.exe) as detected via the a11y_instantiators scalar on
+    the submission date.
 - name: voice_over
   type: INTEGER
   mode: NULLABLE
+  description: Count of distinct clients that used the macOS VoiceOver screen reader
+    as detected via the a11y_instantiators scalar on the submission date.
 - name: other
   type: INTEGER
   mode: NULLABLE
+  description: Count of distinct clients that reported an accessibility consumer outside
+    the known range (indices 0–12) via the a11y_consumers histogram on the submission
+    date.
