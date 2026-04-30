@@ -6,12 +6,20 @@ fields:
 - mode: NULLABLE
   name: attributed
   type: BOOLEAN
+  description: True if the client's installation has a non-NULL attribution_medium
+    or attribution_source, indicating a tracked marketing source; false otherwise.
 - mode: NULLABLE
   name: attribution_medium
   type: STRING
+  description: The marketing attribution medium associated with the client's installation;
+    similar to or the same as UTM medium. NULL for ~81% of rows where attribution
+    data is absent.
 - mode: NULLABLE
   name: attribution_source
   type: STRING
+  description: The marketing attribution source associated with the client's installation;
+    similar to or the same as UTM source. NULL for ~81% of rows where attribution
+    data is absent.
 - mode: NULLABLE
   name: country
   type: STRING
@@ -20,9 +28,14 @@ fields:
 - mode: NULLABLE
   name: device_model
   type: STRING
+  description: The hardware model identifier of the client device (e.g. 'SM-G960F',
+    'iPhone14,5'). NULL for ~41% of rows, typically desktop clients where device model
+    is not applicable.
 - mode: NULLABLE
   name: first_seen_year
   type: INTEGER
+  description: The calendar year in which the server first received a ping from the
+    client, derived from the client's first_seen_date.
 - mode: NULLABLE
   name: is_default_browser
   type: BOOLEAN
@@ -31,6 +44,8 @@ fields:
 - mode: NULLABLE
   name: app_name
   type: STRING
+  description: The name of the browser application (e.g. 'Firefox Desktop', 'Fenix',
+    'Firefox iOS').
 - mode: NULLABLE
   name: channel
   type: STRING
@@ -71,24 +86,44 @@ fields:
 - mode: NULLABLE
   name: new_profiles
   type: INTEGER
+  description: Count of distinct clients whose first_seen_date matches the submission_date,
+    indicating a newly created browser profile.
 - mode: NULLABLE
   name: ad_clicks
   type: INTEGER
+  description: Total number of ad clicks recorded across all active clients in this
+    aggregation group on the submission date. NULL for ~95% of rows where ad click
+    data is unavailable.
 - mode: NULLABLE
   name: organic_search_count
   type: INTEGER
+  description: Total number of organic (non-ad) searches performed by clients in this
+    aggregation group on the submission date. NULL for ~60% of rows where search data
+    is unavailable.
 - mode: NULLABLE
   name: search_count
   type: INTEGER
+  description: Total number of searches (organic and paid) performed by clients in
+    this aggregation group on the submission date. NULL for ~60% of rows where search
+    data is unavailable.
 - mode: NULLABLE
   name: search_with_ads
   type: INTEGER
+  description: Total number of searches that returned at least one ad, performed by
+    clients in this aggregation group on the submission date. NULL for ~92% of rows
+    where ad data is unavailable.
 - mode: NULLABLE
   name: uri_count
   type: INTEGER
+  description: Total number of URIs loaded by clients in this aggregation group on
+    the submission date, used as a proxy for browsing activity. NULL for ~69% of rows
+    where browsing data is unavailable.
 - mode: NULLABLE
   name: active_hours
   type: FLOAT
+  description: Total active browsing hours summed across all clients in this aggregation
+    group on the submission date. NULL for ~60% of rows where active hours data is
+    unavailable.
 - description: Count of distinct, qualified Desktop clients that we received a main
     ping from on a given day. In mobile DAU = QDAU.
   mode: NULLABLE
