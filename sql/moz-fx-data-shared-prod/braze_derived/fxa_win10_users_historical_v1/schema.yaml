@@ -2,15 +2,27 @@ fields:
 - name: submission_date
   type: DATE
   mode: NULLABLE
+  description: The date the user record was processed and added to the historical
+    list, corresponding to the pipeline run date.
 - name: external_id
   type: STRING
   mode: NULLABLE
+  description: The unique identifier for the user in Braze, either sourced from braze_derived.users_v1
+    or a randomly generated SHA-256 UUID if the user is not yet in Braze.
 - name: email
   type: STRING
   mode: NULLABLE
+  description: The primary email address for the user, sourced from Braze users or
+    Firefox Accounts (FxA). Used for Braze re-engagement campaigns targeting inactive
+    Windows 10 users.
 - name: locale
   type: STRING
   mode: NULLABLE
+  description: The user's browser locale at the time of their last Firefox Desktop
+    ping (e.g., 'en-US', 'de', 'fr'). Only users with locales in a supported set are
+    included in this table.
 - name: fxa_id_sha256
   type: STRING
   mode: NULLABLE
+  description: SHA-256 hash of the user's Firefox Accounts (FxA) user ID. Used to
+    link this record to FxA and Braze user records without exposing raw account identifiers.
