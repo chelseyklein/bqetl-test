@@ -2,31 +2,51 @@ fields:
 - mode: NULLABLE
   name: external_id
   type: STRING
+  description: The unique identifier for the user in Braze, corresponding to the CTMS
+    email_id UUID. Links waitlist records back to the user in braze_derived.users_v1.
 - fields:
   - mode: NULLABLE
     name: waitlist_name
     type: STRING
+    description: The slug identifying the product waitlist in CTMS (e.g., 'vpn', 'relay-vpn-bundle').
   - mode: NULLABLE
     name: waitlist_geo
     type: STRING
+    description: The lowercased geographic region or country code provided by the
+      user when joining the waitlist (e.g., 'us', 'gb'). Sourced from the 'geo' field
+      in the CTMS waitlist fields JSON.
   - mode: NULLABLE
     name: waitlist_platform
     type: STRING
+    description: The lowercased platform the user specified when joining the waitlist
+      (e.g., 'windows', 'mac'). Sourced from the 'platform' field in the CTMS waitlist
+      fields JSON.
   - mode: NULLABLE
     name: waitlist_source
     type: STRING
+    description: The lowercased source or channel through which the user joined the
+      waitlist, as recorded in CTMS.
   - mode: NULLABLE
     name: create_timestamp
     type: TIMESTAMP
+    description: Timestamp when the waitlist entry was first created in CTMS.
   - mode: NULLABLE
     name: subscribed
     type: BOOLEAN
+    description: True if the user is currently on this waitlist; false if they have
+      been removed or unsubscribed.
   - mode: NULLABLE
     name: unsub_reason
     type: STRING
+    description: The reason provided when the user was removed from or unsubscribed
+      from the waitlist. NULL when the user is still subscribed or no reason was recorded.
   - mode: NULLABLE
     name: update_timestamp
     type: TIMESTAMP
+    description: Timestamp when this waitlist entry was most recently updated in CTMS.
   mode: REPEATED
   name: waitlists
   type: RECORD
+  description: Repeated record of product waitlist memberships for the user, sourced
+    from the CTMS waitlists table. Only users with at least one active waitlist subscription
+    are included.
