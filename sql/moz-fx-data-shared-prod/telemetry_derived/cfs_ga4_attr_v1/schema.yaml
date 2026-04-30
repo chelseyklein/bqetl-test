@@ -319,7 +319,8 @@ fields:
 - name: ga4_first_gad_campaignid_from_event_params
   type: STRING
   mode: NULLABLE
-  description: The first non-null reported gad_campaignid from event_params for this session.
+  description: The first non-null reported gad_campaignid from event_params for this
+    session.
 - name: ga4_distinct_gad_campaignid_from_event_params
   type: STRING
   mode: REPEATED
@@ -333,72 +334,142 @@ fields:
 - name: ga4_manual_source
   type: STRING
   mode: NULLABLE
+  description: The UTM source parameter manually set on the GA4 session, indicating
+    the referring site or traffic origin (e.g. 'google', 'bing', 'yandex.ru'). Null
+    when no manual UTM source was set (approximately 88% of rows).
 - name: ga4_manual_medium
   type: STRING
   mode: NULLABLE
+  description: The UTM medium parameter manually set on the GA4 session, indicating
+    the marketing medium (e.g. 'organic', 'referral', 'firefox-desktop'). Null when
+    no manual UTM medium was set (approximately 88% of rows).
 - name: ga4_manual_term
   type: STRING
   mode: NULLABLE
+  description: The UTM term parameter manually set on the GA4 session, representing
+    the paid search keyword (e.g. '(not provided)'). Null when no manual UTM term
+    was set (approximately 89% of rows).
 - name: ga4_manual_content
   type: STRING
   mode: NULLABLE
+  description: The UTM content parameter manually set on the GA4 session, used to
+    differentiate ads or links to the same URL (e.g. 'body-download-button'). Null
+    for approximately 99.9% of rows where no manual UTM content was set.
 - name: ga4_gclid
   type: STRING
   mode: NULLABLE
+  description: The Google Click Identifier (gclid) from the GA4 session, a unique
+    token appended to landing page URLs when a user clicks a Google Ads ad. Null for
+    approximately 98.6% of sessions not sourced from a paid Google Ads click.
 - name: ga4_gclid_array
   type: STRING
   mode: REPEATED
+  description: Array of all Google Click Identifiers (gclids) observed during the
+    GA4 session, capturing cases where multiple ad clicks were associated with the
+    same session.
 - name: ga4_had_download_event
   type: BOOLEAN
   mode: NULLABLE
+  description: True if the GA4 session contained at least one Firefox Desktop download
+    event; false if a session was matched but no download event was recorded. Null
+    when no GA4 session was matched (approximately 86.5% of rows).
 - name: ga4_firefox_desktop_downloads
   type: INTEGER
   mode: NULLABLE
+  description: Count of Firefox Desktop download events recorded during the matched
+    GA4 session. Null when no GA4 session was matched (approximately 86.5% of rows);
+    zero indicates a matched session with no recorded downloads.
 - name: ga4_last_reported_install_target
   type: STRING
   mode: NULLABLE
+  description: The most recently reported install target destination from the matched
+    GA4 session (e.g. 'product_download', 'firefox_download'). Null when no GA4 session
+    was matched (approximately 86.7% of rows).
 - name: ga4_all_reported_install_targets
   type: STRING
   mode: REPEATED
+  description: Array of all install target destinations reported during the matched
+    GA4 session (e.g. 'product_download', 'firefox_download'). Captures every distinct
+    install target across download events within the session.
 - name: ga4_stub_session_id
   type: STRING
   mode: NULLABLE
+  description: The stub installer session ID from the matched GA4 session, used to
+    join GA4 web session data to the stub attribution log and to the Firefox client.
+    Null when no GA4 session was matched (approximately 86.5% of rows).
 - name: ga4_landing_screen
   type: STRING
   mode: NULLABLE
+  description: The URL of the landing page the user first visited during the matched
+    GA4 session on firefox.com or mozilla.org (e.g. 'https://www.firefox.com/en-US/').
+    Null when no GA4 session was matched (approximately 86.5% of rows).
 - name: ga4_ad_google_campaign
   type: STRING
   mode: NULLABLE
+  description: The Google Ads campaign name associated with the GA4 session (e.g.
+    a structured slug encoding region, language, and conversion type). Null for approximately
+    98.6% of sessions not driven by a Google Ads campaign.
 - name: ga4_ad_google_campaign_id
   type: STRING
   mode: NULLABLE
+  description: The numeric ID of the Google Ads campaign associated with the GA4 session.
+    Null for approximately 98.6% of sessions not driven by a Google Ads campaign.
 - name: ga4_ad_google_group
   type: STRING
   mode: NULLABLE
+  description: The Google Ads ad group name within the campaign associated with the
+    GA4 session (e.g. 'Brand', 'General NB', 'Privacy'). Null for approximately 98.6%
+    of sessions not driven by a Google Ads campaign.
 - name: ga4_ad_google_group_id
   type: STRING
   mode: NULLABLE
+  description: The numeric ID of the Google Ads ad group within the campaign associated
+    with the GA4 session. Null for approximately 98.6% of sessions not driven by a
+    Google Ads campaign.
 - name: ga4_ad_google_account
   type: STRING
   mode: NULLABLE
+  description: The Google Ads account name that served the ad for the matched GA4
+    session (e.g. 'Mozilla Firefox', 'Mozilla Firefox FR'). Null for approximately
+    98.6% of sessions not driven by a Google Ads campaign.
 - name: ga4_ad_crosschannel_source
   type: STRING
   mode: NULLABLE
+  description: The traffic source attributed to the GA4 session by GA4's cross-channel
+    model, covering paid and organic sources (e.g. 'google', 'bing', '(direct)').
+    Null for approximately 87.8% of rows where no GA4 session was matched.
 - name: ga4_ad_crosschannel_medium
   type: STRING
   mode: NULLABLE
+  description: The traffic medium attributed to the GA4 session by GA4's cross-channel
+    model (e.g. 'organic', 'cpc', 'referral', '(none)'). Null for approximately 87.8%
+    of rows where no GA4 session was matched.
 - name: ga4_ad_crosschannel_campaign
   type: STRING
   mode: NULLABLE
+  description: The campaign name attributed to the GA4 session by GA4's cross-channel
+    model (e.g. '(organic)', 'SET_DEFAULT_BROWSER', '(direct)'). Null for approximately
+    87.8% of rows where no GA4 session was matched.
 - name: ga4_ad_crosschannel_campaign_id
   type: STRING
   mode: NULLABLE
+  description: The numeric campaign ID attributed to the GA4 session by GA4's cross-channel
+    model. Null for approximately 98.6% of sessions not driven by a paid campaign.
 - name: ga4_ad_crosschannel_source_platform
   type: STRING
   mode: NULLABLE
+  description: The platform that managed the traffic source under GA4's cross-channel
+    attribution, either 'Google Ads' for paid search or 'Manual' for organic or manually
+    tagged traffic.
 - name: ga4_ad_crosschannel_primary_channel_group
   type: STRING
   mode: NULLABLE
+  description: The primary channel group from GA4's cross-channel model (e.g. 'Organic
+    Search', 'Paid Search', 'Direct', 'Referral'). Null for approximately 87.8% of
+    rows where no GA4 session was matched.
 - name: ga4_ad_crosschannel_default_channel_group
   type: STRING
   mode: NULLABLE
+  description: The default channel group from GA4's cross-channel model using standard
+    GA4 grouping rules (e.g. 'Organic Search', 'Paid Search', 'Direct'). Differs from
+    the primary channel group which may use custom definitions.
