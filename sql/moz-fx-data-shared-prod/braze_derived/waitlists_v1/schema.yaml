@@ -2,31 +2,54 @@ fields:
 - mode: NULLABLE
   name: external_id
   type: STRING
+  description: The unique identifier for the user in Braze, corresponding to the CTMS
+    email_id UUID. Used to join waitlist data to a Braze user profile.
 - fields:
   - mode: NULLABLE
     name: waitlist_name
     type: STRING
+    description: The internal slug name of the waitlist (e.g., 'vpn', 'relay-phone-masking').
+      Identifies the Mozilla product waitlist the user joined.
   - mode: NULLABLE
     name: waitlist_geo
     type: STRING
+    description: The lowercased geographic region or country the user selected when
+      joining the waitlist (e.g., 'us', 'ca'). Sourced from the geo field in CTMS
+      waitlist fields JSON.
   - mode: NULLABLE
     name: waitlist_platform
     type: STRING
+    description: The lowercased platform the user indicated when joining the waitlist
+      (e.g., 'ios', 'android', 'windows'). Sourced from the platform field in CTMS
+      waitlist fields JSON.
   - mode: NULLABLE
     name: waitlist_source
     type: STRING
+    description: The lowercased source or referral channel through which the user
+      joined the waitlist. Sourced from the source field in CTMS.
   - mode: NULLABLE
     name: create_timestamp
     type: TIMESTAMP
+    description: Timestamp when this waitlist subscription record was first created
+      in CTMS.
   - mode: NULLABLE
     name: subscribed
     type: BOOLEAN
+    description: Whether the user is currently on this waitlist. True indicates active
+      waitlist membership; false indicates the user has been removed or unsubscribed.
   - mode: NULLABLE
     name: unsub_reason
     type: STRING
+    description: The reason provided when the user was removed from the waitlist (e.g.,
+      product launched in their region, user request). NULL while the user remains
+      on the waitlist.
   - mode: NULLABLE
     name: update_timestamp
     type: TIMESTAMP
+    description: Timestamp when this waitlist subscription record was most recently
+      updated in CTMS.
   mode: REPEATED
   name: waitlists
   type: RECORD
+  description: Array of product waitlist records for this user, sourced from ctms_braze.ctms_waitlists.
+    Only users with at least one active waitlist subscription are included.
