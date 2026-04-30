@@ -1,308 +1,297 @@
 fields:
-
 - name: external_id
   type: STRING
   mode: NULLABLE
-
+  description: The unique identifier for the user in Braze, corresponding to the CTMS
+    email_id UUID. Links this profile to braze_derived.users_v1.
 - name: email
   type: STRING
   mode: NULLABLE
-
+  description: The lowercased primary email address of the user, sourced from CTMS
+    via users_v1.
 - name: mailing_country
   type: STRING
   mode: NULLABLE
-
+  description: The two-letter ISO country code representing the user's mailing country,
+    as stored in CTMS. NULL where country information is unavailable.
 - name: email_subscribe
   type: STRING
   mode: NULLABLE
-
+  description: 'The user''s email subscription status in Braze: ''opted_in'' (double
+    opt-in confirmed), ''subscribed'' (single opt-in, no opt-out), or ''unsubscribed''
+    (has opted out).'
 - name: basket_token
   type: STRING
   mode: NULLABLE
-
+  description: A UUID token that uniquely identifies the user in Mozilla's Basket
+    email subscription service.
 - name: email_lang
   type: STRING
   mode: NULLABLE
-
+  description: The user's preferred language for email communications, stored as a
+    lowercased BCP 47 language code (e.g., 'en', 'fr', 'de'). Sourced from CTMS.
 - name: create_timestamp
   type: TIMESTAMP
   mode: NULLABLE
-
+  description: Timestamp when the user record was first created in the Contact Management
+    System (CTMS).
 - name: update_timestamp
   type: TIMESTAMP
   mode: NULLABLE
-
+  description: Timestamp when the user record was most recently updated in the Contact
+    Management System (CTMS).
 - name: fxa_id_sha256
   type: STRING
   mode: NULLABLE
-
+  description: SHA-256 hash of the user's Firefox Accounts (FxA) user ID. Used to
+    link to FxA records without exposing raw account identifiers. NULL when the user
+    has no associated FxA account.
 - name: has_fxa
   type: BOOLEAN
   mode: NULLABLE
-
+  description: True if the user has an active, non-deleted Firefox Accounts (FxA)
+    account linked to their email; false otherwise.
 - name: fxa_primary_email
   type: STRING
   mode: NULLABLE
-
+  description: The primary email address registered in Firefox Accounts (FxA), lowercased.
+    Populated only when it differs from the CTMS email address.
 - name: fxa_lang
   type: STRING
   mode: NULLABLE
-
+  description: The browser-reported Accept-Language string from the user's Firefox
+    Accounts session (e.g., 'en-US,en;q=0.5'). NULL where FxA language data is unavailable.
 - name: fxa_first_service
   type: STRING
   mode: NULLABLE
-
+  description: The first Mozilla service the user used to create or authenticate their
+    Firefox Accounts (FxA) account (e.g., 'sync', 'fenix', 'pocket-web').
 - name: fxa_created_at
   type: TIMESTAMP
   mode: NULLABLE
-
+  description: Timestamp when the user's Firefox Accounts (FxA) account was created.
+    NULL for users who have no associated FxA account.
 - name: newsletters
   type: RECORD
   mode: REPEATED
   fields:
-
   - name: newsletter_name
     type: STRING
     mode: NULLABLE
-
+    description: The slug identifying the newsletter (e.g., 'mozilla-and-you', 'firefox-accounts-journey'),
+      matching the basket_slug in subscriptions_map_v1.
   - name: subscribed
     type: BOOLEAN
     mode: NULLABLE
-
+    description: True if the user is currently subscribed to this newsletter; false
+      if they have unsubscribed.
   - name: newsletter_lang
     type: STRING
     mode: NULLABLE
-
+    description: The lowercased language code for this newsletter subscription (e.g.,
+      'en', 'fr', 'de'), as recorded in CTMS.
   - name: newsletter_source
     type: STRING
     mode: NULLABLE
-
+    description: The source or channel through which the user subscribed to this newsletter
+      (e.g., a URL or campaign identifier), as recorded in CTMS.
   - name: create_timestamp
     type: TIMESTAMP
     mode: NULLABLE
-
+    description: Timestamp when this newsletter subscription was first created in
+      CTMS.
   - name: update_timestamp
     type: TIMESTAMP
     mode: NULLABLE
-
+    description: Timestamp when this newsletter subscription was most recently updated
+      in CTMS.
+  description: Repeated record of newsletter subscriptions for the user, left-joined
+    from braze_derived.newsletters_v1. NULL for users with no newsletter subscriptions.
 - name: waitlists
   type: RECORD
   mode: REPEATED
   fields:
-
   - name: waitlist_name
     type: STRING
     mode: NULLABLE
-
+    description: The slug identifying the waitlist in CTMS (e.g., 'vpn', 'relay-vpn-bundle').
+      Used to construct the Braze subscription group name via subscriptions_map_v1.
   - name: waitlist_geo
     type: STRING
     mode: NULLABLE
-
+    description: The lowercased geographic region or country code provided by the
+      user when joining the waitlist (e.g., 'us', 'gb'). Sourced from the 'geo' field
+      in the CTMS waitlist fields JSON.
   - name: waitlist_platform
     type: STRING
     mode: NULLABLE
-
+    description: The lowercased platform the user indicated when joining the waitlist
+      (e.g., 'windows', 'mac'). Sourced from the 'platform' field in the CTMS waitlist
+      fields JSON.
   - name: waitlist_source
     type: STRING
     mode: NULLABLE
-
+    description: The lowercased source or channel through which the user joined the
+      waitlist, as recorded in CTMS.
   - name: create_timestamp
     type: TIMESTAMP
     mode: NULLABLE
-
+    description: Timestamp when the waitlist entry was first created in CTMS.
   - name: subscribed
     type: BOOLEAN
     mode: NULLABLE
-
+    description: True if the user is currently on this waitlist; false if they have
+      been removed or unsubscribed.
   - name: unsub_reason
     type: STRING
     mode: NULLABLE
-
+    description: The reason provided when the user unsubscribed or was removed from
+      the waitlist. NULL when the user is still subscribed or no reason was recorded.
   - name: update_timestamp
     type: TIMESTAMP
     mode: NULLABLE
-
+    description: Timestamp when this waitlist entry was most recently updated in CTMS.
+  description: Repeated record of product waitlist memberships for the user, left-joined
+    from braze_derived.waitlists_v1. NULL for users with no waitlist entries.
 - name: products
   type: RECORD
   mode: REPEATED
   fields:
-
   - name: provider
     type: STRING
     mode: NULLABLE
-
   - name: payment_provider
     type: STRING
     mode: NULLABLE
-
   - name: product_name
     type: STRING
     mode: NULLABLE
-
   - name: service_name
     type: STRING
     mode: NULLABLE
-
   - name: subscription_plan_id
     type: STRING
     mode: NULLABLE
-
   - name: subscription_product_id
     type: STRING
     mode: NULLABLE
-
   - name: subscription_started_at
     type: TIMESTAMP
     mode: NULLABLE
-
   - name: subscription_ended_at
     type: TIMESTAMP
     mode: NULLABLE
-
   - name: subscription_summary
     type: STRING
     mode: NULLABLE
-
   - name: subscription_billing_interval
     type: STRING
     mode: NULLABLE
-
   - name: subscription_interval_count
     type: INTEGER
     mode: NULLABLE
-
   - name: subscription_currency
     type: STRING
     mode: NULLABLE
-
   - name: subscription_amount
     type: NUMERIC
     mode: NULLABLE
-
   - name: is_bundle
     type: BOOLEAN
     mode: NULLABLE
-
   - name: is_trial
     type: BOOLEAN
     mode: NULLABLE
-
   - name: is_active
     type: BOOLEAN
     mode: NULLABLE
-
   - name: subscription_status
     type: STRING
     mode: NULLABLE
-
   - name: subscription_country_code
     type: STRING
     mode: NULLABLE
-
   - name: subscription_country_name
     type: STRING
     mode: NULLABLE
-
   - name: current_period_started_at
     type: TIMESTAMP
     mode: NULLABLE
-
   - name: current_period_ends_at
     type: TIMESTAMP
     mode: NULLABLE
-
   - name: is_auto_renew
     type: BOOLEAN
     mode: NULLABLE
-
   - name: auto_renew_disabled_at
     type: TIMESTAMP
     mode: NULLABLE
-
   - name: has_refunds
     type: BOOLEAN
     mode: NULLABLE
-
   - name: has_fraudulent_charges
     type: BOOLEAN
     mode: NULLABLE
-
   - name: first_touch_impression_at
     type: TIMESTAMP
     mode: NULLABLE
-
   - name: first_touch_entrypoint
     type: STRING
     mode: NULLABLE
-
   - name: first_touch_entrypoint_experiment
     type: STRING
     mode: NULLABLE
-
   - name: first_touch_entrypoint_variation
     type: STRING
     mode: NULLABLE
-
   - name: first_touch_utm_campaign
     type: STRING
     mode: NULLABLE
-
   - name: first_touch_utm_content
     type: STRING
     mode: NULLABLE
-
   - name: first_touch_utm_medium
     type: STRING
     mode: NULLABLE
-
   - name: first_touch_utm_source
     type: STRING
     mode: NULLABLE
-
   - name: first_touch_utm_term
     type: STRING
     mode: NULLABLE
-
   - name: last_touch_impression_at
     type: TIMESTAMP
     mode: NULLABLE
-
   - name: last_touch_entrypoint
     type: STRING
     mode: NULLABLE
-
   - name: last_touch_entrypoint_experiment
     type: STRING
     mode: NULLABLE
-
   - name: last_touch_entrypoint_variation
     type: STRING
     mode: NULLABLE
-
   - name: last_touch_utm_campaign
     type: STRING
     mode: NULLABLE
-
   - name: last_touch_utm_content
     type: STRING
     mode: NULLABLE
-
   - name: last_touch_utm_medium
     type: STRING
     mode: NULLABLE
-
   - name: last_touch_utm_source
     type: STRING
     mode: NULLABLE
-
   - name: last_touch_utm_term
     type: STRING
     mode: NULLABLE
-
   - name: subscription_created_at
     type: TIMESTAMP
     mode: NULLABLE
-
   - name: subscription_updated_at
     type: TIMESTAMP
     mode: NULLABLE
+  description: Repeated record of Mozilla subscription products for the user, left-joined
+    from braze_derived.products_v1. NULL for users with no active or historical product
+    subscriptions.
