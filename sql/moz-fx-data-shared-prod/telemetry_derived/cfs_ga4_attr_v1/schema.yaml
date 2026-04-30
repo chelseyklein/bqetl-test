@@ -165,9 +165,15 @@ fields:
 - name: installation_first_seen_silent
   type: BOOLEAN
   mode: NULLABLE
+  description: Whether the Firefox installation was performed silently (without user
+    interaction). Only populated when the installer_type is 'full'; null for stub
+    installs (~79.5% null rate).
 - name: installation_first_seen_version
   type: STRING
   mode: NULLABLE
+  description: The application version that was originally installed by the installer,
+    which may differ from the current running version. Null when installer version
+    data is unavailable (~49.6% null rate).
 - name: os
   type: STRING
   mode: NULLABLE
@@ -175,12 +181,20 @@ fields:
 - name: os_version
   type: STRING
   mode: NULLABLE
+  description: The version string of the operating system running on the client (e.g.
+    '10.0' for Windows 10, '6.1' for Windows 7, or a Linux kernel version string such
+    as '6.17.0-22-generic').
 - name: windows_build_number
   type: FLOAT
   mode: NULLABLE
+  description: The Windows build number of the client's OS (e.g. 19045 for Windows
+    10 22H2, 26100 for Windows 11 24H2). Null for non-Windows clients (~29.6% null
+    rate).
 - name: windows_version
   type: STRING
   mode: NULLABLE
+  description: The human-readable Windows version name of the client's OS (e.g. 'Windows
+    10', 'Windows 11', 'Windows 7'). Null for non-Windows clients (~29.3% null rate).
 - name: metadata
   type: RECORD
   mode: NULLABLE
@@ -188,15 +202,25 @@ fields:
   - name: first_seen_date_source_ping
     type: STRING
     mode: NULLABLE
+    description: The ping type that determined the first_seen_date for this client.
+      One of 'new_profile', 'main', or 'shutdown'.
   - name: reported_main_ping
     type: BOOLEAN
     mode: NULLABLE
+    description: Whether the client has reported at least one main ping, indicating
+      an active browsing session was observed.
   - name: reported_new_profile_ping
     type: BOOLEAN
     mode: NULLABLE
+    description: Whether the client has reported a new_profile ping, indicating the
+      profile was freshly created.
   - name: reported_shutdown_ping
     type: BOOLEAN
     mode: NULLABLE
+    description: Whether the client has reported at least one shutdown ping, indicating
+      the browser was closed at least once.
+  description: Metadata about which telemetry pings were received for this client's
+    first-seen record, and which ping type was the source for the first_seen_date.
 - name: profile_group_id
   type: STRING
   mode: NULLABLE
@@ -205,121 +229,208 @@ fields:
 - name: funnel_derived
   type: STRING
   mode: NULLABLE
+  description: A derived classification of the acquisition funnel for this client,
+    based on OS, attribution, distribution, and installer context. Values include
+    'mozorg windows funnel', 'mozorg mac funnel', 'partner', and 'other'.
 - name: distribution_model
   type: STRING
   mode: NULLABLE
+  description: A derived categorization of how Firefox was distributed to this client
+    (e.g. 'non-distribution', 'OS pre-installed', 'secondary store', 'partner website',
+    'OEM pre-installed').
 - name: partner_org
   type: STRING
   mode: NULLABLE
+  description: A derived label identifying the partner organization associated with
+    the Firefox distribution (e.g. 'Linux - Canonical', 'Microsoft (store)', 'Mozilla
+    - China'). Set to 'non-distribution' for direct Mozilla downloads.
 - name: is_desktop
   type: BOOLEAN
   mode: NULLABLE
 - name: stub_attr_logs_first_seen_date
   type: DATE
   mode: NULLABLE
+  description: The date the stub attribution log record was first seen for this client,
+    joined via the download token. Null when no stub attribution match is found (~85.4%
+    null rate).
 - name: stub_attr_logs_ga_client_id
   type: STRING
   mode: NULLABLE
+  description: The Google Analytics client ID from the stub attribution log matched
+    to this client via download token. Null when no stub attribution match exists
+    (~85.4% null rate).
 - name: stub_attr_logs_stub_session_id
   type: STRING
   mode: NULLABLE
+  description: The stub installer session ID from the attribution log matched to this
+    client, used to join with GA4 session data. Null when no stub attribution match
+    exists (~85.4% null rate).
 - name: stub_attr_logs_dl_token
   type: STRING
   mode: NULLABLE
+  description: The download token (UUID) from the stub attribution log matched to
+    this client, representing the unique download event that led to this installation.
+    Null when no stub attribution match exists (~85.4% null rate).
 - name: stub_attr_logs_download_source
   type: STRING
   mode: NULLABLE
+  description: The website where the Firefox download was initiated, as recorded in
+    the stub attribution log (e.g. 'fxdotcom', 'mozorg'). Null when no stub attribution
+    match exists (~85.4% null rate).
 - name: ga4_website
   type: STRING
   mode: NULLABLE
+  description: The Mozilla website property from which the matched GA4 session originated
+    ('FIREFOX.COM' or 'MOZILLA.ORG'). Null when no GA4 session is matched (~86.9%
+    null rate).
 - name: ga4_ga_client_id
   type: STRING
   mode: NULLABLE
+  description: The Google Analytics 4 client ID from the matched pre-install GA4 session.
+    Null when no GA4 session is matched (~86.9% null rate).
 - name: ga4_session_date
   type: DATE
   mode: NULLABLE
+  description: The date of the matched pre-install GA4 session on firefox.com or mozilla.org.
+    Null when no GA4 session is matched (~86.9% null rate).
 - name: ga4_session_start_timestamp
   type: DATETIME
   mode: NULLABLE
+  description: The datetime when the matched pre-install GA4 session started on firefox.com
+    or mozilla.org. Null when no GA4 session is matched (~86.9% null rate).
 - name: ga4_country
   type: STRING
   mode: NULLABLE
+  description: The country of the visitor during the matched pre-install GA4 session,
+    as reported by GA4 geolocation. Null when no GA4 session is matched (~86.9% null
+    rate).
 - name: ga4_region
   type: STRING
   mode: NULLABLE
+  description: The region or state of the visitor during the matched pre-install GA4
+    session, as reported by GA4 geolocation. Null when no GA4 session is matched (~86.9%
+    null rate).
 - name: ga4_city
   type: STRING
   mode: NULLABLE
+  description: The city of the visitor during the matched pre-install GA4 session,
+    as reported by GA4 geolocation. Null when no GA4 session is matched (~86.9% null
+    rate).
 - name: ga4_device_category
   type: STRING
   mode: NULLABLE
+  description: The device category of the visitor during the matched pre-install GA4
+    session (e.g. 'desktop'). Null when no GA4 session is matched (~86.9% null rate).
 - name: ga4_mobile_device_model
   type: STRING
   mode: NULLABLE
+  description: The mobile device model of the visitor during the matched pre-install
+    GA4 session, as reported by GA4. Almost always null (~100% null rate) as the majority
+    of matched sessions are from desktop devices.
 - name: ga4_mobile_device_string
   type: STRING
   mode: NULLABLE
+  description: The full mobile device string of the visitor during the matched pre-install
+    GA4 session. Almost always null (~100% null rate) as the majority of matched sessions
+    are from desktop devices.
 - name: ga4_operating_system
   type: STRING
   mode: NULLABLE
+  description: The operating system of the visitor's device during the matched pre-install
+    GA4 session (e.g. 'Windows', 'Macintosh'). Null when no GA4 session is matched
+    (~86.9% null rate).
 - name: ga4_operating_system_version
   type: STRING
   mode: NULLABLE
+  description: The operating system version of the visitor's device during the matched
+    pre-install GA4 session (e.g. 'Windows 10', 'Macintosh Intel 10'). Null when no
+    GA4 session is matched (~86.9% null rate).
 - name: ga4_language
   type: STRING
   mode: NULLABLE
+  description: The browser language preference of the visitor during the matched pre-install
+    GA4 session (e.g. 'en-us', 'pt-br', 'zh-cn'). Null when no GA4 session is matched
+    (~86.9% null rate).
 - name: ga4_browser
   type: STRING
   mode: NULLABLE
+  description: The web browser used by the visitor during the matched pre-install
+    GA4 session (e.g. 'Chrome', 'Edge', 'Safari'). Null when no GA4 session is matched
+    (~86.9% null rate).
 - name: ga4_browser_version
   type: STRING
   mode: NULLABLE
+  description: The major version of the browser used during the matched pre-install
+    GA4 session (e.g. '147', '146'). Null when no GA4 session is matched (~86.9% null
+    rate).
 - name: ga4_first_campaign_from_event_params
   type: STRING
   mode: NULLABLE
+  description: The first non-null campaign value extracted from GA4 event_params during
+    the matched pre-install session (e.g. '(organic)', 'SET_DEFAULT_BROWSER'). Null
+    when no GA4 session is matched or no campaign is present (~88.3% null rate).
 - name: ga4_distinct_campaigns_from_event_params
   type: STRING
   mode: REPEATED
 - name: ga4_first_source_from_event_params
   type: STRING
   mode: NULLABLE
+  description: The first non-null traffic source extracted from GA4 event_params during
+    the matched pre-install session (e.g. 'google', 'bing'). Null when no GA4 session
+    is matched or no source is present (~88.4% null rate).
 - name: ga4_distinct_sources_from_event_params
   type: STRING
   mode: REPEATED
 - name: ga4_first_medium_from_event_params
   type: STRING
   mode: NULLABLE
+  description: The first non-null traffic medium extracted from GA4 event_params during
+    the matched pre-install session (e.g. 'organic', 'referral', 'paidsocial'). Null
+    when no GA4 session is matched or no medium is present (~88.4% null rate).
 - name: ga4_distinct_mediums_from_event_params
   type: STRING
   mode: REPEATED
 - name: ga4_first_content_from_event_params
   type: STRING
   mode: NULLABLE
+  description: The first non-null ad content value extracted from GA4 event_params
+    during the matched pre-install session (e.g. 'body-download-button'). Populated
+    in fewer than 0.2% of rows.
 - name: ga4_distinct_contents_from_event_params
   type: STRING
   mode: REPEATED
 - name: ga4_first_term_from_event_params
   type: STRING
   mode: NULLABLE
+  description: The first non-null search term extracted from GA4 event_params during
+    the matched pre-install session. Typically '(not provided)' for organic search.
+    Null when no GA4 session is matched (~89.7% null rate).
 - name: ga4_distinct_terms_from_event_params
   type: STRING
   mode: REPEATED
 - name: ga4_first_experiment_id_from_event_params
   type: STRING
   mode: NULLABLE
+  description: The first non-null website experiment ID extracted from GA4 event_params
+    during the matched pre-install session (e.g. 'refresh-new', 'moz-exp-download-privacy').
+    Populated in fewer than 0.1% of rows.
 - name: ga4_distinct_experiment_ids_from_event_params
   type: STRING
   mode: REPEATED
 - name: ga4_first_experiment_branch_from_event_params
   type: STRING
   mode: NULLABLE
+  description: The first non-null website experiment branch extracted from GA4 event_params
+    during the matched pre-install session (e.g. 'refresh-new-treatment', 'control').
+    Populated in fewer than 0.1% of rows.
 - name: ga4_distinct_experiment_branches_from_event_params
   type: STRING
   mode: REPEATED
 - name: ga4_first_gad_campaignid_from_event_params
   type: STRING
   mode: NULLABLE
-  description: The first non-null reported gad_campaignid from event_params for this session.
+  description: The first non-null reported gad_campaignid from event_params for this
+    session.
 - name: ga4_distinct_gad_campaignid_from_event_params
   type: STRING
   mode: REPEATED
@@ -327,9 +438,15 @@ fields:
 - name: ga4_manual_campaign_id
   type: STRING
   mode: NULLABLE
+  description: The UTM campaign ID from manual campaign parameters on the matched
+    pre-install GA4 session URL. Populated in fewer than 0.1% of rows; null when no
+    manual campaign ID is present.
 - name: ga4_manual_campaign_name
   type: STRING
   mode: NULLABLE
+  description: The UTM campaign name from manual campaign parameters on the matched
+    pre-install GA4 session URL (e.g. '(organic)', 'SET_DEFAULT_BROWSER', 'non-fx-button').
+    Null when no GA4 session is matched (~88.3% null rate).
 - name: ga4_manual_source
   type: STRING
   mode: NULLABLE
