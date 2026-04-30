@@ -15,12 +15,20 @@ fields:
 - name: n_logged_event
   type: INTEGER
   mode: NULLABLE
+  description: The total number of telemetry events logged by the client on the submission
+    date, excluding overactive clients with more than 10,000,000 events.
 - name: n_created_pictureinpicture
   type: INTEGER
   mode: NULLABLE
+  description: The number of Picture-in-Picture windows the client created on the
+    submission date (event_category='pictureinpicture', event_method='create'). Zero
+    for clients that did not use the feature.
 - name: n_viewed_protection_report
   type: INTEGER
   mode: NULLABLE
+  description: The number of times the client viewed the Firefox privacy protection
+    report on the submission date (event_category='security.ui.protections', event_object='protection_report').
+    Zero for most clients.
 - name: profile_group_id
   type: STRING
   mode: NULLABLE
