@@ -19,6 +19,9 @@ fields:
 - name: subsession_start_date
   type: STRING
   mode: NULLABLE
+  description: The datetime at which the current subsession started, as reported by
+    the client (e.g. '2026-04-23T09:00:00.0+02:00'). Sourced from payload.info.subsession_start_date
+    in the main ping.
 - name: normalized_channel
   type: STRING
   mode: NULLABLE
@@ -26,18 +29,31 @@ fields:
 - name: addon_id
   type: STRING
   mode: NULLABLE
+  description: The unique identifier for the add-on (e.g. 'webcompat@mozilla.org').
+    Corresponds to the key in the environment.addons.active_addons map of the main
+    ping.
 - name: blocklisted
   type: BOOLEAN
   mode: NULLABLE
+  description: Whether the add-on is on the Firefox blocklist. True means the add-on
+    is blocked; null indicates the value was not reported by the client.
 - name: name
   type: STRING
   mode: NULLABLE
+  description: The human-readable display name of the add-on as reported by the client
+    (e.g. 'Form Autofill', 'Picture-In-Picture'). Null for a small fraction of rows
+    where the name was not recorded.
 - name: user_disabled
   type: BOOLEAN
   mode: NULLABLE
+  description: Whether the user has explicitly disabled the add-on. True means the
+    add-on has been disabled by the user; null indicates the value was not reported.
 - name: app_disabled
   type: BOOLEAN
   mode: NULLABLE
+  description: Whether the add-on has been disabled by the application (e.g. due to
+    compatibility issues). True means the application has disabled it; null indicates
+    the value was not reported.
 - name: version
   type: STRING
   mode: NULLABLE
@@ -45,33 +61,59 @@ fields:
 - name: scope
   type: INTEGER
   mode: NULLABLE
+  description: 'The scope of the add-on installation, encoded as an integer bitmask.
+    Common values: 1 (profile), 4 (application), 8 (system), 16 (temporary). Null
+    means the scope was not reported.'
 - name: type
   type: STRING
   mode: NULLABLE
+  description: The type of the add-on. Known values include 'extension', 'locale',
+    'dictionary', and 'service'. Null indicates the type was not reported.
 - name: foreign_install
   type: BOOLEAN
   mode: NULLABLE
+  description: Whether the add-on was installed by a source other than the user through
+    Firefox (e.g. by another application). True means it was installed externally;
+    null indicates the value was not reported.
 - name: has_binary_components
   type: BOOLEAN
   mode: NULLABLE
+  description: Whether the add-on includes binary (native code) components. True means
+    the add-on contains binary components; null indicates the value was not reported.
 - name: install_day
   type: INTEGER
   mode: NULLABLE
+  description: The day the add-on was first installed, expressed as days since the
+    Unix epoch (Jan 1, 1970). A value of 0 indicates the install date was not recorded
+    or predates tracking.
 - name: update_day
   type: INTEGER
   mode: NULLABLE
+  description: The day the add-on was last updated, expressed as days since the Unix
+    epoch (Jan 1, 1970). A value of 0 indicates the update date was not recorded or
+    predates tracking.
 - name: signed_state
   type: INTEGER
   mode: NULLABLE
+  description: 'The AMO signing state of the add-on, encoded as an integer. Known
+    values: -2 (broken), -1 (unknown), 0 (missing), 1 (preliminary), 2 (signed), 3
+    (system), 4 (privileged). Null (~61% of rows) when signing state is not applicable
+    or not reported.'
 - name: is_system
   type: BOOLEAN
   mode: NULLABLE
+  description: Whether the add-on is a built-in system add-on shipped with Firefox.
+    True for system add-ons; false for user-installed ones.
 - name: is_web_extension
   type: BOOLEAN
   mode: NULLABLE
+  description: Whether the add-on is a WebExtension (as opposed to a legacy XUL/XPCOM
+    extension). True for the vast majority of active add-ons; null when not reported.
 - name: multiprocess_compatible
   type: BOOLEAN
   mode: NULLABLE
+  description: Whether the add-on is compatible with Firefox's multi-process (Electrolysis/e10s)
+    architecture. True for almost all current add-ons; null when not reported.
 - name: profile_group_id
   type: STRING
   mode: NULLABLE
