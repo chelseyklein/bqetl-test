@@ -2,31 +2,52 @@ fields:
 - mode: NULLABLE
   name: external_id
   type: STRING
+  description: The unique Braze user identifier (CTMS email_id UUID) linking this
+    waitlist record to the corresponding user in braze_derived.users_v1.
 - fields:
   - mode: NULLABLE
     name: waitlist_name
     type: STRING
+    description: The slug identifying the product waitlist in CTMS (e.g., 'vpn', 'relay').
+      Used to construct the Braze subscription group name (e.g., 'guardian-vpn-waitlist').
   - mode: NULLABLE
     name: waitlist_geo
     type: STRING
+    description: The lowercased geographic region or country the user selected when
+      joining the waitlist (e.g., 'us', 'gb'). Extracted from CTMS fields JSON. NULL
+      when not provided.
   - mode: NULLABLE
     name: waitlist_platform
     type: STRING
+    description: The lowercased platform preference the user indicated when joining
+      the waitlist (e.g., 'windows', 'mac'). Extracted from CTMS fields JSON. NULL
+      when not provided.
   - mode: NULLABLE
     name: waitlist_source
     type: STRING
+    description: The lowercased acquisition source indicating how the user joined
+      the waitlist, as stored in CTMS.
   - mode: NULLABLE
     name: create_timestamp
     type: TIMESTAMP
+    description: Timestamp when the waitlist record was first created in CTMS.
   - mode: NULLABLE
     name: subscribed
     type: BOOLEAN
+    description: True if the user is currently active on the waitlist; false if they
+      have been removed or opted out.
   - mode: NULLABLE
     name: unsub_reason
     type: STRING
+    description: The reason the user was removed from the waitlist, if provided. NULL
+      when the user is still subscribed or no reason was recorded.
   - mode: NULLABLE
     name: update_timestamp
     type: TIMESTAMP
+    description: Timestamp when the waitlist record was most recently updated in CTMS.
   mode: REPEATED
   name: waitlists
   type: RECORD
+  description: Array of product waitlist subscription records for this user, sourced
+    from CTMS. Each element describes one waitlist the user has joined. Only users
+    with at least one active waitlist subscription are included.
