@@ -2,15 +2,25 @@ fields:
 - name: submission_date
   type: DATE
   mode: NULLABLE
+  description: The date of the user's most recent FxA activity as a Windows 10 user,
+    derived from the fx_accounts ping submission timestamp.
 - name: external_id
   type: STRING
   mode: NULLABLE
+  description: Braze user identifier, sourced from the existing Braze users table
+    or generated as a SHA-256 hex UUID. Links to the Braze user profile.
 - name: email
   type: STRING
   mode: NULLABLE
+  description: Primary email address of the user, sourced from the Braze users table
+    or from the Firefox Accounts primary email record.
 - name: locale
   type: STRING
   mode: NULLABLE
+  description: Browser locale at the time of last observed activity, limited to supported
+    locales such as 'en-US', 'de', 'fr', and 'es-ES'.
 - name: fxa_id_sha256
   type: STRING
   mode: NULLABLE
+  description: SHA-256 hash of the Firefox Accounts user ID (client_association_uid).
+    Used to link to FxA records without exposing raw identifiers.
