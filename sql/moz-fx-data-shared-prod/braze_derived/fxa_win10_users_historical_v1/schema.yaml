@@ -2,15 +2,26 @@ fields:
 - name: submission_date
   type: DATE
   mode: NULLABLE
+  description: The date on which the user was identified as an inactive Windows 10
+    Firefox Accounts user and added to this historical list.
 - name: external_id
   type: STRING
   mode: NULLABLE
+  description: The unique identifier for the user in Braze, sourced from the CTMS
+    email_id or generated as a SHA-256 hash of a UUID if the user is not yet in Braze.
 - name: email
   type: STRING
   mode: NULLABLE
+  description: The email address associated with the user's Firefox Account or CTMS
+    record, used to contact inactive Windows 10 users via Braze campaigns.
 - name: locale
   type: STRING
   mode: NULLABLE
+  description: The BCP 47 locale string reported by the user's Firefox client (e.g.,
+    'en-US', 'de', 'fr'). Only users with supported locales ('de', 'en-US', 'en-GB',
+    'es-ES', 'fr', 'it', 'pl', 'pt-BR') are included.
 - name: fxa_id_sha256
   type: STRING
   mode: NULLABLE
+  description: SHA-256 hash of the user's Firefox Accounts user ID. Used to uniquely
+    identify the FxA user without exposing the raw account identifier.
