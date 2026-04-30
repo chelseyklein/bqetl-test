@@ -20,6 +20,7 @@ fields:
 - mode: NULLABLE
   name: os
   type: STRING
+  description: The normalized name of the operating system running at the client.
 - mode: NULLABLE
   name: app_version
   type: STRING
@@ -27,38 +28,57 @@ fields:
 - mode: NULLABLE
   name: app_build_id
   type: STRING
+  description: The build ID of the Firefox application (e.g. '20200403170909').
 - mode: NULLABLE
   name: channel
   type: STRING
+  description: The normalized release channel the application is distributed on (e.g.
+    release, beta, nightly).
 - fields:
   - mode: NULLABLE
     name: metric
     type: STRING
+    description: The name of the telemetry histogram metric being aggregated (e.g.
+      'gc_ms').
   - mode: NULLABLE
     name: metric_type
     type: STRING
+    description: The type of the histogram metric (e.g. 'histogram-exponential', 'histogram-linear',
+      'histogram-boolean').
   - mode: NULLABLE
     name: key
     type: STRING
+    description: For keyed histograms, the specific key within the metric. Empty string
+      for non-keyed histograms.
   - mode: NULLABLE
     name: process
     type: STRING
+    description: The Firefox process type in which the histogram was recorded (e.g.
+      'parent', 'content', 'gpu').
   - mode: NULLABLE
     name: agg_type
     type: STRING
+    description: The aggregation method applied to the histogram values across the
+      day (e.g. 'summed_histogram').
   - fields:
     - mode: NULLABLE
       name: first_bucket
       type: INTEGER
+      description: The lower bound of the first bucket in the histogram range.
     - mode: NULLABLE
       name: last_bucket
       type: INTEGER
+      description: The upper bound of the last bucket in the histogram range.
     - mode: NULLABLE
       name: num_buckets
       type: INTEGER
+      description: The total number of buckets in the histogram. Rows where this is
+        zero are excluded from downstream processing.
     mode: NULLABLE
     name: bucket_range
     type: RECORD
+    description: A struct defining the range and number of buckets for this histogram,
+      used to reconstruct the full bucket structure.
   - fields:
     - mode: NULLABLE
       name: key
@@ -69,6 +89,11 @@ fields:
     mode: REPEATED
     name: value
     type: RECORD
+    description: Array of key-value pairs representing histogram bucket counts, where
+      key is the bucket label and value is the aggregated count for that bucket.
   mode: REPEATED
   name: histogram_aggregates
   type: RECORD
+  description: Array of per-metric histogram aggregates for this client and day, each
+    containing the metric name, type, process, key, aggregation type, bucket range,
+    and a map of histogram bucket values.
