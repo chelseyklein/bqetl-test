@@ -2,142 +2,241 @@ fields:
 - mode: NULLABLE
   name: external_id
   type: STRING
+  description: The unique identifier for the user in Braze, corresponding to the CTMS
+    email_id UUID. Links product subscription records back to the user in braze_derived.users_v1.
 - fields:
   - mode: NULLABLE
     name: provider
     type: STRING
+    description: The subscription provider handling the product (e.g., 'stripe', 'apple',
+      'google'). Identifies the billing platform for the subscription.
   - mode: NULLABLE
     name: payment_provider
     type: STRING
+    description: The payment provider processing transactions for the subscription
+      (e.g., 'stripe', 'paypal'). May differ from the top-level provider for some
+      billing setups.
   - mode: NULLABLE
     name: product_name
     type: STRING
+    description: The human-readable name of the subscribed Mozilla product (e.g.,
+      'Mozilla VPN', 'Firefox Relay', 'Mozilla Monitor'). Sourced from the subscription
+      platform.
   - mode: NULLABLE
     name: service_name
     type: STRING
+    description: The internal service name associated with the subscription as defined
+      in the subscription platform services registry. May differ from product_name.
   - mode: NULLABLE
     name: subscription_plan_id
     type: STRING
+    description: The provider-specific plan identifier for the subscription (e.g.,
+      a Stripe price ID or Apple in-app purchase product ID).
   - mode: NULLABLE
     name: subscription_product_id
     type: STRING
+    description: The provider-specific product identifier for the subscription (e.g.,
+      a Stripe product ID). Groups related plans under a single product.
   - mode: NULLABLE
     name: subscription_started_at
     type: TIMESTAMP
+    description: Timestamp when the subscription first started, as reported by the
+      payment provider.
   - mode: NULLABLE
     name: subscription_ended_at
     type: TIMESTAMP
+    description: Timestamp when the subscription ended or was cancelled, as reported
+      by the provider. NULL if the subscription is still active.
   - mode: NULLABLE
     name: subscription_summary
     type: STRING
+    description: A short human-readable summary of the subscription plan (e.g., 'Monthly',
+      '12-month'), sourced from the plan_summary field in the subscription platform.
   - mode: NULLABLE
     name: subscription_billing_interval
     type: STRING
+    description: The billing interval type for the subscription plan (e.g., 'month',
+      'year'). Combined with subscription_interval_count to determine the full billing
+      cycle.
   - mode: NULLABLE
     name: subscription_interval_count
     type: INTEGER
+    description: The number of billing interval units between charges (e.g., 1 for
+      monthly, 12 for annual). Combined with subscription_billing_interval to determine
+      the billing cycle.
   - mode: NULLABLE
     name: subscription_currency
     type: STRING
+    description: The ISO 4217 currency code for the subscription billing (e.g., 'usd',
+      'eur'). Sourced from the plan_currency in the subscription platform.
   - mode: NULLABLE
     name: subscription_amount
     type: NUMERIC
+    description: The billing amount for the subscription plan in the specified subscription_currency,
+      expressed as a decimal value (e.g., 9.99).
   - mode: NULLABLE
     name: is_bundle
     type: BOOLEAN
+    description: True if this subscription is part of a bundled product offering;
+      false otherwise.
   - mode: NULLABLE
     name: is_trial
     type: BOOLEAN
+    description: True if the subscription is in a free trial period; false otherwise.
   - mode: NULLABLE
     name: is_active
     type: BOOLEAN
+    description: True if the subscription is currently active; false if it has been
+      cancelled or has expired.
   - mode: NULLABLE
     name: subscription_status
     type: STRING
+    description: The provider-reported status of the subscription (e.g., 'active',
+      'cancelled', 'past_due'). Sourced from the provider_status field in the subscription
+      platform.
   - mode: NULLABLE
     name: subscription_country_code
     type: STRING
+    description: Lowercased two-letter ISO country code of the country associated
+      with the subscription, as reported by the payment provider.
   - mode: NULLABLE
     name: subscription_country_name
     type: STRING
+    description: The full name of the country associated with the subscription, as
+      reported by the payment provider (e.g., 'United States', 'Germany').
   - mode: NULLABLE
     name: current_period_started_at
     type: TIMESTAMP
+    description: Timestamp when the current billing period started, as reported by
+      the payment provider.
   - mode: NULLABLE
     name: current_period_ends_at
     type: TIMESTAMP
+    description: Timestamp when the current billing period ends, as reported by the
+      payment provider. Indicates the next renewal or expiration date.
   - mode: NULLABLE
     name: is_auto_renew
     type: BOOLEAN
+    description: True if the subscription is set to automatically renew at the end
+      of the billing period; false if the user has disabled auto-renewal.
   - mode: NULLABLE
     name: auto_renew_disabled_at
     type: TIMESTAMP
+    description: Timestamp when the user disabled auto-renewal for this subscription.
+      NULL if auto-renewal is still enabled.
   - mode: NULLABLE
     name: has_refunds
     type: BOOLEAN
+    description: True if refunds have been issued for this subscription; false otherwise.
   - mode: NULLABLE
     name: has_fraudulent_charges
     type: BOOLEAN
+    description: True if fraudulent charges have been detected for this subscription;
+      false otherwise.
   - mode: NULLABLE
     name: first_touch_impression_at
     type: TIMESTAMP
+    description: Timestamp of the first marketing impression attributed to this subscription.
+      Currently always NULL as first-touch attribution data is not yet populated.
   - mode: NULLABLE
     name: first_touch_entrypoint
     type: STRING
+    description: The FxA entrypoint identifier at the user's first marketing touch
+      for this subscription. Currently always NULL as first-touch attribution is not
+      yet populated.
   - mode: NULLABLE
     name: first_touch_entrypoint_experiment
     type: STRING
+    description: The experiment slug associated with the user's first marketing touch
+      entrypoint. Currently always NULL as first-touch attribution is not yet populated.
   - mode: NULLABLE
     name: first_touch_entrypoint_variation
     type: STRING
+    description: The experiment variation at the user's first marketing touch entrypoint.
+      Currently always NULL as first-touch attribution is not yet populated.
   - mode: NULLABLE
     name: first_touch_utm_campaign
     type: STRING
+    description: The UTM campaign parameter from the user's first marketing touch.
+      Currently always NULL as first-touch attribution is not yet populated.
   - mode: NULLABLE
     name: first_touch_utm_content
     type: STRING
+    description: The UTM content parameter from the user's first marketing touch.
+      Currently always NULL as first-touch attribution is not yet populated.
   - mode: NULLABLE
     name: first_touch_utm_medium
     type: STRING
+    description: The UTM medium parameter from the user's first marketing touch. Currently
+      always NULL as first-touch attribution is not yet populated.
   - mode: NULLABLE
     name: first_touch_utm_source
     type: STRING
+    description: The UTM source parameter from the user's first marketing touch. Currently
+      always NULL as first-touch attribution is not yet populated.
   - mode: NULLABLE
     name: first_touch_utm_term
     type: STRING
+    description: The UTM term parameter from the user's first marketing touch. Currently
+      always NULL as first-touch attribution is not yet populated.
   - mode: NULLABLE
     name: last_touch_impression_at
     type: TIMESTAMP
+    description: Timestamp of the most recent marketing impression attributed to this
+      subscription, from the subscription platform's last_touch_attribution.
   - mode: NULLABLE
     name: last_touch_entrypoint
     type: STRING
+    description: The FxA entrypoint identifier at the user's most recent marketing
+      touch (e.g., 'firefox-accounts-menu'), from last_touch_attribution.
   - mode: NULLABLE
     name: last_touch_entrypoint_experiment
     type: STRING
+    description: The experiment slug at the user's most recent marketing touch entrypoint,
+      from the subscription platform's last_touch_attribution.
   - mode: NULLABLE
     name: last_touch_entrypoint_variation
     type: STRING
+    description: The experiment variation at the user's most recent marketing touch
+      entrypoint, from the subscription platform's last_touch_attribution.
   - mode: NULLABLE
     name: last_touch_utm_campaign
     type: STRING
+    description: The UTM campaign parameter from the user's most recent marketing
+      touch, from the subscription platform's last_touch_attribution.
   - mode: NULLABLE
     name: last_touch_utm_content
     type: STRING
+    description: The UTM content parameter from the user's most recent marketing touch,
+      from the subscription platform's last_touch_attribution.
   - mode: NULLABLE
     name: last_touch_utm_medium
     type: STRING
+    description: The UTM medium parameter from the user's most recent marketing touch,
+      from the subscription platform's last_touch_attribution.
   - mode: NULLABLE
     name: last_touch_utm_source
     type: STRING
+    description: The UTM source parameter from the user's most recent marketing touch,
+      from the subscription platform's last_touch_attribution.
   - mode: NULLABLE
     name: last_touch_utm_term
     type: STRING
+    description: The UTM term parameter from the user's most recent marketing touch,
+      from the subscription platform's last_touch_attribution.
   - mode: NULLABLE
     name: subscription_created_at
     type: TIMESTAMP
+    description: Timestamp when the subscription was first created at the payment
+      provider, sourced from provider_subscription_created_at.
   - mode: NULLABLE
     name: subscription_updated_at
     type: TIMESTAMP
+    description: Timestamp when the subscription record was most recently updated
+      at the payment provider, sourced from provider_subscription_updated_at.
   mode: REPEATED
   name: products
   type: RECORD
+  description: Repeated record of Mozilla subscription products associated with the
+    user, sourced from the subscription_platform logical_subscriptions table joined
+    with CTMS FxA data.
