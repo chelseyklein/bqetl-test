@@ -2,15 +2,28 @@ fields:
 - name: submission_date
   type: DATE
   mode: NULLABLE
+  description: The date on which the user was identified as an inactive Windows 10
+    Firefox Accounts user and added to this historical list.
 - name: external_id
   type: STRING
   mode: NULLABLE
+  description: The unique identifier for the user in Braze, sourced from the CTMS
+    email_id UUID or a synthetic SHA256-based UUID for users not yet in the Braze
+    users table.
 - name: email
   type: STRING
   mode: NULLABLE
+  description: The primary email address of the user, sourced from Braze users or
+    the Firefox Accounts email table. Only populated records are included in this
+    table.
 - name: locale
   type: STRING
   mode: NULLABLE
+  description: 'The most recent browser locale reported by the user''s Firefox Accounts
+    Glean ping (e.g., ''en-US'', ''de'', ''fr''). Filtered to supported locales: de,
+    en-US, en-GB, es-ES, fr, it, pl, pt-BR.'
 - name: fxa_id_sha256
   type: STRING
   mode: NULLABLE
+  description: SHA-256 hex digest of the user's Firefox Accounts (FxA) user ID. Used
+    to join to FxA-based tables without exposing the raw account identifier.
