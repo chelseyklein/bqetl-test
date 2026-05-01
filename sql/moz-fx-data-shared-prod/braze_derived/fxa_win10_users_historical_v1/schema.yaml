@@ -2,15 +2,29 @@ fields:
 - name: submission_date
   type: DATE
   mode: NULLABLE
+  description: The date the user was identified as an inactive Windows 10 Firefox
+    Accounts user eligible for Braze outreach, derived from the fx_accounts Glean
+    ping submission timestamp.
 - name: external_id
   type: STRING
   mode: NULLABLE
+  description: The unique identifier for the user in Braze, corresponding to the CTMS
+    email_id or a generated UUID when no Braze record exists. Used to link this historical
+    list entry back to the Braze user record.
 - name: email
   type: STRING
   mode: NULLABLE
+  description: The user's email address, sourced from the Braze users table or from
+    Firefox Accounts primary email records. Used to contact Windows 10 users who have
+    been inactive for 14–21 days.
 - name: locale
   type: STRING
   mode: NULLABLE
+  description: The browser locale of the user at the time of their most recent fx_accounts
+    ping, restricted to supported locales (e.g., 'en-US', 'de', 'fr'). Used to send
+    localized messaging.
 - name: fxa_id_sha256
   type: STRING
   mode: NULLABLE
+  description: SHA-256 hash of the user's Firefox Accounts user ID. Used to link this
+    record to FxA data without exposing raw account identifiers.
