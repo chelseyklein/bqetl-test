@@ -2,15 +2,28 @@ fields:
 - name: submission_date
   type: DATE
   mode: NULLABLE
+  description: The date when this user record was processed and added to the historical
+    list, corresponding to the ETL run date. Derived from the most recent submission_timestamp
+    of the user's fx_accounts ping.
 - name: external_id
   type: STRING
   mode: NULLABLE
+  description: The unique identifier for the user in Braze, sourced from the CTMS
+    email_id (a UUID). Used to link this historical record back to the user's Braze
+    profile in users_v1.
 - name: email
   type: STRING
   mode: NULLABLE
+  description: The primary email address of the user, used to contact them in the
+    Windows 10 re-engagement campaign. Sourced from braze_derived.users_v1 or accounts_backend_external.emails_v1.
 - name: locale
   type: STRING
   mode: NULLABLE
+  description: The BCP 47 locale code of the user's Firefox client at the time of
+    their last fx_accounts ping. Only users with locales in a supported set (e.g.,
+    'en-US', 'de', 'fr', 'es-ES') are included.
 - name: fxa_id_sha256
   type: STRING
   mode: NULLABLE
+  description: SHA-256 hash of the user's Firefox Accounts (FxA) user ID (client_association_uid).
+    Used to join with other FxA-linked tables without exposing raw account identifiers.
