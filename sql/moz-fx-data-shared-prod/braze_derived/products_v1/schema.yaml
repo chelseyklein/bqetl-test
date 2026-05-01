@@ -2,6 +2,9 @@ fields:
 - mode: NULLABLE
   name: external_id
   type: STRING
+  description: The unique identifier for the user in Braze, corresponding to the CTMS
+    email_id (a UUID). Used to join subscription product records back to the user's
+    Braze profile.
 - fields:
   - mode: NULLABLE
     name: provider
@@ -141,3 +144,7 @@ fields:
   mode: REPEATED
   name: products
   type: RECORD
+  description: An array of Mozilla subscription product records for the user, one
+    element per active or historical subscription. Each element contains subscription
+    details such as provider, plan, billing interval, status, attribution data, and
+    timestamps sourced from subscription_platform.logical_subscriptions.
