@@ -2,6 +2,9 @@ fields:
 - mode: NULLABLE
   name: external_id
   type: STRING
+  description: The unique identifier for the user in Braze, corresponding to the CTMS
+    email_id (a UUID). Used to link subscription group memberships back to the user's
+    Braze profile.
 - fields:
   - mode: NULLABLE
     name: subscription_name
@@ -24,3 +27,7 @@ fields:
   mode: REPEATED
   name: subscriptions
   type: RECORD
+  description: An array of Braze subscription group membership records for the user,
+    combining both newsletter and waitlist subscriptions. Each element includes the
+    subscription name, Braze subscription group IDs for each workspace, the current
+    state ('subscribed' or 'unsubscribed'), and the last update timestamp.
