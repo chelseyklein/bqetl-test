@@ -28,6 +28,8 @@ fields:
 - mode: NULLABLE
   name: app_build_id
   type: STRING
+  description: The build ID of the Firefox application, sourced from application.build_id
+    in the main ping. Only build IDs present in the Buildhub2 catalog are included.
 - mode: NULLABLE
   name: channel
   type: STRING
@@ -36,21 +38,38 @@ fields:
   - mode: NULLABLE
     name: metric
     type: STRING
+    description: The name of the Legacy Telemetry scalar probe being aggregated (e.g.
+      'browser_engagement_total_uri_count'), corresponding to a scalar recorded in
+      a Firefox process.
   - mode: NULLABLE
     name: metric_type
     type: STRING
+    description: The data type of the scalar probe, either 'scalar' (numeric/uint)
+      or 'boolean'. Determines which aggregation types are present in agg_type.
   - mode: NULLABLE
     name: key
     type: STRING
+    description: The key for keyed scalars; empty string for non-keyed scalars. Identifies
+      the specific dimension within a keyed scalar probe.
   - mode: NULLABLE
     name: process
     type: STRING
+    description: The Firefox process from which the scalar was recorded, such as 'parent',
+      'content', or 'gpu'. Reflects the process dimension of the original scalar probe.
   - mode: NULLABLE
     name: agg_type
     type: STRING
+    description: The type of aggregation applied to the scalar values across pings
+      for the day. Numeric scalars have 'avg', 'count', 'max', 'min', and 'sum'; boolean
+      scalars have 'true' and 'false' (counts of sessions where the value was true
+      or false).
   - mode: NULLABLE
     name: value
     type: FLOAT
+    description: The aggregated scalar value for the given metric, process, and agg_type
+      combination. For numeric scalars this is a statistical summary (avg, min, max,
+      sum, count); for boolean scalars it is a count of sessions with the corresponding
+      true/false value.
   mode: REPEATED
   name: scalar_aggregates
   type: RECORD
