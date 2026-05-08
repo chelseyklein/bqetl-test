@@ -15,12 +15,18 @@ fields:
 - name: n_logged_event
   type: INTEGER
   mode: NULLABLE
+  description: Total count of all telemetry events logged by this client on the submission_date,
+    excluding overactive clients (>10 million events).
 - name: n_created_pictureinpicture
   type: INTEGER
   mode: NULLABLE
+  description: Count of Picture-in-Picture windows created by this client on the submission_date
+    (event_category='pictureinpicture', event_method='create').
 - name: n_viewed_protection_report
   type: INTEGER
   mode: NULLABLE
+  description: Count of times this client viewed the Privacy Protections report on
+    the submission_date (event_category='security.ui.protections', event_object='protection_report').
 - name: profile_group_id
   type: STRING
   mode: NULLABLE
