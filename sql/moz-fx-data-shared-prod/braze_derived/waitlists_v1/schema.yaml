@@ -2,6 +2,8 @@ fields:
 - mode: NULLABLE
   name: external_id
   type: STRING
+  description: The unique identifier for the user in Braze, corresponding to the CTMS
+    email_id UUID. Used to join waitlist data to the user's Braze profile via users_v1.
 - fields:
   - mode: NULLABLE
     name: waitlist_name
