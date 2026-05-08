@@ -27,24 +27,39 @@ fields:
 - name: n_self_installed_addons
   type: INTEGER
   mode: NULLABLE
+  description: Count of self-installed add-ons for this client on the submission_date,
+    excluding system add-ons, foreign-installed add-ons, and Mozilla-internal extensions.
 - name: n_shield_addons
   type: INTEGER
   mode: NULLABLE
+  description: Count of Shield study add-ons (add-on IDs matching '%@shield.mozilla%')
+    active on this client on the submission_date.
 - name: n_foreign_installed_addons
   type: INTEGER
   mode: NULLABLE
+  description: Count of add-ons that were installed by an external program rather
+    than by the user directly (foreign_install > 0) on this client.
 - name: n_system_addons
   type: INTEGER
   mode: NULLABLE
+  description: Count of system add-ons (is_system = true) active on this client on
+    the submission_date.
 - name: n_web_extensions
   type: INTEGER
   mode: NULLABLE
+  description: Count of WebExtension add-ons (is_web_extension = true) active on this
+    client on the submission_date.
 - name: first_addon_install_date
   type: STRING
   mode: NULLABLE
+  description: The formatted date (YYYYMMDD) on which the earliest self-installed
+    add-on was first installed for this client. Null (~51%) when no self-installed
+    add-ons are present.
 - name: profile_creation_date
   type: STRING
   mode: NULLABLE
+  description: The formatted date (YYYYMMDD) corresponding to the earliest profile
+    creation date reported across sessions for this client.
 - name: profile_group_id
   type: STRING
   mode: NULLABLE
