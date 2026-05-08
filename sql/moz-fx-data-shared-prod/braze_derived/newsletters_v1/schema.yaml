@@ -2,6 +2,8 @@ fields:
 - mode: NULLABLE
   name: external_id
   type: STRING
+  description: The unique identifier for the user in Braze, corresponding to the CTMS
+    email_id UUID. Used to join to users_v1 and other Braze-derived tables.
 - fields:
   - mode: NULLABLE
     name: newsletter_name
