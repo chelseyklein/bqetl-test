@@ -2,15 +2,30 @@ fields:
 - name: submission_date
   type: DATE
   mode: NULLABLE
+  description: The date on which this user was identified as an inactive Windows 10
+    Firefox user and added to the Braze re-engagement list. Corresponds to the ETL
+    run date.
 - name: external_id
   type: STRING
   mode: NULLABLE
+  description: The unique identifier for the user in Braze, sourced from the CTMS
+    email_id (a UUID). If the user is not found in users_v1, a synthetic UUID is generated
+    via SHA256(GENERATE_UUID()).
 - name: email
   type: STRING
   mode: NULLABLE
+  description: The user's primary email address, sourced from braze_derived.users_v1
+    or, as a fallback, from accounts_backend_external.emails_v1 for their Firefox
+    Accounts primary email.
 - name: locale
   type: STRING
   mode: NULLABLE
+  description: The Firefox locale string reported by the client (e.g., 'en-US', 'de',
+    'fr'). Only users with one of eight supported locales (de, en-US, en-GB, es-ES,
+    fr, it, pl, pt-BR) are included in this table.
 - name: fxa_id_sha256
   type: STRING
   mode: NULLABLE
+  description: SHA-256 hash of the user's Firefox Accounts (FxA) user ID. Used to
+    join to FxA records without exposing raw account identifiers. Always populated
+    in this table.
