@@ -28,6 +28,8 @@ fields:
 - mode: NULLABLE
   name: app_build_id
   type: STRING
+  description: The build ID of the Firefox application, used to filter to valid builds
+    via the buildhub2 table.
 - mode: NULLABLE
   name: channel
   type: STRING
@@ -36,21 +38,31 @@ fields:
   - mode: NULLABLE
     name: metric
     type: STRING
+    description: The name of the scalar metric being aggregated (e.g. 'browser_engagement_active_ticks').
   - mode: NULLABLE
     name: metric_type
     type: STRING
+    description: The type of the scalar metric, either 'scalar' for numeric scalars
+      or 'boolean' for boolean scalars.
   - mode: NULLABLE
     name: key
     type: STRING
+    description: The keyed scalar key; empty string for non-keyed scalars.
   - mode: NULLABLE
     name: process
     type: STRING
+    description: The Firefox process in which the scalar was recorded (e.g. 'parent',
+      'content', 'gpu').
   - mode: NULLABLE
     name: agg_type
     type: STRING
+    description: The aggregation type applied to this scalar value (e.g. 'sum', 'avg',
+      'max', 'min', 'count', 'true', 'false' for booleans).
   - mode: NULLABLE
     name: value
     type: FLOAT
+    description: The aggregated numeric value for the specified metric, key, process,
+      and agg_type combination.
   mode: REPEATED
   name: scalar_aggregates
   type: RECORD
