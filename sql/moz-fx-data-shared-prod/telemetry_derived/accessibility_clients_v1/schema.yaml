@@ -10,60 +10,101 @@ fields:
 - name: nvda
   type: INTEGER
   mode: NULLABLE
+  description: Count of distinct clients using the NVDA screen reader on the given
+    submission_date and channel, derived from the a11y_consumers histogram and a11y_instantiators
+    scalar.
 - name: jaws
   type: INTEGER
   mode: NULLABLE
+  description: Count of distinct clients using the JAWS screen reader (current version)
+    on the given submission_date and channel.
 - name: oldjaws
   type: INTEGER
   mode: NULLABLE
+  description: Count of distinct clients using an older version of the JAWS screen
+    reader on the given submission_date and channel.
 - name: we
   type: INTEGER
   mode: NULLABLE
+  description: Count of distinct clients using the Window-Eyes screen reader on the
+    given submission_date and channel.
 - name: dolphin
   type: INTEGER
   mode: NULLABLE
+  description: Count of distinct clients using the Dolphin screen reader on the given
+    submission_date and channel.
 - name: serotek
   type: INTEGER
   mode: NULLABLE
+  description: Count of distinct clients using the Serotek accessibility software
+    on the given submission_date and channel.
 - name: cobra
   type: INTEGER
   mode: NULLABLE
+  description: Count of distinct clients using the Cobra screen reader on the given
+    submission_date and channel.
 - name: zoomtext
   type: INTEGER
   mode: NULLABLE
+  description: Count of distinct clients using ZoomText magnification software on
+    the given submission_date and channel.
 - name: kazaguru
   type: INTEGER
   mode: NULLABLE
+  description: Count of distinct clients using the KazaGuru accessibility software
+    on the given submission_date and channel.
 - name: youdao
   type: INTEGER
   mode: NULLABLE
+  description: Count of distinct clients using YouDao accessibility or input software
+    on the given submission_date and channel.
 - name: unknown
   type: INTEGER
   mode: NULLABLE
+  description: Count of distinct clients using an unrecognized accessibility consumer
+    (a11y_consumers value 10) on the given submission_date and channel.
 - name: uiautomation
   type: INTEGER
   mode: NULLABLE
+  description: Count of distinct clients where a UI Automation accessibility API consumer
+    was detected on the given submission_date and channel.
 - name: visperoshared
   type: INTEGER
   mode: NULLABLE
+  description: Count of distinct clients using Vispero shared accessibility software
+    on the given submission_date and channel.
 - name: magnifier
   type: INTEGER
   mode: NULLABLE
+  description: Count of distinct clients using the Windows Magnifier accessibility
+    tool (Magnify.exe) on the given submission_date and channel.
 - name: narrator
   type: INTEGER
   mode: NULLABLE
+  description: Count of distinct clients using the Windows Narrator screen reader
+    (Narrator.exe) on the given submission_date and channel.
 - name: on_screen_keyboard
   type: INTEGER
   mode: NULLABLE
+  description: Count of distinct clients using the Windows On-Screen Keyboard accessibility
+    tool (osk.exe) on the given submission_date and channel.
 - name: speech_recognition
   type: INTEGER
   mode: NULLABLE
+  description: Count of distinct clients using Windows Speech Recognition (sapisvr.exe)
+    on the given submission_date and channel.
 - name: touch_keyboard_and_handwriting_panel
   type: INTEGER
   mode: NULLABLE
+  description: Count of distinct clients using the Windows Touch Keyboard and Handwriting
+    Panel (TabTip.exe) on the given submission_date and channel.
 - name: voice_over
   type: INTEGER
   mode: NULLABLE
+  description: Count of distinct clients using the macOS VoiceOver screen reader on
+    the given submission_date and channel.
 - name: other
   type: INTEGER
   mode: NULLABLE
+  description: Count of distinct clients using an unrecognized accessibility consumer
+    not covered by consumer IDs 0–12 on the given submission_date and channel.
