@@ -770,6 +770,9 @@ fields:
 - mode: NULLABLE
   name: search_count_urlbar_persisted
   type: INTEGER
+  description: Total number of searches initiated from the address bar using a persisted
+    search engine on the submission date. Zero for clients who performed no such searches;
+    never null.
 - description: null
   mode: NULLABLE
   name: session_restored_mean
@@ -1440,6 +1443,9 @@ fields:
   mode: REPEATED
   name: search_content_urlbar_persisted_sum
   type: RECORD
+  description: Keyed count of search result page loads attributed to address bar searches
+    using a persisted engine, broken down by search engine key for the submission
+    date.
 - fields:
   - mode: NULLABLE
     name: key
@@ -1570,6 +1576,9 @@ fields:
   mode: REPEATED
   name: search_withads_urlbar_persisted_sum
   type: RECORD
+  description: Keyed count of search result pages containing ads that were loaded
+    from address bar searches using a persisted engine, broken down by search engine
+    key for the submission date.
 - fields:
   - mode: NULLABLE
     name: key
@@ -1700,6 +1709,9 @@ fields:
   mode: REPEATED
   name: search_adclicks_urlbar_persisted_sum
   type: RECORD
+  description: Keyed count of ad clicks on search result pages reached via address
+    bar searches using a persisted engine, broken down by search engine key for the
+    submission date.
 - fields:
   - mode: NULLABLE
     name: key
@@ -1833,12 +1845,22 @@ fields:
 - mode: NULLABLE
   name: scalar_parent_browser_engagement_total_uri_count_normal_and_private_mode_sum
   type: INTEGER
+  description: Sum of the total number of URIs visited by the client across both normal
+    and private browsing windows during the day. Null when the scalar was not reported.
 - mode: NULLABLE
   name: user_pref_browser_newtabpage_enabled
   type: STRING
+  description: The most common value of the browser.newtabpage.enabled preference
+    observed for this client on the submission date; 'true' means the built-in new
+    tab page is enabled, 'false' means it is disabled. Null in ~96% of rows, indicating
+    the pref was not reported.
 - mode: NULLABLE
   name: user_pref_app_shield_optoutstudies_enabled
   type: STRING
+  description: The most common value of the app.shield.optoutstudies.enabled preference
+    for this client on the submission date; 'true' means the user has opted in to
+    Shield studies, 'false' means they have opted out. Null in ~97% of rows when the
+    pref was not reported.
 - fields:
   - mode: NULLABLE
     name: key
@@ -1849,6 +1871,9 @@ fields:
   mode: REPEATED
   name: contextual_services_quicksuggest_click_sum
   type: RECORD
+  description: Keyed count of Firefox Suggest (Quick Suggest) result clicks aggregated
+    by result type key for the submission date. Each array element holds a result-type
+    key and the corresponding click count.
 - fields:
   - mode: NULLABLE
     name: key
@@ -1859,6 +1884,9 @@ fields:
   mode: REPEATED
   name: contextual_services_quicksuggest_impression_sum
   type: RECORD
+  description: Keyed count of Firefox Suggest (Quick Suggest) result impressions aggregated
+    by result type key for the submission date. Each array element holds a result-type
+    key and the corresponding impression count.
 - fields:
   - mode: NULLABLE
     name: key
@@ -1869,6 +1897,9 @@ fields:
   mode: REPEATED
   name: contextual_services_quicksuggest_help_sum
   type: RECORD
+  description: Keyed count of help-button interactions on Firefox Suggest (Quick Suggest)
+    results, aggregated by result type key for the submission date. Each array element
+    holds a result-type key and the corresponding help-click count.
 - fields:
   - mode: NULLABLE
     name: key
@@ -1879,6 +1910,9 @@ fields:
   mode: REPEATED
   name: contextual_services_topsites_click_sum
   type: RECORD
+  description: Keyed count of Top Sites tile clicks aggregated by tile type or position
+    key for the submission date. Each array element holds a tile-type key and the
+    corresponding click count.
 - fields:
   - mode: NULLABLE
     name: key
@@ -1889,18 +1923,37 @@ fields:
   mode: REPEATED
   name: contextual_services_topsites_impression_sum
   type: RECORD
+  description: Keyed count of Top Sites tile impressions aggregated by tile type or
+    position key for the submission date. Each array element holds a tile-type key
+    and the corresponding impression count.
 - mode: NULLABLE
   name: user_pref_browser_urlbar_suggest_quicksuggest_nonsponsored
   type: STRING
+  description: The most common value of the browser.urlbar.suggest.quicksuggest.nonsponsored
+    preference for this client on the submission date; 'true' means non-sponsored
+    Firefox Suggest results are enabled in the address bar, 'false' means they are
+    disabled. Null in ~88% of rows when the pref was not reported.
 - mode: NULLABLE
   name: user_pref_browser_urlbar_quicksuggest_data_collection_enabled
   type: STRING
+  description: The most common value of the browser.urlbar.quicksuggest.dataCollection.enabled
+    preference for this client on the submission date; 'true' means the user consented
+    to Firefox Suggest data collection, 'false' means they did not. Null in ~88% of
+    rows when the pref was not reported.
 - mode: NULLABLE
   name: scalar_a11y_hcm_foreground
   type: INTEGER
+  description: The High Contrast Mode foreground color as a packed ARGB integer reported
+    by the client, reflecting the system or user-chosen foreground color used in high
+    contrast themes. Null in ~99.8% of rows when HCM is not active or the scalar was
+    not reported.
 - mode: NULLABLE
   name: scalar_a11y_hcm_background
   type: INTEGER
+  description: The High Contrast Mode background color as a packed ARGB integer reported
+    by the client, reflecting the system or user-chosen background color used in high
+    contrast themes. Null in ~99.8% of rows when HCM is not active or the scalar was
+    not reported.
 - fields:
   - mode: NULLABLE
     name: key
@@ -1911,6 +1964,10 @@ fields:
   mode: REPEATED
   name: a11y_theme
   type: RECORD
+  description: Keyed boolean map of accessibility theme flags active for the client,
+    where each key identifies a specific OS or browser accessibility theme and the
+    value indicates whether that theme was active. Sourced from the a11y.theme keyed
+    scalar.
 - fields:
   - mode: NULLABLE
     name: key
@@ -1921,6 +1978,8 @@ fields:
   mode: REPEATED
   name: contextual_services_quicksuggest_help_nonsponsored_bestmatch_sum
   type: RECORD
+  description: Keyed count of help-button clicks on non-sponsored Best Match Firefox
+    Suggest results, aggregated by result type key for the submission date.
 - fields:
   - mode: NULLABLE
     name: key
@@ -1931,6 +1990,8 @@ fields:
   mode: REPEATED
   name: contextual_services_quicksuggest_help_sponsored_bestmatch_sum
   type: RECORD
+  description: Keyed count of help-button clicks on sponsored Best Match Firefox Suggest
+    results, aggregated by result type key for the submission date.
 - fields:
   - mode: NULLABLE
     name: key
@@ -1941,6 +2002,8 @@ fields:
   mode: REPEATED
   name: contextual_services_quicksuggest_block_nonsponsored_sum
   type: RECORD
+  description: Keyed count of block (dismiss) actions on non-sponsored Firefox Suggest
+    results, aggregated by result type key for the submission date.
 - fields:
   - mode: NULLABLE
     name: key
@@ -1951,6 +2014,8 @@ fields:
   mode: REPEATED
   name: contextual_services_quicksuggest_block_sponsored_sum
   type: RECORD
+  description: Keyed count of block (dismiss) actions on sponsored Firefox Suggest
+    results, aggregated by result type key for the submission date.
 - fields:
   - mode: NULLABLE
     name: key
@@ -1961,6 +2026,8 @@ fields:
   mode: REPEATED
   name: contextual_services_quicksuggest_block_sponsored_bestmatch_sum
   type: RECORD
+  description: Keyed count of block (dismiss) actions on sponsored Best Match Firefox
+    Suggest results, aggregated by result type key for the submission date.
 - fields:
   - mode: NULLABLE
     name: key
@@ -1971,6 +2038,8 @@ fields:
   mode: REPEATED
   name: contextual_services_quicksuggest_block_nonsponsored_bestmatch_sum
   type: RECORD
+  description: Keyed count of block (dismiss) actions on non-sponsored Best Match
+    Firefox Suggest results, aggregated by result type key for the submission date.
 - fields:
   - mode: NULLABLE
     name: key
@@ -1981,6 +2050,8 @@ fields:
   mode: REPEATED
   name: contextual_services_quicksuggest_click_sponsored_bestmatch_sum
   type: RECORD
+  description: Keyed count of clicks on sponsored Best Match Firefox Suggest results,
+    aggregated by result type key for the submission date.
 - fields:
   - mode: NULLABLE
     name: key
@@ -1991,6 +2062,8 @@ fields:
   mode: REPEATED
   name: contextual_services_quicksuggest_click_nonsponsored_bestmatch_sum
   type: RECORD
+  description: Keyed count of clicks on non-sponsored Best Match Firefox Suggest results,
+    aggregated by result type key for the submission date.
 - fields:
   - mode: NULLABLE
     name: key
@@ -2001,6 +2074,8 @@ fields:
   mode: REPEATED
   name: contextual_services_quicksuggest_impression_sponsored_bestmatch_sum
   type: RECORD
+  description: Keyed count of impressions for sponsored Best Match Firefox Suggest
+    results, aggregated by result type key for the submission date.
 - fields:
   - mode: NULLABLE
     name: key
@@ -2011,18 +2086,33 @@ fields:
   mode: REPEATED
   name: contextual_services_quicksuggest_impression_nonsponsored_bestmatch_sum
   type: RECORD
+  description: Keyed count of impressions for non-sponsored Best Match Firefox Suggest
+    results, aggregated by result type key for the submission date.
 - mode: NULLABLE
   name: user_pref_browser_urlbar_suggest_bestmatch
   type: STRING
+  description: The most common value of the browser.urlbar.suggest.bestmatch preference
+    for this client on the submission date; 'true' means the Firefox Suggest Best
+    Match feature is enabled in the address bar. Null in ~94% of rows when the pref
+    was not reported.
 - mode: NULLABLE
   name: scalar_parent_browser_ui_interaction_textrecognition_error_sum
   type: INTEGER
+  description: Sum of error events recorded by the text recognition feature in the
+    browser UI during the day. This field is null for nearly all clients, indicating
+    text recognition errors are rare.
 - mode: NULLABLE
   name: text_recognition_interaction_timing_sum
   type: INTEGER
+  description: Sum of interaction timing durations (in milliseconds) for text recognition
+    UI interactions across all sessions on the submission date. Null for nearly all
+    clients as text recognition usage is rare.
 - mode: NULLABLE
   name: text_recognition_interaction_timing_count_sum
   type: INTEGER
+  description: Sum of the count of individual text recognition interaction timing
+    observations recorded on the submission date, used as the denominator when computing
+    average interaction timing. Null for nearly all clients.
 - fields:
   - mode: NULLABLE
     name: key
@@ -2033,102 +2123,190 @@ fields:
   mode: REPEATED
   name: scalar_parent_browser_ui_interaction_content_context_sum
   type: RECORD
+  description: Keyed count of content context-menu interactions in the browser UI
+    aggregated by menu item key for the submission date. Each array element holds
+    a menu item key and the corresponding interaction count.
 - mode: NULLABLE
   name: text_recognition_api_performance_sum
   type: INTEGER
+  description: Sum of API performance durations (in milliseconds) for text recognition
+    calls across all sessions on the submission date. Null for nearly all clients
+    as text recognition usage is rare.
 - mode: NULLABLE
   name: text_recognition_api_performance_count_sum
   type: INTEGER
+  description: Sum of the count of individual text recognition API performance timing
+    observations on the submission date, used as the denominator when computing average
+    API performance. Null for nearly all clients.
 - mode: NULLABLE
   name: text_recognition_text_length_sum
   type: INTEGER
+  description: Sum of the character lengths of text recognized by the text recognition
+    feature across all sessions on the submission date. Null for nearly all clients
+    as text recognition usage is rare.
 - mode: NULLABLE
   name: text_recognition_text_length_count_sum
   type: INTEGER
+  description: Sum of the count of individual text recognition text-length observations
+    on the submission date, used as the denominator when computing average recognized
+    text length. Null for nearly all clients.
 - mode: NULLABLE
   name: places_searchbar_cumulative_searches_sum
   type: INTEGER
+  description: Cumulative number of searches performed via the Places search bar (Library
+    window search) on the submission date. Null in ~99.9% of rows for clients who
+    did not use the Places search bar.
 - mode: NULLABLE
   name: places_searchbar_cumulative_filter_count_sum
   type: INTEGER
+  description: Cumulative number of filter operations applied in the Places search
+    bar (Library window search) on the submission date. Null in ~99.9% of rows for
+    clients who did not use the Places search bar.
 - mode: NULLABLE
   name: scalar_parent_os_environment_launched_via_taskbar_private
   type: BOOLEAN
+  description: True if Firefox was launched at least once via a private-browsing taskbar
+    shortcut on the submission date; false otherwise. Present for all clients (no
+    nulls).
 - mode: NULLABLE
   name: dom_parentprocess_private_window_used
   type: BOOLEAN
+  description: True if a private browsing window was opened in the parent process
+    at least once on the submission date; false otherwise. Approximately 6% of clients
+    have this set to true.
 - mode: NULLABLE
   name: os_environment_is_taskbar_pinned_any
   type: BOOLEAN
+  description: True if Firefox is pinned to the Windows taskbar in any configuration
+    (normal or private) on the submission date; false otherwise. Present for all clients
+    with roughly equal split between true and false.
 - mode: NULLABLE
   name: os_environment_is_taskbar_pinned_private_any
   type: BOOLEAN
+  description: True if a Firefox private-browsing shortcut is pinned to the Windows
+    taskbar in any form on the submission date; false otherwise. Present for all clients;
+    approximately 1.5% of clients have this as true.
 - mode: NULLABLE
   name: os_environment_is_taskbar_pinned_private
   type: BOOLEAN
+  description: True if a dedicated Firefox private-browsing shortcut is pinned to
+    the Windows taskbar on the submission date; false otherwise. Present for all clients;
+    approximately 1.3% of clients have this as true.
 - mode: NULLABLE
   name: bookmark_migrations_quantity_chrome
   type: INTEGER
+  description: Number of bookmarks migrated from Google Chrome to Firefox on the submission
+    date. Null in ~99.9% of rows when no Chrome bookmark migration occurred.
 - mode: NULLABLE
   name: bookmark_migrations_quantity_edge
   type: INTEGER
+  description: Number of bookmarks migrated from Microsoft Edge to Firefox on the
+    submission date. Null in ~100% of rows when no Edge bookmark migration occurred.
 - mode: NULLABLE
   name: bookmark_migrations_quantity_safari
   type: INTEGER
+  description: Number of bookmarks migrated from Safari to Firefox on the submission
+    date. Null in ~100% of rows when no Safari bookmark migration occurred.
 - mode: NULLABLE
   name: bookmark_migrations_quantity_all
   type: INTEGER
+  description: Total number of bookmarks migrated from any browser to Firefox on the
+    submission date, aggregated across all migration sources. Null in ~99.8% of rows
+    when no bookmark migration occurred.
 - mode: NULLABLE
   name: history_migrations_quantity_chrome
   type: INTEGER
+  description: Number of history entries migrated from Google Chrome to Firefox on
+    the submission date. Null in ~99.9% of rows when no Chrome history migration occurred.
 - mode: NULLABLE
   name: history_migrations_quantity_edge
   type: INTEGER
+  description: Number of history entries migrated from Microsoft Edge to Firefox on
+    the submission date. Null in ~100% of rows when no Edge history migration occurred.
 - mode: NULLABLE
   name: history_migrations_quantity_safari
   type: INTEGER
+  description: Number of history entries migrated from Safari to Firefox on the submission
+    date. Null in ~100% of rows when no Safari history migration occurred.
 - mode: NULLABLE
   name: history_migrations_quantity_all
   type: INTEGER
+  description: Total number of history entries migrated from any browser to Firefox
+    on the submission date, aggregated across all migration sources. Null in ~99.8%
+    of rows when no history migration occurred.
 - mode: NULLABLE
   name: logins_migrations_quantity_chrome
   type: INTEGER
+  description: Number of saved logins migrated from Google Chrome to Firefox on the
+    submission date. Null in ~99.9% of rows when no Chrome login migration occurred.
 - mode: NULLABLE
   name: logins_migrations_quantity_edge
   type: INTEGER
+  description: Number of saved logins migrated from Microsoft Edge to Firefox on the
+    submission date. Null in ~100% of rows when no Edge login migration occurred.
 - mode: NULLABLE
   name: logins_migrations_quantity_safari
   type: INTEGER
+  description: Number of saved logins migrated from Safari to Firefox on the submission
+    date. Null in ~100% of rows when no Safari login migration occurred.
 - mode: NULLABLE
   name: logins_migrations_quantity_all
   type: INTEGER
+  description: Total number of saved logins migrated from any browser to Firefox on
+    the submission date, aggregated across all migration sources. Null in ~99.8% of
+    rows when no login migration occurred.
 - mode: NULLABLE
   name: main_crash_count
   type: INTEGER
+  description: Number of main (browser) process crashes recorded for this client on
+    the submission date, sourced from telemetry.crashes_daily. Null in ~99.8% of rows
+    for clients with no main process crashes.
 - mode: NULLABLE
   name: content_crash_count
   type: INTEGER
+  description: Number of content process crashes recorded for this client on the submission
+    date, sourced from telemetry.crashes_daily. Null in ~99.9% of rows for clients
+    with no content process crashes.
 - mode: NULLABLE
   name: gpu_crash_count
   type: INTEGER
+  description: Number of GPU process crashes recorded for this client on the submission
+    date, sourced from telemetry.crashes_daily. Null in ~100% of rows for clients
+    with no GPU process crashes.
 - mode: NULLABLE
   name: rdd_crash_count
   type: INTEGER
+  description: Number of RDD (Remote Data Decoder) process crashes recorded for this
+    client on the submission date, sourced from telemetry.crashes_daily. Null in ~100%
+    of rows for clients with no RDD process crashes.
 - mode: NULLABLE
   name: socket_crash_count
   type: INTEGER
+  description: Number of socket process crashes recorded for this client on the submission
+    date, sourced from telemetry.crashes_daily. Null in ~100% of rows for clients
+    with no socket process crashes.
 - mode: NULLABLE
   name: utility_crash_count
   type: INTEGER
+  description: Number of utility process crashes recorded for this client on the submission
+    date, sourced from telemetry.crashes_daily. Null in ~100% of rows for clients
+    with no utility process crashes.
 - mode: NULLABLE
   name: vr_crash_count
   type: INTEGER
+  description: Number of VR process crashes recorded for this client on the submission
+    date, sourced from telemetry.crashes_daily. Null for all observed clients, indicating
+    VR crash reporting is currently inactive or unsupported.
 - mode: NULLABLE
   name: media_play_time_ms_audio_sum
   type: INTEGER
+  description: Total time in milliseconds that audio media was playing in the browser
+    on the submission date. Null in ~100% of rows for clients with no audio playback.
 - mode: NULLABLE
   name: media_play_time_ms_video_sum
   type: INTEGER
+  description: Total time in milliseconds that video media was playing in the browser
+    on the submission date. Null in ~100% of rows for clients with no video playback.
 - fields:
   - mode: NULLABLE
     name: key
@@ -2139,6 +2317,8 @@ fields:
   mode: REPEATED
   name: contextual_services_quicksuggest_block_dynamic_wikipedia_sum
   type: RECORD
+  description: Keyed count of block (dismiss) actions on dynamic Wikipedia Firefox
+    Suggest results, aggregated by result type key for the submission date.
 - fields:
   - mode: NULLABLE
     name: key
@@ -2149,6 +2329,8 @@ fields:
   mode: REPEATED
   name: contextual_services_quicksuggest_block_weather_sum
   type: RECORD
+  description: Keyed count of block (dismiss) actions on weather Firefox Suggest results,
+    aggregated by result type key for the submission date.
 - fields:
   - mode: NULLABLE
     name: key
@@ -2159,6 +2341,8 @@ fields:
   mode: REPEATED
   name: contextual_services_quicksuggest_click_dynamic_wikipedia_sum
   type: RECORD
+  description: Keyed count of clicks on dynamic Wikipedia Firefox Suggest results,
+    aggregated by result type key for the submission date.
 - fields:
   - mode: NULLABLE
     name: key
@@ -2169,6 +2353,8 @@ fields:
   mode: REPEATED
   name: contextual_services_quicksuggest_click_nonsponsored_sum
   type: RECORD
+  description: Keyed count of clicks on non-sponsored Firefox Suggest results, aggregated
+    by result type key for the submission date.
 - fields:
   - mode: NULLABLE
     name: key
@@ -2179,6 +2365,8 @@ fields:
   mode: REPEATED
   name: contextual_services_quicksuggest_click_sponsored_sum
   type: RECORD
+  description: Keyed count of clicks on sponsored Firefox Suggest results, aggregated
+    by result type key for the submission date.
 - fields:
   - mode: NULLABLE
     name: key
@@ -2189,6 +2377,8 @@ fields:
   mode: REPEATED
   name: contextual_services_quicksuggest_click_weather_sum
   type: RECORD
+  description: Keyed count of clicks on weather Firefox Suggest results, aggregated
+    by result type key for the submission date.
 - fields:
   - mode: NULLABLE
     name: key
@@ -2199,6 +2389,8 @@ fields:
   mode: REPEATED
   name: contextual_services_quicksuggest_help_dynamic_wikipedia_sum
   type: RECORD
+  description: Keyed count of help-button clicks on dynamic Wikipedia Firefox Suggest
+    results, aggregated by result type key for the submission date.
 - fields:
   - mode: NULLABLE
     name: key
@@ -2209,6 +2401,8 @@ fields:
   mode: REPEATED
   name: contextual_services_quicksuggest_help_nonsponsored_sum
   type: RECORD
+  description: Keyed count of help-button clicks on non-sponsored Firefox Suggest
+    results, aggregated by result type key for the submission date.
 - fields:
   - mode: NULLABLE
     name: key
@@ -2219,6 +2413,8 @@ fields:
   mode: REPEATED
   name: contextual_services_quicksuggest_help_sponsored_sum
   type: RECORD
+  description: Keyed count of help-button clicks on sponsored Firefox Suggest results,
+    aggregated by result type key for the submission date.
 - fields:
   - mode: NULLABLE
     name: key
@@ -2229,6 +2425,8 @@ fields:
   mode: REPEATED
   name: contextual_services_quicksuggest_help_weather_sum
   type: RECORD
+  description: Keyed count of help-button clicks on weather Firefox Suggest results,
+    aggregated by result type key for the submission date.
 - fields:
   - mode: NULLABLE
     name: key
@@ -2239,6 +2437,8 @@ fields:
   mode: REPEATED
   name: contextual_services_quicksuggest_impression_dynamic_wikipedia_sum
   type: RECORD
+  description: Keyed count of impressions for dynamic Wikipedia Firefox Suggest results,
+    aggregated by result type key for the submission date.
 - fields:
   - mode: NULLABLE
     name: key
@@ -2249,6 +2449,8 @@ fields:
   mode: REPEATED
   name: contextual_services_quicksuggest_impression_nonsponsored_sum
   type: RECORD
+  description: Keyed count of impressions for non-sponsored Firefox Suggest results,
+    aggregated by result type key for the submission date.
 - fields:
   - mode: NULLABLE
     name: key
@@ -2259,6 +2461,8 @@ fields:
   mode: REPEATED
   name: contextual_services_quicksuggest_impression_sponsored_sum
   type: RECORD
+  description: Keyed count of impressions for sponsored Firefox Suggest results, aggregated
+    by result type key for the submission date.
 - fields:
   - mode: NULLABLE
     name: key
@@ -2269,6 +2473,8 @@ fields:
   mode: REPEATED
   name: contextual_services_quicksuggest_impression_weather_sum
   type: RECORD
+  description: Keyed count of impressions for weather Firefox Suggest results, aggregated
+    by result type key for the submission date.
 - fields:
   - mode: NULLABLE
     name: key
@@ -2279,6 +2485,9 @@ fields:
   mode: REPEATED
   name: scalar_parent_sidebar_opened_sum
   type: RECORD
+  description: Keyed count of sidebar panel open events aggregated by panel identifier
+    for the submission date. Each array element holds a sidebar panel key and the
+    number of times it was opened.
 - fields:
   - mode: NULLABLE
     name: key
@@ -2289,6 +2498,8 @@ fields:
   mode: REPEATED
   name: scalar_parent_sidebar_search_sum
   type: RECORD
+  description: Keyed count of search interactions within sidebar panels aggregated
+    by panel identifier for the submission date.
 - fields:
   - mode: NULLABLE
     name: key
@@ -2299,18 +2510,32 @@ fields:
   mode: REPEATED
   name: scalar_parent_sidebar_link_sum
   type: RECORD
+  description: Keyed count of link clicks within sidebar panels aggregated by panel
+    identifier for the submission date.
 - name: places_previousday_visits_mean
   type: FLOAT
   mode: NULLABLE
+  description: Mean number of URI visits recorded in the Places database for the day
+    prior to the submission date. Null in ~36% of rows; zero for clients who had no
+    visits the previous day.
 - name: places_library_cumulative_bookmark_searches_sum
   type: INTEGER
   mode: NULLABLE
+  description: Cumulative number of bookmark searches performed in the Library (Places)
+    window on the submission date. Null in ~99.8% of rows for clients who did not
+    open the Library bookmark search.
 - name: places_library_cumulative_history_searches_sum
   type: INTEGER
   mode: NULLABLE
+  description: Cumulative number of history searches performed in the Library (Places)
+    window on the submission date. Null in ~99.5% of rows for clients who did not
+    open the Library history search.
 - name: places_bookmarks_searchbar_cumulative_searches_sum
   type: INTEGER
   mode: NULLABLE
+  description: Cumulative number of bookmark searches performed via the bookmarks
+    search bar on the submission date. Null in ~98.8% of rows for clients who did
+    not use the bookmarks search bar.
 - name: scalar_parent_library_link_sum
   type: RECORD
   mode: REPEATED
@@ -2321,6 +2546,8 @@ fields:
   - name: value
     type: INTEGER
     mode: NULLABLE
+  description: Keyed count of link clicks within the Library (Places) window aggregated
+    by link type for the submission date.
 - name: scalar_parent_library_opened_sum
   type: RECORD
   mode: REPEATED
@@ -2331,6 +2558,8 @@ fields:
   - name: value
     type: INTEGER
     mode: NULLABLE
+  description: Keyed count of Library (Places) window open events aggregated by entry
+    point for the submission date.
 - name: scalar_parent_library_search_sum
   type: RECORD
   mode: REPEATED
@@ -2341,45 +2570,87 @@ fields:
   - name: value
     type: INTEGER
     mode: NULLABLE
+  description: Keyed count of search interactions within the Library (Places) window
+    aggregated by search type for the submission date.
 - name: startup_profile_selection_reason_first
   type: STRING
   mode: NULLABLE
+  description: The reason a profile was selected at startup, taken from the first
+    ping received on the submission date. Common values include 'default' (the default
+    profile was used automatically), 'profile-selector' (user chose via the profile
+    manager), 'firstrun-created-default' (first run created a new default profile),
+    and 'restart' (profile was reused from a previous session).
 - name: first_document_id
   type: STRING
   mode: NULLABLE
+  description: The UUID document ID of the first telemetry ping received from this
+    client on the submission date, used to identify the earliest ping for deduplication
+    and ordering purposes.
 - name: partner_id
   type: STRING
   mode: NULLABLE
+  description: The partner ID associated with the Firefox distribution, read from
+    the mozilla.partner.id preference. Null for standard Mozilla builds; populated
+    for partner distributions such as 'ubuntu', 'mozillaonline', or 'mint'.
 - name: distribution_version
   type: STRING
   mode: NULLABLE
+  description: The version of the Firefox distribution package, read from the distribution.version
+    preference. Null for ~84% of clients on standard Mozilla builds; populated for
+    partner or OEM distributions.
 - name: distributor
   type: STRING
   mode: NULLABLE
+  description: The name of the Firefox distributor, read from the app.distributor
+    preference. Null for ~93% of clients on standard Mozilla builds; populated for
+    partner distributions such as 'canonical', 'mozillaonline', or 'mint'.
 - name: distributor_channel
   type: STRING
   mode: NULLABLE
+  description: The distribution channel name, read from the app.distributor.channel
+    preference. Null for ~93% of clients on standard Mozilla builds; populated for
+    partner distributions with values such as 'ubuntu' or 'mainWinStub'.
 - name: env_build_platform_version
   type: STRING
   mode: NULLABLE
+  description: The platform (Gecko) version string of the Firefox build, such as '150.0.1'.
+    Present for all clients and reflects the exact release version running at the
+    time of submission.
 - name: env_build_xpcom_abi
   type: STRING
   mode: NULLABLE
+  description: The XPCOM ABI identifier for the Firefox build, encoding CPU architecture
+    and compiler toolkit, such as 'x86_64-msvc' (64-bit Windows) or 'aarch64-gcc3'
+    (ARM64 Linux/Mac). Present for all clients.
 - name: geo_db_version
   type: STRING
   mode: NULLABLE
+  description: The version timestamp of the GeoIP database used to resolve the client's
+    country and region at time of submission. Present for all clients; typically changes
+    at most a few times per week.
 - name: apple_model_id
   type: STRING
   mode: NULLABLE
+  description: The Apple hardware model identifier for macOS clients, such as 'MacBookAir10,1'
+    or 'Mac14,2'. Null for ~87% of clients running on non-Apple hardware.
 - name: max_subsession_counter
   type: INTEGER
   mode: NULLABLE
+  description: The highest subsession counter value seen across all pings received
+    from this client on the submission date, reflecting how many subsessions the browser
+    accumulated in total up to the last reported ping.
 - name: min_subsession_counter
   type: INTEGER
   mode: NULLABLE
+  description: The lowest subsession counter value seen across all pings received
+    from this client on the submission date, typically 1 for clients whose first ping
+    of the day starts a new subsession sequence.
 - name: startup_profile_selection_first_ping_only
   type: STRING
   mode: NULLABLE
+  description: The reason a profile was selected at startup, restricted to pings sent
+    from the very first session of the day. Common values mirror startup_profile_selection_reason_first
+    and include 'default', 'profile-selector', 'restart', and 'firstrun-created-default'.
 - name: profile_group_id
   type: STRING
   mode: NULLABLE
@@ -2388,11 +2659,15 @@ fields:
 - name: browser_backup_scheduler_enabled
   type: BOOLEAN
   mode: NULLABLE
-  description: |-
-    The value of payload.processes.parent.scalars.browser_backup_scheduler_enabled most frequently seen on the submission date.
+  description: 'The value of payload.processes.parent.scalars.browser_backup_scheduler_enabled
+    most frequently seen on the submission date.
+
     If there is a tie, the value seen last according to submission_timestamp.
-    True if the BackupService is configured to automatically create backups in the background.
+
+    True if the BackupService is configured to automatically create backups in the
+    background.'
 - name: browser_backup_archive_enabled
   type: BOOLEAN
   mode: NULLABLE
-  description: True if the user can create backups, i.e. it has not been disabled by a pref or otherwise deemed incompatible.
+  description: True if the user can create backups, i.e. it has not been disabled
+    by a pref or otherwise deemed incompatible.
