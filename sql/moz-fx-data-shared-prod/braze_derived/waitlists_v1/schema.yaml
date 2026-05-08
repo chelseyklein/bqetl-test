@@ -2,31 +2,52 @@ fields:
 - mode: NULLABLE
   name: external_id
   type: STRING
+  description: The unique identifier for the user in Braze, corresponding to the CTMS
+    email_id (a UUID). Links this waitlists record back to the user in users_v1.
 - fields:
   - mode: NULLABLE
     name: waitlist_name
     type: STRING
+    description: The slug identifying the product waitlist in CTMS (e.g., 'vpn', 'relay-phone-masking').
+      Used to map to Braze subscription groups via subscriptions_map_v1.
   - mode: NULLABLE
     name: waitlist_geo
     type: STRING
+    description: The lowercased geographic region or country the user selected when
+      joining this waitlist, extracted from the CTMS waitlist fields JSON.
   - mode: NULLABLE
     name: waitlist_platform
     type: STRING
+    description: The lowercased platform the user selected when joining this waitlist
+      (e.g., 'ios', 'android', 'windows'), extracted from the CTMS waitlist fields
+      JSON.
   - mode: NULLABLE
     name: waitlist_source
     type: STRING
+    description: The lowercased acquisition source for this waitlist signup as recorded
+      in CTMS (e.g., a URL or campaign identifier).
   - mode: NULLABLE
     name: create_timestamp
     type: TIMESTAMP
+    description: Timestamp when this waitlist record was first created in CTMS.
   - mode: NULLABLE
     name: subscribed
     type: BOOLEAN
+    description: True if the user is currently on this product waitlist; false if
+      they have removed themselves.
   - mode: NULLABLE
     name: unsub_reason
     type: STRING
+    description: The reason the user provided when unsubscribing from the waitlist,
+      as recorded in CTMS. NULL if the user is still subscribed or provided no reason.
   - mode: NULLABLE
     name: update_timestamp
     type: TIMESTAMP
+    description: Timestamp when this waitlist record was most recently updated in
+      CTMS.
   mode: REPEATED
   name: waitlists
   type: RECORD
+  description: An array of product waitlist records for the user, sourced from the
+    CTMS waitlists table. Only users with at least one active waitlist subscription
+    are included.
