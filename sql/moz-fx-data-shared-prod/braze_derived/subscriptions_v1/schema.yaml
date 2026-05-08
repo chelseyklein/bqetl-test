@@ -2,6 +2,9 @@ fields:
 - mode: NULLABLE
   name: external_id
   type: STRING
+  description: The unique identifier for the user in Braze, corresponding to the CTMS
+    email_id UUID. Used to map Braze subscription group membership (newsletters and
+    waitlists) to individual users via subscriptions_map_v1.
 - fields:
   - mode: NULLABLE
     name: subscription_name
