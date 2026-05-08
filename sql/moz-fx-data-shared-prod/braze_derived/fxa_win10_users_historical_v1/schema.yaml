@@ -2,15 +2,30 @@ fields:
 - name: submission_date
   type: DATE
   mode: NULLABLE
+  description: The date the user was identified as inactive on Windows 10, derived
+    from the fx_accounts ping submission timestamp 14 days prior. Used to track when
+    a user was added to the campaign list.
 - name: external_id
   type: STRING
   mode: NULLABLE
+  description: The unique identifier for the user in Braze, corresponding to the CTMS
+    email_id UUID. If the user does not exist in braze_derived.users_v1, a synthetic
+    UUID is generated via SHA256(GENERATE_UUID()).
 - name: email
   type: STRING
   mode: NULLABLE
+  description: The primary email address used to contact the user, sourced from braze_derived.users_v1
+    if available, otherwise from the Firefox Accounts primary email. Only users with
+    a non-null email are included.
 - name: locale
   type: STRING
   mode: NULLABLE
+  description: The browser locale of the user's most recent Firefox Accounts ping
+    on Windows 10, e.g. 'en-US', 'de', 'fr'. Only users with one of the supported
+    campaign locales (de, en-US, en-GB, es-ES, fr, it, pl, pt-BR) are included.
 - name: fxa_id_sha256
   type: STRING
   mode: NULLABLE
+  description: SHA-256 hash of the user's Firefox Accounts user ID, derived from the
+    fx_accounts ping's client_association_uid metric. Used to de-duplicate users and
+    join with FxA account data without exposing raw account identifiers.
