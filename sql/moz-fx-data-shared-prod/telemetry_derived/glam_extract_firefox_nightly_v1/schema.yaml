@@ -2,36 +2,62 @@ fields:
 - name: app_version
   type: INTEGER
   mode: NULLABLE
+  description: The major version number of the Firefox Nightly application (e.g. 147,
+    148, 149).
 - name: os
   type: STRING
   mode: NULLABLE
+  description: The operating system of the client (e.g. 'Windows', 'Mac', 'Linux');
+    '*' represents an aggregation across all operating systems.
 - name: app_build_id
   type: STRING
   mode: NULLABLE
+  description: The build identifier of the Firefox Nightly application in YYYYMMDDHHMMSS
+    format; '*' represents an aggregation across all build IDs.
 - name: process
   type: STRING
   mode: NULLABLE
+  description: The Firefox process type from which the probe was collected (e.g. 'parent',
+    'content', 'gpu').
 - name: metric
   type: STRING
   mode: NULLABLE
+  description: The name of the telemetry probe or metric being aggregated (e.g. 'event_longtask',
+    'telemetry_event_counts').
 - name: key
   type: STRING
   mode: NULLABLE
+  description: The label or key for keyed metrics; an empty string for non-keyed metrics
+    (e.g. 'google:tagged:firefox-b-d', 'mozilla.cloudflare-dns.com').
 - name: client_agg_type
   type: STRING
   mode: NULLABLE
+  description: The type of client-level aggregation applied to the metric (e.g. 'summed_histogram',
+    'sum', 'min', 'max', 'avg', 'count'); empty string for keyed histograms where
+    no scalar aggregation applies.
 - name: metric_type
   type: STRING
   mode: NULLABLE
+  description: The telemetry metric type describing the probe's data format (e.g.
+    'histogram-exponential', 'keyed-scalar', 'scalar', 'histogram-boolean').
 - name: total_users
   type: INTEGER
   mode: NULLABLE
+  description: The number of distinct clients that submitted data for this metric,
+    filtered to clients with more than 375 users to protect privacy.
 - name: histogram
   type: STRING
   mode: NULLABLE
+  description: A JSON-encoded normalized histogram representing the distribution of
+    metric values across clients, where bucket values sum to approximately 1.
 - name: total_sample
   type: BIGNUMERIC
   mode: NULLABLE
+  description: The total count of observations (sample size) summed across all clients
+    for this metric and aggregation type; 0 for rows where client_agg_type is empty.
 - name: non_norm_histogram
   type: STRING
   mode: NULLABLE
+  description: A JSON-encoded non-normalized histogram with raw observation counts
+    per bucket, representing the unnormalized distribution of metric values across
+    clients.
