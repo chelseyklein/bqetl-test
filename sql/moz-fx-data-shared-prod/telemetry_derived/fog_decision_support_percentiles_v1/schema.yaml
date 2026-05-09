@@ -2,24 +2,37 @@ fields:
 - mode: NULLABLE
   name: submission_date
   type: DATE
+  description: The date when the telemetry ping is received on the server side.
 - mode: NULLABLE
   name: ping
   type: STRING
+  description: The name of the Firefox ping type from which the metric was computed
+    (e.g. 'metrics', 'baseline', or 'main').
 - mode: NULLABLE
   name: channel
   type: STRING
+  description: The normalized release channel of the Firefox build (e.g. 'release',
+    'beta', 'nightly').
 - mode: NULLABLE
   name: metric_name
   type: STRING
+  description: The name of the engagement metric being summarized (e.g. 'active_ticks',
+    'uri_count', 'client_submission_latency', 'count_per_seq').
 - mode: REPEATED
   name: percentiles
   type: INTEGER
 - mode: NULLABLE
   name: mean
   type: FLOAT
+  description: The arithmetic mean of the metric values across all observations for
+    this channel, ping type, and metric on the submission date.
 - mode: NULLABLE
   name: std_dev
   type: FLOAT
+  description: The standard deviation of the metric values across all observations
+    for this channel, ping type, and metric on the submission date.
 - mode: NULLABLE
   name: median
   type: INTEGER
+  description: The exact median (50th percentile) of the metric values using PERCENTILE_DISC
+    for this channel, ping type, and metric on the submission date.
