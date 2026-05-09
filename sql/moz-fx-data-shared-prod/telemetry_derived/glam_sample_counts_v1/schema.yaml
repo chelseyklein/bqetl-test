@@ -2,35 +2,46 @@ fields:
 - mode: NULLABLE
   name: os
   type: STRING
-
+  description: The operating system of the client (e.g. 'Windows', 'Mac', 'Linux',
+    'Other'); '*' represents an aggregation across all operating systems. NULL when
+    this rollup dimension is not applicable.
 - mode: NULLABLE
   name: app_version
   type: INTEGER
-
+  description: The major version number of the Firefox application; 999 is used as
+    a sentinel for cross-version rollups.
 - mode: NULLABLE
   name: app_build_id
   type: STRING
-
+  description: The build identifier of the Firefox application in YYYYMMDDHHMMSS format;
+    '*' represents an aggregation across all build IDs.
 - mode: NULLABLE
   name: channel
   type: STRING
-
+  description: The normalized Firefox release channel (e.g. 'release', 'beta', 'nightly').
 - mode: NULLABLE
   name: metric
   type: STRING
-
+  description: The name of the telemetry probe or metric being counted (e.g. 'browser_ui_toolbar_widgets',
+    'webext_extension_startup_ms_by_addonid').
 - mode: NULLABLE
   name: process
   type: STRING
-
+  description: The Firefox process type from which the probe was collected (e.g. 'parent',
+    'content', 'gpu').
 - mode: NULLABLE
   name: key
   type: STRING
-
+  description: The label or key for keyed metrics; an empty string for non-keyed metrics
+    (e.g. search engine keys like 'google:tagged', add-on IDs).
 - mode: NULLABLE
   name: agg_type
   type: STRING
-
+  description: The aggregation type applied to the metric values (e.g. 'summed_histogram',
+    'sum', 'min', 'max', 'avg', 'count', 'true', 'false').
 - mode: NULLABLE
   name: total_sample
   type: FLOAT
+  description: The total count of observations summed across all clients for this
+    metric and aggregation type combination; NULL for scalar agg_types (sum, min,
+    max, avg) where a corresponding 'count' row provides the denominator.
