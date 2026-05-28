@@ -2,105 +2,182 @@ fields:
 - name: click_id
   type: STRING
   mode: NULLABLE
+  description: Unique identifier for this individual email click event, sourced from
+    the Braze Currents raw click event ID (sampled 2026-05-28).
 - name: click_time
   type: TIMESTAMP
   mode: NULLABLE
+  description: Timestamp when the email link was clicked, derived by converting the
+    Braze Currents Unix epoch integer to a TIMESTAMP (sampled 2026-05-28).
 - name: user_id
   type: STRING
   mode: NULLABLE
+  description: Braze internal user identifier for the recipient who clicked the email
+    link (sampled 2026-05-28).
 - name: dispatch_id
   type: STRING
   mode: NULLABLE
+  description: Braze dispatch identifier grouping all messages sent as part of a single
+    campaign send or scheduled send batch (sampled 2026-05-28).
 - name: external_user_id
   type: STRING
   mode: NULLABLE
+  description: Mozilla's external identifier for the user (typically a Firefox Accounts
+    UUID), used to join Braze records to internal Mozilla user tables (sampled 2026-05-28).
 - name: timezone
   type: STRING
   mode: NULLABLE
+  description: User's timezone as recorded in Braze; currently always NULL in this
+    table (sampled 2026-05-28).
 - name: campaign_id
   type: STRING
   mode: NULLABLE
+  description: UUID of the Braze campaign associated with this click event; NULL for
+    clicks originating from a Canvas rather than a direct campaign (sampled 2026-05-28).
 - name: campaign_name
   type: STRING
   mode: NULLABLE
+  description: Human-readable name of the Braze campaign associated with this click
+    event; NULL when the message was sent via a Canvas (sampled 2026-05-28).
 - name: message_variation_id
   type: STRING
   mode: NULLABLE
+  description: UUID of the specific message variation (A/B variant) within the campaign
+    or Canvas step that was clicked (sampled 2026-05-28).
 - name: message_variation_name
   type: STRING
   mode: NULLABLE
+  description: Human-readable name of the message variation within the campaign or
+    Canvas step, e.g. 'Variant 1' or 'Variant 2 (Static)' (sampled 2026-05-28).
 - name: email_address
   type: STRING
   mode: NULLABLE
+  description: Email address of the user who clicked the link; contains real end-user
+    email addresses and should be treated as PII (sampled 2026-05-28).
 - name: url
   type: STRING
   mode: NULLABLE
+  description: The full URL of the link that was clicked in the email, including UTM
+    tracking parameters where present (sampled 2026-05-28).
 - name: canvas_id
   type: STRING
   mode: NULLABLE
+  description: UUID of the Braze Canvas associated with this click event; NULL when
+    the message was sent via a direct campaign rather than a Canvas (sampled 2026-05-28).
 - name: canvas_name
   type: STRING
   mode: NULLABLE
+  description: Human-readable name of the Braze Canvas associated with this click
+    event; NULL when the message was sent via a direct campaign (sampled 2026-05-28).
 - name: canvas_variation_id
   type: STRING
   mode: NULLABLE
+  description: UUID of the Canvas variation (branch) the user was enrolled in when
+    the email was sent; NULL for direct campaign sends (sampled 2026-05-28).
 - name: canvas_variation_name
   type: STRING
   mode: NULLABLE
+  description: Human-readable name of the Canvas variation (branch) the user was enrolled
+    in, e.g. 'Variant 1' or '2024 new version'; NULL for direct campaign sends (sampled
+    2026-05-28).
 - name: canvas_step_id
   type: STRING
   mode: NULLABLE
+  description: UUID of the specific Canvas step (message node) from which this email
+    was sent; NULL for direct campaign sends (sampled 2026-05-28).
 - name: canvas_step_name
   type: STRING
   mode: NULLABLE
+  description: Human-readable name of the Canvas step from which this email was sent,
+    e.g. 'Step 1' or 'EML3 - New24 - NonSubs'; NULL for direct campaign sends (sampled
+    2026-05-28).
 - name: send_id
   type: STRING
   mode: NULLABLE
+  description: Braze send identifier for API-triggered campaigns; always NULL in this
+    table as sends use campaign or Canvas dispatch IDs (sampled 2026-05-28).
 - name: user_agent
   type: STRING
   mode: NULLABLE
+  description: HTTP User-Agent string of the browser or email client used when the
+    link was clicked, used to infer device class, OS, and browser (sampled 2026-05-28).
 - name: ip_pool
   type: STRING
   mode: NULLABLE
+  description: Name of the Braze IP pool used to deliver the email; observed values
+    include 'marketing_8657', 'newsletter_8404', and 'transactional_6033' (sampled
+    2026-05-28).
 - name: link_id
   type: STRING
   mode: NULLABLE
+  description: Braze link tracking identifier for the clicked URL; currently always
+    NULL in this table (sampled 2026-05-28).
 - name: link_alias
   type: STRING
   mode: NULLABLE
+  description: Braze alias label assigned to the clicked URL for link management;
+    currently always NULL in this table (sampled 2026-05-28).
 - name: esp
   type: STRING
   mode: NULLABLE
+  description: Email service provider used to deliver the message; always 'SparkPost'
+    in this table (sampled 2026-05-28).
 - name: from_domain
   type: STRING
   mode: NULLABLE
+  description: Sending domain used in the email From header; observed values are 'mail.mozilla.org',
+    'today.getpocket.com', and 'e.mozilla.org' (sampled 2026-05-28).
 - name: is_amp
   type: BOOLEAN
   mode: NULLABLE
+  description: Whether the email was opened and the link clicked via an AMP for Email
+    version; always NULL in this table (sampled 2026-05-28).
 - name: app_group_id
   type: STRING
   mode: NULLABLE
+  description: UUID of the Braze app group (workspace) from which this message was
+    sent; always '2e810490-1756-4cf8-aa95-b0706ad1707f' when present (sampled 2026-05-28).
 - name: device_class
   type: STRING
   mode: NULLABLE
+  description: Category of the device used to click the link; observed values include
+    'desktop', 'mobile', 'tablet', 'other', and proxy types such as 'ApplePrivacyProxy'
+    (sampled 2026-05-28).
 - name: device_os
   type: STRING
   mode: NULLABLE
+  description: Operating system of the device used to click the link, e.g. 'Windows',
+    'iOS', 'Android', 'Mac'; NULL when the OS cannot be determined from the user agent
+    (sampled 2026-05-28).
 - name: device_model
   type: STRING
   mode: NULLABLE
+  description: Model of the device used to click the link as reported by Braze; always
+    NULL in this table (sampled 2026-05-28).
 - name: browser
   type: STRING
   mode: NULLABLE
+  description: Name of the browser used to click the email link, e.g. 'Chrome', 'Firefox',
+    'Mobile Safari'; NULL when the browser cannot be determined from the user agent
+    (sampled 2026-05-28).
 - name: mailbox_provider
   type: STRING
   mode: NULLABLE
+  description: Email provider of the recipient's mailbox as identified by Braze; always
+    NULL in this table (sampled 2026-05-28).
 - name: is_suspected_bot_click
   type: BOOLEAN
   mode: NULLABLE
+  description: Whether Braze identified this click as likely originating from an automated
+    bot rather than a human user; always NULL in this table (sampled 2026-05-28).
 - name: suspected_bot_click_reason
   type: STRING
   mode: REPEATED
+  description: Array of reasons Braze flagged this click as a suspected bot click;
+    out of scope (ARRAY/REPEATED field).
 - name: fxa_id_sha256
   type: STRING
   mode: NULLABLE
+  description: SHA-256 hash of the user's Firefox Accounts (FxA) user ID, joined from
+    Mozilla's internal Braze user tables; NULL when no FxA account match is found
+    (~48% of rows) (sampled 2026-05-28).
