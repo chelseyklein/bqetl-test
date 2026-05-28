@@ -2,15 +2,30 @@ fields:
 - name: submission_date
   type: DATE
   mode: NULLABLE
+  description: The date the ETL pipeline run identified this user as an inactive Windows
+    10 Firefox Accounts user (seen 14–21 days prior but not within the last 14 days).
+    Used as a partition key.
 - name: external_id
   type: STRING
   mode: NULLABLE
+  description: The unique identifier for the user in Braze, corresponding to the CTMS
+    email_id UUID. Used to link this re-engagement audience record back to the main
+    Braze user profile.
 - name: email
   type: STRING
   mode: NULLABLE
+  description: The primary email address used to contact this Windows 10 user in a
+    Braze re-engagement campaign. Sourced from Braze users_v1 if available, otherwise
+    from the Firefox Accounts email records.
 - name: locale
   type: STRING
   mode: NULLABLE
+  description: The browser locale of the user's most recent Firefox Accounts ping
+    on Windows 10 (e.g. 'en-US', 'de', 'fr'). Only users with locales in a supported
+    set (de, en-US, en-GB, es-ES, fr, it, pl, pt-BR) are included.
 - name: fxa_id_sha256
   type: STRING
   mode: NULLABLE
+  description: SHA-256 hash of the user's Firefox Accounts (FxA) user ID, derived
+    from the fx_accounts ping's client_association_uid metric. Used to link to FxA
+    records without exposing raw account identifiers.
