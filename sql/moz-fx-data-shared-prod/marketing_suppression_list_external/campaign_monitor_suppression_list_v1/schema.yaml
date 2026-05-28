@@ -1,17 +1,23 @@
 fields:
-
 - name: suppression_reason
   type: STRING
   mode: NULLABLE
-
+  description: The reason the email address was added to the Campaign Monitor suppression
+    list. Observed values include 'Suppressed', 'Unsubscribed', 'Bounced', and 'MarkedAsSpam'
+    (sampled 2026-05-28).
 - name: email
   type: STRING
   mode: NULLABLE
-
+  description: The email address that has been suppressed in Campaign Monitor. Contains
+    personally identifiable information (PII).
 - name: update_timestamp
   type: TIMESTAMP
   mode: NULLABLE
-
+  description: The timestamp when the suppression record was last updated in Campaign
+    Monitor, as returned by the Campaign Monitor API (sampled 2026-05-28).
 - name: state
   type: STRING
   mode: NULLABLE
+  description: The current state of the email address in Campaign Monitor. All observed
+    values are 'Suppressed', indicating the address is actively suppressed (sampled
+    2026-05-28).
