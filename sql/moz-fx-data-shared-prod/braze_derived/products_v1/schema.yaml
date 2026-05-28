@@ -2,6 +2,9 @@ fields:
 - mode: NULLABLE
   name: external_id
   type: STRING
+  description: The unique identifier for the user in Braze, corresponding to the CTMS
+    email_id (a UUID). Joins to braze_derived.users_v1 to ensure only known Braze
+    users are included. Always populated; ~300k distinct users (sampled 2026-05-28).
 - fields:
   - mode: NULLABLE
     name: provider
@@ -141,3 +144,7 @@ fields:
   mode: REPEATED
   name: products
   type: RECORD
+  description: Array of active and historical Mozilla product subscriptions associated
+    with this user, sourced from subscription_platform.logical_subscriptions. Each
+    element contains subscription details such as provider, product name, billing
+    interval, currency, amounts, status, attribution, and relevant timestamps.
