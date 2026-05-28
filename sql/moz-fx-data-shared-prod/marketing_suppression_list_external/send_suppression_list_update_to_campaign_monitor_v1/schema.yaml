@@ -1,5 +1,7 @@
 fields:
-
 - name: email
   type: STRING
   mode: NULLABLE
+  description: The email address that could not be uploaded to Campaign Monitor due
+    to bad formatting. These addresses are stored here to avoid repeated failed upload
+    attempts. Contains personally identifiable information (PII).
