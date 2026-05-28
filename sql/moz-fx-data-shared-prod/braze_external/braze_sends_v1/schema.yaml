@@ -2,63 +2,98 @@ fields:
 - name: send_id
   type: STRING
   mode: NULLABLE
+  description: Braze send identifier for the message batch.
 - name: send_time
   type: TIMESTAMP
   mode: NULLABLE
+  description: Timestamp when the email was sent.
 - name: user_id
   type: STRING
   mode: NULLABLE
+  description: Braze internal user identifier (24-character hex string) for the user
+    to whom the email was sent.
 - name: dispatch_id
   type: STRING
   mode: NULLABLE
+  description: Braze dispatch identifier (32-character hex string) linking this record
+    to the specific send batch.
 - name: external_user_id
   type: STRING
   mode: NULLABLE
+  description: External (client-side) identifier for the user, typically a UUID.
 - name: timezone
   type: STRING
   mode: NULLABLE
+  description: IANA timezone of the user at send time.
 - name: campaign_id
   type: STRING
   mode: NULLABLE
+  description: Braze campaign UUID for the email that was sent. Null for Canvas-originated
+    sends.
 - name: campaign_name
   type: STRING
   mode: NULLABLE
+  description: Human-readable name of the Braze campaign for the email that was sent.
+    Null for Canvas-originated sends.
 - name: message_variation_id
   type: STRING
   mode: NULLABLE
+  description: Braze message variation UUID within the campaign. Null for Canvas-originated
+    sends.
 - name: message_variation_name
   type: STRING
   mode: NULLABLE
+  description: Human-readable name of the message variation. Null for Canvas-originated
+    sends.
 - name: email_address
   type: STRING
   mode: NULLABLE
+  description: Email address to which the email was sent.
 - name: canvas_id
   type: STRING
   mode: NULLABLE
+  description: Braze Canvas UUID for the message that was sent. Null for direct-campaign
+    sends.
 - name: canvas_name
   type: STRING
   mode: NULLABLE
+  description: Human-readable name of the Canvas that triggered the send. Null for
+    direct-campaign sends.
 - name: canvas_variation_id
   type: STRING
   mode: NULLABLE
+  description: Braze Canvas variation UUID identifying which branch the user was assigned
+    to. Null for direct-campaign sends.
 - name: canvas_variation_name
   type: STRING
   mode: NULLABLE
+  description: Human-readable name of the Canvas variation. Null for direct-campaign
+    sends.
 - name: canvas_step_id
   type: STRING
   mode: NULLABLE
+  description: Braze Canvas step UUID for the step that triggered this send. Null
+    for direct-campaign sends.
 - name: canvas_step_name
   type: STRING
   mode: NULLABLE
+  description: Human-readable name of the Canvas step that triggered this send. Null
+    for direct-campaign sends.
 - name: ip_pool
   type: STRING
   mode: NULLABLE
+  description: Name of the IP pool used to send the email.
 - name: message_extras
   type: STRING
   mode: NULLABLE
+  description: JSON string containing key-value pairs of extra metadata attached to
+    the message at send time via Liquid personalization.
 - name: app_group_id
   type: STRING
   mode: NULLABLE
+  description: Braze app group (workspace) UUID that owns this event.
 - name: fxa_id_sha256
   type: STRING
   mode: NULLABLE
+  description: SHA-256 hash of the user's Firefox Accounts (FxA) user ID, used to
+    link to FxA records without exposing raw identifiers.
