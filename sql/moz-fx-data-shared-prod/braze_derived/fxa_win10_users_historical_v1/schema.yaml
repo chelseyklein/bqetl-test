@@ -2,15 +2,32 @@ fields:
 - name: submission_date
   type: DATE
   mode: NULLABLE
+  description: The date the ETL job ran that identified this user as an inactive Windows
+    10 FxA user (i.e., seen 14–21 days ago but not in the most recent 14 days). Used
+    as the partition date for incremental appends.
 - name: external_id
   type: STRING
   mode: NULLABLE
+  description: The unique identifier for the user in Braze, sourced from the CTMS
+    email_id UUID. When no existing Braze record exists, a synthetic UUID is generated
+    from a random value via SHA-256.
 - name: email
   type: STRING
   mode: NULLABLE
+  description: The primary email address used to contact the user. Sourced from the
+    Braze users table if available, otherwise from the Firefox Accounts emails table.
+    Only users with a non-null email are included.
 - name: locale
   type: STRING
   mode: NULLABLE
+  description: The browser locale of the user's Firefox installation at the time of
+    their most recent fx_accounts ping on Windows 10 (e.g., 'de', 'en-US', 'fr').
+    Only users with locales in a specific set (de, en-US, en-GB, es-ES, fr, it, pl,
+    pt-BR) are included in this table.
 - name: fxa_id_sha256
   type: STRING
   mode: NULLABLE
+  description: SHA-256 hash of the user's Firefox Accounts (FxA) user ID, derived
+    from the client_association_uid metric in the fx_accounts Glean ping. Used to
+    link this record to FxA and accounts-backend data without exposing the raw account
+    identifier.
