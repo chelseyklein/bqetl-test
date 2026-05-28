@@ -15,28 +15,52 @@ fields:
 - mode: NULLABLE
   name: activations_count
   type: INTEGER
+  description: Indicator of whether this client was newly activated on this submission_date;
+    1 if the client appears in the new_profile_activation table with activated > 0,
+    otherwise 0 (sampled 2026-05-28).
 - mode: NULLABLE
   name: active_day_count
   type: INTEGER
+  description: Indicator of whether this client was active on this submission_date;
+    1 if the client sent a baseline ping or has search data for the day, otherwise
+    0 (sampled 2026-05-28).
 - mode: NULLABLE
   name: searches
   type: INTEGER
+  description: Total number of searches performed by this client on this submission_date,
+    sourced from baseline ping metrics for app versions >= 107, or from the mobile_search_clients_daily
+    table for older versions. Null when no search data is available for the client
+    (sampled 2026-05-28).
 - mode: NULLABLE
   name: searches_with_ads
   type: INTEGER
+  description: Total number of searches that returned ads for this client on this
+    submission_date. Null when no search data is available for the client (~84% null
+    rate in sample) (sampled 2026-05-28).
 - mode: NULLABLE
   name: ad_clicks
   type: INTEGER
+  description: Total number of ad clicks recorded for this client on this submission_date,
+    based on the browser_search_ad_clicks metric. Null when no search data is available
+    (~92% null rate in sample) (sampled 2026-05-28).
 - fields:
   - mode: NULLABLE
     name: sent_baseline_ping
     type: BOOLEAN
+    description: True if this client sent a baseline ping on this submission_date;
+      false if the client only appeared via search data (sampled 2026-05-28).
   - mode: NULLABLE
     name: sent_metrics_search_data
     type: BOOLEAN
+    description: True if this client had search data sourced from the metrics ping
+      / mobile_search_clients_daily table on this submission_date; false otherwise.
+      In the sampled data all observed values were false, indicating baseline search
+      data dominates (sampled 2026-05-28).
   - mode: NULLABLE
     name: activated_on_this_day
     type: BOOLEAN
+    description: True if this client was newly activated on this submission_date according
+      to the new_profile_activation table; false otherwise (sampled 2026-05-28).
   mode: NULLABLE
   name: metadata
   type: RECORD
