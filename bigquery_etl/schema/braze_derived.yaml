@@ -1,0 +1,69 @@
+fields:
+- name: external_id
+  description: The unique identifier for the user in Braze, sourced from braze_derived.users_v1
+    when available, or a newly generated SHA-256 UUID for users not yet in the Braze
+    user table. Always populated.
+- name: fxa_id_sha256
+  description: SHA-256 hash of the user's Firefox Accounts (FxA) user ID, derived
+    from the fx_accounts ping's client_association_uid metric. Used to link this re-engagement
+    record back to FxA account data without exposing raw identifiers.
+- name: external_id
+  description: The unique identifier for the user in Braze, corresponding to the CTMS
+    email_id (a UUID). Joins to braze_derived.users_v1 to ensure only known Braze
+    users are included. Always populated; ~106M distinct users (sampled 2026-05-28).
+- name: external_id
+  description: The unique identifier for the user in Braze, corresponding to the CTMS
+    email_id (a UUID). Joins to braze_derived.users_v1 to ensure only known Braze
+    users are included. Always populated; ~300k distinct users (sampled 2026-05-28).
+- name: basket_slug
+  description: The slug identifying the corresponding newsletter or waitlist in Mozilla's
+    Basket email subscription service. Matches the name used in CTMS newsletter and
+    waitlist records.
+- name: braze_subscription_name
+  description: The slug identifying the subscription group in Braze (e.g., 'mozilla-and-you',
+    'guardian-vpn-waitlist'). Used to map CTMS newsletter and waitlist names to their
+    Braze equivalents.
+- name: firefox_subscription_id
+  description: The UUID identifying this subscription group in the Firefox-branded
+    Braze workspace.
+- name: mozilla_dev_subscription_id
+  description: The UUID identifying this subscription group in the Mozilla development/staging
+    Braze workspace, used for testing and QA.
+- name: mozilla_subscription_id
+  description: The UUID identifying this subscription group in the Mozilla production
+    Braze workspace.
+- name: external_id
+  description: The unique identifier for the user in Braze, corresponding to the CTMS
+    email_id (a UUID). Derived from braze_derived.user_profiles_v1 via the subscriptions_map_v1
+    join. Always populated; ~107M distinct users (sampled 2026-05-28).
+- name: basket_token
+  description: A UUID token that uniquely identifies the user in Mozilla's Basket
+    email subscription service. Nearly always populated; NULL for fewer than 0.01%
+    of rows (sampled 2026-05-28).
+- name: external_id
+  description: The unique identifier for the user in Braze, sourced from the CTMS
+    email_id (a UUID). Always populated; ~107M distinct values (sampled 2026-05-28).
+- name: fxa_created_at
+  description: Timestamp when the user's Firefox Accounts (FxA) account was created.
+    NULL for approximately 7.6% of users who have no associated FxA account (sampled
+    2026-05-28).
+- name: fxa_first_service
+  description: The first Mozilla service the user used to create or authenticate their
+    Firefox Accounts (FxA) account (e.g., 'sync', 'fenix', 'pocket-web', 'firefox-ios').
+    NULL for approximately 48.6% of users (sampled 2026-05-28).
+- name: fxa_id_sha256
+  description: SHA-256 hash of the user's Firefox Accounts (FxA) user ID, used to
+    join to FxA records without exposing raw account identifiers. NULL for approximately
+    7.5% of users who have no associated FxA account (sampled 2026-05-28).
+- name: fxa_lang
+  description: The browser-reported Accept-Language string from the user's Firefox
+    Accounts session (e.g., 'en-us,en;q=0.5'). NULL for approximately 47% of users
+    where FxA language data is unavailable (sampled 2026-05-28).
+- name: has_fxa
+  description: True if the user has an active, non-deleted Firefox Accounts (FxA)
+    account linked to their email; false otherwise. Approximately 92.5% of users in
+    this table have an FxA account (sampled 2026-05-28).
+- name: external_id
+  description: The unique identifier for the user in Braze, corresponding to the CTMS
+    email_id (a UUID). Joins to braze_derived.users_v1 to ensure only known Braze
+    users are included. Always populated; ~2.9M distinct users (sampled 2026-05-28).
