@@ -1,0 +1,319 @@
+fields:
+- name: activations
+  description: The count of new profiles that met the activation criterion (returning
+    to use the browser within the first week) within this row's dimensions.
+- name: adjust_ad_group
+  description: The Adjust ad group name associated with the campaign that sourced
+    the installation.
+- name: adjust_campaign
+  description: The Adjust campaign name associated with the installation attribution.
+- name: adjust_creative
+  description: The Adjust creative identifier for the ad unit associated with the
+    installation attribution.
+- name: city
+  description: Name of the city in which the activity took place, as determined by
+    IP geolocation.
+- name: device_manufacturer
+  description: The manufacturer of the device the application is running on (e.g.
+    Samsung, Xiaomi). Not set if the device manufacturer cannot be determined.
+- name: device_type
+  description: The category of the device (e.g. phone, tablet) on which the application
+    is running.
+- name: geo_subdivision
+  description: The geographic subdivision (e.g. state or province) of the client,
+    as determined by IP geolocation.
+- name: install_source
+  description: The source from which the app was installed (e.g. com.android.vending
+    for Google Play Store, Unknown when not determinable).
+- name: meta_attribution_app
+  description: The Meta (Facebook) attribution app identifier associated with the
+    client's installation.
+- name: new_profiles
+  description: The count of new Firefox for Android profiles first seen on first_seen_date,
+    grouped by this row's dimensions.
+- name: play_store_attribution_campaign
+  description: The Google Play Store attribution campaign name associated with the
+    client's installation.
+- name: play_store_attribution_content
+  description: The Google Play Store attribution content parameter associated with
+    the client's installation.
+- name: play_store_attribution_medium
+  description: The Google Play Store attribution medium (e.g. organic, cpc) associated
+    with the client's installation.
+- name: play_store_attribution_source
+  description: The Google Play Store attribution source associated with the client's
+    installation.
+- name: play_store_attribution_term
+  description: The Google Play Store attribution search term associated with the client's
+    installation.
+- name: retained_week_4
+  description: The count of new profiles from first_seen_date that were still active
+    approximately 4 weeks later, used to measure early retention.
+- name: active_hours
+  description: The total number of hours clients in this dimension grouping spent
+    actively using the browser on the submission_date.
+- name: ad_clicks
+  description: The total number of ad clicks recorded on search engine result pages
+    for clients in this dimension grouping.
+- name: attributed
+  description: True if the client has a known attribution source; false if the install
+    was organic or attribution data is unavailable.
+- name: city
+  description: Name of the city in which the activity took place, as determined by
+    IP geolocation.
+- name: daily_users
+  description: The count of clients that sent at least one ping on the submission_date,
+    representing daily active users (deprecated alias; prefer dau).
+- name: first_seen_year
+  description: The calendar year in which the client's profile was first seen, used
+    for cohort-level analysis.
+- name: language_name
+  description: The display name of the user interface language selected in the application
+    (e.g. English, German).
+- name: monthly_users
+  description: The count of clients active in the 28-day window ending on submission_date
+    (deprecated alias; prefer mau).
+- name: montly_users
+  description: 'The count of clients active in the 28-day window ending on submission_date.
+    Note: this field name contains a typo (montly instead of monthly); prefer mau
+    for analysis.'
+- name: new_profiles
+  description: The count of new Firefox for Android client profiles first seen on
+    submission_date for this row's dimension grouping.
+- name: organic_search_count
+  description: The total number of organic (non-SAP) searches performed by clients
+    in this dimension grouping.
+- name: partition_date
+  description: The date used to partition this table, typically matching submission_date
+    and used for efficient query filtering.
+- name: search_count
+  description: The total number of searches performed by clients in this dimension
+    grouping.
+- name: search_with_ads
+  description: The total number of searches that showed ads on the search engine result
+    page for clients in this dimension grouping.
+- name: uri_count
+  description: The total number of URIs visited by clients in this dimension grouping
+    on the submission_date.
+- name: weekly_users
+  description: The count of clients active in the 7-day window ending on submission_date
+    (deprecated alias; prefer wau).
+- name: active_hours
+  description: The total number of hours clients in this dimension grouping spent
+    actively using the browser on the submission_date.
+- name: ad_clicks
+  description: The total number of ad clicks recorded on search engine result pages
+    for clients in this dimension grouping.
+- name: attributed
+  description: True if the client has a known attribution source; false if the install
+    was organic or attribution data is unavailable.
+- name: city
+  description: Name of the city in which the activity took place, as determined by
+    IP geolocation.
+- name: first_seen_year
+  description: The calendar year in which the client's profile was first seen, used
+    for cohort-level analysis.
+- name: language_name
+  description: The display name of the user interface language selected in the application
+    (e.g. English, German).
+- name: new_profiles
+  description: The count of new Firefox for Android client profiles first seen on
+    submission_date for this row's dimension grouping.
+- name: organic_search_count
+  description: The total number of organic (non-SAP) searches performed by clients
+    in this dimension grouping.
+- name: search_count
+  description: The total number of searches performed by clients in this dimension
+    grouping.
+- name: search_with_ads
+  description: The total number of searches that showed ads on the search engine result
+    page for clients in this dimension grouping.
+- name: uri_count
+  description: The total number of URIs visited by clients in this dimension grouping
+    on the submission_date.
+- name: active_hours
+  description: The total number of hours clients in this dimension grouping spent
+    actively using the browser on the submission_date.
+- name: ad_clicks
+  description: The total number of ad clicks recorded on search engine result pages
+    for clients in this dimension grouping.
+- name: attributed
+  description: True if the client has a known attribution source; false if the install
+    was organic or attribution data is unavailable.
+- name: city
+  description: Name of the city in which the activity took place, as determined by
+    IP geolocation.
+- name: first_seen_year
+  description: The calendar year in which the client's profile was first seen, used
+    for cohort-level analysis.
+- name: install_source
+  description: The source from which the app was installed (e.g. com.android.vending
+    for Google Play Store, Unknown when not determinable).
+- name: language_name
+  description: The display name of the user interface language selected in the application
+    (e.g. English, German).
+- name: new_profiles
+  description: The count of new Firefox for Android client profiles first seen on
+    submission_date for this row's dimension grouping.
+- name: organic_search_count
+  description: The total number of organic (non-SAP) searches performed by clients
+    in this dimension grouping.
+- name: search_count
+  description: The total number of searches performed by clients in this dimension
+    grouping.
+- name: search_with_ads
+  description: The total number of searches that showed ads on the search engine result
+    page for clients in this dimension grouping.
+- name: uri_count
+  description: The total number of URIs visited by clients in this dimension grouping
+    on the submission_date.
+- name: active_hours
+  description: The total hours clients in this dimension grouping spent actively using
+    the browser. Null in 100% of sampled rows for this table version (sampled 2026-05-28).
+- name: attributed
+  description: True if the client has a known attribution source; false if the install
+    was organic or attribution is unavailable. All sampled rows were false, consistent
+    with attribution_medium and attribution_source being null (sampled 2026-05-28).
+- name: city
+  description: Name of the city in which the activity took place, as determined by
+    IP geolocation. Null in 100% of sampled rows for this table version (sampled 2026-05-28).
+- name: daily_users
+  description: The count of clients that reported activity on the submission_date
+    within this dimension grouping (sampled 2026-05-28).
+- name: first_seen_year
+  description: The calendar year in which the client's profile was first seen, used
+    for cohort-level analysis. Ranges from 2017 to 2026 (sampled 2026-05-28).
+- name: install_source
+  description: The source from which the app was installed (e.g. com.android.vending
+    for Google Play Store, Unknown, Other). Null in ~3% of rows (sampled 2026-05-28).
+- name: monthly_users
+  description: The count of clients active in the 28-day window ending on submission_date
+    within this dimension grouping (sampled 2026-05-28).
+- name: uri_count
+  description: The total number of URIs visited by clients in this dimension grouping.
+    Null in ~53% of rows, populated only for active clients with tracked URI activity
+    (sampled 2026-05-28).
+- name: weekly_users
+  description: The count of clients active in the 7-day window ending on submission_date
+    within this dimension grouping (sampled 2026-05-28).
+- name: adjust_ad_group
+  description: The Adjust ad group name for the campaign associated with the installation.
+    Null in ~99% of rows (sampled 2026-05-28).
+- name: adjust_campaign
+  description: The Adjust campaign name associated with the installation attribution.
+    Null in ~99% of rows (sampled 2026-05-28).
+- name: adjust_creative
+  description: The Adjust creative identifier for the ad unit associated with the
+    installation. Null in ~99% of rows (sampled 2026-05-28).
+- name: android_version
+  description: The Android OS version string on the client device (e.g. 16, 15, 13).
+    Null in ~91% of rows (sampled 2026-05-28).
+- name: default_browser
+  description: The count of times clients in this cohort set Firefox for Android as
+    the default browser during or after onboarding. Null in ~91% of rows (sampled
+    2026-05-28).
+- name: device_manufacturer
+  description: The manufacturer of the device running the application (e.g. samsung,
+    Xiaomi, OPPO). Null in ~91% of rows (sampled 2026-05-28).
+- name: device_model
+  description: The marketing model name of the device running the application (e.g.
+    SM-S928B). Null in ~91% of rows (sampled 2026-05-28).
+- name: first_card_impression
+  description: The count of times the first onboarding card was shown to clients in
+    this cohort. Null in ~91% of rows (sampled 2026-05-28).
+- name: first_card_primary_click
+  description: The count of primary button clicks on the first onboarding card (e.g.
+    accepting a prompt). Null in ~91% of rows (sampled 2026-05-28).
+- name: first_card_secondary_click
+  description: The count of secondary button clicks on the first onboarding card (e.g.
+    skipping a prompt). Null in ~91% of rows (sampled 2026-05-28).
+- name: funnel
+  description: The funnel category for this row; always onboarding_funnel, identifying
+    all rows as belonging to the Firefox for Android onboarding analysis (sampled
+    2026-05-28).
+- name: funnel_id
+  description: A string encoding the ordered sequence of onboarding cards presented
+    to the user (e.g. terms_of_service_default_search_widget_sync_notification_toolbar_placement).
+    Null in ~91% of rows where users did not complete a new-profile cohort day (sampled
+    2026-05-28).
+- name: install_source
+  description: The source from which the app was installed (e.g. Unknown, com.android.vending).
+    Null in ~91% of rows (sampled 2026-05-28).
+- name: new_profile
+  description: The count of new browser profiles recorded on first_seen_date within
+    this funnel cohort. Null in ~91% of rows (sampled 2026-05-28).
+- name: onboarding_completed
+  description: The count of times clients in this cohort completed the full onboarding
+    flow. Null in ~91% of rows (sampled 2026-05-28).
+- name: repeat_first_month_user
+  description: True if the client returned to use the browser more than once within
+    their first calendar month. Null in ~91% of rows where not applicable (sampled
+    2026-05-28).
+- name: retained_week_2
+  description: True if the client returned to use the browser approximately 2 weeks
+    after first_seen_date. Null in 100% of sampled rows, indicating this metric is
+    not yet populated (sampled 2026-05-28).
+- name: retained_week_4
+  description: True if the client returned to use the browser approximately 4 weeks
+    after first_seen_date. Null in ~91% of rows where not yet applicable (sampled
+    2026-05-28).
+- name: second_card_impression
+  description: The count of times the second onboarding card was shown to clients
+    in this cohort. Null in ~91% of rows (sampled 2026-05-28).
+- name: second_card_primary_click
+  description: The count of primary button clicks on the second onboarding card. Null
+    in ~91% of rows (sampled 2026-05-28).
+- name: second_card_secondary_click
+  description: The count of secondary button clicks on the second onboarding card.
+    Null in ~91% of rows (sampled 2026-05-28).
+- name: sync_sign_in
+  description: The count of times clients in this cohort clicked the Sign In button
+    from the sync onboarding card. Null in ~91% of rows (sampled 2026-05-28).
+- name: third_card_impression
+  description: The count of times the third onboarding card was shown to clients in
+    this cohort. Null in ~91% of rows (sampled 2026-05-28).
+- name: third_card_primary_click
+  description: The count of primary button clicks on the third onboarding card. Null
+    in ~91% of rows (sampled 2026-05-28).
+- name: third_card_secondary_click
+  description: The count of secondary button clicks on the third onboarding card.
+    Null in ~91% of rows (sampled 2026-05-28).
+- name: activated
+  description: True if the client met the new-profile activation criterion (returned
+    to use the browser within the first week). False in ~99.8% of sampled rows, as
+    activation is rare on any given day (sampled 2026-05-28).
+- name: ad_clicks
+  description: The total number of ad clicks on search engine result pages recorded
+    for the client on submission_date. Null in ~94% of rows when no ad clicks occurred
+    (sampled 2026-05-28).
+- name: adjust_adgroup
+  description: The Adjust ad group name for the campaign that sourced the installation
+    (e.g. a specific keyword group). Empty string when not applicable (sampled 2026-05-28).
+- name: adjust_campaign
+  description: The Adjust campaign name associated with the installation attribution
+    (e.g. gads_v2_firefox_challengeTheDefault_...). Empty string for organic installs
+    (sampled 2026-05-28).
+- name: adjust_creative
+  description: The Adjust creative identifier for the ad unit that drove the installation
+    (e.g. Search GoogleSearch, Display). Empty string for organic installs (sampled
+    2026-05-28).
+- name: cohort_date
+  description: The date the client's profile was first seen (first_seen_date), used
+    to group clients into acquisition cohorts. Ranges across several years of historical
+    data (sampled 2026-05-28).
+- name: is_new_install
+  description: True if the client both first appeared on submission_date and reported
+    a first-session ping on that date, indicating a fresh installation. False for
+    returning profiles (sampled 2026-05-28).
+- name: is_new_profile
+  description: True if the client's cohort_date equals the submission_date, indicating
+    the profile was created on that day. False for previously seen profiles (sampled
+    2026-05-28).
+- name: searches
+  description: The total number of searches performed by the client on submission_date,
+    sourced from in-content search metrics (Fenix >= 107) or mobile_search_clients_daily.
+    Null in ~61% of rows when no search activity was recorded (sampled 2026-05-28).
+- name: searches_with_ads
+  description: The total number of searches where ads were shown on the search engine
+    result page on submission_date. Null in ~87% of rows when no ad-showing searches
+    occurred (sampled 2026-05-28).
