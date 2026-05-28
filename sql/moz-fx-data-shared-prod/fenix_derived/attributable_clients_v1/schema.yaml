@@ -6,6 +6,9 @@ fields:
 - name: cohort_date
   type: DATE
   mode: NULLABLE
+  description: The date the client's profile was first seen (first_seen_date), used
+    to group clients into acquisition cohorts. Ranges across several years of historical
+    data (sampled 2026-05-28).
 - name: sample_id
   type: INTEGER
   mode: NULLABLE
@@ -27,27 +30,53 @@ fields:
 - name: adjust_adgroup
   type: STRING
   mode: NULLABLE
+  description: The Adjust ad group name for the campaign that sourced the installation
+    (e.g. a specific keyword group). Empty string when not applicable (sampled 2026-05-28).
 - name: adjust_campaign
   type: STRING
   mode: NULLABLE
+  description: The Adjust campaign name associated with the installation attribution
+    (e.g. gads_v2_firefox_challengeTheDefault_...). Empty string for organic installs
+    (sampled 2026-05-28).
 - name: adjust_creative
   type: STRING
   mode: NULLABLE
+  description: The Adjust creative identifier for the ad unit that drove the installation
+    (e.g. Search GoogleSearch, Display). Empty string for organic installs (sampled
+    2026-05-28).
 - name: is_new_install
   type: BOOLEAN
   mode: NULLABLE
+  description: True if the client both first appeared on submission_date and reported
+    a first-session ping on that date, indicating a fresh installation. False for
+    returning profiles (sampled 2026-05-28).
 - name: is_new_profile
   type: BOOLEAN
   mode: NULLABLE
+  description: True if the client's cohort_date equals the submission_date, indicating
+    the profile was created on that day. False for previously seen profiles (sampled
+    2026-05-28).
 - name: searches
   type: INTEGER
   mode: NULLABLE
+  description: The total number of searches performed by the client on submission_date,
+    sourced from in-content search metrics (Fenix >= 107) or mobile_search_clients_daily.
+    Null in ~61% of rows when no search activity was recorded (sampled 2026-05-28).
 - name: searches_with_ads
   type: INTEGER
   mode: NULLABLE
+  description: The total number of searches where ads were shown on the search engine
+    result page on submission_date. Null in ~87% of rows when no ad-showing searches
+    occurred (sampled 2026-05-28).
 - name: ad_clicks
   type: INTEGER
   mode: NULLABLE
+  description: The total number of ad clicks on search engine result pages recorded
+    for the client on submission_date. Null in ~94% of rows when no ad clicks occurred
+    (sampled 2026-05-28).
 - name: activated
   type: BOOLEAN
   mode: NULLABLE
+  description: True if the client met the new-profile activation criterion (returned
+    to use the browser within the first week). False in ~99.8% of sampled rows, as
+    activation is rare on any given day (sampled 2026-05-28).
