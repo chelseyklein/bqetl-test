@@ -2,9 +2,16 @@ fields:
 - mode: NULLABLE
   name: UPDATED_AT
   type: TIMESTAMP
+  description: Timestamp when this sync record was generated, set to the current timestamp
+    at ETL execution time.
 - mode: NULLABLE
   name: EXTERNAL_ID
   type: STRING
+  description: A synthetic external user identifier for this add-ons developer, constructed
+    as 'add-ons-devs-' followed by a 23-character hex-encoded hash of a random UUID.
 - mode: NULLABLE
   name: PAYLOAD
   type: JSON
+  description: JSON payload sent to Braze containing the developer's email address,
+    global email subscription status ('subscribed'), and their subscription group
+    memberships for the add-ons developers subscription group.
