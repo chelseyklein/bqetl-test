@@ -2,6 +2,9 @@ fields:
 - mode: NULLABLE
   name: external_id
   type: STRING
+  description: The unique identifier for the user in Braze, corresponding to the CTMS
+    email_id (a UUID). Joins to braze_derived.users_v1 to ensure only known Braze
+    users are included. Always populated; ~106M distinct users (sampled 2026-05-28).
 - fields:
   - mode: NULLABLE
     name: newsletter_name
@@ -24,3 +27,8 @@ fields:
   mode: REPEATED
   name: newsletters
   type: RECORD
+  description: Array of newsletter subscription records for this user sourced from
+    ctms_braze.ctms_newsletters, ordered by update time and name. Only users with
+    at least one active subscription (subscribed = TRUE) are included. Each element
+    captures the newsletter name, subscription status, language, source, and creation/update
+    timestamps.
