@@ -1,0 +1,567 @@
+fields:
+- name: active_hours_mean
+  description: Array of statistical summaries (mean with confidence intervals) for
+    the active_hours metric per experiment branch.
+- name: ad_clicks_mean
+  description: Array of statistical summaries (mean with confidence intervals) for
+    the ad_clicks metric per experiment branch.
+- name: branch
+  description: The experiment branch for which statistics are reported (e.g. 'enabled'
+    or 'disabled').
+- name: build_id
+  description: The Firefox build identifier used to segment statistics; NULL when
+    the experiment is not build-specific.
+- name: days_of_use_mean
+  description: Array of statistical summaries (mean with confidence intervals) for
+    the days_of_use metric per experiment branch.
+- name: memory_total_percentile
+  description: Array of statistical summaries (percentile distribution with confidence
+    intervals) for the memory_total metric per experiment branch.
+- name: qualified_cumulative_days_of_use_mean
+  description: Array of statistical summaries (mean with confidence intervals) for
+    the qualified_cumulative_days_of_use metric, indicating average cumulative qualified
+    usage days per branch.
+- name: retained_mean
+  description: Array of statistical summaries (mean with confidence intervals) for
+    the retained metric, broken down by statistic type and optional parameter.
+- name: search_count_mean
+  description: Array of statistical summaries (mean with confidence intervals) for
+    the search_count metric per experiment branch.
+- name: uri_count_mean
+  description: Array of statistical summaries (mean with confidence intervals) for
+    the uri_count metric per experiment branch.
+- name: active_hours
+  description: The total number of hours the client was actively browsing on the submission
+    date, measured in fractional hours.
+- name: ad_clicks
+  description: The total number of advertisement clicks recorded for the client on
+    the submission date.
+- name: branch
+  description: The experiment branch to which the client was assigned (e.g. 'enabled'
+    or 'disabled').
+- name: build_id
+  description: The Firefox build identifier associated with the client's submission,
+    used to segment results by browser build.
+- name: days_of_use
+  description: The number of days the client actively used Firefox on the submission
+    date, typically 1 for daily snapshots.
+- name: qualified_cumulative_days_of_use
+  description: The cumulative number of qualified days of use for the client up to
+    and including the submission date; a day qualifies if the client met minimum activity
+    thresholds.
+- name: retained
+  description: Whether the client was retained on this submission date; 1 indicates
+    the client was active and retained, 0 indicates not retained.
+- name: search_count
+  description: The total number of searches performed by the client on the submission
+    date across all search engines.
+- name: uri_count
+  description: The total number of URIs (web pages) visited by the client on the submission
+    date.
+- name: active_hours_mean
+  description: Array of statistical summaries (mean with confidence intervals) for
+    the active_hours metric per branch.
+- name: ad_clicks_mean
+  description: Array of statistical summaries (mean with confidence intervals) for
+    the ad_clicks metric per branch.
+- name: branch
+  description: The rollout branch for which statistics are reported, either 'enabled'
+    or 'disabled'.
+- name: build_id
+  description: The Firefox build identifier used to segment statistics; NULL when
+    the experiment is not build-specific.
+- name: days_of_use_mean
+  description: Array of statistical summaries (mean with confidence intervals) for
+    the days_of_use metric per branch.
+- name: memory_total_percentile
+  description: Array of statistical summaries (percentile distribution with confidence
+    intervals) for the memory_total metric per branch.
+- name: qualified_cumulative_days_of_use_mean
+  description: Array of statistical summaries (mean with confidence intervals) for
+    the qualified_cumulative_days_of_use metric per branch.
+- name: retained_mean
+  description: Array of statistical summaries (mean with confidence intervals) for
+    the retained metric per branch.
+- name: search_count_mean
+  description: Array of statistical summaries (mean with confidence intervals) for
+    the search_count metric per branch.
+- name: uri_count_mean
+  description: Array of statistical summaries (mean with confidence intervals) for
+    the uri_count metric per branch.
+- name: active_hours
+  description: The total number of hours the client spent actively browsing on the
+    submission date, measured in fractional hours.
+- name: ad_clicks
+  description: The total number of advertisement clicks recorded for the client on
+    the submission date.
+- name: branch
+  description: The rollout branch assigned to this client, either 'enabled' (enrolled
+    in the chatbot callout treatment) or 'disabled' (control group).
+- name: build_id
+  description: The Firefox build identifier for this client's submission; NULL when
+    the experiment is not build-specific (sampled 2026-05-28).
+- name: days_of_use
+  description: The number of days the client was active on the submission date, typically
+    1 for daily snapshots.
+- name: qualified_cumulative_days_of_use
+  description: Cumulative count of qualified days of use for the client; 1 if the
+    client met daily activity thresholds, 0 otherwise.
+- name: retained
+  description: Indicates whether the client was retained on this submission date;
+    always 1 in this table, signifying each row represents an active, retained client.
+- name: search_count
+  description: The total number of searches performed by the client on the submission
+    date across all search engines.
+- name: uri_count
+  description: The total number of URIs (web pages) visited by the client on the submission
+    date.
+- name: active_hours_mean
+  description: Array of statistical summaries (mean with confidence intervals) for
+    the active_hours metric per branch.
+- name: ad_clicks_mean
+  description: Array of statistical summaries (mean with confidence intervals) for
+    the ad_clicks metric per branch.
+- name: branch
+  description: The rollout branch for which statistics are reported, either 'enabled'
+    or 'disabled'.
+- name: build_id
+  description: The Firefox build identifier used to segment statistics; NULL when
+    the experiment is not build-specific.
+- name: days_of_use_mean
+  description: Array of statistical summaries (mean with confidence intervals) for
+    the days_of_use metric per branch.
+- name: memory_total_percentile
+  description: Array of statistical summaries (percentile distribution with confidence
+    intervals) for the memory_total metric per branch.
+- name: qualified_cumulative_days_of_use_mean
+  description: Array of statistical summaries (mean with confidence intervals) for
+    the qualified_cumulative_days_of_use metric per branch.
+- name: retained_mean
+  description: Array of statistical summaries (mean with confidence intervals) for
+    the retained metric per branch.
+- name: search_count_mean
+  description: Array of statistical summaries (mean with confidence intervals) for
+    the search_count metric per branch.
+- name: uri_count_mean
+  description: Array of statistical summaries (mean with confidence intervals) for
+    the uri_count metric per branch.
+- name: active_hours
+  description: The total number of hours the client was actively browsing on the submission
+    date, expressed in fractional hours.
+- name: ad_clicks
+  description: The total number of advertisement clicks recorded for the client on
+    the submission date.
+- name: branch
+  description: The rollout branch assigned to this client (e.g. 'enabled' or 'disabled').
+- name: build_id
+  description: The Firefox build identifier for this client's submission; used to
+    segment results by browser build version.
+- name: days_of_use
+  description: The number of days the client was active on the submission date, typically
+    1 for daily snapshots.
+- name: qualified_cumulative_days_of_use
+  description: Cumulative count of qualified days of use for the client up to and
+    including the submission date.
+- name: retained
+  description: Whether the client was retained on this submission date; 1 indicates
+    an active retained client.
+- name: search_count
+  description: The total number of searches performed by the client on the submission
+    date.
+- name: uri_count
+  description: The total number of URIs (web pages) visited by the client on the submission
+    date.
+- name: active_hours_mean
+  description: Array of statistical summaries (mean with confidence intervals) for
+    the active_hours metric per branch.
+- name: ad_clicks_mean
+  description: Array of statistical summaries (mean with confidence intervals) for
+    the ad_clicks metric per branch.
+- name: branch
+  description: The rollout branch for which statistics are reported, either 'enabled'
+    or 'disabled'.
+- name: build_id
+  description: The Firefox build identifier used to segment statistics; NULL when
+    the experiment is not build-specific.
+- name: days_of_use_mean
+  description: Array of statistical summaries (mean with confidence intervals) for
+    the days_of_use metric per branch.
+- name: memory_total_percentile
+  description: Array of statistical summaries (percentile distribution with confidence
+    intervals) for the memory_total metric per branch.
+- name: qualified_cumulative_days_of_use_mean
+  description: Array of statistical summaries (mean with confidence intervals) for
+    the qualified_cumulative_days_of_use metric per branch.
+- name: retained_mean
+  description: Array of statistical summaries (mean with confidence intervals) for
+    the retained metric per branch.
+- name: search_count_mean
+  description: Array of statistical summaries (mean with confidence intervals) for
+    the search_count metric per branch.
+- name: uri_count_mean
+  description: Array of statistical summaries (mean with confidence intervals) for
+    the uri_count metric per branch.
+- name: active_hours
+  description: The total number of hours the client was actively browsing on the submission
+    date, expressed in fractional hours.
+- name: ad_clicks
+  description: The total number of advertisement clicks recorded for the client on
+    the submission date.
+- name: branch
+  description: The rollout branch assigned to this client (e.g. 'enabled' or 'disabled').
+- name: build_id
+  description: The Firefox build identifier for this client's submission; used to
+    segment results by browser build version.
+- name: days_of_use
+  description: The number of days the client was active on the submission date, typically
+    1 for daily snapshots.
+- name: qualified_cumulative_days_of_use
+  description: Cumulative count of qualified days of use for the client up to and
+    including the submission date.
+- name: retained
+  description: Whether the client was retained on this submission date; 1 indicates
+    an active retained client.
+- name: search_count
+  description: The total number of searches performed by the client on the submission
+    date.
+- name: uri_count
+  description: The total number of URIs (web pages) visited by the client on the submission
+    date.
+- name: active_hours_mean
+  description: Array of statistical summaries (mean with confidence intervals) for
+    the active_hours metric per branch.
+- name: ad_clicks_mean
+  description: Array of statistical summaries (mean with confidence intervals) for
+    the ad_clicks metric per branch.
+- name: branch
+  description: The experiment branch for which statistics are reported, either 'enabled'
+    or 'disabled'.
+- name: build_id
+  description: The Firefox build identifier used to segment statistics; NULL when
+    the experiment is not build-specific.
+- name: days_of_use_mean
+  description: Array of statistical summaries (mean with confidence intervals) for
+    the days_of_use metric per branch.
+- name: memory_total_percentile
+  description: Array of statistical summaries (percentile distribution with confidence
+    intervals) for the memory_total metric per branch.
+- name: qualified_cumulative_days_of_use_mean
+  description: Array of statistical summaries (mean with confidence intervals) for
+    the qualified_cumulative_days_of_use metric per branch.
+- name: retained_mean
+  description: Array of statistical summaries (mean with confidence intervals) for
+    the retained metric per branch.
+- name: search_count_mean
+  description: Array of statistical summaries (mean with confidence intervals) for
+    the search_count metric per branch.
+- name: uri_count_mean
+  description: Array of statistical summaries (mean with confidence intervals) for
+    the uri_count metric per branch.
+- name: active_hours
+  description: The total number of hours the client was actively browsing on the submission
+    date, expressed in fractional hours.
+- name: ad_clicks
+  description: The total number of advertisement clicks recorded for the client on
+    the submission date.
+- name: branch
+  description: The experiment branch assigned to this client (e.g. 'enabled' or 'disabled').
+- name: build_id
+  description: The Firefox build identifier for this client's submission; used to
+    segment results by browser build version.
+- name: days_of_use
+  description: The number of days the client was active on the submission date, typically
+    1 for daily snapshots.
+- name: qualified_cumulative_days_of_use
+  description: Cumulative count of qualified days of use for the client up to and
+    including the submission date.
+- name: retained
+  description: Whether the client was retained on this submission date; 1 indicates
+    an active retained client.
+- name: search_count
+  description: The total number of searches performed by the client on the submission
+    date.
+- name: uri_count
+  description: The total number of URIs (web pages) visited by the client on the submission
+    date.
+- name: active_hours_mean
+  description: Array of statistical summaries (mean with confidence intervals) for
+    the active_hours metric per branch.
+- name: ad_clicks_mean
+  description: Array of statistical summaries (mean with confidence intervals) for
+    the ad_clicks metric per branch.
+- name: branch
+  description: The experiment branch for which statistics are reported, either 'enabled'
+    or 'disabled'.
+- name: build_id
+  description: The Firefox build identifier used to segment statistics; NULL when
+    the experiment is not build-specific.
+- name: days_of_use_mean
+  description: Array of statistical summaries (mean with confidence intervals) for
+    the days_of_use metric per branch.
+- name: memory_total_percentile
+  description: Array of statistical summaries (percentile distribution with confidence
+    intervals) for the memory_total metric per branch.
+- name: qualified_cumulative_days_of_use_mean
+  description: Array of statistical summaries (mean with confidence intervals) for
+    the qualified_cumulative_days_of_use metric per branch.
+- name: retained_mean
+  description: Array of statistical summaries (mean with confidence intervals) for
+    the retained metric per branch.
+- name: search_count_mean
+  description: Array of statistical summaries (mean with confidence intervals) for
+    the search_count metric per branch.
+- name: uri_count_mean
+  description: Array of statistical summaries (mean with confidence intervals) for
+    the uri_count metric per branch.
+- name: active_hours
+  description: The total number of hours the client was actively browsing on the submission
+    date, expressed in fractional hours.
+- name: ad_clicks
+  description: The total number of advertisement clicks recorded for the client on
+    the submission date.
+- name: branch
+  description: The experiment branch assigned to this client (e.g. 'enabled' or 'disabled').
+- name: build_id
+  description: The Firefox build identifier for this client's submission; used to
+    segment results by browser build version.
+- name: days_of_use
+  description: The number of days the client was active on the submission date, typically
+    1 for daily snapshots.
+- name: qualified_cumulative_days_of_use
+  description: Cumulative count of qualified days of use for the client up to and
+    including the submission date.
+- name: retained
+  description: Whether the client was retained on this submission date; 1 indicates
+    an active retained client.
+- name: search_count
+  description: The total number of searches performed by the client on the submission
+    date.
+- name: uri_count
+  description: The total number of URIs (web pages) visited by the client on the submission
+    date.
+- name: active_hours_mean
+  description: Array of statistical summaries (mean with confidence intervals) for
+    the active_hours metric per branch.
+- name: ad_clicks_mean
+  description: Array of statistical summaries (mean with confidence intervals) for
+    the ad_clicks metric per branch.
+- name: branch
+  description: The rollout branch for which statistics are reported, either 'enabled'
+    or 'disabled'.
+- name: build_id
+  description: The Firefox build identifier used to segment statistics; NULL when
+    the experiment is not build-specific.
+- name: days_of_use_mean
+  description: Array of statistical summaries (mean with confidence intervals) for
+    the days_of_use metric per branch.
+- name: memory_total_percentile
+  description: Array of statistical summaries (percentile distribution with confidence
+    intervals) for the memory_total metric per branch.
+- name: qualified_cumulative_days_of_use_mean
+  description: Array of statistical summaries (mean with confidence intervals) for
+    the qualified_cumulative_days_of_use metric per branch.
+- name: retained_mean
+  description: Array of statistical summaries (mean with confidence intervals) for
+    the retained metric per branch.
+- name: search_count_mean
+  description: Array of statistical summaries (mean with confidence intervals) for
+    the search_count metric per branch.
+- name: uri_count_mean
+  description: Array of statistical summaries (mean with confidence intervals) for
+    the uri_count metric per branch.
+- name: active_hours
+  description: The total number of hours the client was actively browsing on the submission
+    date, expressed in fractional hours.
+- name: ad_clicks
+  description: The total number of advertisement clicks recorded for the client on
+    the submission date.
+- name: branch
+  description: The rollout branch assigned to this client (e.g. 'enabled' or 'disabled').
+- name: build_id
+  description: The Firefox build identifier for this client's submission; used to
+    segment results by browser build version.
+- name: days_of_use
+  description: The number of days the client was active on the submission date, typically
+    1 for daily snapshots.
+- name: qualified_cumulative_days_of_use
+  description: Cumulative count of qualified days of use for the client up to and
+    including the submission date.
+- name: retained
+  description: Whether the client was retained on this submission date; 1 indicates
+    an active retained client.
+- name: search_count
+  description: The total number of searches performed by the client on the submission
+    date.
+- name: uri_count
+  description: The total number of URIs (web pages) visited by the client on the submission
+    date.
+- name: active_hours_mean
+  description: Array of statistical summaries (mean with confidence intervals) for
+    the active_hours metric per branch.
+- name: ad_clicks_mean
+  description: Array of statistical summaries (mean with confidence intervals) for
+    the ad_clicks metric per branch.
+- name: branch
+  description: The rollout branch for which statistics are reported, either 'enabled'
+    or 'disabled'.
+- name: build_id
+  description: The Firefox build identifier used to segment statistics; NULL when
+    the rollout is not build-specific.
+- name: days_of_use_mean
+  description: Array of statistical summaries (mean with confidence intervals) for
+    the days_of_use metric per branch.
+- name: memory_total_percentile
+  description: Array of statistical summaries (percentile distribution with confidence
+    intervals) for the memory_total metric per branch.
+- name: qualified_cumulative_days_of_use_mean
+  description: Array of statistical summaries (mean with confidence intervals) for
+    the qualified_cumulative_days_of_use metric per branch.
+- name: retained_mean
+  description: Array of statistical summaries (mean with confidence intervals) for
+    the retained metric per branch.
+- name: search_count_mean
+  description: Array of statistical summaries (mean with confidence intervals) for
+    the search_count metric per branch.
+- name: uri_count_mean
+  description: Array of statistical summaries (mean with confidence intervals) for
+    the uri_count metric per branch.
+- name: active_hours
+  description: The total number of hours the client was actively browsing on the submission
+    date, expressed in fractional hours.
+- name: ad_clicks
+  description: The total number of advertisement clicks recorded for the client on
+    the submission date.
+- name: branch
+  description: The rollout branch assigned to this client, either 'enabled' (receiving
+    OS notification) or 'disabled' (control group).
+- name: build_id
+  description: The Firefox build identifier for this client's submission; NULL when
+    the rollout is not build-specific.
+- name: days_of_use
+  description: The number of days the client was active on the submission date, typically
+    1 for daily snapshots.
+- name: qualified_cumulative_days_of_use
+  description: Cumulative count of qualified days of use for the client; 1 if the
+    client met daily activity thresholds, 0 otherwise.
+- name: retained
+  description: Whether the client was retained on this submission date; always 1 in
+    this table, signifying each row represents an active, retained client.
+- name: search_count
+  description: The total number of searches performed by the client on the submission
+    date.
+- name: uri_count
+  description: The total number of URIs (web pages) visited by the client on the submission
+    date.
+- name: active_hours_mean
+  description: Array of statistical summaries (mean with confidence intervals) for
+    the active_hours metric per branch.
+- name: ad_clicks_mean
+  description: Array of statistical summaries (mean with confidence intervals) for
+    the ad_clicks metric per branch.
+- name: branch
+  description: The rollout branch for which statistics are reported, either 'enabled'
+    or 'disabled'.
+- name: build_id
+  description: The Firefox build identifier used to segment statistics; NULL when
+    the rollout is not build-specific.
+- name: days_of_use_mean
+  description: Array of statistical summaries (mean with confidence intervals) for
+    the days_of_use metric per branch.
+- name: memory_total_percentile
+  description: Array of statistical summaries (percentile distribution with confidence
+    intervals) for the memory_total metric per branch.
+- name: qualified_cumulative_days_of_use_mean
+  description: Array of statistical summaries (mean with confidence intervals) for
+    the qualified_cumulative_days_of_use metric per branch.
+- name: retained_mean
+  description: Array of statistical summaries (mean with confidence intervals) for
+    the retained metric per branch.
+- name: search_count_mean
+  description: Array of statistical summaries (mean with confidence intervals) for
+    the search_count metric per branch.
+- name: uri_count_mean
+  description: Array of statistical summaries (mean with confidence intervals) for
+    the uri_count metric per branch.
+- name: active_hours
+  description: The total number of hours the client was actively browsing on the submission
+    date, expressed in fractional hours.
+- name: ad_clicks
+  description: The total number of advertisement clicks recorded for the client on
+    the submission date.
+- name: branch
+  description: The rollout branch assigned to this client, either 'enabled' (4th new
+    tab tile active) or 'disabled' (control group).
+- name: build_id
+  description: The Firefox build identifier for this client's submission; NULL when
+    the rollout is not build-specific.
+- name: days_of_use
+  description: The number of days the client was active on the submission date, typically
+    1 for daily snapshots.
+- name: qualified_cumulative_days_of_use
+  description: Cumulative count of qualified days of use for the client; 1 if the
+    client met daily activity thresholds, 0 otherwise.
+- name: retained
+  description: Whether the client was retained on this submission date; always 1,
+    indicating each row represents an active retained client.
+- name: search_count
+  description: The total number of searches performed by the client on the submission
+    date.
+- name: uri_count
+  description: The total number of URIs (web pages) visited by the client on the submission
+    date.
+- name: active_hours_mean
+  description: Array of statistical summaries (mean with confidence intervals) for
+    the active_hours metric per branch.
+- name: ad_clicks_mean
+  description: Array of statistical summaries (mean with confidence intervals) for
+    the ad_clicks metric per branch.
+- name: branch
+  description: The rollout branch for which statistics are reported, either 'enabled'
+    or 'disabled'.
+- name: build_id
+  description: The Firefox build identifier used to segment statistics; NULL when
+    the rollout is not build-specific.
+- name: days_of_use_mean
+  description: Array of statistical summaries (mean with confidence intervals) for
+    the days_of_use metric per branch.
+- name: memory_total_percentile
+  description: Array of statistical summaries (percentile distribution with confidence
+    intervals) for the memory_total metric per branch.
+- name: qualified_cumulative_days_of_use_mean
+  description: Array of statistical summaries (mean with confidence intervals) for
+    the qualified_cumulative_days_of_use metric per branch.
+- name: retained_mean
+  description: Array of statistical summaries (mean with confidence intervals) for
+    the retained metric per branch.
+- name: search_count_mean
+  description: Array of statistical summaries (mean with confidence intervals) for
+    the search_count metric per branch.
+- name: uri_count_mean
+  description: Array of statistical summaries (mean with confidence intervals) for
+    the uri_count metric per branch.
+- name: active_hours
+  description: The total number of hours the client was actively browsing on the submission
+    date, expressed in fractional hours.
+- name: ad_clicks
+  description: The total number of advertisement clicks recorded for the client on
+    the submission date.
+- name: branch
+  description: The rollout branch assigned to this client (e.g. 'enabled' or 'disabled').
+- name: build_id
+  description: The Firefox build identifier for this client's submission; used to
+    segment results by browser build version.
+- name: days_of_use
+  description: The number of days the client was active on the submission date, typically
+    1 for daily snapshots.
+- name: qualified_cumulative_days_of_use
+  description: Cumulative count of qualified days of use for the client up to and
+    including the submission date.
+- name: retained
+  description: Whether the client was retained on this submission date; 1 indicates
+    an active retained client.
+- name: search_count
+  description: The total number of searches performed by the client on the submission
+    date.
+- name: uri_count
+  description: The total number of URIs (web pages) visited by the client on the submission
+    date.
