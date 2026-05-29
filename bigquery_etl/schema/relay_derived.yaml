@@ -1,0 +1,110 @@
+fields:
+- name: country_name
+  description: The standardized full country name corresponding to the country code,
+    sourced from the Mozilla static standardized country names reference table.
+- name: plan_amount
+  description: The price of the subscription plan in the smallest currency unit (e.g.
+    cents for USD), as set in Stripe.
+- name: plan_currency
+  description: The three-letter ISO 4217 currency code for the subscription plan (e.g.
+    'usd', 'eur').
+- name: plan_id
+  description: The Stripe plan (price) ID identifying the specific billing plan of
+    the active subscription.
+- name: plan_interval
+  description: The billing interval unit for the subscription plan (e.g. 'month',
+    'year').
+- name: plan_interval_count
+  description: The number of billing interval units between charges (e.g. 1 for monthly,
+    12 for annual).
+- name: pricing_plan
+  description: A derived string combining plan interval, currency, and price to categorize
+    the billing plan (e.g. '1-month-usd-1.99').
+- name: product_id
+  description: The Stripe product ID identifying the Relay product the subscriber
+    is purchasing.
+- name: product_name
+  description: The human-readable name of the Relay product (e.g. 'Firefox Relay',
+    'Firefox Relay + VPN').
+- name: promotion_codes
+  description: Array of promotion or coupon codes applied to the subscription at the
+    time of purchase or renewal.
+- name: promotion_discounts_amount
+  description: The total discount amount applied via promotion codes, in the smallest
+    currency unit (e.g. cents). Null if no promotions were applied.
+- name: provider
+  description: The payment provider used to process the subscription (e.g. 'stripe',
+    'iap_apple', 'iap_google').
+- name: country_name
+  description: The standardized full country name corresponding to the country code,
+    sourced from the Mozilla static standardized country names reference table.
+- name: plan_amount
+  description: The price of the subscription plan in the smallest currency unit (e.g.
+    cents for USD), as set in Stripe.
+- name: plan_currency
+  description: The three-letter ISO 4217 currency code for the subscription plan (e.g.
+    'usd', 'eur').
+- name: plan_id
+  description: The Stripe plan (price) ID identifying the specific billing plan associated
+    with the event.
+- name: plan_interval
+  description: The billing interval unit for the subscription plan (e.g. 'month',
+    'year').
+- name: plan_interval_count
+  description: The number of billing interval units between charges (e.g. 1 for monthly,
+    12 for annual).
+- name: pricing_plan
+  description: A derived string combining plan interval, currency, and price to categorize
+    the billing plan (e.g. '1-month-usd-1.99').
+- name: product_id
+  description: The Stripe product ID identifying the Relay product associated with
+    the event.
+- name: product_name
+  description: The human-readable name of the Relay product (e.g. 'Firefox Relay',
+    'Firefox Relay + VPN').
+- name: promotion_codes
+  description: Array of promotion or coupon codes applied to the subscription associated
+    with the event.
+- name: provider
+  description: The payment provider used to process the subscription (e.g. 'stripe',
+    'iap_apple', 'iap_google').
+- name: country_name
+  description: The standardized full country name corresponding to the country code,
+    sourced from the Mozilla static standardized country names reference table.
+- name: fxa_uid
+  description: The Firefox Accounts (FxA) user ID linking this subscription to the
+    subscriber's Mozilla account.
+- name: plan_amount
+  description: The price of the subscription plan in the smallest currency unit (e.g.
+    cents for USD), as set in Stripe.
+- name: plan_currency
+  description: The three-letter ISO 4217 currency code for the subscription plan (e.g.
+    'usd', 'eur').
+- name: plan_id
+  description: The Stripe plan (price) ID identifying the specific billing plan the
+    subscriber is on.
+- name: plan_interval
+  description: The billing interval unit for the subscription plan (e.g. 'month',
+    'year').
+- name: plan_interval_count
+  description: The number of billing interval units between charges (e.g. 1 for monthly,
+    12 for annual).
+- name: pricing_plan
+  description: A derived string combining plan interval, currency, and price to categorize
+    the billing plan (e.g. '1-month-usd-1.99'). Used for grouping subscriptions by
+    offer type.
+- name: product_id
+  description: The Stripe product ID identifying the Relay product (e.g. premium email
+    relay or phone masking).
+- name: product_name
+  description: The human-readable name of the Relay product the subscriber is purchasing
+    (e.g. 'Firefox Relay', 'Firefox Relay + VPN').
+- name: promotion_codes
+  description: Array of promotion or coupon codes applied to this subscription at
+    the time of purchase or renewal.
+- name: promotion_discounts_amount
+  description: The total discount amount applied via promotion codes, in the smallest
+    currency unit (e.g. cents). Null if no promotions were applied.
+- name: provider
+  description: The payment provider used to process the subscription (e.g. 'stripe',
+    'iap_apple', 'iap_google').
