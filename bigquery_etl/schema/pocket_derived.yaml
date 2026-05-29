@@ -1,0 +1,13 @@
+fields:
+- name: client_info.user_id
+  description: Pocket-specific user identifier that links the event to an authenticated
+    Pocket user account; distinct from client_id and may be null for unauthenticated
+    sessions.
+- name: event
+  description: The name of the Pocket frontend event (sourced from EVENT_NAME), identifying
+    the user action that triggered the event (e.g. a click, view, or impression on
+    a Pocket surface).
+- name: normalized_app_id
+  description: The application identifier (APP_ID) sourced from the Pocket frontend
+    event data, used to distinguish which Pocket application surface produced the
+    event.
