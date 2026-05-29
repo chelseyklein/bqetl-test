@@ -2,9 +2,13 @@ fields:
 - mode: NULLABLE
   name: submission_timestamp
   type: TIMESTAMP
+  description: Timestamp when the ping is received on the server side.
 - mode: NULLABLE
   name: normalized_app_id
   type: STRING
+  description: The application identifier (APP_ID) sourced from the Pocket frontend
+    event data, used to distinguish which Pocket application surface produced the
+    event.
 - mode: NULLABLE
   name: metadata
   type: RECORD
@@ -16,9 +20,15 @@ fields:
     - mode: NULLABLE
       name: city
       type: STRING
+      description: City associated with the client's IP address at the time of the
+        event, as determined by IP geolocation.
     - mode: NULLABLE
       name: country
       type: STRING
+      description: Country associated with the client's IP address at the time of
+        the event, as determined by IP geolocation.
+    description: Geographic location information inferred from the client IP address
+      at the time of the event.
   - mode: NULLABLE
     name: user_agent
     type: RECORD
@@ -26,12 +36,21 @@ fields:
     - mode: NULLABLE
       name: browser
       type: STRING
+      description: Name of the browser derived from the user-agent string (e.g. "Firefox").
     - mode: NULLABLE
       name: os
       type: STRING
+      description: Operating system derived from the user-agent string (e.g. "Windows",
+        "macOS").
     - mode: NULLABLE
       name: version
       type: STRING
+      description: Version string of the browser derived from the user-agent, corresponding
+        to the browser version at the time of the event.
+    description: User-agent information parsed from the request, identifying the browser,
+      OS, and version used to send the Pocket event.
+  description: Nested record containing geographic and user-agent metadata derived
+    from the incoming request, parsed from the raw METADATA JSON field.
 - mode: NULLABLE
   name: client_info
   type: RECORD
@@ -39,27 +58,48 @@ fields:
   - mode: NULLABLE
     name: client_id
     type: STRING
+    description: A unique identifier (UUID) for the client.
   - mode: NULLABLE
     name: user_id
     type: STRING
+    description: Pocket-specific user identifier that links the event to an authenticated
+      Pocket user account; distinct from client_id and may be null for unauthenticated
+      sessions.
   - mode: NULLABLE
     name: app_build
     type: STRING
+    description: The build identifier of the Pocket application at the time the event
+      was recorded, used to correlate events with specific app releases.
   - mode: NULLABLE
     name: locale
     type: STRING
+    description: Set of language- and/or country-based preferences for a user interface.
   - mode: NULLABLE
     name: os
     type: STRING
+    description: The normalized name of the operating system running at the client.
   - mode: NULLABLE
     name: os_version
     type: STRING
+    description: Version of the operating system version running at the client. E.g.
+      "100.9.11".
+  description: Nested record containing client-side identity and environment details
+    parsed from the raw CLIENT_INFO JSON field supplied by the Pocket frontend.
 - mode: NULLABLE
   name: event
   type: STRING
+  description: The name of the Pocket frontend event (sourced from EVENT_NAME), identifying
+    the user action that triggered the event (e.g. a click, view, or impression on
+    a Pocket surface).
 - mode: NULLABLE
   name: event_timestamp
   type: TIMESTAMP
+  description: Timestamp when the Pocket frontend event occurred on the client side,
+    as reported by the Pocket application (EVENT_TIMESTAMP); may differ from submission_timestamp
+    due to network latency or batching.
 - mode: NULLABLE
   name: event_extra
   type: JSON
+  description: JSON object containing additional event-specific key-value pairs parsed
+    from the raw EVENT_EXTRAS field, providing supplementary context for the event
+    such as item IDs, positions, or experiment flags.
