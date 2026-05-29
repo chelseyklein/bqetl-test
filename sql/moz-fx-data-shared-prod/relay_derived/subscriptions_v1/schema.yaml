@@ -2,123 +2,206 @@ fields:
 - name: customer_id
   type: STRING
   mode: NULLABLE
+  description: The Stripe customer identifier for the subscriber (e.g. 'cus_NMc7gcySKjIMr6').
 - name: subscription_id
   type: STRING
   mode: NULLABLE
+  description: The unique identifier for this subscription record, derived from the
+    Stripe subscription ID. For plan-changed subscriptions, a numeric suffix is appended
+    to distinguish each plan period (e.g. 'sub_1MbstDJNcmPzuWtRKqXRvxRv', 'sub_...-2').
 - name: original_subscription_id
   type: STRING
   mode: NULLABLE
+  description: The original Stripe subscription ID for subscriptions that have undergone
+    a plan change; null (90.3% of rows) when no plan change has occurred.
 - name: plan_id
   type: STRING
   mode: NULLABLE
+  description: The Stripe price/plan identifier for the subscription plan (e.g. 'price_1LwoSDJNcmPzuWtR6wPJZeoh').
 - name: status
   type: STRING
   mode: NULLABLE
+  description: The current Stripe subscription status; observed values are 'active',
+    'canceled', and 'past_due'.
 - name: event_timestamp
   type: TIMESTAMP
   mode: NULLABLE
+  description: The timestamp of the most recent Stripe sync event that updated this
+    subscription record.
 - name: subscription_start_date
   type: TIMESTAMP
   mode: NULLABLE
+  description: The timestamp when the subscription (or plan period) began, excluding
+    trial periods. Null for subscriptions still in trial.
 - name: original_subscription_start_date
   type: TIMESTAMP
   mode: NULLABLE
+  description: The timestamp when the very first period of the Stripe subscription
+    began, before any plan changes.
 - name: subscription_start_reason
   type: STRING
   mode: NULLABLE
+  description: The reason this subscription period started; one of 'New' (first-time
+    subscriber), 'Plan Change', or 'Resurrected' (lapsed subscriber who resubscribed).
 - name: trial_start
   type: TIMESTAMP
   mode: NULLABLE
+  description: The timestamp when the trial period for this subscription began. Nearly
+    always null as Relay does not broadly offer trials.
 - name: trial_end
   type: TIMESTAMP
   mode: NULLABLE
+  description: The timestamp when the trial period for this subscription ended. Nearly
+    always null as Relay does not broadly offer trials.
 - name: canceled_at
   type: TIMESTAMP
   mode: NULLABLE
+  description: The timestamp when the subscription was canceled in Stripe. Null (~49%
+    of rows) for subscriptions that are still active or ended due to payment failure.
 - name: canceled_for_customer_at
   type: STRING
   mode: NULLABLE
+  description: Unix epoch timestamp (as a string) representing when the cancellation
+    was recorded on behalf of the customer. Null (~72% of rows) for non-customer-initiated
+    cancellations.
 - name: cancel_at
   type: TIMESTAMP
   mode: NULLABLE
+  description: The scheduled future timestamp at which the subscription is set to
+    cancel. Null (~76% of rows) when no scheduled cancellation is pending.
 - name: cancel_at_period_end
   type: BOOLEAN
   mode: NULLABLE
+  description: True if the subscription is set to cancel at the end of the current
+    billing period rather than immediately; false if it will continue or was cancelled
+    immediately.
 - name: ended_at
   type: TIMESTAMP
   mode: NULLABLE
+  description: The timestamp when the subscription ended. Null (~44% of rows) for
+    currently active subscriptions.
 - name: ended_reason
   type: STRING
   mode: NULLABLE
+  description: The reason the subscription ended; one of 'Cancelled by Customer',
+    'Payment Failed', or 'Plan Change'. Null for active subscriptions.
 - name: fxa_uid
   type: STRING
   mode: NULLABLE
+  description: The Firefox Accounts (FxA) user ID associated with this subscriber,
+    stored as a hex-encoded SHA-256 hash.
 - name: country
   type: STRING
   mode: NULLABLE
+  description: The ISO 3166-1 alpha-2 country code associated with the subscriber's
+    billing address (e.g. 'us', 'de').
 - name: country_name
   type: STRING
   mode: NULLABLE
+  description: The full, standardized country name corresponding to the country code
+    (e.g. 'USA', 'Germany').
 - name: provider
   type: STRING
   mode: NULLABLE
+  description: The payment provider processing the subscription; either 'Stripe' or
+    'Paypal'. Null (~4%) when provider cannot be determined.
 - name: plan_amount
   type: INTEGER
   mode: NULLABLE
+  description: The subscription price in the plan's minor currency unit (e.g. cents
+    for USD), as billed per interval.
 - name: plan_currency
   type: STRING
   mode: NULLABLE
+  description: The ISO 4217 currency code for the subscription plan (e.g. 'usd', 'eur',
+    'chf').
 - name: plan_interval
   type: STRING
   mode: NULLABLE
+  description: The billing interval for the subscription plan, either 'month' or 'year'.
 - name: plan_interval_count
   type: INTEGER
   mode: NULLABLE
+  description: The number of billing intervals between charges; always 1 in this dataset,
+    combined with plan_interval to define the billing cycle.
 - name: plan_interval_timezone
   type: STRING
   mode: NULLABLE
+  description: The timezone used to calculate billing interval boundaries; always
+    'Etc/UTC' for Relay subscriptions.
 - name: product_id
   type: STRING
   mode: NULLABLE
+  description: The Stripe product identifier for the Mozilla Relay product (e.g. 'prod_KGizMiBqUJdYoY'
+    for Relay Premium).
 - name: product_name
   type: STRING
   mode: NULLABLE
+  description: The human-readable name of the Relay product, such as 'Relay Premium',
+    'Mozilla VPN & Firefox Relay', or 'Relay - Phones'.
 - name: pricing_plan
   type: STRING
   mode: NULLABLE
+  description: A human-readable composite identifier for the pricing plan encoding
+    the billing cycle, currency, and price (e.g. '1-year-usd-11.88', '1-month-eur-0.99').
 - name: billing_grace_period
   type: INTERVAL
   mode: NULLABLE
+  description: The grace period after a billing failure before the subscription is
+    terminated; always 7 days for both Stripe and PayPal (processed via Stripe).
 - name: has_refunds
   type: BOOLEAN
   mode: NULLABLE
+  description: True if the subscription has had any refunds issued; false otherwise.
 - name: has_fraudulent_charges
   type: BOOLEAN
   mode: NULLABLE
+  description: True if the subscription has had any charges flagged as fraudulent;
+    false otherwise.
 - name: has_fraudulent_charge_refunds
   type: BOOLEAN
   mode: NULLABLE
+  description: True if the subscription has had refunds issued specifically for fraudulent
+    charges; false otherwise.
 - name: promotion_codes
   type: STRING
   mode: REPEATED
+  description: Array of promotional or discount codes applied to this subscription.
 - name: promotion_discounts_amount
   type: INTEGER
   mode: NULLABLE
+  description: The total monetary discount applied via promotion codes in the plan's
+    minor currency unit. Null (~98% of rows) when no promotion discount is present.
 - name: customer_start_date
   type: TIMESTAMP
   mode: NULLABLE
+  description: The timestamp of the earliest subscription start date across all of
+    this customer's Relay subscriptions, identifying when they first became a paying
+    customer.
 - name: end_date
   type: TIMESTAMP
   mode: NULLABLE
+  description: 'The effective end timestamp of this subscription period: ended_at
+    if the subscription has ended, otherwise the current date (used as an open-ended
+    boundary for active subscriptions).'
 - name: months_retained
   type: INTEGER
   mode: NULLABLE
+  description: The number of complete billing months retained between subscription_start_date
+    and end_date, accounting for the 7-day billing grace period.
 - name: original_subscription_months_retained
   type: INTEGER
   mode: NULLABLE
+  description: The number of complete billing months retained since the original subscription
+    start date (before any plan changes), accounting for the 7-day grace period.
 - name: current_months_since_subscription_start
   type: INTEGER
   mode: NULLABLE
+  description: The number of complete billing months elapsed from subscription_start_date
+    to the current date, used to compute tenure for active subscriptions.
 - name: current_months_since_original_subscription_start
   type: INTEGER
   mode: NULLABLE
+  description: The number of complete billing months elapsed from the original subscription
+    start date to the current date, tracking total customer tenure regardless of plan
+    changes.
