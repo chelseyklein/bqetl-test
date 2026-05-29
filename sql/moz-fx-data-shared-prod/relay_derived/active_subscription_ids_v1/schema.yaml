@@ -2,6 +2,11 @@ fields:
 - name: active_date
   type: DATE
   mode: NULLABLE
+  description: The date for which the subscription is considered active, used as the
+    partition date in this snapshot table.
 - name: subscription_id
   type: STRING
   mode: NULLABLE
+  description: A unique identifier for an active Relay subscription on the given active_date,
+    derived from the Stripe subscription ID with an optional plan-change sequence
+    suffix.
