@@ -2,48 +2,75 @@ fields:
 - name: event_date
   type: DATE
   mode: NULLABLE
+  description: The date on which the subscription event occurred.
 - name: event_type
   type: STRING
   mode: NULLABLE
+  description: The high-level type of subscription lifecycle event, such as 'New',
+    'Cancelled', or 'Reactivated'.
 - name: granular_event_type
   type: STRING
   mode: NULLABLE
+  description: A more detailed classification of the subscription event that refines
+    the broader event_type, e.g. distinguishing cancellation reasons.
 - name: plan_id
   type: STRING
   mode: NULLABLE
+  description: The Stripe price/plan identifier for the subscription plan (e.g. 'price_1LwoSDJNcmPzuWtR6wPJZeoh').
 - name: country
   type: STRING
   mode: NULLABLE
+  description: The ISO 3166-1 alpha-2 country code associated with the subscriber's
+    billing address.
 - name: country_name
   type: STRING
   mode: NULLABLE
+  description: The full, standardized country name corresponding to the country code
+    (e.g. 'USA', 'Germany').
 - name: provider
   type: STRING
   mode: NULLABLE
+  description: The payment provider processing the subscription, either 'Stripe' or
+    'Paypal'.
 - name: plan_amount
   type: INTEGER
   mode: NULLABLE
+  description: The subscription price in the plan's minor currency unit (e.g. cents
+    for USD), as billed per interval.
 - name: plan_currency
   type: STRING
   mode: NULLABLE
+  description: The ISO 4217 currency code for the subscription plan (e.g. 'usd', 'eur').
 - name: plan_interval
   type: STRING
   mode: NULLABLE
+  description: The billing interval for the subscription plan, either 'month' or 'year'.
 - name: plan_interval_count
   type: INTEGER
   mode: NULLABLE
+  description: The number of billing intervals between charges; combined with plan_interval
+    this defines the full billing cycle (e.g. 1 year).
 - name: product_id
   type: STRING
   mode: NULLABLE
+  description: The Stripe product identifier for the Mozilla Relay product (e.g. 'prod_KGizMiBqUJdYoY').
 - name: product_name
   type: STRING
   mode: NULLABLE
+  description: The human-readable name of the Relay product associated with the subscription,
+    such as 'Relay Premium' or 'Mozilla VPN & Firefox Relay'.
 - name: pricing_plan
   type: STRING
   mode: NULLABLE
+  description: A human-readable composite identifier for the pricing plan, encoding
+    the billing cycle, currency, and price (e.g. '1-year-usd-11.88').
 - name: promotion_codes
   type: STRING
   mode: REPEATED
+  description: Array of promotional or discount codes applied to the subscription
+    at the time of the event.
 - name: count
   type: INTEGER
   mode: NULLABLE
+  description: The number of subscription events of this type aggregated into this
+    row for the given event_date and dimension combination.
