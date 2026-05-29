@@ -1,0 +1,12 @@
+fields:
+- name: suppression_reason
+  description: The reason the email address was added to the suppression list. Observed
+    values include 'clicked header' (unsubscribe via header link, ~762k rows), 'hard
+    bounce' (~420k rows), 'marked undeliverable' (~39k rows), 'Added due to abuse
+    complaint!', and 'Opted out from list id <id>' for specific Acoustic mailing lists
+    (sampled 2026-05-29).
+- name: suppression_source
+  description: 'The marketing platform and workspace from which the suppression record
+    originated. One of six values: ''Braze Firefox unsubscribe'', ''Braze Firefox
+    hard bounce'', ''Braze Mozilla hard bounce'', ''Acoustic'', ''Braze Pocket unsubscribe'',
+    or ''Braze Pocket hard bounce'' (sampled 2026-05-29).'
