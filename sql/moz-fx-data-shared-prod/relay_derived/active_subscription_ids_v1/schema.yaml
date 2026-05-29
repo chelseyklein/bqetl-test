@@ -2,6 +2,10 @@ fields:
 - name: active_date
   type: DATE
   mode: NULLABLE
+  description: The calendar date for which the subscription was considered active;
+    each row represents one subscription active on this date.
 - name: subscription_id
   type: STRING
   mode: NULLABLE
+  description: The unique Stripe subscription identifier (e.g. 'sub_1MbstDJNcmPzuWtRKqXRvxRv')
+    for an active subscription.
