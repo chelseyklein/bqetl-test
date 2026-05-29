@@ -2,45 +2,75 @@ fields:
 - name: active_date
   type: DATE
   mode: NULLABLE
+  description: The date for which the subscription is considered active, used as the
+    partition date in this snapshot table.
 - name: plan_id
   type: STRING
   mode: NULLABLE
+  description: The Stripe plan (price) ID identifying the specific billing plan of
+    the active subscription.
 - name: country
   type: STRING
   mode: NULLABLE
+  description: Two-letter ISO country code of the subscriber's billing country, as
+    determined from Stripe.
 - name: country_name
   type: STRING
   mode: NULLABLE
+  description: The standardized full country name corresponding to the country code,
+    sourced from the Mozilla static standardized country names reference table.
 - name: provider
   type: STRING
   mode: NULLABLE
+  description: The payment provider used to process the subscription (e.g. 'stripe',
+    'iap_apple', 'iap_google').
 - name: plan_amount
   type: INTEGER
   mode: NULLABLE
+  description: The price of the subscription plan in the smallest currency unit (e.g.
+    cents for USD), as set in Stripe.
 - name: plan_currency
   type: STRING
   mode: NULLABLE
+  description: The three-letter ISO 4217 currency code for the subscription plan (e.g.
+    'usd', 'eur').
 - name: plan_interval
   type: STRING
   mode: NULLABLE
+  description: The billing interval unit for the subscription plan (e.g. 'month',
+    'year').
 - name: plan_interval_count
   type: INTEGER
   mode: NULLABLE
+  description: The number of billing interval units between charges (e.g. 1 for monthly,
+    12 for annual).
 - name: product_id
   type: STRING
   mode: NULLABLE
+  description: The Stripe product ID identifying the Relay product the subscriber
+    is purchasing.
 - name: product_name
   type: STRING
   mode: NULLABLE
+  description: The human-readable name of the Relay product (e.g. 'Firefox Relay',
+    'Firefox Relay + VPN').
 - name: pricing_plan
   type: STRING
   mode: NULLABLE
+  description: A derived string combining plan interval, currency, and price to categorize
+    the billing plan (e.g. '1-month-usd-1.99').
 - name: promotion_codes
   type: STRING
   mode: REPEATED
+  description: Array of promotion or coupon codes applied to the subscription at the
+    time of purchase or renewal.
 - name: promotion_discounts_amount
   type: INTEGER
   mode: NULLABLE
+  description: The total discount amount applied via promotion codes, in the smallest
+    currency unit (e.g. cents). Null if no promotions were applied.
 - name: count
   type: INTEGER
   mode: NULLABLE
+  description: The number of active subscriptions matching the combination of plan,
+    country, provider, and promotion attributes on the active_date.
