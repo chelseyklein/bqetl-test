@@ -2,29 +2,37 @@ fields:
 - mode: NULLABLE
   name: first_seen_date
   type: DATE
+  description: Date when the server first received a ping from this client.
 - mode: NULLABLE
   name: second_seen_date
   type: DATE
+  description: The second date on which the server received a ping from this client;
+    null if the client has only been seen once (sampled 2026-05-29).
 - mode: NULLABLE
   name: client_id
   type: STRING
-  description: null
+  description: A unique identifier (UUID) for the client installation.
 - mode: NULLABLE
   name: aborts_content_sum
   type: INTEGER
-  description: null
+  description: Total number of content-process abort events in the first session;
+    null for the vast majority of clients (97.6% null rate) where no content aborts
+    occurred (sampled 2026-05-29).
 - mode: NULLABLE
   name: aborts_gmplugin_sum
   type: INTEGER
-  description: null
+  description: Total number of Gecko Media Plugin (GMP) process abort events in the
+    first session; nearly always null as GMP plugin aborts are very rare.
 - mode: NULLABLE
   name: aborts_plugin_sum
   type: INTEGER
-  description: null
+  description: Total number of NPAPI plugin process abort events in the first session;
+    always null in current data as NPAPI plugin support has been removed.
 - mode: NULLABLE
   name: active_addons_count_mean
   type: FLOAT
-  description: null
+  description: Mean number of active add-ons across sessions on the first seen date
+    (sampled 2026-05-29).
 - fields:
   - mode: NULLABLE
     name: addon_id
@@ -97,67 +105,96 @@ fields:
 - mode: NULLABLE
   name: active_experiment_branch
   type: STRING
-  description: null
+  description: The branch of a Normandy experiment the client was enrolled in on first
+    seen date; null when no experiment was active.
 - mode: NULLABLE
   name: active_experiment_id
   type: STRING
-  description: null
+  description: The ID of the Normandy experiment the client was enrolled in on first
+    seen date; null when no experiment was active.
 - mode: NULLABLE
   name: active_hours_sum
   type: FLOAT
-  description: null
+  description: Total number of hours the browser was actively used on the first seen
+    date, as measured by user interaction events (sampled 2026-05-29).
 - mode: NULLABLE
   name: addon_compatibility_check_enabled
   type: BOOLEAN
-  description: null
+  description: Whether add-on compatibility checking was enabled in the browser on
+    the first seen date; true for all sampled clients (sampled 2026-05-29).
 - mode: NULLABLE
   name: app_build_id
   type: STRING
-  description: null
+  description: The build ID of the Firefox application reported on first seen date,
+    in YYYYMMDDHHMMSS format (sampled 2026-05-29).
 - mode: NULLABLE
   name: app_display_version
   type: STRING
-  description: null
+  description: The user-visible version string of the Firefox application, which may
+    include a suffix such as 'esr' (e.g. '140.11.0esr') (sampled 2026-05-29).
 - mode: NULLABLE
   name: app_name
   type: STRING
-  description: null
+  description: The name of the browser application; always 'Firefox' in this table
+    (sampled 2026-05-29).
 - mode: NULLABLE
   name: app_version
   type: STRING
-  description: null
+  description: The version string of the Firefox application on the first seen date
+    (e.g. '151.0.1') (sampled 2026-05-29).
 - fields:
   - mode: NULLABLE
     name: source
     type: STRING
-    description: null
+    description: The referring domain or partner from which Firefox was downloaded
+      (e.g. 'www.google.com', 'www.bing.com'); null when attribution is not available
+      (sampled 2026-05-29).
   - mode: NULLABLE
     name: medium
     type: STRING
-    description: null
+    description: The traffic medium through which the Firefox installer was delivered
+      (e.g. 'referral', 'paidsearch'); null when attribution is not available (sampled
+      2026-05-29).
   - mode: NULLABLE
     name: campaign
     type: STRING
-    description: null
+    description: The name of the marketing campaign associated with the Firefox download;
+      null when attribution is not available (sampled 2026-05-29).
   - mode: NULLABLE
     name: content
     type: STRING
-    description: null
+    description: The specific content element within a campaign that led to the Firefox
+      download (e.g. a specific banner or link); null when attribution is not available
+      (sampled 2026-05-29).
   - mode: NULLABLE
     name: experiment
     type: STRING
+    description: The funnel experiment parameter associated with the Firefox download
+      attribution; null when attribution is unavailable (sampled 2026-05-29).
   - mode: NULLABLE
     name: variation
     type: STRING
+    description: The variation parameter of the funnel experiment associated with
+      the Firefox download attribution; null when attribution is unavailable (sampled
+      2026-05-29).
   - mode: NULLABLE
     name: dltoken
     type: STRING
+    description: A unique token assigned at Firefox download time, used to correlate
+      the install with a specific download event; null when attribution is unavailable
+      (sampled 2026-05-29).
   - name: dlsource
     type: STRING
     mode: NULLABLE
+    description: The download source identifier indicating which Mozilla property
+      or partner served the installer (e.g. 'mozillaci', 'fxdotcom', 'mozorg') (sampled
+      2026-05-29).
   - name: ua
     type: STRING
     mode: NULLABLE
+    description: The web browser (user-agent) that was used to download the Firefox
+      installer (e.g. 'chrome', 'edge', 'firefox'); null when attribution is unavailable
+      (sampled 2026-05-29).
   mode: NULLABLE
   name: attribution
   type: RECORD
@@ -165,135 +202,174 @@ fields:
 - mode: NULLABLE
   name: blocklist_enabled
   type: BOOLEAN
-  description: null
+  description: Whether Firefox's blocklist (used to block malicious add-ons and plugins)
+    was enabled on the first seen date (sampled 2026-05-29).
 - mode: NULLABLE
   name: channel
   type: STRING
-  description: null
+  description: The Firefox update channel as reported by the client (e.g. 'release',
+    'beta', 'nightly', 'esr'); may differ from normalized_channel for unrecognized
+    values (sampled 2026-05-29).
 - mode: NULLABLE
   name: client_clock_skew_mean
   type: FLOAT
-  description: null
+  description: Mean difference in seconds between the client's clock and server time
+    on the first seen date; values near 0 indicate accurate client clocks (sampled
+    2026-05-29).
 - mode: NULLABLE
   name: client_submission_latency_mean
   type: FLOAT
-  description: null
+  description: Mean latency in seconds between when the client generated the ping
+    and when the server received it on the first seen date; 0 indicates near-instant
+    submission (sampled 2026-05-29).
 - mode: NULLABLE
   name: cpu_cores
   type: INTEGER
-  description: null
+  description: Number of physical CPU cores reported by the client on the first seen
+    date (sampled 2026-05-29).
 - mode: NULLABLE
   name: cpu_count
   type: INTEGER
-  description: null
+  description: Total number of logical CPU processors (including hyperthreads) reported
+    by the client on the first seen date (sampled 2026-05-29).
 - mode: NULLABLE
   name: cpu_family
   type: INTEGER
-  description: null
+  description: The CPU family identifier as reported by the CPUID instruction (e.g.
+    6 = Intel Core, 25 = AMD Zen) on the first seen date (sampled 2026-05-29).
 - mode: NULLABLE
   name: cpu_l2_cache_kb
   type: INTEGER
-  description: null
+  description: Size of the CPU L2 cache in kilobytes on the first seen date (sampled
+    2026-05-29).
 - mode: NULLABLE
   name: cpu_l3_cache_kb
   type: INTEGER
-  description: null
+  description: Size of the CPU L3 cache in kilobytes on the first seen date; 0 indicates
+    no L3 cache or unavailable data (sampled 2026-05-29).
 - mode: NULLABLE
   name: cpu_model
   type: INTEGER
-  description: null
+  description: The CPU model identifier from the CPUID instruction on the first seen
+    date (sampled 2026-05-29).
 - mode: NULLABLE
   name: cpu_speed_mhz
   type: INTEGER
-  description: null
+  description: The CPU clock speed in MHz on the first seen date; 0 may indicate the
+    value was unavailable (sampled 2026-05-29).
 - mode: NULLABLE
   name: cpu_stepping
   type: INTEGER
-  description: null
+  description: The CPU stepping (revision) identifier from the CPUID instruction on
+    the first seen date (sampled 2026-05-29).
 - mode: NULLABLE
   name: cpu_vendor
   type: STRING
-  description: null
+  description: The CPU vendor string as reported by the CPUID instruction (e.g. 'GenuineIntel',
+    'AuthenticAMD', 'ARM') on the first seen date (sampled 2026-05-29).
 - mode: NULLABLE
   name: crashes_detected_content_sum
   type: INTEGER
-  description: null
+  description: Total number of content-process crashes detected during the first session;
+    null for nearly all clients as content crashes are very rare (sampled 2026-05-29).
 - mode: NULLABLE
   name: crashes_detected_gmplugin_sum
   type: INTEGER
-  description: null
+  description: Total number of Gecko Media Plugin crashes detected during the first
+    session; almost always null (sampled 2026-05-29).
 - mode: NULLABLE
   name: crashes_detected_plugin_sum
   type: INTEGER
-  description: null
+  description: Total number of NPAPI plugin crashes detected during the first session;
+    always null as NPAPI plugins are no longer supported.
 - mode: NULLABLE
   name: crash_submit_attempt_content_sum
   type: INTEGER
-  description: null
+  description: Total number of crash report submission attempts for content-process
+    crashes during the first session (sampled 2026-05-29).
 - mode: NULLABLE
   name: crash_submit_attempt_main_sum
   type: INTEGER
-  description: null
+  description: Total number of crash report submission attempts for main-process crashes
+    during the first session (sampled 2026-05-29).
 - mode: NULLABLE
   name: crash_submit_attempt_plugin_sum
   type: INTEGER
-  description: null
+  description: Total number of crash report submission attempts for NPAPI plugin crashes
+    during the first session; always null as NPAPI plugins are no longer supported.
 - mode: NULLABLE
   name: crash_submit_success_content_sum
   type: INTEGER
-  description: null
+  description: Total number of successfully submitted crash reports for content-process
+    crashes during the first session (sampled 2026-05-29).
 - mode: NULLABLE
   name: crash_submit_success_main_sum
   type: INTEGER
-  description: null
+  description: Total number of successfully submitted crash reports for main-process
+    crashes during the first session (sampled 2026-05-29).
 - mode: NULLABLE
   name: crash_submit_success_plugin_sum
   type: INTEGER
-  description: null
+  description: Total number of successfully submitted crash reports for NPAPI plugin
+    crashes; always null as NPAPI plugins are no longer supported.
 - mode: NULLABLE
   name: default_search_engine
   type: STRING
-  description: null
+  description: The internal identifier of the client's default search engine on the
+    first seen date (e.g. 'google-b-d', 'baidu') (sampled 2026-05-29).
 - mode: NULLABLE
   name: default_search_engine_data_load_path
   type: STRING
-  description: null
+  description: The load path of the default search engine configuration, indicating
+    whether it was bundled with the app, an add-on, or installed via another method
+    (sampled 2026-05-29).
 - mode: NULLABLE
   name: default_search_engine_data_name
   type: STRING
-  description: null
+  description: The human-readable name of the client's default search engine on the
+    first seen date (e.g. 'Google', 'DuckDuckGo') (sampled 2026-05-29).
 - mode: NULLABLE
   name: default_search_engine_data_origin
   type: STRING
-  description: null
+  description: 'The origin of the default search engine configuration: ''default''
+    for built-in engines, ''verified'' for user-installed with valid hash, ''unverified''
+    otherwise; null if not reported (sampled 2026-05-29).'
 - mode: NULLABLE
   name: default_search_engine_data_submission_url
   type: STRING
-  description: null
+  description: The search submission URL of the default search engine, used to construct
+    search queries; not recorded for user-installed engines to protect privacy (sampled
+    2026-05-29).
 - mode: NULLABLE
   name: devtools_toolbox_opened_count_sum
   type: INTEGER
-  description: null
+  description: Total number of times the Firefox DevTools toolbox was opened during
+    the first session (sampled 2026-05-29).
 - mode: NULLABLE
   name: distribution_id
   type: STRING
-  description: null
+  description: The identifier of the Firefox distribution (e.g. 'canonical-002', 'mozilla-MSIX',
+    'mint-001') that supplied this install (sampled 2026-05-29).
 - mode: NULLABLE
   name: e10s_enabled
   type: BOOLEAN
-  description: null
+  description: Whether Electrolysis (multi-process Firefox, e10s) was enabled on the
+    first seen date; true for almost all modern clients (sampled 2026-05-29).
 - mode: NULLABLE
   name: env_build_arch
   type: STRING
-  description: null
+  description: The build architecture of the Firefox binary (e.g. 'x86-64', 'x86',
+    'aarch64') (sampled 2026-05-29).
 - mode: NULLABLE
   name: env_build_id
   type: STRING
-  description: null
+  description: The build ID of the Firefox binary in YYYYMMDDHHMMSS format, identifying
+    when it was compiled (sampled 2026-05-29).
 - mode: NULLABLE
   name: env_build_version
   type: STRING
-  description: null
+  description: The version string of the Firefox binary as reported by the build environment
+    (sampled 2026-05-29).
 - mode: REPEATED
   name: environment_settings_intl_accept_languages
   type: STRING
@@ -334,51 +410,68 @@ fields:
 - mode: NULLABLE
   name: first_paint_mean
   type: FLOAT
-  description: null
+  description: Mean time in milliseconds from session start to first paint across
+    sessions on the first seen date, measuring initial rendering performance (sampled
+    2026-05-29).
 - mode: NULLABLE
   name: flash_version
   type: STRING
-  description: null
+  description: The version of Adobe Flash Player installed, if any; null for nearly
+    all clients as Flash has been discontinued (sampled 2026-05-29).
 - mode: NULLABLE
   name: country
   type: STRING
-  description: null
+  description: The ISO 3166-1 alpha-2 country code of the client, determined by IP
+    geolocation at the time of first seen ping (sampled 2026-05-29).
 - mode: NULLABLE
   name: city
   type: STRING
-  description: null
+  description: The city retrieved by geographic lookup based on the client's IP address
+    at the time of the first seen ping (sampled 2026-05-29).
 - mode: NULLABLE
   name: geo_subdivision1
   type: STRING
-  description: null
+  description: The first major country subdivision (e.g. state, province) from IP
+    geolocation at first seen; null for ~7% of clients (sampled 2026-05-29).
 - mode: NULLABLE
   name: geo_subdivision2
   type: STRING
-  description: null
+  description: The second-level geographic subdivision (e.g. county or district) from
+    IP geolocation at first seen; null for ~82% of clients (sampled 2026-05-29).
 - mode: NULLABLE
   name: isp_name
   type: STRING
-  description: null
+  description: The name of the internet service provider associated with the client's
+    IP address at first seen (sampled 2026-05-29).
 - mode: NULLABLE
   name: isp_organization
   type: STRING
-  description: null
+  description: The organization name associated with the client's IP address at first
+    seen, which may differ from isp_name for corporate networks (sampled 2026-05-29).
 - mode: NULLABLE
   name: gfx_features_advanced_layers_status
   type: STRING
-  description: null
+  description: The status of the Advanced Layers graphics feature (e.g. 'available',
+    'disabled', 'blocked'); null for ~98% of clients where this feature was not evaluated
+    (sampled 2026-05-29).
 - mode: NULLABLE
   name: gfx_features_d2d_status
   type: STRING
-  description: null
+  description: The status of the Direct2D hardware acceleration feature on Windows
+    (e.g. 'available', 'disabled', 'blocked'); null for non-Windows clients (sampled
+    2026-05-29).
 - mode: NULLABLE
   name: gfx_features_d3d11_status
   type: STRING
-  description: null
+  description: The status of the Direct3D 11 hardware acceleration feature on Windows
+    (e.g. 'available', 'blocked', 'failed'); null for non-Windows clients (sampled
+    2026-05-29).
 - mode: NULLABLE
   name: gfx_features_gpu_process_status
   type: STRING
-  description: null
+  description: The status of the GPU process feature (e.g. 'available', 'unused',
+    'unavailable') on the first seen date; indicates whether Firefox uses a separate
+    GPU process for rendering (sampled 2026-05-29).
 - mode: NULLABLE
   name: histogram_parent_devtools_aboutdebugging_opened_count_sum
   type: INTEGER
@@ -598,7 +691,8 @@ fields:
 - mode: NULLABLE
   name: sample_id
   type: INTEGER
-  description: null
+  description: A number (0–99) derived from client_id for convenient sub-sampling;
+    allows analysts to work on a fraction of the data without biasing by client.
 - mode: NULLABLE
   name: sandbox_effective_content_process_level
   type: INTEGER
@@ -1353,18 +1447,28 @@ fields:
 - mode: NULLABLE
   name: default_private_search_engine
   type: STRING
+  description: The internal identifier of the client's default private-browsing search
+    engine; null if no separate private engine was configured (sampled 2026-05-29).
 - mode: NULLABLE
   name: default_private_search_engine_data_load_path
   type: STRING
+  description: The load path of the default private-browsing search engine configuration;
+    null when no separate private engine was configured (sampled 2026-05-29).
 - mode: NULLABLE
   name: default_private_search_engine_data_name
   type: STRING
+  description: The human-readable name of the default private-browsing search engine;
+    null when no separate private engine was configured (sampled 2026-05-29).
 - mode: NULLABLE
   name: default_private_search_engine_data_origin
   type: STRING
+  description: The origin of the default private-browsing search engine configuration;
+    null when no separate private engine was configured (sampled 2026-05-29).
 - mode: NULLABLE
   name: default_private_search_engine_data_submission_url
   type: STRING
+  description: The search submission URL for the default private-browsing search engine;
+    null when no separate private engine was configured (sampled 2026-05-29).
 - fields:
   - mode: NULLABLE
     name: engine
