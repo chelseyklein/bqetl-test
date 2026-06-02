@@ -2,9 +2,11 @@ fields:
 - name: date_from
   type: DATE
   mode: NULLABLE
+  description: Start date of the reporting period covered by this row.
 - name: date_to
   type: DATE
   mode: NULLABLE
+  description: End date of the reporting period covered by this row.
 - name: browser_arch
   type: RECORD
   mode: REPEATED
@@ -12,9 +14,16 @@ fields:
   - name: value
     type: FLOAT
     mode: NULLABLE
+    description: Proportion of Firefox Desktop clients using the architecture specified
+      in the browser_arch.key field.
   - name: key
     type: STRING
     mode: NULLABLE
+    description: Browser architecture label (e.g., 'x86', 'x86-64') within each entry
+      of the browser_arch array.
+  description: Array of key-value pairs representing the distribution of browser CPU
+    architectures (e.g., 'x86', 'x86-64') among Firefox Desktop clients, where key
+    is the architecture label and value is the proportion of clients.
 - name: cpu_cores
   type: RECORD
   mode: REPEATED
@@ -22,9 +31,16 @@ fields:
   - name: value
     type: FLOAT
     mode: NULLABLE
+    description: Proportion of Firefox Desktop clients with the CPU core count specified
+      in the cpu_cores.key field.
   - name: key
     type: STRING
     mode: NULLABLE
+    description: Number of physical CPU cores as a string label within each entry
+      of the cpu_cores array.
+  description: Array of key-value pairs representing the distribution of physical
+    CPU core counts among Firefox Desktop clients, where key is the count and value
+    is the proportion of clients.
 - name: cpu_speed
   type: RECORD
   mode: REPEATED
@@ -32,9 +48,16 @@ fields:
   - name: value
     type: FLOAT
     mode: NULLABLE
+    description: Proportion of Firefox Desktop clients with the CPU speed bucket specified
+      in cpu_speed.key.
   - name: key
     type: STRING
     mode: NULLABLE
+    description: CPU clock speed bucket label (in MHz) within each entry of the cpu_speed
+      array.
+  description: Array of key-value pairs representing the distribution of CPU clock
+    speeds (in MHz) among Firefox Desktop clients, where key is the speed bucket and
+    value is the proportion of clients.
 - name: cpu_vendor
   type: RECORD
   mode: REPEATED
@@ -42,9 +65,15 @@ fields:
   - name: value
     type: FLOAT
     mode: NULLABLE
+    description: Proportion of Firefox Desktop clients with the CPU vendor specified
+      in cpu_vendor.key.
   - name: key
     type: STRING
     mode: NULLABLE
+    description: CPU vendor identifier string (e.g., 'GenuineIntel') within each entry
+      of the cpu_vendor array.
+  description: Array of key-value pairs representing the distribution of CPU vendors
+    (e.g., 'GenuineIntel', 'AuthenticAMD') among Firefox Desktop clients.
 - name: gfx0_model
   type: RECORD
   mode: REPEATED
@@ -52,9 +81,15 @@ fields:
   - name: value
     type: FLOAT
     mode: NULLABLE
+    description: Proportion of Firefox Desktop clients with the GPU model specified
+      in gfx0_model.key.
   - name: key
     type: STRING
     mode: NULLABLE
+    description: Primary GPU model name string within each entry of the gfx0_model
+      array.
+  description: Array of key-value pairs representing the distribution of primary GPU
+    models among Firefox Desktop clients.
 - name: gfx0_vendor_name
   type: RECORD
   mode: REPEATED
@@ -62,9 +97,15 @@ fields:
   - name: value
     type: FLOAT
     mode: NULLABLE
+    description: Proportion of Firefox Desktop clients with the GPU vendor specified
+      in gfx0_vendor_name.key.
   - name: key
     type: STRING
     mode: NULLABLE
+    description: Primary GPU vendor name (e.g., 'NVIDIA', 'Intel') within each entry
+      of the gfx0_vendor_name array.
+  description: Array of key-value pairs representing the distribution of primary GPU
+    vendor names among Firefox Desktop clients.
 - name: has_flash
   type: RECORD
   mode: REPEATED
@@ -72,9 +113,15 @@ fields:
   - name: value
     type: FLOAT
     mode: NULLABLE
+    description: Proportion of Firefox Desktop clients matching the has_flash.key
+      condition.
   - name: key
     type: BOOLEAN
     mode: NULLABLE
+    description: Boolean indicating whether Flash is present and enabled (true) or
+      absent/disabled (false) within each entry of the has_flash array.
+  description: Array of key-value pairs indicating the proportion of Firefox Desktop
+    clients with Flash enabled (key=true) vs disabled/absent (key=false).
 - name: memory_gb
   type: RECORD
   mode: REPEATED
@@ -82,9 +129,14 @@ fields:
   - name: value
     type: FLOAT
     mode: NULLABLE
+    description: Proportion of Firefox Desktop clients with the RAM amount specified
+      in memory_gb.key.
   - name: key
     type: STRING
     mode: NULLABLE
+    description: RAM bucket label (in GB) within each entry of the memory_gb array.
+  description: Array of key-value pairs representing the distribution of total system
+    RAM buckets (in GB) among Firefox Desktop clients.
 - name: os
   type: RECORD
   mode: REPEATED
@@ -92,9 +144,15 @@ fields:
   - name: value
     type: FLOAT
     mode: NULLABLE
+    description: Proportion of Firefox Desktop clients running the OS specified in
+      os.key.
   - name: key
     type: STRING
     mode: NULLABLE
+    description: Operating system name (e.g., 'Windows', 'Darwin') within each entry
+      of the os array.
+  description: Array of key-value pairs representing the distribution of operating
+    systems (e.g., 'Windows', 'Darwin', 'Linux') among Firefox Desktop clients.
 - name: os_arch
   type: RECORD
   mode: REPEATED
@@ -102,9 +160,15 @@ fields:
   - name: value
     type: FLOAT
     mode: NULLABLE
+    description: Proportion of Firefox Desktop clients with the OS architecture specified
+      in os_arch.key.
   - name: key
     type: STRING
     mode: NULLABLE
+    description: OS CPU architecture label (e.g., 'x86_64') within each entry of the
+      os_arch array.
+  description: Array of key-value pairs representing the distribution of operating
+    system CPU architectures among Firefox Desktop clients.
 - name: resolution
   type: RECORD
   mode: REPEATED
@@ -112,6 +176,12 @@ fields:
   - name: value
     type: FLOAT
     mode: NULLABLE
+    description: Proportion of Firefox Desktop clients with the screen resolution
+      specified in resolution.key.
   - name: key
     type: STRING
     mode: NULLABLE
+    description: Screen resolution label (e.g., '1920x1080') within each entry of
+      the resolution array.
+  description: Array of key-value pairs representing the distribution of screen resolutions
+    (e.g., '1920x1080') among Firefox Desktop clients.
