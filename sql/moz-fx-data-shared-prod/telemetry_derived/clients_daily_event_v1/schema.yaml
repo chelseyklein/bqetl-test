@@ -15,12 +15,18 @@ fields:
 - name: n_logged_event
   type: INTEGER
   mode: NULLABLE
+  description: Total number of legacy telemetry events logged by this client on the
+    submission date, across all processes.
 - name: n_created_pictureinpicture
   type: INTEGER
   mode: NULLABLE
+  description: Number of times the client opened the Picture-in-Picture video player
+    on the submission date.
 - name: n_viewed_protection_report
   type: INTEGER
   mode: NULLABLE
+  description: Number of times the client viewed the Firefox Privacy Protections report
+    on the submission date.
 - name: profile_group_id
   type: STRING
   mode: NULLABLE
