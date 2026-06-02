@@ -10,6 +10,8 @@ fields:
 - mode: NULLABLE
   name: app_build_id
   type: STRING
+  description: The Firefox application build ID, or NULL when this row aggregates
+    across all build IDs (corresponding to '*' in the upstream bucket counts table).
 - mode: NULLABLE
   name: channel
   type: STRING
@@ -17,50 +19,82 @@ fields:
 - mode: NULLABLE
   name: metric
   type: STRING
+  description: The name of the telemetry histogram probe being aggregated (e.g. 'webext_extension_startup_ms_by_addonid').
 - mode: NULLABLE
   name: metric_type
   type: STRING
+  description: The histogram type, one of 'histogram-exponential', 'histogram-enumerated',
+    'histogram-boolean', 'histogram-categorical', 'histogram-linear', or 'histogram-count'.
 - mode: NULLABLE
   name: key
   type: STRING
+  description: The keyed-histogram key; empty string for non-keyed histograms. For
+    keyed histograms, identifies the specific sub-metric (e.g. an add-on ID or a domain
+    name).
 - mode: NULLABLE
   name: process
   type: STRING
+  description: The Firefox process type from which the histogram was recorded, one
+    of 'parent', 'content', or 'gpu'.
 - mode: NULLABLE
   name: first_bucket
   type: INTEGER
+  description: The lower bound of the first bucket in this histogram's bucket range.
 - mode: NULLABLE
   name: last_bucket
   type: INTEGER
+  description: The upper bound of the last bucket in this histogram's bucket range.
 - mode: NULLABLE
   name: num_buckets
   type: INTEGER
+  description: The total number of buckets in the histogram.
 - mode: NULLABLE
   name: client_agg_type
   type: STRING
+  description: The aggregation type applied at the per-client level before population
+    aggregation; always 'summed_histogram' in this table.
 - mode: NULLABLE
   name: agg_type
   type: STRING
+  description: The population-level aggregation type; always 'histogram', indicating
+    that per-client histograms are aggregated across all clients matching the row's
+    dimensions.
 - mode: NULLABLE
   name: total_users
   type: INTEGER
+  description: The total number of clients contributing to this row's aggregated histogram,
+    used as the denominator for normalized proportions.
 - fields:
   - mode: NULLABLE
     name: key
     type: STRING
+    description: The histogram bucket index as a string within the aggregates array.
   - mode: NULLABLE
     name: value
     type: FLOAT
+    description: The Dirichlet-normalized proportion of clients in this bucket within
+      the aggregates array; values sum to approximately 1.0 across all buckets for
+      a given row.
   mode: REPEATED
   name: aggregates
   type: RECORD
+  description: Repeated array of normalized (Dirichlet-smoothed) histogram bucket
+    proportions, where key is the bucket index as a string and value is the population-level
+    proportion for that bucket.
 - fields:
   - mode: NULLABLE
     name: key
     type: STRING
+    description: The histogram bucket index as a string within the non_norm_aggregates
+      array.
   - mode: NULLABLE
     name: value
     type: FLOAT
+    description: The raw (non-normalized) summed count for this bucket across all
+      contributing clients within the non_norm_aggregates array.
   mode: REPEATED
   name: non_norm_aggregates
   type: RECORD
+  description: Repeated array of raw (non-normalized) histogram bucket counts, where
+    key is the bucket index as a string and value is the summed raw count across all
+    clients for that bucket.
