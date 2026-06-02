@@ -473,69 +473,116 @@ fields:
 - mode: NULLABLE
   name: city
   type: STRING
+  description: Name of the city derived from IP geolocation where the client was active;
+    null for ~20% of clients where city-level resolution is unavailable (sampled 2026-05-29).
 - mode: NULLABLE
   name: geo_subdivision1
   type: STRING
+  description: First major country subdivision (typically state or province) derived
+    from IP geolocation, using ISO 3166-2 codes; null for ~5% of clients (sampled
+    2026-05-29).
 - mode: NULLABLE
   name: geo_subdivision2
   type: STRING
+  description: Second major country subdivision derived from IP geolocation; null
+    for ~84% of clients where this level of detail is unavailable (sampled 2026-05-29).
 - mode: NULLABLE
   name: isp_name
   type: STRING
 - mode: NULLABLE
   name: isp_organization
   type: STRING
+  description: Name of the specific business entity associated with the client's IP
+    address when more specific than the ISP name; otherwise matches isp_name (sampled
+    2026-05-29).
 - mode: NULLABLE
   name: gfx_features_advanced_layers_status
   type: STRING
+  description: Status of the Advanced Layers compositor feature (e.g. 'available',
+    'disabled', 'blocked:FEATURE_BLOCKED_BY_WEBRENDER_USAGE'); null for ~99% of clients
+    (sampled 2026-05-29).
 - mode: NULLABLE
   name: gfx_features_d2d_status
   type: STRING
+  description: Status of the Direct2D graphics feature on Windows (e.g. 'available',
+    'disabled:FEATURE_FAILURE_DISABLED', 'blocklisted:...'); null for ~83% of clients
+    on non-Windows platforms (sampled 2026-05-29).
 - mode: NULLABLE
   name: gfx_features_d3d11_status
   type: STRING
+  description: Status of the Direct3D 11 compositor feature on Windows (e.g. 'available',
+    'blocklisted:FEATURE_FAILURE_UNKNOWN_DEVICE_VENDOR'); null for ~15% of clients
+    (sampled 2026-05-29).
 - mode: NULLABLE
   name: gfx_features_gpu_process_status
   type: STRING
+  description: Status of the GPU process feature (e.g. 'available', 'unused', 'unavailable:FEATURE_FAILURE_PLATFORM_UPDATE');
+    null for ~0.7% of clients (sampled 2026-05-29).
 - mode: NULLABLE
   name: histogram_parent_devtools_aboutdebugging_opened_count_sum
   type: INTEGER
+  description: Total number of times the about:debugging DevTools panel was opened
+    by the client; null for ~100% of clients (sampled 2026-05-29).
 - mode: NULLABLE
   name: histogram_parent_devtools_animationinspector_opened_count_sum
   type: INTEGER
+  description: Total number of times the DevTools Animation Inspector panel was opened;
+    null for ~100% of clients (sampled 2026-05-29).
 - mode: NULLABLE
   name: histogram_parent_devtools_browserconsole_opened_count_sum
   type: INTEGER
+  description: Total number of times the DevTools Browser Console was opened; null
+    for ~100% of clients (sampled 2026-05-29).
 - mode: NULLABLE
   name: histogram_parent_devtools_canvasdebugger_opened_count_sum
   type: INTEGER
+  description: Total number of times the DevTools Canvas Debugger panel was opened;
+    always null in sampled data (deprecated tool) (sampled 2026-05-29).
 - mode: NULLABLE
   name: histogram_parent_devtools_computedview_opened_count_sum
   type: INTEGER
+  description: Total number of times the DevTools Computed View CSS panel was opened;
+    null for ~99.9% of clients (sampled 2026-05-29).
 - mode: NULLABLE
   name: histogram_parent_devtools_custom_opened_count_sum
   type: INTEGER
+  description: Total number of times a custom DevTools panel was opened; null for
+    ~100% of clients (sampled 2026-05-29).
 - mode: NULLABLE
   name: histogram_parent_devtools_developertoolbar_opened_count_sum
   type: INTEGER
+  description: Total number of times the DevTools developer toolbar was opened; always
+    null in sampled data (deprecated tool) (sampled 2026-05-29).
 - mode: NULLABLE
   name: histogram_parent_devtools_dom_opened_count_sum
   type: INTEGER
+  description: Total number of times the DevTools DOM panel was opened; null for ~100%
+    of clients (sampled 2026-05-29).
 - mode: NULLABLE
   name: histogram_parent_devtools_eyedropper_opened_count_sum
   type: INTEGER
+  description: Total number of times the DevTools color eyedropper tool was opened;
+    null for ~100% of clients (sampled 2026-05-29).
 - mode: NULLABLE
   name: histogram_parent_devtools_fontinspector_opened_count_sum
   type: INTEGER
+  description: Total number of times the DevTools Font Inspector panel was opened;
+    null for ~100% of clients (sampled 2026-05-29).
 - mode: NULLABLE
   name: histogram_parent_devtools_inspector_opened_count_sum
   type: INTEGER
+  description: Total number of times the DevTools Inspector (DOM/CSS panel) was opened;
+    null for ~99% of clients (sampled 2026-05-29).
 - mode: NULLABLE
   name: histogram_parent_devtools_jsbrowserdebugger_opened_count_sum
   type: INTEGER
+  description: Total number of times the DevTools Browser Toolbox JS debugger was
+    opened; null for ~100% of clients (sampled 2026-05-29).
 - mode: NULLABLE
   name: histogram_parent_devtools_jsdebugger_opened_count_sum
   type: INTEGER
+  description: Total number of times the DevTools JavaScript Debugger panel was opened;
+    null for ~99.9% of clients (sampled 2026-05-29).
 - mode: NULLABLE
   name: histogram_parent_devtools_jsprofiler_opened_count_sum
   type: INTEGER
