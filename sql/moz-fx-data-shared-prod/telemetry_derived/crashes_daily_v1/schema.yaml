@@ -1,41 +1,52 @@
 fields:
-- description: null
+- description: The date when the telemetry crash ping was received on the server side.
   mode: NULLABLE
   name: submission_date
   type: DATE
-- description: null
+- description: A unique identifier (UUID) for the client.
   mode: NULLABLE
   name: client_id
   type: STRING
-- description: null
+- description: A number, 0-99, that samples by client_id and allows filtering data
+    for analysis. It is a pipeline-generated artifact that should match between pings.
   mode: NULLABLE
   name: sample_id
   type: INTEGER
-- description: null
+- description: The normalized application name reporting the crash (always 'Firefox'
+    in this table, sampled 2026-06-02).
   mode: NULLABLE
   name: application_name
   type: STRING
-- description: null
+- description: The application build ID from the crash ping (e.g., '20260514164700').
+    Represents the modal build ID observed across all crash pings for this client
+    on the day.
   mode: NULLABLE
   name: build_id
   type: STRING
-- description: null
+- description: The normalized release channel of the crashing application (e.g., 'release',
+    'esr', 'beta', 'nightly', 'Other').
   mode: NULLABLE
   name: channel
   type: STRING
-- description: null
+- description: The normalized operating system of the crashing client (e.g., 'Windows',
+    'Linux', 'Mac').
   mode: NULLABLE
   name: os
   type: STRING
-- description: null
+- description: The OS version string of the crashing client (e.g., '10.0', '6.1' for
+    Windows versions). Represents the modal value across all crash pings for this
+    client on the day.
   mode: NULLABLE
   name: os_version
   type: STRING
-- description: null
+- description: The ISO 3166-1 alpha-2 country code for the country where the crash
+    occurred, as determined by IP geolocation.
   mode: NULLABLE
   name: country_code
   type: STRING
-- description: NULL
+- description: Array of process-type-to-crash-count mappings for non-shutdown-kill
+    crashes. Each entry contains a process type key (e.g., 'main', 'content', 'gpu')
+    and the count of crashes of that type for this client on the day.
   mode: REPEATED
   type: RECORD
   name: process_crash_counts
@@ -43,10 +54,16 @@ fields:
   - mode: NULLABLE
     name: key
     type: STRING
+    description: The process type for each entry in the process_crash_counts array
+      (e.g., 'main', 'content', 'gpu', 'rdd', 'utility', 'gmplugin', 'socket').
   - mode: NULLABLE
     name: value
     type: INTEGER
-- description: NULL
+    description: The count of non-shutdown-kill crashes for the corresponding process
+      type in each process_crash_counts entry.
+- description: Array of process-type-to-crash-count mappings for shutdown-kill crashes
+    (IPC channel error = 'ShutDownKill'). Each entry contains a process type key and
+    the count of shutdown-kill crashes for this client on the day.
   mode: REPEATED
   type: RECORD
   name: process_shutdown_kill_crash_counts
@@ -54,10 +71,15 @@ fields:
   - mode: NULLABLE
     name: key
     type: STRING
+    description: The process type for each entry in the process_shutdown_kill_crash_counts
+      array (only 'content' observed in practice).
   - mode: NULLABLE
     name: value
     type: INTEGER
-- description: A UUID identifying the profile's group on a single device and allowing user-oriented correlation of data
+    description: The count of shutdown-kill crashes for the corresponding process
+      type in each process_shutdown_kill_crash_counts entry.
+- description: A UUID identifying the profile's group on a single device and allowing
+    user-oriented correlation of data
   mode: NULLABLE
   name: profile_group_id
   type: STRING
