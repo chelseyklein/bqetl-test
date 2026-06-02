@@ -10,15 +10,26 @@ fields:
 - name: thread_offset
   type: INTEGER
   mode: NULLABLE
+  description: The 0-based index of the thread within the crash stack traces array.
+    Only thread 0 and the crashing thread are retained.
 - name: frame_offset
   type: INTEGER
   mode: NULLABLE
+  description: The 0-based index of the stack frame within its thread's frames array.
+    Only the first 40 frames per thread are retained.
 - name: debug_file
   type: STRING
   mode: NULLABLE
+  description: The debug symbol file name for the binary module (e.g., 'xul.pdb').
+    Used as a key to look up symbolication data in crash_symbols_v1.
 - name: debug_id
   type: STRING
   mode: NULLABLE
+  description: The unique debug identifier (UUID + age) for the binary module, paired
+    with debug_file to uniquely identify a build's symbol file.
 - name: module_offset
   type: INTEGER
   mode: NULLABLE
+  description: The byte offset of the instruction pointer within the loaded module,
+    computed as instruction pointer minus module base address. Used as a key for symbol
+    lookups.
