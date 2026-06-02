@@ -439,7 +439,9 @@ fields:
 - mode: NULLABLE
   name: distribution_id
   type: STRING
-  description: null
+  description: The distribution identifier associated with this Firefox install (e.g.
+    'canonical', 'MozillaOnline'); null in 81.1% of rows where no distribution is
+    set (sampled 2026-05-29).
 - mode: NULLABLE
   name: e10s_enabled
   type: BOOLEAN
@@ -980,157 +982,210 @@ fields:
 - mode: NULLABLE
   name: search_cohort
   type: STRING
-  description: null
+  description: Legacy experiment cohort identifier for search-related studies; null
+    in 99.9% of rows as this field is from an older cohort-tracking system (sampled
+    2026-05-29).
 - mode: NULLABLE
   name: search_count_abouthome
   type: INTEGER
-  description: null
+  description: Total number of searches initiated from the Firefox about:home new-tab
+    page during the aggregation period.
 - mode: NULLABLE
   name: search_count_contextmenu
   type: INTEGER
-  description: null
+  description: Total number of searches initiated via the right-click context menu
+    during the aggregation period.
 - mode: NULLABLE
   name: search_count_newtab
   type: INTEGER
-  description: null
+  description: Total number of searches initiated from the Firefox new-tab page during
+    the aggregation period.
 - mode: NULLABLE
   name: search_count_searchbar
   type: INTEGER
-  description: null
+  description: Total number of searches initiated from the Firefox search bar (the
+    standalone search box in the toolbar, separate from the address bar) during the
+    aggregation period.
 - mode: NULLABLE
   name: search_count_system
   type: INTEGER
-  description: null
+  description: Total number of searches initiated by the browser itself (e.g. system
+    context or app-generated searches) during the aggregation period.
 - mode: NULLABLE
   name: search_count_urlbar
   type: INTEGER
-  description: null
+  description: Total number of searches initiated from the address bar (urlbar) during
+    the aggregation period.
 - mode: NULLABLE
   name: search_count_all
   type: INTEGER
-  description: null
+  description: Total number of searches across all entry points (urlbar, searchbar,
+    about:home, context menu, etc.) during the aggregation period.
 - mode: NULLABLE
   name: search_count_tagged_sap
   type: INTEGER
-  description: null
+  description: Total number of searches tagged as Search Access Point (SAP) searches,
+    meaning they used a Mozilla partner engine tag during the aggregation period.
 - mode: NULLABLE
   name: search_count_tagged_follow_on
   type: INTEGER
-  description: null
+  description: Total number of follow-on searches — searches that occur after an initial
+    SAP search on a search engine results page — during the aggregation period.
 - mode: NULLABLE
   name: search_count_organic
   type: INTEGER
-  description: null
+  description: Total number of organic (untagged, non-SAP) searches during the aggregation
+    period.
 - mode: NULLABLE
   name: search_count_urlbar_handoff
   type: INTEGER
+  description: Total number of searches initiated via the address-bar handoff to the
+    new-tab page search box during the aggregation period.
 - mode: NULLABLE
   name: search_count_urlbar_persisted
   type: INTEGER
+  description: Total number of urlbar searches where the search mode was persisted
+    from a previous interaction during the aggregation period.
 - mode: NULLABLE
   name: session_restored_mean
   type: FLOAT
-  description: null
+  description: Mean time in milliseconds from browser start to session restore completion
+    across pings in the aggregation period; null in 1.3% of rows (sampled 2026-05-29).
 - mode: NULLABLE
   name: sessions_started_on_this_day
   type: INTEGER
-  description: null
+  description: Number of Firefox sessions started by this client on the submission_date
+    (sampled 2026-05-29).
 - mode: NULLABLE
   name: shutdown_kill_sum
   type: INTEGER
-  description: null
+  description: Total number of browser processes that were forcibly killed during
+    shutdown (rather than exiting cleanly) across the aggregation period; null in
+    98% of rows (sampled 2026-05-29).
 - mode: NULLABLE
   name: subsession_hours_sum
   type: NUMERIC
-  description: null
+  description: Total wall-clock hours of Firefox subsession time accumulated across
+    all pings in the aggregation period (sampled 2026-05-29).
 - mode: NULLABLE
   name: ssl_handshake_result_failure_sum
   type: INTEGER
-  description: null
+  description: Total number of failed TLS/SSL handshakes during the aggregation period.
 - mode: NULLABLE
   name: ssl_handshake_result_success_sum
   type: INTEGER
-  description: null
+  description: Total number of successful TLS/SSL handshakes during the aggregation
+    period; null in 64.7% of rows where no handshakes were recorded (sampled 2026-05-29).
 - mode: NULLABLE
   name: sync_configured
   type: BOOLEAN
-  description: null
+  description: Whether Firefox Sync was configured on the client at the time of the
+    last ping; null in 86% of rows (sampled 2026-05-29).
 - mode: NULLABLE
   name: sync_count_desktop_mean
   type: FLOAT
-  description: null
+  description: Mean number of synced desktop browser clients linked to this Firefox
+    account across pings; null in 89% of rows where Sync is not configured (sampled
+    2026-05-29).
 - mode: NULLABLE
   name: sync_count_mobile_mean
   type: FLOAT
-  description: null
+  description: Mean number of synced mobile browser clients linked to this Firefox
+    account across pings; null in 89% of rows where Sync is not configured (sampled
+    2026-05-29).
 - mode: NULLABLE
   name: sync_count_desktop_sum
   type: INTEGER
-  description: null
+  description: Total number of synced desktop browser client events across the aggregation
+    period; null in 89% of rows where Sync is not configured (sampled 2026-05-29).
 - mode: NULLABLE
   name: sync_count_mobile_sum
   type: INTEGER
-  description: null
+  description: Total number of synced mobile browser client events across the aggregation
+    period; null in 89% of rows where Sync is not configured (sampled 2026-05-29).
 - mode: NULLABLE
   name: telemetry_enabled
   type: BOOLEAN
-  description: null
+  description: Whether the client has Firefox telemetry data collection enabled; null
+    in 86.4% of rows (where this preference was not recorded or defaults to enabled)
+    (sampled 2026-05-29).
 - mode: NULLABLE
   name: timezone_offset
   type: INTEGER
-  description: null
+  description: The client's local timezone offset from UTC in minutes (e.g. 120 =
+    UTC+2, -300 = UTC-5), as reported in the telemetry ping (sampled 2026-05-29).
 - mode: NULLABLE
   name: total_hours_sum
   type: NUMERIC
-  description: null
+  description: Total hours of Firefox usage recorded across all pings in the aggregation
+    period (NUMERIC type); null for all sampled clients, likely superseded by subsession_hours_sum
+    (100% null rate sampled 2026-05-29).
 - mode: NULLABLE
   name: update_auto_download
   type: BOOLEAN
-  description: null
+  description: Whether Firefox is configured to automatically download updates in
+    the background; true for ~92% of clients (sampled 2026-05-29).
 - mode: NULLABLE
   name: update_channel
   type: STRING
-  description: null
+  description: The raw update channel string as reported by the browser; may contain
+    non-standard user-modified values — use normalized_channel for reliable analysis
+    (sampled 2026-05-29).
 - mode: NULLABLE
   name: update_enabled
   type: BOOLEAN
-  description: null
+  description: Whether Firefox automatic updates are enabled; true for ~87.6% of clients
+    (sampled 2026-05-29).
 - mode: NULLABLE
   name: vendor
   type: STRING
-  description: null
+  description: The browser vendor string; always 'Mozilla' for Firefox clients in
+    this table (sampled 2026-05-29).
 - mode: NULLABLE
   name: web_notification_shown_sum
   type: INTEGER
-  description: null
+  description: Total number of web push notifications shown to the client; null for
+    nearly all clients (100% null rate sampled 2026-05-29).
 - mode: NULLABLE
   name: windows_build_number
   type: INTEGER
-  description: null
+  description: Windows build number of the client's operating system (e.g. 26200 for
+    Windows 11 24H2, 19045 for Windows 10 22H2); null in 15.8% of rows for non-Windows
+    clients (sampled 2026-05-29).
 - mode: NULLABLE
   name: windows_ubr
   type: INTEGER
-  description: null
+  description: Windows Update Build Revision (UBR) number, a sub-build patch level
+    for the Windows OS; null in 22.3% of rows for non-Windows or older clients (sampled
+    2026-05-29).
 - mode: NULLABLE
   name: fxa_configured
   type: BOOLEAN
-  description: null
+  description: Whether a Firefox Accounts (FxA) login is configured on the client;
+    null in 85.4% of rows where the FxA state was not reported (sampled 2026-05-29).
 - mode: NULLABLE
   name: trackers_blocked_sum
   type: INTEGER
-  description: null
+  description: Total number of tracking requests blocked by Firefox Enhanced Tracking
+    Protection during the aggregation period; null in 68.1% of rows where ETP blocked
+    no trackers (sampled 2026-05-29).
 - mode: NULLABLE
   name: submission_timestamp_min
   type: TIMESTAMP
-  description: null
+  description: The earliest ping submission timestamp across pings aggregated into
+    this row, useful for identifying the first daily contact with the server.
 - mode: NULLABLE
   name: ad_clicks_count_all
   type: INTEGER
-  description: null
+  description: Total number of ad clicks recorded across all search access points
+    during the aggregation period; null in 94.6% of rows where no ad clicks occurred
+    (sampled 2026-05-29).
 - mode: NULLABLE
   name: search_with_ads_count_all
   type: INTEGER
-  description: null
+  description: Total number of search result pages containing ads that were shown
+    to the client across all access points; null in 87.8% of rows where no such pages
+    were seen (sampled 2026-05-29).
 - mode: NULLABLE
   name: scalar_parent_urlbar_impression_autofill_about_sum
   type: INTEGER
@@ -1389,12 +1444,19 @@ fields:
 - mode: NULLABLE
   name: search_count_webextension
   type: INTEGER
+  description: Total number of searches initiated by a WebExtension (e.g. add-on that
+    sets the default search engine) during the aggregation period.
 - mode: NULLABLE
   name: search_count_alias
   type: INTEGER
+  description: Total number of searches triggered via an engine alias (e.g. '@google
+    term') in the address bar during the aggregation period.
 - mode: NULLABLE
   name: search_count_urlbar_searchmode
   type: INTEGER
+  description: Total number of searches performed while the urlbar was in explicit
+    search-mode (i.e. the user selected a specific engine in the urlbar) during the
+    aggregation period.
 - fields:
   - mode: NULLABLE
     name: key
@@ -2080,6 +2142,8 @@ fields:
 - mode: NULLABLE
   name: update_background
   type: BOOLEAN
+  description: Whether Firefox background update service is enabled; true for ~93%
+    of clients with the setting present (null in 1.8% of rows sampled 2026-05-29).
 - mode: NULLABLE
   name: user_pref_browser_search_suggest_enabled
   type: STRING
@@ -2613,15 +2677,25 @@ fields:
 - name: partner_id
   type: STRING
   mode: NULLABLE
+  description: The OEM or partner identifier associated with the Firefox install (e.g.
+    'ubuntu', 'mozillaonline', 'mint'); null in 92.1% of rows for standard Mozilla
+    builds (sampled 2026-05-29).
 - name: distribution_version
   type: STRING
   mode: NULLABLE
+  description: The version string of the Firefox distribution (e.g. '1.0', '2023.6');
+    null in 81.1% of rows where no distribution is set (sampled 2026-05-29).
 - name: distributor
   type: STRING
   mode: NULLABLE
+  description: The name of the organisation or channel that distributed this Firefox
+    build (e.g. 'canonical', 'mozillaonline', 'mint'); null in 90.7% of rows for standard
+    Mozilla builds (sampled 2026-05-29).
 - name: distributor_channel
   type: STRING
   mode: NULLABLE
+  description: The distribution channel identifier for the Firefox install (e.g. 'mainWinStub',
+    'ubuntu', 'zena'); null in 90.8% of rows for standard builds (sampled 2026-05-29).
 - name: env_build_platform_version
   type: STRING
   mode: NULLABLE
