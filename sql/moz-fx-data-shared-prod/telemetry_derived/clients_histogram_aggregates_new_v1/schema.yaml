@@ -19,6 +19,8 @@ fields:
 - name: app_build_id
   type: STRING
   mode: NULLABLE
+  description: The build ID of the Firefox application binary, formatted as a timestamp
+    string (e.g. '20260116091309').
 - name: channel
   type: STRING
   mode: NULLABLE
@@ -26,6 +28,8 @@ fields:
 - name: join_key
   type: STRING
   mode: NULLABLE
+  description: A composite string key used to join this table with clients_histogram_aggregates_v2;
+    formed by concatenating client_id, os, app_version, app_build_id, and channel.
 - name: histogram_aggregates
   type: RECORD
   mode: REPEATED
@@ -33,30 +37,48 @@ fields:
   - name: first_bucket
     type: INTEGER
     mode: NULLABLE
+    description: The lower bound of the first bucket in the histogram's bucket range
+      for each entry in histogram_aggregates.
   - name: last_bucket
     type: INTEGER
     mode: NULLABLE
+    description: The upper bound of the last bucket in the histogram's bucket range
+      for each entry in histogram_aggregates.
   - name: num_buckets
     type: INTEGER
     mode: NULLABLE
+    description: The total number of buckets in the histogram for each entry in histogram_aggregates.
   - name: latest_version
     type: INTEGER
     mode: NULLABLE
+    description: The most recent Firefox major version observed for this client's
+      histogram entry within histogram_aggregates, used to determine version currency.
   - name: metric
     type: STRING
     mode: NULLABLE
+    description: The name of the telemetry histogram probe (e.g. 'network_dns_end_to_connect_start_exp_ms')
+      for each entry in histogram_aggregates.
   - name: metric_type
     type: STRING
     mode: NULLABLE
+    description: The histogram type for each entry in histogram_aggregates, e.g. 'histogram-exponential',
+      'histogram-enumerated', 'histogram-boolean', 'histogram-categorical', 'histogram-linear',
+      or 'histogram-count'.
   - name: key
     type: STRING
     mode: NULLABLE
+    description: An optional keyed-histogram key for each entry in histogram_aggregates;
+      empty string for non-keyed histograms.
   - name: process
     type: STRING
     mode: NULLABLE
+    description: The Firefox process type from which the histogram was recorded (e.g.
+      'parent', 'content', 'gpu') for each entry in histogram_aggregates.
   - name: agg_type
     type: STRING
     mode: NULLABLE
+    description: The aggregation method applied to the histogram values for each entry
+      in histogram_aggregates; always 'summed_histogram' in this table.
   - name: aggregates
     type: RECORD
     mode: REPEATED
@@ -67,3 +89,5 @@ fields:
     - name: value
       type: INTEGER
       mode: NULLABLE
+  description: Array of per-metric histogram aggregates for this client, each describing
+    one histogram probe across a specific process, key, and bucket configuration.
