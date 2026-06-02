@@ -2288,12 +2288,18 @@ fields:
 - mode: NULLABLE
   name: scalar_parent_browser_ui_interaction_textrecognition_error_sum
   type: INTEGER
+  description: Total number of text recognition errors encountered in the browser
+    UI on the reporting day; always null in sampled data (sampled 2026-05-29).
 - mode: NULLABLE
   name: text_recognition_interaction_timing_sum
   type: INTEGER
+  description: Total cumulative user interaction timing in milliseconds for the text
+    recognition feature on the reporting day; null for ~100% of clients (sampled 2026-05-29).
 - mode: NULLABLE
   name: text_recognition_interaction_timing_count_sum
   type: INTEGER
+  description: Total number of text recognition user interaction timing measurements
+    recorded; null for ~100% of clients (sampled 2026-05-29).
 - fields:
   - mode: NULLABLE
     name: key
@@ -2307,21 +2313,33 @@ fields:
 - mode: NULLABLE
   name: text_recognition_api_performance_sum
   type: INTEGER
+  description: Total cumulative time in milliseconds for text recognition API operations
+    on the reporting day; null for ~100% of clients (sampled 2026-05-29).
 - mode: NULLABLE
   name: text_recognition_api_performance_count_sum
   type: INTEGER
+  description: Total number of text recognition API performance timing measurements
+    recorded; null for ~100% of clients (sampled 2026-05-29).
 - mode: NULLABLE
   name: text_recognition_text_length_sum
   type: INTEGER
+  description: Total length of text successfully recognized by the text recognition
+    API, in characters, on the reporting day; null for ~100% of clients (sampled 2026-05-29).
 - mode: NULLABLE
   name: text_recognition_text_length_count_sum
   type: INTEGER
+  description: Total number of text length measurements from text recognition operations;
+    null for ~100% of clients (sampled 2026-05-29).
 - mode: NULLABLE
   name: places_searchbar_cumulative_searches_sum
   type: INTEGER
+  description: Cumulative number of searches performed in the Places library search
+    bar; null for ~99.9% of clients who have not used it (sampled 2026-05-29).
 - mode: NULLABLE
   name: places_searchbar_cumulative_filter_count_sum
   type: INTEGER
+  description: Cumulative number of filter operations performed in the Places library
+    search bar; null for ~99.9% of clients (sampled 2026-05-29).
 - mode: NULLABLE
   name: scalar_parent_os_environment_launched_via_taskbar_private
   type: BOOLEAN
@@ -2410,9 +2428,13 @@ fields:
 - mode: NULLABLE
   name: media_play_time_ms_audio_sum
   type: INTEGER
+  description: Total milliseconds of audio media playback on the reporting day; null
+    for ~100% of clients with no audio playback recorded (sampled 2026-05-29).
 - mode: NULLABLE
   name: media_play_time_ms_video_sum
   type: INTEGER
+  description: Total milliseconds of video media playback on the reporting day; null
+    for ~100% of clients with no video playback recorded (sampled 2026-05-29).
 - fields:
   - mode: NULLABLE
     name: key
@@ -2586,15 +2608,23 @@ fields:
 - name: places_previousday_visits_mean
   type: FLOAT
   mode: NULLABLE
+  description: Mean number of pages visited the previous day according to the Places
+    history database; null for ~27% of clients (sampled 2026-05-29).
 - name: places_library_cumulative_bookmark_searches_sum
   type: INTEGER
   mode: NULLABLE
+  description: Cumulative number of bookmark searches performed in the Places library
+    panel; null for ~99.9% of clients (sampled 2026-05-29).
 - name: places_library_cumulative_history_searches_sum
   type: INTEGER
   mode: NULLABLE
+  description: Cumulative number of history searches performed in the Places library
+    panel; null for ~99.7% of clients (sampled 2026-05-29).
 - name: places_bookmarks_searchbar_cumulative_searches_sum
   type: INTEGER
   mode: NULLABLE
+  description: Cumulative number of bookmark searches initiated from the browser search
+    bar; null for ~99.4% of clients (sampled 2026-05-29).
 - name: scalar_parent_library_link_sum
   type: RECORD
   mode: REPEATED
@@ -2628,21 +2658,36 @@ fields:
 - name: startup_profile_selection_reason_first
   type: STRING
   mode: NULLABLE
+  description: Reason for the profile selection at first startup (e.g. 'default',
+    'firstrun-created-default', 'argument-profile'); null for ~22% of clients (sampled
+    2026-05-29).
 - name: startup_profile_selection_first_ping_only
   type: STRING
   mode: NULLABLE
+  description: Profile selection reason as recorded in the first ping only (e.g. 'default',
+    'profile-selector', 'restart'); null for ~16% of clients (sampled 2026-05-29).
 - name: first_document_id
   type: STRING
   mode: NULLABLE
+  description: Document ID (UUID) of the first telemetry ping received from this client
+    on the reporting day, used to uniquely identify a submission.
 - name: partner_id
   type: STRING
   mode: NULLABLE
+  description: Firefox partner identifier from the mozilla.partner.id preference (e.g.
+    'ubuntu', 'mozillaonline', 'mint'); null for ~92% of clients without a partner
+    distribution (sampled 2026-05-29).
 - name: distribution_version
   type: STRING
   mode: NULLABLE
+  description: Version string of the Firefox distribution package (e.g. '1.0', '2023.6');
+    null for ~81% of clients without a partner distribution (sampled 2026-05-29).
 - name: distributor
   type: STRING
   mode: NULLABLE
+  description: Name of the organization that distributed this Firefox build (e.g.
+    'canonical', 'mozillaonline', 'mint', 'archlinux'); null for ~91% of clients without
+    a distributor (sampled 2026-05-29).
 - name: distributor_channel
   type: STRING
   mode: NULLABLE
