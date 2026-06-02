@@ -19,36 +19,63 @@ fields:
 - mode: NULLABLE
   name: second_seen_date
   type: DATE
+  description: Date when the server received the second ping from this client, indicating
+    the client returned after first being seen.
 - mode: NULLABLE
   name: days_seen_bits
   type: INTEGER
+  description: A bit-pattern integer representing the days within the past 28 days
+    on which the client submitted at least one ping, where the least-significant bit
+    represents the most recent day.
 - mode: NULLABLE
   name: days_visited_1_uri_bits
   type: INTEGER
+  description: Bit-pattern integer for the days in the past 28 on which the client
+    visited at least 1 URI, in normal or private browsing mode (sampled 2026-05-29).
 - mode: NULLABLE
   name: days_visited_5_uri_bits
   type: INTEGER
+  description: Bit-pattern integer for the days in the past 28 on which the client
+    visited at least 5 URIs, used as a lightweight engagement threshold (sampled 2026-05-29).
 - mode: NULLABLE
   name: days_visited_10_uri_bits
   type: INTEGER
+  description: Bit-pattern integer for the days in the past 28 on which the client
+    visited at least 10 URIs, a stronger engagement signal than the 5-URI threshold
+    (sampled 2026-05-29).
 - mode: NULLABLE
   name: days_had_8_active_ticks_bits
   type: INTEGER
+  description: Bit-pattern integer for the days in the past 28 on which the client
+    accumulated at least 8 five-second activity ticks, indicating substantive browser
+    engagement.
 - mode: NULLABLE
   name: days_opened_dev_tools_bits
   type: INTEGER
+  description: Bit-pattern integer for the days in the past 28 on which the client
+    opened Firefox Developer Tools at least once (sampled 2026-05-29).
 - mode: NULLABLE
   name: days_interacted_bits
   type: INTEGER
+  description: Bit-pattern integer for the days in the past 28 on which the client
+    had at least one active-tick interaction with the browser (sampled 2026-05-29).
 - mode: NULLABLE
   name: days_visited_1_uri_normal_mode_bits
   type: INTEGER
+  description: Bit-pattern integer for the days in the past 28 on which the client
+    visited at least 1 URI in a normal (non-private) browsing window (sampled 2026-05-29).
 - mode: NULLABLE
   name: days_visited_1_uri_private_mode_bits
   type: INTEGER
+  description: Bit-pattern integer for the days in the past 28 on which the client
+    visited at least 1 URI in a private browsing window; null-equivalent 0 indicates
+    no private browsing on that day (sampled 2026-05-29).
 - mode: NULLABLE
   name: days_created_profile_bits
   type: INTEGER
+  description: Bit-pattern integer indicating the days in the past 28 on which a new
+    Firefox profile was created on the client; non-zero on profile-creation days (sampled
+    2026-05-29).
 - fields:
   - mode: NULLABLE
     name: experiment
@@ -65,15 +92,24 @@ fields:
 - mode: NULLABLE
   name: aborts_content_sum
   type: INTEGER
+  description: Total number of Firefox content-process abort events (unclean process
+    terminations) aggregated over the reporting period; null when no aborts occurred
+    (sampled 2026-05-29).
 - mode: NULLABLE
   name: aborts_gmplugin_sum
   type: INTEGER
+  description: Total number of Gecko Media Plugin (GMP) process abort events aggregated
+    over the reporting period; null when no aborts occurred (sampled 2026-05-29).
 - mode: NULLABLE
   name: aborts_plugin_sum
   type: INTEGER
+  description: Total number of NPAPI plugin process abort events aggregated over the
+    reporting period; null when no aborts occurred (sampled 2026-05-29).
 - mode: NULLABLE
   name: active_addons_count_mean
   type: FLOAT
+  description: Mean number of active add-ons installed across the client's subsessions
+    on the reporting day; typically around 7 for most users (sampled 2026-05-29).
 - fields:
   - mode: NULLABLE
     name: addon_id
@@ -129,18 +165,30 @@ fields:
 - mode: NULLABLE
   name: active_experiment_branch
   type: STRING
+  description: The branch of the active legacy Normandy experiment the client is enrolled
+    in; null when no experiment is active. Fully null in sampled data (sampled 2026-05-29).
 - mode: NULLABLE
   name: active_experiment_id
   type: STRING
+  description: The identifier of the active legacy Normandy experiment the client
+    is enrolled in; null when no experiment is active. Fully null in sampled data
+    (sampled 2026-05-29).
 - mode: NULLABLE
   name: active_hours_sum
   type: FLOAT
+  description: Total number of hours the client was actively using Firefox (based
+    on five-second active ticks), summed across all subsessions on the reporting day
+    (sampled 2026-05-29).
 - mode: NULLABLE
   name: addon_compatibility_check_enabled
   type: BOOLEAN
+  description: Whether application compatibility is enforced for add-ons; true for
+    virtually all clients (sampled 2026-05-29).
 - mode: NULLABLE
   name: app_build_id
   type: STRING
+  description: The build ID of the application, a timestamp-based string identifying
+    the exact Firefox build (e.g. '20260511200624') (sampled 2026-05-29).
 - mode: NULLABLE
   name: app_display_version
   type: STRING
@@ -148,6 +196,8 @@ fields:
 - mode: NULLABLE
   name: app_name
   type: STRING
+  description: The name of the browser application; always 'Firefox' for this table
+    (sampled 2026-05-29).
 - mode: NULLABLE
   name: app_version
   type: STRING
