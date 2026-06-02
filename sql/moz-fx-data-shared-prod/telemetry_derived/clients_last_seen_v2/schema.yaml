@@ -43,12 +43,21 @@ fields:
 - mode: NULLABLE
   name: days_visited_1_uri_normal_mode_bits
   type: INTEGER
+  description: Bit pattern encoding on which of the previous 28 days the client visited
+    at least 1 URI in normal (non-private) browsing mode, using scalar_parent_browser_engagement_total_uri_count_sum
+    >= 1.
 - mode: NULLABLE
   name: days_visited_1_uri_private_mode_bits
   type: INTEGER
+  description: Bit pattern encoding on which of the previous 28 days the client visited
+    at least 1 URI in private browsing mode. Only populated for Firefox 84+; derived
+    from total_uri_count_normal_and_private minus total_uri_count_sum. (sampled 2026-05-29)
 - mode: NULLABLE
   name: days_created_profile_bits
   type: INTEGER
+  description: Bit pattern encoding on which of the previous 28 days a new Firefox
+    profile was created. The rightmost set bit indicates the day the profile was first
+    created relative to the submission date.
 - fields:
   - mode: NULLABLE
     name: experiment
@@ -73,7 +82,9 @@ fields:
 - mode: NULLABLE
   name: aborts_gmplugin_sum
   type: INTEGER
-  description: null
+  description: Total number of Gecko Media Plugin (GMP) process aborts aggregated
+    across all pings for the client on this date. Null (100% null rate) indicates
+    this metric is no longer populated.
 - mode: NULLABLE
   name: aborts_plugin_sum
   type: INTEGER
@@ -219,7 +230,9 @@ fields:
   - mode: NULLABLE
     name: ua
     type: STRING
-    description: null
+    description: The user-agent browser type detected at the time of the Firefox installation
+      download (e.g. 'chrome', 'edge', 'firefox', 'ie', 'other'). Null when attribution
+      data is absent (~68% null). (sampled 2026-05-29)
   name: attribution
   type: RECORD
   description: Attribution
@@ -282,7 +295,9 @@ fields:
 - mode: NULLABLE
   name: crashes_detected_gmplugin_sum
   type: INTEGER
-  description: null
+  description: Total number of Gecko Media Plugin (GMP) process crashes detected,
+    summed across the client's pings on this submission date. Null for the vast majority
+    of clients. (sampled 2026-05-29)
 - mode: NULLABLE
   name: crashes_detected_plugin_sum
   type: INTEGER
@@ -499,31 +514,45 @@ fields:
 - mode: NULLABLE
   name: histogram_parent_devtools_layoutview_opened_count_sum
   type: INTEGER
-  description: null
+  description: Number of times the DevTools Layout View panel was opened, summed over
+    the client's pings on this submission date. Null for most clients (~99% null).
+    (sampled 2026-05-29)
 - mode: NULLABLE
   name: histogram_parent_devtools_memory_opened_count_sum
   type: INTEGER
-  description: null
+  description: Number of times the DevTools Memory panel was opened, summed over the
+    client's pings on this submission date. Null for the vast majority of clients
+    (100% null). (sampled 2026-05-29)
 - mode: NULLABLE
   name: histogram_parent_devtools_menu_eyedropper_opened_count_sum
   type: INTEGER
-  description: null
+  description: Number of times the DevTools eyedropper was opened from the menu, summed
+    over the client's pings on this date. Null for nearly all clients (100% null rate
+    observed). (sampled 2026-05-29)
 - mode: NULLABLE
   name: histogram_parent_devtools_netmonitor_opened_count_sum
   type: INTEGER
-  description: null
+  description: Number of times the DevTools Network Monitor panel was opened, summed
+    over the client's pings on this submission date. Null for most clients (~99.7%
+    null). (sampled 2026-05-29)
 - mode: NULLABLE
   name: histogram_parent_devtools_options_opened_count_sum
   type: INTEGER
-  description: null
+  description: Number of times the DevTools Options/Settings panel was opened, summed
+    over the client's pings on this submission date. Null for nearly all clients (100%
+    null rate). (sampled 2026-05-29)
 - mode: NULLABLE
   name: histogram_parent_devtools_paintflashing_opened_count_sum
   type: INTEGER
-  description: null
+  description: Number of times the DevTools Paint Flashing toggle was opened, summed
+    over the client's pings. Null for all observed clients (100% null), indicating
+    this feature is rarely used. (sampled 2026-05-29)
 - mode: NULLABLE
   name: histogram_parent_devtools_picker_eyedropper_opened_count_sum
   type: INTEGER
-  description: null
+  description: Number of times the DevTools color picker eyedropper was opened, summed
+    for this client on the submission date. Null for nearly all clients (100% null
+    rate). (sampled 2026-05-29)
 - mode: NULLABLE
   name: histogram_parent_devtools_responsive_opened_count_sum
   type: INTEGER
@@ -559,7 +588,9 @@ fields:
 - mode: NULLABLE
   name: histogram_parent_devtools_webconsole_opened_count_sum
   type: INTEGER
-  description: null
+  description: Number of times the DevTools Web Console was opened, summed over the
+    client's pings on this submission date. Null for most clients (~99.7% null). (sampled
+    2026-05-29)
 - mode: NULLABLE
   name: histogram_parent_devtools_webide_opened_count_sum
   type: INTEGER
@@ -671,39 +702,56 @@ fields:
 - mode: NULLABLE
   name: scalar_combined_webrtc_nicer_turn_401s_sum
   type: INTEGER
-  description: null
+  description: Total count of TURN server 401 (Unauthorized) responses encountered
+    by the WebRTC ICE stack, summed for this client. Null for all observed clients
+    (100% null). (sampled 2026-05-29)
 - mode: NULLABLE
   name: scalar_combined_webrtc_nicer_turn_403s_sum
   type: INTEGER
-  description: null
+  description: Total count of TURN server 403 (Forbidden) responses encountered by
+    the WebRTC ICE stack, summed for this client. Null for all observed clients (100%
+    null). (sampled 2026-05-29)
 - mode: NULLABLE
   name: scalar_combined_webrtc_nicer_turn_438s_sum
   type: INTEGER
-  description: null
+  description: Total count of TURN server 438 (Stale Nonce) responses encountered
+    by the WebRTC ICE stack, summed for this client. Null for all observed clients
+    (100% null). (sampled 2026-05-29)
 - mode: NULLABLE
   name: scalar_content_navigator_storage_estimate_count_sum
   type: INTEGER
-  description: null
+  description: Number of times navigator.storage.estimate() was called in the content
+    process, summed for this client. Null for all observed clients (100% null). (sampled
+    2026-05-29)
 - mode: NULLABLE
   name: scalar_content_navigator_storage_persist_count_sum
   type: INTEGER
-  description: null
+  description: Number of times navigator.storage.persist() was called in the content
+    process, summed for this client. Null for all observed clients (100% null). (sampled
+    2026-05-29)
 - mode: NULLABLE
   name: scalar_parent_aushelper_websense_reg_version
   type: STRING
-  description: null
+  description: The version string of the Websense security software detected via the
+    AUS helper registry check (Windows only). Null for nearly all clients (~100% null),
+    as Websense is rare. (sampled 2026-05-29)
 - mode: NULLABLE
   name: scalar_parent_browser_engagement_max_concurrent_tab_count_max
   type: INTEGER
-  description: null
+  description: Maximum number of tabs open concurrently in any session on this submission
+    date, as recorded by the browser engagement scalar. Null for ~2.5% of clients.
+    (sampled 2026-05-29)
 - mode: NULLABLE
   name: scalar_parent_browser_engagement_max_concurrent_window_count_max
   type: INTEGER
-  description: null
+  description: Maximum number of browser windows open concurrently during any session
+    on this submission date. Null for ~1.6% of clients. (sampled 2026-05-29)
 - mode: NULLABLE
   name: scalar_parent_browser_engagement_tab_open_event_count_sum
   type: INTEGER
-  description: null
+  description: Total number of tab-open events recorded by the browser engagement
+    scalar, summed for this client on the submission date. Null for ~42% of clients.
+    (sampled 2026-05-29)
 - mode: NULLABLE
   name: scalar_parent_browser_engagement_total_uri_count_sum
   type: INTEGER
@@ -731,7 +779,8 @@ fields:
 - mode: NULLABLE
   name: scalar_parent_devtools_accessibility_opened_count_sum
   type: INTEGER
-  description: null
+  description: Number of times the DevTools Accessibility panel was opened, summed
+    for this client on the submission date. Null for ~99.9% of clients. (sampled 2026-05-29)
 - mode: NULLABLE
   name: scalar_parent_devtools_accessibility_picker_used_count_sum
   type: INTEGER
@@ -756,31 +805,40 @@ fields:
 - mode: NULLABLE
   name: scalar_parent_devtools_copy_full_css_selector_opened_sum
   type: INTEGER
-  description: null
+  description: Number of times the DevTools 'Copy Full CSS Selector' action was used,
+    summed for this client. Null for all observed clients (100% null). (sampled 2026-05-29)
 - mode: NULLABLE
   name: scalar_parent_devtools_copy_unique_css_selector_opened_sum
   type: INTEGER
-  description: null
+  description: Number of times the DevTools 'Copy Unique CSS Selector' action was
+    used, summed for this client. Null for all observed clients (100% null). (sampled
+    2026-05-29)
 - mode: NULLABLE
   name: scalar_parent_devtools_toolbar_eyedropper_opened_sum
   type: INTEGER
-  description: null
+  description: Number of times the DevTools toolbar eyedropper was opened, summed
+    for this client. Null for nearly all clients (100% null rate). (sampled 2026-05-29)
 - mode: NULLABLE
   name: scalar_parent_dom_contentprocess_troubled_due_to_memory_sum
   type: INTEGER
-  description: null
+  description: Number of times a content process was marked as troubled due to low
+    memory conditions, summed for this client. Null for all observed clients (100%
+    null). (sampled 2026-05-29)
 - mode: NULLABLE
   name: scalar_parent_navigator_storage_estimate_count_sum
   type: INTEGER
-  description: null
+  description: Number of times navigator.storage.estimate() was called in the parent
+    process for this client. Null for all observed clients (100% null). (sampled 2026-05-29)
 - mode: NULLABLE
   name: scalar_parent_navigator_storage_persist_count_sum
   type: INTEGER
-  description: null
+  description: Number of times navigator.storage.persist() was called in the parent
+    process for this client. Null for all observed clients (100% null). (sampled 2026-05-29)
 - mode: NULLABLE
   name: scalar_parent_storage_sync_api_usage_extensions_using_sum
   type: INTEGER
-  description: null
+  description: Number of extensions using the browser.storage.sync API on this client,
+    summed across pings. Null for all observed clients (100% null). (sampled 2026-05-29)
 - mode: NULLABLE
   name: search_cohort
   type: STRING
@@ -816,11 +874,14 @@ fields:
 - mode: NULLABLE
   name: search_count_tagged_sap
   type: INTEGER
-  description: null
+  description: Total number of tagged search-access-point (SAP) searches performed
+    by the client, where the search query is tagged with a Firefox partner code. (sampled
+    2026-05-29)
 - mode: NULLABLE
   name: search_count_tagged_follow_on
   type: INTEGER
-  description: null
+  description: Total number of follow-on searches triggered from a tagged SAP result
+    page (i.e. searches that follow an initial tagged search). (sampled 2026-05-29)
 - mode: NULLABLE
   name: search_count_organic
   type: INTEGER
@@ -828,7 +889,9 @@ fields:
 - mode: NULLABLE
   name: search_count_urlbar_handoff
   type: INTEGER
-  description: null
+  description: Total number of searches initiated via the URL bar handoff feature
+    (new tab page search forwarded to the URL bar), for this client on the submission
+    date. (sampled 2026-05-29)
 - mode: NULLABLE
   name: session_restored_mean
   type: FLOAT
@@ -944,19 +1007,24 @@ fields:
 - mode: NULLABLE
   name: scalar_parent_urlbar_impression_autofill_origin_sum
   type: INTEGER
-  description: null
+  description: Number of times the URL bar showed an origin autofill suggestion (completing
+    based on known site origins) for this client. Null for ~98.9% of clients. (sampled
+    2026-05-29)
 - mode: NULLABLE
   name: scalar_parent_urlbar_impression_autofill_other_sum
   type: INTEGER
-  description: null
+  description: Number of times the URL bar showed an autofill suggestion of an unclassified
+    type for this client. Null for all observed clients (100% null). (sampled 2026-05-29)
 - mode: NULLABLE
   name: scalar_parent_urlbar_impression_autofill_preloaded_sum
   type: INTEGER
-  description: null
+  description: Number of times the URL bar showed a preloaded site autofill suggestion
+    for this client. Null for all observed clients (100% null). (sampled 2026-05-29)
 - mode: NULLABLE
   name: scalar_parent_urlbar_impression_autofill_url_sum
   type: INTEGER
-  description: null
+  description: Number of times the URL bar showed a full-URL autofill suggestion for
+    this client. Null for ~99.9% of clients. (sampled 2026-05-29)
 - fields:
   - mode: NULLABLE
     name: key
@@ -982,7 +1050,9 @@ fields:
   mode: REPEATED
   name: scalar_content_telemetry_event_counts_sum
   type: RECORD
-  description: null
+  description: Keyed array mapping telemetry event category+method+object keys to
+    counts recorded in the content process for this client, summed across pings on
+    the submission date.
 - fields:
   - mode: NULLABLE
     name: key
@@ -995,7 +1065,8 @@ fields:
   mode: REPEATED
   name: scalar_parent_urlbar_searchmode_bookmarkmenu_sum
   type: RECORD
-  description: null
+  description: Keyed array of URL bar search mode activations via the Bookmarks menu,
+    mapping search engine names to counts for this client.
 - fields:
   - mode: NULLABLE
     name: key
@@ -1060,7 +1131,8 @@ fields:
   mode: REPEATED
   name: scalar_parent_urlbar_searchmode_shortcut_sum
   type: RECORD
-  description: null
+  description: Keyed array of URL bar search mode activations via keyboard shortcut,
+    mapping search engine names to counts for this client.
 - fields:
   - mode: NULLABLE
     name: key
@@ -1112,7 +1184,8 @@ fields:
   mode: REPEATED
   name: scalar_parent_urlbar_searchmode_topsites_newtab_sum
   type: RECORD
-  description: null
+  description: Keyed array of URL bar search mode activations from a Top Sites entry
+    on the new tab page, mapping search engine names to counts for this client.
 - fields:
   - mode: NULLABLE
     name: key
@@ -1125,7 +1198,9 @@ fields:
   mode: REPEATED
   name: scalar_parent_urlbar_searchmode_topsites_urlbar_sum
   type: RECORD
-  description: null
+  description: Keyed array of URL bar search mode activations from a Top Sites entry
+    shown in the URL bar dropdown, mapping search engine names to counts for this
+    client.
 - fields:
   - mode: NULLABLE
     name: key
@@ -1138,7 +1213,8 @@ fields:
   mode: REPEATED
   name: scalar_parent_urlbar_searchmode_touchbar_sum
   type: RECORD
-  description: null
+  description: Keyed array of URL bar search mode activations via the macOS Touch
+    Bar, mapping search engine names to counts for this client.
 - fields:
   - mode: NULLABLE
     name: key
@@ -1151,7 +1227,8 @@ fields:
   mode: REPEATED
   name: scalar_parent_urlbar_searchmode_typed_sum
   type: RECORD
-  description: null
+  description: Keyed array of URL bar search mode activations by typing a keyword
+    (e.g. '@google'), mapping search engine names to counts for this client.
 - mode: NULLABLE
   name: scalar_parent_os_environment_is_taskbar_pinned
   type: BOOLEAN
@@ -1200,6 +1277,8 @@ fields:
   mode: REPEATED
   name: scalar_parent_browser_ui_interaction_preferences_pane_home_sum
   type: RECORD
+  description: Keyed array mapping UI element IDs to counts of user interactions within
+    the Firefox Preferences Home pane for this client.
 - fields:
   - mode: NULLABLE
     name: key
@@ -1867,6 +1946,9 @@ fields:
 - mode: NULLABLE
   name: update_background
   type: BOOLEAN
+  description: Whether Firefox updates are configured to download in the background.
+    True when background update is enabled, false when disabled, null when setting
+    is unavailable (~1.8% null). (sampled 2026-05-29)
 - mode: NULLABLE
   name: user_pref_browser_search_suggest_enabled
   type: STRING
@@ -1882,23 +1964,33 @@ fields:
 - mode: NULLABLE
   name: user_pref_browser_urlbar_show_search_suggestions_first
   type: STRING
-  description: null
+  description: The user preference controlling whether search suggestions appear before
+    browsing history in the URL bar dropdown. 'false' means history is shown first;
+    null when not explicitly set (~95.2% null). (sampled 2026-05-29)
 - mode: NULLABLE
   name: user_pref_browser_urlbar_suggest_quicksuggest
   type: STRING
-  description: null
+  description: The legacy user preference for Firefox Suggest (Quick Suggest) feature.
+    'true' means enabled, 'false' means disabled; null for nearly all clients (~99.9%
+    null) as this pref was replaced. (sampled 2026-05-29)
 - mode: NULLABLE
   name: user_pref_browser_urlbar_suggest_quicksuggest_sponsored
   type: STRING
-  description: null
+  description: The user preference controlling whether sponsored Firefox Suggest results
+    appear in the URL bar. 'false' means disabled, 'true' means enabled; null for
+    ~2% of clients. (sampled 2026-05-29)
 - mode: NULLABLE
   name: user_pref_browser_urlbar_quicksuggest_onboarding_dialog_choice
   type: STRING
-  description: null
+  description: The choice made by the user in the Firefox Suggest onboarding dialog,
+    one of 'close_1', 'not_now_2', or 'reject_2'. Null for almost all clients (~100%)
+    as the dialog is rarely shown. (sampled 2026-05-29)
 - mode: NULLABLE
   name: scalar_parent_browser_engagement_total_uri_count_normal_and_private_mode_sum
   type: INTEGER
-  description: null
+  description: Total URI count across both normal and private browsing sessions for
+    this client, summed from the browser engagement scalar. Null for ~21.7% of clients
+    (older builds lacking this metric). (sampled 2026-05-29)
 - mode: NULLABLE
   name: user_pref_browser_newtabpage_enabled
   type: STRING
@@ -1973,11 +2065,15 @@ fields:
 - mode: NULLABLE
   name: scalar_a11y_hcm_foreground
   type: INTEGER
-  description: null
+  description: The foreground color configured for High Contrast Mode, encoded as
+    an ARGB integer (e.g. 4294967295 = white). Null for ~99.8% of clients not using
+    High Contrast Mode. (sampled 2026-05-29)
 - mode: NULLABLE
   name: scalar_a11y_hcm_background
   type: INTEGER
-  description: null
+  description: The background color configured for High Contrast Mode, encoded as
+    an ARGB integer (e.g. 4278190080 = black). Null for ~99.8% of clients not using
+    High Contrast Mode. (sampled 2026-05-29)
 - fields:
   - mode: NULLABLE
     name: key
@@ -1988,7 +2084,8 @@ fields:
   mode: REPEATED
   name: a11y_theme
   type: RECORD
-  description: null
+  description: Keyed array mapping accessibility theme names to boolean values indicating
+    whether each theme is active for this client (e.g. high contrast mode variants).
 - fields:
   - mode: NULLABLE
     name: key
@@ -2010,7 +2107,8 @@ fields:
   mode: REPEATED
   name: contextual_services_quicksuggest_help_sponsored_bestmatch_sum
   type: RECORD
-  description: null
+  description: Keyed array mapping placement context to counts of times the help button
+    was shown for a sponsored Firefox Suggest best-match result for this client.
 - fields:
   - mode: NULLABLE
     name: key
@@ -2021,6 +2119,8 @@ fields:
   mode: REPEATED
   name: contextual_services_quicksuggest_block_nonsponsored_sum
   type: RECORD
+  description: Keyed array mapping placement context to counts of times a non-sponsored
+    Firefox Suggest result was blocked by the client.
 - fields:
   - mode: NULLABLE
     name: key
@@ -2031,6 +2131,8 @@ fields:
   mode: REPEATED
   name: contextual_services_quicksuggest_block_sponsored_sum
   type: RECORD
+  description: Keyed array mapping placement context to counts of times a sponsored
+    Firefox Suggest result was blocked by the client.
 - fields:
   - mode: NULLABLE
     name: key
@@ -2054,6 +2156,8 @@ fields:
   mode: REPEATED
   name: contextual_services_quicksuggest_block_nonsponsored_bestmatch_sum
   type: RECORD
+  description: Keyed array mapping placement context to counts of times a non-sponsored
+    best-match Firefox Suggest result was blocked by the client.
 - fields:
   - mode: NULLABLE
     name: key
@@ -2064,7 +2168,8 @@ fields:
   mode: REPEATED
   name: contextual_services_quicksuggest_click_sponsored_bestmatch_sum
   type: RECORD
-  description: null
+  description: Keyed array mapping placement context to counts of clicks on sponsored
+    best-match Firefox Suggest results for this client.
 - fields:
   - mode: NULLABLE
     name: key
@@ -2075,6 +2180,8 @@ fields:
   mode: REPEATED
   name: contextual_services_quicksuggest_click_nonsponsored_bestmatch_sum
   type: RECORD
+  description: Keyed array mapping placement context to counts of clicks on non-sponsored
+    best-match Firefox Suggest results for this client.
 - fields:
   - mode: NULLABLE
     name: key
@@ -2085,6 +2192,8 @@ fields:
   mode: REPEATED
   name: contextual_services_quicksuggest_impression_sponsored_bestmatch_sum
   type: RECORD
+  description: Keyed array mapping placement context to counts of impressions of sponsored
+    best-match Firefox Suggest results for this client.
 - fields:
   - mode: NULLABLE
     name: key
@@ -2095,7 +2204,8 @@ fields:
   mode: REPEATED
   name: contextual_services_quicksuggest_impression_nonsponsored_bestmatch_sum
   type: RECORD
-  description: null
+  description: Keyed array mapping placement context to counts of impressions of non-sponsored
+    best-match Firefox Suggest results for this client.
 - mode: NULLABLE
   name: user_pref_browser_urlbar_suggest_bestmatch
   type: STRING
@@ -2194,18 +2304,28 @@ fields:
 - mode: NULLABLE
   name: logins_migrations_quantity_chrome
   type: INTEGER
+  description: Number of saved logins migrated from Google Chrome to Firefox in a
+    migration event for this client. Null for ~99.9% of clients. (sampled 2026-05-29)
 - mode: NULLABLE
   name: logins_migrations_quantity_edge
   type: INTEGER
+  description: Number of saved logins migrated from Microsoft Edge to Firefox for
+    this client. Null for ~99.9% of clients. (sampled 2026-05-29)
 - mode: NULLABLE
   name: logins_migrations_quantity_safari
   type: INTEGER
+  description: Number of saved logins migrated from Safari to Firefox for this client.
+    Null for ~100% of clients. (sampled 2026-05-29)
 - mode: NULLABLE
   name: logins_migrations_quantity_all
   type: INTEGER
+  description: Total number of saved logins migrated from any browser to Firefox in
+    a migration event for this client. Null for ~99.4% of clients. (sampled 2026-05-29)
 - mode: NULLABLE
   name: search_count_urlbar_persisted
   type: INTEGER
+  description: Total searches initiated from the URL bar using the persisted search
+    mode (where the search mode is retained between searches). (sampled 2026-05-29)
 - fields:
   - mode: NULLABLE
     name: key
@@ -2216,6 +2336,8 @@ fields:
   mode: REPEATED
   name: search_content_urlbar_persisted_sum
   type: RECORD
+  description: Keyed array mapping search engines to counts of URL bar persisted-mode
+    content searches for this client.
 - fields:
   - mode: NULLABLE
     name: key
@@ -2226,6 +2348,8 @@ fields:
   mode: REPEATED
   name: search_withads_urlbar_persisted_sum
   type: RECORD
+  description: Keyed array mapping search engines to counts of URL bar persisted-mode
+    search result pages containing ads for this client.
 - fields:
   - mode: NULLABLE
     name: key
@@ -2238,12 +2362,20 @@ fields:
   mode: REPEATED
   name: search_adclicks_urlbar_persisted_sum
   type: RECORD
+  description: Keyed array mapping search engines to counts of ad clicks on URL bar
+    persisted-mode search result pages for this client.
 - mode: NULLABLE
   name: media_play_time_ms_audio_sum
   type: INTEGER
+  description: Total audio media playback time in milliseconds, summed across all
+    audio sessions for this client on the submission date. Null for ~100% of clients.
+    (sampled 2026-05-29)
 - mode: NULLABLE
   name: media_play_time_ms_video_sum
   type: INTEGER
+  description: Total video media playback time in milliseconds, summed across all
+    video sessions for this client on the submission date. Null for ~100% of clients.
+    (sampled 2026-05-29)
 - fields:
   - mode: NULLABLE
     name: key
@@ -2480,6 +2612,9 @@ fields:
   mode: REPEATED
   name: scalar_parent_library_search_sum
   type: RECORD
+  description: Keyed array mapping Library panel search context types (e.g. 'bookmarks',
+    'history') to the number of searches performed by this client via the Library
+    panel.
 - mode: NULLABLE
   name: startup_profile_selection_reason_first
   type: STRING
@@ -2511,10 +2646,13 @@ fields:
 - mode: NULLABLE
   name: env_build_xpcom_abi
   type: STRING
-  description: null
+  description: The XPCOM ABI string identifying the target platform and compiler ABI,
+    e.g. 'x86_64-msvc' (Windows 64-bit) or 'aarch64-gcc3' (ARM 64-bit). (sampled 2026-05-29)
 - mode: NULLABLE
   name: geo_db_version
   type: STRING
+  description: The version timestamp of the MaxMind GeoIP database used to derive
+    geographic fields (country, city, subdivision) for this ping. (sampled 2026-05-29)
 - mode: NULLABLE
   name: apple_model_id
   type: STRING
@@ -2544,11 +2682,15 @@ fields:
 - name: browser_backup_scheduler_enabled
   type: BOOLEAN
   mode: NULLABLE
-  description: |-
-    The value of payload.processes.parent.scalars.browser_backup_scheduler_enabled most frequently seen on the submission date.
+  description: 'The value of payload.processes.parent.scalars.browser_backup_scheduler_enabled
+    most frequently seen on the submission date.
+
     If there is a tie, the value seen last according to submission_timestamp.
-    True if the BackupService is configured to automatically create backups in the background.
+
+    True if the BackupService is configured to automatically create backups in the
+    background.'
 - name: browser_backup_archive_enabled
   type: BOOLEAN
   mode: NULLABLE
-  description: True if the user can create backups, i.e. it has not been disabled by a pref or otherwise deemed incompatible.
+  description: True if the user can create backups, i.e. it has not been disabled
+    by a pref or otherwise deemed incompatible.
