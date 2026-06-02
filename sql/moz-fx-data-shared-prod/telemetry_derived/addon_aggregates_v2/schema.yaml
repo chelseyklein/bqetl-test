@@ -27,24 +27,40 @@ fields:
 - name: n_self_installed_addons
   type: INTEGER
   mode: NULLABLE
+  description: Number of user-self-installed add-ons active on the client on the submission_date,
+    excluding system add-ons, foreign-installed add-ons, and Mozilla-signed extensions.
 - name: n_shield_addons
   type: INTEGER
   mode: NULLABLE
+  description: Number of Shield (Normandy study) add-ons active on the client on the
+    submission_date. Most clients have 0 (sampled 2026-06-02).
 - name: n_foreign_installed_addons
   type: INTEGER
   mode: NULLABLE
+  description: Number of add-ons installed by an external process (foreign install)
+    rather than by the user through the browser, active on the client on the submission_date.
 - name: n_system_addons
   type: INTEGER
   mode: NULLABLE
+  description: Number of Mozilla system add-ons active on the client on the submission_date;
+    these are built-in or automatically-managed add-ons such as form autofill and
+    picture-in-picture.
 - name: n_web_extensions
   type: INTEGER
   mode: NULLABLE
+  description: Number of WebExtension add-ons (including both system and user-installed)
+    active on the client on the submission_date.
 - name: first_addon_install_date
   type: STRING
   mode: NULLABLE
+  description: The earliest date (YYYYMMDD) on which any self-installed user add-on
+    was first installed on this client profile. Null when the client has no self-installed
+    add-ons (sampled 2026-06-02).
 - name: profile_creation_date
   type: STRING
   mode: NULLABLE
+  description: The date (YYYYMMDD) when the Firefox profile was first created, derived
+    from the profile creation epoch stored in telemetry.
 - name: profile_group_id
   type: STRING
   mode: NULLABLE
