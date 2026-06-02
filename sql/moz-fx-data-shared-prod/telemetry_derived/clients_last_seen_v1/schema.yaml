@@ -2398,6 +2398,8 @@ fields:
   mode: REPEATED
   name: contextual_services_quicksuggest_click_sum
   type: RECORD
+  description: Key-value map of Firefox Suggest result types to total click counts
+    across all QuickSuggest result categories during the aggregation period.
 - fields:
   - mode: NULLABLE
     name: key
@@ -2408,6 +2410,9 @@ fields:
   mode: REPEATED
   name: contextual_services_quicksuggest_impression_sum
   type: RECORD
+  description: Key-value map of Firefox Suggest result types to total impression counts
+    (number of times results were shown) across all QuickSuggest categories during
+    the aggregation period.
 - fields:
   - mode: NULLABLE
     name: key
@@ -2418,6 +2423,9 @@ fields:
   mode: REPEATED
   name: contextual_services_quicksuggest_help_sum
   type: RECORD
+  description: Key-value map of Firefox Suggest result types to total help-button
+    click counts, indicating users who clicked the info icon on a QuickSuggest result
+    during the aggregation period.
 - fields:
   - mode: NULLABLE
     name: key
@@ -2428,6 +2436,8 @@ fields:
   mode: REPEATED
   name: contextual_services_topsites_click_sum
   type: RECORD
+  description: Key-value map of Top Sites position or type identifiers to total click
+    counts on sponsored Top Sites tiles during the aggregation period.
 - fields:
   - mode: NULLABLE
     name: key
@@ -2438,6 +2448,8 @@ fields:
   mode: REPEATED
   name: contextual_services_topsites_impression_sum
   type: RECORD
+  description: Key-value map of Top Sites position or type identifiers to total impression
+    counts for sponsored Top Sites tiles during the aggregation period.
 - mode: NULLABLE
   name: user_pref_browser_urlbar_suggest_quicksuggest_nonsponsored
   type: STRING
@@ -2472,6 +2484,9 @@ fields:
   mode: REPEATED
   name: a11y_theme
   type: RECORD
+  description: Key-value map of accessibility theme identifiers to boolean values
+    indicating which OS/browser accessibility themes (e.g. high-contrast, dark) were
+    active on the client.
 - fields:
   - mode: NULLABLE
     name: key
@@ -2482,6 +2497,8 @@ fields:
   mode: REPEATED
   name: contextual_services_quicksuggest_help_nonsponsored_bestmatch_sum
   type: RECORD
+  description: Key-value map recording help-button click counts on non-sponsored best-match
+    QuickSuggest results, keyed by result identifier.
 - fields:
   - mode: NULLABLE
     name: key
@@ -2492,6 +2509,8 @@ fields:
   mode: REPEATED
   name: contextual_services_quicksuggest_help_sponsored_bestmatch_sum
   type: RECORD
+  description: Key-value map recording help-button click counts on sponsored best-match
+    QuickSuggest results, keyed by result identifier.
 - fields:
   - mode: NULLABLE
     name: key
@@ -2502,6 +2521,8 @@ fields:
   mode: REPEATED
   name: contextual_services_quicksuggest_block_nonsponsored_sum
   type: RECORD
+  description: Key-value map recording block-button click counts on non-sponsored
+    QuickSuggest results, keyed by result identifier.
 - fields:
   - mode: NULLABLE
     name: key
@@ -2512,6 +2533,8 @@ fields:
   mode: REPEATED
   name: contextual_services_quicksuggest_block_sponsored_sum
   type: RECORD
+  description: Key-value map recording block-button click counts on sponsored QuickSuggest
+    results, keyed by result identifier.
 - fields:
   - mode: NULLABLE
     name: key
@@ -2522,6 +2545,8 @@ fields:
   mode: REPEATED
   name: contextual_services_quicksuggest_block_sponsored_bestmatch_sum
   type: RECORD
+  description: Key-value map recording block-button click counts on sponsored best-match
+    QuickSuggest results, keyed by result identifier.
 - fields:
   - mode: NULLABLE
     name: key
@@ -2532,6 +2557,8 @@ fields:
   mode: REPEATED
   name: contextual_services_quicksuggest_block_nonsponsored_bestmatch_sum
   type: RECORD
+  description: Key-value map recording block-button click counts on non-sponsored
+    best-match QuickSuggest results, keyed by result identifier.
 - fields:
   - mode: NULLABLE
     name: key
@@ -2542,6 +2569,8 @@ fields:
   mode: REPEATED
   name: contextual_services_quicksuggest_click_sponsored_bestmatch_sum
   type: RECORD
+  description: Key-value map recording click counts on sponsored best-match QuickSuggest
+    results, keyed by result identifier.
 - fields:
   - mode: NULLABLE
     name: key
@@ -2552,6 +2581,8 @@ fields:
   mode: REPEATED
   name: contextual_services_quicksuggest_click_nonsponsored_bestmatch_sum
   type: RECORD
+  description: Key-value map recording click counts on non-sponsored best-match QuickSuggest
+    results, keyed by result identifier.
 - fields:
   - mode: NULLABLE
     name: key
@@ -2562,6 +2593,8 @@ fields:
   mode: REPEATED
   name: contextual_services_quicksuggest_impression_sponsored_bestmatch_sum
   type: RECORD
+  description: Key-value map recording impression counts for sponsored best-match
+    QuickSuggest results, keyed by result identifier.
 - fields:
   - mode: NULLABLE
     name: key
@@ -2572,6 +2605,8 @@ fields:
   mode: REPEATED
   name: contextual_services_quicksuggest_impression_nonsponsored_bestmatch_sum
   type: RECORD
+  description: Key-value map recording impression counts for non-sponsored best-match
+    QuickSuggest results, keyed by result identifier.
 - mode: NULLABLE
   name: user_pref_browser_urlbar_suggest_bestmatch
   type: STRING
@@ -2741,6 +2776,8 @@ fields:
   mode: REPEATED
   name: contextual_services_quicksuggest_block_dynamic_wikipedia_sum
   type: RECORD
+  description: Key-value map recording block-button clicks on Dynamic Wikipedia QuickSuggest
+    results, keyed by result identifier.
 - fields:
   - mode: NULLABLE
     name: key
@@ -2751,6 +2788,8 @@ fields:
   mode: REPEATED
   name: contextual_services_quicksuggest_block_weather_sum
   type: RECORD
+  description: Key-value map recording block-button clicks on Weather QuickSuggest
+    results, keyed by result identifier.
 - fields:
   - mode: NULLABLE
     name: key
@@ -2761,6 +2800,8 @@ fields:
   mode: REPEATED
   name: contextual_services_quicksuggest_click_dynamic_wikipedia_sum
   type: RECORD
+  description: Key-value map recording click counts on Dynamic Wikipedia QuickSuggest
+    results, keyed by result identifier.
 - fields:
   - mode: NULLABLE
     name: key
@@ -2771,6 +2812,8 @@ fields:
   mode: REPEATED
   name: contextual_services_quicksuggest_click_nonsponsored_sum
   type: RECORD
+  description: Key-value map recording click counts on non-sponsored (organic) QuickSuggest
+    results, keyed by result identifier.
 - fields:
   - mode: NULLABLE
     name: key
@@ -2781,6 +2824,8 @@ fields:
   mode: REPEATED
   name: contextual_services_quicksuggest_click_sponsored_sum
   type: RECORD
+  description: Key-value map recording click counts on sponsored QuickSuggest results,
+    keyed by result identifier.
 - fields:
   - mode: NULLABLE
     name: key
@@ -2791,6 +2836,8 @@ fields:
   mode: REPEATED
   name: contextual_services_quicksuggest_click_weather_sum
   type: RECORD
+  description: Key-value map recording click counts on Weather QuickSuggest results,
+    keyed by result identifier.
 - fields:
   - mode: NULLABLE
     name: key
@@ -2801,6 +2848,8 @@ fields:
   mode: REPEATED
   name: contextual_services_quicksuggest_help_dynamic_wikipedia_sum
   type: RECORD
+  description: Key-value map recording help-button click counts on Dynamic Wikipedia
+    QuickSuggest results, keyed by result identifier.
 - fields:
   - mode: NULLABLE
     name: key
@@ -2811,6 +2860,8 @@ fields:
   mode: REPEATED
   name: contextual_services_quicksuggest_help_nonsponsored_sum
   type: RECORD
+  description: Key-value map recording help-button click counts on non-sponsored QuickSuggest
+    results, keyed by result identifier.
 - fields:
   - mode: NULLABLE
     name: key
@@ -2821,6 +2872,8 @@ fields:
   mode: REPEATED
   name: contextual_services_quicksuggest_help_sponsored_sum
   type: RECORD
+  description: Key-value map recording help-button click counts on sponsored QuickSuggest
+    results, keyed by result identifier.
 - fields:
   - mode: NULLABLE
     name: key
@@ -2831,6 +2884,8 @@ fields:
   mode: REPEATED
   name: contextual_services_quicksuggest_help_weather_sum
   type: RECORD
+  description: Key-value map recording help-button click counts on Weather QuickSuggest
+    results, keyed by result identifier.
 - fields:
   - mode: NULLABLE
     name: key
@@ -2841,6 +2896,8 @@ fields:
   mode: REPEATED
   name: contextual_services_quicksuggest_impression_dynamic_wikipedia_sum
   type: RECORD
+  description: Key-value map recording impression counts for Dynamic Wikipedia QuickSuggest
+    results, keyed by result identifier.
 - fields:
   - mode: NULLABLE
     name: key
@@ -2851,6 +2908,8 @@ fields:
   mode: REPEATED
   name: contextual_services_quicksuggest_impression_nonsponsored_sum
   type: RECORD
+  description: Key-value map recording impression counts for non-sponsored QuickSuggest
+    results, keyed by result identifier.
 - fields:
   - mode: NULLABLE
     name: key
@@ -2861,6 +2920,8 @@ fields:
   mode: REPEATED
   name: contextual_services_quicksuggest_impression_sponsored_sum
   type: RECORD
+  description: Key-value map recording impression counts for sponsored QuickSuggest
+    results, keyed by result identifier.
 - fields:
   - mode: NULLABLE
     name: key
@@ -2871,6 +2932,8 @@ fields:
   mode: REPEATED
   name: contextual_services_quicksuggest_impression_weather_sum
   type: RECORD
+  description: Key-value map recording impression counts for Weather QuickSuggest
+    results, keyed by result identifier.
 - fields:
   - mode: NULLABLE
     name: key
@@ -2881,6 +2944,8 @@ fields:
   mode: REPEATED
   name: scalar_parent_sidebar_opened_sum
   type: RECORD
+  description: Key-value map of sidebar panel identifiers to total open-event counts
+    during the aggregation period.
 - fields:
   - mode: NULLABLE
     name: key
@@ -2891,6 +2956,8 @@ fields:
   mode: REPEATED
   name: scalar_parent_sidebar_search_sum
   type: RECORD
+  description: Key-value map of sidebar search source identifiers to total search
+    counts from the Firefox Sidebar during the aggregation period.
 - fields:
   - mode: NULLABLE
     name: key
@@ -2901,6 +2968,8 @@ fields:
   mode: REPEATED
   name: scalar_parent_sidebar_link_sum
   type: RECORD
+  description: Key-value map of link type identifiers to total link-click counts from
+    within the Firefox Sidebar panels during the aggregation period.
 - name: places_previousday_visits_mean
   type: FLOAT
   mode: NULLABLE
@@ -2931,6 +3000,8 @@ fields:
   - name: value
     type: INTEGER
     mode: NULLABLE
+  description: Key-value map of link type identifiers to total link-click counts from
+    within the Firefox Library panel during the aggregation period.
 - name: scalar_parent_library_opened_sum
   type: RECORD
   mode: REPEATED
@@ -2941,6 +3012,8 @@ fields:
   - name: value
     type: INTEGER
     mode: NULLABLE
+  description: Key-value map of entry-point identifiers to total open-event counts
+    for the Firefox Library panel during the aggregation period.
 - name: scalar_parent_library_search_sum
   type: RECORD
   mode: REPEATED
@@ -2951,6 +3024,8 @@ fields:
   - name: value
     type: INTEGER
     mode: NULLABLE
+  description: Key-value map of search type identifiers to total search counts performed
+    within the Firefox Library panel during the aggregation period.
 - name: startup_profile_selection_reason_first
   type: STRING
   mode: NULLABLE
