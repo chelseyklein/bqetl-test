@@ -79,3 +79,634 @@ fields:
 - name: usage_hours
   description: Total wall-clock hours the Firefox browser was in use during the aggregation
     period, derived from subsession length data.
+- name: submission_date
+  description: The date when the telemetry ping is received on the server side.
+- name: os
+  description: The normalized name of the operating system running at the client (e.g.,
+    'Windows', 'Mac', 'Linux').
+- name: country
+  description: An ISO 3166-1 alpha-2 country code identifying the country of the client
+    based on IP geolocation. Defaults to '??' when unknown.
+- name: normalized_channel
+  description: The normalized channel the application is being distributed on, e.g.
+    'release', 'esr', 'beta', 'nightly'.
+- name: channel
+  description: The normalized Firefox release channel (e.g., 'release', 'beta', 'nightly').
+- name: app_version
+  description: User visible version string (e.g. '151.0.1') for the Firefox Desktop
+    browser on the submission date.
+- name: client_id
+  description: A unique identifier (UUID) for the client.
+- name: locale
+  description: Set of language- and/or country-based preferences for the browser user
+    interface, e.g. 'en-US', 'de', 'fr'.
+- name: distribution_id
+  description: The distribution ID associated with the Firefox install, identifying
+    the organization or channel that distributed it.
+- name: sample_id
+  description: A number, 0-99, that samples by client_id and allows filtering data
+    for analysis. It is a pipeline-generated artifact that should match between pings.
+- name: normalized_os_version
+  description: The normalized version string of the operating system running on the
+    client, e.g. '10.0', '6.1', '16'. Derived from the telemetry environment.
+- name: os_version
+  description: The version string of the operating system (e.g., '16', '13').
+- name: normalized_os
+  description: The normalized name of the operating system running at the client.
+- name: app_build_id
+  description: The build ID of the Firefox application (e.g., '20191202093317').
+- name: profile_group_id
+  description: A UUID uniquely identifying the profile group, not shared with other
+    telemetry data.
+- name: app_name
+  description: The name of the non-desktop browser application (e.g., 'Fenix', 'Firefox
+    iOS', 'Firefox Non-desktop').
+- name: attribution_source
+  description: The referring partner domain or source that directed the user to download
+    Firefox, e.g. 'www.google.com', 'www.bing.com'. Desktop only; null for mobile
+    (sampled 2026-06-02).
+- name: branch
+  description: Experiment branch the client is enrolled in (e.g. 'control', 'treatment-a').
+    All rows contain a branch value (sampled 2026-06-02).
+- name: is_default_browser
+  description: Whether Firefox is set as the default browser on the client at the
+    time of the ping. True means Firefox is the default; false means it is not.
+- name: attribution_medium
+  description: The marketing medium that drove the Firefox install, e.g. 'referral',
+    'paidsearch', 'email'. Desktop only; null for mobile (sampled 2026-06-02).
+- name: city
+  description: The city associated with the client's IP address as determined by IP
+    geolocation. Null or '??' when city cannot be determined (sampled 2026-06-02).
+- name: first_seen_date
+  description: Date when the server first received a ping from this client.
+- name: experiment
+  description: Unique slug identifier of the experiment for which search activity
+    is aggregated (e.g. 'smart-shortcuts-v4p1'). Null in ~0.1% of rows (sampled 2026-06-02).
+- name: experiments
+  description: An array of key-value pairs listing the Nimbus experiments and rollouts
+    the client was enrolled in on the submission date, where key is the experiment
+    slug and value is the branch name (e.g. 'control', 'treatment-a').
+- name: metric
+  description: The name of the scalar or keyed-scalar metric being aggregated (e.g.,
+    'browser_ui_toolbar_widgets'). High-cardinality — 482 distinct values observed.
+- name: dau
+  description: The number of daily active users for the dimension combination on the
+    submission_date.
+- name: attribution_campaign
+  description: The marketing campaign identifier that led to the Firefox install,
+    e.g. 'SET_DEFAULT_BROWSER', 'non-fx-button'. Desktop only; null for mobile (sampled
+    2026-06-02).
+- name: attribution_content
+  description: The attribution content parameter from the Firefox installer, identifying
+    the specific link or creative within a campaign that led to the download. Desktop
+    only; null for mobile (sampled 2026-06-02).
+- name: attribution_experiment
+  description: A funnel experiment parameter from the Firefox installer attribution,
+    used to track download-funnel experiments. Desktop only; null for mobile (sampled
+    2026-06-02).
+- name: document_id
+  description: The document ID specified in the URI when the client sent this message.
+- name: mau
+  description: Monthly Active Users — count of unique Firefox Desktop clients active
+    within the past 28 days.
+- name: value
+  description: The numeric value of the KPI metric for the given submission_date,
+    measure, and forecast run. For historical rows (source='historical', measure='observed'),
+    this is the actual DAU count.
+- name: attribution_ua
+  description: The browser user agent used to download the Firefox installer, recorded
+    at first seen. Common values include 'chrome', 'edge', 'firefox', 'other', 'ie'.
+- name: attribution_variation
+  description: The variation arm of the installer funnel experiment, e.g. 'treatment'
+    or 'control'. Desktop only; null for mobile (sampled 2026-06-02).
+- name: default_search_engine
+  description: The identifier or name of the default search engine configured in the
+    browser, e.g. 'google-b-d', 'baidu'. Null for approximately 0.9% of records (sampled
+    2026-06-02).
+- name: key
+  description: For keyed scalars, the specific key within the metric being aggregated
+    (e.g., a widget ID or search engine name). Empty string for non-keyed scalars.
+- name: uninstalls_count
+  description: Number of Unique Clients Uninstalling on Firefox release channel
+- name: build_id
+  description: The build identifier of the product that crashed (e.g., '20260520211922').
+- name: metric_type
+  description: The Telemetry metric type of the scalar, indicating how to interpret
+    the values. Observed values include 'keyed-scalar', 'keyed-scalar-boolean', 'scalar',
+    and 'boolean'.
+- name: new_profiles
+  description: Count of new profiles created matching the usage type and dimension
+    combination on this submission_date.
+- name: normalized_country_code
+  description: Code of the country in which the activity took place, as determined
+    by the IP geolocation. Unknown or NULL values are normally stored as '??'.
+- name: process
+  description: The Firefox process type from which the scalar was recorded (e.g.,
+    'parent', 'content', 'gpu').
+- name: time
+  description: The date (truncated to midnight UTC) for which the daily active population
+    count is reported.
+- name: attribution_dlsource
+  description: The download source that served the Firefox installer (e.g. 'mozorg',
+    'mozillaci', 'fxdotcom', 'desktoplauncher'), as recorded in the attribution data.
+- name: normalized_app_name
+  description: The normalized name of the Mozilla browser application, e.g. 'Firefox
+    Desktop', 'Fenix', 'Firefox iOS', 'Focus Android'. BrowserStack clients are suffixed
+    with ' BrowserStack'.
+- name: wau
+  description: The number of weekly active users, corresponding to the count of clients
+    that reported at least one ping in the previous 7 days and qualify as active.
+    Null for dimension slices with no activity in the window (sampled 2026-06-02).
+- name: attributed
+  description: True if the client has attribution data. Always false for non-desktop
+    clients in this table.
+- name: windows_build_number
+  description: The Windows OS build number (e.g. 19041 for Windows 10 2004); null
+    for non-Windows clients.
+- name: activity_segment
+  description: Classification of users based on their browsing activity. E.g., infrequent,
+    casual, regular.
+- name: id_bucket
+  description: Client ID bucket (0–19) used for partitioned computation.
+- name: metadata
+  description: A STRUCT containing pipeline-added metadata about the ping, including
+    geo-location fields, user-agent information, and header values. Cleaned and normalized
+    via mozfun.norm.metadata before storage.
+- name: window_start
+  description: Start timestamp of the 5-minute aggregation window during which experiment
+    search events were collected.
+- name: client_agg_type
+  description: The per-client aggregation method used before computing percentiles.
+    Observed values include 'sum', 'min', 'max', 'count', 'avg', 'true', and 'false'.
+- name: default_private_search_engine
+  description: The telemetry ID of the client's private-browsing default search engine
+    for this visit. Blank string is common; 'other-<name>' for user-installed engines.
+- name: profile_creation_date
+  description: The date the Firefox profile was created, expressed as days since the
+    Unix epoch (e.g. 17730.0 ≈ 2018-07-05). Sourced from environment.profile.creation_date
+    in the main ping.
+- name: startup_profile_selection_reason
+  description: How the Firefox profile was selected at startup (e.g. 'firstrun-created-default'
+    for new installs, 'default' for returning users, 'profile-selector' when user
+    chose manually). Null for ~4% of rows.
+- name: total_users
+  description: Total number of unique clients contributing to this aggregated row.
+- name: type
+  description: The ping type string as reported in the ping's URI, indicating the
+    category of telemetry data (e.g. 'main' for the main Firefox Desktop telemetry
+    ping).
+- name: vendor
+  description: The vendor of the Firefox application (typically 'Mozilla').
+- name: apple_model_id
+  description: The Apple hardware model identifier for macOS clients (e.g. 'MacBookPro15,1');
+    null for non-Apple hardware.
+- name: campaign
+  description: The attribution campaign (UTM campaign) for the Firefox installation;
+    null when the client is not attributed (sampled 2026-06-02).
+- name: isp_name
+  description: The name of the internet service provider associated with the client's
+    IP address.
+- name: partner_id
+  description: The partner identifier for Firefox distributions via commercial or
+    OEM partnerships (e.g. 'ubuntu', 'mint', 'mozillaonline'). Null for ~81% of rows.
+- name: submission_timestamp
+  description: Timestamp when the ping is received on the server side.
+- name: version
+  description: The version string of the product that crashed (e.g., '151.0.1').
+- name: window_end
+  description: End timestamp of the 5-minute aggregation window during which experiment
+    search events were collected.
+- name: ad_clicks
+  description: Key-value map of search access point identifiers to the number of ad
+    clicks recorded for the client during the aggregation period.
+- name: agg_type
+  description: The type of aggregation applied. Currently always 'percentiles'.
+- name: architecture
+  description: The CPU architecture of the device running Firefox (e.g. 'x86-64',
+    'aarch64', 'x86'). Derived from client environment data captured at first seen.
+- name: country_code
+  description: Code of the country in which the activity took place, as determined
+    by the IP geolocation. Unknown or NULL values are normally stored as '??'.
+- name: country_name
+  description: Full name of the country in which the activity took place, as determined
+    by IP geolocation (e.g., 'United States').
+- name: cpu_cores
+  description: Array of key-value pairs representing the distribution of physical
+    CPU core counts among Firefox Desktop clients, where key is the count and value
+    is the proportion of clients.
+- name: date
+  description: The full timestamp (ISO 8601) when the crash report was processed by
+    the Socorro pipeline.
+- name: e10s_enabled
+  description: True if multi-process (Electrolysis / e10s) mode was enabled during
+    the session; false otherwise.
+- name: search_with_ads
+  description: Total number of search result pages that contained ads, seen by the
+    client on the submission date. Null when no search data is available (sampled
+    2026-06-02).
+- name: uninstall_same_day_as_install
+  description: Flag indicating if the uninstall was on the same date as the install
+- name: update_channel
+  description: The Firefox update channel configured for receiving updates (e.g. 'release',
+    'beta', 'nightly').
+- name: active_hours_sum
+  description: Total hours the browser was actively used by the client on the submission
+    date (desktop only), derived from subsession_hours_sum. Null for mobile clients
+    (sampled 2026-06-02).
+- name: cpu_vendor
+  description: Array of key-value pairs representing the distribution of CPU vendors
+    (e.g., 'GenuineIntel', 'AuthenticAMD') among Firefox Desktop clients.
+- name: os_version_major
+  description: Major or first part of the operating system version running at the
+    client. E.g. for version "100.9.11", the major is 100.
+- name: os_version_minor
+  description: Minor part of the operating system version running at the client. E.g.
+    for version "100.9.11", the minor is 9.
+- name: second_seen_date
+  description: The date when the server received the second ping from this client,
+    used to distinguish genuine new users from one-time senders.
+- name: timestamp
+  description: Unix timestamp (in nanoseconds or milliseconds) when the IP privacy
+    event was recorded.
+- name: active_experiment_branch
+  description: The branch of the legacy Telemetry experiment the client is enrolled
+    in (e.g. 'control', 'treatment'); null when not in an experiment.
+- name: active_experiment_id
+  description: The ID of the legacy Telemetry experiment the client is enrolled in,
+    if any; null when not in an experiment.
+- name: app_display_version
+  description: The user-visible version string of Firefox (e.g. '120.0.1').
+- name: application
+  description: A struct containing metadata about the Firefox application that submitted
+    the ping, such as the build ID, version, architecture, and update channel reported
+    by the client.
+- name: attribution
+  description: Struct containing install attribution parameters (source, medium, campaign,
+    content) identifying how the user came to install Firefox.
+- name: click_count
+  description: Number of times this content item was clicked by users in the specified
+    region.
+- name: days_seen_bits
+  description: A bit pattern representing the days within a 28-day window on which
+    the client was seen active (had at least one URI visit for desktop, or any qualifying
+    activity for mobile). The least significant bit represents the submission_date.
+- name: device_model
+  description: The device model identifier for mobile clients (e.g. 'iPhone14,5',
+    'SM-G955U'). Null for Firefox Desktop clients (sampled 2026-06-02).
+- name: event_object
+  description: The object on which the event action was performed (e.g. 'preference_study',
+    'preference_rollout', 'about_newtab'). Provides the target context for event_method
+    within a given event_category.
+- name: flash_version
+  description: The version of the Adobe Flash plugin installed, if present; null if
+    Flash is not installed.
+- name: impression_count
+  description: Number of times this content item was displayed to users in the specified
+    region.
+- name: is_desktop
+  description: True if the client is classified as a desktop platform (Windows, Mac,
+    or Linux); false for mobile or other platforms.
+- name: is_new_profile
+  description: True if submission_date equals first_seen_date, indicating the client
+    was first observed on this day and is a new profile.
+- name: is_wow64
+  description: True if the Firefox process is running as a 32-bit application under
+    64-bit Windows (WOW64 emulation). False for native 64-bit or non-Windows clients.
+- name: source
+  description: The identifier of the remote content source being tracked for uptake
+    (e.g., a Remote Settings collection name).
+- name: sync_configured
+  description: True if Firefox Sync is configured on the client; false otherwise.
+- name: usage
+  description: Type of non-desktop usage criterion tracked in this row (e.g., 'Any
+    Fenix Activity', 'Any Firefox iOS Activity', 'Any Firefox Non-desktop Activity').
+- name: active_addons
+  description: Array of structs describing each active add-on during the session,
+    including addon_id, name, version, type, and install metadata.
+- name: ad_clicks_count_all
+  description: Total number of ad clicks on search result pages across all search
+    access points on the submission date (sampled 2026-06-02).
+- name: additional_properties
+  description: A JSON string containing any extra fields present in the original ping
+    payload that were not mapped to typed schema columns during ingestion. Useful
+    for accessing fields not yet promoted to the main schema.
+- name: addon_compatibility_check_enabled
+  description: True if the add-on compatibility check was enabled during this session;
+    false otherwise.
+- name: adjust_network
+  description: The name of the Adjust Network that sourced the installation. Populated
+    only for mobile clients (~14% non-null).
+- name: attribution_dltoken
+  description: A token identifying the specific download that led to this Firefox
+    installation, used for download attribution. Null when attribution data was not
+    captured at install time (100% null in sampled data 2026-06-02).
+- name: blocklist_enabled
+  description: True if the Firefox add-on and plugin blocklist was enabled during
+    this session; false otherwise.
+- name: browser_backup_archive_enabled
+  description: Whether the Firefox profile backup archive feature is enabled; true
+    for ~54.6% of clients where the setting is present, null in 33.3% of rows (sampled
+    2026-05-29).
+- name: browser_backup_scheduler_enabled
+  description: Whether the Firefox profile backup scheduler is enabled; false for
+    the majority of clients where it is present, and null in 42.4% of rows where the
+    feature is unavailable (sampled 2026-05-29).
+- name: cpu_count
+  description: The total number of logical CPU processors on the client device.
+- name: cpu_family
+  description: The CPU family identifier as reported by CPUID; used with cpu_model
+    and cpu_stepping to identify the processor microarchitecture.
+- name: cpu_l2_cache_kb
+  description: Size of the CPU L2 cache on the client in kilobytes.
+- name: cpu_l3_cache_kb
+  description: Size of the CPU L3 cache on the client in kilobytes; 0 if no L3 cache
+    is present.
+- name: cpu_model
+  description: The CPU model identifier as reported by CPUID; used with cpu_family
+    and cpu_vendor to identify the processor.
+- name: cpu_speed_mhz
+  description: The clock speed of the CPU on the client device, in megahertz.
+- name: cpu_stepping
+  description: The CPU stepping identifier as reported by CPUID, indicating a revision
+    within a cpu_model.
+- name: default_private_search_engine_data_load_path
+  description: The load path for the private-browsing default search engine; null
+    for almost all clients (100% null rate sampled 2026-05-29).
+- name: default_private_search_engine_data_name
+  description: Human-readable display name for the private-browsing default search
+    engine; null for almost all clients (100% null rate sampled 2026-05-29).
+- name: default_private_search_engine_data_origin
+  description: How the private-browsing default search engine was set; null for almost
+    all clients (100% null rate sampled 2026-05-29).
+- name: default_private_search_engine_data_submission_url
+  description: The search submission URL for the private-browsing default search engine;
+    null for almost all clients (100% null rate sampled 2026-05-29).
+- name: default_search_engine_data_load_path
+  description: The load path indicating how the default search engine was installed
+    (e.g. 'jar:[app]', '[profile]').
+- name: default_search_engine_data_name
+  description: The display name of the default search engine (e.g. 'Google', 'Bing')
+    as recorded in the Firefox search configuration.
+- name: default_search_engine_data_origin
+  description: The origin of the default search engine configuration (e.g. 'default',
+    'verified', 'unverified').
+- name: default_search_engine_data_submission_url
+  description: The submission URL of the default search engine used to construct search
+    queries.
+- name: devtools_toolbox_opened_count_sum
+  description: Total number of times the Firefox Developer Tools toolbox was opened
+    during the aggregation period; null when the toolbox was never opened (98.6% null
+    rate sampled 2026-05-29).
+- name: disqualification_count
+  description: Number of disqualification events in this aggregation window, where
+    a client was removed from an experiment due to targeting rule failure.
+- name: enroll_count
+  description: Number of experiment enrollment events observed in this 5-minute window
+    for the given experiment, branch, and channel.
+- name: enroll_failed_count
+  description: Number of failed enrollment attempts in this aggregation window; always
+    0 in v2 (sampled 2026-06-02).
+- name: env_build_arch
+  description: The CPU architecture of the Firefox build (e.g. 'x86', 'x86-64', 'aarch64').
+- name: env_build_id
+  description: The build ID recorded in the environment section of the ping, reflecting
+    the environment at collection time.
+- name: env_build_version
+  description: The Firefox version string recorded in the environment section of the
+    ping.
+- name: environment
+  description: A struct containing information about the client's environment at the
+    time of ping submission, including build details, settings, system configuration,
+    and add-on inventory.
+- name: environment_settings_intl_accept_languages
+  description: Array of preferred languages from the browser's Accept-Language HTTP
+    header setting, reflecting the user's language preferences in order.
+- name: environment_settings_intl_app_locales
+  description: Array of locales available in the Firefox application bundle for display
+    of the UI.
+- name: environment_settings_intl_available_locales
+  description: Array of all locales available to the Firefox browser for UI localisation.
+- name: environment_settings_intl_regional_prefs_locales
+  description: Array of locale tags representing the operating system's regional preferences
+    (e.g. date/time format locale), which may differ from the display locale.
+- name: environment_settings_intl_requested_locales
+  description: Array of locales the user has explicitly requested for the Firefox
+    UI via browser settings.
+- name: environment_settings_intl_system_locales
+  description: Array of locale tags representing the operating system's configured
+    locale(s) at the time the ping was submitted.
+- name: event_category
+  description: The category of the legacy telemetry event, grouping related events
+    by functional area (e.g. 'normandy', 'navigation'). Corresponds to the category
+    field in the main ping events schema.
+- name: event_method
+  description: The method or action that triggered the event (e.g. 'enroll', 'unenroll',
+    'search'). Together with event_category and event_object, uniquely identifies
+    the type of user or system action recorded.
+- name: event_string_value
+  description: An optional string value associated with the event, carrying event-specific
+    context such as a study name, rollout slug, or UI element identifier (e.g. 'enter',
+    'pref-flip-search-composition-57-release-1413565').
+- name: exposure_count
+  description: Number of experiment exposure events in this aggregation window, recording
+    when a client encountered the experimental feature.
+- name: first_bucket
+  description: The lower bound of the first histogram bucket used in the aggregation.
+    Always null for scalar_percentiles_v1 (percentile-based table).
+- name: fxa_configured
+  description: Whether a Firefox Accounts (FxA) login is configured on the client;
+    null in 85.4% of rows where the FxA state was not reported (sampled 2026-05-29).
+- name: geo_subdivision1
+  description: First-level geographic subdivision (e.g. state or province) of the
+    client as determined by IP geolocation.
+- name: geo_subdivision2
+  description: Second-level geographic subdivision (e.g. county or district) of the
+    client as determined by IP geolocation.
+- name: gfx_features_advanced_layers_status
+  description: Status of the Advanced Layers compositor feature on the client (e.g.
+    'available', 'disabled', 'blocked').
+- name: gfx_features_d2d_status
+  description: Status of Direct2D (D2D) hardware acceleration on the client (e.g.
+    'available', 'unavailable', 'blocked').
+- name: gfx_features_d3d11_status
+  description: Status of Direct3D 11 (D3D11) hardware acceleration on the client (e.g.
+    'available', 'unavailable', 'blocked').
+- name: gfx_features_gpu_process_status
+  description: Status of the GPU process on the client (e.g. 'available', 'unavailable');
+    indicates whether Firefox uses a separate GPU process for rendering.
+- name: graduate_count
+  description: Number of experiment graduation events in this aggregation window;
+    always 0 in v2 as graduation was removed from later Nimbus versions (sampled 2026-06-02).
+- name: install_year
+  description: The calendar year in which Firefox was installed on the client machine.
+- name: isp_organization
+  description: The organisation name associated with the client's IP address as reported
+    by the geolocation database; typically the ISP's registered legal name.
+- name: last_bucket
+  description: The upper bound of the last histogram bucket used in the aggregation.
+    Always null for scalar_percentiles_v1 (percentile-based table).
+- name: memory_mb
+  description: Total physical memory available on the client device, in megabytes.
+- name: metrics
+  description: Nested struct containing smoot usage metrics computed at different
+    lag windows (day 0, day 6, day 13) for this non-desktop dimension combination.
+- name: nbr_unique_clients_uninstalling
+  description: Number of Unique Clients Uninstalling Firefox
+- name: num_buckets
+  description: The number of histogram buckets. Always null for scalar_percentiles_v1
+    (percentile-based table).
+- name: os_service_pack_major
+  description: The major version number of the Windows service pack installed on the
+    client; 0 for non-Windows or no service pack.
+- name: os_service_pack_minor
+  description: The minor version number of the Windows service pack installed on the
+    client; 0 for non-Windows or no service pack.
+- name: payload
+  description: A STRUCT containing the use-counter probe data from the main ping payload,
+    capturing which Web platform features (CSS properties, DOM APIs, etc.) were used
+    during the browser session.
+- name: previous_build_id
+  description: The build ID of the previous Firefox version, populated when the browser
+    has been updated since the last session.
+- name: product
+  description: The Mozilla product that crashed (e.g., 'Firefox', 'Fenix', 'Thunderbird').
+- name: sandbox_effective_content_process_level
+  description: The effective sandbox security level applied to the content process
+    (0–4+), where higher values indicate more restrictive sandboxing.
+- name: scalar_parent_aushelper_websense_reg_version
+  description: The Websense registry version string detected by AUSHelper (Windows
+    enterprise update tool integration).
+- name: scalar_parent_browser_engagement_max_concurrent_tab_count_max
+  description: Maximum number of tabs open simultaneously across the observation period
+    (sampled 2026-06-02).
+- name: scalar_parent_browser_engagement_max_concurrent_window_count_max
+  description: Maximum number of browser windows open simultaneously across the observation
+    period (sampled 2026-06-02).
+- name: scalar_parent_browser_engagement_tab_open_event_count_sum
+  description: Total number of new browser tab open events recorded on the submission
+    date (sampled 2026-06-02).
+- name: scalar_parent_browser_engagement_total_uri_count_sum
+  description: Total count of URIs visited by the client on the submission date, summed
+    across sessions. The NUMERIC type accommodates fractional precision from averaging
+    (sampled 2026-06-02).
+- name: scalar_parent_browser_engagement_unique_domains_count_max
+  description: Maximum number of unique domains visited in a single day within the
+    observation period (sampled 2026-06-02).
+- name: scalar_parent_browser_engagement_unique_domains_count_mean
+  description: Mean number of unique domains visited per active day across the observation
+    period (sampled 2026-06-02).
+- name: scalar_parent_browser_engagement_window_open_event_count_sum
+  description: Total number of new browser window open events recorded on the submission
+    date (sampled 2026-06-02).
+- name: scalar_parent_os_environment_is_taskbar_pinned
+  description: True if Firefox is pinned to the Windows taskbar. Null for ~0.7% of
+    clients; only meaningful on Windows (sampled 2026-06-02).
+- name: scalar_parent_os_environment_launched_via_desktop
+  description: True if Firefox was launched via a desktop shortcut on Windows. Null
+    for ~0.7% of clients (sampled 2026-06-02).
+- name: scalar_parent_os_environment_launched_via_other
+  description: True if Firefox was launched via a method other than desktop, taskbar,
+    start menu, or shortcut (sampled 2026-06-02).
+- name: scalar_parent_os_environment_launched_via_other_shortcut
+  description: True if Firefox was launched via another shortcut method not captured
+    by the other launch scalars. Null for ~0.7% of clients (sampled 2026-06-02).
+- name: scalar_parent_os_environment_launched_via_start_menu
+  description: True if Firefox was launched via the Windows Start Menu on this session.
+    Null for ~0.7% of clients (sampled 2026-06-02).
+- name: scalar_parent_os_environment_launched_via_taskbar
+  description: True if Firefox was launched by clicking its Windows taskbar icon on
+    this session. Null for ~0.7% of clients (sampled 2026-06-02).
+- name: search_cohort
+  description: Identifier for a search-related experiment cohort the client is assigned
+    to; used for search A/B testing.
+- name: search_count
+  description: Total number of searches performed by the client on the submission
+    date, across all search engines and access points. Null when no search data is
+    available (sampled 2026-06-02).
+- name: search_count_abouthome
+  description: Number of searches initiated from the about:home new tab page on the
+    submission date (sampled 2026-06-02).
+- name: search_count_all
+  description: Total searches performed across all search access points on the submission
+    date (sampled 2026-06-02).
+- name: search_count_contextmenu
+  description: Number of searches initiated via right-click context menu on the submission
+    date (sampled 2026-06-02).
+- name: search_count_newtab
+  description: Number of searches initiated from the new tab page on the submission
+    date (sampled 2026-06-02).
+- name: search_count_organic
+  description: Number of searches performed through organic (untagged) search engine
+    queries on the submission date (sampled 2026-06-02).
+- name: search_count_searchbar
+  description: Number of searches initiated from the standalone search bar on the
+    submission date (sampled 2026-06-02).
+- name: search_count_system
+  description: Number of searches initiated through OS-level system search integration
+    on the submission date (sampled 2026-06-02).
+- name: search_count_tagged_follow_on
+  description: Number of follow-on tagged searches where a subsequent search page
+    was triggered from an earlier tagged SAP search (sampled 2026-06-02).
+- name: search_count_tagged_sap
+  description: Number of tagged searches through a search access point (SAP) where
+    the search engine has a tracking partner tag (sampled 2026-06-02).
+- name: search_count_urlbar
+  description: Number of searches initiated from the Firefox URL bar on the submission
+    date (sampled 2026-06-02).
+- name: search_count_urlbar_handoff
+  description: Number of searches where the user typed in the new tab page search
+    box and was handed off to the URL bar (sampled 2026-06-02).
+- name: search_counts
+  description: Array of search count records, each with an engine identifier, the
+    source (e.g. 'urlbar', 'searchbar'), and a count of searches performed during
+    this subsession.
+- name: search_with_ads_count_all
+  description: Total number of searches where the results page contained ads, across
+    all search access points (sampled 2026-06-02).
+- name: searches
+  description: Number of searches issued from the newtab during this visit.
+- name: session_id
+  description: A UUID identifying the browser session during which the event was recorded,
+    drawn from payload.info.session_id in the main ping. All events within the same
+    session share this value.
+- name: subdivision1
+  description: First-level administrative subdivision (e.g. state, province) from
+    IP geolocation, using ISO 3166-2 subdivision codes. Null for ~5% of rows.
+- name: sync_count_desktop_mean
+  description: Mean number of desktop sync device connections observed across the
+    observation period (sampled 2026-06-02).
+- name: sync_count_mobile_mean
+  description: Mean number of mobile sync device connections observed across the observation
+    period (sampled 2026-06-02).
+- name: telemetry_enabled
+  description: True if the client has Telemetry data collection enabled; false otherwise.
+- name: timezone_offset
+  description: The client's timezone offset from UTC in minutes at the time the ping
+    was generated.
+- name: topsites_enabled
+  description: Whether the Shortcuts (Top Sites) section was enabled during this visit.
+- name: unenroll_count
+  description: Number of experiment unenrollment events observed in this aggregation
+    window.
+- name: unenroll_failed_count
+  description: Number of failed unenrollment attempts in this aggregation window;
+    always 0 in v2 (sampled 2026-06-02).
+- name: update_auto_download
+  description: True if Firefox is configured to automatically download updates in
+    the background; false otherwise.
+- name: update_count
+  description: Number of experiment update events in this aggregation window; always
+    0 in v2 (sampled 2026-06-02).
+- name: update_enabled
+  description: True if automatic Firefox updates are enabled on the client; false
+    otherwise.
+- name: update_failed_count
+  description: Number of failed experiment update attempts in this aggregation window;
+    always 0 in v2 (sampled 2026-06-02).
+- name: user_pref_browser_search_region
+  description: The search region code stored in Firefox preferences, which influences
+    which regional search engine defaults are applied (e.g. 'US', 'DE'); null in 3%
+    of rows (sampled 2026-05-29).
+- name: windows_ubr
+  description: The Windows Update Build Revision (UBR) number, a patch-level identifier
+    within a Windows build; null for non-Windows clients.
