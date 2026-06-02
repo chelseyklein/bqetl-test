@@ -6,8 +6,8 @@ fields:
 - mode: NULLABLE
   name: country_name
   type: STRING
-  description: Name of the country in which the activity took place, as determined by
-    the IP geolocation.
+  description: Name of the country in which the activity took place, as determined
+    by the IP geolocation.
 - mode: NULLABLE
   name: channel
   type: STRING
@@ -15,6 +15,9 @@ fields:
 - mode: NULLABLE
   name: build_id
   type: STRING
+  description: The build identifier for the Firefox binary that created the profile,
+    in the format YYYYMMDDHHMMSS (e.g. '20260516144017'). Identifies the specific
+    nightly or release build.
 - mode: NULLABLE
   name: os
   type: STRING
@@ -22,9 +25,15 @@ fields:
 - mode: NULLABLE
   name: os_version
   type: STRING
+  description: The truncated (major.minor) version of the operating system on which
+    Firefox was installed, derived from the new-profile ping. Values follow OS-specific
+    conventions such as '10' for Windows 10.
 - mode: NULLABLE
   name: attribution_source
   type: STRING
+  description: The referring domain or source from which the Firefox download was
+    initiated (e.g. 'www.google.com'). Null when attribution data was not captured
+    at install time (~62% of rows).
 - mode: NULLABLE
   name: distribution_id
   type: STRING
@@ -32,6 +41,12 @@ fields:
 - mode: NULLABLE
   name: attribution_ua
   type: STRING
+  description: The browser user agent used to download Firefox, indicating which browser
+    was active when the installer was fetched. Common values include 'chrome', 'edge',
+    'firefox', 'ie', 'other', and empty string for unknown.
 - mode: NULLABLE
   name: num_activated
   type: INTEGER
+  description: The count of new Firefox profiles that were activated on day 6, meaning
+    clients who were seen on at least 5 of the first 7 days after their first-run
+    date. Represents successful early engagement.
