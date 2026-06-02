@@ -24,8 +24,8 @@ fields:
 - mode: NULLABLE
   name: country
   type: STRING
-  description: Code of the country in which the activity took place, as determined by
-    the IP geolocation. Unknown or NULL values are normally stored as '??'.
+  description: Code of the country in which the activity took place, as determined
+    by the IP geolocation. Unknown or NULL values are normally stored as '??'.
 - mode: NULLABLE
   name: locale
   type: STRING
@@ -98,9 +98,15 @@ fields:
 - mode: NULLABLE
   name: days_seen_bits
   type: INTEGER
+  description: A 28-bit integer bitmask representing the days the client was seen
+    (sent a ping) in the 28-day window ending on submission_date; bit 0 corresponds
+    to submission_date and higher bits to earlier days.
 - mode: NULLABLE
   name: days_active_bits
   type: INTEGER
+  description: A 28-bit integer bitmask representing the days the client was active
+    in the 28-day window ending on submission_date; bit 0 corresponds to submission_date
+    and higher bits to earlier days.
 - mode: NULLABLE
   name: ping_sent_metric_date
   type: BOOLEAN
