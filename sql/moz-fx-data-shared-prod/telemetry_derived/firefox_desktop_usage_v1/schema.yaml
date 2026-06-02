@@ -2,60 +2,105 @@ fields:
 - mode: NULLABLE
   name: cdou
   type: INTEGER
+  description: Cumulative Days of Use — the running sum of DAU values from the start
+    of the year through the submission_date for this dimension slice, used to track
+    yearly engagement trends (sampled 2026-06-02).
 - mode: NULLABLE
   name: cumulative_new_profiles
   type: INTEGER
+  description: Running sum of new_profiles from the start of the year through the
+    submission_date for this dimension slice, used to track yearly new-profile acquisition
+    trends (sampled 2026-06-02).
 - mode: NULLABLE
   name: attributed
   type: BOOLEAN
+  description: True if the client has a non-null attribution source or campaign, indicating
+    the installation was tracked via a marketing attribution channel; false otherwise
+    (sampled 2026-06-02).
 - mode: NULLABLE
   name: submission_date
   type: DATE
+  description: The date when the telemetry ping is received on the server side.
 - mode: NULLABLE
   name: dau
   type: INTEGER
+  description: The number of daily active users, corresponding to the count of clients
+    that reported at least one ping on the submission_date and qualify as active.
+    Null for dimension slices with no activity on that day (sampled 2026-06-02).
 - mode: NULLABLE
   name: mau
   type: INTEGER
+  description: The number of monthly active users, corresponding to the count of clients
+    that reported at least one ping in the previous 28 days and qualify as active.
+    Null for dimension slices with no activity in the window (sampled 2026-06-02).
 - mode: NULLABLE
   name: wau
   type: INTEGER
+  description: The number of weekly active users, corresponding to the count of clients
+    that reported at least one ping in the previous 7 days and qualify as active.
+    Null for dimension slices with no activity in the window (sampled 2026-06-02).
 - mode: NULLABLE
   name: new_profiles
   type: INTEGER
+  description: The count of new Firefox Desktop profiles created on the submission_date
+    for this dimension slice. Null for slices with no new profiles on that day (sampled
+    2026-06-02).
 - mode: NULLABLE
   name: submission_year
   type: INTEGER
+  description: The calendar year extracted from submission_date, used as a partition
+    key for windowed aggregations within the ETL.
 - mode: NULLABLE
   name: id_bucket
   type: INTEGER
+  description: A number from 0–19 derived by hashing the client_id, used for computing
+    confidence intervals on MAU/WAU/DAU estimates by sampling a subset of users (sampled
+    2026-06-02).
 - mode: NULLABLE
   name: activity_segment
   type: STRING
+  description: Classification of users based on their browsing activity. E.g., infrequent,
+    casual, regular.
 - mode: NULLABLE
   name: os
   type: STRING
+  description: The normalized name of the operating system running at the client.
+    Observed values include Windows, Mac, Linux, and Other (sampled 2026-06-02).
 - mode: NULLABLE
   name: channel
   type: STRING
+  description: The normalized channel the application is being distributed on.
 - mode: NULLABLE
   name: source
   type: STRING
+  description: The attribution source (UTM source) for the Firefox installation; null
+    when the client is not attributed (sampled 2026-06-02).
 - mode: NULLABLE
   name: medium
   type: STRING
+  description: The attribution medium (UTM medium) for the Firefox installation; null
+    when the client is not attributed (sampled 2026-06-02).
 - mode: NULLABLE
   name: campaign
   type: STRING
+  description: The attribution campaign (UTM campaign) for the Firefox installation;
+    null when the client is not attributed (sampled 2026-06-02).
 - mode: NULLABLE
   name: content
   type: STRING
+  description: The attribution content (UTM content) for the Firefox installation;
+    null when the client is not attributed (sampled 2026-06-02).
 - mode: NULLABLE
   name: country
   type: STRING
+  description: Name of the country in which the activity took place, as determined
+    by the IP geolocation.
 - mode: NULLABLE
   name: distribution_id
   type: STRING
+  description: The distribution id associated with the install of Firefox.
 - mode: NULLABLE
   name: country_name
   type: STRING
+  description: Full English name of the country derived by joining the country code
+    against a static lookup table (e.g. 'United States' for 'US') (sampled 2026-06-02).
