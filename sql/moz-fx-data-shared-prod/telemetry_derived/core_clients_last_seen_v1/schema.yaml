@@ -6,9 +6,15 @@ fields:
 - name: days_seen_bits
   type: INTEGER
   mode: NULLABLE
+  description: A 28-bit integer encoding the client's activity over the past 28 days,
+    where the rightmost bit represents activity on the current submission_date. Used
+    to compute WAU and MAU engagement metrics.
 - name: days_created_profile_bits
   type: INTEGER
   mode: NULLABLE
+  description: A 28-bit integer encoding the days on which the client's profile was
+    created relative to the current submission_date. Used to identify new-profile
+    cohorts.
 - name: client_id
   type: STRING
   mode: NULLABLE
@@ -16,18 +22,27 @@ fields:
 - name: profile_date
   type: DATE
   mode: NULLABLE
+  description: The most recently observed profile creation date for this client.
 - name: sessions
   type: INTEGER
   mode: NULLABLE
+  description: The total number of browsing sessions recorded by the client on their
+    most recent active day.
 - name: durations
   type: INTEGER
   mode: NULLABLE
+  description: The total session duration in seconds recorded by the client on their
+    most recent active day.
 - name: flash_usage
   type: INTEGER
   mode: NULLABLE
+  description: The total Flash plugin usage count recorded by the client on their
+    most recent active day. Always 0 as Flash is no longer supported.
 - name: app_name
   type: STRING
   mode: NULLABLE
+  description: The name of the Firefox application (e.g., 'FirefoxForFireTV', 'Fennec',
+    'Focus') as last observed for this client.
 - name: os
   type: STRING
   mode: NULLABLE
@@ -40,9 +55,13 @@ fields:
 - name: city
   type: STRING
   mode: NULLABLE
+  description: The city in which the client was last active, as determined by IP geolocation.
+    Null (~20.3%) when city-level geolocation is unavailable.
 - name: app_build_id
   type: STRING
   mode: NULLABLE
+  description: The build identifier string of the application version as last observed
+    for this client.
 - name: normalized_channel
   type: STRING
   mode: NULLABLE
@@ -54,15 +73,23 @@ fields:
 - name: osversion
   type: STRING
   mode: NULLABLE
+  description: The OS version string (e.g., Android API level '28', '33') as last
+    reported by this client.
 - name: device
   type: STRING
   mode: NULLABLE
+  description: The device model identifier combining manufacturer and model (e.g.,
+    'MediaTek-SMART TV', 'samsung-SM-N960F') as last reported by this client.
 - name: arch
   type: STRING
   mode: NULLABLE
+  description: The CPU architecture of the device (e.g., 'armeabi-v7a', 'arm64-v8a')
+    as last reported by this client.
 - name: default_search
   type: STRING
   mode: NULLABLE
+  description: The identifier of the default search engine as last configured on this
+    client (e.g., 'google-b-amzftv', 'baidu', 'unknown').
 - name: distribution_id
   type: STRING
   mode: NULLABLE
@@ -70,22 +97,33 @@ fields:
 - name: campaign
   type: STRING
   mode: NULLABLE
+  description: The install attribution campaign string. Always null in this table.
 - name: campaign_id
   type: STRING
   mode: NULLABLE
+  description: The install attribution campaign identifier as last observed for this
+    client. Null (~99.8%) for most clients.
 - name: default_browser
   type: BOOLEAN
   mode: NULLABLE
-  description: A flag indicating whether the browser is set as the default browser on the client side.
+  description: A flag indicating whether the browser is set as the default browser
+    on the client side.
 - name: show_tracker_stats_share
   type: BOOLEAN
   mode: NULLABLE
+  description: Whether the tracker stats share feature was last enabled by the user.
+    Almost always null; this feature has been deprecated.
 - name: metadata_app_version
   type: STRING
   mode: NULLABLE
+  description: The user-visible application version string from telemetry URI metadata
+    (e.g., '4.6', '4.5') as last observed for this client.
 - name: bug_1501329_affected
   type: BOOLEAN
   mode: NULLABLE
+  description: Whether the client was last observed to be affected by Bug 1501329,
+    which caused profile dates to be incorrectly reported.
 - name: first_seen_date
   type: DATE
   mode: NULLABLE
+  description: The date when the server first received a ping from this client.
