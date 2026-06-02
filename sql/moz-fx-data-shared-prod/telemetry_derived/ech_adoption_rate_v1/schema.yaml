@@ -6,18 +6,31 @@ fields:
 - mode: NULLABLE
   name: metric
   type: STRING
+  description: The name of the ECH (Encrypted Client Hello) telemetry metric being
+    measured, such as a histogram or scalar identifier tracking ECH handshake outcomes.
 - mode: NULLABLE
   name: label
   type: STRING
+  description: The label or bucket associated with the metric value, representing
+    a specific ECH result or category (e.g., success, failure type).
 - mode: NULLABLE
   name: key
   type: STRING
+  description: An optional sub-key for keyed metrics, providing additional dimensional
+    context such as a hostname or configuration variant.
 - mode: NULLABLE
   name: handshakes
   type: INTEGER
+  description: The total count of ECH TLS handshakes associated with this metric,
+    label, key, and country combination on the submission_date.
 - mode: NULLABLE
   name: country_code
   type: STRING
+  description: The ISO 3166-1 alpha-2 country code where the client is located, derived
+    from IP geolocation. Countries with fewer than 5,000 distinct clients are aggregated
+    into 'OTHER' for privacy.
 - mode: NULLABLE
   name: total_client_count
   type: INTEGER
+  description: The count of distinct clients (by client_id) that reported this metric,
+    label, key, and country combination on the submission_date.
