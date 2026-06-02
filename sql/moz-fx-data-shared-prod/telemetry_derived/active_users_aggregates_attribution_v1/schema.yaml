@@ -2,21 +2,33 @@ fields:
 - mode: NULLABLE
   name: attribution_campaign
   type: STRING
+  description: The attribution campaign identifier (UTM campaign) associated with
+    the Firefox installation or download event.
 - mode: NULLABLE
   name: attribution_content
   type: STRING
+  description: The attribution content identifier (UTM content) indicating the specific
+    link or creative within a campaign that led to the Firefox installation.
 - mode: NULLABLE
   name: attribution_experiment
   type: STRING
+  description: The attribution experiment key identifying any A/B funnel experiment
+    associated with the Firefox download.
 - mode: NULLABLE
   name: attribution_medium
   type: STRING
+  description: The attribution medium (UTM medium), such as 'organic', 'referral',
+    or 'cpc', indicating the marketing channel that led to the Firefox installation.
 - mode: NULLABLE
   name: attribution_source
   type: STRING
+  description: The attribution source (UTM source), such as the referring partner
+    domain or search engine, that led to the Firefox installation.
 - mode: NULLABLE
   name: attribution_variation
   type: STRING
+  description: The attribution variation key identifying the funnel experiment variation
+    associated with the Firefox download.
 - description: The type of source of a client installation
   mode: NULLABLE
   name: adjust_network
@@ -28,14 +40,18 @@ fields:
 - mode: NULLABLE
   name: city
   type: STRING
+  description: The city derived from IP geolocation where the client activity took
+    place. Null when geolocation is unavailable.
 - mode: NULLABLE
   name: country
   type: STRING
-  description: An ISO 3166-1 alpha-2 country code of the country in which the activity took place, as determined
-    by the IP geolocation.
+  description: An ISO 3166-1 alpha-2 country code of the country in which the activity
+    took place, as determined by the IP geolocation.
 - mode: NULLABLE
   name: first_seen_year
   type: INTEGER
+  description: The calendar year in which the client's Firefox profile was first seen
+    by Mozilla telemetry, derived from the profile's first-seen date.
 - mode: NULLABLE
   name: is_default_browser
   type: BOOLEAN
@@ -44,6 +60,8 @@ fields:
 - mode: NULLABLE
   name: app_name
   type: STRING
+  description: The name of the Mozilla application, e.g. 'Firefox Desktop', 'Fenix',
+    or 'Firefox iOS'.
 - mode: NULLABLE
   name: submission_date
   type: DATE
@@ -51,36 +69,57 @@ fields:
 - mode: NULLABLE
   name: dau
   type: INTEGER
+  description: 'Daily Active Users: the number of clients that reported at least one
+    qualifying ping on the submission_date.'
 - mode: NULLABLE
   name: wau
   type: INTEGER
+  description: 'Weekly Active Users: the count of clients that sent at least one qualifying
+    ping in the 7 days ending on the submission_date.'
 - mode: NULLABLE
   name: mau
   type: INTEGER
+  description: 'Monthly Active Users: the count of clients that sent at least one
+    qualifying ping in the 28 days ending on the submission_date.'
 - mode: NULLABLE
   name: new_profiles
   type: INTEGER
+  description: Number of new Firefox profiles first seen on the submission_date, indicating
+    fresh installs or first-time telemetry pings.
 - mode: NULLABLE
   name: ad_clicks
   type: INTEGER
+  description: Total count of search ad clicks recorded for clients on the submission_date.
 - mode: NULLABLE
   name: organic_search_count
   type: INTEGER
+  description: Total number of organic (non-SAP) search queries performed by clients
+    on the submission_date.
 - mode: NULLABLE
   name: search_count
   type: INTEGER
+  description: Total number of search queries performed by clients (all sources) on
+    the submission_date.
 - mode: NULLABLE
   name: search_with_ads
   type: INTEGER
+  description: Total count of search result pages that included ads, as recorded by
+    clients on the submission_date.
 - mode: NULLABLE
   name: uri_count
   type: INTEGER
+  description: Total number of URIs loaded by clients on the submission_date, reflecting
+    browsing activity intensity.
 - mode: NULLABLE
   name: active_hours
   type: FLOAT
+  description: Total active browser hours accumulated by clients on the submission_date,
+    measured as time with an open browser window.
 - mode: NULLABLE
   name: attributed
   type: BOOLEAN
+  description: True if the client's installation is attributed to a known marketing
+    source; false for organic or unattributed installs.
 - description: Count of distinct, qualified Desktop clients that we received a main
     ping from on a given day. In mobile DAU = QDAU.
   mode: NULLABLE
