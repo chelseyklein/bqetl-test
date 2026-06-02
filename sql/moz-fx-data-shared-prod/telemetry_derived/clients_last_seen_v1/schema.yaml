@@ -1533,6 +1533,8 @@ fields:
   mode: REPEATED
   name: scalar_parent_urlbar_picked_autofill_sum
   type: RECORD
+  description: Key-value map recording the number of times each autofill type was
+    selected (picked) from the urlbar across the aggregation period.
 - fields:
   - mode: NULLABLE
     name: key
@@ -1543,6 +1545,8 @@ fields:
   mode: REPEATED
   name: scalar_parent_urlbar_picked_autofill_about_sum
   type: RECORD
+  description: Key-value map recording how many times 'about:' page autofill results
+    were selected from the urlbar, keyed by page.
 - fields:
   - mode: NULLABLE
     name: key
@@ -1553,6 +1557,8 @@ fields:
   mode: REPEATED
   name: scalar_parent_urlbar_picked_autofill_adaptive_sum
   type: RECORD
+  description: Key-value map recording how many times adaptive history autofill results
+    were selected from the urlbar.
 - fields:
   - mode: NULLABLE
     name: key
@@ -1563,6 +1569,8 @@ fields:
   mode: REPEATED
   name: scalar_parent_urlbar_picked_autofill_origin_sum
   type: RECORD
+  description: Key-value map recording how many times origin (domain-prefix) autofill
+    results were selected from the urlbar.
 - fields:
   - mode: NULLABLE
     name: key
@@ -1573,6 +1581,8 @@ fields:
   mode: REPEATED
   name: scalar_parent_urlbar_picked_autofill_other_sum
   type: RECORD
+  description: Key-value map recording how many times other (unclassified) autofill
+    results were selected from the urlbar.
 - fields:
   - mode: NULLABLE
     name: key
@@ -1583,6 +1593,8 @@ fields:
   mode: REPEATED
   name: scalar_parent_urlbar_picked_autofill_preloaded_sum
   type: RECORD
+  description: Key-value map recording how many times preloaded-domain autofill results
+    were selected from the urlbar.
 - fields:
   - mode: NULLABLE
     name: key
@@ -1593,6 +1605,8 @@ fields:
   mode: REPEATED
   name: scalar_parent_urlbar_picked_autofill_url_sum
   type: RECORD
+  description: Key-value map recording how many times full URL autofill results were
+    selected from the urlbar.
 - fields:
   - mode: NULLABLE
     name: key
@@ -1603,6 +1617,8 @@ fields:
   mode: REPEATED
   name: scalar_parent_urlbar_picked_bookmark_sum
   type: RECORD
+  description: Key-value map recording how many times bookmark results were selected
+    from the urlbar dropdown, keyed by type.
 - fields:
   - mode: NULLABLE
     name: key
@@ -1613,6 +1629,8 @@ fields:
   mode: REPEATED
   name: scalar_parent_urlbar_picked_dynamic_sum
   type: RECORD
+  description: Key-value map recording how many times dynamic (extension-provided)
+    urlbar results were selected, keyed by result type.
 - fields:
   - mode: NULLABLE
     name: key
@@ -1623,6 +1641,8 @@ fields:
   mode: REPEATED
   name: scalar_parent_urlbar_picked_extension_sum
   type: RECORD
+  description: Key-value map recording how many times extension-provided urlbar results
+    were selected, keyed by extension.
 - fields:
   - mode: NULLABLE
     name: key
@@ -1633,6 +1653,8 @@ fields:
   mode: REPEATED
   name: scalar_parent_urlbar_picked_formhistory_sum
   type: RECORD
+  description: Key-value map recording how many times form history autofill results
+    were selected from the urlbar.
 - fields:
   - mode: NULLABLE
     name: key
@@ -1643,6 +1665,8 @@ fields:
   mode: REPEATED
   name: scalar_parent_urlbar_picked_history_sum
   type: RECORD
+  description: Key-value map recording how many times browsing history results were
+    selected from the urlbar dropdown.
 - fields:
   - mode: NULLABLE
     name: key
@@ -1653,6 +1677,8 @@ fields:
   mode: REPEATED
   name: scalar_parent_urlbar_picked_keyword_sum
   type: RECORD
+  description: Key-value map recording how many times keyword (bookmark keyword) results
+    were selected from the urlbar.
 - fields:
   - mode: NULLABLE
     name: key
@@ -1663,6 +1689,8 @@ fields:
   mode: REPEATED
   name: scalar_parent_urlbar_picked_remotetab_sum
   type: RECORD
+  description: Key-value map recording how many times synced remote-tab results were
+    selected from the urlbar dropdown.
 - fields:
   - mode: NULLABLE
     name: key
@@ -1673,6 +1701,8 @@ fields:
   mode: REPEATED
   name: scalar_parent_urlbar_picked_searchengine_sum
   type: RECORD
+  description: Key-value map recording how many times search-engine suggestion results
+    were selected from the urlbar, keyed by engine.
 - fields:
   - mode: NULLABLE
     name: key
@@ -1683,6 +1713,8 @@ fields:
   mode: REPEATED
   name: scalar_parent_urlbar_picked_searchsuggestion_sum
   type: RECORD
+  description: Key-value map recording how many times search suggestion results (from
+    the search engine API) were selected from the urlbar.
 - fields:
   - mode: NULLABLE
     name: key
@@ -1693,6 +1725,8 @@ fields:
   mode: REPEATED
   name: scalar_parent_urlbar_picked_switchtab_sum
   type: RECORD
+  description: Key-value map recording how many times 'switch to tab' results were
+    selected from the urlbar dropdown.
 - fields:
   - mode: NULLABLE
     name: key
@@ -1703,6 +1737,8 @@ fields:
   mode: REPEATED
   name: scalar_parent_urlbar_picked_tabtosearch_sum
   type: RECORD
+  description: Key-value map recording how many times tab-to-search engine results
+    were selected from the urlbar.
 - fields:
   - mode: NULLABLE
     name: key
@@ -1713,6 +1749,8 @@ fields:
   mode: REPEATED
   name: scalar_parent_urlbar_picked_tip_sum
   type: RECORD
+  description: Key-value map recording how many times Firefox Suggest tip results
+    were selected from the urlbar.
 - fields:
   - mode: NULLABLE
     name: key
@@ -1723,6 +1761,8 @@ fields:
   mode: REPEATED
   name: scalar_parent_urlbar_picked_topsite_sum
   type: RECORD
+  description: Key-value map recording how many times Top Sites results were selected
+    from the urlbar dropdown.
 - fields:
   - mode: NULLABLE
     name: key
@@ -1733,6 +1773,8 @@ fields:
   mode: REPEATED
   name: scalar_parent_urlbar_picked_unknown_sum
   type: RECORD
+  description: Key-value map recording how many times urlbar results of an unrecognised
+    type were selected.
 - fields:
   - mode: NULLABLE
     name: key
@@ -1743,6 +1785,8 @@ fields:
   mode: REPEATED
   name: scalar_parent_urlbar_picked_visiturl_sum
   type: RECORD
+  description: Key-value map recording how many times the user pressed Enter on a
+    typed URL (visit-URL) result in the urlbar.
 - mode: NULLABLE
   name: default_private_search_engine
   type: STRING
@@ -1782,6 +1826,9 @@ fields:
   mode: REPEATED
   name: search_counts
   type: RECORD
+  description: Array of per-engine, per-source search count records. Each entry contains
+    the engine identifier, the search access point (source), and the count of searches
+    in that combination for the aggregation period.
 - mode: NULLABLE
   name: user_pref_browser_search_region
   type: STRING
@@ -1798,6 +1845,9 @@ fields:
   mode: REPEATED
   name: search_with_ads
   type: RECORD
+  description: Key-value map of search access point identifiers to the number of search
+    results pages containing ads that were shown to the client during the aggregation
+    period.
 - fields:
   - mode: NULLABLE
     name: key
@@ -1808,6 +1858,8 @@ fields:
   mode: REPEATED
   name: ad_clicks
   type: RECORD
+  description: Key-value map of search access point identifiers to the number of ad
+    clicks recorded for the client during the aggregation period.
 - fields:
   - mode: NULLABLE
     name: key
@@ -1818,6 +1870,8 @@ fields:
   mode: REPEATED
   name: search_content_urlbar_sum
   type: RECORD
+  description: Key-value map of search engine identifiers to the count of content-search
+    impressions from the urlbar during the aggregation period.
 - fields:
   - mode: NULLABLE
     name: key
@@ -1828,6 +1882,8 @@ fields:
   mode: REPEATED
   name: search_content_urlbar_handoff_sum
   type: RECORD
+  description: Key-value map of search engine identifiers to the count of content-search
+    impressions from urlbar handoff during the aggregation period.
 - fields:
   - mode: NULLABLE
     name: key
@@ -1838,6 +1894,8 @@ fields:
   mode: REPEATED
   name: search_content_urlbar_persisted_sum
   type: RECORD
+  description: Key-value map of search engine identifiers to the count of content-search
+    impressions from persisted urlbar search mode during the aggregation period.
 - fields:
   - mode: NULLABLE
     name: key
@@ -1848,6 +1906,8 @@ fields:
   mode: REPEATED
   name: search_content_urlbar_searchmode_sum
   type: RECORD
+  description: Key-value map of search engine identifiers to the count of content-search
+    impressions from explicit urlbar search mode during the aggregation period.
 - fields:
   - mode: NULLABLE
     name: key
@@ -1858,6 +1918,8 @@ fields:
   mode: REPEATED
   name: search_content_contextmenu_sum
   type: RECORD
+  description: Key-value map of search engine identifiers to the count of content-search
+    impressions from the right-click context menu during the aggregation period.
 - fields:
   - mode: NULLABLE
     name: key
@@ -1868,6 +1930,8 @@ fields:
   mode: REPEATED
   name: search_content_about_home_sum
   type: RECORD
+  description: Key-value map of search engine identifiers to the count of content-search
+    impressions from about:home during the aggregation period.
 - fields:
   - mode: NULLABLE
     name: key
@@ -1878,6 +1942,8 @@ fields:
   mode: REPEATED
   name: search_content_about_newtab_sum
   type: RECORD
+  description: Key-value map of search engine identifiers to the count of content-search
+    impressions from the new-tab page during the aggregation period.
 - fields:
   - mode: NULLABLE
     name: key
@@ -1888,6 +1954,8 @@ fields:
   mode: REPEATED
   name: search_content_searchbar_sum
   type: RECORD
+  description: Key-value map of search engine identifiers to the count of content-search
+    impressions from the search bar during the aggregation period.
 - fields:
   - mode: NULLABLE
     name: key
@@ -1898,6 +1966,8 @@ fields:
   mode: REPEATED
   name: search_content_system_sum
   type: RECORD
+  description: Key-value map of search engine identifiers to the count of system-initiated
+    content-search impressions during the aggregation period.
 - fields:
   - mode: NULLABLE
     name: key
@@ -1908,6 +1978,8 @@ fields:
   mode: REPEATED
   name: search_content_webextension_sum
   type: RECORD
+  description: Key-value map of search engine identifiers to the count of content-search
+    impressions from WebExtensions during the aggregation period.
 - fields:
   - mode: NULLABLE
     name: key
@@ -1918,6 +1990,8 @@ fields:
   mode: REPEATED
   name: search_content_tabhistory_sum
   type: RECORD
+  description: Key-value map of search engine identifiers to the count of content-search
+    impressions from browser tab history navigation during the aggregation period.
 - fields:
   - mode: NULLABLE
     name: key
@@ -1928,6 +2002,8 @@ fields:
   mode: REPEATED
   name: search_content_reload_sum
   type: RECORD
+  description: Key-value map of search engine identifiers to the count of content-search
+    impressions from page reloads during the aggregation period.
 - fields:
   - mode: NULLABLE
     name: key
@@ -1938,6 +2014,8 @@ fields:
   mode: REPEATED
   name: search_content_unknown_sum
   type: RECORD
+  description: Key-value map of search engine identifiers to the count of content-search
+    impressions from unclassified sources during the aggregation period.
 - fields:
   - mode: NULLABLE
     name: key
@@ -1948,6 +2026,8 @@ fields:
   mode: REPEATED
   name: search_withads_urlbar_sum
   type: RECORD
+  description: Key-value map of search engine identifiers to the count of search result
+    pages with ads shown from the urlbar during the aggregation period.
 - fields:
   - mode: NULLABLE
     name: key
@@ -1958,6 +2038,8 @@ fields:
   mode: REPEATED
   name: search_withads_urlbar_handoff_sum
   type: RECORD
+  description: Key-value map of search engine identifiers to the count of ad-bearing
+    results pages from urlbar handoff during the aggregation period.
 - fields:
   - mode: NULLABLE
     name: key
@@ -1968,6 +2050,8 @@ fields:
   mode: REPEATED
   name: search_withads_urlbar_persisted_sum
   type: RECORD
+  description: Key-value map of search engine identifiers to the count of ad-bearing
+    results pages from persisted urlbar search mode during the aggregation period.
 - fields:
   - mode: NULLABLE
     name: key
@@ -1978,6 +2062,8 @@ fields:
   mode: REPEATED
   name: search_withads_urlbar_searchmode_sum
   type: RECORD
+  description: Key-value map of search engine identifiers to the count of ad-bearing
+    results pages from explicit urlbar search mode during the aggregation period.
 - fields:
   - mode: NULLABLE
     name: key
@@ -1988,6 +2074,8 @@ fields:
   mode: REPEATED
   name: search_withads_contextmenu_sum
   type: RECORD
+  description: Key-value map of search engine identifiers to the count of ad-bearing
+    results pages from the context menu during the aggregation period.
 - fields:
   - mode: NULLABLE
     name: key
@@ -1998,6 +2086,8 @@ fields:
   mode: REPEATED
   name: search_withads_about_home_sum
   type: RECORD
+  description: Key-value map of search engine identifiers to the count of ad-bearing
+    results pages from about:home during the aggregation period.
 - fields:
   - mode: NULLABLE
     name: key
@@ -2008,6 +2098,8 @@ fields:
   mode: REPEATED
   name: search_withads_about_newtab_sum
   type: RECORD
+  description: Key-value map of search engine identifiers to the count of ad-bearing
+    results pages from the new-tab page during the aggregation period.
 - fields:
   - mode: NULLABLE
     name: key
@@ -2018,6 +2110,8 @@ fields:
   mode: REPEATED
   name: search_withads_searchbar_sum
   type: RECORD
+  description: Key-value map of search engine identifiers to the count of ad-bearing
+    results pages from the search bar during the aggregation period.
 - fields:
   - mode: NULLABLE
     name: key
@@ -2028,6 +2122,8 @@ fields:
   mode: REPEATED
   name: search_withads_system_sum
   type: RECORD
+  description: Key-value map of search engine identifiers to the count of ad-bearing
+    results pages from system-initiated searches during the aggregation period.
 - fields:
   - mode: NULLABLE
     name: key
@@ -2038,6 +2134,8 @@ fields:
   mode: REPEATED
   name: search_withads_webextension_sum
   type: RECORD
+  description: Key-value map of search engine identifiers to the count of ad-bearing
+    results pages from WebExtension searches during the aggregation period.
 - fields:
   - mode: NULLABLE
     name: key
@@ -2048,6 +2146,8 @@ fields:
   mode: REPEATED
   name: search_withads_tabhistory_sum
   type: RECORD
+  description: Key-value map of search engine identifiers to the count of ad-bearing
+    results pages from tab history navigation during the aggregation period.
 - fields:
   - mode: NULLABLE
     name: key
@@ -2058,6 +2158,8 @@ fields:
   mode: REPEATED
   name: search_withads_reload_sum
   type: RECORD
+  description: Key-value map of search engine identifiers to the count of ad-bearing
+    results pages from page reloads during the aggregation period.
 - fields:
   - mode: NULLABLE
     name: key
@@ -2068,6 +2170,8 @@ fields:
   mode: REPEATED
   name: search_withads_unknown_sum
   type: RECORD
+  description: Key-value map of search engine identifiers to the count of ad-bearing
+    results pages from unclassified entry points during the aggregation period.
 - fields:
   - mode: NULLABLE
     name: key
@@ -2078,6 +2182,8 @@ fields:
   mode: REPEATED
   name: search_adclicks_urlbar_sum
   type: RECORD
+  description: Key-value map of search engine identifiers to the count of ad clicks
+    from the urlbar during the aggregation period.
 - fields:
   - mode: NULLABLE
     name: key
@@ -2088,6 +2194,8 @@ fields:
   mode: REPEATED
   name: search_adclicks_urlbar_handoff_sum
   type: RECORD
+  description: Key-value map of search engine identifiers to the count of ad clicks
+    from urlbar handoff searches during the aggregation period.
 - fields:
   - mode: NULLABLE
     name: key
@@ -2098,6 +2206,8 @@ fields:
   mode: REPEATED
   name: search_adclicks_urlbar_persisted_sum
   type: RECORD
+  description: Key-value map of search engine identifiers to the count of ad clicks
+    from persisted urlbar search mode during the aggregation period.
 - fields:
   - mode: NULLABLE
     name: key
@@ -2108,6 +2218,8 @@ fields:
   mode: REPEATED
   name: search_adclicks_urlbar_searchmode_sum
   type: RECORD
+  description: Key-value map of search engine identifiers to the count of ad clicks
+    from explicit urlbar search mode during the aggregation period.
 - fields:
   - mode: NULLABLE
     name: key
@@ -2118,6 +2230,8 @@ fields:
   mode: REPEATED
   name: search_adclicks_contextmenu_sum
   type: RECORD
+  description: Key-value map of search engine identifiers to the count of ad clicks
+    from context menu searches during the aggregation period.
 - fields:
   - mode: NULLABLE
     name: key
@@ -2128,6 +2242,8 @@ fields:
   mode: REPEATED
   name: search_adclicks_about_home_sum
   type: RECORD
+  description: Key-value map of search engine identifiers to the count of ad clicks
+    from about:home searches during the aggregation period.
 - fields:
   - mode: NULLABLE
     name: key
@@ -2138,6 +2254,8 @@ fields:
   mode: REPEATED
   name: search_adclicks_about_newtab_sum
   type: RECORD
+  description: Key-value map of search engine identifiers to the count of ad clicks
+    from new-tab page searches during the aggregation period.
 - fields:
   - mode: NULLABLE
     name: key
@@ -2148,6 +2266,8 @@ fields:
   mode: REPEATED
   name: search_adclicks_searchbar_sum
   type: RECORD
+  description: Key-value map of search engine identifiers to the count of ad clicks
+    from the search bar during the aggregation period.
 - fields:
   - mode: NULLABLE
     name: key
@@ -2158,6 +2278,8 @@ fields:
   mode: REPEATED
   name: search_adclicks_system_sum
   type: RECORD
+  description: Key-value map of search engine identifiers to the count of ad clicks
+    from system-initiated searches during the aggregation period.
 - fields:
   - mode: NULLABLE
     name: key
@@ -2168,6 +2290,8 @@ fields:
   mode: REPEATED
   name: search_adclicks_webextension_sum
   type: RECORD
+  description: Key-value map of search engine identifiers to the count of ad clicks
+    from WebExtension searches during the aggregation period.
 - fields:
   - mode: NULLABLE
     name: key
@@ -2178,6 +2302,8 @@ fields:
   mode: REPEATED
   name: search_adclicks_tabhistory_sum
   type: RECORD
+  description: Key-value map of search engine identifiers to the count of ad clicks
+    from tab history navigation searches during the aggregation period.
 - fields:
   - mode: NULLABLE
     name: key
@@ -2188,6 +2314,8 @@ fields:
   mode: REPEATED
   name: search_adclicks_reload_sum
   type: RECORD
+  description: Key-value map of search engine identifiers to the count of ad clicks
+    from page-reload searches during the aggregation period.
 - fields:
   - mode: NULLABLE
     name: key
@@ -2198,6 +2326,8 @@ fields:
   mode: REPEATED
   name: search_adclicks_unknown_sum
   type: RECORD
+  description: Key-value map of search engine identifiers to the count of ad clicks
+    from unclassified search entry points during the aggregation period.
 - mode: NULLABLE
   name: update_background
   type: BOOLEAN
