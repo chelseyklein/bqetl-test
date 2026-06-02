@@ -2,123 +2,229 @@ fields:
 - name: customer_id
   type: STRING
   mode: NULLABLE
+  description: The Stripe customer identifier (e.g. 'cus_MFFy4ibodsAQ0Z') uniquely
+    identifying the billing customer account associated with this subscription.
 - name: subscription_id
   type: STRING
   mode: NULLABLE
+  description: The Stripe subscription identifier (e.g. 'sub_1LZXOfJNcmPzuWtRX6qIHqHA')
+    uniquely identifying this subscription record. For plan changes, a sequence suffix
+    (e.g. '-2') is appended to distinguish successive plan segments.
 - name: original_subscription_id
   type: STRING
   mode: NULLABLE
+  description: The original Stripe subscription ID before any plan changes; null when
+    no plan change has occurred (null in ~90% of rows sampled 2026-06-02). Used to
+    link successive plan segments back to the original subscription.
 - name: plan_id
   type: STRING
   mode: NULLABLE
+  description: The Stripe price/plan identifier (e.g. 'price_1JmRSRJNcmPzuWtRN9MG5cBy')
+    for the billing plan the subscriber is currently enrolled in.
 - name: status
   type: STRING
   mode: NULLABLE
+  description: 'Current Stripe subscription status: ''active'' (paying), ''canceled''
+    (ended), or ''past_due'' (payment overdue). Excludes ''incomplete'' and ''incomplete_expired''
+    records.'
 - name: event_timestamp
   type: TIMESTAMP
   mode: NULLABLE
+  description: The timestamp of the last sync of this subscription record from Stripe
+    (sourced from the stripe_subscriptions_history synced_at field), indicating when
+    the data was last updated.
 - name: subscription_start_date
   type: TIMESTAMP
   mode: NULLABLE
+  description: The timestamp when the current plan segment of the subscription started.
+    For plan changes, this reflects the plan start date (plan_started_at); for original
+    subscriptions, it is the subscription creation date. Null for subscriptions still
+    in a trial period.
 - name: original_subscription_start_date
   type: TIMESTAMP
   mode: NULLABLE
+  description: The timestamp when the original subscription first started, before
+    any plan changes. Null for subscriptions still in a trial period. Used alongside
+    original_subscription_id to measure full subscription tenure.
 - name: subscription_start_reason
   type: STRING
   mode: NULLABLE
+  description: 'Reason the current subscription segment began: ''New'' (first-time
+    subscriber), ''Resurrected'' (lapsed subscriber returning), ''Plan Change'' (switched
+    from another plan), or ''Converted Trial'' (converted from a free trial).'
 - name: trial_start
   type: TIMESTAMP
   mode: NULLABLE
+  description: The timestamp when the subscription trial period began. Null for the
+    vast majority of subscriptions that did not have a trial (null in ~100% of rows
+    sampled 2026-06-02).
 - name: trial_end
   type: TIMESTAMP
   mode: NULLABLE
+  description: The timestamp when the subscription trial period ended or is scheduled
+    to end. Null for the vast majority of subscriptions that did not have a trial
+    (null in ~100% of rows sampled 2026-06-02).
 - name: canceled_at
   type: TIMESTAMP
   mode: NULLABLE
+  description: The timestamp when the Stripe subscription was canceled (i.e. when
+    the cancellation was recorded in Stripe). Null for active subscriptions (~49%
+    of rows sampled 2026-06-02).
 - name: canceled_for_customer_at
   type: STRING
   mode: NULLABLE
+  description: Unix epoch timestamp (as a string) indicating when the subscription
+    was explicitly canceled at the customer's request. Null when the subscription
+    was not customer-canceled (~72% of rows sampled 2026-06-02).
 - name: cancel_at
   type: TIMESTAMP
   mode: NULLABLE
+  description: The timestamp at which the subscription is scheduled to cancel at the
+    end of the billing period. Null for subscriptions not set to cancel (~76% of rows
+    sampled 2026-06-02).
 - name: cancel_at_period_end
   type: BOOLEAN
   mode: NULLABLE
+  description: True if the subscription is set to cancel at the end of the current
+    billing period (i.e. the customer has requested cancellation but access continues
+    until the period ends); false otherwise.
 - name: ended_at
   type: TIMESTAMP
   mode: NULLABLE
+  description: The timestamp when the subscription actually ended. Null for currently
+    active subscriptions (~44% of rows sampled 2026-06-02).
 - name: ended_reason
   type: STRING
   mode: NULLABLE
+  description: 'The reason the subscription ended: ''Cancelled by Customer'', ''Payment
+    Failed'', or ''Plan Change''. Null for active subscriptions (~44% of rows sampled
+    2026-06-02).'
 - name: fxa_uid
   type: STRING
   mode: NULLABLE
+  description: The Firefox Accounts (FxA) user ID (SHA-256 hex string) associated
+    with the subscriber, used to link the subscription to an FxA account.
 - name: country
   type: STRING
   mode: NULLABLE
+  description: ISO 3166-1 alpha-2 country code (e.g. 'us', 'de') indicating the subscriber's
+    billing country. Null for ~4% of subscriptions where country could not be determined
+    (sampled 2026-06-02).
 - name: country_name
   type: STRING
   mode: NULLABLE
+  description: Full standardized country name (e.g. 'USA', 'Germany') corresponding
+    to the country code, sourced from the static standardized country names reference
+    table. Null for ~4% of subscriptions (sampled 2026-06-02).
 - name: provider
   type: STRING
   mode: NULLABLE
+  description: Payment provider used for the subscription ('Stripe' or 'Paypal').
+    Null for ~4% of subscriptions where the provider could not be determined (sampled
+    2026-06-02).
 - name: plan_amount
   type: INTEGER
   mode: NULLABLE
+  description: The price of the billing plan in the smallest currency unit (e.g. cents
+    for USD), as set in Stripe. For example, 1188 represents $11.88.
 - name: plan_currency
   type: STRING
   mode: NULLABLE
+  description: The ISO 4217 lowercase currency code for the plan (e.g. 'usd', 'eur',
+    'chf').
 - name: plan_interval
   type: STRING
   mode: NULLABLE
+  description: The billing interval for the plan, either 'month' or 'year'.
 - name: plan_interval_count
   type: INTEGER
   mode: NULLABLE
+  description: The number of billing intervals between charges; all sampled subscriptions
+    had a value of 1 (sampled 2026-06-02), meaning billing occurs every single interval.
 - name: plan_interval_timezone
   type: STRING
   mode: NULLABLE
+  description: The timezone used to calculate billing interval boundaries. All sampled
+    subscriptions used 'Etc/UTC' (sampled 2026-06-02).
 - name: product_id
   type: STRING
   mode: NULLABLE
+  description: The Stripe product identifier (e.g. 'prod_KGizMiBqUJdYoY') for the
+    Relay or bundled product the subscriber has purchased.
 - name: product_name
   type: STRING
   mode: NULLABLE
+  description: Human-readable name of the subscribed product (e.g. 'Relay Premium',
+    'Mozilla VPN & Firefox Relay', 'Relay - Phones').
 - name: pricing_plan
   type: STRING
   mode: NULLABLE
+  description: A human-readable composite key representing the full plan configuration,
+    formatted as '{interval_count}-{interval}-{currency}-{amount_in_major_units}'
+    (e.g. '1-year-usd-11.88').
 - name: billing_grace_period
   type: INTERVAL
   mode: NULLABLE
+  description: The grace period interval after a failed payment before the subscription
+    is considered past due. Fixed at 7 days for both Stripe and Stripe-billed PayPal
+    subscriptions.
 - name: has_refunds
   type: BOOLEAN
   mode: NULLABLE
+  description: True if this subscription has had any refunds issued; false otherwise.
+    Approximately 11% of subscriptions have refunds (sampled 2026-06-02).
 - name: has_fraudulent_charges
   type: BOOLEAN
   mode: NULLABLE
+  description: True if this subscription has had any charges flagged as fraudulent;
+    false otherwise. Affects fewer than 1% of subscriptions (sampled 2026-06-02).
 - name: has_fraudulent_charge_refunds
   type: BOOLEAN
   mode: NULLABLE
+  description: True if this subscription has had refunds issued for fraudulent charges;
+    false otherwise. Affects fewer than 0.1% of subscriptions (sampled 2026-06-02).
 - name: promotion_codes
   type: STRING
   mode: REPEATED
+  description: Array of promotional or discount codes applied to this subscription.
+    An empty array indicates no promotions were applied.
 - name: promotion_discounts_amount
   type: INTEGER
   mode: NULLABLE
+  description: Total discount amount applied through promotions in the smallest currency
+    unit (e.g. cents). Null for ~98% of subscriptions with no promotional discount
+    (sampled 2026-06-02).
 - name: customer_start_date
   type: TIMESTAMP
   mode: NULLABLE
+  description: The timestamp of the earliest subscription start date across all subscriptions
+    for this customer, representing when the customer first became a paying subscriber.
 - name: end_date
   type: TIMESTAMP
   mode: NULLABLE
+  description: 'The effective end date of this subscription record: the actual ended_at
+    timestamp for canceled subscriptions, or the current date for active subscriptions.'
 - name: months_retained
   type: INTEGER
   mode: NULLABLE
+  description: Number of complete billing months the subscriber was retained for this
+    plan segment, calculated from subscription_start_date to end_date accounting for
+    the 7-day billing grace period.
 - name: original_subscription_months_retained
   type: INTEGER
   mode: NULLABLE
+  description: Number of complete billing months retained since the original subscription
+    start date (before any plan changes), calculated to end_date with the 7-day grace
+    period.
 - name: current_months_since_subscription_start
   type: INTEGER
   mode: NULLABLE
+  description: Number of complete months elapsed from the current plan segment's subscription_start_date
+    to today, accounting for the 7-day billing grace period. Used to measure tenure
+    of the current plan.
 - name: current_months_since_original_subscription_start
   type: INTEGER
   mode: NULLABLE
+  description: Number of complete months elapsed from the original subscription start
+    date to today, accounting for the 7-day billing grace period. Reflects total subscriber
+    tenure across plan changes.
