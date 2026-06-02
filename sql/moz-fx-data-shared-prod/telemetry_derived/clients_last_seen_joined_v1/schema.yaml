@@ -818,45 +818,75 @@ fields:
 - mode: NULLABLE
   name: scalar_content_navigator_storage_estimate_count_sum
   type: INTEGER
+  description: Total number of times navigator.storage.estimate() was called from
+    a content process; always null in sampled data (sampled 2026-05-29).
 - mode: NULLABLE
   name: scalar_content_navigator_storage_persist_count_sum
   type: INTEGER
+  description: Total number of times navigator.storage.persist() was called from a
+    content process; always null in sampled data (sampled 2026-05-29).
 - mode: NULLABLE
   name: scalar_parent_aushelper_websense_reg_version
   type: STRING
+  description: Version string of the Websense endpoint security software detected
+    via registry on Windows, as reported by the AUS helper; null for ~100% of clients
+    (sampled 2026-05-29).
 - mode: NULLABLE
   name: scalar_parent_browser_engagement_max_concurrent_tab_count_max
   type: INTEGER
+  description: Maximum number of tabs open simultaneously across all windows on the
+    reporting day; null for ~2.5% of clients (sampled 2026-05-29).
 - mode: NULLABLE
   name: scalar_parent_browser_engagement_max_concurrent_window_count_max
   type: INTEGER
+  description: Maximum number of Firefox windows open simultaneously on the reporting
+    day; null for ~1.6% of clients (sampled 2026-05-29).
 - mode: NULLABLE
   name: scalar_parent_browser_engagement_tab_open_event_count_sum
   type: INTEGER
+  description: Total number of new tab open events on the reporting day; null for
+    ~42% of clients who opened no new tabs (sampled 2026-05-29).
 - mode: NULLABLE
   name: scalar_parent_browser_engagement_total_uri_count_sum
   type: INTEGER
+  description: Total number of unique URIs visited in normal browsing mode on the
+    reporting day, not counting private windows; null for ~23% of clients (sampled
+    2026-05-29).
 - mode: NULLABLE
   name: scalar_parent_browser_engagement_unfiltered_uri_count_sum
   type: INTEGER
+  description: Total URI count including all navigation events (filtered and unfiltered),
+    useful for measuring raw browsing volume; null for ~20% of clients (sampled 2026-05-29).
 - mode: NULLABLE
   name: scalar_parent_browser_engagement_unique_domains_count_max
   type: INTEGER
+  description: Maximum number of unique domains visited in a single session on the
+    reporting day; null for ~25% of clients (sampled 2026-05-29).
 - mode: NULLABLE
   name: scalar_parent_browser_engagement_unique_domains_count_mean
   type: FLOAT
+  description: Mean number of unique domains visited per session on the reporting
+    day; null for ~25% of clients (sampled 2026-05-29).
 - mode: NULLABLE
   name: scalar_parent_browser_engagement_window_open_event_count_sum
   type: INTEGER
+  description: Total number of new browser window open events on the reporting day;
+    null for ~82% of clients who opened no new windows (sampled 2026-05-29).
 - mode: NULLABLE
   name: scalar_parent_devtools_accessibility_node_inspected_count_sum
   type: INTEGER
+  description: Total number of accessibility nodes inspected via the DevTools Accessibility
+    panel; null for ~100% of clients (sampled 2026-05-29).
 - mode: NULLABLE
   name: scalar_parent_devtools_accessibility_opened_count_sum
   type: INTEGER
+  description: Total number of times the DevTools Accessibility panel was opened;
+    null for ~99.9% of clients (sampled 2026-05-29).
 - mode: NULLABLE
   name: scalar_parent_devtools_accessibility_picker_used_count_sum
   type: INTEGER
+  description: Total number of times the DevTools Accessibility picker tool was activated;
+    null for ~100% of clients (sampled 2026-05-29).
 - fields:
   - mode: NULLABLE
     name: key
@@ -870,24 +900,38 @@ fields:
 - mode: NULLABLE
   name: scalar_parent_devtools_accessibility_service_enabled_count_sum
   type: INTEGER
+  description: Total number of times the DevTools Accessibility service was enabled;
+    always null in sampled data (sampled 2026-05-29).
 - mode: NULLABLE
   name: scalar_parent_devtools_copy_full_css_selector_opened_sum
   type: INTEGER
+  description: Total number of times the 'Copy Full CSS Selector' DevTools command
+    was used; always null in sampled data (sampled 2026-05-29).
 - mode: NULLABLE
   name: scalar_parent_devtools_copy_unique_css_selector_opened_sum
   type: INTEGER
+  description: Total number of times the 'Copy Unique CSS Selector' DevTools command
+    was used; always null in sampled data (sampled 2026-05-29).
 - mode: NULLABLE
   name: scalar_parent_devtools_toolbar_eyedropper_opened_sum
   type: INTEGER
+  description: Total number of times the DevTools toolbar eyedropper was opened; always
+    null in sampled data (sampled 2026-05-29).
 - mode: NULLABLE
   name: scalar_parent_dom_contentprocess_troubled_due_to_memory_sum
   type: INTEGER
+  description: Total number of content process trouble events caused by low memory
+    conditions; always null in sampled data (sampled 2026-05-29).
 - mode: NULLABLE
   name: scalar_parent_navigator_storage_estimate_count_sum
   type: INTEGER
+  description: Total number of times navigator.storage.estimate() was called from
+    the parent process; always null in sampled data (sampled 2026-05-29).
 - mode: NULLABLE
   name: scalar_parent_navigator_storage_persist_count_sum
   type: INTEGER
+  description: Total number of times navigator.storage.persist() was called from the
+    parent process; always null in sampled data (sampled 2026-05-29).
 - mode: NULLABLE
   name: scalar_parent_storage_sync_api_usage_extensions_using_sum
   type: INTEGER
