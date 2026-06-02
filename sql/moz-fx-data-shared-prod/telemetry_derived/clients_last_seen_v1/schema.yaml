@@ -755,51 +755,69 @@ fields:
 - mode: NULLABLE
   name: pings_aggregated_by_this_row
   type: INTEGER
-  description: null
+  description: The number of daily client pings that were combined to produce this
+    row; rows are aggregated from clients_daily_v6 for the current day plus the rolling
+    28-day window (sampled 2026-05-29).
 - mode: NULLABLE
   name: places_bookmarks_count_mean
   type: FLOAT
-  description: null
+  description: Mean number of bookmarks in the client's Places database across pings
+    aggregated into this row; null in ~26% of rows where Places data was not reported
+    (sampled 2026-05-29).
 - mode: NULLABLE
   name: places_pages_count_mean
   type: FLOAT
-  description: null
+  description: Mean number of pages in the client's browsing history (Places) database
+    across pings aggregated into this row; null in ~26% of rows where Places data
+    was not reported (sampled 2026-05-29).
 - mode: NULLABLE
   name: plugin_hangs_sum
   type: INTEGER
-  description: null
+  description: Total number of plugin hang events detected for this client; null for
+    nearly all clients, reflecting the retirement of NPAPI plugins (100% null rate
+    sampled 2026-05-29).
 - mode: NULLABLE
   name: plugins_infobar_allow_sum
   type: INTEGER
-  description: null
+  description: Total number of times the user clicked 'Allow' in the plugin activation
+    infobar; null for virtually all clients (100% null rate sampled 2026-05-29).
 - mode: NULLABLE
   name: plugins_infobar_block_sum
   type: INTEGER
-  description: null
+  description: Total number of times the user clicked 'Block' in the plugin activation
+    infobar; null for all sampled clients (100% null rate sampled 2026-05-29).
 - mode: NULLABLE
   name: plugins_infobar_shown_sum
   type: INTEGER
-  description: null
+  description: Total number of times the plugin activation infobar was displayed to
+    the user; null for virtually all clients (100% null rate sampled 2026-05-29).
 - mode: NULLABLE
   name: plugins_notification_shown_sum
   type: INTEGER
-  description: null
+  description: Total number of times a plugin notification was shown to the user;
+    null for virtually all clients (100% null rate sampled 2026-05-29).
 - mode: NULLABLE
   name: previous_build_id
   type: STRING
-  description: null
+  description: The build ID of the Firefox installation before the most recent update,
+    used to detect clients that recently upgraded; null in ~51.6% of rows where no
+    prior build was recorded (sampled 2026-05-29).
 - mode: NULLABLE
   name: profile_age_in_days
   type: INTEGER
-  description: null
+  description: Number of days between the client's profile creation date and submission_date;
+    0 for profiles created on the same day as the ping (sampled 2026-05-29).
 - mode: NULLABLE
   name: profile_creation_date
   type: STRING
-  description: null
+  description: Date string when the client's Firefox profile was created, formatted
+    as 'YYYY-MM-DD 00:00:00' (sampled 2026-05-29).
 - mode: NULLABLE
   name: push_api_notify_sum
   type: INTEGER
-  description: null
+  description: Total number of push API notifications received by the client over
+    the aggregation period; null in 96.6% of rows where no notifications were received
+    (sampled 2026-05-29).
 - mode: NULLABLE
   name: sample_id
   type: INTEGER
@@ -808,79 +826,103 @@ fields:
 - mode: NULLABLE
   name: sandbox_effective_content_process_level
   type: INTEGER
-  description: null
+  description: The effective sandbox level applied to Firefox content processes on
+    this client (0–9); higher values indicate stricter sandboxing; null in 0.7% of
+    rows (sampled 2026-05-29).
 - mode: NULLABLE
   name: scalar_combined_webrtc_nicer_stun_retransmits_sum
   type: INTEGER
-  description: null
+  description: Total number of STUN retransmits recorded by the WebRTC ICE stack;
+    null for all sampled clients (100% null rate sampled 2026-05-29).
 - mode: NULLABLE
   name: scalar_combined_webrtc_nicer_turn_401s_sum
   type: INTEGER
-  description: null
+  description: Total number of TURN 401 (Unauthorized) authentication challenge responses
+    encountered during WebRTC connection setup; null for all sampled clients (100%
+    null rate sampled 2026-05-29).
 - mode: NULLABLE
   name: scalar_combined_webrtc_nicer_turn_403s_sum
   type: INTEGER
-  description: null
+  description: Total number of TURN 403 (Forbidden) responses encountered during WebRTC
+    connection setup; null for all sampled clients (100% null rate sampled 2026-05-29).
 - mode: NULLABLE
   name: scalar_combined_webrtc_nicer_turn_438s_sum
   type: INTEGER
-  description: null
+  description: Total number of TURN 438 (Stale Nonce) responses encountered during
+    WebRTC connection setup; null for all sampled clients (100% null rate sampled
+    2026-05-29).
 - mode: NULLABLE
   name: scalar_content_navigator_storage_estimate_count_sum
   type: INTEGER
-  description: null
+  description: Total number of navigator.storage.estimate() calls made in content
+    processes; null for nearly all clients (100% null rate sampled 2026-05-29).
 - mode: NULLABLE
   name: scalar_content_navigator_storage_persist_count_sum
   type: INTEGER
-  description: null
+  description: Total number of navigator.storage.persist() calls made in content processes;
+    null for all sampled clients (100% null rate sampled 2026-05-29).
 - mode: NULLABLE
   name: scalar_parent_aushelper_websense_reg_version
   type: STRING
-  description: null
+  description: Version string of the Websense DLP endpoint security software detected
+    via the Windows registry; null for nearly all clients (100% null rate sampled
+    2026-05-29).
 - mode: NULLABLE
   name: scalar_parent_browser_engagement_max_concurrent_tab_count_max
   type: INTEGER
-  description: null
+  description: Maximum number of tabs open simultaneously in any single session across
+    the aggregation period; null in 2.5% of rows (sampled 2026-05-29).
 - mode: NULLABLE
   name: scalar_parent_browser_engagement_max_concurrent_window_count_max
   type: INTEGER
-  description: null
+  description: Maximum number of browser windows open simultaneously across the aggregation
+    period; null in 1.6% of rows (sampled 2026-05-29).
 - mode: NULLABLE
   name: scalar_parent_browser_engagement_tab_open_event_count_sum
   type: INTEGER
-  description: null
+  description: Total number of new-tab open events recorded across the aggregation
+    period; null in 42.1% of rows where the scalar was not reported (sampled 2026-05-29).
 - mode: NULLABLE
   name: scalar_parent_browser_engagement_total_uri_count_sum
   type: INTEGER
-  description: null
+  description: Total number of URIs navigated to in normal browsing mode across the
+    aggregation period; null in 23.3% of rows (sampled 2026-05-29).
 - mode: NULLABLE
   name: scalar_parent_browser_engagement_unfiltered_uri_count_sum
   type: INTEGER
-  description: null
+  description: Total number of URI navigations including internal and system pages
+    (unfiltered), across the aggregation period; null in 19.6% of rows (sampled 2026-05-29).
 - mode: NULLABLE
   name: scalar_parent_browser_engagement_unique_domains_count_max
   type: INTEGER
-  description: null
+  description: Maximum number of unique domains visited in a single day across the
+    aggregation period; null in 24.7% of rows where the scalar was not reported (sampled
+    2026-05-29).
 - mode: NULLABLE
   name: scalar_parent_browser_engagement_unique_domains_count_mean
   type: FLOAT
-  description: null
+  description: Mean number of unique domains visited per day across the aggregation
+    period; null in 24.7% of rows where the scalar was not reported (sampled 2026-05-29).
 - mode: NULLABLE
   name: scalar_parent_browser_engagement_window_open_event_count_sum
   type: INTEGER
-  description: null
+  description: Total number of new browser window open events across the aggregation
+    period; null in 82.4% of rows where no new windows were opened (sampled 2026-05-29).
 - mode: NULLABLE
   name: scalar_parent_devtools_accessibility_node_inspected_count_sum
   type: INTEGER
-  description: null
+  description: Total number of accessibility nodes inspected via the Firefox DevTools
+    Accessibility panel; null for nearly all clients (100% null rate sampled 2026-05-29).
 - mode: NULLABLE
   name: scalar_parent_devtools_accessibility_opened_count_sum
   type: INTEGER
-  description: null
+  description: Total number of times the DevTools Accessibility panel was opened;
+    null in 99.9% of rows where the panel was never used (sampled 2026-05-29).
 - mode: NULLABLE
   name: scalar_parent_devtools_accessibility_picker_used_count_sum
   type: INTEGER
-  description: null
+  description: Total number of times the accessibility inspector's element picker
+    tool was used; null for nearly all clients (100% null rate sampled 2026-05-29).
 - fields:
   - mode: NULLABLE
     name: key
@@ -897,35 +939,44 @@ fields:
 - mode: NULLABLE
   name: scalar_parent_devtools_accessibility_service_enabled_count_sum
   type: INTEGER
-  description: null
+  description: Total number of times the accessibility service was enabled via DevTools;
+    null for nearly all clients (100% null rate sampled 2026-05-29).
 - mode: NULLABLE
   name: scalar_parent_devtools_copy_full_css_selector_opened_sum
   type: INTEGER
-  description: null
+  description: Total number of times the 'Copy Full CSS Selector' DevTools action
+    was used; null for all sampled clients (100% null rate sampled 2026-05-29).
 - mode: NULLABLE
   name: scalar_parent_devtools_copy_unique_css_selector_opened_sum
   type: INTEGER
-  description: null
+  description: Total number of times the 'Copy Unique CSS Selector' DevTools action
+    was used; null for nearly all clients (100% null rate sampled 2026-05-29).
 - mode: NULLABLE
   name: scalar_parent_devtools_toolbar_eyedropper_opened_sum
   type: INTEGER
-  description: null
+  description: Total number of times the eyedropper tool was opened via the DevTools
+    toolbar; null for nearly all clients (100% null rate sampled 2026-05-29).
 - mode: NULLABLE
   name: scalar_parent_dom_contentprocess_troubled_due_to_memory_sum
   type: INTEGER
-  description: null
+  description: Total number of content process memory pressure events that put the
+    process in a troubled state; null for all sampled clients (100% null rate sampled
+    2026-05-29).
 - mode: NULLABLE
   name: scalar_parent_navigator_storage_estimate_count_sum
   type: INTEGER
-  description: null
+  description: Total number of navigator.storage.estimate() calls made in the parent
+    process; null for all sampled clients (100% null rate sampled 2026-05-29).
 - mode: NULLABLE
   name: scalar_parent_navigator_storage_persist_count_sum
   type: INTEGER
-  description: null
+  description: Total number of navigator.storage.persist() calls made in the parent
+    process; null for all sampled clients (100% null rate sampled 2026-05-29).
 - mode: NULLABLE
   name: scalar_parent_storage_sync_api_usage_extensions_using_sum
   type: INTEGER
-  description: null
+  description: Total number of extensions that used the storage.sync API during the
+    aggregation period; null for nearly all clients (100% null rate sampled 2026-05-29).
 - mode: NULLABLE
   name: search_cohort
   type: STRING
@@ -1083,27 +1134,33 @@ fields:
 - mode: NULLABLE
   name: scalar_parent_urlbar_impression_autofill_about_sum
   type: INTEGER
-  description: null
+  description: Total number of urlbar autofill impressions showing 'about:' page suggestions;
+    null for nearly all clients (100% null rate sampled 2026-05-29).
 - mode: NULLABLE
   name: scalar_parent_urlbar_impression_autofill_adaptive_sum
   type: INTEGER
-  description: null
+  description: Total number of urlbar autofill impressions triggered by adaptive history;
+    null for all sampled clients (100% null rate sampled 2026-05-29).
 - mode: NULLABLE
   name: scalar_parent_urlbar_impression_autofill_origin_sum
   type: INTEGER
-  description: null
+  description: Total number of urlbar autofill impressions triggered by origin (domain-prefix)
+    matching; null in 98.9% of rows (sampled 2026-05-29).
 - mode: NULLABLE
   name: scalar_parent_urlbar_impression_autofill_other_sum
   type: INTEGER
-  description: null
+  description: Total number of urlbar autofill impressions not covered by other autofill
+    categories; null for all sampled clients (100% null rate sampled 2026-05-29).
 - mode: NULLABLE
   name: scalar_parent_urlbar_impression_autofill_preloaded_sum
   type: INTEGER
-  description: null
+  description: Total number of urlbar autofill impressions from the preloaded domain
+    list; null for all sampled clients (100% null rate sampled 2026-05-29).
 - mode: NULLABLE
   name: scalar_parent_urlbar_impression_autofill_url_sum
   type: INTEGER
-  description: null
+  description: Total number of urlbar autofill impressions triggered by full URL matching;
+    null in 99.9% of rows (sampled 2026-05-29).
 - fields:
   - mode: NULLABLE
     name: key
@@ -1302,21 +1359,33 @@ fields:
 - mode: NULLABLE
   name: scalar_parent_os_environment_is_taskbar_pinned
   type: BOOLEAN
+  description: Whether Firefox is pinned to the Windows taskbar in the normal profile;
+    null in 28.7% of rows for non-Windows clients or older builds (sampled 2026-05-29).
 - mode: NULLABLE
   name: scalar_parent_os_environment_launched_via_desktop
   type: BOOLEAN
+  description: Whether Firefox was most recently launched via a desktop shortcut;
+    false for the majority of clients (sampled 2026-05-29).
 - mode: NULLABLE
   name: scalar_parent_os_environment_launched_via_start_menu
   type: BOOLEAN
+  description: Whether Firefox was most recently launched via the Windows Start Menu;
+    false for the majority of clients (sampled 2026-05-29).
 - mode: NULLABLE
   name: scalar_parent_os_environment_launched_via_taskbar
   type: BOOLEAN
+  description: Whether Firefox was most recently launched via a Windows taskbar pin;
+    true for ~21.7% of clients (sampled 2026-05-29).
 - mode: NULLABLE
   name: scalar_parent_os_environment_launched_via_other_shortcut
   type: BOOLEAN
+  description: Whether Firefox was most recently launched via a shortcut other than
+    desktop, start menu, or taskbar; true for ~12.8% of clients (sampled 2026-05-29).
 - mode: NULLABLE
   name: scalar_parent_os_environment_launched_via_other
   type: BOOLEAN
+  description: Whether Firefox was most recently launched via an unclassified launch
+    method; true for ~23.6% of clients (sampled 2026-05-29).
 - mode: NULLABLE
   name: search_count_webextension
   type: INTEGER
@@ -2035,6 +2104,9 @@ fields:
 - mode: NULLABLE
   name: scalar_parent_browser_engagement_total_uri_count_normal_and_private_mode_sum
   type: INTEGER
+  description: Total number of URIs navigated to in both normal and private browsing
+    modes combined; the preferred URI count metric for Active DAU (null in 21.7% of
+    rows sampled 2026-05-29).
 - mode: NULLABLE
   name: user_pref_browser_newtabpage_enabled
   type: STRING
@@ -2100,9 +2172,15 @@ fields:
 - mode: NULLABLE
   name: scalar_a11y_hcm_foreground
   type: INTEGER
+  description: The foreground colour value used when High Contrast Mode is active
+    on the client, encoded as a 32-bit ARGB integer; null in 99.8% of rows where HCM
+    is not active (sampled 2026-05-29).
 - mode: NULLABLE
   name: scalar_a11y_hcm_background
   type: INTEGER
+  description: The background colour value used when High Contrast Mode is active
+    on the client, encoded as a 32-bit ARGB integer; null in 99.8% of rows where HCM
+    is not active (sampled 2026-05-29).
 - fields:
   - mode: NULLABLE
     name: key
@@ -2219,6 +2297,8 @@ fields:
 - mode: NULLABLE
   name: scalar_parent_browser_ui_interaction_textrecognition_error_sum
   type: INTEGER
+  description: Total number of text recognition API errors triggered in the browser
+    UI; null for all sampled clients (100% null rate sampled 2026-05-29).
 - mode: NULLABLE
   name: text_recognition_interaction_timing_sum
   type: INTEGER
@@ -2256,6 +2336,8 @@ fields:
 - mode: NULLABLE
   name: scalar_parent_os_environment_launched_via_taskbar_private
   type: BOOLEAN
+  description: Whether Firefox was most recently launched in private browsing mode
+    via a Windows taskbar shortcut; true for 0.2% of clients (sampled 2026-05-29).
 - mode: NULLABLE
   name: dom_parentprocess_private_window_used
   type: BOOLEAN
