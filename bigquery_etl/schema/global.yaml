@@ -5,8 +5,8 @@ fields:
   description: Whether the user's logged in to an FxA account.
 - name: activity_segment
   type: STRING
-  description: Classification of users based on their browsing activity.
-    E.g., infrequent, casual, regular.
+  description: Classification of users based on their browsing activity. E.g., infrequent,
+    casual, regular.
   aliases:
   - segment
   possible_values:
@@ -69,15 +69,15 @@ fields:
     interaction pings, e.g. top-sites ping.
 - name: country
   type: STRING
-  description: Name of the country in which the activity took place, as determined by
-    the IP geolocation.
+  description: Name of the country in which the activity took place, as determined
+    by the IP geolocation.
   aliases:
   - normalized_country
   - geo
 - name: country_code
   type: STRING
-  description: Code of the country in which the activity took place, as determined by
-    the IP geolocation. Unknown or NULL values are normally stored as '??'.
+  description: Code of the country in which the activity took place, as determined
+    by the IP geolocation. Unknown or NULL values are normally stored as '??'.
   aliases:
   - normalized_country_code
 - name: created_at
@@ -88,8 +88,8 @@ fields:
   - created_date
 - name: dau
   type: INTEGER
-  description: The number of daily active users, corresponding to the count of clients that reported
-    at least one ping on the submission_date and qualify as active.
+  description: The number of daily active users, corresponding to the count of clients
+    that reported at least one ping on the submission_date and qualify as active.
 - name: first_run_date
   type: DATE
   mode: NULLABLE
@@ -100,12 +100,14 @@ fields:
   description: Date when the server first received a ping from this client.
 - name: wau
   type: INTEGER
-  description: The number of weekly active users, corresponding to the count of clients that reported
-    at least one ping on the previous 7 days from the submission_date and qualify as active.
+  description: The number of weekly active users, corresponding to the count of clients
+    that reported at least one ping on the previous 7 days from the submission_date
+    and qualify as active.
 - name: mau
   type: INTEGER
-  description: The number of monthly active users, corresponding to the count of clients that reported
-    at least one ping on the previous 28 days from the submission_date and qualify as active.
+  description: The number of monthly active users, corresponding to the count of clients
+    that reported at least one ping on the previous 28 days from the submission_date
+    and qualify as active.
 - name: distribution_id
   type: STRING
   description: The distribution id associated with the install of Firefox.
@@ -114,7 +116,8 @@ fields:
   description: The document ID specified in the URI when the client sent this message.
 - name: is_default_browser
   type: BOOLEAN
-  description: A flag indicating whether the browser is set as the default browser on the client side.
+  description: A flag indicating whether the browser is set as the default browser
+    on the client side.
 - name: is_desktop
   type: BOOLEAN
   description: Indicates if the client is included in the desktop KPI.
@@ -123,7 +126,8 @@ fields:
   description: Indicates if the client is included in the mobile KPI.
 - name: isp_name
   type: STRING
-  description: The name of the internet service provider associated with the client's IP address.
+  description: The name of the internet service provider associated with the client's
+    IP address.
   aliases:
   - isp
 - name: locale
@@ -149,11 +153,12 @@ fields:
 - name: os_code
   type: STRING
   mode: NULLABLE
-  description: The operating system code based on the Common Platform Enumeration CPE.
+  description: The operating system code based on the Common Platform Enumeration
+    CPE.
 - name: os_version
   type: INTEGER
-  description: Version of the operating system version running at the
-    client. E.g. "100.9.11".
+  description: Version of the operating system version running at the client. E.g.
+    "100.9.11".
   aliases:
   - normalized_os_version
 - name: os_major
@@ -172,11 +177,12 @@ fields:
   - os_version_minor
 - name: profile_group_id
   type: STRING
-  description: A UUID uniquely identifying the profile group, not shared with other telemetry data.
+  description: A UUID uniquely identifying the profile group, not shared with other
+    telemetry data.
 - name: sample_id
   type: INTEGER
-  description: A number, 0-99, that samples by client_id and allows filtering data for analysis.
-    It is a pipeline-generated artifact that should match between pings.
+  description: A number, 0-99, that samples by client_id and allows filtering data
+    for analysis. It is a pipeline-generated artifact that should match between pings.
 - name: source_column
   type: STRING
   description: Column name in the source used to ingest the data.
@@ -193,17 +199,169 @@ fields:
   description: The submission_timestamp truncated to the hour.
 - name: submission_month
   type: DATE
-  description: First calendar day of the month extracted from submission_date or
-    submission_timestamp.
+  description: First calendar day of the month extracted from submission_date or submission_timestamp.
 - name: submission_timestamp
   type: TIMESTAMP
   description: Timestamp when the ping is received on the server side.
 - name: telemetry_sdk_build
   type: STRING
-  description: The version of the Glean SDK at the time the ping was collected (e.g. 25.0.0).
+  description: The version of the Glean SDK at the time the ping was collected (e.g.
+    25.0.0).
 - name: updated_at
   type: TIMESTAMP
   description: Most recent date and time when the row was updated.
   aliases:
   - updated_timestamp
   - updated_date
+- name: city
+  description: Name of the city in which the activity took place, as determined by
+    IP geolocation.
+- name: channel
+  description: The normalized channel the application is being distributed on.
+- name: os
+  description: The normalized name of the operating system running at the client.
+- name: os_version_major
+  description: Major or first part of the operating system version running at the
+    client. E.g. for version "100.9.11", the major is 100.
+- name: os_version_minor
+  description: Minor part of the operating system version running at the client. E.g.
+    for version "100.9.11", the minor is 9.
+- name: app_version_patch_revision
+  description: The patch or revision number of the app version string (e.g. for '142.1.3',
+    the patch revision is 3). Null for major releases without a patch component (sampled
+    2026-06-02).
+- name: city
+  description: Name of the city in which the activity took place, as determined by
+    IP geolocation.
+- name: app_channel
+  description: The release channel for this application entry, e.g. 'release', 'beta',
+    or 'nightly'.
+- name: city
+  description: Name of the city in which the activity took place, as determined by
+    IP geolocation.
+- name: normalized_os_version
+  description: Normalized version string of the client's operating system (e.g. '10.0',
+    '6.1').
+- name: os
+  description: The name of the operating system on the client device, as reported
+    by the telemetry environment (e.g. 'Windows_NT', 'Darwin', 'Linux').
+- name: channel
+  description: The Firefox release channel from which the data was collected (e.g.
+    'release', 'beta', 'nightly').
+- name: os
+  description: The normalized name of the operating system (e.g. 'Windows', 'Mac',
+    'Linux'). NULL indicates all operating systems are aggregated together.
+- name: channel
+  description: The normalized release channel the application is distributed on (e.g.
+    release, beta, nightly).
+- name: os
+  description: The normalized name of the operating system running at the client.
+    Null for ~45% of rows; observed values include Windows, Linux, and Mac.
+- name: normalized_os_version
+  description: Normalized version string of the client's operating system (e.g. '10.0'
+    for Windows 10).
+- name: channel
+  description: The normalized release channel the application is distributed on (e.g.
+    release, beta, nightly).
+- name: os
+  description: The normalized name of the operating system running at the client.
+- name: attribution.campaign
+  description: Attribution campaign identifier recorded at install time (similar to
+    UTM campaign).
+- name: attribution.content
+  description: Attribution content identifier recorded at install time (similar to
+    UTM content).
+- name: attribution.experiment
+  description: Attribution experiment key recorded at install time, used to identify
+    funnel experiments.
+- name: attribution.medium
+  description: Attribution medium recorded at install time (similar to UTM medium,
+    e.g. 'referral', 'organic', 'paidsearch').
+- name: attribution.source
+  description: Referring partner domain or source recorded at install time (similar
+    to UTM source, e.g. 'www.google.com').
+- name: attribution.variation
+  description: Attribution variation key recorded at install time, used to distinguish
+    experiment arms.
+- name: city
+  description: Name of the city in which the activity took place, as determined by
+    IP geolocation.
+- name: normalized_os_version
+  description: Normalized version string of the client's operating system (e.g. '10.0'
+    for Windows 10, '6.1' for Windows 7).
+- name: attribution.campaign
+  description: The name of the marketing campaign associated with the Firefox download;
+    null when attribution is not available (sampled 2026-05-29).
+- name: attribution.content
+  description: The specific content element within a campaign that led to the Firefox
+    download (e.g. a specific banner or link); null when attribution is not available
+    (sampled 2026-05-29).
+- name: attribution.experiment
+  description: The funnel experiment parameter associated with the Firefox download
+    attribution; null when attribution is unavailable (sampled 2026-05-29).
+- name: attribution.medium
+  description: The traffic medium through which the Firefox installer was delivered
+    (e.g. 'referral', 'paidsearch'); null when attribution is not available (sampled
+    2026-05-29).
+- name: attribution.source
+  description: The referring domain or partner from which Firefox was downloaded (e.g.
+    'www.google.com', 'www.bing.com'); null when attribution is not available (sampled
+    2026-05-29).
+- name: attribution.variation
+  description: The variation parameter of the funnel experiment associated with the
+    Firefox download attribution; null when attribution is unavailable (sampled 2026-05-29).
+- name: normalized_os_version
+  description: Normalized version string of the operating system (e.g. '10.0' for
+    Windows 10, '24.6.0' for a Linux kernel); matches the global os_version alias
+    (sampled 2026-05-29).
+- name: normalized_os_version
+  description: The normalised operating system version string (e.g. '10.0' for Windows
+    10, '24.6.0' for a Linux kernel); uses the same value as os_version with platform-specific
+    normalisation applied.
+- name: os
+  description: The raw operating system name as reported by the client environment
+    (e.g. 'Windows_NT', 'Linux', 'Darwin').
+- name: channel
+  description: The normalized release channel of the Firefox build (e.g. 'release',
+    'beta', 'nightly').
+- name: os
+  description: The operating system of the client (e.g. 'Windows', 'Mac', 'Linux');
+    '*' represents an aggregation across all operating systems.
+- name: os
+  description: The operating system of the client (e.g. 'Windows', 'Mac', 'Linux');
+    '*' represents an aggregation across all operating systems.
+- name: os
+  description: The operating system of the client (e.g. 'Windows', 'Mac', 'Linux');
+    '*' represents an aggregation across all operating systems.
+- name: os
+  description: The operating system of the client (e.g. 'Windows', 'Mac', 'Linux');
+    '*' represents an aggregation across all operating systems.
+- name: channel
+  description: The normalized Firefox release channel (e.g. 'release', 'beta', 'nightly').
+- name: os
+  description: The operating system of the client (e.g. 'Windows', 'Mac', 'Linux',
+    'Other'); '*' represents an aggregation across all operating systems. NULL when
+    this rollup dimension is not applicable.
+- name: os
+  description: The operating system of the client (e.g. 'Windows', 'Mac', 'Linux',
+    'Other'); '*' represents an aggregation across all operating systems.
+- name: channel
+  description: The normalized Firefox release channel (e.g. 'nightly', 'release',
+    'beta'); NULL for approximately 0.6% of rows where the channel cannot be determined.
+- name: os
+  description: The operating system of the client (e.g. 'Windows', 'Mac', 'Linux',
+    'Other'); NULL (approximately 18% of rows) represents an aggregation across all
+    operating systems that maps to '*' in the extract table.
+- name: channel
+  description: The normalized release channel of the Firefox build on the client (e.g.
+    'release', 'beta', 'nightly').
+- name: os
+  description: The normalized name of the operating system running at the client (e.g.
+    'Windows', 'Mac', 'Linux').
+- name: channel
+  description: The normalized Firefox release channel (e.g. 'nightly', 'release',
+    'beta').
+- name: os
+  description: The operating system of the client (e.g. 'Windows', 'Mac', 'Linux',
+    'Other'); NULL (approximately 38% of rows) represents an aggregation across all
+    operating systems.
