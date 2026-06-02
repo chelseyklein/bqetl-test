@@ -354,63 +354,88 @@ fields:
 - mode: NULLABLE
   name: crashes_detected_content_sum
   type: INTEGER
-  description: null
+  description: Total number of content-process crashes detected for this client over
+    the aggregation period; null when no crashes were detected (100% null rate sampled
+    2026-05-29).
 - mode: NULLABLE
   name: crashes_detected_gmplugin_sum
   type: INTEGER
-  description: null
+  description: Total number of GMP (Gecko Media Plugin) process crashes detected for
+    this client; null when no crashes were detected (100% null rate sampled 2026-05-29).
 - mode: NULLABLE
   name: crashes_detected_plugin_sum
   type: INTEGER
-  description: null
+  description: Total number of legacy NPAPI plugin process crashes detected for this
+    client; null when no crashes were detected (100% null rate sampled 2026-05-29).
 - mode: NULLABLE
   name: crash_submit_attempt_content_sum
   type: INTEGER
-  description: null
+  description: Total number of crash report submission attempts for content-process
+    crashes; null when no submission attempts occurred (99.9% null rate sampled 2026-05-29).
 - mode: NULLABLE
   name: crash_submit_attempt_main_sum
   type: INTEGER
-  description: null
+  description: Total number of crash report submission attempts for main-process crashes;
+    null when no submission attempts occurred (99.8% null rate sampled 2026-05-29).
 - mode: NULLABLE
   name: crash_submit_attempt_plugin_sum
   type: INTEGER
-  description: null
+  description: Total number of crash report submission attempts for legacy plugin
+    process crashes; null when no submission attempts occurred (100% null rate sampled
+    2026-05-29).
 - mode: NULLABLE
   name: crash_submit_success_content_sum
   type: INTEGER
-  description: null
+  description: Total number of successfully submitted crash reports for content-process
+    crashes; null when no successful submissions occurred (99.9% null rate sampled
+    2026-05-29).
 - mode: NULLABLE
   name: crash_submit_success_main_sum
   type: INTEGER
-  description: null
+  description: Total number of successfully submitted crash reports for main-process
+    crashes; null when no successful submissions occurred (99.8% null rate sampled
+    2026-05-29).
 - mode: NULLABLE
   name: crash_submit_success_plugin_sum
   type: INTEGER
-  description: null
+  description: Total number of successfully submitted crash reports for legacy plugin
+    crashes; null when no successful submissions occurred (100% null rate sampled
+    2026-05-29).
 - mode: NULLABLE
   name: default_search_engine
   type: STRING
-  description: null
+  description: The internal identifier of the client's default search engine (e.g.
+    'google-b-d', 'baidu', 'ddg'); null in ~1% of rows where the environment is missing
+    (sampled 2026-05-29).
 - mode: NULLABLE
   name: default_search_engine_data_load_path
   type: STRING
-  description: null
+  description: The load path indicating how the default search engine was installed
+    (e.g. '[app]google' for built-in, '[addon]google@search.mozilla.org' for extension-provided);
+    null in ~1% of rows.
 - mode: NULLABLE
   name: default_search_engine_data_name
   type: STRING
-  description: null
+  description: The human-readable display name of the client's default search engine
+    (e.g. 'Google', 'DuckDuckGo'); null in ~1% of rows (sampled 2026-05-29).
 - mode: NULLABLE
   name: default_search_engine_data_origin
   type: STRING
-  description: null
+  description: 'How the default search engine was set: ''default'' (shipped default),
+    ''verified'' (verified extension), ''unverified'', or ''invalid''; null in 86.6%
+    of rows where the environment is missing (sampled 2026-05-29).'
 - mode: NULLABLE
   name: default_search_engine_data_submission_url
   type: STRING
-  description: null
+  description: The search submission URL template for the default search engine (e.g.
+    'https://www.google.com/search?client=firefox-b-d&q='); null in ~2% of rows (sampled
+    2026-05-29).
 - mode: NULLABLE
   name: devtools_toolbox_opened_count_sum
   type: INTEGER
-  description: null
+  description: Total number of times the Firefox Developer Tools toolbox was opened
+    during the aggregation period; null when the toolbox was never opened (98.6% null
+    rate sampled 2026-05-29).
 - mode: NULLABLE
   name: distribution_id
   type: STRING
@@ -418,43 +443,52 @@ fields:
 - mode: NULLABLE
   name: e10s_enabled
   type: BOOLEAN
-  description: null
+  description: Whether Electrolysis (multi-process Firefox) was enabled; true for
+    99.5% of clients, as e10s is the default since Firefox 48 (sampled 2026-05-29).
 - mode: NULLABLE
   name: env_build_arch
   type: STRING
-  description: null
+  description: The CPU architecture the Firefox build was compiled for (e.g. 'x86-64',
+    'aarch64', 'x86'); sampled 2026-05-29.
 - mode: NULLABLE
   name: env_build_id
   type: STRING
-  description: null
+  description: The build ID string from the Firefox application environment, formatted
+    as a timestamp (e.g. '20260511200624'); equivalent to app_build_id.
 - mode: NULLABLE
   name: env_build_version
   type: STRING
-  description: null
+  description: The Firefox version string as recorded in the build environment; equivalent
+    to app_version (e.g. '150.0.3').
 - mode: REPEATED
   name: environment_settings_intl_accept_languages
   type: STRING
-  description: null
+  description: Array of preferred languages from the browser's Accept-Language HTTP
+    header setting, reflecting the user's language preferences in order.
 - mode: REPEATED
   name: environment_settings_intl_app_locales
   type: STRING
-  description: null
+  description: Array of locales available in the Firefox application bundle for display
+    of the UI.
 - mode: REPEATED
   name: environment_settings_intl_available_locales
   type: STRING
-  description: null
+  description: Array of all locales available to the Firefox browser for UI localisation.
 - mode: REPEATED
   name: environment_settings_intl_requested_locales
   type: STRING
-  description: null
+  description: Array of locales the user has explicitly requested for the Firefox
+    UI via browser settings.
 - mode: REPEATED
   name: environment_settings_intl_system_locales
   type: STRING
-  description: null
+  description: Array of locale tags representing the operating system's configured
+    locale(s) at the time the ping was submitted.
 - mode: REPEATED
   name: environment_settings_intl_regional_prefs_locales
   type: STRING
-  description: null
+  description: Array of locale tags representing the operating system's regional preferences
+    (e.g. date/time format locale), which may differ from the display locale.
 - fields:
   - mode: NULLABLE
     name: key
@@ -467,55 +501,74 @@ fields:
   mode: REPEATED
   name: experiments
   type: RECORD
-  description: null
+  description: Array of active Nimbus/Shield experiments the client was enrolled in,
+    each entry containing the experiment slug (key) and the assigned branch name (value).
 - mode: NULLABLE
   name: first_paint_mean
   type: FLOAT
-  description: null
+  description: Mean time in milliseconds from Firefox startup to first paint across
+    pings in the aggregation period; null in 10.1% of rows where the metric was not
+    recorded (sampled 2026-05-29).
 - mode: NULLABLE
   name: flash_version
   type: STRING
-  description: null
+  description: Version string of the Adobe Flash plugin installed on the client; null
+    for 99.6% of clients, reflecting the near-complete retirement of Flash (sampled
+    2026-05-29).
 - mode: NULLABLE
   name: country
   type: STRING
-  description: null
+  description: Two-letter ISO 3166-1 country code of the country in which the client's
+    activity took place, as determined by IP geolocation.
 - mode: NULLABLE
   name: city
   type: STRING
-  description: null
+  description: City name derived from IP geolocation of the client's most recent ping;
+    null in ~20% of rows where the city could not be determined (sampled 2026-05-29).
 - mode: NULLABLE
   name: geo_subdivision1
   type: STRING
-  description: null
+  description: First-level administrative subdivision code (e.g. US state or European
+    region) derived from IP geolocation; null in ~5% of rows (sampled 2026-05-29).
 - mode: NULLABLE
   name: geo_subdivision2
   type: STRING
-  description: null
+  description: Second-level administrative subdivision code (e.g. county or department)
+    derived from IP geolocation; null in ~84% of rows where the precision is unavailable
+    (sampled 2026-05-29).
 - mode: NULLABLE
   name: isp_name
   type: STRING
-  description: null
+  description: The name of the internet service provider associated with the client's
+    IP address.
 - mode: NULLABLE
   name: isp_organization
   type: STRING
-  description: null
+  description: The organisation name associated with the client's IP address as reported
+    by the geolocation database; typically the ISP's registered legal name.
 - mode: NULLABLE
   name: gfx_features_advanced_layers_status
   type: STRING
-  description: null
+  description: Status of the Advanced Layers (Compositor) graphics feature (e.g. 'available',
+    'blocked', 'disabled'); null in 99.3% of rows where the feature status was not
+    reported (sampled 2026-05-29).
 - mode: NULLABLE
   name: gfx_features_d2d_status
   type: STRING
-  description: null
+  description: Status of Direct2D hardware acceleration (e.g. 'available', 'disabled:FEATURE_FAILURE_DISABLED',
+    various blocklist codes); null in 83.1% of rows, mostly non-Windows clients (sampled
+    2026-05-29).
 - mode: NULLABLE
   name: gfx_features_d3d11_status
   type: STRING
-  description: null
+  description: Status of Direct3D 11 hardware acceleration (e.g. 'available', various
+    blocklist/failure codes); null in 15.4% of rows, mostly non-Windows clients (sampled
+    2026-05-29).
 - mode: NULLABLE
   name: gfx_features_gpu_process_status
   type: STRING
-  description: null
+  description: Status of the GPU process feature in Firefox (e.g. 'available', 'unused',
+    various unavailability codes); null in 0.7% of rows (sampled 2026-05-29).
 - mode: NULLABLE
   name: histogram_parent_devtools_aboutdebugging_opened_count_sum
   type: INTEGER
@@ -643,47 +696,62 @@ fields:
 - mode: NULLABLE
   name: install_year
   type: INTEGER
-  description: null
+  description: The calendar year in which Firefox was installed on the client, derived
+    from the installation date; null in 15.3% of rows, mainly non-Windows clients
+    where install date is unavailable (sampled 2026-05-29).
 - mode: NULLABLE
   name: is_default_browser
   type: BOOLEAN
-  description: null
+  description: Whether Firefox is set as the system default browser; null in ~1.3%
+    of rows where the check failed (sampled 2026-05-29).
 - mode: NULLABLE
   name: is_wow64
   type: BOOLEAN
-  description: null
+  description: Whether the 32-bit Firefox process is running under WOW64 (Windows
+    32-bit emulation on a 64-bit Windows host); null in 15.3% of rows for non-Windows
+    clients (sampled 2026-05-29).
 - mode: NULLABLE
   name: locale
   type: STRING
-  description: null
+  description: The locale tag of the Firefox UI (e.g. 'en-US', 'de', 'fr'), reflecting
+    the language in which the browser is displayed.
 - mode: NULLABLE
   name: memory_mb
   type: INTEGER
-  description: null
+  description: Amount of physical RAM available on the client device in megabytes
+    (sampled 2026-05-29).
 - mode: NULLABLE
   name: normalized_channel
   type: STRING
-  description: null
+  description: 'The normalized Firefox release channel, collapsing non-standard values
+    to ''Other'' (values: ''release'', ''esr'', ''beta'', ''aurora'', ''nightly'',
+    ''Other'').'
 - mode: NULLABLE
   name: normalized_os_version
   type: STRING
-  description: null
+  description: The normalised operating system version string (e.g. '10.0' for Windows
+    10, '24.6.0' for a Linux kernel); uses the same value as os_version with platform-specific
+    normalisation applied.
 - mode: NULLABLE
   name: os
   type: STRING
-  description: null
+  description: The raw operating system name as reported by the client environment
+    (e.g. 'Windows_NT', 'Linux', 'Darwin').
 - mode: NULLABLE
   name: os_service_pack_major
   type: INTEGER
-  description: null
+  description: Major version of the Windows Service Pack installed on the client;
+    null in 15.3% of rows for non-Windows clients (sampled 2026-05-29).
 - mode: NULLABLE
   name: os_service_pack_minor
   type: INTEGER
-  description: null
+  description: Minor version of the Windows Service Pack installed on the client;
+    null in 15.3% of rows for non-Windows clients (sampled 2026-05-29).
 - mode: NULLABLE
   name: os_version
   type: STRING
-  description: null
+  description: Operating system version string as reported by the client (e.g. '10.0'
+    for Windows 10, '6.1' for Windows 7, '24.6.0' for a Linux kernel version).
 - mode: NULLABLE
   name: pings_aggregated_by_this_row
   type: INTEGER
@@ -1491,18 +1559,29 @@ fields:
 - mode: NULLABLE
   name: default_private_search_engine
   type: STRING
+  description: The internal identifier of the client's default search engine for private
+    browsing mode; null for almost all clients as only Firefox 69+ reports a separate
+    private engine (100% null rate sampled 2026-05-29).
 - mode: NULLABLE
   name: default_private_search_engine_data_load_path
   type: STRING
+  description: The load path for the private-browsing default search engine; null
+    for almost all clients (100% null rate sampled 2026-05-29).
 - mode: NULLABLE
   name: default_private_search_engine_data_name
   type: STRING
+  description: Human-readable display name for the private-browsing default search
+    engine; null for almost all clients (100% null rate sampled 2026-05-29).
 - mode: NULLABLE
   name: default_private_search_engine_data_origin
   type: STRING
+  description: How the private-browsing default search engine was set; null for almost
+    all clients (100% null rate sampled 2026-05-29).
 - mode: NULLABLE
   name: default_private_search_engine_data_submission_url
   type: STRING
+  description: The search submission URL for the private-browsing default search engine;
+    null for almost all clients (100% null rate sampled 2026-05-29).
 - fields:
   - mode: NULLABLE
     name: engine
@@ -2464,9 +2543,14 @@ fields:
 - name: env_build_platform_version
   type: STRING
   mode: NULLABLE
+  description: The platform version string from the Gecko build environment; typically
+    identical to env_build_version (e.g. '150.0.3').
 - name: env_build_xpcom_abi
   type: STRING
   mode: NULLABLE
+  description: The XPCOM ABI string describing the build target platform and compiler
+    (e.g. 'x86_64-msvc', 'aarch64-gcc3'); used to distinguish 32-bit vs 64-bit Windows
+    builds.
 - name: geo_db_version
   type: STRING
   mode: NULLABLE
