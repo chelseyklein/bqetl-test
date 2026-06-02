@@ -26,6 +26,8 @@ fields:
 - name: app_name
   type: STRING
   mode: NULLABLE
+  description: The name of the browser application that sent the telemetry ping (e.g.
+    'Firefox'). Sourced from normalized_app_name in the main ping pipeline.
 - name: app_version
   type: STRING
   mode: NULLABLE
@@ -37,6 +39,8 @@ fields:
 - name: os_version
   type: STRING
   mode: NULLABLE
+  description: The version string of the operating system running on the client (e.g.
+    '10.0' for Windows 10). Sourced from normalized_os_version in the pipeline.
 - name: experiments
   type: RECORD
   mode: REPEATED
@@ -44,6 +48,9 @@ fields:
   - name: key
     type: STRING
     mode: NULLABLE
+    description: The slug identifier of the experiment within each experiments entry
+      (e.g. 'searchCohort', 'hotfix-http-throttling-v2-bug-1462906'). Used to join
+      with experiment metadata in Normandy or Experimenter.
   - name: value
     type: RECORD
     mode: NULLABLE
@@ -51,12 +58,25 @@ fields:
     - name: branch
       type: STRING
       mode: NULLABLE
+      description: The experiment branch the client was enrolled in for each entry
+        in the experiments array (e.g. 'active', 'rollout', 'control'). Identifies
+        which variant of the experiment the client experienced.
     - name: enrollment_id
       type: STRING
       mode: NULLABLE
+      description: A UUID identifying the specific enrollment event for this client
+        and experiment, used to correlate enrollment and unenrollment events. Null
+        when the enrollment ID was not recorded (100% null in sampled data 2026-06-02).
     - name: type
       type: STRING
       mode: NULLABLE
+      description: The type of experiment for each entry in the experiments array,
+        indicating the Normandy recipe type (e.g. 'normandy-exp' for A/B experiments,
+        'normandy-prefrollout' for pref rollouts). Null for older enrollments that
+        predate this field (17.2% null in sampled data 2026-06-02).
+  description: A repeated struct mapping experiment slug keys to their enrollment
+    details for the active experiments the client was enrolled in at ping submission
+    time, sourced from environment.experiments in the main ping.
 - name: sample_id
   type: INTEGER
   mode: NULLABLE
@@ -65,30 +85,56 @@ fields:
 - name: session_id
   type: STRING
   mode: NULLABLE
+  description: A UUID identifying the browser session during which the event was recorded,
+    drawn from payload.info.session_id in the main ping. All events within the same
+    session share this value.
 - name: session_start_time
   type: TIMESTAMP
   mode: NULLABLE
+  description: The timestamp at which the browser session began, parsed from payload.info.session_start_date
+    in the main ping. Used to calculate session duration when combined with event_timestamp.
 - name: subsession_id
   type: STRING
   mode: NULLABLE
+  description: A UUID identifying the specific subsession within a browser session,
+    sourced from payload.info.subsession_id in the main ping. A single session can
+    have multiple subsessions (e.g. after a crash or restart).
 - name: timestamp
   type: TIMESTAMP
   mode: NULLABLE
+  description: The server-side submission timestamp of the main ping from which this
+    event row was derived (i.e. submission_timestamp). Not the time of the event itself;
+    use session_start_time and event_timestamp for event timing.
 - name: event_timestamp
   type: INTEGER
   mode: NULLABLE
+  description: Milliseconds elapsed from the start of the browser session (session_start_time)
+    to when the event occurred. Sourced via the deanonymize_event UDF applied to main
+    ping event entries.
 - name: event_category
   type: STRING
   mode: NULLABLE
+  description: The category of the legacy telemetry event, grouping related events
+    by functional area (e.g. 'normandy', 'navigation'). Corresponds to the category
+    field in the main ping events schema.
 - name: event_method
   type: STRING
   mode: NULLABLE
+  description: The method or action that triggered the event (e.g. 'enroll', 'unenroll',
+    'search'). Together with event_category and event_object, uniquely identifies
+    the type of user or system action recorded.
 - name: event_object
   type: STRING
   mode: NULLABLE
+  description: The object on which the event action was performed (e.g. 'preference_study',
+    'preference_rollout', 'about_newtab'). Provides the target context for event_method
+    within a given event_category.
 - name: event_string_value
   type: STRING
   mode: NULLABLE
+  description: An optional string value associated with the event, carrying event-specific
+    context such as a study name, rollout slug, or UI element identifier (e.g. 'enter',
+    'pref-flip-search-composition-57-release-1413565').
 - name: event_map_values
   type: RECORD
   mode: REPEATED
@@ -96,30 +142,58 @@ fields:
   - name: key
     type: STRING
     mode: NULLABLE
+    description: The name of the extra metadata field within the event_map_values
+      entry (e.g. 'page', 'engine', 'session_id', 'addon_version'). Keys are defined
+      per event type in the Firefox telemetry events registry.
   - name: value
     type: STRING
     mode: NULLABLE
+    description: The value associated with the corresponding event_map_values.key,
+      providing event-specific supplementary context (e.g. a URL, engine name, or
+      version string). Always non-null when a key is present (sampled 2026-06-02).
+  description: A repeated key-value struct carrying additional event-specific metadata,
+    corresponding to the 'extra' map in the legacy telemetry events schema. Each entry
+    holds one key-value pair of supplementary event context.
 - name: event_process
   type: STRING
   mode: NULLABLE
+  description: The Firefox process in which the event was recorded (e.g. 'parent',
+    'content', 'dynamic', 'gpu'). Derived from the process-keyed events structure
+    in the main ping payload.
 - name: build_id
   type: STRING
   mode: NULLABLE
+  description: The build identifier string for the Firefox application (e.g. '20180704003137'),
+    sourced from application.build_id in the main ping. Encodes the date and time
+    the build was created.
 - name: build_architecture
   type: STRING
   mode: NULLABLE
+  description: The CPU architecture of the Firefox build installed on the client (e.g.
+    'x86-64', 'x86'). Sourced from environment.build.architecture in the main ping.
 - name: profile_creation_date
   type: FLOAT
   mode: NULLABLE
+  description: The date the Firefox profile was created, expressed as days since the
+    Unix epoch (e.g. 17730.0 ≈ 2018-07-05). Sourced from environment.profile.creation_date
+    in the main ping.
 - name: is_default_browser
   type: BOOLEAN
   mode: NULLABLE
+  description: Whether Firefox is set as the default browser on the client at the
+    time of the ping. True means Firefox is the default; false means it is not.
 - name: attribution_source
   type: STRING
   mode: NULLABLE
+  description: The attribution source indicating how the Firefox installation was
+    acquired (e.g. a UTM source value). Null when attribution data was not captured
+    at install time (100% null in sampled data 2026-06-02).
 - name: attribution_dltoken
   type: STRING
   mode: NULLABLE
+  description: A token identifying the specific download that led to this Firefox
+    installation, used for download attribution. Null when attribution data was not
+    captured at install time (100% null in sampled data 2026-06-02).
 - name: system_is_wow64
   type: BOOLEAN
   mode: NULLABLE
@@ -131,6 +205,9 @@ fields:
 - name: city
   type: STRING
   mode: NULLABLE
+  description: The city-level geolocation of the client derived from the IP address
+    at ping ingestion time (e.g. 'Curitiba', 'Kyiv'). Not always present; accuracy
+    depends on the IP geolocation database.
 - name: profile_group_id
   type: STRING
   mode: NULLABLE
