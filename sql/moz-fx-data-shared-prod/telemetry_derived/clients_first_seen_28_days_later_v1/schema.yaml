@@ -11,6 +11,8 @@ fields:
 - name: first_seen_date
   type: DATE
   mode: NULLABLE
+  description: The date the server first received a ping from this client; used as
+    the cohort anchor for all 28-day retention calculations.
 - name: submission_date
   type: DATE
   mode: NULLABLE
@@ -27,6 +29,8 @@ fields:
 - name: build_id
   type: STRING
   mode: NULLABLE
+  description: The Firefox build ID (application.buildId) of the build that generated
+    the first-seen ping, in YYYYMMDDHHMMSS format.
 - name: os
   type: STRING
   mode: NULLABLE
@@ -34,6 +38,9 @@ fields:
 - name: os_version
   type: NUMERIC
   mode: NULLABLE
+  description: The major.minor version of the operating system, truncated to two components
+    using mozfun.norm.truncate_version, stored as a NUMERIC value (e.g. 10.0 for Windows
+    10, 14.5 for macOS 14.5).
 - name: distribution_id
   type: STRING
   mode: NULLABLE
@@ -41,27 +48,43 @@ fields:
 - name: attribution_source
   type: STRING
   mode: NULLABLE
+  description: The attribution source from the installer; similar or the same as UTM
+    source, indicating where the user came from (e.g. 'www.google.com', 'www.bing.com').
 - name: attribution_ua
   type: STRING
   mode: NULLABLE
+  description: The user-agent family of the browser used to download Firefox, derived
+    from the attribution data (e.g. 'chrome', 'edge', 'firefox', 'ie', 'other').
 - name: attribution_medium
   type: STRING
   mode: NULLABLE
+  description: The attribution medium from the installer; similar or the same as UTM
+    medium (e.g. 'referral', 'paidsearch', 'cpc').
 - name: attribution_campaign
   type: STRING
   mode: NULLABLE
+  description: The attribution campaign from the installer; similar or the same as
+    UTM campaign (e.g. 'SET_DEFAULT_BROWSER', 'non-fx-button').
 - name: attribution_content
   type: STRING
   mode: NULLABLE
+  description: The attribution content from the installer; similar or the same as
+    UTM content, identifying the specific creative or link that led to the download.
 - name: attribution_experiment
   type: STRING
   mode: NULLABLE
+  description: The attribution experiment key from the installer, identifying which
+    marketing experiment (if any) the user was enrolled in at download time.
 - name: attribution_dltoken
   type: STRING
   mode: NULLABLE
+  description: A unique token identifying the specific download event that led to
+    this installation, used to correlate installs with download records.
 - name: attribution_dlsource
   type: STRING
   mode: NULLABLE
+  description: The download source that served the Firefox installer (e.g. 'mozorg',
+    'mozillaci', 'fxdotcom', 'desktoplauncher'), as recorded in the attribution data.
 - name: activated
   description: Whether the profile sent a main ping in at least 5 of their first 7
     days.
@@ -88,12 +111,21 @@ fields:
 - name: days_seen_bits
   type: INTEGER
   mode: NULLABLE
+  description: A 28-bit integer bitmask recording which of the 28 days after first_seen_date
+    the client sent at least one main ping; the most-significant bit represents day
+    1 and the least-significant bit represents day 28.
 - name: days_visited_1_uri_bits
   type: INTEGER
   mode: NULLABLE
+  description: A 28-bit integer bitmask recording which of the 28 days the client
+    visited at least one URI; used together with days_interacted_bits to compute qualified
+    DAU metrics.
 - name: days_interacted_bits
   type: INTEGER
   mode: NULLABLE
+  description: A 28-bit integer bitmask recording which of the 28 days the client
+    had at least one active interaction (active ticks); used together with days_visited_1_uri_bits
+    to compute qualified DAU metrics.
 - name: startup_profile_selection_reason
   type: STRING
   mode: NULLABLE
