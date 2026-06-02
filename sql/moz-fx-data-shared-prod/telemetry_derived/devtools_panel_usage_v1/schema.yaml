@@ -6,6 +6,11 @@ fields:
 - mode: NULLABLE
   name: tool
   type: STRING
+  description: The name of the Firefox DevTools panel or tool (e.g., 'inspector',
+    'webconsole', 'jsdebugger', 'accessibility'); one row per tool per submission_date.
 - mode: NULLABLE
   name: dau
   type: INTEGER
+  description: Number of daily active users who opened this DevTools tool at least
+    once on the submission_date, sampled from sample_id=42 of clients_daily and scaled
+    accordingly.
