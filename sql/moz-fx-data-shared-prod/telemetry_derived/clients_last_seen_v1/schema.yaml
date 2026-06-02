@@ -1729,6 +1729,9 @@ fields:
 - mode: NULLABLE
   name: user_pref_browser_search_region
   type: STRING
+  description: The search region code stored in Firefox preferences, which influences
+    which regional search engine defaults are applied (e.g. 'US', 'DE'); null in 3%
+    of rows (sampled 2026-05-29).
 - fields:
   - mode: NULLABLE
     name: key
@@ -2147,24 +2150,41 @@ fields:
 - mode: NULLABLE
   name: user_pref_browser_search_suggest_enabled
   type: STRING
+  description: Whether search suggestions in the address bar and search bar are enabled,
+    as stored in Firefox preferences; null in 99.1% of rows (sampled 2026-05-29).
 - mode: NULLABLE
   name: user_pref_browser_widget_in_navbar
   type: STRING
+  description: Whether a browser widget (e.g. search bar) is present in the navigation
+    bar, as stored in Firefox preferences; null in 88.7% of rows (sampled 2026-05-29).
 - mode: NULLABLE
   name: user_pref_browser_urlbar_suggest_searches
   type: STRING
+  description: Whether the urlbar is configured to show search suggestions, per Firefox
+    preferences; null in 98.6% of rows (sampled 2026-05-29).
 - mode: NULLABLE
   name: user_pref_browser_urlbar_show_search_suggestions_first
   type: STRING
+  description: Whether search suggestions are shown before browsing history results
+    in the urlbar dropdown, per Firefox preferences; null in 95.2% of rows (sampled
+    2026-05-29).
 - mode: NULLABLE
   name: user_pref_browser_urlbar_suggest_quicksuggest
   type: STRING
+  description: Whether legacy Firefox Suggest (quick suggest) results are shown in
+    the urlbar, per preferences; null in 99.9% of rows (sampled 2026-05-29).
 - mode: NULLABLE
   name: user_pref_browser_urlbar_suggest_quicksuggest_sponsored
   type: STRING
+  description: Whether sponsored Firefox Suggest results are shown in the urlbar;
+    'false' for ~71.2% of clients where the preference is set (null in 2% of rows
+    sampled 2026-05-29).
 - mode: NULLABLE
   name: user_pref_browser_urlbar_quicksuggest_onboarding_dialog_choice
   type: STRING
+  description: The choice the user made in the Firefox Suggest onboarding dialog (e.g.
+    'close_1', 'not_now_2', 'accept_2', 'reject_2'); null in 100% of rows sampled
+    (sampled 2026-05-29).
 - mode: NULLABLE
   name: scalar_parent_browser_engagement_total_uri_count_normal_and_private_mode_sum
   type: INTEGER
@@ -2174,9 +2194,14 @@ fields:
 - mode: NULLABLE
   name: user_pref_browser_newtabpage_enabled
   type: STRING
+  description: Whether the Firefox new-tab page is enabled (vs. a blank page), per
+    preferences; null in 96.8% of rows (sampled 2026-05-29).
 - mode: NULLABLE
   name: user_pref_app_shield_optoutstudies_enabled
   type: STRING
+  description: Whether the user has opted out of Shield studies (SHIELD/Normandy experiments)
+    via preferences; 'false' for ~88% of non-null clients (null in 97.7% of rows sampled
+    2026-05-29).
 - fields:
   - mode: NULLABLE
     name: key
@@ -2230,9 +2255,15 @@ fields:
 - mode: NULLABLE
   name: user_pref_browser_urlbar_suggest_quicksuggest_nonsponsored
   type: STRING
+  description: Whether non-sponsored Firefox Suggest results are shown in the urlbar;
+    'false' for ~90.3% of clients where the preference is set (null in 82.4% of rows
+    sampled 2026-05-29).
 - mode: NULLABLE
   name: user_pref_browser_urlbar_quicksuggest_data_collection_enabled
   type: STRING
+  description: Whether the user has opted into data collection for Firefox Suggest;
+    'false' for nearly all clients where the preference is recorded (null in 82.4%
+    of rows sampled 2026-05-29).
 - mode: NULLABLE
   name: scalar_a11y_hcm_foreground
   type: INTEGER
@@ -2358,6 +2389,8 @@ fields:
 - mode: NULLABLE
   name: user_pref_browser_urlbar_suggest_bestmatch
   type: STRING
+  description: Whether the Firefox urlbar best-match feature (showing a prominent
+    single best result) is enabled; null in 92.1% of rows (sampled 2026-05-29).
 - mode: NULLABLE
   name: scalar_parent_browser_ui_interaction_textrecognition_error_sum
   type: INTEGER
@@ -2366,9 +2399,13 @@ fields:
 - mode: NULLABLE
   name: text_recognition_interaction_timing_sum
   type: INTEGER
+  description: Total user interaction time in milliseconds from invoking text recognition
+    to completing selection; null for nearly all clients (100% null rate sampled 2026-05-29).
 - mode: NULLABLE
   name: text_recognition_interaction_timing_count_sum
   type: INTEGER
+  description: Total number of text recognition interaction timing measurements recorded;
+    null for nearly all clients (100% null rate sampled 2026-05-29).
 - fields:
   - mode: NULLABLE
     name: key
@@ -2382,21 +2419,33 @@ fields:
 - mode: NULLABLE
   name: text_recognition_api_performance_sum
   type: INTEGER
+  description: Total elapsed time in milliseconds for all text recognition API calls
+    made by the client; null for nearly all clients (100% null rate sampled 2026-05-29).
 - mode: NULLABLE
   name: text_recognition_api_performance_count_sum
   type: INTEGER
+  description: Total number of text recognition API performance measurements recorded;
+    null for nearly all clients (100% null rate sampled 2026-05-29).
 - mode: NULLABLE
   name: text_recognition_text_length_sum
   type: INTEGER
+  description: Total number of characters recognised across all text recognition events;
+    null for nearly all clients (100% null rate sampled 2026-05-29).
 - mode: NULLABLE
   name: text_recognition_text_length_count_sum
   type: INTEGER
+  description: Total number of text recognition length measurements recorded; null
+    for nearly all clients (100% null rate sampled 2026-05-29).
 - mode: NULLABLE
   name: places_searchbar_cumulative_searches_sum
   type: INTEGER
+  description: Cumulative number of searches performed via the Places database search
+    bar (history/bookmark search panel); null in 99.9% of rows (sampled 2026-05-29).
 - mode: NULLABLE
   name: places_searchbar_cumulative_filter_count_sum
   type: INTEGER
+  description: Cumulative number of filter operations applied in the Places search
+    bar; null in 99.9% of rows (sampled 2026-05-29).
 - mode: NULLABLE
   name: scalar_parent_os_environment_launched_via_taskbar_private
   type: BOOLEAN
@@ -2405,57 +2454,95 @@ fields:
 - mode: NULLABLE
   name: dom_parentprocess_private_window_used
   type: BOOLEAN
+  description: Whether the client opened or used a private browsing window during
+    the aggregation period; true for ~4.9% of clients (sampled 2026-05-29).
 - mode: NULLABLE
   name: os_environment_is_taskbar_pinned_any
   type: BOOLEAN
+  description: Whether Firefox is pinned to the Windows taskbar in any profile (normal
+    or private); true for ~51.5% of clients (sampled 2026-05-29).
 - mode: NULLABLE
   name: os_environment_is_taskbar_pinned_private_any
   type: BOOLEAN
+  description: Whether Firefox is pinned to the Windows taskbar in a private browsing
+    mode shortcut in any profile; true for ~1.1% of clients (sampled 2026-05-29).
 - mode: NULLABLE
   name: os_environment_is_taskbar_pinned_private
   type: BOOLEAN
+  description: Whether Firefox is pinned to the Windows taskbar specifically as a
+    private browsing shortcut for the current profile; true for ~1.0% of clients (sampled
+    2026-05-29).
 - mode: NULLABLE
   name: bookmark_migrations_quantity_chrome
   type: INTEGER
+  description: Number of bookmarks migrated from Chrome into Firefox; null in 99.9%
+    of rows where no migration occurred (sampled 2026-05-29).
 - mode: NULLABLE
   name: bookmark_migrations_quantity_edge
   type: INTEGER
+  description: Number of bookmarks migrated from Microsoft Edge into Firefox; null
+    in 99.9% of rows where no migration occurred (sampled 2026-05-29).
 - mode: NULLABLE
   name: bookmark_migrations_quantity_safari
   type: INTEGER
+  description: Number of bookmarks migrated from Safari into Firefox; null in 100%
+    of rows for non-macOS clients or where no migration occurred (sampled 2026-05-29).
 - mode: NULLABLE
   name: bookmark_migrations_quantity_all
   type: INTEGER
+  description: Total number of bookmarks migrated into Firefox from all browsers combined;
+    null in 99.4% of rows where no migration occurred (sampled 2026-05-29).
 - mode: NULLABLE
   name: history_migrations_quantity_chrome
   type: INTEGER
+  description: Number of browsing history entries migrated from Chrome into Firefox;
+    null in 99.9% of rows (sampled 2026-05-29).
 - mode: NULLABLE
   name: history_migrations_quantity_edge
   type: INTEGER
+  description: Number of browsing history entries migrated from Microsoft Edge into
+    Firefox; null in 99.9% of rows (sampled 2026-05-29).
 - mode: NULLABLE
   name: history_migrations_quantity_safari
   type: INTEGER
+  description: Number of browsing history entries migrated from Safari into Firefox;
+    null in 100% of rows for non-macOS clients or where no migration occurred (sampled
+    2026-05-29).
 - mode: NULLABLE
   name: history_migrations_quantity_all
   type: INTEGER
+  description: Total number of browsing history entries migrated into Firefox from
+    all browsers combined; null in 99.4% of rows (sampled 2026-05-29).
 - mode: NULLABLE
   name: logins_migrations_quantity_chrome
   type: INTEGER
+  description: Number of saved passwords (logins) migrated from Chrome into Firefox;
+    null in 99.9% of rows (sampled 2026-05-29).
 - mode: NULLABLE
   name: logins_migrations_quantity_edge
   type: INTEGER
+  description: Number of saved passwords migrated from Microsoft Edge into Firefox;
+    null in 99.9% of rows (sampled 2026-05-29).
 - mode: NULLABLE
   name: logins_migrations_quantity_safari
   type: INTEGER
+  description: Number of saved passwords migrated from Safari into Firefox; null in
+    100% of rows for non-macOS clients or where no migration occurred (sampled 2026-05-29).
 - mode: NULLABLE
   name: logins_migrations_quantity_all
   type: INTEGER
+  description: Total number of saved passwords migrated into Firefox from all browsers
+    combined; null in 99.4% of rows (sampled 2026-05-29).
 - mode: NULLABLE
   name: media_play_time_ms_audio_sum
   type: INTEGER
+  description: Total milliseconds of audio media playback across the aggregation period;
+    null for nearly all clients (100% null rate sampled 2026-05-29).
 - mode: NULLABLE
   name: media_play_time_ms_video_sum
   type: INTEGER
+  description: Total milliseconds of video media playback across the aggregation period;
+    null for all sampled clients (100% null rate sampled 2026-05-29).
 - fields:
   - mode: NULLABLE
     name: key
@@ -2629,15 +2716,23 @@ fields:
 - name: places_previousday_visits_mean
   type: FLOAT
   mode: NULLABLE
+  description: Mean number of Places history visits from the previous day, averaged
+    across pings; null in 27.3% of rows (sampled 2026-05-29).
 - name: places_library_cumulative_bookmark_searches_sum
   type: INTEGER
   mode: NULLABLE
+  description: Cumulative number of bookmark searches performed in the Firefox Library
+    panel; null in 99.9% of rows (sampled 2026-05-29).
 - name: places_library_cumulative_history_searches_sum
   type: INTEGER
   mode: NULLABLE
+  description: Cumulative number of history searches performed in the Firefox Library
+    panel; null in 99.7% of rows (sampled 2026-05-29).
 - name: places_bookmarks_searchbar_cumulative_searches_sum
   type: INTEGER
   mode: NULLABLE
+  description: Cumulative number of bookmark searches made via the bookmark search
+    bar in the Firefox Library; null in 99.4% of rows (sampled 2026-05-29).
 - name: scalar_parent_library_link_sum
   type: RECORD
   mode: REPEATED
@@ -2671,9 +2766,14 @@ fields:
 - name: startup_profile_selection_reason_first
   type: STRING
   mode: NULLABLE
+  description: The reason the Firefox profile was selected when the browser first
+    launched (e.g. 'default', 'firstrun-created-default', 'argument-profile'); null
+    in 21.8% of rows (sampled 2026-05-29).
 - name: first_document_id
   type: STRING
   mode: NULLABLE
+  description: The document ID (UUID) from the very first telemetry ping submitted
+    by this client, used to trace back the originating ping.
 - name: partner_id
   type: STRING
   mode: NULLABLE
@@ -2710,18 +2810,29 @@ fields:
 - name: geo_db_version
   type: STRING
   mode: NULLABLE
+  description: The version timestamp of the MaxMind GeoIP database used to resolve
+    the client's IP address to geographic data (sampled 2026-05-29).
 - name: apple_model_id
   type: STRING
   mode: NULLABLE
+  description: Apple hardware model identifier string (e.g. 'MacBookAir10,1', 'Mac14,2');
+    null in 92.6% of rows for non-Apple hardware (sampled 2026-05-29).
 - name: max_subsession_counter
   type: INTEGER
   mode: NULLABLE
+  description: The maximum subsession counter value seen across pings aggregated into
+    this row, indicating how many subsessions the client has accumulated over its
+    lifetime.
 - name: min_subsession_counter
   type: INTEGER
   mode: NULLABLE
+  description: The minimum subsession counter value seen across pings aggregated into
+    this row, typically 1 for new clients in their first session.
 - name: startup_profile_selection_first_ping_only
   type: STRING
   mode: NULLABLE
+  description: The profile selection reason from the very first ping submitted by
+    this client on this day; null in 15.9% of rows (sampled 2026-05-29).
 - name: profile_group_id
   type: STRING
   mode: NULLABLE
@@ -2730,6 +2841,12 @@ fields:
 - name: browser_backup_scheduler_enabled
   type: BOOLEAN
   mode: NULLABLE
+  description: Whether the Firefox profile backup scheduler is enabled; false for
+    the majority of clients where it is present, and null in 42.4% of rows where the
+    feature is unavailable (sampled 2026-05-29).
 - name: browser_backup_archive_enabled
   type: BOOLEAN
   mode: NULLABLE
+  description: Whether the Firefox profile backup archive feature is enabled; true
+    for ~54.6% of clients where the setting is present, null in 33.3% of rows (sampled
+    2026-05-29).
