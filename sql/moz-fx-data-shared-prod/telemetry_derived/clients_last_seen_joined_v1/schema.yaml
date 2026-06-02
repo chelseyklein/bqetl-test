@@ -705,6 +705,9 @@ fields:
 - mode: NULLABLE
   name: normalized_os_version
   type: STRING
+  description: Normalized version string of the operating system (e.g. '10.0' for
+    Windows 10, '24.6.0' for a Linux kernel); matches the global os_version alias
+    (sampled 2026-05-29).
 - mode: NULLABLE
   name: os
   type: STRING
@@ -712,63 +715,106 @@ fields:
 - mode: NULLABLE
   name: os_service_pack_major
   type: INTEGER
+  description: Major Windows service pack version (0 for Windows 10+ which uses cumulative
+    updates); null for ~15% of non-Windows clients (sampled 2026-05-29).
 - mode: NULLABLE
   name: os_service_pack_minor
   type: INTEGER
+  description: Minor Windows service pack version; almost always 0; null for ~15%
+    of non-Windows clients (sampled 2026-05-29).
 - mode: NULLABLE
   name: os_version
   type: STRING
+  description: Raw version string of the operating system as reported by the client
+    (e.g. '10.0' for Windows, '24.6.0' for Linux); high cardinality on Linux (sampled
+    2026-05-29).
 - mode: NULLABLE
   name: pings_aggregated_by_this_row
   type: INTEGER
+  description: Number of telemetry pings that were aggregated to produce this row;
+    most commonly 1 or 2 per day (sampled 2026-05-29).
 - mode: NULLABLE
   name: places_bookmarks_count_mean
   type: FLOAT
+  description: Mean number of bookmarks stored in the client's Firefox Places database,
+    averaged across subsessions; null for ~26% of clients (sampled 2026-05-29).
 - mode: NULLABLE
   name: places_pages_count_mean
   type: FLOAT
+  description: Mean number of history entries stored in the client's Firefox Places
+    database, averaged across subsessions; null for ~26% of clients (sampled 2026-05-29).
 - mode: NULLABLE
   name: plugin_hangs_sum
   type: INTEGER
+  description: Total number of NPAPI plugin hang events observed by the client; null
+    for ~100% of clients (sampled 2026-05-29).
 - mode: NULLABLE
   name: plugins_infobar_allow_sum
   type: INTEGER
+  description: Total number of times the user clicked Allow in a plugin activation
+    infobar; null for ~100% of clients (sampled 2026-05-29).
 - mode: NULLABLE
   name: plugins_infobar_block_sum
   type: INTEGER
+  description: Total number of times the user clicked Block in a plugin activation
+    infobar; always null in sampled data (sampled 2026-05-29).
 - mode: NULLABLE
   name: plugins_infobar_shown_sum
   type: INTEGER
+  description: Total number of times a plugin activation infobar was shown to the
+    user; null for ~100% of clients (sampled 2026-05-29).
 - mode: NULLABLE
   name: plugins_notification_shown_sum
   type: INTEGER
+  description: Total number of plugin activation notification prompts shown to the
+    user; null for ~100% of clients (sampled 2026-05-29).
 - mode: NULLABLE
   name: previous_build_id
   type: STRING
+  description: Build ID of the Firefox version that was running before the most recent
+    update, used to detect build transitions; null for ~52% of clients who have not
+    updated recently (sampled 2026-05-29).
 - mode: NULLABLE
   name: profile_age_in_days
   type: INTEGER
+  description: Age of the Firefox profile in days, measured from profile creation
+    date to the submission date; 0 indicates a newly created profile (sampled 2026-05-29).
 - mode: NULLABLE
   name: profile_creation_date
   type: STRING
+  description: Date on which the Firefox profile was created, stored as a timestamp
+    string (e.g. '2026-05-12 00:00:00') (sampled 2026-05-29).
 - mode: NULLABLE
   name: push_api_notify_sum
   type: INTEGER
+  description: Total number of Push API notification events received by the client;
+    null for ~97% of clients who received no push notifications (sampled 2026-05-29).
 - mode: NULLABLE
   name: sandbox_effective_content_process_level
   type: INTEGER
+  description: Effective sandbox security level applied to Firefox content processes;
+    higher values indicate stronger isolation (e.g. 9 is the most common on modern
+    systems) (sampled 2026-05-29).
 - mode: NULLABLE
   name: scalar_combined_webrtc_nicer_stun_retransmits_sum
   type: INTEGER
+  description: Total number of WebRTC STUN packet retransmissions via the nICEr library;
+    always null in sampled data (sampled 2026-05-29).
 - mode: NULLABLE
   name: scalar_combined_webrtc_nicer_turn_401s_sum
   type: INTEGER
+  description: Total number of HTTP 401 (Unauthorized) errors received from TURN servers
+    during WebRTC sessions; always null in sampled data (sampled 2026-05-29).
 - mode: NULLABLE
   name: scalar_combined_webrtc_nicer_turn_403s_sum
   type: INTEGER
+  description: Total number of HTTP 403 (Forbidden) errors received from TURN servers
+    during WebRTC sessions; always null in sampled data (sampled 2026-05-29).
 - mode: NULLABLE
   name: scalar_combined_webrtc_nicer_turn_438s_sum
   type: INTEGER
+  description: Total number of HTTP 438 (Stale Nonce) errors from TURN servers during
+    WebRTC sessions; always null in sampled data (sampled 2026-05-29).
 - mode: NULLABLE
   name: scalar_content_navigator_storage_estimate_count_sum
   type: INTEGER
