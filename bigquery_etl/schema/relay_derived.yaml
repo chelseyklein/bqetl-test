@@ -1,0 +1,63 @@
+fields:
+- name: country
+  description: ISO 3166-1 alpha-2 country code (e.g. 'us', 'de') indicating the subscriber's
+    billing country. Null for ~4% of subscriptions where country could not be determined
+    (sampled 2026-06-02).
+- name: country_name
+  description: Full standardized country name (e.g. 'USA', 'Germany') corresponding
+    to the country code, sourced from the static standardized country names reference
+    table. Null for ~4% of subscriptions (sampled 2026-06-02).
+- name: plan_amount
+  description: The price of the billing plan in the smallest currency unit (e.g. cents
+    for USD), as set in Stripe. For example, 1188 represents $11.88.
+- name: plan_currency
+  description: The ISO 4217 lowercase currency code for the plan (e.g. 'usd', 'eur',
+    'chf').
+- name: plan_id
+  description: The Stripe price/plan identifier (e.g. 'price_1JmRSRJNcmPzuWtRN9MG5cBy')
+    for the billing plan the subscriber is currently enrolled in.
+- name: plan_interval
+  description: The billing interval for the plan, either 'month' or 'year'.
+- name: plan_interval_count
+  description: The number of billing intervals between charges; all sampled subscriptions
+    had a value of 1 (sampled 2026-06-02), meaning billing occurs every single interval.
+- name: pricing_plan
+  description: A human-readable composite key representing the full plan configuration,
+    formatted as '{interval_count}-{interval}-{currency}-{amount_in_major_units}'
+    (e.g. '1-year-usd-11.88').
+- name: product_id
+  description: The Stripe product identifier (e.g. 'prod_KGizMiBqUJdYoY') for the
+    Relay or bundled product the subscriber has purchased.
+- name: product_name
+  description: Human-readable name of the subscribed product (e.g. 'Relay Premium',
+    'Mozilla VPN & Firefox Relay', 'Relay - Phones').
+- name: promotion_codes
+  description: Array of promotional or discount codes applied to this subscription.
+    An empty array indicates no promotions were applied.
+- name: provider
+  description: Payment provider used for the subscription ('Stripe' or 'Paypal').
+    Null for ~4% of subscriptions where the provider could not be determined (sampled
+    2026-06-02).
+- name: active_date
+  description: The calendar date on which each subscription was active. Used to filter
+    or join subscription activity by day.
+- name: count
+  description: The number of Relay subscription events matching this row's dimension
+    combination (event type, plan, country, provider, etc.) on the event_date.
+- name: promotion_discounts_amount
+  description: Total discount amount applied through promotions in the smallest currency
+    unit (e.g. cents). Null for ~98% of subscriptions with no promotional discount
+    (sampled 2026-06-02).
+- name: subscription_id
+  description: The Stripe subscription identifier (e.g. 'sub_1LZXOfJNcmPzuWtRX6qIHqHA')
+    uniquely identifying this subscription record. For plan changes, a sequence suffix
+    (e.g. '-2') is appended to distinguish successive plan segments.
+- name: event_date
+  description: The calendar date on which the subscription lifecycle event occurred.
+- name: event_type
+  description: High-level category of the subscription lifecycle event (e.g. 'New',
+    'Cancelled', 'Upgraded', 'Renewed').
+- name: granular_event_type
+  description: More detailed classification of the subscription event, providing finer
+    granularity than event_type (e.g. distinguishing cancellation reasons or plan-change
+    direction).
