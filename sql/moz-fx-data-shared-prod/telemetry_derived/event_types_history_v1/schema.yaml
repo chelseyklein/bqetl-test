@@ -2,25 +2,42 @@ fields:
 - mode: NULLABLE
   name: submission_date
   type: DATE
+  description: The date for which this event type snapshot was generated; represents
+    the latest date processed in the incremental update.
 - mode: NULLABLE
   name: category
   type: STRING
+  description: The telemetry event category grouping related events by functional
+    area (e.g., 'devtools.main', 'doh', 'addonsManager'). Null for rows representing
+    only property-level indices.
 - mode: NULLABLE
   name: event
   type: STRING
+  description: The telemetry event name within its category, identifying the specific
+    action recorded (e.g., 'trigger.reason', 'uptake.normandy'). Null for rows representing
+    only property-level indices.
 - mode: NULLABLE
   name: first_timestamp
   type: TIMESTAMP
+  description: The earliest timestamp at which this event type (category + event combination)
+    was first observed in the telemetry pipeline.
 - mode: NULLABLE
   name: numeric_index
   type: INTEGER
+  description: A stable integer index assigned to each unique event type (category
+    + event pair) in ascending order of first occurrence, used for compact encoding
+    in events_daily.
 - mode: NULLABLE
   name: index
   type: STRING
+  description: A compact string encoding of numeric_index using Unicode code points,
+    used to represent the event type in compressed event strings stored in events_daily.
 - fields:
   - mode: NULLABLE
     name: key
     type: STRING
+    description: The name of the event property key for each entry in the event_properties
+      array (e.g., 'event_value', 'session_id', 'source').
   - fields:
     - mode: NULLABLE
       name: key
@@ -37,6 +54,11 @@ fields:
   - mode: NULLABLE
     name: index
     type: INTEGER
+    description: The compact integer index assigned to this event property key within
+      its parent event type, used for encoding in events_daily strings.
   mode: REPEATED
   name: event_properties
   type: RECORD
+  description: Array of event property definitions for this event type, where each
+    entry describes one known property key, its own compact index, and an array of
+    observed values with their own sub-indices.
