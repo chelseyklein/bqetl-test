@@ -2,45 +2,74 @@ fields:
 - name: active_date
   type: DATE
   mode: NULLABLE
+  description: The calendar date for which active subscriptions are counted. Each
+    row represents subscription counts aggregated for this date.
 - name: plan_id
   type: STRING
   mode: NULLABLE
+  description: The Stripe price/plan identifier (e.g. 'price_1JmRSRJNcmPzuWtRN9MG5cBy')
+    that uniquely identifies the billing plan subscribers are enrolled in.
 - name: country
   type: STRING
   mode: NULLABLE
+  description: ISO 3166-1 alpha-2 country code (e.g. 'us', 'de') indicating the subscriber's
+    billing country.
 - name: country_name
   type: STRING
   mode: NULLABLE
+  description: Full standardized country name (e.g. 'Germany') corresponding to the
+    country code, sourced from the static standardized country names reference table.
 - name: provider
   type: STRING
   mode: NULLABLE
+  description: Payment provider used for the subscription, either 'Stripe' or 'Paypal'.
 - name: plan_amount
   type: INTEGER
   mode: NULLABLE
+  description: The price of the billing plan in the smallest currency unit (e.g. cents
+    for USD), as set in Stripe. For example, 1188 represents $11.88.
 - name: plan_currency
   type: STRING
   mode: NULLABLE
+  description: The ISO 4217 lowercase currency code for the plan (e.g. 'usd', 'eur',
+    'chf').
 - name: plan_interval
   type: STRING
   mode: NULLABLE
+  description: The billing interval for the plan, either 'month' or 'year'.
 - name: plan_interval_count
   type: INTEGER
   mode: NULLABLE
+  description: The number of billing intervals between charges; for example, a value
+    of 1 with plan_interval 'month' means monthly billing.
 - name: product_id
   type: STRING
   mode: NULLABLE
+  description: The Stripe product identifier (e.g. 'prod_KGizMiBqUJdYoY') for the
+    Relay or bundled product the subscriber has purchased.
 - name: product_name
   type: STRING
   mode: NULLABLE
+  description: Human-readable name of the subscribed product (e.g. 'Relay Premium',
+    'Mozilla VPN & Firefox Relay', 'Relay - Phones').
 - name: pricing_plan
   type: STRING
   mode: NULLABLE
+  description: A human-readable composite key representing the full plan configuration,
+    formatted as '{interval_count}-{interval}-{currency}-{amount_in_major_units}'
+    (e.g. '1-year-usd-11.88').
 - name: promotion_codes
   type: STRING
   mode: REPEATED
+  description: Array of promotional or discount codes applied to subscriptions in
+    this group. An empty array indicates no promotions were applied.
 - name: promotion_discounts_amount
   type: INTEGER
   mode: NULLABLE
+  description: Total discount amount applied through promotions, in the smallest currency
+    unit (e.g. cents). Zero indicates no promotional discount was applied.
 - name: count
   type: INTEGER
   mode: NULLABLE
+  description: The number of active Relay subscriptions matching this row's dimension
+    combination (plan, country, provider, etc.) on the active_date.
