@@ -2,15 +2,26 @@ fields:
 - name: time
   type: TIMESTAMP
   mode: NULLABLE
+  description: The date (truncated to midnight UTC) for which the daily active population
+    count is reported.
 - name: experiment
   type: STRING
   mode: NULLABLE
+  description: Unique slug identifier of the experiment, spanning both legacy and
+    Nimbus experiment types (sampled 2026-06-02).
 - name: branch
   type: STRING
   mode: NULLABLE
+  description: Experiment branch assigned to the client (e.g. 'control', 'treatment-a',
+    'active'). All rows have a branch value in v1 (sampled 2026-06-02).
 - name: normalized_channel
   type: STRING
   mode: NULLABLE
+  description: The normalized release channel of the Firefox client (e.g. 'release',
+    'beta', 'nightly', 'esr'). Null for ~73% of rows, covering older experiments that
+    lacked channel data (sampled 2026-06-02).
 - name: value
   type: INTEGER
   mode: NULLABLE
+  description: Count of daily active clients enrolled in the given experiment branch
+    on the given day.
