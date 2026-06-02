@@ -2,15 +2,26 @@ fields:
 - mode: NULLABLE
   name: corpus_item_id
   type: STRING
+  description: UUID identifying a content item in the Pocket/Merino corpus (e.g. an
+    article recommended on the newtab). Used to match this row back to Merino ranking
+    data.
 - mode: NULLABLE
   name: impression_count
   type: INTEGER
+  description: Total number of newtab impressions for this corpus item (optionally
+    propensity-adjusted for section events) over the trailing ~24 hours.
 - mode: NULLABLE
   name: click_count
   type: INTEGER
+  description: Total number of clicks on this corpus item across all newtab impressions
+    over the trailing ~24 hours.
 - mode: NULLABLE
   name: report_count
   type: INTEGER
+  description: Total number of content-reporting submissions (via the context menu)
+    for this corpus item over the trailing ~24 hours.
 - mode: NULLABLE
   name: region
   type: STRING
+  description: ISO 3166-1 alpha-2 country code of the Merino feed region (e.g. 'US',
+    'DE', 'GB'). Null for the global (all-country) aggregate row.
