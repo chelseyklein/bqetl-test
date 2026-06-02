@@ -6,48 +6,86 @@ fields:
 - mode: NULLABLE
   name: client_id
   type: STRING
+  description: A unique identifier (UUID) for the client.
 - mode: NULLABLE
   name: default_search_engine
   type: STRING
+  description: The identifier or name of the default search engine configured in the
+    browser, e.g. 'google-b-d', 'baidu'. Null for approximately 0.9% of records (sampled
+    2026-06-02).
 - mode: NULLABLE
   name: app_version
   type: STRING
+  description: User visible version string (e.g. '151.0.1') for the Firefox Desktop
+    browser on the submission date.
 - mode: NULLABLE
   name: normalized_channel
   type: STRING
+  description: The normalized channel the application is being distributed on, e.g.
+    'release', 'esr', 'beta', 'nightly'.
 - mode: NULLABLE
   name: country
   type: STRING
+  description: An ISO 3166-1 alpha-2 country code identifying the country of the client
+    based on IP geolocation. Defaults to '??' when unknown.
 - mode: NULLABLE
   name: locale
   type: STRING
+  description: Set of language- and/or country-based preferences for the browser user
+    interface, e.g. 'en-US', 'de', 'fr'.
 - mode: NULLABLE
   name: search_region
   type: STRING
+  description: The browser search region pref (browser.search.region) representing
+    the region configured for search. Null when not set by the client (sampled 2026-06-02).
 - mode: NULLABLE
   name: suggest_enabled
   type: BOOLEAN
+  description: Whether the browser urlbar suggest feature is enabled (browser.search.suggest.enabled
+    pref). True means suggestions are shown in the urlbar. Null for most clients where
+    the pref was not sampled (sampled 2026-06-02).
 - mode: NULLABLE
   name: in_navbar
   type: BOOLEAN
+  description: Whether the search bar is integrated in the navigation bar (browser.widget.in-navbar
+    pref). True means no separate search box is shown; false means the dedicated search
+    bar is visible (sampled 2026-06-02).
 - mode: NULLABLE
   name: suggest_searches
   type: BOOLEAN
+  description: Whether the urlbar is configured to suggest search terms (browser.urlbar.suggest.searches
+    pref). Null for the majority of clients where the pref was not sampled (sampled
+    2026-06-02).
 - mode: NULLABLE
   name: show_search_suggestions_first
   type: BOOLEAN
+  description: Whether search suggestions are shown before browsing history in the
+    urlbar dropdown (browser.urlbar.showSearchSuggestionsFirst pref). Null for most
+    clients where the pref was not sampled (sampled 2026-06-02).
 - mode: NULLABLE
   name: suggest_quicksuggest
   type: BOOLEAN
+  description: Whether the deprecated browser.urlbar.suggest.quicksuggest pref is
+    enabled. Null for nearly all clients as this pref was replaced by suggest_quicksuggest_nonsponsored
+    and suggest_quicksuggest_sponsored (sampled 2026-06-02).
 - mode: NULLABLE
   name: suggest_quicksuggest_sponsored
   type: BOOLEAN
+  description: Whether the urlbar is configured to show sponsored Firefox Suggest
+    results (browser.urlbar.suggest.quicksuggest.sponsored pref). True for approximately
+    31% of clients (sampled 2026-06-02).
 - mode: NULLABLE
   name: quicksuggest_onboarding_dialog_choice
   type: STRING
+  description: The user's choice in the Firefox Suggest onboarding dialog, e.g. 'accept_2',
+    'reject_2', 'not_now_2', 'close_1', 'dismiss_1'. Null for nearly all clients who
+    have not seen the dialog (sampled 2026-06-02).
 - mode: NULLABLE
   name: count_picked_total
   type: INTEGER
+  description: Total number of urlbar result items picked (selected) by the client
+    across all result types and positions on the submission date. Null for ~96% of
+    clients who made no picks (sampled 2026-06-02).
 - fields:
   - mode: NULLABLE
     name: key
@@ -58,6 +96,9 @@ fields:
   mode: REPEATED
   name: count_picked_by_type
   type: RECORD
+  description: An array of key-value pairs mapping each urlbar result type (e.g. 'searchengine',
+    'history', 'bookmark', 'topsite', 'searchsuggestion') to the total count of times
+    the client picked a result of that type on the submission date.
 - fields:
   - mode: NULLABLE
     name: key
@@ -68,6 +109,10 @@ fields:
   mode: REPEATED
   name: count_picked_by_position
   type: RECORD
+  description: An array of key-value pairs mapping each 1-indexed position in the
+    urlbar dropdown to the count of times the client picked a result at that position
+    on the submission date. Position -1 (index 0) represents results picked outside
+    the standard dropdown.
 - fields:
   - mode: NULLABLE
     name: type
@@ -85,12 +130,24 @@ fields:
   mode: REPEATED
   name: urlbar_picked_by_type_by_position
   type: RECORD
+  description: An array of structs, one per urlbar result type, each containing the
+    type name and a nested array of key-value pairs mapping 1-indexed dropdown positions
+    to pick counts. Types include 'searchengine', 'history', 'bookmark', 'topsite',
+    'searchsuggestion', 'formhistory', 'autofill', 'tip', 'switchtab', 'tabtosearch',
+    'visiturl', 'keyword', 'remotetab', 'extension', 'dynamic', and 'unknown'.
 - mode: NULLABLE
   name: suggest_quicksuggest_nonsponsored
   type: BOOLEAN
+  description: Whether the urlbar is configured to show non-sponsored Firefox Suggest
+    results (browser.urlbar.suggest.quicksuggest.nonsponsored pref). Null for ~87%
+    of clients where the pref was not sampled (sampled 2026-06-02).
 - mode: NULLABLE
   name: quicksuggest_data_collection_enabled
   type: STRING
+  description: Whether the user has opted into data collection for Firefox Suggest
+    (browser.urlbar.quicksuggest.dataCollection.enabled pref). Values are 'true' or
+    'false' as strings; null for ~87% of clients where the pref was not sampled (sampled
+    2026-06-02).
 - fields:
   - mode: NULLABLE
     name: key
@@ -101,6 +158,9 @@ fields:
   mode: REPEATED
   name: experiments
   type: RECORD
+  description: An array of key-value pairs listing the Nimbus experiments and rollouts
+    the client was enrolled in on the submission date, where key is the experiment
+    slug and value is the branch name (e.g. 'control', 'treatment-a').
 - mode: NULLABLE
   name: profile_group_id
   type: STRING
