@@ -6,39 +6,68 @@ fields:
 - mode: NULLABLE
   name: first_seen_date
   type: DATE
+  description: The date when the server first received a ping from this client.
 - mode: NULLABLE
   name: second_seen_date
   type: DATE
+  description: The date when the server received the second ping from this client,
+    used to distinguish genuine new users from one-time senders.
 - mode: NULLABLE
   name: days_seen_bits
   type: INTEGER
+  description: A 28-bit integer encoding the days within the past 28 days on which
+    this client submitted at least one ping; the rightmost bit represents the most
+    recent day (submission_date).
 - mode: NULLABLE
   name: days_visited_1_uri_bits
   type: INTEGER
+  description: A 28-bit integer encoding the days within the past 28 days on which
+    the client visited at least 1 URI (normal + private mode combined); used for Active
+    DAU calculations.
 - mode: NULLABLE
   name: days_visited_5_uri_bits
   type: INTEGER
+  description: A 28-bit integer encoding the days within the past 28 days on which
+    the client visited at least 5 URIs (normal + private mode combined).
 - mode: NULLABLE
   name: days_visited_10_uri_bits
   type: INTEGER
+  description: A 28-bit integer encoding the days within the past 28 days on which
+    the client visited at least 10 URIs (normal + private mode combined).
 - mode: NULLABLE
   name: days_had_8_active_ticks_bits
   type: INTEGER
+  description: A 28-bit integer encoding the days within the past 28 days on which
+    the client had at least 8 active ticks (active_hours_sum >= 0.011 hours), a measure
+    of engaged usage.
 - mode: NULLABLE
   name: days_opened_dev_tools_bits
   type: INTEGER
+  description: A 28-bit integer encoding the days within the past 28 days on which
+    the client opened the Firefox Developer Tools toolbox at least once.
 - mode: NULLABLE
   name: days_interacted_bits
   type: INTEGER
+  description: A 28-bit integer encoding the days within the past 28 days on which
+    the client had any active hours (active_hours_sum > 0), indicating at least some
+    user interaction.
 - mode: NULLABLE
   name: days_visited_1_uri_normal_mode_bits
   type: INTEGER
+  description: A 28-bit integer encoding the days within the past 28 days on which
+    the client visited at least 1 URI in normal (non-private) browsing mode.
 - mode: NULLABLE
   name: days_visited_1_uri_private_mode_bits
   type: INTEGER
+  description: A 28-bit integer encoding the days within the past 28 days on which
+    the client visited at least 1 URI in private browsing mode; only available for
+    Firefox 84+.
 - mode: NULLABLE
   name: days_created_profile_bits
   type: INTEGER
+  description: A 28-bit integer encoding the days within the past 28 days on which
+    the client's profile was created (at most one bit set per client); derived from
+    profile_creation_date within a 7-day trust window.
 - fields:
   - mode: NULLABLE
     name: experiment
@@ -52,6 +81,9 @@ fields:
   mode: REPEATED
   name: days_seen_in_experiment
   type: RECORD
+  description: Array of per-experiment activity records for the past 28 days. Each
+    entry holds the experiment slug, the assigned branch, and a 28-bit integer (bits)
+    indicating the days the client was seen while enrolled in that experiment.
 - mode: NULLABLE
   name: client_id
   type: STRING
@@ -59,19 +91,25 @@ fields:
 - mode: NULLABLE
   name: aborts_content_sum
   type: INTEGER
-  description: null
+  description: Total number of content-process abort events recorded by this client
+    over the aggregation period; null when no aborts were observed (96.8% null rate
+    sampled 2026-05-29).
 - mode: NULLABLE
   name: aborts_gmplugin_sum
   type: INTEGER
-  description: null
+  description: Total number of GMP (Gecko Media Plugin) process abort events recorded
+    by this client over the aggregation period; null when no aborts were observed
+    (100% null rate sampled 2026-05-29).
 - mode: NULLABLE
   name: aborts_plugin_sum
   type: INTEGER
-  description: null
+  description: Total number of legacy NPAPI plugin process abort events recorded by
+    this client; null when no aborts were observed (100% null rate sampled 2026-05-29).
 - mode: NULLABLE
   name: active_addons_count_mean
   type: FLOAT
-  description: null
+  description: Mean number of active (non-disabled, non-system) add-ons installed
+    across pings aggregated into this row.
 - fields:
   - mode: NULLABLE
     name: addon_id
@@ -140,35 +178,46 @@ fields:
   mode: REPEATED
   name: active_addons
   type: RECORD
-  description: null
+  description: Array of active Firefox add-ons installed by the client, each entry
+    containing add-on metadata such as ID, name, version, type, signing state, and
+    whether it is a system or web extension.
 - mode: NULLABLE
   name: active_experiment_branch
   type: STRING
-  description: null
+  description: The branch of the active legacy Telemetry experiment the client was
+    enrolled in; null for almost all clients as this field predates the Nimbus experiment
+    system (100% null rate sampled 2026-05-29).
 - mode: NULLABLE
   name: active_experiment_id
   type: STRING
-  description: null
+  description: Identifier of the active legacy Telemetry experiment the client was
+    enrolled in; null for almost all clients as this field predates the Nimbus experiment
+    system (100% null rate sampled 2026-05-29).
 - mode: NULLABLE
   name: active_hours_sum
   type: FLOAT
-  description: null
+  description: Total hours of user-active Firefox usage accumulated across all pings
+    aggregated into this row; measured in 5-second active ticks converted to hours.
 - mode: NULLABLE
   name: addon_compatibility_check_enabled
   type: BOOLEAN
-  description: null
+  description: Whether Firefox add-on compatibility checking is enabled; true for
+    virtually all clients (sampled 2026-05-29).
 - mode: NULLABLE
   name: app_build_id
   type: STRING
-  description: null
+  description: The build identifier of the Firefox application, formatted as a timestamp
+    string (e.g. '20260511200624').
 - mode: NULLABLE
   name: app_display_version
   type: STRING
-  description: null
+  description: The user-visible version string for Firefox as displayed in the UI,
+    which may differ from app_version for pre-release builds (e.g. '68.0b13').
 - mode: NULLABLE
   name: app_name
   type: STRING
-  description: null
+  description: The name of the browser application; always 'Firefox' in this table
+    (sampled 2026-05-29).
 - mode: NULLABLE
   name: app_version
   type: STRING
@@ -177,90 +226,131 @@ fields:
   - mode: NULLABLE
     name: source
     type: STRING
-    description: null
+    description: The attribution source (UTM source) recorded at download/install
+      time, typically a referring domain such as 'www.google.com'; null when attribution
+      is unavailable (66% null rate sampled 2026-05-29).
   - mode: NULLABLE
     name: medium
     type: STRING
-    description: null
+    description: The attribution medium (UTM medium) recorded at download/install
+      time, indicating the marketing channel (e.g. 'referral', 'paidsearch'); null
+      when attribution is unavailable (66% null rate sampled 2026-05-29).
   - mode: NULLABLE
     name: campaign
     type: STRING
-    description: null
+    description: The attribution campaign (UTM campaign) recorded at download/install
+      time, identifying the marketing campaign (e.g. 'SET_DEFAULT_BROWSER'); null
+      when attribution is unavailable (66% null rate sampled 2026-05-29).
   - mode: NULLABLE
     name: content
     type: STRING
-    description: null
+    description: The attribution content (UTM content) recorded at download/install
+      time, used to differentiate creatives or link placements; null when attribution
+      is unavailable (66% null rate sampled 2026-05-29).
   - mode: NULLABLE
     name: experiment
     type: STRING
+    description: The attribution experiment identifier recorded at download/install
+      time, linking the install to a specific A/B test on the Mozilla website; null
+      when attribution is unavailable (67.9% null rate sampled 2026-05-29).
   - mode: NULLABLE
     name: variation
     type: STRING
+    description: The attribution variation key recorded at download/install time,
+      identifying the variant within an attribution experiment; null when attribution
+      is unavailable (67.9% null rate sampled 2026-05-29).
   - mode: NULLABLE
     name: dltoken
     type: STRING
+    description: A unique token assigned at download time to track individual Firefox
+      installer downloads; null when attribution is unavailable (69.8% null rate sampled
+      2026-05-29).
   - mode: NULLABLE
     name: dlsource
     type: STRING
+    description: The download source identifier recorded at install time, indicating
+      the distribution pipeline (e.g. 'mozorg', 'mozillaci', 'fxdotcom'); null when
+      attribution is unavailable (52.5% null rate sampled 2026-05-29).
   - name: ua
     type: STRING
     mode: NULLABLE
+    description: The browser user-agent detected at download time, capturing the browser
+      the user was using when they downloaded Firefox (e.g. 'edge', 'chrome', 'firefox');
+      null when attribution is unavailable (68% null rate sampled 2026-05-29).
   mode: NULLABLE
   name: attribution
   type: RECORD
-  description: null
+  description: Struct containing UTM-style attribution parameters recorded at the
+    time Firefox was downloaded or installed, linking the client to a marketing source.
 - mode: NULLABLE
   name: blocklist_enabled
   type: BOOLEAN
-  description: null
+  description: Whether the Firefox blocklist (used to block malicious add-ons and
+    plugins) is enabled; true for nearly all clients (sampled 2026-05-29).
 - mode: NULLABLE
   name: channel
   type: STRING
-  description: null
+  description: The raw update channel string reported by the browser, which may contain
+    user-modified or non-standard values; use normalized_channel for analysis.
 - mode: NULLABLE
   name: client_clock_skew_mean
   type: FLOAT
-  description: null
+  description: Mean difference in hours between the client's local clock and the server
+    clock, derived from submission timestamps; negative values indicate the client
+    clock is ahead.
 - mode: NULLABLE
   name: client_submission_latency_mean
   type: FLOAT
-  description: null
+  description: Mean number of hours between when a ping was created on the client
+    and when it was received by the server; negative values (-1) indicate the client
+    clock is ahead of the server.
 - mode: NULLABLE
   name: cpu_cores
   type: INTEGER
-  description: null
+  description: Number of logical CPU cores available on the client's device (sampled
+    2026-05-29).
 - mode: NULLABLE
   name: cpu_count
   type: INTEGER
-  description: null
+  description: Total number of CPUs (physical packages) present on the client's device;
+    typically equals cpu_cores for single-socket systems (sampled 2026-05-29).
 - mode: NULLABLE
   name: cpu_family
   type: INTEGER
-  description: null
+  description: The CPU family identifier as reported by CPUID; used together with
+    cpu_model and cpu_stepping to identify the specific processor microarchitecture
+    (sampled 2026-05-29).
 - mode: NULLABLE
   name: cpu_l2_cache_kb
   type: INTEGER
-  description: null
+  description: Size of the CPU L2 cache in kilobytes as reported by the operating
+    system; 0 when unknown (sampled 2026-05-29).
 - mode: NULLABLE
   name: cpu_l3_cache_kb
   type: INTEGER
-  description: null
+  description: Size of the CPU L3 cache in kilobytes as reported by the operating
+    system; 0 when unknown (sampled 2026-05-29).
 - mode: NULLABLE
   name: cpu_model
   type: INTEGER
-  description: null
+  description: The CPU model identifier as reported by CPUID; used together with cpu_family
+    and cpu_stepping to identify the processor microarchitecture (sampled 2026-05-29).
 - mode: NULLABLE
   name: cpu_speed_mhz
   type: INTEGER
-  description: null
+  description: The clock speed of the CPU in megahertz as reported by the operating
+    system; 0 when the value could not be determined (sampled 2026-05-29).
 - mode: NULLABLE
   name: cpu_stepping
   type: INTEGER
-  description: null
+  description: The CPU stepping identifier as reported by CPUID; used together with
+    cpu_family and cpu_model to pinpoint the silicon revision of the processor (sampled
+    2026-05-29).
 - mode: NULLABLE
   name: cpu_vendor
   type: STRING
-  description: null
+  description: The CPU vendor string as reported by CPUID (e.g. 'GenuineIntel', 'AuthenticAMD',
+    'ARM'); empty string when not available (sampled 2026-05-29).
 - mode: NULLABLE
   name: crashes_detected_content_sum
   type: INTEGER
@@ -645,8 +735,8 @@ fields:
 - mode: NULLABLE
   name: sample_id
   type: INTEGER
-  description: A number, 0-99, that samples by client_id and allows filtering data for analysis.
-    It is a pipeline-generated artifact that should match between pings.
+  description: A number, 0-99, that samples by client_id and allows filtering data
+    for analysis. It is a pipeline-generated artifact that should match between pings.
 - mode: NULLABLE
   name: sandbox_effective_content_process_level
   type: INTEGER
@@ -2395,7 +2485,8 @@ fields:
 - name: profile_group_id
   type: STRING
   mode: NULLABLE
-  description: A UUID uniquely identifying the profile group, not shared with other telemetry data.
+  description: A UUID uniquely identifying the profile group, not shared with other
+    telemetry data.
 - name: browser_backup_scheduler_enabled
   type: BOOLEAN
   mode: NULLABLE
