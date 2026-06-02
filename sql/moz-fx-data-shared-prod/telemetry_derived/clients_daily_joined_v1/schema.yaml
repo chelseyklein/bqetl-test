@@ -134,37 +134,51 @@ fields:
   type: STRING
 - description: null
   fields:
-  - description: null
+  - description: Referring partner domain or source recorded at install time (similar
+      to UTM source, e.g. 'www.google.com').
     mode: NULLABLE
     name: source
     type: STRING
-  - description: null
+  - description: Attribution medium recorded at install time (similar to UTM medium,
+      e.g. 'referral', 'organic', 'paidsearch').
     mode: NULLABLE
     name: medium
     type: STRING
-  - description: null
+  - description: Attribution campaign identifier recorded at install time (similar
+      to UTM campaign).
     mode: NULLABLE
     name: campaign
     type: STRING
-  - description: null
+  - description: Attribution content identifier recorded at install time (similar
+      to UTM content).
     mode: NULLABLE
     name: content
     type: STRING
   - mode: NULLABLE
     name: experiment
     type: STRING
+    description: Attribution experiment key recorded at install time, used to identify
+      funnel experiments.
   - mode: NULLABLE
     name: variation
     type: STRING
+    description: Attribution variation key recorded at install time, used to distinguish
+      experiment arms.
   - mode: NULLABLE
     name: dltoken
     type: STRING
+    description: Unique download token created at Firefox download time to link an
+      install to its download event.
   - name: dlsource
     type: STRING
     mode: NULLABLE
+    description: Identifier indicating where the Firefox download originated (e.g.
+      'mozillaci', 'mozorg', 'fxdotcom').
   - name: ua
     type: STRING
     mode: NULLABLE
+    description: Derived user agent browser type at install time (e.g. 'chrome', 'edge',
+      'firefox', 'ie').
   mode: NULLABLE
   name: attribution
   type: RECORD
@@ -835,181 +849,226 @@ fields:
   mode: NULLABLE
   name: scalar_parent_storage_sync_api_usage_extensions_using_sum
   type: INTEGER
-- description: null
+- description: Search experiment cohort assignment for this client, used in search
+    partnership experiments (e.g. 'nov17-2'). Null for most clients not enrolled in
+    a search cohort (sampled 2026-05-29).
   mode: NULLABLE
   name: search_cohort
   type: STRING
-- description: null
+- description: Total number of searches initiated from the Firefox about:home page
+    on the submission date.
   mode: NULLABLE
   name: search_count_abouthome
   type: INTEGER
-- description: null
+- description: Total number of searches initiated via the browser context menu (right-click
+    search) on the submission date.
   mode: NULLABLE
   name: search_count_contextmenu
   type: INTEGER
-- description: null
+- description: Total number of searches initiated from the New Tab page on the submission
+    date.
   mode: NULLABLE
   name: search_count_newtab
   type: INTEGER
-- description: null
+- description: Total number of searches initiated from the dedicated search bar on
+    the submission date.
   mode: NULLABLE
   name: search_count_searchbar
   type: INTEGER
-- description: null
+- description: Total number of searches initiated from the system (OS-level search,
+    e.g. Windows Search) on the submission date.
   mode: NULLABLE
   name: search_count_system
   type: INTEGER
-- description: null
+- description: Total number of searches initiated from the URL bar (address bar) on
+    the submission date.
   mode: NULLABLE
   name: search_count_urlbar
   type: INTEGER
-- description: null
+- description: Total number of searches across all access points on the submission
+    date.
   mode: NULLABLE
   name: search_count_all
   type: INTEGER
-- description: null
+- description: Total number of tagged searches originating from a Search Access Point
+    (SAP) on the submission date.
   mode: NULLABLE
   name: search_count_tagged_sap
   type: INTEGER
-- description: null
+- description: Total number of follow-on searches (searches subsequent to a SAP search
+    on the same results page) on the submission date.
   mode: NULLABLE
   name: search_count_tagged_follow_on
   type: INTEGER
-- description: null
+- description: Total number of organic (non-tagged, non-SAP) searches on the submission
+    date.
   mode: NULLABLE
   name: search_count_organic
   type: INTEGER
 - mode: NULLABLE
   name: search_count_urlbar_handoff
   type: INTEGER
+  description: Total number of searches initiated via URL bar handoff (from about:newtab
+    search box handed off to the URL bar) on the submission date.
 - mode: NULLABLE
   name: search_count_urlbar_persisted
   type: INTEGER
-- description: null
+  description: Total number of searches initiated from the URL bar while a search
+    mode is persisted on the submission date.
+- description: Mean session restore time in milliseconds across subsessions on the
+    submission date. Null if session restore did not occur (sampled 2026-05-29).
   mode: NULLABLE
   name: session_restored_mean
   type: FLOAT
-- description: null
+- description: Total number of browser sessions started by the client on the submission
+    date.
   mode: NULLABLE
   name: sessions_started_on_this_day
   type: INTEGER
-- description: null
+- description: Total number of times Firefox's background hang reporter killed the
+    browser due to a hang at shutdown on the submission date.
   mode: NULLABLE
   name: shutdown_kill_sum
   type: INTEGER
-- description: null
+- description: Total number of hours spent in active browser subsessions on the submission
+    date.
   mode: NULLABLE
   name: subsession_hours_sum
   type: NUMERIC
-- description: null
+- description: Total number of failed TLS/SSL handshakes on the submission date.
   mode: NULLABLE
   name: ssl_handshake_result_failure_sum
   type: INTEGER
-- description: null
+- description: Total number of successful TLS/SSL handshakes on the submission date.
   mode: NULLABLE
   name: ssl_handshake_result_success_sum
   type: INTEGER
-- description: null
+- description: True if Firefox Sync is configured and enabled for this client. Null
+    if sync state was not reported (sampled 2026-05-29).
   mode: NULLABLE
   name: sync_configured
   type: BOOLEAN
-- description: null
+- description: Mean number of syncs to/from desktop devices on the submission date.
+    Null if sync is not configured (sampled 2026-05-29).
   mode: NULLABLE
   name: sync_count_desktop_mean
   type: FLOAT
-- description: null
+- description: Mean number of syncs to/from mobile devices on the submission date.
+    Null if sync is not configured (sampled 2026-05-29).
   mode: NULLABLE
   name: sync_count_mobile_mean
   type: FLOAT
-- description: null
+- description: Total number of syncs with desktop devices on the submission date.
   mode: NULLABLE
   name: sync_count_desktop_sum
   type: INTEGER
-- description: null
+- description: Total number of syncs with mobile devices on the submission date.
   mode: NULLABLE
   name: sync_count_mobile_sum
   type: INTEGER
-- description: null
+- description: State of the legacy telemetry opt-out pref. True if the client has
+    explicitly opted in; false if opted out. Null for most clients using the default
+    (sampled 2026-05-29).
   mode: NULLABLE
   name: telemetry_enabled
   type: BOOLEAN
-- description: null
+- description: The client's local timezone offset in minutes from UTC at the time
+    of the ping (e.g. 120 = UTC+2, -300 = UTC-5).
   mode: NULLABLE
   name: timezone_offset
   type: INTEGER
-- description: null
+- description: Total hours (active + idle) spent in browser sessions on the submission
+    date. Currently null for all rows.
   mode: NULLABLE
   name: total_hours_sum
   type: NUMERIC
-- description: null
+- description: True if Firefox is configured to automatically download updates; false
+    if auto-download is disabled.
   mode: NULLABLE
   name: update_auto_download
   type: BOOLEAN
-- description: null
+- description: The Firefox update channel from the build configuration, not normalized
+    (e.g. 'release', 'esr', 'beta', 'nightly', 'default').
   mode: NULLABLE
   name: update_channel
   type: STRING
-- description: null
+- description: True if Firefox automatic updates are enabled; false if updates have
+    been disabled.
   mode: NULLABLE
   name: update_enabled
   type: BOOLEAN
-- description: null
+- description: The application vendor string (always 'Mozilla' for Firefox).
   mode: NULLABLE
   name: vendor
   type: STRING
-- description: null
+- description: Total number of Web Notification permission prompts shown to the user
+    on the submission date.
   mode: NULLABLE
   name: web_notification_shown_sum
   type: INTEGER
-- description: null
+- description: Windows OS build number (e.g. 26200 for Windows 11 24H2). Null for
+    non-Windows clients (sampled 2026-05-29).
   mode: NULLABLE
   name: windows_build_number
   type: INTEGER
-- description: null
+- description: Windows Update Build Revision (UBR) number, a sub-version of the build
+    number representing cumulative update patches. Null for non-Windows clients (sampled
+    2026-05-29).
   mode: NULLABLE
   name: windows_ubr
   type: INTEGER
-- description: null
+- description: True if the client has a Firefox Accounts (FxA) account configured;
+    false if not signed in. Null if state was not reported (sampled 2026-05-29).
   mode: NULLABLE
   name: fxa_configured
   type: BOOLEAN
-- description: null
+- description: Total number of tracking requests blocked by Enhanced Tracking Protection
+    on the submission date. Null if tracking protection was not active (sampled 2026-05-29).
   mode: NULLABLE
   name: trackers_blocked_sum
   type: INTEGER
-- description: null
+- description: Timestamp of the earliest telemetry ping received from this client
+    on the submission date.
   mode: NULLABLE
   name: submission_timestamp_min
   type: TIMESTAMP
-- description: null
+- description: Total number of ad clicks across all search access points on the submission
+    date.
   mode: NULLABLE
   name: ad_clicks_count_all
   type: INTEGER
-- description: null
+- description: Total number of search result pages containing ads viewed across all
+    access points on the submission date.
   mode: NULLABLE
   name: search_with_ads_count_all
   type: INTEGER
-- description: null
+- description: 'Total number of URL bar autocomplete impressions for about: page autofill
+    on the submission date.'
   mode: NULLABLE
   name: scalar_parent_urlbar_impression_autofill_about_sum
   type: INTEGER
-- description: null
+- description: Total number of URL bar autocomplete impressions for adaptive history
+    autofill on the submission date.
   mode: NULLABLE
   name: scalar_parent_urlbar_impression_autofill_adaptive_sum
   type: INTEGER
-- description: null
+- description: Total number of URL bar autocomplete impressions for origin (eTLD+1)
+    autofill on the submission date.
   mode: NULLABLE
   name: scalar_parent_urlbar_impression_autofill_origin_sum
   type: INTEGER
-- description: null
+- description: Total number of URL bar autocomplete impressions for other (uncategorized)
+    autofill types on the submission date.
   mode: NULLABLE
   name: scalar_parent_urlbar_impression_autofill_other_sum
   type: INTEGER
-- description: null
+- description: Total number of URL bar autocomplete impressions for preloaded sites
+    autofill on the submission date.
   mode: NULLABLE
   name: scalar_parent_urlbar_impression_autofill_preloaded_sum
   type: INTEGER
-- description: null
+- description: Total number of URL bar autocomplete impressions for full URL autofill
+    on the submission date.
   mode: NULLABLE
   name: scalar_parent_urlbar_impression_autofill_url_sum
   type: INTEGER
@@ -1211,39 +1270,63 @@ fields:
 - mode: NULLABLE
   name: scalar_parent_os_environment_is_taskbar_pinned
   type: BOOLEAN
+  description: True if Firefox is pinned to the Windows taskbar; false if not pinned.
+    Null if not reported (sampled 2026-05-29).
 - mode: NULLABLE
   name: scalar_parent_os_environment_launched_via_desktop
   type: BOOLEAN
+  description: True if Firefox was launched via a desktop shortcut on the submission
+    date; false otherwise.
 - mode: NULLABLE
   name: scalar_parent_os_environment_launched_via_taskbar
   type: BOOLEAN
+  description: True if Firefox was launched from the Windows taskbar on the submission
+    date; false otherwise.
 - mode: NULLABLE
   name: scalar_parent_os_environment_launched_via_other
   type: BOOLEAN
+  description: True if Firefox was launched via a method other than desktop, taskbar,
+    start menu, or other-shortcut; false otherwise.
 - mode: NULLABLE
   name: scalar_parent_os_environment_launched_via_start_menu
   type: BOOLEAN
+  description: True if Firefox was launched from the Windows Start Menu on the submission
+    date; false otherwise.
 - mode: NULLABLE
   name: scalar_parent_os_environment_launched_via_other_shortcut
   type: BOOLEAN
+  description: True if Firefox was launched via a non-taskbar, non-desktop shortcut
+    (e.g. a file manager or other shortcut) on the submission date.
 - mode: NULLABLE
   name: n_logged_event
   type: INTEGER
+  description: Total number of legacy telemetry events logged by this client on the
+    submission date.
 - mode: NULLABLE
   name: n_created_pictureinpicture
   type: INTEGER
+  description: Number of times the client opened the Picture-in-Picture video player
+    on the submission date.
 - mode: NULLABLE
   name: n_viewed_protection_report
   type: INTEGER
+  description: Number of times the client viewed the Firefox Privacy Protections report
+    on the submission date.
 - mode: NULLABLE
   name: search_count_webextension
   type: INTEGER
+  description: Total number of searches initiated via WebExtension search APIs on
+    the submission date.
 - mode: NULLABLE
   name: search_count_alias
   type: INTEGER
+  description: Total number of searches initiated via search engine keyword alias
+    (e.g. '@google') in the URL bar on the submission date.
 - mode: NULLABLE
   name: search_count_urlbar_searchmode
   type: INTEGER
+  description: Total number of searches initiated while the URL bar is in search mode
+    on the submission date.
 - fields:
   - mode: NULLABLE
     name: key
@@ -1477,18 +1560,28 @@ fields:
 - mode: NULLABLE
   name: default_private_search_engine
   type: STRING
+  description: Identifier for the client's default private browsing search engine.
+    Null if the private search engine is the same as the normal default (sampled 2026-05-29).
 - mode: NULLABLE
   name: default_private_search_engine_data_load_path
   type: STRING
+  description: Anonymized load path for the private browsing default search engine
+    XML. Null if not separately configured (sampled 2026-05-29).
 - mode: NULLABLE
   name: default_private_search_engine_data_name
   type: STRING
+  description: Display name of the private browsing default search engine. Null if
+    not separately configured (sampled 2026-05-29).
 - mode: NULLABLE
   name: default_private_search_engine_data_origin
   type: STRING
+  description: Origin classification of the private browsing default search engine.
+    Null if not separately configured (sampled 2026-05-29).
 - mode: NULLABLE
   name: default_private_search_engine_data_submission_url
   type: STRING
+  description: HTTP search submission URL for the private browsing default search
+    engine. Null if not separately configured (sampled 2026-05-29).
 - fields:
   - mode: NULLABLE
     name: engine
@@ -1505,6 +1598,8 @@ fields:
 - mode: NULLABLE
   name: user_pref_browser_search_region
   type: STRING
+  description: The search region preference configured for the client's browser (ISO
+    3166-1 alpha-2 country code, e.g. 'US', 'DE').
 - fields:
   - mode: NULLABLE
     name: key
@@ -1918,24 +2013,40 @@ fields:
 - mode: NULLABLE
   name: update_background
   type: BOOLEAN
+  description: True if Firefox is configured to install updates in the background
+    while the browser is not running; false otherwise.
 - mode: NULLABLE
   name: user_pref_browser_search_suggest_enabled
   type: STRING
+  description: 'Value of ''browser.search.suggest.enabled'': ''false'' if search suggestions
+    are disabled; ''true'' if enabled. Null if default (sampled 2026-05-29).'
 - mode: NULLABLE
   name: user_pref_browser_widget_in_navbar
   type: STRING
+  description: 'Value of the Firefox widget-in-navbar pref: ''true'' if a specific
+    widget is shown in the navigation bar; ''false'' otherwise. Null if default (sampled
+    2026-05-29).'
 - mode: NULLABLE
   name: user_pref_browser_urlbar_suggest_searches
   type: STRING
+  description: 'Value of ''browser.urlbar.suggest.searches'': ''false'' if URL bar
+    search suggestions are disabled. Null if default (sampled 2026-05-29).'
 - mode: NULLABLE
   name: user_pref_browser_urlbar_show_search_suggestions_first
   type: STRING
+  description: 'Value of ''browser.urlbar.showSearchSuggestionsFirst'': ''false''
+    if history results are shown before search suggestions in the URL bar. Null if
+    default (sampled 2026-05-29).'
 - mode: NULLABLE
   name: user_pref_browser_urlbar_suggest_quicksuggest
   type: STRING
+  description: 'Value of ''browser.urlbar.suggest.quicksuggest'': controls legacy
+    Firefox Suggest UI. Null if default (sampled 2026-05-29).'
 - mode: NULLABLE
   name: user_pref_browser_urlbar_suggest_quicksuggest_sponsored
   type: STRING
+  description: 'Value of ''browser.urlbar.suggest.quicksuggest.sponsored'': ''true''
+    if sponsored Firefox Suggest results are shown; ''false'' if disabled.'
 - mode: NULLABLE
   name: first_seen_date
   type: DATE
@@ -1945,15 +2056,25 @@ fields:
 - mode: NULLABLE
   name: user_pref_browser_urlbar_quicksuggest_onboarding_dialog_choice
   type: STRING
+  description: 'The user''s choice in the Firefox Suggest (Quicksuggest) onboarding
+    dialog: ''close_1'', ''not_now_2'', or ''reject_2''. Null if the dialog was not
+    shown (sampled 2026-05-29).'
 - mode: NULLABLE
   name: scalar_parent_browser_engagement_total_uri_count_normal_and_private_mode_sum
   type: INTEGER
+  description: Total URIs loaded in both normal and private browsing windows on the
+    submission date.
 - mode: NULLABLE
   name: user_pref_browser_newtabpage_enabled
   type: STRING
+  description: 'Value of the ''browser.newtabpage.enabled'' pref: ''false'' if the
+    New Tab page is disabled; ''true'' otherwise. Null if default (sampled 2026-05-29).'
 - mode: NULLABLE
   name: user_pref_app_shield_optoutstudies_enabled
   type: STRING
+  description: 'Value of the ''app.shield.optoutstudies.enabled'' user preference:
+    ''true'' if Shield studies are allowed, ''false'' if opted out. Null if not set
+    (sampled 2026-05-29).'
 - fields:
   - mode: NULLABLE
     name: key
@@ -2007,15 +2128,24 @@ fields:
 - mode: NULLABLE
   name: user_pref_browser_urlbar_suggest_quicksuggest_nonsponsored
   type: STRING
+  description: 'Value of ''browser.urlbar.suggest.quicksuggest.nonsponsored'': ''true''
+    if non-sponsored Firefox Suggest results are enabled; ''false'' if disabled.'
 - mode: NULLABLE
   name: user_pref_browser_urlbar_quicksuggest_data_collection_enabled
   type: STRING
+  description: 'Value of the Firefox Suggest data collection preference: ''false''
+    if the user has opted out of data collection for Firefox Suggest. Null if default
+    (sampled 2026-05-29).'
 - mode: NULLABLE
   name: scalar_a11y_hcm_foreground
   type: INTEGER
+  description: Foreground color value (as an ARGB integer) used by Windows High Contrast
+    Mode on the submission date. Null if HCM is not active (sampled 2026-05-29).
 - mode: NULLABLE
   name: scalar_a11y_hcm_background
   type: INTEGER
+  description: Background color value (as an ARGB integer) used by Windows High Contrast
+    Mode on the submission date. Null if HCM is not active (sampled 2026-05-29).
 - fields:
   - mode: NULLABLE
     name: key
@@ -2129,15 +2259,23 @@ fields:
 - mode: NULLABLE
   name: user_pref_browser_urlbar_suggest_bestmatch
   type: STRING
+  description: 'Value of ''browser.urlbar.bestMatch.enabled'': ''true'' if best match
+    suggestions are shown in the URL bar. Null if default (sampled 2026-05-29).'
 - mode: NULLABLE
   name: scalar_parent_browser_ui_interaction_textrecognition_error_sum
   type: INTEGER
+  description: Total number of errors that occurred during text recognition (OCR)
+    interactions on the submission date.
 - mode: NULLABLE
   name: text_recognition_interaction_timing_sum
   type: INTEGER
+  description: Total time in milliseconds spent on text recognition (OCR) interactions
+    on the submission date.
 - mode: NULLABLE
   name: text_recognition_interaction_timing_count_sum
   type: INTEGER
+  description: Total number of text recognition (OCR) interaction timing samples on
+    the submission date.
 - fields:
   - mode: NULLABLE
     name: key
@@ -2151,99 +2289,152 @@ fields:
 - mode: NULLABLE
   name: text_recognition_api_performance_sum
   type: INTEGER
+  description: Total time in milliseconds spent waiting for the OS text recognition
+    API to respond on the submission date.
 - mode: NULLABLE
   name: text_recognition_api_performance_count_sum
   type: INTEGER
+  description: Total number of OS text recognition API calls made on the submission
+    date.
 - mode: NULLABLE
   name: text_recognition_text_length_sum
   type: INTEGER
+  description: Total character length of text recognized via OCR across all interactions
+    on the submission date.
 - mode: NULLABLE
   name: text_recognition_text_length_count_sum
   type: INTEGER
+  description: Total number of text recognition interactions for which text length
+    was measured on the submission date.
 - mode: NULLABLE
   name: places_searchbar_cumulative_searches_sum
   type: INTEGER
+  description: Cumulative number of Places (history/bookmarks) searches performed
+    via the search bar on the submission date.
 - mode: NULLABLE
   name: places_searchbar_cumulative_filter_count_sum
   type: INTEGER
+  description: Cumulative number of filter operations applied in Places search bar
+    results on the submission date.
 - mode: NULLABLE
   name: scalar_parent_os_environment_launched_via_taskbar_private
   type: BOOLEAN
+  description: True if Firefox was launched from a taskbar pin configured for private
+    browsing on the submission date; false otherwise.
 - mode: NULLABLE
   name: dom_parentprocess_private_window_used
   type: BOOLEAN
+  description: True if the client opened at least one private browsing window on the
+    submission date; false otherwise.
 - mode: NULLABLE
   name: os_environment_is_taskbar_pinned_any
   type: BOOLEAN
+  description: True if Firefox is pinned to the Windows taskbar in any mode (regular
+    or private); false otherwise.
 - mode: NULLABLE
   name: os_environment_is_taskbar_pinned_private_any
   type: BOOLEAN
+  description: True if Firefox is pinned to the Windows taskbar for private browsing
+    in any configuration; false otherwise.
 - mode: NULLABLE
   name: os_environment_is_taskbar_pinned_private
   type: BOOLEAN
+  description: True if Firefox is pinned to the Windows taskbar specifically for private
+    browsing mode; false otherwise.
 - mode: NULLABLE
   name: bookmark_migrations_quantity_chrome
   type: INTEGER
+  description: Number of bookmarks migrated from Google Chrome on the submission date.
 - mode: NULLABLE
   name: bookmark_migrations_quantity_edge
   type: INTEGER
+  description: Number of bookmarks migrated from Microsoft Edge on the submission
+    date.
 - mode: NULLABLE
   name: bookmark_migrations_quantity_safari
   type: INTEGER
+  description: Number of bookmarks migrated from Safari on the submission date.
 - mode: NULLABLE
   name: bookmark_migrations_quantity_all
   type: INTEGER
+  description: Total number of bookmarks migrated from all browsers on the submission
+    date.
 - mode: NULLABLE
   name: history_migrations_quantity_chrome
   type: INTEGER
+  description: Number of history entries migrated from Google Chrome on the submission
+    date.
 - mode: NULLABLE
   name: history_migrations_quantity_edge
   type: INTEGER
+  description: Number of history entries migrated from Microsoft Edge on the submission
+    date.
 - mode: NULLABLE
   name: history_migrations_quantity_safari
   type: INTEGER
+  description: Number of history entries migrated from Safari on the submission date.
 - mode: NULLABLE
   name: history_migrations_quantity_all
   type: INTEGER
+  description: Total number of history entries migrated from all browsers on the submission
+    date.
 - mode: NULLABLE
   name: logins_migrations_quantity_chrome
   type: INTEGER
+  description: Number of saved logins/passwords migrated from Google Chrome on the
+    submission date.
 - mode: NULLABLE
   name: logins_migrations_quantity_edge
   type: INTEGER
+  description: Number of saved logins/passwords migrated from Microsoft Edge on the
+    submission date.
 - mode: NULLABLE
   name: logins_migrations_quantity_safari
   type: INTEGER
+  description: Number of saved logins/passwords migrated from Safari on the submission
+    date.
 - mode: NULLABLE
   name: logins_migrations_quantity_all
   type: INTEGER
+  description: Total number of saved logins/passwords migrated from all browsers on
+    the submission date.
 - mode: NULLABLE
   name: main_crash_count
   type: INTEGER
+  description: Total number of Firefox main process crashes on the submission date.
 - mode: NULLABLE
   name: content_crash_count
   type: INTEGER
+  description: Total number of Firefox content process crashes on the submission date.
 - mode: NULLABLE
   name: gpu_crash_count
   type: INTEGER
+  description: Total number of Firefox GPU process crashes on the submission date.
 - mode: NULLABLE
   name: rdd_crash_count
   type: INTEGER
+  description: Total number of Firefox RDD (Remote Data Decoder) process crashes on
+    the submission date.
 - mode: NULLABLE
   name: socket_crash_count
   type: INTEGER
+  description: Total number of Firefox socket process crashes on the submission date.
 - mode: NULLABLE
   name: utility_crash_count
   type: INTEGER
+  description: Total number of Firefox utility process crashes on the submission date.
 - mode: NULLABLE
   name: vr_crash_count
   type: INTEGER
+  description: Total number of Firefox VR process crashes on the submission date.
 - mode: NULLABLE
   name: media_play_time_ms_audio_sum
   type: INTEGER
+  description: Total milliseconds of audio media playback on the submission date.
 - mode: NULLABLE
   name: media_play_time_ms_video_sum
   type: INTEGER
+  description: Total milliseconds of video media playback on the submission date.
 - fields:
   - mode: NULLABLE
     name: key
@@ -2417,15 +2608,23 @@ fields:
 - name: places_previousday_visits_mean
   type: FLOAT
   mode: NULLABLE
+  description: Mean number of history visits from the previous day across subsessions,
+    reflecting browsing history depth.
 - name: places_library_cumulative_bookmark_searches_sum
   type: INTEGER
   mode: NULLABLE
+  description: Cumulative number of bookmark searches performed in the Library (history/bookmarks
+    manager) on the submission date.
 - name: places_library_cumulative_history_searches_sum
   type: INTEGER
   mode: NULLABLE
+  description: Cumulative number of history searches performed in the Library on the
+    submission date.
 - name: places_bookmarks_searchbar_cumulative_searches_sum
   type: INTEGER
   mode: NULLABLE
+  description: Cumulative number of bookmark searches performed via the bookmarks
+    search bar on the submission date.
 - name: scalar_parent_library_link_sum
   type: RECORD
   mode: REPEATED
@@ -2459,21 +2658,33 @@ fields:
 - name: startup_profile_selection_reason_first
   type: STRING
   mode: NULLABLE
+  description: The profile selection reason from the first ping of the session (e.g.
+    'default', 'firstrun-created-default', 'profile-selector'). Null if not reported.
 - name: first_document_id
   type: STRING
   mode: NULLABLE
+  description: The document ID of the first ping received from this client on the
+    submission date.
 - name: partner_id
   type: STRING
   mode: NULLABLE
+  description: The Firefox distribution partner ID (e.g. 'ubuntu', 'mint', 'mozillaonline').
+    Null for non-distribution installs (sampled 2026-05-29).
 - name: distribution_version
   type: STRING
   mode: NULLABLE
+  description: Version string of the partner distribution package (e.g. '1.0', '2023.6').
+    Null for non-distribution installs (sampled 2026-05-29).
 - name: distributor
   type: STRING
   mode: NULLABLE
+  description: Name of the Firefox distribution partner or channel (e.g. 'canonical',
+    'mozillaonline', 'mint'). Null for direct installs (sampled 2026-05-29).
 - name: distributor_channel
   type: STRING
   mode: NULLABLE
+  description: The specific distribution channel within the distributor's system (e.g.
+    'ubuntu', 'firefox', 'mainWinStub'). Null for direct installs (sampled 2026-05-29).
 - name: env_build_platform_version
   type: STRING
   mode: NULLABLE
@@ -2487,18 +2698,28 @@ fields:
 - name: geo_db_version
   type: STRING
   mode: NULLABLE
+  description: Version timestamp of the GeoIP database used for geolocation lookup
+    (e.g. '2026-05-21T07:51:11Z').
 - name: apple_model_id
   type: STRING
   mode: NULLABLE
+  description: Apple hardware model identifier for macOS clients (e.g. 'MacBookAir10,1',
+    'Mac14,2'). Null for non-Apple devices (sampled 2026-05-29).
 - name: max_subsession_counter
   type: INTEGER
   mode: NULLABLE
+  description: Maximum subsession counter value across all pings aggregated for this
+    client on the submission date.
 - name: min_subsession_counter
   type: INTEGER
   mode: NULLABLE
+  description: Minimum subsession counter value across all pings aggregated for this
+    client on the submission date, typically 1 for the first subsession.
 - name: startup_profile_selection_first_ping_only
   type: STRING
   mode: NULLABLE
+  description: Profile selection reason from the first ping only, similar to startup_profile_selection_reason_first
+    but may differ if multiple pings are aggregated.
 - name: profile_group_id
   type: STRING
   mode: NULLABLE
