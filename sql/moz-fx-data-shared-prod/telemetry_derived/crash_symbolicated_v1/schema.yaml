@@ -14,21 +14,36 @@ fields:
 - name: async_shutdown_timeout
   type: STRING
   mode: NULLABLE
+  description: A JSON string present when a shutdown blocker failed to respond within
+    a reasonable time, describing the blocker that caused the timeout. Null when the
+    crash was not related to an async shutdown hang.
 - name: ipc_channel_error
   type: STRING
   mode: NULLABLE
+  description: The IPC channel error string when the crash occurred in a child process
+    due to an IPC channel failure (e.g., 'ShutDownKill'). Null for non-IPC crashes.
 - name: oom_allocation_size
   type: STRING
   mode: NULLABLE
+  description: The size in bytes of the memory allocation that triggered an out-of-memory
+    crash. Present as a string; null when the crash was not OOM-related.
 - name: moz_crash_reason
   type: STRING
   mode: NULLABLE
+  description: The string passed to MOZ_CRASH() at the crash site, describing the
+    assertion or reason for the intentional crash. Null for crashes not triggered
+    by MOZ_CRASH().
 - name: reason
   type: STRING
   mode: NULLABLE
+  description: The crash type from the crash info struct (e.g., 'EXCEPTION_ACCESS_VIOLATION',
+    'SIGSEGV'). Indicates the low-level reason for the crash.
 - name: crashing_thread
   type: INTEGER
   mode: NULLABLE
+  description: The 0-based index of the crashing thread within the threads array.
+    Points to the last element of the symbolicated threads array (i.e., ARRAY_LENGTH(threads)
+    - 1).
 - name: threads
   type: RECORD
   mode: REPEATED
@@ -40,21 +55,34 @@ fields:
     - name: module_offset
       type: STRING
       mode: NULLABLE
+      description: The hexadecimal byte offset of the instruction pointer within its
+        module for each frame in the threads.frames array. Used to look up the symbol
+        at that address.
     - name: module
       type: STRING
       mode: NULLABLE
+      description: The binary module name (e.g., 'xul.dll') containing the function
+        for each frame in the threads.frames array.
     - name: function
       type: STRING
       mode: NULLABLE
+      description: The resolved function name for each frame in the threads.frames
+        array, obtained from symbol lookup. Null when symbolication was not available.
     - name: function_offset
       type: STRING
       mode: NULLABLE
+      description: The byte offset of the instruction pointer within the resolved
+        function for each frame in the threads.frames array.
     - name: file
       type: STRING
       mode: NULLABLE
+      description: The source file path where the function is defined for each frame
+        in the threads.frames array. Null when source information is unavailable.
     - name: line
       type: INTEGER
       mode: NULLABLE
+      description: The source code line number within the file for each frame in the
+        threads.frames array. Null when source line information is unavailable.
     - name: inlines
       type: RECORD
       mode: REPEATED
@@ -62,9 +90,24 @@ fields:
       - name: function
         type: STRING
         mode: NULLABLE
+        description: The inlined function name for each entry in the threads.frames.inlines
+          array.
       - name: file
         type: STRING
         mode: NULLABLE
+        description: The source file path for each inlined function entry in the threads.frames.inlines
+          array.
       - name: line
         type: INTEGER
         mode: NULLABLE
+        description: The source code line number for each inlined function entry in
+          the threads.frames.inlines array.
+      description: Array of inlined function frames within each frame entry of threads.frames,
+        representing functions inlined by the compiler that do not appear as separate
+        stack frames.
+    description: Array of symbolicated stack frames within each thread entry in the
+      threads array. Each frame includes module, function, file, and line information
+      resolved via crash symbol lookups.
+  description: Repeated array of symbolicated thread stack traces from the crash.
+    Only thread 0 and the crashing thread are retained. Each entry contains a frames
+    array with resolved symbol information.
