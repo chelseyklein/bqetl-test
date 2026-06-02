@@ -574,127 +574,164 @@ fields:
 - mode: NULLABLE
   name: histogram_parent_devtools_aboutdebugging_opened_count_sum
   type: INTEGER
-  description: null
+  description: Total number of times the DevTools 'about:debugging' panel was opened;
+    null for nearly all clients (100% null rate sampled 2026-05-29).
 - mode: NULLABLE
   name: histogram_parent_devtools_animationinspector_opened_count_sum
   type: INTEGER
-  description: null
+  description: Total number of times the DevTools Animation Inspector panel was opened;
+    null for nearly all clients (100% null rate sampled 2026-05-29).
 - mode: NULLABLE
   name: histogram_parent_devtools_browserconsole_opened_count_sum
   type: INTEGER
-  description: null
+  description: Total number of times the DevTools Browser Console was opened; null
+    for nearly all clients (100% null rate sampled 2026-05-29).
 - mode: NULLABLE
   name: histogram_parent_devtools_canvasdebugger_opened_count_sum
   type: INTEGER
-  description: null
+  description: Total number of times the (legacy) DevTools Canvas Debugger was opened;
+    null for all sampled clients (100% null rate sampled 2026-05-29).
 - mode: NULLABLE
   name: histogram_parent_devtools_computedview_opened_count_sum
   type: INTEGER
-  description: null
+  description: Total number of times the DevTools Computed Styles view was opened;
+    null in 99.9% of rows (sampled 2026-05-29).
 - mode: NULLABLE
   name: histogram_parent_devtools_custom_opened_count_sum
   type: INTEGER
-  description: null
+  description: Total number of times a custom DevTools panel (from an extension) was
+    opened; null for nearly all clients (100% null rate sampled 2026-05-29).
 - mode: NULLABLE
   name: histogram_parent_devtools_developertoolbar_opened_count_sum
   type: INTEGER
-  description: null
+  description: Total number of times the legacy DevTools Developer Toolbar (GCLI)
+    was opened; null for all sampled clients as this toolbar was removed in Firefox
+    62 (100% null rate sampled 2026-05-29).
 - mode: NULLABLE
   name: histogram_parent_devtools_dom_opened_count_sum
   type: INTEGER
-  description: null
+  description: Total number of times the DevTools DOM panel was opened; null for nearly
+    all clients (100% null rate sampled 2026-05-29).
 - mode: NULLABLE
   name: histogram_parent_devtools_eyedropper_opened_count_sum
   type: INTEGER
-  description: null
+  description: Total number of times any DevTools eyedropper tool was opened (combining
+    toolbar, menu, and picker variants); null for nearly all clients (100% null rate
+    sampled 2026-05-29).
 - mode: NULLABLE
   name: histogram_parent_devtools_fontinspector_opened_count_sum
   type: INTEGER
-  description: null
+  description: Total number of times the DevTools Font Inspector panel was opened;
+    null for nearly all clients (100% null rate sampled 2026-05-29).
 - mode: NULLABLE
   name: histogram_parent_devtools_inspector_opened_count_sum
   type: INTEGER
-  description: null
+  description: Total number of times the DevTools HTML/CSS Inspector panel was opened;
+    null in 98.9% of rows (sampled 2026-05-29).
 - mode: NULLABLE
   name: histogram_parent_devtools_jsbrowserdebugger_opened_count_sum
   type: INTEGER
-  description: null
+  description: Total number of times the DevTools Browser Toolbox JS Debugger was
+    opened; null for nearly all clients (100% null rate sampled 2026-05-29).
 - mode: NULLABLE
   name: histogram_parent_devtools_jsdebugger_opened_count_sum
   type: INTEGER
-  description: null
+  description: Total number of times the DevTools JavaScript Debugger panel was opened;
+    null in 99.9% of rows (sampled 2026-05-29).
 - mode: NULLABLE
   name: histogram_parent_devtools_jsprofiler_opened_count_sum
   type: INTEGER
-  description: null
+  description: Total number of times the DevTools JavaScript Performance Profiler
+    was opened; null in 99.9% of rows (sampled 2026-05-29).
 - mode: NULLABLE
   name: histogram_parent_devtools_layoutview_opened_count_sum
   type: INTEGER
-  description: null
+  description: Total number of times the DevTools Layout view (box-model/grid/flexbox)
+    was opened; null in 99.1% of rows (sampled 2026-05-29).
 - mode: NULLABLE
   name: histogram_parent_devtools_memory_opened_count_sum
   type: INTEGER
-  description: null
+  description: Total number of times the DevTools Memory panel was opened; null for
+    nearly all clients (100% null rate sampled 2026-05-29).
 - mode: NULLABLE
   name: histogram_parent_devtools_menu_eyedropper_opened_count_sum
   type: INTEGER
-  description: null
+  description: Total number of times the eyedropper tool was opened via the browser
+    menu (as opposed to the DevTools toolbar); null for nearly all clients (100% null
+    rate sampled 2026-05-29).
 - mode: NULLABLE
   name: histogram_parent_devtools_netmonitor_opened_count_sum
   type: INTEGER
-  description: null
+  description: Total number of times the DevTools Network Monitor panel was opened;
+    null in 99.7% of rows (sampled 2026-05-29).
 - mode: NULLABLE
   name: histogram_parent_devtools_options_opened_count_sum
   type: INTEGER
-  description: null
+  description: Total number of times the DevTools Options/Settings panel was opened;
+    null for nearly all clients (100% null rate sampled 2026-05-29).
 - mode: NULLABLE
   name: histogram_parent_devtools_paintflashing_opened_count_sum
   type: INTEGER
-  description: null
+  description: Total number of times the DevTools Paint Flashing overlay was activated;
+    null for all sampled clients (100% null rate sampled 2026-05-29).
 - mode: NULLABLE
   name: histogram_parent_devtools_picker_eyedropper_opened_count_sum
   type: INTEGER
-  description: null
+  description: Total number of times the color-picker eyedropper tool was opened within
+    DevTools; null for nearly all clients (100% null rate sampled 2026-05-29).
 - mode: NULLABLE
   name: histogram_parent_devtools_responsive_opened_count_sum
   type: INTEGER
-  description: null
+  description: Total number of times the DevTools Responsive Design Mode was opened;
+    null in 99.9% of rows (sampled 2026-05-29).
 - mode: NULLABLE
   name: histogram_parent_devtools_ruleview_opened_count_sum
   type: INTEGER
-  description: null
+  description: Total number of times the DevTools CSS Rules view was opened; null
+    in 98.9% of rows (sampled 2026-05-29).
 - mode: NULLABLE
   name: histogram_parent_devtools_scratchpad_opened_count_sum
   type: INTEGER
-  description: null
+  description: Total number of times the legacy DevTools Scratchpad (JS editor) was
+    opened; null for nearly all clients as Scratchpad was removed in Firefox 71 (100%
+    null rate sampled 2026-05-29).
 - mode: NULLABLE
   name: histogram_parent_devtools_scratchpad_window_opened_count_sum
   type: INTEGER
-  description: null
+  description: Total number of times a Scratchpad window was opened; null for nearly
+    all clients as Scratchpad was removed in Firefox 71 (100% null rate sampled 2026-05-29).
 - mode: NULLABLE
   name: histogram_parent_devtools_shadereditor_opened_count_sum
   type: INTEGER
-  description: null
+  description: Total number of times the legacy DevTools Shader Editor was opened;
+    null for all sampled clients as this tool was removed (100% null rate sampled
+    2026-05-29).
 - mode: NULLABLE
   name: histogram_parent_devtools_storage_opened_count_sum
   type: INTEGER
-  description: null
+  description: Total number of times the DevTools Storage Inspector panel was opened;
+    null in 99.9% of rows (sampled 2026-05-29).
 - mode: NULLABLE
   name: histogram_parent_devtools_styleeditor_opened_count_sum
   type: INTEGER
-  description: null
+  description: Total number of times the DevTools Style Editor panel was opened; null
+    in 99.9% of rows (sampled 2026-05-29).
 - mode: NULLABLE
   name: histogram_parent_devtools_webaudioeditor_opened_count_sum
   type: INTEGER
-  description: null
+  description: Total number of times the legacy DevTools Web Audio Editor was opened;
+    null for all sampled clients as this tool was removed (100% null rate sampled
+    2026-05-29).
 - mode: NULLABLE
   name: histogram_parent_devtools_webconsole_opened_count_sum
   type: INTEGER
-  description: null
+  description: Total number of times the DevTools Web Console panel was opened; null
+    in 99.7% of rows (sampled 2026-05-29).
 - mode: NULLABLE
   name: histogram_parent_devtools_webide_opened_count_sum
   type: INTEGER
-  description: null
+  description: Total number of times the legacy DevTools WebIDE was opened; null for
+    nearly all clients as WebIDE was removed (100% null rate sampled 2026-05-29).
 - mode: NULLABLE
   name: install_year
   type: INTEGER
@@ -937,7 +974,8 @@ fields:
   mode: REPEATED
   name: scalar_parent_devtools_accessibility_select_accessible_for_node_sum
   type: RECORD
-  description: null
+  description: Key-value map recording how many times each accessibility node type
+    was selected in the DevTools Accessibility panel; null/empty for nearly all clients.
 - mode: NULLABLE
   name: scalar_parent_devtools_accessibility_service_enabled_count_sum
   type: INTEGER
@@ -1228,7 +1266,8 @@ fields:
   mode: REPEATED
   name: scalar_parent_telemetry_event_counts_sum
   type: RECORD
-  description: null
+  description: Key-value map of Legacy Telemetry event category strings to their aggregate
+    counts for the parent process across the aggregation period.
 - fields:
   - mode: NULLABLE
     name: key
@@ -1241,7 +1280,8 @@ fields:
   mode: REPEATED
   name: scalar_content_telemetry_event_counts_sum
   type: RECORD
-  description: null
+  description: Key-value map of Legacy Telemetry event category strings to their aggregate
+    counts for content processes across the aggregation period.
 - fields:
   - mode: NULLABLE
     name: key
@@ -1254,7 +1294,8 @@ fields:
   mode: REPEATED
   name: scalar_parent_urlbar_searchmode_bookmarkmenu_sum
   type: RECORD
-  description: null
+  description: Key-value map recording urlbar search-mode activations via the bookmark
+    menu, keyed by engine identifier, summed across the aggregation period.
 - fields:
   - mode: NULLABLE
     name: key
@@ -1267,7 +1308,8 @@ fields:
   mode: REPEATED
   name: scalar_parent_urlbar_searchmode_handoff_sum
   type: RECORD
-  description: null
+  description: Key-value map recording urlbar search-mode activations via new-tab
+    handoff, keyed by engine identifier, summed across the aggregation period.
 - fields:
   - mode: NULLABLE
     name: key
@@ -1280,7 +1322,9 @@ fields:
   mode: REPEATED
   name: scalar_parent_urlbar_searchmode_keywordoffer_sum
   type: RECORD
-  description: null
+  description: Key-value map recording urlbar search-mode activations via a keyword
+    offer (engine alias suggestion), keyed by engine identifier, summed across the
+    aggregation period.
 - fields:
   - mode: NULLABLE
     name: key
@@ -1293,7 +1337,8 @@ fields:
   mode: REPEATED
   name: scalar_parent_urlbar_searchmode_oneoff_sum
   type: RECORD
-  description: null
+  description: Key-value map recording urlbar search-mode activations via the one-off
+    search button, keyed by engine identifier, summed across the aggregation period.
 - fields:
   - mode: NULLABLE
     name: key
@@ -1306,7 +1351,8 @@ fields:
   mode: REPEATED
   name: scalar_parent_urlbar_searchmode_other_sum
   type: RECORD
-  description: null
+  description: Key-value map recording urlbar search-mode activations via unclassified
+    methods, keyed by engine identifier, summed across the aggregation period.
 - fields:
   - mode: NULLABLE
     name: key
@@ -1319,7 +1365,8 @@ fields:
   mode: REPEATED
   name: scalar_parent_urlbar_searchmode_shortcut_sum
   type: RECORD
-  description: null
+  description: Key-value map recording urlbar search-mode activations via keyboard
+    shortcut, keyed by engine identifier, summed across the aggregation period.
 - fields:
   - mode: NULLABLE
     name: key
@@ -1332,7 +1379,8 @@ fields:
   mode: REPEATED
   name: scalar_parent_urlbar_searchmode_tabmenu_sum
   type: RECORD
-  description: null
+  description: Key-value map recording urlbar search-mode activations via the tab
+    menu, keyed by engine identifier, summed across the aggregation period.
 - fields:
   - mode: NULLABLE
     name: key
@@ -1345,7 +1393,8 @@ fields:
   mode: REPEATED
   name: scalar_parent_urlbar_searchmode_tabtosearch_sum
   type: RECORD
-  description: null
+  description: Key-value map recording urlbar search-mode activations via tab-to-search
+    (typing a site's domain triggers its search engine), keyed by engine identifier.
 - fields:
   - mode: NULLABLE
     name: key
@@ -1358,7 +1407,8 @@ fields:
   mode: REPEATED
   name: scalar_parent_urlbar_searchmode_tabtosearch_onboard_sum
   type: RECORD
-  description: null
+  description: Key-value map recording urlbar search-mode activations where the user
+    was shown the tab-to-search onboarding UI, keyed by engine identifier.
 - fields:
   - mode: NULLABLE
     name: key
@@ -1371,7 +1421,8 @@ fields:
   mode: REPEATED
   name: scalar_parent_urlbar_searchmode_topsites_newtab_sum
   type: RECORD
-  description: null
+  description: Key-value map recording urlbar search-mode activations from Top Sites
+    on the new-tab page, keyed by engine identifier.
 - fields:
   - mode: NULLABLE
     name: key
@@ -1384,7 +1435,8 @@ fields:
   mode: REPEATED
   name: scalar_parent_urlbar_searchmode_topsites_urlbar_sum
   type: RECORD
-  description: null
+  description: Key-value map recording urlbar search-mode activations from Top Sites
+    within the urlbar dropdown, keyed by engine identifier.
 - fields:
   - mode: NULLABLE
     name: key
@@ -1397,7 +1449,8 @@ fields:
   mode: REPEATED
   name: scalar_parent_urlbar_searchmode_touchbar_sum
   type: RECORD
-  description: null
+  description: Key-value map recording urlbar search-mode activations via the macOS
+    Touch Bar, keyed by engine identifier.
 - fields:
   - mode: NULLABLE
     name: key
@@ -1410,7 +1463,8 @@ fields:
   mode: REPEATED
   name: scalar_parent_urlbar_searchmode_typed_sum
   type: RECORD
-  description: null
+  description: Key-value map recording urlbar search-mode activations where the user
+    typed an engine alias (@keyword), keyed by engine identifier.
 - mode: NULLABLE
   name: scalar_parent_os_environment_is_taskbar_pinned
   type: BOOLEAN
@@ -1467,6 +1521,8 @@ fields:
   mode: REPEATED
   name: scalar_parent_browser_ui_interaction_preferences_pane_home_sum
   type: RECORD
+  description: Key-value map of UI element identifiers to interaction counts for the
+    Firefox Preferences Home pane during the aggregation period.
 - fields:
   - mode: NULLABLE
     name: key
@@ -2416,6 +2472,8 @@ fields:
   mode: REPEATED
   name: scalar_parent_browser_ui_interaction_content_context_sum
   type: RECORD
+  description: Key-value map of content context-menu item identifiers to interaction
+    counts in the browser UI during the aggregation period.
 - mode: NULLABLE
   name: text_recognition_api_performance_sum
   type: INTEGER
