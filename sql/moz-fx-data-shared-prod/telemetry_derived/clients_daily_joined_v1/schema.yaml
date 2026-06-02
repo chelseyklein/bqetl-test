@@ -7,19 +7,23 @@ fields:
   mode: NULLABLE
   name: client_id
   type: STRING
-- description: null
+- description: Total number of content process aborts (crashes without a submitted
+    crash report) recorded on the submission date.
   mode: NULLABLE
   name: aborts_content_sum
   type: INTEGER
-- description: null
+- description: Total number of Gecko Media Plugin (GMP) process aborts recorded on
+    the submission date.
   mode: NULLABLE
   name: aborts_gmplugin_sum
   type: INTEGER
-- description: null
+- description: Total number of NPAPI plugin process aborts recorded on the submission
+    date.
   mode: NULLABLE
   name: aborts_plugin_sum
   type: INTEGER
-- description: null
+- description: Mean number of active add-ons across all subsessions aggregated for
+    this client on the submission date.
   mode: NULLABLE
   name: active_addons_count_mean
   type: FLOAT
@@ -92,23 +96,27 @@ fields:
   mode: REPEATED
   name: active_addons
   type: RECORD
-- description: null
+- description: Branch of the active Telemetry experiment enrolled for this client.
+    Null if no experiment is active.
   mode: NULLABLE
   name: active_experiment_branch
   type: STRING
-- description: null
+- description: ID of the active Telemetry experiment enrolled for this client. Null
+    if no experiment is active.
   mode: NULLABLE
   name: active_experiment_id
   type: STRING
-- description: null
+- description: Total active browsing hours across all subsessions for this client
+    on the submission date.
   mode: NULLABLE
   name: active_hours_sum
   type: FLOAT
-- description: null
+- description: Whether application compatibility is enforced for add-ons in this client's
+    profile.
   mode: NULLABLE
   name: addon_compatibility_check_enabled
   type: BOOLEAN
-- description: null
+- description: The build ID of the Firefox application (format YYYYMMDDHHMMSS).
   mode: NULLABLE
   name: app_build_id
   type: STRING
@@ -116,7 +124,7 @@ fields:
   mode: NULLABLE
   name: app_display_version
   type: STRING
-- description: null
+- description: The name of the application (always 'Firefox' for this table).
   mode: NULLABLE
   name: app_name
   type: STRING
@@ -160,7 +168,8 @@ fields:
   mode: NULLABLE
   name: attribution
   type: RECORD
-- description: null
+- description: True if the Firefox add-on blocklist is enabled for this client; false
+    if it has been disabled.
   mode: NULLABLE
   name: blocklist_enabled
   type: BOOLEAN
@@ -168,107 +177,127 @@ fields:
   mode: NULLABLE
   name: channel
   type: STRING
-- description: null
+- description: Mean difference (in hours) between the client's local clock time and
+    the server-received timestamp, used to detect clock drift.
   mode: NULLABLE
   name: client_clock_skew_mean
   type: FLOAT
-- description: null
+- description: Mean number of hours between when the ping was generated and when it
+    was received by the server.
   mode: NULLABLE
   name: client_submission_latency_mean
   type: FLOAT
-- description: null
+- description: Number of physical CPU cores on the client device.
   mode: NULLABLE
   name: cpu_cores
   type: INTEGER
-- description: null
+- description: Number of logical CPU threads (including hyperthreading) on the client
+    device.
   mode: NULLABLE
   name: cpu_count
   type: INTEGER
-- description: null
+- description: CPU family identifier from the processor's CPUID instruction.
   mode: NULLABLE
   name: cpu_family
   type: INTEGER
-- description: null
+- description: L2 CPU cache size in kilobytes for the client device.
   mode: NULLABLE
   name: cpu_l2_cache_kb
   type: INTEGER
-- description: null
+- description: L3 CPU cache size in kilobytes for the client device.
   mode: NULLABLE
   name: cpu_l3_cache_kb
   type: INTEGER
-- description: null
+- description: CPU model identifier from the processor's CPUID instruction.
   mode: NULLABLE
   name: cpu_model
   type: INTEGER
-- description: null
+- description: CPU clock speed in MHz for the client device.
   mode: NULLABLE
   name: cpu_speed_mhz
   type: INTEGER
-- description: null
+- description: CPU stepping identifier from the processor's CPUID instruction, indicating
+    a hardware revision within the model.
   mode: NULLABLE
   name: cpu_stepping
   type: INTEGER
-- description: null
+- description: CPU vendor identifier string (e.g. 'GenuineIntel', 'AuthenticAMD').
   mode: NULLABLE
   name: cpu_vendor
   type: STRING
-- description: null
+- description: Total number of detected content process crashes on the submission
+    date.
   mode: NULLABLE
   name: crashes_detected_content_sum
   type: INTEGER
-- description: null
+- description: Total number of detected GMP (Gecko Media Plugin) process crashes on
+    the submission date.
   mode: NULLABLE
   name: crashes_detected_gmplugin_sum
   type: INTEGER
-- description: null
+- description: Total number of detected NPAPI plugin process crashes on the submission
+    date.
   mode: NULLABLE
   name: crashes_detected_plugin_sum
   type: INTEGER
-- description: null
+- description: Total number of content crash report submission attempts on the submission
+    date.
   mode: NULLABLE
   name: crash_submit_attempt_content_sum
   type: INTEGER
-- description: null
+- description: Total number of main process crash report submission attempts on the
+    submission date.
   mode: NULLABLE
   name: crash_submit_attempt_main_sum
   type: INTEGER
-- description: null
+- description: Total number of plugin crash report submission attempts on the submission
+    date.
   mode: NULLABLE
   name: crash_submit_attempt_plugin_sum
   type: INTEGER
-- description: null
+- description: Total number of successfully submitted content process crash reports
+    on the submission date.
   mode: NULLABLE
   name: crash_submit_success_content_sum
   type: INTEGER
-- description: null
+- description: Total number of successfully submitted main process crash reports on
+    the submission date.
   mode: NULLABLE
   name: crash_submit_success_main_sum
   type: INTEGER
-- description: null
+- description: Total number of successfully submitted plugin crash reports on the
+    submission date.
   mode: NULLABLE
   name: crash_submit_success_plugin_sum
   type: INTEGER
-- description: null
+- description: Identifier of the client's default search engine (e.g. 'google-b-d',
+    'baidu', 'ddg').
   mode: NULLABLE
   name: default_search_engine
   type: STRING
-- description: null
+- description: Anonymized load path of the default search engine XML file (e.g. '[app]google',
+    '[addon]google@search.mozilla.org').
   mode: NULLABLE
   name: default_search_engine_data_load_path
   type: STRING
-- description: null
+- description: Display name of the client's default search engine (e.g. 'Google',
+    'DuckDuckGo', '百度').
   mode: NULLABLE
   name: default_search_engine_data_name
   type: STRING
-- description: null
+- description: 'Origin classification of the default search engine: ''default'' for
+    built-in engines, ''verified''/''unverified'' for user-installed engines based
+    on signature validity.'
   mode: NULLABLE
   name: default_search_engine_data_origin
   type: STRING
-- description: null
+- description: HTTP search submission URL for the default search engine (e.g. 'https://www.google.com/search?client=firefox-b-d&q=').
+    Null for user-installed engines (for privacy).
   mode: NULLABLE
   name: default_search_engine_data_submission_url
   type: STRING
-- description: null
+- description: Total number of times the Firefox DevTools toolbox was opened on the
+    submission date.
   mode: NULLABLE
   name: devtools_toolbox_opened_count_sum
   type: INTEGER
@@ -276,19 +305,22 @@ fields:
   mode: NULLABLE
   name: distribution_id
   type: STRING
-- description: null
+- description: True if multi-process (e10s) mode was enabled for this client on the
+    submission date; false otherwise.
   mode: NULLABLE
   name: e10s_enabled
   type: BOOLEAN
-- description: null
+- description: CPU architecture of the Firefox build (e.g. 'x86-64', 'aarch64', 'x86').
   mode: NULLABLE
   name: env_build_arch
   type: STRING
-- description: null
+- description: The build ID of the Firefox application (format YYYYMMDDHHMMSS); same
+    as app_build_id.
   mode: NULLABLE
   name: env_build_id
   type: STRING
-- description: null
+- description: The Firefox application version string from the build environment (e.g.
+    '151.0.1').
   mode: NULLABLE
   name: env_build_version
   type: STRING
@@ -329,11 +361,14 @@ fields:
   mode: REPEATED
   name: experiments
   type: RECORD
-- description: null
+- description: Mean time in milliseconds from navigation start to first paint across
+    subsessions on the submission date. Null for sessions where first paint was not
+    recorded (sampled 2026-05-29).
   mode: NULLABLE
   name: first_paint_mean
   type: FLOAT
-- description: null
+- description: Adobe Flash plugin version string detected in the client's browser
+    profile. Null if Flash is not installed (sampled 2026-05-29).
   mode: NULLABLE
   name: flash_version
   type: STRING
@@ -342,15 +377,18 @@ fields:
   mode: NULLABLE
   name: country
   type: STRING
-- description: null
+- description: Name of the city in which the activity took place, as determined by
+    IP geolocation.
   mode: NULLABLE
   name: city
   type: STRING
-- description: null
+- description: First major country subdivision (state, province, or equivalent) derived
+    from IP geolocation.
   mode: NULLABLE
   name: geo_subdivision1
   type: STRING
-- description: null
+- description: Second major country subdivision derived from IP geolocation; not populated
+    for most countries (sampled 2026-05-29).
   mode: NULLABLE
   name: geo_subdivision2
   type: STRING
@@ -358,23 +396,28 @@ fields:
   mode: NULLABLE
   name: isp_name
   type: STRING
-- description: null
+- description: The specific business entity associated with the client's IP address;
+    more specific than isp_name when available.
   mode: NULLABLE
   name: isp_organization
   type: STRING
-- description: null
+- description: Status of the Advanced Layers compositor feature (e.g. 'available',
+    'blocked', 'unavailable'). Null if not applicable to the platform (sampled 2026-05-29).
   mode: NULLABLE
   name: gfx_features_advanced_layers_status
   type: STRING
-- description: null
+- description: Status of the Direct2D graphics feature on Windows (e.g. 'available',
+    'disabled', 'blocklisted'). Null for non-Windows clients (sampled 2026-05-29).
   mode: NULLABLE
   name: gfx_features_d2d_status
   type: STRING
-- description: null
+- description: Status of the Direct3D 11 compositor feature on Windows (e.g. 'available',
+    'blocklisted'). Null for non-Windows clients (sampled 2026-05-29).
   mode: NULLABLE
   name: gfx_features_d3d11_status
   type: STRING
-- description: null
+- description: Status of the GPU process feature (e.g. 'available', 'unused', 'unavailable').
+    Null if not reported (sampled 2026-05-29).
   mode: NULLABLE
   name: gfx_features_gpu_process_status
   type: STRING
@@ -2362,9 +2405,13 @@ fields:
 - name: env_build_platform_version
   type: STRING
   mode: NULLABLE
+  description: The XULRunner platform version bundled with Firefox (typically matches
+    app_version).
 - name: env_build_xpcom_abi
   type: STRING
   mode: NULLABLE
+  description: Binary ABI identifier for the Firefox build (e.g. 'x86_64-msvc', 'x86_64-gcc3',
+    'aarch64-gcc3').
 - name: geo_db_version
   type: STRING
   mode: NULLABLE
@@ -2388,11 +2435,15 @@ fields:
 - name: browser_backup_scheduler_enabled
   type: BOOLEAN
   mode: NULLABLE
-  description: |-
-    The value of payload.processes.parent.scalars.browser_backup_scheduler_enabled most frequently seen on the submission date.
+  description: 'The value of payload.processes.parent.scalars.browser_backup_scheduler_enabled
+    most frequently seen on the submission date.
+
     If there is a tie, the value seen last according to submission_timestamp.
-    True if the BackupService is configured to automatically create backups in the background.
+
+    True if the BackupService is configured to automatically create backups in the
+    background.'
 - name: browser_backup_archive_enabled
   type: BOOLEAN
   mode: NULLABLE
-  description: True if the user can create backups, i.e. it has not been disabled by a pref or otherwise deemed incompatible.
+  description: True if the user can create backups, i.e. it has not been disabled
+    by a pref or otherwise deemed incompatible.
