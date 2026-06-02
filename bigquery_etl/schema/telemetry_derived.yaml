@@ -1,0 +1,81 @@
+fields:
+- name: app
+  description: The name of the Firefox application (e.g., 'Firefox', 'Fennec'). Sourced
+    from the application.name field in the legacy telemetry ping.
+- name: build_version
+  description: The build version string of the Firefox application (e.g., '151.0.1').
+    Sourced from application.version in the legacy telemetry ping envelope.
+- name: ci_deviation
+  description: The confidence-interval half-width around the deviation metric, indicating
+    statistical uncertainty in the aggregated crash deviation estimate.
+- name: content_crashes
+  description: Number of content-process (out-of-process tab) crashes recorded during
+    the aggregation window.
+- name: content_shutdown_crashes
+  description: Number of content-process crashes that occurred specifically during
+    browser shutdown.
+- name: count
+  description: The number of pings or clients contributing to this aggregated row.
+- name: crash_time
+  description: The timestamp or datetime when the crash event occurred, as reported
+    by the client.
+- name: deviation
+  description: The difference between the observed crash rate and the expected baseline
+    rate, used to detect anomalous crash trends.
+- name: display_version
+  description: The user-visible display version string of the Firefox application
+    (e.g., '115.36.0esr', '151.0.1'). Sourced from application.display_version in
+    the legacy telemetry ping.
+- name: endpoint
+  description: The uptake telemetry endpoint identifier, representing the specific
+    Remote Settings or Normandy service endpoint whose update uptake is being tracked.
+- name: experiment_branch
+  description: The experiment branch the client is enrolled in (e.g., 'control', 'treatment-a').
+    Used in experiment-level aggregation tables.
+- name: geo_country_code
+  description: An ISO 3166-1 alpha-2 country code identifying the country of the client
+    based on IP geolocation.
+- name: geography
+  description: A geographic grouping string (e.g., country or region name) used to
+    segment aggregated metrics by location.
+- name: gmplugin_crashes
+  description: Number of Gecko Media Plugin (GMP) process crashes recorded during
+    the aggregation window.
+- name: gpu_crashes
+  description: Number of GPU process crashes recorded during the aggregation window.
+- name: main_crashes
+  description: Number of main-process (browser parent process) crashes recorded during
+    the aggregation window.
+- name: os_name
+  description: The name of the operating system running on the client (e.g., 'Windows_NT',
+    'Darwin', 'Linux').
+- name: partition_date
+  description: The date partition value for this row, used for incremental loading
+    and time-based partitioning of the table.
+- name: plugin_crashes
+  description: Number of legacy NPAPI plugin process crashes recorded during the aggregation
+    window.
+- name: profile_created
+  description: The date or Unix-epoch day on which the Firefox profile was created.
+- name: realm
+  description: The realm or environment identifier for the uptake telemetry source
+    (e.g., 'prod', 'stage'), distinguishing production from staging service uptake
+    data.
+- name: scalar_aggregates
+  description: An array of aggregated scalar metric records for the client, each containing
+    the metric name, process, key, aggregation type, and aggregated value.
+- name: startup_crashes
+  description: Number of crashes that occurred during Firefox startup (before the
+    browser fully initialised).
+- name: ua_form_factor
+  description: The form factor of the user agent device as parsed from the HTTP User-Agent
+    header (e.g., 'phone', 'tablet', 'desktop').
+- name: ua_os_family
+  description: The operating system family derived from the HTTP User-Agent header
+    (e.g., 'Windows', 'Android', 'iOS', 'Mac OS X').
+- name: uri_method
+  description: The HTTP method used in the URI request for uptake telemetry events
+    (e.g., 'GET', 'POST').
+- name: usage_hours
+  description: Total wall-clock hours the Firefox browser was in use during the aggregation
+    period, derived from subsession length data.
