@@ -6,12 +6,19 @@ fields:
 - mode: NULLABLE
   name: usage
   type: STRING
+  description: Type of Firefox Desktop usage criterion tracked in this row (e.g.,
+    'Any Firefox Desktop Activity', 'Firefox Desktop Visited 5 URI', 'Firefox Desktop
+    Opened Dev Tools').
 - mode: NULLABLE
   name: id_bucket
   type: INTEGER
+  description: Client ID bucket (0–19) used for partitioned computation, allowing
+    parallelized processing and sampling of the population.
 - mode: NULLABLE
   name: country
   type: STRING
+  description: Code of the country in which the activity took place, as determined
+    by IP geolocation. The compressed variant retains only the top ~15 countries.
 - mode: NULLABLE
   name: locale
   type: STRING
@@ -19,6 +26,8 @@ fields:
 - mode: NULLABLE
   name: os
   type: STRING
+  description: 'The normalized name of the operating system (compressed to top values:
+    ''Windows_NT'', ''Darwin'', ''Linux'', ''Other'').'
 - mode: NULLABLE
   name: channel
   type: STRING
@@ -78,3 +87,5 @@ fields:
   mode: NULLABLE
   name: metrics
   type: RECORD
+  description: Nested struct containing smoot usage metrics computed at different
+    lag windows (day 0, day 6, day 13) for this dimension combination.
