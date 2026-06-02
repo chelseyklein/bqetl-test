@@ -1624,3 +1624,1066 @@ fields:
 - name: web_notification_shown_sum
   description: Total number of web push notifications shown to the client; null for
     nearly all clients (100% null rate sampled 2026-05-29).
+- name: adjust_ad_group
+  description: The Adjust ad group identifier associated with the mobile install attribution.
+    Only available for mobile clients.
+- name: adjust_campaign
+  description: The Adjust campaign identifier associated with the mobile install attribution.
+    Only available for mobile clients.
+- name: adjust_creative
+  description: The Adjust creative identifier (e.g., ad creative name) associated
+    with the mobile install attribution. Only available for mobile clients.
+- name: browser_name
+  description: The name of the browser generating this data. Always 'Firefox Desktop'
+    for this table.
+- name: browser_version
+  description: The user-visible Firefox version string for this visit (e.g. '151.0.1').
+    Derived from the Glean app_display_version metric.
+- name: client_count
+  description: Number of distinct Firefox clients with this combination of hardware
+    attributes in the reporting window.
+- name: creation_date
+  description: The ISO 8601 timestamp string recorded by the client at the moment
+    the ping was created, before it was submitted to the server.
+- name: days_created_profile_bits
+  description: A bit pattern tracking on which days within a 28-day window the client's
+    profile was first created. Used to identify new profile creation trends over time.
+- name: days_interacted_bits
+  description: A 28-bit integer encoding the days within the past 28 days on which
+    the client had any active hours (active_hours_sum > 0), indicating at least some
+    user interaction.
+- name: days_visited_1_uri_bits
+  description: A 28-bit integer encoding the days within the past 28 days on which
+    the client visited at least 1 URI (normal + private mode combined); used for Active
+    DAU calculations.
+- name: db_version
+  description: The version/date of the MaxMind GeoIP database used for the geographic
+    lookup (e.g. '2026-03-06T10:19:09Z'). Used to track the recency of geolocation
+    data.
+- name: distribution_model
+  description: Partner distribution model. Only populated when funnel_derived = 'partner',
+    NULL otherwise.
+- name: event
+  description: The telemetry event name within its category, identifying the specific
+    action recorded (e.g., 'trigger.reason', 'uptake.normandy'). Null for rows representing
+    only property-level indices.
+- name: event_process
+  description: The Firefox process in which the event was recorded (e.g. 'parent',
+    'content', 'dynamic', 'gpu'). Derived from the process-keyed events structure
+    in the main ping payload.
+- name: forecast_parameters
+  description: JSON string containing the Prophet model hyperparameters used to generate
+    this forecast, including model_type, model_params (seasonality scales, changepoints),
+    and holiday settings.
+- name: funnel_derived
+  description: 'Funnel type based on OS and acquisition source. Values: ''mozorg windows
+    funnel'' (full funnel with installs), ''mozorg mac funnel'' (no install data),
+    ''mozorg other'' (non-Windows/Mac OS), ''partner'' (partner distribution), ''Unknown''
+    (EU countries and unattributed traffic).'
+- name: histogram_aggregates
+  description: Array of per-metric summed histogram aggregates for this client, each
+    describing a histogram metric with its aggregated bucket counts across the session.
+- name: newtab_homepage_category
+  description: Category of the client's home page (about:home) setting as of this
+    visit (e.g. 'enabled', 'extension', 'known-hijacker-v3').
+- name: newtab_newtab_category
+  description: Category of the client's new-tab page (about:newtab) setting as of
+    this visit (e.g. 'enabled', 'extension', 'disabled').
+- name: non_norm_aggregates
+  description: Array of non-normalized percentile values (raw population aggregates
+    without normalization). Each entry has a key (percentile label) and value.
+- name: partner_distribution_version
+  description: The version string of the partner distribution of Firefox (e.g. '1.0',
+    '2023.6'). Null for ~65% of rows where no partner distribution was used.
+- name: partner_distributor
+  description: The name of the partner organization that distributed Firefox (e.g.
+    'canonical', 'mint', 'archlinux'). Null for ~74% of rows where no partner distribution
+    applies.
+- name: partner_distributor_channel
+  description: The distribution channel used by the partner distributor (e.g. 'firefox',
+    'zena', 'fedora'). Null or empty string for ~74-77% of rows.
+- name: partner_org
+  description: Partner organization name. Only populated when funnel_derived = 'partner',
+    NULL otherwise.
+- name: play_store_attribution_campaign
+  description: The Google Play Store attribution campaign associated with the install,
+    sourced from the Play Store referral parameters. Only available for Android clients.
+- name: play_store_attribution_content
+  description: The Google Play Store attribution content parameter associated with
+    the install. Only available for Android clients.
+- name: play_store_attribution_install_referrer_response
+  description: Play Store Attribution Install Referrer Response — the raw referrer
+    response string from the Google Play Store install referrer API, encoded as a
+    URL query string (e.g., 'utm_source=google-play&utm_medium=organic'). Only populated
+    for Android installs (~31% non-null).
+- name: play_store_attribution_medium
+  description: The Google Play Store attribution medium (e.g., 'organic', 'referral',
+    'preload') associated with the install. Only available for Android clients.
+- name: play_store_attribution_source
+  description: The Google Play Store attribution source (e.g., 'google-play', 'eea-browser-choice')
+    associated with the install. Only available for Android clients.
+- name: play_store_attribution_term
+  description: The Google Play Store attribution search term associated with the install
+    (e.g., 'firefox', 'mozilla firefox'). Only available for Android clients.
+- name: pocket_is_signed_in
+  description: Whether the client was signed in to Pocket during this newtab visit.
+    Null (~89.6%) when no sign-in state was observed.
+- name: region
+  description: ISO country/region code indicating the geographic market for which
+    this recommendation data was collected (e.g., 'US', 'DE', 'GB'). Null for ~12%
+    of rows.
+- name: retained_week4
+  description: Count of new profiles still active in week 4 of the 28-day observation
+    window (qualified_week4). Requires both a URI visit and browser interaction on
+    the same day within days 22-28.
+- name: session_start_time
+  description: The timestamp at which the browser session began, parsed from payload.info.session_start_date
+    in the main ping. Used to calculate session duration when combined with event_timestamp.
+- name: topsites_rows
+  description: Number of top-site tile rows configured on the client's newtab page
+    during this visit.
+- name: validation_failed_count
+  description: Number of validation failure events in this aggregation window; always
+    0 in v2 (sampled 2026-06-02).
+- name: active_metric_date
+  description: Count of Clients Active on Metric Date
+- name: app_version_major
+  description: The major version number of the application that crashed (e.g. 115
+    for Firefox ESR 115, 140 for Firefox 140) (sampled 2026-06-02).
+- name: app_version_minor
+  description: The minor version number of the application that crashed (e.g. 36 for
+    Firefox ESR 115.36.0) (sampled 2026-06-02).
+- name: arch
+  description: The CPU architecture of the device (e.g., 'armeabi-v7a', 'arm64-v8a')
+    as last reported by this client.
+- name: category
+  description: Release category describing the type of Firefox release. Observed values
+    include 'dev' (developer/beta builds), 'stability' (dot releases), 'major' (major
+    version releases), and 'esr' (Extended Support Releases).
+- name: clients
+  description: The number of clients that have autofilled their address information.
+- name: corpus_item_id
+  description: Unique identifier for the corpus item (the content piece itself in
+    the Merino recommendation corpus). Null for ~4% of rows.
+- name: default_search
+  description: The identifier of the default search engine as last configured on this
+    client (e.g., 'google-b-amzftv', 'baidu', 'unknown').
+- name: device
+  description: The device type or form factor reported by the client.
+- name: downloads
+  description: Count of GA4 sessions with at least one Firefox desktop download event.
+    NULL for partner funnel.
+- name: durations
+  description: Total browsing session duration in hours for the client on the submission
+    date. For desktop, derived from subsession_hours_sum; for mobile, derived from
+    equivalent session duration metrics.
+- name: engine_data_load_path
+  description: The anonymized load path of the default search engine XML file (e.g.
+    '[app]google', '[addon]google@search.mozilla.org').
+- name: engine_data_name
+  description: The display name of the client's default search engine (e.g. 'Google',
+    '百度', 'DuckDuckGo').
+- name: engine_data_origin
+  description: 'Origin classification of the default search engine: ''default'' for
+    built-in or partner engines, ''verified'' for user-installed engines with valid
+    hashes, ''invalid'' for broken hashes. Null if no search engine is configured
+    (sampled 2026-06-02).'
+- name: engine_data_submission_url
+  description: The HTTP search submission URL used by the default search engine (e.g.
+    'https://www.google.com/search?client=firefox-b-d&q='). Null for user-installed
+    engines (for privacy).
+- name: events
+  description: Array of Telemetry event records captured during this subsession, each
+    with a timestamp, category, method, object, optional string value, and extra key-value
+    pairs.
+- name: experiment_id
+  description: Unique slug identifier of the Nimbus experiment (e.g. 'smart-shortcuts-v4p1',
+    'firefox-backup-sync-messaging-follow-ons'). Covers only Nimbus experiments in
+    v2 (sampled 2026-06-02).
+- name: follow_on_search_ad_clicks
+  description: Number of ad clicks on SERPs from follow-on searches originating from
+    this newtab visit.
+- name: follow_on_search_ad_impressions
+  description: Number of SERP pages with ad impressions from follow-on searches originating
+    from this newtab visit.
+- name: forecast_date
+  description: The date on which the forecast was generated (YYYY-MM-DD string), identifying
+    the forecast run.
+- name: histogram
+  description: A JSON-encoded normalized histogram representing the distribution of
+    metric values across clients, where bucket values sum to approximately 1.
+- name: id
+  description: The ping type identifier for this main ping, as defined in the Firefox
+    legacy telemetry schema (e.g. 'main').
+- name: installer_type
+  description: Installer Type - e.g. stub or full
+- name: isp
+  description: The name of the internet service provider associated with the client's
+    IP address.
+- name: legacy_telemetry_client_id
+  description: The legacy Telemetry client_id UUID for this client. Null (~1.1%) when
+    legacy telemetry was not yet initialized.
+- name: metric_date
+  description: Metric Date
+- name: n_created_pictureinpicture
+  description: Number of Picture-in-Picture video sessions created by the client on
+    the reporting day; null for ~2.3% of clients (sampled 2026-05-29).
+- name: n_logged_event
+  description: Number of Telemetry events logged by the client on the reporting day;
+    null for ~2.3% of clients (sampled 2026-05-29).
+- name: n_viewed_protection_report
+  description: Number of times the client viewed the Privacy Protections report on
+    the reporting day; null for ~2.3% of clients (sampled 2026-05-29).
+- name: non_norm_histogram
+  description: A JSON-encoded non-normalized histogram with raw observation counts
+    per bucket, representing the unnormalized distribution of metric values across
+    clients.
+- name: organic_pocket_clicks
+  description: Number of organic Pocket tile clicks during this newtab visit.
+- name: organic_pocket_impressions
+  description: Number of organic (non-sponsored) Pocket tile impressions during this
+    newtab visit.
+- name: organic_pocket_saves
+  description: Number of organic Pocket tile saves during this newtab visit.
+- name: organic_search_count
+  description: Total number of organic (non-ad) searches performed by the client on
+    the submission date. Null when no search data is available (sampled 2026-06-02).
+- name: osversion
+  description: The OS version string (e.g., Android API level '28', '33') as last
+    reported by this client.
+- name: ping_sent_metric_date
+  description: Count of Pings Sent on Metric Date
+- name: ping_sent_week_4
+  description: Count of Pings Sent on Week 4
+- name: pocket_clicks
+  description: Number of Pocket tile clicks during this newtab visit.
+- name: pocket_impressions
+  description: Number of Pocket tile impressions (sponsored or organic) during this
+    newtab visit.
+- name: pocket_saves
+  description: Number of Pocket tile saves (via the 'Save to Pocket' option) during
+    this newtab visit.
+- name: retained_week_4
+  description: Count of Clients Retained on Week 4
+- name: sponsored_pocket_clicks
+  description: Number of sponsored Pocket tile clicks during this newtab visit.
+- name: sponsored_pocket_impressions
+  description: Number of sponsored Pocket tile impressions during this newtab visit.
+- name: sponsored_pocket_saves
+  description: Number of sponsored Pocket tile saves during this newtab visit. Always
+    0 in sampled data (2026-06-02).
+- name: subsample_id
+  description: A stable hash-derived integer (0–99) computed as MOD(ABS(FARM_FINGERPRINT(client_id)),
+    100), allowing efficient sub-sampling down to approximately 0.01% of clients.
+    Distinct from sample_id to avoid correlation with pipeline sampling.
+- name: tagged_follow_on_search_ad_clicks
+  description: Number of ad clicks from tagged follow-on searches originating from
+    this newtab visit.
+- name: tagged_follow_on_search_ad_impressions
+  description: Number of SERP pages with ad impressions from tagged follow-on searches
+    originating from this newtab visit.
+- name: tagged_search_ad_clicks
+  description: Number of ad clicks on tagged-search SERPs originating from this newtab
+    visit.
+- name: tagged_search_ad_impressions
+  description: Number of tagged-search SERP pages with visible ad links originating
+    from this newtab visit.
+- name: target
+  description: The product target for this forecast row. Either 'desktop' (Firefox
+    Desktop DAU) or 'mobile' (Firefox Mobile DAU).
+- name: uri_count
+  description: Total number of URIs visited by the client on the submission date.
+    For desktop, derived from the browser engagement scalar; null for Focus Android
+    and some mobile platforms (sampled 2026-06-02).
+- name: windows_version
+  description: Human-readable Windows version label derived from the build number
+    (e.g. 'Windows 10', 'Windows 11', 'Windows 7'). Null for non-Windows clients (sampled
+    2026-06-02).
+- name: xpcom_abi
+  description: The binary ABI identifier for the build, combining processor and compiler
+    (e.g. 'x86_64-msvc', 'x86_64-gcc3').
+- name: ER
+  description: ER - Smoothed DAU Divided by MAU
+- name: active_hours
+  description: Total active browsing hours recorded by active clients on the submission_date.
+- name: active_hours_per_user_ratio
+  description: Ratio of Active Hours per User
+- name: ad_clicks_count
+  description: Number of ad clicks on search results pages for enrolled experiment
+    clients. Null for ~60.9% of rows (sampled 2026-06-02).
+- name: addon_id
+  description: Unique identifier string for the add-on (e.g. 'uBlock0@raymondhill.net',
+    'formautofill@mozilla.org').
+- name: average_profile_age
+  description: Average Profile Age
+- name: bookmarks_added_per_dau
+  description: Bookmarks Added per DAU
+- name: bookmarks_opened_per_dau
+  description: Bookmarks Opened per DAU
+- name: browser_version_info
+  description: Structured breakdown of the browser version, including major version,
+    minor version, patch revision, and a flag indicating whether it is a major release.
+- name: bug_1501329_affected
+  description: Whether the client was last observed to be affected by Bug 1501329,
+    which caused profile dates to be incorrectly reported.
+- name: build_architecture
+  description: The CPU architecture of the Firefox build installed on the client (e.g.
+    'x86-64', 'x86'). Sourced from environment.build.architecture in the main ping.
+- name: channel_raw
+  description: GA4 cross-channel primary channel group from web session attribution
+    (e.g. 'Organic Search', 'Paid Search', 'Direct').
+- name: cohort_date
+  description: Cohort Date
+- name: content
+  description: The attribution content (UTM content) for the Firefox installation;
+    null when the client is not attributed (sampled 2026-06-02).
+- name: daily_users
+  description: Count of daily users from telemetry.active_users for this app name
+    and submission_date, based on ping-sending behavior.
+- name: days_had_8_active_ticks_bits
+  description: A 28-bit integer encoding the days within the past 28 days on which
+    the client had at least 8 active ticks (active_hours_sum >= 0.011 hours), a measure
+    of engaged usage.
+- name: days_opened_dev_tools_bits
+  description: A 28-bit integer encoding the days within the past 28 days on which
+    the client opened the Firefox Developer Tools toolbox at least once.
+- name: days_seen_in_experiment
+  description: Array of per-experiment activity records for the past 28 days. Each
+    entry holds the experiment slug, the assigned branch, and a 28-bit integer (bits)
+    indicating the days the client was seen while enrolled in that experiment.
+- name: days_visited_10_uri_bits
+  description: A 28-bit integer encoding the days within the past 28 days on which
+    the client visited at least 10 URIs (normal + private mode combined).
+- name: days_visited_1_uri_normal_mode_bits
+  description: Bit pattern encoding on which of the previous 28 days the client visited
+    at least 1 URI in normal (non-private) browsing mode, using scalar_parent_browser_engagement_total_uri_count_sum
+    >= 1.
+- name: days_visited_1_uri_private_mode_bits
+  description: Bit pattern encoding on which of the previous 28 days the client visited
+    at least 1 URI in private browsing mode. Only populated for Firefox 84+; derived
+    from total_uri_count_normal_and_private minus total_uri_count_sum. (sampled 2026-05-29)
+- name: days_visited_5_uri_bits
+  description: A 28-bit integer encoding the days within the past 28 days on which
+    the client visited at least 5 URIs (normal + private mode combined).
+- name: default_browser
+  description: Whether the user has set Firefox as their default browser at the time
+    of the ping. Null (~90%) when this preference is not reported by the client.
+- name: default_percent
+  description: Percent of Users with Firefox as Default Browser
+- name: domains_per_user
+  description: Domains per User
+- name: e10s_cohort
+  description: E10S Cohort
+- name: fill_counts
+  description: The fill count of clients that have autofilled their address information.
+- name: flash_usage
+  description: The total Flash plugin usage count recorded by the client on their
+    most recent active day. Always 0 as Flash is no longer supported.
+- name: funnel_date
+  description: Date of the funnel activity (submission_date for TOF/installs, first_seen_date
+    for profiles).
+- name: gfx_compositor
+  description: The graphics compositor backend in use (e.g. 'd3d11', 'opengl', 'basic');
+    indicates the rendering path for the browser UI.
+- name: installation_first_seen_admin_user
+  description: True if Firefox was installed under an admin user account; false if
+    installed under a non-admin account. Null for non-Windows installs (sampled 2026-06-02).
+- name: installation_first_seen_default_path
+  description: True if Firefox was installed to the default installation path; false
+    if a custom path was used. Null for non-Windows installs (sampled 2026-06-02).
+- name: installation_first_seen_failure_reason
+  description: 'Reason the installer encountered a failure condition: ''NoError''
+    if no error, ''NotFoundError'' or ''SyntaxError'' for error types. Null for non-Windows
+    installs (sampled 2026-06-02).'
+- name: installation_first_seen_from_msi
+  description: True if Firefox was installed via an MSI installer package; false if
+    installed via the EXE installer. Null for non-Windows installs (sampled 2026-06-02).
+- name: installation_first_seen_install_existed
+  description: True if a previous Firefox installation existed on the machine at the
+    time of install; false if this was a fresh install. Null for non-Windows installs
+    (sampled 2026-06-02).
+- name: installation_first_seen_installer_type
+  description: 'Type of installer used: ''full'' for full installer, ''stub'' for
+    stub installer, ''msix'' for MSIX package. Null for non-Windows installs (sampled
+    2026-06-02).'
+- name: installation_first_seen_other_inst
+  description: True if another Firefox installation was detected on the machine at
+    install time; false otherwise. Null for non-Windows installs (sampled 2026-06-02).
+- name: installation_first_seen_other_msix_inst
+  description: True if another Firefox MSIX installation was detected at install time;
+    false otherwise. Null for non-MSIX or non-Windows installs (sampled 2026-06-02).
+- name: installation_first_seen_profdir_existed
+  description: True if a Firefox profile directory already existed at install time;
+    false if the profile was newly created. Null for non-Windows installs (sampled
+    2026-06-02).
+- name: installation_first_seen_silent
+  description: True if the installer ran in silent mode (no UI shown); false if the
+    installer UI was displayed. Null for non-Windows installs (sampled 2026-06-02).
+- name: installation_first_seen_version
+  description: The Firefox version string at the time of first install detection (e.g.
+    '151.0.1'). Null for non-Windows installs (sampled 2026-06-02).
+- name: installs
+  description: Count of successful new Firefox installations from Windows installer
+    telemetry. Excludes silent installs, upgrades/reinstalls, non-release channels,
+    and partner distributions. Only available for 'mozorg windows funnel'.
+- name: linked_client_id
+  description: The client ID with the later first_seen_date
+- name: major_version
+  description: Extracted version from crash_app_display_version.
+- name: monthly_users
+  description: Count of monthly users from telemetry.active_users for this app name
+    and submission_date.
+- name: nbr_clients_uninstalling
+  description: Count of unique clients uninstalling
+- name: new_profile_ratio
+  description: Ratio of New Profiles vs All Profiles
+- name: newtab_open_source
+  description: The URL from which the newtab was opened (e.g. 'about:newtab', 'about:home',
+    'about:welcome', 'other'). Null (~0.9%) when no opened event was received.
+- name: newtab_search_enabled
+  description: Whether the search input box was enabled on the newtab during this
+    visit.
+- name: num_clients_in_cohort
+  description: The total number of clients in this cohort grouping (i.e., clients
+    sharing the same first_seen_date and all dimension values). Represents the cohort
+    size.
+- name: pct_users_profile_age_8_to_365_days
+  description: Percent of Users with Profile Age Between 8 and 365 Days
+- name: pct_users_profile_age_less_than_7_days
+  description: Percent of Users with Profile Age Less than 7 Days
+- name: pct_users_profile_age_over_365_days
+  description: Percent of Users with Profile Age Over 365 Days
+- name: placement
+  description: The placement identifier indicating where the ADM (Amazon) sponsored
+    content was shown or which top-site tile position triggered the engagement.
+- name: play_time_ratio
+  description: Play Time Ratio
+- name: position
+  description: 0-indexed position of the tile in the newtab grid (0–200). Used with
+    tile_format to look up the propensity weight for debiasing impression counts.
+- name: profile_date
+  description: The most recently observed profile creation date for this client.
+- name: qdau_desktop
+  description: 'Qualified Daily Active Users for Desktop: count of distinct Desktop
+    clients from whom a main ping was received on the submission_date. For mobile
+    apps, QDAU equals DAU.'
+- name: reason
+  description: The low-level crash reason code (e.g., 'EXCEPTION_BREAKPOINT', 'SIGSEGV
+    / SEGV_MAPERR').
+- name: recommendation_id
+  description: A UUID identifying the specific Pocket recommendation shown to the
+    user. Populated for Glean-sourced rows; null (~70.2%) for legacy telemetry rows
+    and UAPI rows where no recommendation_id is available.
+- name: return_user
+  description: Count of new profiles that were active on any day after their first
+    day (qualified_second_day). Requires both a URI visit and browser interaction
+    on the same day within days 2-28.
+- name: row_source
+  description: Row Source
+- name: scheduled_corpus_item_id
+  description: Unique identifier for the scheduled corpus item (a specific scheduled
+    slot for a piece of content in the Merino recommendation corpus).
+- name: search_with_ads_count
+  description: Number of searches that included ads in the results, as recorded for
+    enrolled experiment clients. Null for ~54.5% of rows (sampled 2026-06-02).
+- name: searches_per_user_ratio
+  description: Ratio of Searches per User
+- name: sessions
+  description: The total number of browsing sessions recorded by the client on their
+    most recent active day.
+- name: sessions_per_user
+  description: Ratio of Sessions per User
+- name: show_tracker_stats_share
+  description: Whether the tracker stats share feature was last enabled by the user.
+    Almost always null; this feature has been deprecated.
+- name: smoothed_dau
+  description: Smoothed Daily Active Users
+- name: subchannel
+  description: 'Campaign type classification for Paid Search, based on campaign naming
+    conventions. Values: ''Brand'', ''Non-Brand'', ''Competitor'', ''PMax'', ''Other''
+    (paid but unclassified), ''All'' (non-Paid Search).'
+- name: subsession_hours_per_user_ratio
+  description: Ratio of Subsession Hours per User
+- name: subsession_start_date
+  description: The date on which this subsession began, truncated to the hour in ISO-8601
+    format.
+- name: tile_id
+  description: Unique identifier for the sponsored tile whose hourly interactions
+    are tracked in this row.
+- name: topsites_sponsored_enabled
+  description: Whether sponsored top-site shortcuts (Sponsored Shortcuts) were enabled
+    during this visit.
+- name: total_client_count
+  description: Total number of distinct clients across all channels for this country/settings
+    combination.
+- name: uris_per_user
+  description: Ratio of URIs per User
+- name: users
+  description: Distinct users
+- name: visits
+  description: Count of GA4 desktop sessions on mozilla.org and firefox.com. Excludes
+    existing Firefox users, internal cross-site referrals, and EU countries. NULL
+    for partner funnel.
+- name: weekly_users
+  description: Count of weekly users from telemetry.active_users for this app name
+    and submission_date.
+- name: CLICK_COUNT
+  description: Number of times the sponsored tile was clicked by users at this position
+    on the date.
+- name: DISMISS_COUNT
+  description: Number of times users dismissed the sponsored tile on the date.
+- name: HAPPENED_AT
+  description: Date on which the sponsored tile interactions were aggregated (i.e.,
+    the date the events occurred).
+- name: IMPRESSION_COUNT
+  description: Number of times the sponsored tile was displayed to users at this position
+    on the date.
+- name: POSITION
+  description: Zero-based position of the sponsored tile on the Firefox new tab page
+    where it was displayed (0 = first tile slot).
+- name: SAVE_COUNT
+  description: Number of times users saved the sponsored tile on the date.
+- name: TILE_ID
+  description: Unique identifier for the sponsored tile whose interactions are tracked
+    in this row.
+- name: _GS_FILE_DATE
+  description: The date partition string from the GCS file path (e.g., 'date=2023-08-29')
+    indicating when the source file was generated.
+- name: _GS_FILE_NAME
+  description: The full Google Cloud Storage path of the source Parquet file from
+    which this row was loaded.
+- name: _GS_FILE_ROW_NUMBER
+  description: Row sequence number within the source GCS file, used to uniquely identify
+    each row within a file.
+- name: _GS_FILE_TIME
+  description: The time component of the GCS file path (e.g., 'time=23-01-38-621')
+    indicating when the source file was generated.
+- name: _LOADED_AT
+  description: Unix timestamp (nanoseconds) indicating when this row was loaded into
+    the table from the source GCS file.
+- name: account_enabled
+  description: Whether the user's logged in to an FxA account.
+- name: activated
+  description: Whether the profile sent a main ping in at least 5 of their first 7
+    days.
+- name: active_addon_name
+  description: Active Addon Name
+- name: active_clients
+  description: Count of distinct active clients enrolled in the given experiment branch
+    on the submission date.
+- name: activity_date_week
+  description: The date when the telemetry ping is received on the server side AND
+    the client was a daily active user during this week.
+- name: additive_terms
+  description: The sum of all additive components (seasonality, holidays, regressors)
+    in the Prophet decomposition for date ds.
+- name: additive_terms_lower
+  description: Lower bound of the additive terms component from the Prophet uncertainty
+    interval.
+- name: additive_terms_upper
+  description: Upper bound of the additive terms component from the Prophet uncertainty
+    interval.
+- name: antivirus
+  description: Array of antivirus product names detected on the client machine at
+    the time of the ping (Windows only).
+- name: app_channel
+  description: The release channel for this application entry, e.g. 'release', 'beta',
+    or 'nightly'.
+- name: app_version_is_major_release
+  description: True if the app version corresponds to a major release build (patch
+    revision is 0); false for point releases.
+- name: app_version_patch
+  description: The patch version number of the application that crashed (e.g. 0, 1,
+    2). Null for ~4.5% of rows where patch version could not be parsed (sampled 2026-06-02).
+- name: app_version_patch_revision
+  description: The patch or revision number of the app version string (e.g. for '142.1.3',
+    the patch revision is 3). Null for major releases without a patch component (sampled
+    2026-06-02).
+- name: asofdate
+  description: The date as of which the forecast was generated, representing the last
+    observed data point used as input to the forecasting model (stored as a string
+    in YYYY-MM-DD format).
+- name: avg_hours_usage_daily
+  description: Average number of hours per day that active Firefox clients report
+    browser usage.
+- name: browser_arch
+  description: Array of key-value pairs representing the distribution of browser CPU
+    architectures (e.g., 'x86', 'x86-64') among Firefox Desktop clients, where key
+    is the architecture label and value is the proportion of clients.
+- name: build_channel
+  description: Build Channel
+- name: cdou
+  description: Cumulative Days of Use — the running sum of DAU values from the start
+    of the year through the submission_date for this dimension slice, used to track
+    yearly engagement trends (sampled 2026-06-02).
+- name: cohort_date_week
+  description: The week of this client's first_seen_date.
+- name: cpu_speed
+  description: Array of key-value pairs representing the distribution of CPU clock
+    speeds (in MHz) among Firefox Desktop clients, where key is the speed bucket and
+    value is the proportion of clients.
+- name: crashing_users
+  description: The number of users who experienced a crash.
+- name: cumulative_new_profiles
+  description: Running sum of new_profiles from the start of the year through the
+    submission_date for this dimension slice, used to track yearly new-profile acquisition
+    trends (sampled 2026-06-02).
+- name: date_from
+  description: Start date of the reporting period covered by this row.
+- name: date_to
+  description: End date of the reporting period covered by this row.
+- name: days_active_bits
+  description: A 28-bit integer bitmask representing the days the client was active
+    in the 28-day window ending on submission_date; bit 0 corresponds to submission_date
+    and higher bits to earlier days.
+- name: days_logged_event_bits
+  description: Bit-pattern integer for the days in the past 28 on which the client
+    had at least one Telemetry event logged; null for ~2.3% of clients (sampled 2026-05-29).
+- name: days_since_first_seen
+  description: The number of days elapsed between first_seen_date and submission_date,
+    indicating how long the client has been known to the pipeline.
+- name: days_since_seen
+  description: The number of days since the client was last seen active, relative
+    to submission_date. A value of 0 means the client was active on the submission
+    date itself (sampled 2026-06-02).
+- name: days_used_pictureinpicture_bits
+  description: Bit-pattern integer for the days in the past 28 on which the client
+    used Picture-in-Picture video; null for ~2.3% of clients (sampled 2026-05-29).
+- name: days_viewed_protection_report_bits
+  description: Bit-pattern integer for the days in the past 28 on which the client
+    viewed the Privacy Protections report; null for ~2.3% of clients (sampled 2026-05-29).
+- name: debug_file
+  description: The debug symbol file name for the binary module (e.g., 'xul.pdb').
+    Used as a key to look up symbolication data in crash_symbols_v1.
+- name: debug_id
+  description: The unique debug identifier (UUID + age) for the binary module, paired
+    with debug_file to uniquely identify a build's symbol file.
+- name: dismiss_count
+  description: The number of dismisses of this piece of content on this day in this
+    position via the "..." menu on the tile.
+- name: doc_type
+  description: Document Type
+- name: ds
+  description: The date/timestamp for which the forecast value applies, covering historical
+    actuals and forecast periods.
+- name: event_properties
+  description: Array of event property definitions for this event type, where each
+    entry describes one known property key, its own compact index, and an array of
+    observed values with their own sub-indices.
+- name: extra_regressors_additive
+  description: The additive external regressor component of the Prophet decomposition
+    for date ds. Always 0.0 in this table.
+- name: extra_regressors_additive_lower
+  description: Lower bound of the extra additive regressors component. Always 0.0
+    in this table.
+- name: extra_regressors_additive_upper
+  description: Upper bound of the extra additive regressors component. Always 0.0
+    in this table.
+- name: first_timestamp
+  description: The earliest timestamp at which this event type (category + event combination)
+    was first observed in the telemetry pipeline.
+- name: form_factor
+  description: The form of the ad as displayed to the user (e.g. phone, desktop, tablet,
+    other)
+- name: has_addon_ratio
+  description: Fraction of active Firefox clients that have at least one add-on installed.
+- name: has_flash
+  description: Array of key-value pairs indicating the proportion of Firefox Desktop
+    clients with Flash enabled (key=true) vs disabled/absent (key=false).
+- name: holidays
+  description: The holidays component of the Prophet decomposition for date ds, capturing
+    US public holiday effects.
+- name: holidays_lower
+  description: Lower bound of the holidays component.
+- name: holidays_upper
+  description: Upper bound of the holidays component.
+- name: index
+  description: A compact string encoding of numeric_index using Unicode code points,
+    used to represent the event type in compressed event strings stored in events_daily.
+- name: install_source
+  description: The install source identifier for mobile clients (e.g., 'com.android.vending'
+    for Google Play). Null for ~88% of rows.
+- name: intensity
+  description: Average days active per week among weekly active users, measuring how
+    intensively users engage with Firefox.
+- name: ipc_channel_error
+  description: The IPC channel error string for crashes triggered by IPC channel failures
+    (e.g., 'ShutDownKill', 'GPUProcessKill'). Null for non-IPC crashes.
+- name: is_dau
+  description: DAU - Daily Active User
+- name: is_system
+  description: True if the add-on is a Firefox system add-on bundled with the browser;
+    false for user-installed add-ons.
+- name: latest_version
+  description: The latest major version number for Firefox on the given channel, sourced
+    from the Mozilla product-details API (https://product-details.mozilla.org/1.0/firefox_versions.json).
+    Refreshed on each ETL run.
+- name: latest_version_ratio
+  description: Fraction of active clients running the latest available Firefox release
+    version.
+- name: legacy_telemetry_client_count
+  description: Number of distinct legacy Telemetry client IDs contributing to this
+    aggregate row.
+- name: linkage_first_seen_date
+  description: Date of when a client ID and linked client ID are first detected to
+    be using the same account ID
+- name: linkage_last_seen_date
+  description: Date of when a client ID and linked client ID are last detected to
+    be using the same account ID
+- name: memory_gb
+  description: Array of key-value pairs representing the distribution of total system
+    RAM buckets (in GB) among Firefox Desktop clients.
+- name: metadata_app_version
+  description: The user-visible application version string from telemetry URI metadata
+    (e.g., '4.6', '4.5') as last observed for this client.
+- name: metric_name
+  description: The name of the engagement metric being summarized (e.g. 'active_ticks',
+    'uri_count', 'client_submission_latency', 'count_per_seq').
+- name: module_offset
+  description: The byte offset of the instruction pointer within the loaded module,
+    computed as instruction pointer minus module base address. Used as a key for symbol
+    lookups.
+- name: moz_crash_reason
+  description: The MOZ_CRASH() or MOZ_DIAGNOSTIC_ASSERT() reason string describing
+    why the crash was intentionally triggered (e.g., 'OOM', assertion messages).
+- name: multiplicative_terms
+  description: The multiplicative seasonality terms component. Always 0.0 in this
+    table.
+- name: multiplicative_terms_lower
+  description: Lower bound of multiplicative terms. Always 0.0 in this table.
+- name: multiplicative_terms_upper
+  description: Upper bound of multiplicative terms. Always 0.0 in this table.
+- name: name
+  description: Human-readable display name of the add-on (e.g. 'uBlock Origin', 'Form
+    Autofill').
+- name: nbr_cpu_cores
+  description: Count of CPU cores on device
+- name: nbr_events
+  description: Number of Events
+- name: nbr_unique_users
+  description: Number of Unique users (distinct client ids)
+- name: new_profile_metric_date
+  description: New Profile on Metric Date
+- name: new_profile_rate
+  description: Fraction of profiles created within the past 7 days relative to weekly
+    active users, representing the new-user growth rate.
+- name: new_profiles_metric_date
+  description: Count of New Profiles on Metric Date
+- name: newtab_visit_count
+  description: Total number of newtab visits recorded for this client on the submission
+    date.
+- name: newtab_visit_ended_at
+  description: Timestamp (in milliseconds since ping start) when the newtab tab was
+    closed. 0 for instantly-closed tabs; null (~2.0%) when no closed event was recorded.
+- name: newtab_visit_id
+  description: A UUID identifying a single newtab visit session, used to correlate
+    newtab.opened and newtab.closed events and all tile interactions within the same
+    visit.
+- name: newtab_visit_started_at
+  description: Timestamp (in milliseconds since ping start) when the newtab was opened/made
+    visible. 0 for a large fraction of visits (~91.6%) indicating preloaded tabs;
+    null (~0.9%) when no opened event was received.
+- name: newtab_weather_widget_enabled
+  description: Whether the weather widget was enabled on the newtab during this visit.
+    Null (~5.5%) when pref data was not received.
+- name: num_activated
+  description: The count of new Firefox profiles that were activated on day 6, meaning
+    clients who were seen on at least 5 of the first 7 days after their first-run
+    date. Represents successful early engagement.
+- name: num_clients_active_on_day
+  description: Count of cohort clients that were seen (days_seen_bits) on the submission_date.
+    A client counts as active if they sent any ping on that day.
+- name: numeric_index
+  description: A stable integer index assigned to each unique event type (category
+    + event pair) in ascending order of first occurrence, used for compact encoding
+    in events_daily.
+- name: oom_allocation_size
+  description: The size in bytes of the memory allocation that failed in an out-of-memory
+    crash. Null for non-OOM crashes.
+- name: organic_pocket_dismissals
+  description: Total number of organic (non-sponsored) Pocket tile dismissals by this
+    client on the submission date.
+- name: organic_topsite_clicks
+  description: Number of organic (non-sponsored) top-site tile clicks during this
+    newtab visit.
+- name: organic_topsite_dismissals
+  description: Number of organic top-site tile dismissals during this newtab visit.
+- name: organic_topsite_impressions
+  description: Number of organic (non-sponsored) top-site tile impressions during
+    this newtab visit.
+- name: organic_topsite_tile_clicks
+  description: Total number of organic (non-sponsored) top-site tile clicks by this
+    client on the submission date.
+- name: organic_topsite_tile_dismissals
+  description: Total number of organic top-site tile dismissals by this client on
+    the submission date.
+- name: organic_topsite_tile_impressions
+  description: Total number of organic top-site tile impressions for this client on
+    the submission date.
+- name: os_grouped
+  description: Grouped operating system name (e.g., 'Windows', 'Mac', 'Android', 'Linux',
+    'iOS', 'Other').
+- name: platform
+  description: The operating system platform where the crash occurred (e.g., 'Windows
+    NT', 'Android', 'Linux', 'Mac OS X').
+- name: pocket_story_position
+  description: 0-indexed position of the Pocket story tile interacted with during
+    this visit. Null (~37%) for visits with no story-position-specific interaction.
+- name: pocket_thumb_voting_events
+  description: Total number of thumbs-up or thumbs-down vote interactions on Pocket
+    tiles by this client on the submission date. Sum of pocket_thumbs_up and pocket_thumbs_down.
+- name: process_type
+  description: The Firefox process type in which the crash occurred (e.g., 'parent',
+    'content', 'gpu', 'rdd', 'socket').
+- name: processes
+  description: Array of distinct Firefox process types (e.g. 'parent', 'content',
+    'gpu') in which this metric was recorded across all clients.
+- name: qualified_second_day
+  description: Whether the profile qualified as DAU on any day after their first day
+    during their first 28 days.
+- name: qualified_week4
+  description: Whether the profile qualified as DAU on any day in their 4th week.
+- name: record
+  description: A struct holding the normalized (Dirichlet-smoothed) bucket count for
+    a single histogram bucket, where key is the bucket index as a string and value
+    is the aggregated normalized count across all clients.
+- name: regressor_00
+  description: The first external additive regressor value for date ds. Always 0.0
+    in this branch table.
+- name: regressor_00_lower
+  description: Lower bound of the first external regressor component. Always 0.0 in
+    this branch table.
+- name: regressor_00_upper
+  description: Upper bound of the first external regressor component. Always 0.0 in
+    this branch table.
+- name: repeat_profile
+  description: Repeat Profile
+- name: repeat_profiles
+  description: Count of Repeat Profiles
+- name: resolution
+  description: Array of key-value pairs representing the distribution of screen resolutions
+    (e.g., '1920x1080') among Firefox Desktop clients.
+- name: retained_week_4_new_profile
+  description: Retained Week 4 New Profile
+- name: retained_week_4_new_profiles
+  description: Count of New Profiles Retained on Week 4
+- name: returned_second_day
+  description: Whether the profile sent a main ping on any day after their first day
+    during their first 28 days.
+- name: row_count
+  description: The total number of client-day rows aggregated into this summary row.
+- name: save_count
+  description: The number of saves of this piece of content on this day in this position
+    via the "..." menu on the tile.
+- name: search_access_point
+  description: The access point from which a search was issued (e.g. 'urlbar_handoff',
+    'urlbar_persisted'). Null (~97%) for visits without a search.
+- name: search_engine
+  description: The normalized name of the search engine used during this newtab visit
+    (e.g. 'google-b-d', 'DuckDuckGo'). Null (~97%) for visits without a search.
+- name: segment
+  description: Classification of users based on their browsing activity. E.g., infrequent,
+    casual, regular.
+- name: signature
+  description: The Socorro-generated crash signature string identifying the crash
+    type (e.g., 'OOM | small', 'shutdownhang | ...').
+- name: silent
+  description: Silent
+- name: sponsored_pocket_dismissals
+  description: Total number of sponsored Pocket tile dismissals by this client on
+    the submission date.
+- name: sponsored_topsite_clicks
+  description: Number of sponsored top-site tile clicks during this newtab visit.
+- name: sponsored_topsite_dismissals
+  description: Number of sponsored top-site tile dismissals during this newtab visit.
+- name: sponsored_topsite_impressions
+  description: Number of sponsored top-site tile impressions during this newtab visit.
+- name: sponsored_topsite_tile_clicks
+  description: Total number of sponsored top-site tile clicks by this client on the
+    submission date.
+- name: sponsored_topsite_tile_dismissals
+  description: Total number of sponsored top-site tile dismissals by this client on
+    the submission date.
+- name: sponsored_topsite_tile_impressions
+  description: Total number of sponsored top-site tile impressions for this client
+    on the submission date.
+- name: submission_year
+  description: The calendar year extracted from submission_date, used as a partition
+    key for windowed aggregations within the ETL.
+- name: subsession_length
+  description: Length of this subsession in seconds; negative values indicate clock
+    issues.
+- name: succeeded
+  description: Succeeded
+- name: success
+  description: Count of clients that successfully received and applied the remote
+    content update.
+- name: sync_count_desktop
+  description: Number of desktop devices registered to the Firefox Sync account of
+    this client.
+- name: sync_count_mobile
+  description: Number of mobile devices registered to the Firefox Sync account of
+    this client.
+- name: system_is_wow64
+  description: Indicates whether the Firefox process is running under the WoW64 subsystem
+    (64-bit Windows hosting a 32-bit process). Null for approximately 16.5% of clients;
+    true for ~5% (sampled 2026-06-02).
+- name: system_memory_mb
+  description: Total RAM installed on the client machine in megabytes, as reported
+    by the operating system (e.g., 8192, 16384) (sampled 2026-06-02).
+- name: top_addons
+  description: Array of the most popular add-ons among active Firefox clients in this
+    country, each entry containing the add-on name and its adoption ratio.
+- name: top_locales
+  description: Array of the most common browser locales among active Firefox clients
+    in this country, each entry containing the locale code and its proportion.
+- name: topic_preferences_set
+  description: True if this client has saved at least one topic preference via the
+    topic selection modal on any newtab visit during the day.
+- name: topic_selection_dismissals
+  description: Total number of times the topic selection modal was dismissed without
+    saving topics by this client on the submission date.
+- name: topic_selection_opened
+  description: Total number of times the topic selection modal was opened by this
+    client on the submission date. Always 0 in sampled data (2026-06-02).
+- name: topic_selection_updates
+  description: Total number of topic preference save events by this client on the
+    submission date. Always 0 in sampled data (2026-06-02).
+- name: topsite_clicks
+  description: Number of top-site tile clicks (sponsored or organic) during this newtab
+    visit.
+- name: topsite_dismissals
+  description: Number of top-site tile dismissals during this newtab visit.
+- name: topsite_impressions
+  description: Number of top-site tile impressions during this newtab visit.
+- name: topsite_tile_clicks
+  description: Total number of top-site tile clicks (sponsored or organic) by this
+    client on the submission date.
+- name: topsite_tile_dismissals
+  description: Total number of top-site tile dismissals by this client on the submission
+    date.
+- name: topsite_tile_impressions
+  description: Total number of top-site tile impressions (tiles loaded/visible) for
+    this client on the submission date.
+- name: topsites_sponsored_tiles_configured
+  description: Number of sponsored top-site tile slots configured for the client (e.g.
+    3 or 4). Null (~20.6%) for clients on Firefox < 123 where this metric was not
+    yet collected.
+- name: tou_daily_active_users
+  description: The number of daily active users who have accepted the Terms of Use,
+    corresponding to the count of clients that reported at least one ping on the submission_date
+    and qualify as active.
+- name: tou_monthly_active_users
+  description: The number of monthly active users who have accepted the Terms of Use,
+    corresponding to the count of clients that reported at least one ping on the previous
+    28 days from the submission_date and qualify as active.
+- name: tou_weekly_active_users
+  description: The number of weekly active users who have accepted the Terms of Use,
+    corresponding to the count of clients that reported at least one ping on the previous
+    7 days from the submission_date and qualify as active.
+- name: trend
+  description: The trend component of the Prophet decomposition for date ds.
+- name: trend_lower
+  description: Lower bound of the trend component from the Prophet uncertainty interval.
+- name: trend_upper
+  description: Upper bound of the trend component from the Prophet uncertainty interval.
+- name: uninstall_to_install_ratio
+  description: Result of dividing uninstalls by installs
+- name: unit
+  description: The time granularity of the forecast data point, either 'day' for daily
+    values or 'month' for monthly aggregates.
+- name: user_agent
+  description: User Agent - i.e. the browser name
+- name: user_cancelled
+  description: User Cancelled - True if the installation failed because the user cancelled
+    or closed the window
+- name: visited_5_uri_dau
+  description: Daily active users who visited at least 5 distinct URIs on the submission
+    date.
+- name: visited_5_uri_mau
+  description: Monthly active users who visited at least 5 distinct URIs in a day
+    during the 28-day window, a proxy for engaged browsing activity.
+- name: visited_5_uri_wau
+  description: Weekly active users who visited at least 5 distinct URIs in a day during
+    the 7-day window.
+- name: visits_with_default_ui
+  description: Number of newtab visits where the default Firefox home/newtab UI was
+    active (about:home with homepage_category='enabled' or about:newtab with newtab_category='enabled').
+- name: visits_with_non_impression_engagement
+  description: Number of newtab visits this client had where at least one non-impression
+    action (click, search, or save) was performed.
+- name: visits_with_non_search_engagement
+  description: Number of newtab visits this client had where at least one non-search
+    action (click or save) was performed.
+- name: wallpaper_clicks
+  description: Total number of wallpaper selection clicks on the newtab page by this
+    client on the submission date.
+- name: weather_widget_change_display_to_detailed
+  description: Total number of times the weather widget was switched to detailed view
+    by this client on the submission date.
+- name: weather_widget_change_display_to_simple
+  description: Total number of times the weather widget was switched to simple view
+    by this client on the submission date.
+- name: weather_widget_clicks
+  description: Total number of clicks on the weather widget's provider link across
+    all clients and visits in this row.
+- name: weekly
+  description: The weekly seasonality component of the Prophet decomposition for date
+    ds.
+- name: weekly_lower
+  description: Lower bound of the weekly seasonality component.
+- name: weekly_upper
+  description: Upper bound of the weekly seasonality component.
+- name: yearly
+  description: The yearly seasonality component of the Prophet decomposition for date
+    ds.
+- name: yearly_lower
+  description: Lower bound of the yearly seasonality component.
+- name: yearly_upper
+  description: Upper bound of the yearly seasonality component.
+- name: yhat
+  description: The Prophet model's point forecast (predicted value) for the KPI metric
+    on date ds.
+- name: yhat_lower
+  description: Lower bound of the Prophet model uncertainty interval for the forecast
+    on date ds.
+- name: yhat_p10
+  description: The 10th percentile of the forecast distribution for the given date
+    and target; NULL for approximately 78% of rows (observed/non-forecast dates).
+- name: yhat_p20
+  description: The 20th percentile of the forecast distribution for the given date
+    and target; NULL for approximately 78% of rows (observed/non-forecast dates).
+- name: yhat_p30
+  description: The 30th percentile of the forecast distribution for the given date
+    and target; NULL for approximately 78% of rows (observed/non-forecast dates).
+- name: yhat_p40
+  description: The 40th percentile of the forecast distribution for the given date
+    and target; NULL for approximately 78% of rows (observed/non-forecast dates).
+- name: yhat_p5
+  description: The 5th percentile of the forecast distribution for the given date
+    and target; represents the lower bound of a 90% confidence interval. NULL for
+    approximately 77% of rows (observed/non-forecast dates).
+- name: yhat_p50
+  description: The 50th percentile (median) of the forecast distribution for the given
+    date and target; represents the central forecast estimate. NULL for approximately
+    78% of rows (observed/non-forecast dates).
+- name: yhat_p60
+  description: The 60th percentile of the forecast distribution for the given date
+    and target; NULL for approximately 78% of rows (observed/non-forecast dates).
+- name: yhat_p70
+  description: The 70th percentile of the forecast distribution for the given date
+    and target; NULL for approximately 77% of rows (observed/non-forecast dates).
+- name: yhat_p80
+  description: The 80th percentile of the forecast distribution for the given date
+    and target; NULL for approximately 77% of rows (observed/non-forecast dates).
+- name: yhat_p90
+  description: The 90th percentile of the forecast distribution for the given date
+    and target; represents the upper bound of an 80% confidence interval. NULL for
+    approximately 77% of rows.
+- name: yhat_p95
+  description: The 95th percentile of the forecast distribution for the given date
+    and target; represents the upper bound of a 90% confidence interval. NULL for
+    approximately 78% of rows.
+- name: yhat_upper
+  description: Upper bound of the Prophet model uncertainty interval for the forecast
+    on date ds.
