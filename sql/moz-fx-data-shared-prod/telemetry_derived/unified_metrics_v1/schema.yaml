@@ -16,6 +16,9 @@ fields:
 - mode: NULLABLE
   name: normalized_app_name
   type: STRING
+  description: The normalized name of the Mozilla browser application, e.g. 'Firefox
+    Desktop', 'Fenix', 'Firefox iOS', 'Focus Android'. BrowserStack clients are suffixed
+    with ' BrowserStack'.
 - mode: NULLABLE
   name: app_version
   type: STRING
@@ -31,18 +34,29 @@ fields:
 - mode: NULLABLE
   name: city
   type: STRING
+  description: The city associated with the client's IP address as determined by IP
+    geolocation. Null or '??' when city cannot be determined (sampled 2026-06-02).
 - mode: NULLABLE
   name: days_seen_bits
   type: INTEGER
+  description: A bit pattern representing the days within a 28-day window on which
+    the client was seen active (had at least one URI visit for desktop, or any qualifying
+    activity for mobile). The least significant bit represents the submission_date.
 - mode: NULLABLE
   name: days_since_first_seen
   type: INTEGER
+  description: The number of days elapsed between first_seen_date and submission_date,
+    indicating how long the client has been known to the pipeline.
 - mode: NULLABLE
   name: device_model
   type: STRING
+  description: The device model identifier for mobile clients (e.g. 'iPhone14,5',
+    'SM-G955U'). Null for Firefox Desktop clients (sampled 2026-06-02).
 - mode: NULLABLE
   name: is_new_profile
   type: BOOLEAN
+  description: True if submission_date equals first_seen_date, indicating the client
+    was first observed on this day and is a new profile.
 - mode: NULLABLE
   name: locale
   type: STRING
@@ -53,6 +67,9 @@ fields:
 - mode: NULLABLE
   name: days_since_seen
   type: INTEGER
+  description: The number of days since the client was last seen active, relative
+    to submission_date. A value of 0 means the client was active on the submission
+    date itself (sampled 2026-06-02).
 - mode: NULLABLE
   name: normalized_os
   type: STRING
@@ -60,6 +77,8 @@ fields:
 - mode: NULLABLE
   name: normalized_os_version
   type: STRING
+  description: The normalized version string of the operating system running on the
+    client, e.g. '10.0', '6.1', '16'. Derived from the telemetry environment.
 - mode: NULLABLE
   name: os_version_major
   type: INTEGER
@@ -73,9 +92,14 @@ fields:
 - mode: NULLABLE
   name: os_version_patch
   type: INTEGER
+  description: The patch (third) component of the OS version string. For example,
+    for '100.9.11', the patch is 11. Defaults to 0 when not present or parseable.
 - mode: NULLABLE
   name: durations
   type: NUMERIC
+  description: Total browsing session duration in hours for the client on the submission
+    date. For desktop, derived from subsession_hours_sum; for mobile, derived from
+    equivalent session duration metrics.
 - mode: NULLABLE
   name: submission_date
   type: DATE
@@ -83,6 +107,9 @@ fields:
 - mode: NULLABLE
   name: uri_count
   type: INTEGER
+  description: Total number of URIs visited by the client on the submission date.
+    For desktop, derived from the browser engagement scalar; null for Focus Android
+    and some mobile platforms (sampled 2026-06-02).
 - mode: NULLABLE
   name: is_default_browser
   type: BOOLEAN
@@ -95,39 +122,71 @@ fields:
 - mode: NULLABLE
   name: attribution_content
   type: STRING
+  description: The attribution content parameter from the Firefox installer, identifying
+    the specific link or creative within a campaign that led to the download. Desktop
+    only; null for mobile (sampled 2026-06-02).
 - mode: NULLABLE
   name: attribution_source
   type: STRING
+  description: The referring partner domain or source that directed the user to download
+    Firefox, e.g. 'www.google.com', 'www.bing.com'. Desktop only; null for mobile
+    (sampled 2026-06-02).
 - mode: NULLABLE
   name: attribution_medium
   type: STRING
+  description: The marketing medium that drove the Firefox install, e.g. 'referral',
+    'paidsearch', 'email'. Desktop only; null for mobile (sampled 2026-06-02).
 - mode: NULLABLE
   name: attribution_campaign
   type: STRING
+  description: The marketing campaign identifier that led to the Firefox install,
+    e.g. 'SET_DEFAULT_BROWSER', 'non-fx-button'. Desktop only; null for mobile (sampled
+    2026-06-02).
 - mode: NULLABLE
   name: attribution_experiment
   type: STRING
+  description: A funnel experiment parameter from the Firefox installer attribution,
+    used to track download-funnel experiments. Desktop only; null for mobile (sampled
+    2026-06-02).
 - mode: NULLABLE
   name: attribution_variation
   type: STRING
+  description: The variation arm of the installer funnel experiment, e.g. 'treatment'
+    or 'control'. Desktop only; null for mobile (sampled 2026-06-02).
 - mode: NULLABLE
   name: ad_click
   type: INTEGER
+  description: Total number of ad clicks recorded for the client on the submission
+    date, aggregated across all search engines. Null when no search data is available
+    (sampled 2026-06-02).
 - mode: NULLABLE
   name: organic_search_count
   type: INTEGER
+  description: Total number of organic (non-ad) searches performed by the client on
+    the submission date. Null when no search data is available (sampled 2026-06-02).
 - mode: NULLABLE
   name: search_count
   type: INTEGER
+  description: Total number of searches performed by the client on the submission
+    date, across all search engines and access points. Null when no search data is
+    available (sampled 2026-06-02).
 - mode: NULLABLE
   name: search_with_ads
   type: INTEGER
+  description: Total number of search result pages that contained ads, seen by the
+    client on the submission date. Null when no search data is available (sampled
+    2026-06-02).
 - mode: NULLABLE
   name: active_hours_sum
   type: FLOAT
+  description: Total hours the browser was actively used by the client on the submission
+    date (desktop only), derived from subsession_hours_sum. Null for mobile clients
+    (sampled 2026-06-02).
 - mode: NULLABLE
   name: days_created_profile_bits
   type: INTEGER
+  description: A bit pattern tracking on which days within a 28-day window the client's
+    profile was first created. Used to identify new profile creation trends over time.
 - mode: NULLABLE
   name: isp
   type: STRING
