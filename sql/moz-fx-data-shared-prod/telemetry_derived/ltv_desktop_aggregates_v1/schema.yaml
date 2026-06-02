@@ -6,24 +6,38 @@ fields:
 - mode: NULLABLE
   name: app_version
   type: INTEGER
+  description: The major version number of Firefox used by clients in this cohort,
+    e.g. 151 for Firefox 151.x.
 - mode: NULLABLE
   name: country
   type: STRING
+  description: Two-letter ISO 3166-1 alpha-2 country code for the country in which
+    the activity took place, as determined by IP geolocation.
 - mode: NULLABLE
   name: normalized_os
   type: STRING
+  description: The normalized name of the operating system running at the client,
+    e.g. 'Windows', 'Mac', 'Linux'.
 - mode: NULLABLE
   name: channel
   type: STRING
+  description: The Firefox release channel the client is on, e.g. 'release', 'esr',
+    'beta', 'nightly'.
 - mode: NULLABLE
   name: locale
   type: STRING
+  description: The locale of the Firefox application during initialization (e.g. 'en-US',
+    'de', 'fr').
 - mode: NULLABLE
   name: profile_creation_month
   type: DATE
+  description: The calendar month (truncated to the first day) when the Firefox profile
+    was created, derived from the profile creation date.
 - mode: NULLABLE
   name: default_search_engine
   type: STRING
+  description: The normalized default search engine name for clients in this cohort,
+    e.g. 'Google', 'DuckDuckGo', 'Bing', 'Other'.
 - mode: NULLABLE
   name: is_default_browser
   type: BOOLEAN
@@ -72,147 +86,205 @@ fields:
 - mode: REPEATED
   name: subsession_hours_sum_histogram
   type: FLOAT
+  description: Histogram of total browser subsession hours per client across cohort
+    members on this date, with one bucket per predefined percentile threshold (99
+    buckets using APPROX_QUANTILES).
 - mode: NULLABLE
   name: sessions_started_on_this_day_total
   type: INTEGER
 - mode: REPEATED
   name: sessions_started_on_this_day_histogram
   type: INTEGER
+  description: Histogram of the count of browser sessions started per client on this
+    submission_date across cohort members, with one bucket per predefined percentile
+    threshold.
 - mode: REPEATED
   name: active_addons_count_mean_histogram
   type: FLOAT
+  description: Histogram of the mean active add-on count per client across cohort
+    members on this date, with one bucket per predefined percentile threshold.
 - mode: REPEATED
   name: max_concurrent_tab_count_max_histogram
   type: INTEGER
+  description: Histogram of the maximum concurrent tab count per client across cohort
+    members on this date, with one bucket per predefined percentile threshold.
 - mode: REPEATED
   name: active_hours_sum_histogram
   type: FLOAT
+  description: Histogram of total active browsing hours per client across cohort members
+    on this date, with one bucket per predefined percentile threshold.
 - mode: REPEATED
   name: total_uri_count_histogram
   type: INTEGER
+  description: Histogram of total URI count per client across cohort members on this
+    date, with one bucket per predefined percentile threshold.
 - mode: NULLABLE
   name: organic_sum
   type: INTEGER
 - mode: REPEATED
   name: organic_histogram
   type: INTEGER
+  description: Histogram of organic search counts per client across cohort members
+    on this date, with one bucket per predefined percentile threshold.
 - mode: NULLABLE
   name: tagged_sap_sum
   type: INTEGER
 - mode: REPEATED
   name: tagged_sap_histogram
   type: INTEGER
+  description: Histogram of tagged search access point (SAP) search counts per client
+    across cohort members on this date, with one bucket per predefined percentile
+    threshold.
 - mode: NULLABLE
   name: tagged_follow_on_sum
   type: INTEGER
 - mode: REPEATED
   name: tagged_follow_on_histogram
   type: INTEGER
+  description: Histogram of tagged follow-on search counts per client across cohort
+    members on this date, with one bucket per predefined percentile threshold.
 - mode: NULLABLE
   name: sap_sum
   type: INTEGER
 - mode: REPEATED
   name: sap_histogram
   type: INTEGER
+  description: Histogram of total search access point (SAP) search counts per client
+    across cohort members on this date, with one bucket per predefined percentile
+    threshold.
 - mode: NULLABLE
   name: ad_click_sum
   type: INTEGER
 - mode: REPEATED
   name: ad_click_histogram
   type: INTEGER
+  description: Histogram of search ad click counts per client across cohort members
+    on this date, with one bucket per predefined percentile threshold.
 - mode: NULLABLE
   name: ad_click_organic_sum
   type: INTEGER
 - mode: REPEATED
   name: ad_click_organic_histogram
   type: INTEGER
+  description: Histogram of organic ad click counts per client across cohort members
+    on this date, with one bucket per predefined percentile threshold.
 - mode: NULLABLE
   name: search_with_ads_sum
   type: INTEGER
 - mode: REPEATED
   name: search_with_ads_histogram
   type: INTEGER
+  description: Histogram of SERP-page-with-ads visit counts per client across cohort
+    members on this date, with one bucket per predefined percentile threshold.
 - mode: NULLABLE
   name: newtab_visit_count_sum
   type: INTEGER
 - mode: REPEATED
   name: newtab_visit_count_histogram
   type: INTEGER
+  description: Histogram of new tab page visit counts per client across cohort members
+    on this date, with one bucket per predefined percentile threshold.
 - mode: NULLABLE
   name: visits_with_non_search_engagement_sum
   type: INTEGER
 - mode: REPEATED
   name: visits_with_non_search_engagement_histogram
   type: INTEGER
+  description: Histogram of new-tab visits with non-search engagement per client across
+    cohort members on this date, with one bucket per predefined percentile threshold.
 - mode: NULLABLE
   name: organic_topsite_tile_clicks_sum
   type: INTEGER
 - mode: REPEATED
   name: organic_topsite_tile_clicks_histogram
   type: INTEGER
+  description: Histogram of organic top-site tile click counts per client across cohort
+    members on this date, with one bucket per predefined percentile threshold.
 - mode: NULLABLE
   name: sponsored_topsite_tile_clicks_sum
   type: INTEGER
 - mode: REPEATED
   name: sponsored_topsite_tile_clicks_histogram
   type: INTEGER
+  description: Histogram of sponsored top-site tile click counts per client across
+    cohort members on this date, with one bucket per predefined percentile threshold.
 - mode: NULLABLE
   name: organic_topsite_tile_impressions_sum
   type: INTEGER
 - mode: REPEATED
   name: organic_topsite_tile_impressions_histogram
   type: INTEGER
+  description: Histogram of organic top-site tile impression counts per client across
+    cohort members on this date, with one bucket per predefined percentile threshold.
 - mode: NULLABLE
   name: sponsored_topsite_tile_impressions_sum
   type: INTEGER
 - mode: REPEATED
   name: sponsored_topsite_tile_impressions_histogram
   type: INTEGER
+  description: Histogram of sponsored top-site tile impression counts per client across
+    cohort members on this date, with one bucket per predefined percentile threshold.
 - mode: NULLABLE
   name: organic_topsite_tile_dismissals_sum
   type: INTEGER
 - mode: REPEATED
   name: organic_topsite_tile_dismissals_histogram
   type: INTEGER
+  description: Histogram of organic top-site tile dismissal counts per client across
+    cohort members on this date, with one bucket per predefined percentile threshold.
 - mode: NULLABLE
   name: sponsored_topsite_tile_dismissals_sum
   type: INTEGER
 - mode: REPEATED
   name: sponsored_topsite_tile_dismissals_histogram
   type: INTEGER
+  description: Histogram of sponsored top-site tile dismissal counts per client across
+    cohort members on this date, with one bucket per predefined percentile threshold.
 - mode: NULLABLE
   name: organic_stories_impressions_sum
   type: INTEGER
 - mode: REPEATED
   name: organic_stories_impressions_histogram
   type: INTEGER
+  description: Histogram of organic Pocket story impression counts per client across
+    cohort members on this date, with one bucket per predefined percentile threshold.
 - mode: NULLABLE
   name: sponsored_stories_impressions_sum
   type: INTEGER
 - mode: REPEATED
   name: sponsored_stories_impressions_histogram
   type: INTEGER
+  description: Histogram of sponsored Pocket story impression counts per client across
+    cohort members on this date, with one bucket per predefined percentile threshold.
 - mode: NULLABLE
   name: organic_stories_clicks_sum
   type: INTEGER
 - mode: REPEATED
   name: organic_stories_clicks_histogram
   type: INTEGER
+  description: Histogram of organic Pocket story click counts per client across cohort
+    members on this date, with one bucket per predefined percentile threshold.
 - mode: NULLABLE
   name: sponsored_stories_clicks_sum
   type: INTEGER
 - mode: REPEATED
   name: sponsored_stories_clicks_histogram
   type: INTEGER
+  description: Histogram of sponsored Pocket story click counts per client across
+    cohort members on this date, with one bucket per predefined percentile threshold.
 - mode: NULLABLE
   name: organic_stories_dismissals_sum
   type: INTEGER
 - mode: REPEATED
   name: organic_stories_dismissals_histogram
   type: INTEGER
+  description: Histogram of organic Pocket story dismissal counts per client across
+    cohort members on this date, with one bucket per predefined percentile threshold.
 - mode: NULLABLE
   name: sponsored_stories_dismissals_sum
   type: INTEGER
 - mode: REPEATED
   name: sponsored_stories_dismissals_histogram
   type: INTEGER
+  description: Histogram of sponsored Pocket story dismissal counts per client across
+    cohort members on this date, with one bucket per predefined percentile threshold.
