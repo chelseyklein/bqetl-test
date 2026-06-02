@@ -10,89 +10,144 @@ fields:
 - mode: NULLABLE
   name: block_nonsponsored_count
   type: INTEGER
+  description: Number of times the client blocked a non-sponsored Firefox Suggest
+    result on this date.
 - mode: NULLABLE
   name: block_sponsored_count
   type: INTEGER
+  description: Number of times the client blocked a sponsored Firefox Suggest result
+    on this date.
 - mode: NULLABLE
   name: block_nonsponsored_bestmatch_count
   type: INTEGER
+  description: Number of times the client blocked a non-sponsored Best Match result
+    on this date.
 - mode: NULLABLE
   name: block_sponsored_bestmatch_count
   type: INTEGER
+  description: Number of times the client blocked a sponsored Best Match result on
+    this date.
 - mode: NULLABLE
   name: click_nonsponsored_count
   type: INTEGER
+  description: Number of times the client clicked on a non-sponsored Firefox Suggest
+    result on this date.
 - mode: NULLABLE
   name: click_sponsored_count
   type: INTEGER
+  description: Number of times the client clicked on a sponsored Firefox Suggest result
+    on this date.
 - mode: NULLABLE
   name: click_nonsponsored_bestmatch_count
   type: INTEGER
+  description: Number of times the client clicked on a non-sponsored Best Match result
+    on this date.
 - mode: NULLABLE
   name: click_sponsored_bestmatch_count
   type: INTEGER
+  description: Number of times the client clicked on a sponsored Best Match result
+    on this date.
 - mode: NULLABLE
   name: help_nonsponsored_count
   type: INTEGER
+  description: Number of times the client clicked the help/info link for a non-sponsored
+    Suggest result on this date.
 - mode: NULLABLE
   name: help_sponsored_count
   type: INTEGER
+  description: Number of times the client clicked the help/info link for a sponsored
+    Suggest result on this date.
 - mode: NULLABLE
   name: help_nonsponsored_bestmatch_count
   type: INTEGER
+  description: Number of times the client clicked the help/info link for a non-sponsored
+    Best Match result on this date.
 - mode: NULLABLE
   name: help_sponsored_bestmatch_count
   type: INTEGER
+  description: Number of times the client clicked the help/info link for a sponsored
+    Best Match result on this date.
 - mode: NULLABLE
   name: impression_nonsponsored_count
   type: INTEGER
+  description: Number of times a non-sponsored Firefox Suggest result was displayed
+    to the client on this date.
 - mode: NULLABLE
   name: impression_sponsored_count
   type: INTEGER
+  description: Number of times a sponsored Firefox Suggest result was displayed to
+    the client on this date.
 - mode: NULLABLE
   name: impression_nonsponsored_bestmatch_count
   type: INTEGER
+  description: Number of times a non-sponsored Best Match result was displayed to
+    the client on this date.
 - mode: NULLABLE
   name: impression_sponsored_bestmatch_count
   type: INTEGER
+  description: Number of times a sponsored Best Match result was displayed to the
+    client on this date.
 - mode: NULLABLE
   name: user_pref_data_collection_enabled
   type: BOOLEAN
+  description: True if the user has opted in to Firefox Suggest data collection (telemetry
+    enabled for Suggest interactions).
 - mode: NULLABLE
   name: user_pref_sponsored_suggestions_enabled
   type: BOOLEAN
+  description: True if the user has enabled sponsored suggestions in Firefox Suggest
+    preferences.
 - mode: NULLABLE
   name: user_pref_firefox_suggest_enabled
   type: BOOLEAN
+  description: True if the Firefox Suggest feature is enabled in the user's preferences.
 - fields:
   - mode: NULLABLE
     name: version
     type: STRING
+    description: Full browser version string within the browser_version_info record
+      (e.g., '151.0.1').
   - mode: NULLABLE
     name: major_version
     type: NUMERIC
+    description: Major version number of the browser within the browser_version_info
+      record (e.g., 151).
   - mode: NULLABLE
     name: minor_version
     type: NUMERIC
+    description: Minor version number of the browser within the browser_version_info
+      record.
   - mode: NULLABLE
     name: patch_revision
     type: NUMERIC
+    description: Patch revision number of the browser within the browser_version_info
+      record.
   - mode: NULLABLE
     name: is_major_release
     type: BOOLEAN
+    description: True if this browser version is a major release; false for point
+      releases.
   mode: NULLABLE
   name: browser_version_info
   type: RECORD
+  description: Structured breakdown of the browser version, including major version,
+    minor version, patch revision, and a flag indicating whether it is a major release.
 - fields:
   - mode: NULLABLE
     name: key
     type: STRING
+    description: Experiment slug (identifier) for each active Nimbus experiment enrollment
+      within the experiments array.
   - mode: NULLABLE
     name: value
     type: STRING
+    description: Branch assignment for the experiment identified by experiments.key
+      within the experiments array.
   mode: REPEATED
   name: experiments
   type: RECORD
+  description: Array of Nimbus experiment enrollments active for this client on the
+    submission_date, each with an experiment slug key and branch value.
 - mode: NULLABLE
   name: locale
   type: STRING
@@ -104,6 +159,8 @@ fields:
 - mode: NULLABLE
   name: normalized_os_version
   type: STRING
+  description: The normalized version string of the operating system (e.g., '10.0'
+    for Windows 10).
 - mode: NULLABLE
   name: sample_id
   type: INTEGER
