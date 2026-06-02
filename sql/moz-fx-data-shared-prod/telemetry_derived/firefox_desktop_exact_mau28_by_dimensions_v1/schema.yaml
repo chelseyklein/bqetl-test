@@ -2,45 +2,76 @@ fields:
 - mode: NULLABLE
   name: submission_date
   type: DATE
+  description: The date when the telemetry ping is received on the server side.
 - mode: NULLABLE
   name: mau
   type: INTEGER
+  description: The number of monthly active users, corresponding to the count of clients
+    that reported at least one ping in the previous 28 days from the submission date.
 - mode: NULLABLE
   name: wau
   type: INTEGER
+  description: The number of weekly active users, corresponding to the count of clients
+    that reported at least one ping in the previous 7 days from the submission date.
 - mode: NULLABLE
   name: dau
   type: INTEGER
+  description: The number of daily active users, corresponding to the count of clients
+    that reported at least one qualifying ping on the submission date.
 - mode: NULLABLE
   name: visited_5_uri_mau
   type: INTEGER
+  description: Monthly active users who visited at least 5 distinct URIs in a day
+    during the 28-day window, a proxy for engaged browsing activity.
 - mode: NULLABLE
   name: visited_5_uri_wau
   type: INTEGER
+  description: Weekly active users who visited at least 5 distinct URIs in a day during
+    the 7-day window.
 - mode: NULLABLE
   name: visited_5_uri_dau
   type: INTEGER
+  description: Daily active users who visited at least 5 distinct URIs on the submission
+    date.
 - mode: NULLABLE
   name: id_bucket
   type: INTEGER
+  description: Integer bucket (0-19) derived from the client ID hash, used for 5%
+    sampling and scalable aggregation across 20 equal-sized buckets (sampled 2026-06-02).
 - mode: NULLABLE
   name: source
   type: STRING
+  description: GA4/attribution traffic source for the install (e.g. 'addons.mozilla.org',
+    'www.mozilla.org'). Null for ~14.4% of rows where attribution data is absent (sampled
+    2026-06-02).
 - mode: NULLABLE
   name: medium
   type: STRING
+  description: GA4/attribution traffic medium for the install (e.g. 'referral', 'cpc',
+    'firefox-desktop'). Null for ~14.4% of rows (sampled 2026-06-02).
 - mode: NULLABLE
   name: campaign
   type: STRING
+  description: GA4/attribution campaign for the install (e.g. 'SET_DEFAULT_BROWSER',
+    'non-fx-button'). Null for ~14.4% of rows (sampled 2026-06-02).
 - mode: NULLABLE
   name: content
   type: STRING
+  description: GA4/attribution content parameter for the install, used to distinguish
+    links within a campaign. Null for ~14.6% of rows (sampled 2026-06-02).
 - mode: NULLABLE
   name: country
   type: STRING
+  description: ISO 3166-1 alpha-2 country code for the client's location as determined
+    by IP geolocation (e.g. 'US', 'DE', 'CN') (sampled 2026-06-02).
 - mode: NULLABLE
   name: country_name
   type: STRING
+  description: Full English name of the country in which the activity took place,
+    as determined by IP geolocation (e.g. 'United States', 'Germany') (sampled 2026-06-02).
 - mode: NULLABLE
   name: distribution_id
   type: STRING
+  description: The distribution id associated with the install of Firefox (e.g. 'mozilla-win-eol-esr115',
+    'MozillaOnline'). Null for ~75.6% of rows representing direct or unattributed
+    installs (sampled 2026-06-02).
