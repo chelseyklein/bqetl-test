@@ -1,0 +1,114 @@
+fields:
+- name: subscription_id
+  description: The Stripe subscription identifier (e.g. 'sub_1LZXOfJNcmPzuWtRX6qIHqHA')
+    for an active Relay subscription on the active_date.
+- name: plan_amount
+  description: The price of the billing plan in the smallest currency unit (e.g. cents
+    for USD), as set in Stripe. For example, 1188 represents $11.88.
+- name: plan_currency
+  description: The ISO 4217 lowercase currency code for the plan (e.g. 'usd', 'eur',
+    'chf').
+- name: plan_id
+  description: The Stripe price/plan identifier (e.g. 'price_1JmRSRJNcmPzuWtRN9MG5cBy')
+    that uniquely identifies the billing plan subscribers are enrolled in.
+- name: plan_interval
+  description: The billing interval for the plan, either 'month' or 'year'.
+- name: plan_interval_count
+  description: The number of billing intervals between charges; for example, a value
+    of 1 with plan_interval 'month' means monthly billing.
+- name: pricing_plan
+  description: A human-readable composite key representing the full plan configuration,
+    formatted as '{interval_count}-{interval}-{currency}-{amount_in_major_units}'
+    (e.g. '1-year-usd-11.88').
+- name: product_id
+  description: The Stripe product identifier (e.g. 'prod_KGizMiBqUJdYoY') for the
+    Relay or bundled product the subscriber has purchased.
+- name: product_name
+  description: Human-readable name of the subscribed product (e.g. 'Relay Premium',
+    'Mozilla VPN & Firefox Relay', 'Relay - Phones').
+- name: promotion_codes
+  description: Array of promotional or discount codes applied to subscriptions in
+    this group. An empty array indicates no promotions were applied.
+- name: promotion_discounts_amount
+  description: Total discount amount applied through promotions, in the smallest currency
+    unit (e.g. cents). Zero indicates no promotional discount was applied.
+- name: provider
+  description: Payment provider used for the subscription, either 'Stripe' or 'Paypal'.
+- name: plan_amount
+  description: The price of the billing plan in the smallest currency unit (e.g. cents
+    for USD), as set in Stripe. For example, 1188 represents $11.88.
+- name: plan_currency
+  description: The ISO 4217 lowercase currency code for the plan (e.g. 'usd', 'eur',
+    'chf').
+- name: plan_id
+  description: The Stripe price/plan identifier (e.g. 'price_1JmRSRJNcmPzuWtRN9MG5cBy')
+    that uniquely identifies the billing plan associated with the event.
+- name: plan_interval
+  description: The billing interval for the plan, either 'month' or 'year'.
+- name: plan_interval_count
+  description: The number of billing intervals between charges; for example, a value
+    of 1 with plan_interval 'month' means monthly billing.
+- name: pricing_plan
+  description: A human-readable composite key representing the full plan configuration,
+    formatted as '{interval_count}-{interval}-{currency}-{amount_in_major_units}'
+    (e.g. '1-year-usd-11.88').
+- name: product_id
+  description: The Stripe product identifier (e.g. 'prod_KGizMiBqUJdYoY') for the
+    Relay or bundled product associated with the event.
+- name: product_name
+  description: Human-readable name of the subscribed product (e.g. 'Relay Premium',
+    'Mozilla VPN & Firefox Relay', 'Relay - Phones').
+- name: promotion_codes
+  description: Array of promotional or discount codes applied to subscriptions associated
+    with this event. An empty array indicates no promotions were applied.
+- name: provider
+  description: Payment provider used for the subscription, either 'Stripe' or 'Paypal'.
+- name: customer_id
+  description: The Stripe customer identifier (e.g. 'cus_MFFy4ibodsAQ0Z') uniquely
+    identifying the billing customer account associated with this subscription.
+- name: fxa_uid
+  description: The Firefox Accounts (FxA) user ID (SHA-256 hex string) associated
+    with the subscriber, used to link the subscription to an FxA account.
+- name: original_subscription_id
+  description: The original Stripe subscription ID before any plan changes; null when
+    no plan change has occurred (null in ~90% of rows sampled 2026-06-02). Used to
+    link successive plan segments back to the original subscription.
+- name: plan_amount
+  description: The price of the billing plan in the smallest currency unit (e.g. cents
+    for USD), as set in Stripe. For example, 1188 represents $11.88.
+- name: plan_currency
+  description: The ISO 4217 lowercase currency code for the plan (e.g. 'usd', 'eur',
+    'chf').
+- name: plan_id
+  description: The Stripe price/plan identifier (e.g. 'price_1JmRSRJNcmPzuWtRN9MG5cBy')
+    for the billing plan the subscriber is currently enrolled in.
+- name: plan_interval
+  description: The billing interval for the plan, either 'month' or 'year'.
+- name: plan_interval_count
+  description: The number of billing intervals between charges; all sampled subscriptions
+    had a value of 1 (sampled 2026-06-02), meaning billing occurs every single interval.
+- name: pricing_plan
+  description: A human-readable composite key representing the full plan configuration,
+    formatted as '{interval_count}-{interval}-{currency}-{amount_in_major_units}'
+    (e.g. '1-year-usd-11.88').
+- name: product_id
+  description: The Stripe product identifier (e.g. 'prod_KGizMiBqUJdYoY') for the
+    Relay or bundled product the subscriber has purchased.
+- name: product_name
+  description: Human-readable name of the subscribed product (e.g. 'Relay Premium',
+    'Mozilla VPN & Firefox Relay', 'Relay - Phones').
+- name: promotion_codes
+  description: Array of promotional or discount codes applied to this subscription.
+    An empty array indicates no promotions were applied.
+- name: promotion_discounts_amount
+  description: Total discount amount applied through promotions in the smallest currency
+    unit (e.g. cents). Null for ~98% of subscriptions with no promotional discount
+    (sampled 2026-06-02).
+- name: provider
+  description: Payment provider used for the subscription ('Stripe' or 'Paypal').
+    Null for ~4% of subscriptions where the provider could not be determined (sampled
+    2026-06-02).
+- name: subscription_id
+  description: The Stripe subscription identifier (e.g. 'sub_1LZXOfJNcmPzuWtRX6qIHqHA')
+    uniquely identifying this subscription record. For plan changes, a sequence suffix
+    (e.g. '-2') is appended to distinguish successive plan segments.
