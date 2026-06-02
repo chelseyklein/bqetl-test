@@ -2,6 +2,12 @@ fields:
 - mode: NULLABLE
   name: channel
   type: STRING
+  description: The Firefox release channel. One of 'release', 'beta', 'nightly', or
+    'esr', representing the four distribution channels tracked from the Mozilla product-details
+    API.
 - mode: NULLABLE
   name: latest_version
   type: NUMERIC
+  description: The latest major version number for Firefox on the given channel, sourced
+    from the Mozilla product-details API (https://product-details.mozilla.org/1.0/firefox_versions.json).
+    Refreshed on each ETL run.
