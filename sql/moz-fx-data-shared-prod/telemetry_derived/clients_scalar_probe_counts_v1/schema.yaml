@@ -10,6 +10,8 @@ fields:
 - name: app_build_id
   type: STRING
   mode: NULLABLE
+  description: The build ID of the application, identifying the specific Firefox build.
+    The sentinel value '*' indicates an aggregate across all build IDs.
 - name: channel
   type: STRING
   mode: NULLABLE
@@ -17,33 +19,58 @@ fields:
 - name: metric
   type: STRING
   mode: NULLABLE
+  description: The name of the scalar or keyed-scalar probe being aggregated, e.g.
+    'browser_ui_toolbar_widgets' or 'telemetry_event_counts'. (sampled 2026-06-02)
 - name: metric_type
   type: STRING
   mode: NULLABLE
+  description: The type of the scalar probe, one of 'scalar', 'keyed-scalar', 'boolean',
+    or 'keyed-scalar-boolean'. Determines how values are bucketed and interpreted.
 - name: key
   type: STRING
   mode: NULLABLE
+  description: The keyed-scalar sub-key identifying the specific dimension within
+    a keyed-scalar probe (e.g. a search engine name or a UI element). Empty string
+    for non-keyed scalars. (sampled 2026-06-02)
 - name: process
   type: STRING
   mode: NULLABLE
+  description: The Firefox process in which the probe was recorded, typically 'parent',
+    'content', or 'gpu'. (sampled 2026-06-02)
 - name: first_bucket
   type: INTEGER
   mode: NULLABLE
+  description: The lower bound of the first histogram bucket used for aggregation.
+    Always null in this table, which uses histogram-style bucketing derived dynamically
+    from min/max values.
 - name: last_bucket
   type: INTEGER
   mode: NULLABLE
+  description: The upper bound of the last histogram bucket. Always null in this table;
+    scalar bucket ranges are computed dynamically from observed min and max values.
 - name: num_buckets
   type: INTEGER
   mode: NULLABLE
+  description: The total number of histogram buckets. Always null in this table; scalar
+    probes use a fixed 100-bucket scheme generated from the observed data range.
 - name: client_agg_type
   type: STRING
   mode: NULLABLE
+  description: The per-client aggregation function applied to the scalar probe before
+    population bucketing, one of 'sum', 'min', 'max', 'count', 'avg', or empty string
+    for boolean probes.
 - name: agg_type
   type: STRING
   mode: NULLABLE
+  description: The population-level aggregation type applied across clients. Always
+    'histogram' in this table, indicating that client-level aggregates are binned
+    into a histogram.
 - name: total_users
   type: INTEGER
   mode: NULLABLE
+  description: The count of distinct clients contributing to this row's aggregation.
+    Windows release clients are upsampled by a factor of 10 to compensate for 10%
+    sampling.
 - name: aggregates
   type: RECORD
   mode: REPEATED
@@ -51,9 +78,18 @@ fields:
   - name: key
     type: STRING
     mode: NULLABLE
+    description: The bucket label (formatted to two decimal places for numeric scalars,
+      or 'always'/'never'/'sometimes' for boolean probes) within each entry of the
+      aggregates histogram array.
   - name: value
     type: FLOAT
     mode: NULLABLE
+    description: The weighted count of clients whose scalar probe value falls in this
+      bucket within each entry of the aggregates histogram array. Windows release
+      clients contribute 10 to account for sampling.
+  description: Normalized histogram of scalar probe values across the population,
+    where each entry maps a bucket label to the weighted count of clients falling
+    in that bucket.
 - name: non_norm_aggregates
   type: RECORD
   mode: REPEATED
@@ -61,6 +97,13 @@ fields:
   - name: key
     type: STRING
     mode: NULLABLE
+    description: The bucket label within each entry of the non_norm_aggregates histogram
+      array, formatted identically to aggregates.key.
   - name: value
     type: FLOAT
     mode: NULLABLE
+    description: The weighted client count per bucket within each entry of the non_norm_aggregates
+      histogram array, without normalization.
+  description: Non-normalized version of the scalar probe histogram, identical in
+    structure to aggregates but without any normalization applied. Used for raw population
+    distribution analysis.
