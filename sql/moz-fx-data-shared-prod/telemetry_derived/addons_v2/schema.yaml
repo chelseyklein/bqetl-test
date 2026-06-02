@@ -19,6 +19,8 @@ fields:
 - name: subsession_start_date
   type: STRING
   mode: NULLABLE
+  description: ISO 8601 timestamp string indicating the start of the browser subsession
+    during which the add-on data was collected.
 - name: normalized_channel
   type: STRING
   mode: NULLABLE
@@ -26,18 +28,28 @@ fields:
 - name: addon_id
   type: STRING
   mode: NULLABLE
+  description: Unique identifier string for the add-on (e.g. 'uBlock0@raymondhill.net',
+    'formautofill@mozilla.org').
 - name: blocklisted
   type: BOOLEAN
   mode: NULLABLE
+  description: True if the add-on is on Mozilla's blocklist due to security or policy
+    violations; false otherwise.
 - name: name
   type: STRING
   mode: NULLABLE
+  description: Human-readable display name of the add-on (e.g. 'uBlock Origin', 'Form
+    Autofill').
 - name: user_disabled
   type: BOOLEAN
   mode: NULLABLE
+  description: True if the user has explicitly disabled this add-on; false if it is
+    enabled.
 - name: app_disabled
   type: BOOLEAN
   mode: NULLABLE
+  description: True if Firefox has disabled this add-on due to compatibility issues
+    (e.g. version mismatch or dependency failure); false otherwise.
 - name: version
   type: STRING
   mode: NULLABLE
@@ -45,33 +57,52 @@ fields:
 - name: scope
   type: INTEGER
   mode: NULLABLE
+  description: 'Integer code indicating the install scope of the add-on: 1=profile,
+    2=user, 4=application, 8=system, 16=profile defaults.'
 - name: type
   type: STRING
   mode: NULLABLE
+  description: The type of the add-on, typically 'extension', 'dictionary', 'locale',
+    or 'service'.
 - name: foreign_install
   type: BOOLEAN
   mode: NULLABLE
+  description: True if the add-on was installed by an external process rather than
+    through the Firefox UI; false if installed by the user.
 - name: has_binary_components
   type: BOOLEAN
   mode: NULLABLE
+  description: True if the add-on contains native binary components; always false
+    since Firefox 60.
 - name: install_day
   type: INTEGER
   mode: NULLABLE
+  description: The days since Unix epoch (1970-01-01) when the add-on was first installed.
 - name: update_day
   type: INTEGER
   mode: NULLABLE
+  description: The days since Unix epoch when the add-on was last updated.
 - name: signed_state
   type: INTEGER
   mode: NULLABLE
+  description: 'Integer indicating the AMO signature state: 2=signed, 3=system, 4=preliminary,
+    -1=unknown, 0=unsigned, 1=obsolete, -2=broken. Null for system add-ons that are
+    not AMO-signed (sampled 2026-06-02).'
 - name: is_system
   type: BOOLEAN
   mode: NULLABLE
+  description: True if the add-on is a Firefox system add-on bundled with the browser;
+    false for user-installed add-ons.
 - name: is_web_extension
   type: BOOLEAN
   mode: NULLABLE
+  description: True if the add-on uses the WebExtensions API; false for legacy XUL/XPCOM
+    add-ons.
 - name: multiprocess_compatible
   type: BOOLEAN
   mode: NULLABLE
+  description: True if the add-on is compatible with Firefox's multi-process (e10s)
+    mode; always true since Firefox 61.
 - name: profile_group_id
   type: STRING
   mode: NULLABLE
