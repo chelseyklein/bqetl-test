@@ -421,131 +421,163 @@ fields:
   mode: NULLABLE
   name: gfx_features_gpu_process_status
   type: STRING
-- description: null
+- description: Total number of times the 'about:debugging' DevTools panel was opened
+    on the submission date.
   mode: NULLABLE
   name: histogram_parent_devtools_aboutdebugging_opened_count_sum
   type: INTEGER
-- description: null
+- description: Total number of times the Animation Inspector DevTools panel was opened
+    on the submission date.
   mode: NULLABLE
   name: histogram_parent_devtools_animationinspector_opened_count_sum
   type: INTEGER
-- description: null
+- description: Total number of times the Browser Console DevTools panel was opened
+    on the submission date.
   mode: NULLABLE
   name: histogram_parent_devtools_browserconsole_opened_count_sum
   type: INTEGER
-- description: null
+- description: Total number of times the Canvas Debugger DevTools panel was opened
+    on the submission date.
   mode: NULLABLE
   name: histogram_parent_devtools_canvasdebugger_opened_count_sum
   type: INTEGER
-- description: null
+- description: Total number of times the Computed View CSS panel was opened in DevTools
+    on the submission date.
   mode: NULLABLE
   name: histogram_parent_devtools_computedview_opened_count_sum
   type: INTEGER
-- description: null
+- description: Total number of times a custom DevTools panel was opened on the submission
+    date.
   mode: NULLABLE
   name: histogram_parent_devtools_custom_opened_count_sum
   type: INTEGER
-- description: null
+- description: Total number of times the legacy Developer Toolbar was opened on the
+    submission date.
   mode: NULLABLE
   name: histogram_parent_devtools_developertoolbar_opened_count_sum
   type: INTEGER
-- description: null
+- description: Total number of times the DOM Inspector DevTools panel was opened on
+    the submission date.
   mode: NULLABLE
   name: histogram_parent_devtools_dom_opened_count_sum
   type: INTEGER
-- description: null
+- description: Total number of times the color picker Eyedropper tool was opened in
+    DevTools on the submission date.
   mode: NULLABLE
   name: histogram_parent_devtools_eyedropper_opened_count_sum
   type: INTEGER
-- description: null
+- description: Total number of times the Font Inspector DevTools panel was opened
+    on the submission date.
   mode: NULLABLE
   name: histogram_parent_devtools_fontinspector_opened_count_sum
   type: INTEGER
-- description: null
+- description: Total number of times the DevTools Inspector (element inspector) panel
+    was opened on the submission date.
   mode: NULLABLE
   name: histogram_parent_devtools_inspector_opened_count_sum
   type: INTEGER
-- description: null
+- description: Total number of times the Browser JS Debugger was opened on the submission
+    date.
   mode: NULLABLE
   name: histogram_parent_devtools_jsbrowserdebugger_opened_count_sum
   type: INTEGER
-- description: null
+- description: Total number of times the JavaScript Debugger DevTools panel was opened
+    on the submission date.
   mode: NULLABLE
   name: histogram_parent_devtools_jsdebugger_opened_count_sum
   type: INTEGER
-- description: null
+- description: Total number of times the JavaScript Profiler DevTools panel was opened
+    on the submission date.
   mode: NULLABLE
   name: histogram_parent_devtools_jsprofiler_opened_count_sum
   type: INTEGER
-- description: null
+- description: Total number of times the Layout View (box model) panel was opened
+    in DevTools on the submission date.
   mode: NULLABLE
   name: histogram_parent_devtools_layoutview_opened_count_sum
   type: INTEGER
-- description: null
+- description: Total number of times the Memory DevTools panel was opened on the submission
+    date.
   mode: NULLABLE
   name: histogram_parent_devtools_memory_opened_count_sum
   type: INTEGER
-- description: null
+- description: Total number of times the Eyedropper was opened from the browser menu
+    on the submission date.
   mode: NULLABLE
   name: histogram_parent_devtools_menu_eyedropper_opened_count_sum
   type: INTEGER
-- description: null
+- description: Total number of times the Network Monitor DevTools panel was opened
+    on the submission date.
   mode: NULLABLE
   name: histogram_parent_devtools_netmonitor_opened_count_sum
   type: INTEGER
-- description: null
+- description: Total number of times the DevTools Options/Settings panel was opened
+    on the submission date.
   mode: NULLABLE
   name: histogram_parent_devtools_options_opened_count_sum
   type: INTEGER
-- description: null
+- description: Total number of times the Paint Flashing overlay was activated in DevTools
+    on the submission date.
   mode: NULLABLE
   name: histogram_parent_devtools_paintflashing_opened_count_sum
   type: INTEGER
-- description: null
+- description: Total number of times the CSS color picker Eyedropper was used via
+    the color picker in DevTools on the submission date.
   mode: NULLABLE
   name: histogram_parent_devtools_picker_eyedropper_opened_count_sum
   type: INTEGER
-- description: null
+- description: Total number of times the Responsive Design Mode was opened in DevTools
+    on the submission date.
   mode: NULLABLE
   name: histogram_parent_devtools_responsive_opened_count_sum
   type: INTEGER
-- description: null
+- description: Total number of times the CSS Rules View panel was opened in DevTools
+    on the submission date.
   mode: NULLABLE
   name: histogram_parent_devtools_ruleview_opened_count_sum
   type: INTEGER
-- description: null
+- description: Total number of times the Scratchpad JavaScript editor was opened in
+    DevTools on the submission date.
   mode: NULLABLE
   name: histogram_parent_devtools_scratchpad_opened_count_sum
   type: INTEGER
-- description: null
+- description: Total number of times the Scratchpad window was opened from DevTools
+    on the submission date.
   mode: NULLABLE
   name: histogram_parent_devtools_scratchpad_window_opened_count_sum
   type: INTEGER
-- description: null
+- description: Total number of times the Shader Editor DevTools panel was opened on
+    the submission date.
   mode: NULLABLE
   name: histogram_parent_devtools_shadereditor_opened_count_sum
   type: INTEGER
-- description: null
+- description: Total number of times the Storage Inspector DevTools panel was opened
+    on the submission date.
   mode: NULLABLE
   name: histogram_parent_devtools_storage_opened_count_sum
   type: INTEGER
-- description: null
+- description: Total number of times the Style Editor DevTools panel was opened on
+    the submission date.
   mode: NULLABLE
   name: histogram_parent_devtools_styleeditor_opened_count_sum
   type: INTEGER
-- description: null
+- description: Total number of times the Web Audio Editor DevTools panel was opened
+    on the submission date.
   mode: NULLABLE
   name: histogram_parent_devtools_webaudioeditor_opened_count_sum
   type: INTEGER
-- description: null
+- description: Total number of times the Web Console DevTools panel was opened on
+    the submission date.
   mode: NULLABLE
   name: histogram_parent_devtools_webconsole_opened_count_sum
   type: INTEGER
-- description: null
+- description: Total number of times the WebIDE DevTools panel was opened on the submission
+    date.
   mode: NULLABLE
   name: histogram_parent_devtools_webide_opened_count_sum
   type: INTEGER
-- description: null
+- description: Year in which the operating system was installed on the client device
+    (Windows only). Null for non-Windows or if unavailable (sampled 2026-05-29).
   mode: NULLABLE
   name: install_year
   type: INTEGER
@@ -554,7 +586,9 @@ fields:
   mode: NULLABLE
   name: is_default_browser
   type: BOOLEAN
-- description: null
+- description: True if the Firefox process is running under the WoW64 (32-bit process
+    on 64-bit Windows) subsystem; false otherwise. Null for non-Windows clients (sampled
+    2026-05-29).
   mode: NULLABLE
   name: is_wow64
   type: BOOLEAN
@@ -562,7 +596,7 @@ fields:
   mode: NULLABLE
   name: locale
   type: STRING
-- description: null
+- description: Total physical RAM in megabytes available on the client device.
   mode: NULLABLE
   name: memory_mb
   type: INTEGER
@@ -570,7 +604,8 @@ fields:
   mode: NULLABLE
   name: normalized_channel
   type: STRING
-- description: null
+- description: Normalized version string of the client's operating system (e.g. '10.0'
+    for Windows 10, '6.1' for Windows 7).
   mode: NULLABLE
   name: normalized_os_version
   type: STRING
@@ -578,63 +613,75 @@ fields:
   mode: NULLABLE
   name: os
   type: STRING
-- description: null
+- description: Windows Service Pack major version (e.g. 1 for SP1). Zero if no service
+    pack is installed. Null for non-Windows clients (sampled 2026-05-29).
   mode: NULLABLE
   name: os_service_pack_major
   type: INTEGER
-- description: null
+- description: Windows Service Pack minor version. Null for non-Windows clients (sampled
+    2026-05-29).
   mode: NULLABLE
   name: os_service_pack_minor
   type: INTEGER
-- description: null
+- description: Version string of the operating system (e.g. '10.0' for Windows 10,
+    '24.6.0' for Linux kernel).
   mode: NULLABLE
   name: os_version
   type: STRING
-- description: null
+- description: Number of main pings from this client aggregated into this single row
+    for the submission date.
   mode: NULLABLE
   name: pings_aggregated_by_this_row
   type: INTEGER
-- description: null
+- description: Mean number of bookmarks in the client's Places database across subsessions
+    on the submission date.
   mode: NULLABLE
   name: places_bookmarks_count_mean
   type: FLOAT
-- description: null
+- description: Mean number of pages in the client's Places history database across
+    subsessions on the submission date.
   mode: NULLABLE
   name: places_pages_count_mean
   type: FLOAT
-- description: null
+- description: Total number of plugin process hangs detected on the submission date.
   mode: NULLABLE
   name: plugin_hangs_sum
   type: INTEGER
-- description: null
+- description: Total number of times the user clicked 'Allow' in the plugin activation
+    infobar on the submission date.
   mode: NULLABLE
   name: plugins_infobar_allow_sum
   type: INTEGER
-- description: null
+- description: Total number of times the user clicked 'Block' in the plugin activation
+    infobar on the submission date.
   mode: NULLABLE
   name: plugins_infobar_block_sum
   type: INTEGER
-- description: null
+- description: Total number of times the plugin activation infobar was shown to the
+    user on the submission date.
   mode: NULLABLE
   name: plugins_infobar_shown_sum
   type: INTEGER
-- description: null
+- description: Total number of plugin permission notification prompts shown to the
+    user on the submission date.
   mode: NULLABLE
   name: plugins_notification_shown_sum
   type: INTEGER
-- description: null
+- description: Build ID of the previous Firefox installation, present when the client
+    has recently updated. Null for new installs (sampled 2026-05-29).
   mode: NULLABLE
   name: previous_build_id
   type: STRING
-- description: null
+- description: Age of the Firefox profile in days as of the submission date.
   mode: NULLABLE
   name: profile_age_in_days
   type: INTEGER
-- description: null
+- description: Timestamp string of the date when the Firefox profile was created.
   mode: NULLABLE
   name: profile_creation_date
   type: STRING
-- description: null
+- description: Total number of Web Push API notifications received by the client on
+    the submission date.
   mode: NULLABLE
   name: push_api_notify_sum
   type: INTEGER
@@ -642,79 +689,96 @@ fields:
   mode: NULLABLE
   name: sample_id
   type: INTEGER
-- description: null
+- description: The effective content sandbox security level active during the session
+    (OS-dependent integer, higher values indicate stricter sandboxing).
   mode: NULLABLE
   name: sandbox_effective_content_process_level
   type: INTEGER
-- description: null
+- description: Total number of WebRTC ICE STUN retransmits on the submission date.
   mode: NULLABLE
   name: scalar_combined_webrtc_nicer_stun_retransmits_sum
   type: INTEGER
-- description: null
+- description: Total number of 401 (Unauthorized) errors received from TURN servers
+    during WebRTC sessions on the submission date.
   mode: NULLABLE
   name: scalar_combined_webrtc_nicer_turn_401s_sum
   type: INTEGER
-- description: null
+- description: Total number of 403 (Forbidden) errors received from TURN servers during
+    WebRTC sessions on the submission date.
   mode: NULLABLE
   name: scalar_combined_webrtc_nicer_turn_403s_sum
   type: INTEGER
-- description: null
+- description: Total number of 438 (Stale Nonce) errors received from TURN servers
+    during WebRTC sessions on the submission date.
   mode: NULLABLE
   name: scalar_combined_webrtc_nicer_turn_438s_sum
   type: INTEGER
-- description: null
+- description: Total number of navigator.storage.estimate() API calls made from content
+    processes on the submission date.
   mode: NULLABLE
   name: scalar_content_navigator_storage_estimate_count_sum
   type: INTEGER
-- description: null
+- description: Total number of navigator.storage.persist() API calls made from content
+    processes on the submission date.
   mode: NULLABLE
   name: scalar_content_navigator_storage_persist_count_sum
   type: INTEGER
-- description: null
+- description: Version string from the Websense security software registry key, reported
+    by the AUSHelper component. Null if not present (sampled 2026-05-29).
   mode: NULLABLE
   name: scalar_parent_aushelper_websense_reg_version
   type: STRING
-- description: null
+- description: Maximum number of tabs open simultaneously across all windows on the
+    submission date.
   mode: NULLABLE
   name: scalar_parent_browser_engagement_max_concurrent_tab_count_max
   type: INTEGER
-- description: null
+- description: Maximum number of browser windows open simultaneously on the submission
+    date.
   mode: NULLABLE
   name: scalar_parent_browser_engagement_max_concurrent_window_count_max
   type: INTEGER
-- description: null
+- description: Total number of new tabs opened by the user on the submission date.
   mode: NULLABLE
   name: scalar_parent_browser_engagement_tab_open_event_count_sum
   type: INTEGER
-- description: null
+- description: Total number of distinct URIs loaded in normal browsing mode on the
+    submission date (excluding private windows).
   mode: NULLABLE
   name: scalar_parent_browser_engagement_total_uri_count_sum
   type: INTEGER
-- description: null
+- description: Total number of URIs loaded including internal pages like about:newtab,
+    counting all page loads unfiltered.
   mode: NULLABLE
   name: scalar_parent_browser_engagement_unfiltered_uri_count_sum
   type: INTEGER
-- description: null
+- description: Maximum number of unique eTLD+1 domains visited in a single subsession
+    on the submission date.
   mode: NULLABLE
   name: scalar_parent_browser_engagement_unique_domains_count_max
   type: INTEGER
-- description: null
+- description: Mean number of unique eTLD+1 domains visited across subsessions on
+    the submission date.
   mode: NULLABLE
   name: scalar_parent_browser_engagement_unique_domains_count_mean
   type: FLOAT
-- description: null
+- description: Total number of new browser windows opened by the user on the submission
+    date.
   mode: NULLABLE
   name: scalar_parent_browser_engagement_window_open_event_count_sum
   type: INTEGER
-- description: null
+- description: Total number of accessibility nodes inspected via DevTools on the submission
+    date.
   mode: NULLABLE
   name: scalar_parent_devtools_accessibility_node_inspected_count_sum
   type: INTEGER
-- description: null
+- description: Total number of times the Accessibility Inspector DevTools panel was
+    opened on the submission date.
   mode: NULLABLE
   name: scalar_parent_devtools_accessibility_opened_count_sum
   type: INTEGER
-- description: null
+- description: Total number of times the Accessibility Picker tool was activated in
+    DevTools on the submission date.
   mode: NULLABLE
   name: scalar_parent_devtools_accessibility_picker_used_count_sum
   type: INTEGER
@@ -731,35 +795,43 @@ fields:
   mode: REPEATED
   name: scalar_parent_devtools_accessibility_select_accessible_for_node_sum
   type: RECORD
-- description: null
+- description: Total number of times the accessibility service was enabled via DevTools
+    on the submission date.
   mode: NULLABLE
   name: scalar_parent_devtools_accessibility_service_enabled_count_sum
   type: INTEGER
-- description: null
+- description: Total number of times the 'Copy Full CSS Selector' DevTools feature
+    was used on the submission date.
   mode: NULLABLE
   name: scalar_parent_devtools_copy_full_css_selector_opened_sum
   type: INTEGER
-- description: null
+- description: Total number of times the 'Copy Unique CSS Selector' DevTools feature
+    was used on the submission date.
   mode: NULLABLE
   name: scalar_parent_devtools_copy_unique_css_selector_opened_sum
   type: INTEGER
-- description: null
+- description: Total number of times the Eyedropper tool was opened from the DevTools
+    toolbar on the submission date.
   mode: NULLABLE
   name: scalar_parent_devtools_toolbar_eyedropper_opened_sum
   type: INTEGER
-- description: null
+- description: Total number of content processes that became troubled due to memory
+    pressure on the submission date.
   mode: NULLABLE
   name: scalar_parent_dom_contentprocess_troubled_due_to_memory_sum
   type: INTEGER
-- description: null
+- description: Total number of navigator.storage.estimate() API calls made from the
+    parent process on the submission date.
   mode: NULLABLE
   name: scalar_parent_navigator_storage_estimate_count_sum
   type: INTEGER
-- description: null
+- description: Total number of navigator.storage.persist() API calls made from the
+    parent process on the submission date.
   mode: NULLABLE
   name: scalar_parent_navigator_storage_persist_count_sum
   type: INTEGER
-- description: null
+- description: Total number of extensions that used the Storage Sync API on the submission
+    date.
   mode: NULLABLE
   name: scalar_parent_storage_sync_api_usage_extensions_using_sum
   type: INTEGER
