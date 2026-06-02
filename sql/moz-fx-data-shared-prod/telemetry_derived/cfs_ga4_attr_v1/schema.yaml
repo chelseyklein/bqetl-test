@@ -11,18 +11,25 @@ fields:
 - name: first_seen_date
   type: DATE
   mode: NULLABLE
+  description: Date when the server first received a ping from this client, i.e. the
+    client's first-seen date.
 - name: second_seen_date
   type: DATE
   mode: NULLABLE
+  description: Date when the server received the second ping from this client. Null
+    if the client has only been seen once (sampled 2026-06-02).
 - name: architecture
   type: STRING
   mode: NULLABLE
+  description: CPU architecture of the client device (e.g. 'x86-64', 'aarch64', 'x86').
 - name: app_build_id
   type: STRING
   mode: NULLABLE
+  description: The build ID of the Firefox application (format YYYYMMDDHHMMSS).
 - name: app_name
   type: STRING
   mode: NULLABLE
+  description: The name of the application (always 'Firefox' for this table).
 - name: locale
   type: STRING
   mode: NULLABLE
@@ -30,9 +37,12 @@ fields:
 - name: platform_version
   type: STRING
   mode: NULLABLE
+  description: The version of the XULRunner platform bundled with Firefox (typically
+    matches app_version).
 - name: vendor
   type: STRING
   mode: NULLABLE
+  description: The application vendor (always 'Mozilla' for Firefox builds).
 - name: app_version
   type: STRING
   mode: NULLABLE
@@ -40,6 +50,8 @@ fields:
 - name: xpcom_abi
   type: STRING
   mode: NULLABLE
+  description: The binary ABI identifier for the build, combining processor and compiler
+    (e.g. 'x86_64-msvc', 'x86_64-gcc3').
 - name: document_id
   type: STRING
   mode: NULLABLE
@@ -51,66 +63,109 @@ fields:
 - name: partner_distribution_version
   type: STRING
   mode: NULLABLE
+  description: Version string of the partner distribution package (e.g. '1.0', '2023.6').
+    Null for non-distribution installs (sampled 2026-06-02).
 - name: partner_distributor
   type: STRING
   mode: NULLABLE
+  description: Name of the distribution partner (e.g. 'canonical', 'mint', 'mozillaonline').
+    Null for non-distribution installs (sampled 2026-06-02).
 - name: partner_distributor_channel
   type: STRING
   mode: NULLABLE
+  description: The distribution channel within the partner's distribution system (e.g.
+    'ubuntu', 'firefox'). Null for non-distribution installs (sampled 2026-06-02).
 - name: partner_id
   type: STRING
   mode: NULLABLE
+  description: Identifier of the partner associated with the Firefox distribution
+    (e.g. 'ubuntu', 'mint'). Null for non-distribution installs (sampled 2026-06-02).
 - name: attribution_campaign
   type: STRING
   mode: NULLABLE
+  description: The attribution campaign identifier from the Firefox installer (similar
+    to UTM campaign).
 - name: attribution_content
   type: STRING
   mode: NULLABLE
+  description: The attribution content identifier from the Firefox installer (similar
+    to UTM content).
 - name: attribution_dltoken
   type: STRING
   mode: NULLABLE
+  description: Unique download token created at Firefox download time to associate
+    an install event with its download (sampled 2026-06-02).
 - name: attribution_dlsource
   type: STRING
   mode: NULLABLE
+  description: Identifier indicating the source of the Firefox download (e.g. 'mozillaci',
+    'fxdotcom', 'mozorg'). Null if not available (sampled 2026-06-02).
 - name: attribution_experiment
   type: STRING
   mode: NULLABLE
+  description: The attribution experiment key recorded at install time.
 - name: attribution_medium
   type: STRING
   mode: NULLABLE
+  description: The attribution medium recorded at install time (similar to UTM medium).
 - name: attribution_source
   type: STRING
   mode: NULLABLE
+  description: The referring partner domain or source recorded at install time (similar
+    to UTM source).
 - name: attribution_ua
   type: STRING
   mode: NULLABLE
+  description: The derived user agent browser type at install time (e.g. 'chrome',
+    'edge', 'firefox'). Null if not detected (sampled 2026-06-02).
 - name: attribution_variation
   type: STRING
   mode: NULLABLE
+  description: The attribution variation key recorded at install time, used to distinguish
+    experiment arms.
 - name: engine_data_load_path
   type: STRING
   mode: NULLABLE
+  description: The anonymized load path of the default search engine XML file (e.g.
+    '[app]google', '[addon]google@search.mozilla.org').
 - name: engine_data_name
   type: STRING
   mode: NULLABLE
+  description: The display name of the client's default search engine (e.g. 'Google',
+    '百度', 'DuckDuckGo').
 - name: engine_data_origin
   type: STRING
   mode: NULLABLE
+  description: 'Origin classification of the default search engine: ''default'' for
+    built-in or partner engines, ''verified'' for user-installed engines with valid
+    hashes, ''invalid'' for broken hashes. Null if no search engine is configured
+    (sampled 2026-06-02).'
 - name: engine_data_submission_url
   type: STRING
   mode: NULLABLE
+  description: The HTTP search submission URL used by the default search engine (e.g.
+    'https://www.google.com/search?client=firefox-b-d&q='). Null for user-installed
+    engines (for privacy).
 - name: apple_model_id
   type: STRING
   mode: NULLABLE
+  description: The Apple hardware model identifier for macOS clients (e.g. 'MacBookAir10,1').
+    Null for non-Apple devices (sampled 2026-06-02).
 - name: city
   type: STRING
   mode: NULLABLE
+  description: Name of the city in which the activity took place, as determined by
+    IP geolocation.
 - name: db_version
   type: STRING
   mode: NULLABLE
+  description: Version timestamp of the GeoIP database used for geolocation lookup
+    (e.g. '2026-05-22T09:58:02Z').
 - name: subdivision1
   type: STRING
   mode: NULLABLE
+  description: First major country subdivision (state, province, or equivalent) derived
+    from IP geolocation.
 - name: isp_name
   type: STRING
   mode: NULLABLE
@@ -132,42 +187,72 @@ fields:
 - name: normalized_os_version
   type: STRING
   mode: NULLABLE
+  description: Normalized version string of the client's operating system (e.g. '10.0',
+    '6.1').
 - name: startup_profile_selection_reason
   type: STRING
   mode: NULLABLE
+  description: The reason the Firefox profile was selected at startup (e.g. 'firstrun-created-default',
+    'default', 'argument-profile'). Null if not reported (sampled 2026-06-02).
 - name: installation_first_seen_admin_user
   type: BOOLEAN
   mode: NULLABLE
+  description: True if Firefox was installed under an admin user account; false if
+    installed under a non-admin account. Null for non-Windows installs (sampled 2026-06-02).
 - name: installation_first_seen_default_path
   type: BOOLEAN
   mode: NULLABLE
+  description: True if Firefox was installed to the default installation path; false
+    if a custom path was used. Null for non-Windows installs (sampled 2026-06-02).
 - name: installation_first_seen_failure_reason
   type: STRING
   mode: NULLABLE
+  description: 'Reason the installer encountered a failure condition: ''NoError''
+    if no error, ''NotFoundError'' or ''SyntaxError'' for error types. Null for non-Windows
+    installs (sampled 2026-06-02).'
 - name: installation_first_seen_from_msi
   type: BOOLEAN
   mode: NULLABLE
+  description: True if Firefox was installed via an MSI installer package; false if
+    installed via the EXE installer. Null for non-Windows installs (sampled 2026-06-02).
 - name: installation_first_seen_install_existed
   type: BOOLEAN
   mode: NULLABLE
+  description: True if a previous Firefox installation existed on the machine at the
+    time of install; false if this was a fresh install. Null for non-Windows installs
+    (sampled 2026-06-02).
 - name: installation_first_seen_installer_type
   type: STRING
   mode: NULLABLE
+  description: 'Type of installer used: ''full'' for full installer, ''stub'' for
+    stub installer, ''msix'' for MSIX package. Null for non-Windows installs (sampled
+    2026-06-02).'
 - name: installation_first_seen_other_inst
   type: BOOLEAN
   mode: NULLABLE
+  description: True if another Firefox installation was detected on the machine at
+    install time; false otherwise. Null for non-Windows installs (sampled 2026-06-02).
 - name: installation_first_seen_other_msix_inst
   type: BOOLEAN
   mode: NULLABLE
+  description: True if another Firefox MSIX installation was detected at install time;
+    false otherwise. Null for non-MSIX or non-Windows installs (sampled 2026-06-02).
 - name: installation_first_seen_profdir_existed
   type: BOOLEAN
   mode: NULLABLE
+  description: True if a Firefox profile directory already existed at install time;
+    false if the profile was newly created. Null for non-Windows installs (sampled
+    2026-06-02).
 - name: installation_first_seen_silent
   type: BOOLEAN
   mode: NULLABLE
+  description: True if the installer ran in silent mode (no UI shown); false if the
+    installer UI was displayed. Null for non-Windows installs (sampled 2026-06-02).
 - name: installation_first_seen_version
   type: STRING
   mode: NULLABLE
+  description: The Firefox version string at the time of first install detection (e.g.
+    '151.0.1'). Null for non-Windows installs (sampled 2026-06-02).
 - name: os
   type: STRING
   mode: NULLABLE
@@ -175,12 +260,19 @@ fields:
 - name: os_version
   type: STRING
   mode: NULLABLE
+  description: Version string of the operating system (e.g. '10.0' for Windows 10,
+    '6.1' for Windows 7).
 - name: windows_build_number
   type: FLOAT
   mode: NULLABLE
+  description: The Windows OS build number as a float (e.g. 26200.0 for Windows 11
+    24H2). Null for non-Windows clients (sampled 2026-06-02).
 - name: windows_version
   type: STRING
   mode: NULLABLE
+  description: Human-readable Windows version label derived from the build number
+    (e.g. 'Windows 10', 'Windows 11', 'Windows 7'). Null for non-Windows clients (sampled
+    2026-06-02).
 - name: metadata
   type: RECORD
   mode: NULLABLE
@@ -188,15 +280,23 @@ fields:
   - name: first_seen_date_source_ping
     type: STRING
     mode: NULLABLE
+    description: 'The ping type that established the client''s first-seen date: ''new_profile'',
+      ''main'', or ''shutdown''.'
   - name: reported_main_ping
     type: BOOLEAN
     mode: NULLABLE
+    description: True if the client reported a main ping on its first-seen date; false
+      otherwise.
   - name: reported_new_profile_ping
     type: BOOLEAN
     mode: NULLABLE
+    description: True if the client reported a new-profile ping on its first-seen
+      date; false otherwise.
   - name: reported_shutdown_ping
     type: BOOLEAN
     mode: NULLABLE
+    description: True if the client reported a shutdown ping on its first-seen date;
+      false otherwise.
 - name: profile_group_id
   type: STRING
   mode: NULLABLE
@@ -205,121 +305,200 @@ fields:
 - name: funnel_derived
   type: STRING
   mode: NULLABLE
+  description: 'Funnel classification for the client install: ''mozorg windows funnel'',
+    ''mozorg mac funnel'', ''partner'', or ''other''.'
 - name: distribution_model
   type: STRING
   mode: NULLABLE
+  description: 'Model classification for the Firefox distribution: e.g. ''non-distribution'',
+    ''OS pre-installed'', ''secondary store'', ''OEM pre-installed''.'
 - name: partner_org
   type: STRING
   mode: NULLABLE
+  description: The partner organization associated with the Firefox distribution (e.g.
+    'Linux - Canonical', 'Microsoft (store)', 'non-distribution').
 - name: is_desktop
   type: BOOLEAN
   mode: NULLABLE
+  description: True if the client is classified as a desktop platform (Windows, Mac,
+    or Linux); false for mobile or other platforms.
 - name: stub_attr_logs_first_seen_date
   type: DATE
   mode: NULLABLE
+  description: First-seen date from the stub installer attribution logs for this client.
+    Null for clients not acquired via the stub installer (sampled 2026-06-02).
 - name: stub_attr_logs_ga_client_id
   type: STRING
   mode: NULLABLE
+  description: Google Analytics client ID from the stub installer attribution logs,
+    used to join with GA session data. Null if not available (sampled 2026-06-02).
 - name: stub_attr_logs_stub_session_id
   type: STRING
   mode: NULLABLE
+  description: Session ID from the stub installer attribution logs, used to correlate
+    the install event with a GA4 session. Null if not available (sampled 2026-06-02).
 - name: stub_attr_logs_dl_token
   type: STRING
   mode: NULLABLE
+  description: Download token from the stub installer attribution logs, matching the
+    attribution_dltoken field. Null if not available (sampled 2026-06-02).
 - name: stub_attr_logs_download_source
   type: STRING
   mode: NULLABLE
+  description: Download source from the stub installer logs (e.g. 'fxdotcom', 'mozorg').
+    Null if not available (sampled 2026-06-02).
 - name: ga4_website
   type: STRING
   mode: NULLABLE
+  description: 'The Mozilla website from which a GA4 session leading to this install
+    was recorded: ''FIREFOX.COM'' or ''MOZILLA.ORG''. Null if no matching GA4 session
+    (sampled 2026-06-02).'
 - name: ga4_ga_client_id
   type: STRING
   mode: NULLABLE
+  description: Google Analytics 4 client ID from the GA4 session matched to this install.
+    Null if no matching GA4 session (sampled 2026-06-02).
 - name: ga4_session_date
   type: DATE
   mode: NULLABLE
+  description: Date of the matched GA4 session. Null if no GA4 session is matched
+    (sampled 2026-06-02).
 - name: ga4_session_start_timestamp
   type: DATETIME
   mode: NULLABLE
+  description: Datetime of the start of the matched GA4 session. Null if no GA4 session
+    is matched (sampled 2026-06-02).
 - name: ga4_country
   type: STRING
   mode: NULLABLE
+  description: Country name from the matched GA4 session (e.g. 'United States', 'Brazil').
+    Null if no GA4 session is matched (sampled 2026-06-02).
 - name: ga4_region
   type: STRING
   mode: NULLABLE
+  description: Region (state or province) from the matched GA4 session. Null or empty
+    if no GA4 session is matched or the region is unavailable (sampled 2026-06-02).
 - name: ga4_city
   type: STRING
   mode: NULLABLE
+  description: City from the matched GA4 session. Null or empty if no GA4 session
+    is matched or the city is unavailable (sampled 2026-06-02).
 - name: ga4_device_category
   type: STRING
   mode: NULLABLE
+  description: Device category reported by GA4 for the matched session (always 'desktop'
+    for this table). Null if no GA4 session is matched (sampled 2026-06-02).
 - name: ga4_mobile_device_model
   type: STRING
   mode: NULLABLE
+  description: Mobile device model from the GA4 session. Always null for desktop clients
+    (sampled 2026-06-02).
 - name: ga4_mobile_device_string
   type: STRING
   mode: NULLABLE
+  description: Mobile device string from the GA4 session. Always null for desktop
+    clients (sampled 2026-06-02).
 - name: ga4_operating_system
   type: STRING
   mode: NULLABLE
+  description: Operating system name from the GA4 session (e.g. 'Windows', 'Macintosh').
+    Null if no GA4 session is matched (sampled 2026-06-02).
 - name: ga4_operating_system_version
   type: STRING
   mode: NULLABLE
+  description: Operating system version from the GA4 session (e.g. 'Windows 10', 'Macintosh
+    Intel 10'). Null if no GA4 session is matched (sampled 2026-06-02).
 - name: ga4_language
   type: STRING
   mode: NULLABLE
+  description: Browser language preference from the GA4 session (e.g. 'en-us', 'pt-br').
+    Null if no GA4 session is matched (sampled 2026-06-02).
 - name: ga4_browser
   type: STRING
   mode: NULLABLE
+  description: Browser name reported by GA4 for the matched session (e.g. 'Edge',
+    'Chrome', 'Firefox'). Null if no GA4 session is matched (sampled 2026-06-02).
 - name: ga4_browser_version
   type: STRING
   mode: NULLABLE
+  description: Browser version from the GA4 session. Null if no GA4 session is matched
+    (sampled 2026-06-02).
 - name: ga4_first_campaign_from_event_params
   type: STRING
   mode: NULLABLE
+  description: First non-null campaign name from GA4 event parameters for the matched
+    session (e.g. '(organic)', 'SET_DEFAULT_BROWSER'). Null if no GA4 session is matched
+    (sampled 2026-06-02).
 - name: ga4_distinct_campaigns_from_event_params
   type: STRING
   mode: REPEATED
+  description: Array of all distinct campaign names seen in GA4 event parameters for
+    the matched session. Empty array if no GA4 session is matched.
 - name: ga4_first_source_from_event_params
   type: STRING
   mode: NULLABLE
+  description: First non-null traffic source from GA4 event parameters (e.g. 'google',
+    'bing'). Null if no GA4 session is matched (sampled 2026-06-02).
 - name: ga4_distinct_sources_from_event_params
   type: STRING
   mode: REPEATED
+  description: Array of all distinct traffic sources from GA4 event parameters for
+    the matched session.
 - name: ga4_first_medium_from_event_params
   type: STRING
   mode: NULLABLE
+  description: First non-null traffic medium from GA4 event parameters (e.g. 'organic',
+    'referral', 'cpc'). Null if no GA4 session is matched (sampled 2026-06-02).
 - name: ga4_distinct_mediums_from_event_params
   type: STRING
   mode: REPEATED
+  description: Array of all distinct traffic mediums from GA4 event parameters for
+    the matched session.
 - name: ga4_first_content_from_event_params
   type: STRING
   mode: NULLABLE
+  description: First non-null content identifier from GA4 event parameters for the
+    matched session (e.g. 'body-download-button'). Null if not present (sampled 2026-06-02).
 - name: ga4_distinct_contents_from_event_params
   type: STRING
   mode: REPEATED
+  description: Array of all distinct content identifiers from GA4 event parameters
+    for the matched session.
 - name: ga4_first_term_from_event_params
   type: STRING
   mode: NULLABLE
+  description: First non-null search term from GA4 event parameters for the matched
+    session. Null if not present (sampled 2026-06-02).
 - name: ga4_distinct_terms_from_event_params
   type: STRING
   mode: REPEATED
+  description: Array of all distinct search terms from GA4 event parameters for the
+    matched session.
 - name: ga4_first_experiment_id_from_event_params
   type: STRING
   mode: NULLABLE
+  description: First non-null GA4 experiment ID from event parameters for the matched
+    session (e.g. 'refresh-new'). Null if not present (sampled 2026-06-02).
 - name: ga4_distinct_experiment_ids_from_event_params
   type: STRING
   mode: REPEATED
+  description: Array of all distinct GA4 experiment IDs from event parameters for
+    the matched session.
 - name: ga4_first_experiment_branch_from_event_params
   type: STRING
   mode: NULLABLE
+  description: First non-null GA4 experiment branch from event parameters (e.g. 'control',
+    'refresh-new-treatment'). Null if not present (sampled 2026-06-02).
 - name: ga4_distinct_experiment_branches_from_event_params
   type: STRING
   mode: REPEATED
+  description: Array of all distinct experiment branch names from GA4 event parameters
+    for the matched session.
 - name: ga4_first_gad_campaignid_from_event_params
   type: STRING
   mode: NULLABLE
-  description: The first non-null reported gad_campaignid from event_params for this session.
+  description: The first non-null reported gad_campaignid from event_params for this
+    session.
 - name: ga4_distinct_gad_campaignid_from_event_params
   type: STRING
   mode: REPEATED
@@ -327,78 +506,135 @@ fields:
 - name: ga4_manual_campaign_id
   type: STRING
   mode: NULLABLE
+  description: Manual campaign ID from GA4 session metadata (utm_id). Null if not
+    set (sampled 2026-06-02).
 - name: ga4_manual_campaign_name
   type: STRING
   mode: NULLABLE
+  description: Manual campaign name from GA4 session metadata (utm_campaign), e.g.
+    '(organic)', 'SET_DEFAULT_BROWSER'. Null if no GA4 session is matched (sampled
+    2026-06-02).
 - name: ga4_manual_source
   type: STRING
   mode: NULLABLE
+  description: Manual traffic source from GA4 session metadata (utm_source). Null
+    if no GA4 session is matched (sampled 2026-06-02).
 - name: ga4_manual_medium
   type: STRING
   mode: NULLABLE
+  description: Manual traffic medium from GA4 session metadata (utm_medium). Null
+    if no GA4 session is matched (sampled 2026-06-02).
 - name: ga4_manual_term
   type: STRING
   mode: NULLABLE
+  description: Manual search term from GA4 session metadata (utm_term). Null if no
+    GA4 session is matched (sampled 2026-06-02).
 - name: ga4_manual_content
   type: STRING
   mode: NULLABLE
+  description: Manual content identifier from GA4 session metadata (utm_content).
+    Null if not set (sampled 2026-06-02).
 - name: ga4_gclid
   type: STRING
   mode: NULLABLE
+  description: Google Click ID (gclid) from the matched GA4 session, used for Google
+    Ads conversion attribution. Null if no Google Ads click is associated (sampled
+    2026-06-02).
 - name: ga4_gclid_array
   type: STRING
   mode: REPEATED
+  description: Array of all gclid values seen across events in the matched GA4 session.
 - name: ga4_had_download_event
   type: BOOLEAN
   mode: NULLABLE
+  description: True if the matched GA4 session included a Firefox download event;
+    false if a session was matched but no download event occurred. Null if no GA4
+    session is matched (sampled 2026-06-02).
 - name: ga4_firefox_desktop_downloads
   type: INTEGER
   mode: NULLABLE
+  description: Number of Firefox Desktop download events recorded in the matched GA4
+    session. Null if no GA4 session is matched (sampled 2026-06-02).
 - name: ga4_last_reported_install_target
   type: STRING
   mode: NULLABLE
+  description: The last install target reported in the matched GA4 session (e.g. 'product_download',
+    'firefox_download'). Null if no GA4 session is matched (sampled 2026-06-02).
 - name: ga4_all_reported_install_targets
   type: STRING
   mode: REPEATED
+  description: Array of all install target values reported in the matched GA4 session.
 - name: ga4_stub_session_id
   type: STRING
   mode: NULLABLE
+  description: Stub installer session ID from the matched GA4 session, used to link
+    the web session to the installer attribution logs. Null if no GA4 session is matched
+    (sampled 2026-06-02).
 - name: ga4_landing_screen
   type: STRING
   mode: NULLABLE
+  description: URL of the landing page in the matched GA4 session (e.g. 'https://www.firefox.com/en-US/').
+    Null if no GA4 session is matched (sampled 2026-06-02).
 - name: ga4_ad_google_campaign
   type: STRING
   mode: NULLABLE
+  description: Google Ads campaign name from the matched GA4 session. Null if not
+    from a Google Ads campaign (sampled 2026-06-02).
 - name: ga4_ad_google_campaign_id
   type: STRING
   mode: NULLABLE
+  description: Google Ads campaign ID from the matched GA4 session. Null if not from
+    a Google Ads campaign (sampled 2026-06-02).
 - name: ga4_ad_google_group
   type: STRING
   mode: NULLABLE
+  description: Google Ads ad group name from the matched GA4 session. Null if not
+    from a Google Ads campaign (sampled 2026-06-02).
 - name: ga4_ad_google_group_id
   type: STRING
   mode: NULLABLE
+  description: Google Ads ad group ID from the matched GA4 session. Null if not from
+    a Google Ads campaign (sampled 2026-06-02).
 - name: ga4_ad_google_account
   type: STRING
   mode: NULLABLE
+  description: Google Ads account name from the matched GA4 session (e.g. 'Mozilla
+    Firefox'). Null if not from a Google Ads campaign (sampled 2026-06-02).
 - name: ga4_ad_crosschannel_source
   type: STRING
   mode: NULLABLE
+  description: Traffic source from GA4 cross-channel attribution model for the matched
+    session (e.g. 'google', 'bing', '(direct)'). Null if no GA4 session is matched
+    (sampled 2026-06-02).
 - name: ga4_ad_crosschannel_medium
   type: STRING
   mode: NULLABLE
+  description: Traffic medium from GA4 cross-channel attribution model (e.g. 'organic',
+    'cpc', 'referral'). Null if no GA4 session is matched (sampled 2026-06-02).
 - name: ga4_ad_crosschannel_campaign
   type: STRING
   mode: NULLABLE
+  description: Campaign name from GA4 cross-channel attribution model. Null if no
+    GA4 session is matched (sampled 2026-06-02).
 - name: ga4_ad_crosschannel_campaign_id
   type: STRING
   mode: NULLABLE
+  description: Campaign ID from GA4 cross-channel attribution model. Null if no GA4
+    session is matched (sampled 2026-06-02).
 - name: ga4_ad_crosschannel_source_platform
   type: STRING
   mode: NULLABLE
+  description: Source platform from GA4 cross-channel attribution (e.g. 'Manual',
+    'Google Ads'). Null if no GA4 session is matched (sampled 2026-06-02).
 - name: ga4_ad_crosschannel_primary_channel_group
   type: STRING
   mode: NULLABLE
+  description: Primary channel group from GA4 cross-channel attribution (e.g. 'Organic
+    Search', 'Paid Search', 'Direct'). Null if no GA4 session is matched (sampled
+    2026-06-02).
 - name: ga4_ad_crosschannel_default_channel_group
   type: STRING
   mode: NULLABLE
+  description: Default channel group from GA4 cross-channel attribution (e.g. 'Organic
+    Search', 'Paid Search', 'Referral'). Null if no GA4 session is matched (sampled
+    2026-06-02).
