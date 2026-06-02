@@ -2,6 +2,8 @@ fields:
 - name: normalized_app_name
   type: STRING
   mode: NULLABLE
+  description: The normalized name of the Firefox application (e.g., Fenix, Firefox
+    Desktop, Focus Android). Set to 'Other' if the app name was unrecognized.
 - name: normalized_channel
   type: STRING
   mode: NULLABLE
@@ -56,36 +58,58 @@ fields:
 - name: normalized_os_version
   type: STRING
   mode: NULLABLE
+  description: The normalized version string of the operating system (e.g., '10.0'
+    for Windows 10, '16' for Android 16). Derived from the raw OS version reported
+    in the telemetry ping.
 - name: adjust_ad_group
   type: STRING
   mode: NULLABLE
+  description: The Adjust ad group identifier associated with the mobile install attribution.
+    Only available for mobile clients.
 - name: adjust_campaign
   type: STRING
   mode: NULLABLE
+  description: The Adjust campaign identifier associated with the mobile install attribution.
+    Only available for mobile clients.
 - name: adjust_creative
   type: STRING
   mode: NULLABLE
+  description: The Adjust creative identifier (e.g., ad creative name) associated
+    with the mobile install attribution. Only available for mobile clients.
 - name: adjust_network
   type: STRING
   mode: NULLABLE
 - name: play_store_attribution_campaign
   type: STRING
   mode: NULLABLE
+  description: The Google Play Store attribution campaign associated with the install,
+    sourced from the Play Store referral parameters. Only available for Android clients.
 - name: play_store_attribution_medium
   type: STRING
   mode: NULLABLE
+  description: The Google Play Store attribution medium (e.g., 'organic', 'referral',
+    'preload') associated with the install. Only available for Android clients.
 - name: play_store_attribution_source
   type: STRING
   mode: NULLABLE
+  description: The Google Play Store attribution source (e.g., 'google-play', 'eea-browser-choice')
+    associated with the install. Only available for Android clients.
 - name: play_store_attribution_content
   type: STRING
   mode: NULLABLE
+  description: The Google Play Store attribution content parameter associated with
+    the install. Only available for Android clients.
 - name: play_store_attribution_term
   type: STRING
   mode: NULLABLE
+  description: The Google Play Store attribution search term associated with the install
+    (e.g., 'firefox', 'mozilla firefox'). Only available for Android clients.
 - name: play_store_attribution_install_referrer_response
   type: STRING
   mode: NULLABLE
+  description: The raw install referrer response string from the Google Play Store
+    (e.g., 'utm_source=google-play&utm_medium=organic'), containing the full set of
+    attribution parameters. Only available for Android clients.
 - name: cohort_date_week
   type: DATE
   mode: NULLABLE
