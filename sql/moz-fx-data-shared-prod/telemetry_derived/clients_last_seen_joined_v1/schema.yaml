@@ -1082,24 +1082,39 @@ fields:
 - mode: NULLABLE
   name: update_channel
   type: STRING
+  description: The Firefox update channel as reported by the client (e.g. 'release',
+    'esr', 'beta', 'nightly'); may contain non-standard values set by distributors
+    (sampled 2026-05-29).
 - mode: NULLABLE
   name: update_enabled
   type: BOOLEAN
+  description: Whether Firefox automatic updates are enabled; true for ~88% of clients
+    (sampled 2026-05-29).
 - mode: NULLABLE
   name: vendor
   type: STRING
+  description: The application vendor; always 'Mozilla' for this table (sampled 2026-05-29).
 - mode: NULLABLE
   name: web_notification_shown_sum
   type: INTEGER
+  description: Total number of web push notifications shown to the user by the browser;
+    null for ~100% of clients (sampled 2026-05-29).
 - mode: NULLABLE
   name: windows_build_number
   type: INTEGER
+  description: Windows build number (e.g. 26200 for Windows 11 24H2, 19045 for Windows
+    10 22H2); null for ~16% of non-Windows clients (sampled 2026-05-29).
 - mode: NULLABLE
   name: windows_ubr
   type: INTEGER
+  description: Windows Update Build Revision number, identifying cumulative update
+    level within a build; null for ~22% of clients on non-Windows or older Windows
+    (sampled 2026-05-29).
 - mode: NULLABLE
   name: fxa_configured
   type: BOOLEAN
+  description: Whether Firefox Accounts is configured on the client; null for ~86%
+    of clients who have not signed in to an FxA account (sampled 2026-05-29).
 - mode: NULLABLE
   name: trackers_blocked_sum
   type: INTEGER
@@ -1109,6 +1124,8 @@ fields:
 - mode: NULLABLE
   name: submission_timestamp_min
   type: TIMESTAMP
+  description: Timestamp of the earliest telemetry ping submission from this client
+    on the reporting day (sampled 2026-05-29).
 - mode: NULLABLE
   name: ad_clicks_count_all
   type: INTEGER
@@ -1303,9 +1320,13 @@ fields:
 - mode: NULLABLE
   name: scalar_parent_os_environment_is_taskbar_pinned
   type: BOOLEAN
+  description: Whether Firefox is pinned to the Windows taskbar; null for ~29% of
+    non-Windows clients (sampled 2026-05-29).
 - mode: NULLABLE
   name: scalar_parent_os_environment_launched_via_desktop
   type: BOOLEAN
+  description: Whether the most recent Firefox launch was initiated via a desktop
+    shortcut; false for ~92% of clients (sampled 2026-05-29).
 - mode: NULLABLE
   name: scalar_parent_os_environment_launched_via_taskbar
   type: BOOLEAN
@@ -1321,21 +1342,33 @@ fields:
 - mode: NULLABLE
   name: days_logged_event_bits
   type: INTEGER
+  description: Bit-pattern integer for the days in the past 28 on which the client
+    had at least one Telemetry event logged; null for ~2.3% of clients (sampled 2026-05-29).
 - mode: NULLABLE
   name: days_used_pictureinpicture_bits
   type: INTEGER
+  description: Bit-pattern integer for the days in the past 28 on which the client
+    used Picture-in-Picture video; null for ~2.3% of clients (sampled 2026-05-29).
 - mode: NULLABLE
   name: days_viewed_protection_report_bits
   type: INTEGER
+  description: Bit-pattern integer for the days in the past 28 on which the client
+    viewed the Privacy Protections report; null for ~2.3% of clients (sampled 2026-05-29).
 - mode: NULLABLE
   name: n_logged_event
   type: INTEGER
+  description: Number of Telemetry events logged by the client on the reporting day;
+    null for ~2.3% of clients (sampled 2026-05-29).
 - mode: NULLABLE
   name: n_created_pictureinpicture
   type: INTEGER
+  description: Number of Picture-in-Picture video sessions created by the client on
+    the reporting day; null for ~2.3% of clients (sampled 2026-05-29).
 - mode: NULLABLE
   name: n_viewed_protection_report
   type: INTEGER
+  description: Number of times the client viewed the Privacy Protections report on
+    the reporting day; null for ~2.3% of clients (sampled 2026-05-29).
 - mode: NULLABLE
   name: search_count_webextension
   type: INTEGER
@@ -2051,12 +2084,19 @@ fields:
 - mode: NULLABLE
   name: scalar_parent_browser_engagement_total_uri_count_normal_and_private_mode_sum
   type: INTEGER
+  description: Total URI count across both normal and private browsing windows on
+    the reporting day; null for ~22% of clients (sampled 2026-05-29).
 - mode: NULLABLE
   name: user_pref_browser_newtabpage_enabled
   type: STRING
+  description: Whether the Firefox new tab page is enabled; false for ~97% of clients
+    where the preference was explicitly set to false (sampled 2026-05-29).
 - mode: NULLABLE
   name: user_pref_app_shield_optoutstudies_enabled
   type: STRING
+  description: Whether the client has opted out of Shield studies (SHIELD/Normandy
+    experiments); 'false' means opted out; null for ~98% where the default is in effect
+    (sampled 2026-05-29).
 - fields:
   - mode: NULLABLE
     name: key
@@ -2116,9 +2156,13 @@ fields:
 - mode: NULLABLE
   name: scalar_a11y_hcm_foreground
   type: INTEGER
+  description: High Contrast Mode foreground color integer as reported by the OS accessibility
+    settings; null for ~99.8% of clients not using high contrast mode (sampled 2026-05-29).
 - mode: NULLABLE
   name: scalar_a11y_hcm_background
   type: INTEGER
+  description: High Contrast Mode background color integer as reported by the OS accessibility
+    settings; null for ~99.8% of clients not using high contrast mode (sampled 2026-05-29).
 - fields:
   - mode: NULLABLE
     name: key
