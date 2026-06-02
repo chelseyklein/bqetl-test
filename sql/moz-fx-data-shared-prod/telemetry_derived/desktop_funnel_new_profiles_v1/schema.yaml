@@ -2,27 +2,50 @@ fields:
 - mode: NULLABLE
   name: date
   type: DATE
+  description: The date on which the new Firefox profiles were created, derived from
+    the submission_timestamp of the new-profile ping.
 - mode: NULLABLE
   name: country_name
   type: STRING
+  description: Full name of the country in which the new profile was created, as determined
+    by IP geolocation and joined from the country_codes lookup table (e.g. 'United
+    States', 'Brazil').
 - mode: NULLABLE
   name: channel
   type: STRING
+  description: The normalized release channel of Firefox on which the new profile
+    was created (e.g. 'release', 'esr', 'beta', 'nightly', 'aurora', 'Other').
 - mode: NULLABLE
   name: build_id
   type: STRING
+  description: The Firefox build identifier at the time the new profile was created,
+    in YYYYMMDDHHMMSS format. Identifies the exact build binary used for installation.
 - mode: NULLABLE
   name: os
   type: STRING
+  description: The normalized name of the operating system on which the new profile
+    was created (e.g. 'Windows', 'Linux', 'Mac').
 - mode: NULLABLE
   name: attribution_source
   type: STRING
+  description: The referring domain or source from which the Firefox installer was
+    downloaded (e.g. 'www.google.com', 'www.bing.com'). Null for ~60% of new profiles
+    where attribution data was not captured.
 - mode: NULLABLE
   name: distribution_id
   type: STRING
+  description: The distribution identifier for the Firefox build, indicating which
+    partner or OEM distribution produced the installer (e.g. 'canonical-002', 'mint-001').
+    Null for ~71% of new profiles.
 - mode: NULLABLE
   name: attribution_ua
   type: STRING
+  description: The browser user agent used to download the Firefox installer. Possible
+    values include 'chrome', 'edge', 'firefox', 'other', 'ie', or empty string when
+    the browser could not be detected.
 - mode: NULLABLE
   name: new_profiles
   type: INTEGER
+  description: The count of distinct new Firefox profiles created on the date, filtered
+    to clients whose startup_profile_selection_reason was 'firstrun-created-default'
+    (i.e., clean first-run installs, not profile switches).
