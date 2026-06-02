@@ -1626,6 +1626,9 @@ fields:
 - mode: NULLABLE
   name: default_private_search_engine
   type: STRING
+  description: Identifier of the client's default private browsing search engine;
+    null for ~100% of clients where the private search engine is not explicitly set
+    (sampled 2026-05-29).
 - mode: NULLABLE
   name: default_private_search_engine_data_load_path
   type: STRING
@@ -1654,6 +1657,8 @@ fields:
 - mode: NULLABLE
   name: user_pref_browser_search_region
   type: STRING
+  description: The region code used by Firefox to determine search engine defaults
+    (e.g. 'US', 'DE', 'FR'); null for ~3% of clients (sampled 2026-05-29).
 - fields:
   - mode: NULLABLE
     name: key
@@ -2072,24 +2077,41 @@ fields:
 - mode: NULLABLE
   name: user_pref_browser_search_suggest_enabled
   type: STRING
+  description: Whether the browser.search.suggest.enabled pref is explicitly set (search
+    suggestions toggle); null for ~99% of clients using the default value (sampled
+    2026-05-29).
 - mode: NULLABLE
   name: user_pref_browser_widget_in_navbar
   type: STRING
+  description: Whether the Firefox search widget is displayed in the navigation bar;
+    null for ~89% of clients using the default setting (sampled 2026-05-29).
 - mode: NULLABLE
   name: user_pref_browser_urlbar_suggest_searches
   type: STRING
+  description: Whether URL bar search suggestions are enabled; 'false' when explicitly
+    disabled; null for ~99% using the default (sampled 2026-05-29).
 - mode: NULLABLE
   name: user_pref_browser_urlbar_show_search_suggestions_first
   type: STRING
+  description: Whether search suggestions appear before browsing history in the URL
+    bar; 'false' when explicitly changed from the default; null for ~95% of clients
+    (sampled 2026-05-29).
 - mode: NULLABLE
   name: user_pref_browser_urlbar_suggest_quicksuggest
   type: STRING
+  description: Whether the legacy Firefox Suggest (quicksuggest) URL bar suggestions
+    are enabled; null for ~99.9% of clients (sampled 2026-05-29).
 - mode: NULLABLE
   name: user_pref_browser_urlbar_suggest_quicksuggest_sponsored
   type: STRING
+  description: Whether sponsored Firefox Suggest URL bar suggestions are enabled;
+    'false' for ~71% of clients who have disabled them; null for ~2% (sampled 2026-05-29).
 - mode: NULLABLE
   name: user_pref_browser_urlbar_quicksuggest_onboarding_dialog_choice
   type: STRING
+  description: The choice the user made in the Firefox Suggest onboarding dialog (e.g.
+    'close_1', 'not_now_2', 'accept_2', 'reject_2'); null for ~100% of clients who
+    have not seen the dialog (sampled 2026-05-29).
 - mode: NULLABLE
   name: scalar_parent_browser_engagement_total_uri_count_normal_and_private_mode_sum
   type: INTEGER
@@ -2159,9 +2181,14 @@ fields:
 - mode: NULLABLE
   name: user_pref_browser_urlbar_suggest_quicksuggest_nonsponsored
   type: STRING
+  description: Whether non-sponsored Firefox Suggest URL bar suggestions are enabled;
+    'false' for ~16% of clients who have disabled them; null for ~82% using the default
+    (sampled 2026-05-29).
 - mode: NULLABLE
   name: user_pref_browser_urlbar_quicksuggest_data_collection_enabled
   type: STRING
+  description: Whether data collection for Firefox Suggest is enabled; 'false' for
+    ~18% of clients who opted out; null for ~82% using the default (sampled 2026-05-29).
 - mode: NULLABLE
   name: scalar_a11y_hcm_foreground
   type: INTEGER
@@ -2285,6 +2312,9 @@ fields:
 - mode: NULLABLE
   name: user_pref_browser_urlbar_suggest_bestmatch
   type: STRING
+  description: Whether the Firefox Suggest best-match feature is enabled; 'true' for
+    ~8% of clients with it explicitly enabled; null for ~92% using the default (sampled
+    2026-05-29).
 - mode: NULLABLE
   name: scalar_parent_browser_ui_interaction_textrecognition_error_sum
   type: INTEGER
@@ -2691,24 +2721,39 @@ fields:
 - name: distributor_channel
   type: STRING
   mode: NULLABLE
+  description: Distribution channel of the Firefox build (e.g. 'mainWinStub', 'ubuntu');
+    null for ~91% of clients without a distributor (sampled 2026-05-29).
 - name: env_build_platform_version
   type: STRING
   mode: NULLABLE
+  description: Platform (XULRunner) version string from the build environment; matches
+    env_build_version (sampled 2026-05-29).
 - name: env_build_xpcom_abi
   type: STRING
   mode: NULLABLE
+  description: The XPCOM ABI string identifying the build's processor and compiler
+    combination (e.g. 'x86_64-msvc', 'x86_64-gcc3', 'aarch64-gcc3') (sampled 2026-05-29).
 - name: geo_db_version
   type: STRING
   mode: NULLABLE
+  description: Version timestamp of the MaxMind GeoIP database used to derive the
+    client's geographic location (e.g. '2026-05-21T07:51:11Z') (sampled 2026-05-29).
 - name: apple_model_id
   type: STRING
   mode: NULLABLE
+  description: Apple hardware model identifier for macOS clients (e.g. 'MacBookPro16,1',
+    'MacBookAir10,1'); null for ~93% of non-Mac clients (sampled 2026-05-29).
 - name: max_subsession_counter
   type: INTEGER
   mode: NULLABLE
+  description: Highest subsession counter value seen across all pings on the reporting
+    day, reflecting the maximum number of subsessions since the last profile creation
+    (sampled 2026-05-29).
 - name: min_subsession_counter
   type: INTEGER
   mode: NULLABLE
+  description: Lowest subsession counter value seen across all pings on the reporting
+    day; 1 is the most common value, indicating a fresh session (sampled 2026-05-29).
 - name: profile_group_id
   type: STRING
   mode: NULLABLE
@@ -2717,6 +2762,10 @@ fields:
 - name: browser_backup_scheduler_enabled
   type: BOOLEAN
   mode: NULLABLE
+  description: Whether the Firefox browser backup scheduler is enabled; null for ~43%
+    of clients (older Firefox versions lacking this feature) (sampled 2026-05-29).
 - name: browser_backup_archive_enabled
   type: BOOLEAN
   mode: NULLABLE
+  description: Whether the Firefox browser backup archiving feature is enabled; null
+    for ~33% of clients (older Firefox versions) (sampled 2026-05-29).
