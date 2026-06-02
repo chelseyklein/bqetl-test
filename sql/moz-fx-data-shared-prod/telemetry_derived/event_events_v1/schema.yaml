@@ -27,6 +27,8 @@ fields:
 - name: app_name
   type: STRING
   mode: NULLABLE
+  description: The name of the Firefox application that submitted the event ping (e.g.,
+    'Firefox').
 - name: app_version
   type: STRING
   mode: NULLABLE
@@ -38,6 +40,8 @@ fields:
 - name: os_version
   type: STRING
   mode: NULLABLE
+  description: The version of the operating system running on the client, such as
+    '10.0' for Windows 10 or '6.8.0' for a Linux kernel version (sampled 2026-06-02).
 - name: experiments
   type: RECORD
   mode: REPEATED
@@ -45,6 +49,8 @@ fields:
   - name: key
     type: STRING
     mode: NULLABLE
+    description: The experiment slug (identifier) for each active experiment entry
+      in the experiments array.
   - name: value
     type: RECORD
     mode: NULLABLE
@@ -52,12 +58,23 @@ fields:
     - name: branch
       type: STRING
       mode: NULLABLE
+      description: The experiment branch the client was assigned to for each active
+        experiment entry in the experiments array (e.g., 'control', 'treatment-a').
     - name: enrollment_id
       type: STRING
       mode: NULLABLE
+      description: A UUID identifying the specific enrollment of the client in the
+        experiment for each entry in the experiments array. Null for approximately
+        99.5% of entries (sampled 2026-06-02).
     - name: type
       type: STRING
       mode: NULLABLE
+      description: The type of experiment system for each entry in the experiments
+        array (e.g., 'nimbus-rollout', 'nimbus-nimbus', 'normandy-prefrollout') (sampled
+        2026-06-02).
+  description: Array of active Nimbus/Normandy experiments the client was enrolled
+    in at the time of the event. Each entry contains the experiment slug (key) and
+    branch/enrollment_id/type (value).
 - name: sample_id
   type: INTEGER
   mode: NULLABLE
@@ -66,30 +83,51 @@ fields:
 - name: session_id
   type: STRING
   mode: NULLABLE
+  description: A UUID identifying the browser session during which the event occurred,
+    allowing session-level grouping of events.
 - name: session_start_time
   type: TIMESTAMP
   mode: NULLABLE
+  description: The timestamp when the browser session started, in UTC, with minute
+    precision.
 - name: subsession_id
   type: STRING
   mode: NULLABLE
+  description: A UUID identifying the specific subsession of the browser within a
+    session; a new subsession starts when the environment changes.
 - name: timestamp
   type: TIMESTAMP
   mode: NULLABLE
+  description: The ingestion timestamp when the telemetry server received the event
+    ping.
 - name: event_timestamp
   type: INTEGER
   mode: NULLABLE
+  description: Milliseconds elapsed since the session start at which the event was
+    recorded on the client.
 - name: event_category
   type: STRING
   mode: NULLABLE
+  description: The telemetry event category, grouping related events by functional
+    area (e.g., 'address', 'doh', 'normandy'). Observed top categories include 'address',
+    'doh', 'session_restore' (sampled 2026-06-02).
 - name: event_method
   type: STRING
   mode: NULLABLE
+  description: The telemetry event method, describing the action taken (e.g., 'detected',
+    'state', 'saw_toggle'). Top values include 'detected' and 'state' (sampled 2026-06-02).
 - name: event_object
   type: STRING
   mode: NULLABLE
+  description: The telemetry event object, identifying the UI or browser element the
+    action was performed on (e.g., 'nimbus_experiment', 'toggle', 'address_form').
+    Top values include 'nimbus_experiment' and 'toggle' (sampled 2026-06-02).
 - name: event_string_value
   type: STRING
   mode: NULLABLE
+  description: An optional string value associated with the event, providing additional
+    context such as an experiment ID or status string. Null for approximately 25.7%
+    of events (sampled 2026-06-02).
 - name: event_map_values
   type: RECORD
   mode: REPEATED
@@ -97,21 +135,39 @@ fields:
   - name: key
     type: STRING
     mode: NULLABLE
+    description: The key for each entry in the event_map_values array, identifying
+      the type of supplemental metadata (e.g., 'source', 'trigger', 'networkID').
+      Top keys include 'source', 'trigger', 'networkID' (sampled 2026-06-02).
   - name: value
     type: STRING
     mode: NULLABLE
+    description: The value for each entry in the event_map_values array, paired with
+      the corresponding key to describe supplemental event context.
+  description: A repeated key-value struct containing supplemental event metadata
+    (e.g., source, trigger, networkID). Each entry in the array is one key-value pair
+    for the event.
 - name: event_process
   type: STRING
   mode: NULLABLE
+  description: The Firefox process type in which the event was recorded (e.g., 'parent',
+    'content', 'extension'). The majority of events originate in 'parent' (sampled
+    2026-06-02).
 - name: build_id
   type: STRING
   mode: NULLABLE
+  description: The Firefox build identifier in YYYYMMDDHHMMSS format, indicating the
+    build of the application that generated the event.
 - name: build_architecture
   type: STRING
   mode: NULLABLE
+  description: The CPU architecture of the Firefox build that generated the event
+    (e.g., 'x86-64', 'aarch64', 'x86'). The majority of submissions are 'x86-64' (sampled
+    2026-06-02).
 - name: profile_creation_date
   type: FLOAT
   mode: NULLABLE
+  description: The date the Firefox profile was created, expressed as the number of
+    days since the Unix epoch.
 - name: is_default_browser
   type: BOOLEAN
   mode: NULLABLE
@@ -120,18 +176,31 @@ fields:
 - name: attribution_source
   type: STRING
   mode: NULLABLE
+  description: The attribution source domain from which the Firefox installation originated
+    (e.g., 'www.google.com', 'www.bing.com'). Null for approximately 67.4% of clients
+    (sampled 2026-06-02).
 - name: attribution_dltoken
   type: STRING
   mode: NULLABLE
+  description: A unique download token assigned at Firefox download time to link installation
+    events back to the original download source. Null for approximately 70.6% of clients
+    (sampled 2026-06-02).
 - name: system_is_wow64
   type: BOOLEAN
   mode: NULLABLE
+  description: Indicates whether the Firefox process is running under the WoW64 subsystem
+    (64-bit Windows hosting a 32-bit process). Null for approximately 16.5% of clients;
+    true for ~5% (sampled 2026-06-02).
 - name: system_memory_mb
   type: FLOAT
   mode: NULLABLE
+  description: Total RAM installed on the client machine in megabytes, as reported
+    by the operating system (e.g., 8192, 16384) (sampled 2026-06-02).
 - name: city
   type: STRING
   mode: NULLABLE
+  description: The city where the client is located, as determined by IP geolocation.
+    Null for approximately 23.7% of submissions (sampled 2026-06-02).
 - name: profile_group_id
   type: STRING
   mode: NULLABLE
