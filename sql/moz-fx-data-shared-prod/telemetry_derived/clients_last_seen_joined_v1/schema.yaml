@@ -326,48 +326,82 @@ fields:
 - mode: NULLABLE
   name: crashes_detected_content_sum
   type: INTEGER
+  description: Total number of Firefox content-process crashes detected and reported
+    over the reporting period; null when no crashes occurred (sampled 2026-05-29).
 - mode: NULLABLE
   name: crashes_detected_gmplugin_sum
   type: INTEGER
+  description: Total number of Gecko Media Plugin (GMP) process crashes detected over
+    the reporting period; null when no crashes occurred (sampled 2026-05-29).
 - mode: NULLABLE
   name: crashes_detected_plugin_sum
   type: INTEGER
+  description: Total number of NPAPI plugin process crashes detected over the reporting
+    period; null when no crashes occurred (sampled 2026-05-29).
 - mode: NULLABLE
   name: crash_submit_attempt_content_sum
   type: INTEGER
+  description: Total number of crash report submission attempts for content-process
+    crashes; null when no such attempts occurred (sampled 2026-05-29).
 - mode: NULLABLE
   name: crash_submit_attempt_main_sum
   type: INTEGER
+  description: Total number of crash report submission attempts for main-process crashes;
+    null when no such attempts occurred (sampled 2026-05-29).
 - mode: NULLABLE
   name: crash_submit_attempt_plugin_sum
   type: INTEGER
+  description: Total number of crash report submission attempts for NPAPI plugin crashes;
+    null when no such attempts occurred (sampled 2026-05-29).
 - mode: NULLABLE
   name: crash_submit_success_content_sum
   type: INTEGER
+  description: Total number of successfully submitted crash reports for content-process
+    crashes; null when no such successes occurred (sampled 2026-05-29).
 - mode: NULLABLE
   name: crash_submit_success_main_sum
   type: INTEGER
+  description: Total number of successfully submitted crash reports for main-process
+    crashes; null when no such successes occurred (sampled 2026-05-29).
 - mode: NULLABLE
   name: crash_submit_success_plugin_sum
   type: INTEGER
+  description: Total number of successfully submitted crash reports for NPAPI plugin
+    crashes; null when no such successes occurred (sampled 2026-05-29).
 - mode: NULLABLE
   name: default_search_engine
   type: STRING
+  description: Identifier of the client's default search engine (e.g. 'google-b-d',
+    'baidu', 'ddg'); null for ~1% of clients where the setting could not be determined
+    (sampled 2026-05-29).
 - mode: NULLABLE
   name: default_search_engine_data_load_path
   type: STRING
+  description: Anonymized file path indicating how the default search engine was loaded
+    (e.g. '[app]google', '[addon]google@search.mozilla.org'); null for ~1% of clients
+    (sampled 2026-05-29).
 - mode: NULLABLE
   name: default_search_engine_data_name
   type: STRING
+  description: Human-readable name of the client's default search engine (e.g. 'Google',
+    'DuckDuckGo'); null for ~1% of clients (sampled 2026-05-29).
 - mode: NULLABLE
   name: default_search_engine_data_origin
   type: STRING
+  description: How the default search engine was set; values include 'default' (built-in),
+    'verified', 'unverified', 'invalid'; null for ~87% of clients (sampled 2026-05-29).
 - mode: NULLABLE
   name: default_search_engine_data_submission_url
   type: STRING
+  description: The HTTP URL template used when submitting searches to the default
+    engine (e.g. 'https://www.google.com/search?client=firefox-b-d&q='); not recorded
+    for user-installed engines (sampled 2026-05-29).
 - mode: NULLABLE
   name: devtools_toolbox_opened_count_sum
   type: INTEGER
+  description: Total number of times the Firefox DevTools toolbox was opened across
+    all sessions on the reporting day; null for ~99% of clients who did not open DevTools
+    (sampled 2026-05-29).
 - mode: NULLABLE
   name: distribution_id
   type: STRING
@@ -375,15 +409,23 @@ fields:
 - mode: NULLABLE
   name: e10s_enabled
   type: BOOLEAN
+  description: Whether Electrolysis (multi-process Firefox) was enabled; true for
+    nearly all clients (sampled 2026-05-29).
 - mode: NULLABLE
   name: env_build_arch
   type: STRING
+  description: CPU architecture of the Firefox build (e.g. 'x86-64', 'x86', 'aarch64')
+    (sampled 2026-05-29).
 - mode: NULLABLE
   name: env_build_id
   type: STRING
+  description: The build ID of the environment (same as app_build_id); a timestamp
+    string identifying the exact Firefox build, e.g. '20260511200624' (sampled 2026-05-29).
 - mode: NULLABLE
   name: env_build_version
   type: STRING
+  description: The application version string from the build environment (e.g. '150.0.3',
+    '151.0.1'), same as app_version (sampled 2026-05-29).
 - mode: REPEATED
   name: environment_settings_intl_accept_languages
   type: STRING
@@ -415,9 +457,14 @@ fields:
 - mode: NULLABLE
   name: first_paint_mean
   type: FLOAT
+  description: Mean time in milliseconds from Firefox startup until the first browser
+    paint (first visible frame), averaged across subsessions; null for ~10% of clients
+    (sampled 2026-05-29).
 - mode: NULLABLE
   name: flash_version
   type: STRING
+  description: Version string of the Adobe Flash plugin installed on the client (e.g.
+    '32.0.0.465'); null for ~99.6% of clients where Flash is absent (sampled 2026-05-29).
 - mode: NULLABLE
   name: country
   type: STRING
