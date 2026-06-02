@@ -5,8 +5,8 @@ fields:
   description: Whether the user's logged in to an FxA account.
 - name: activity_segment
   type: STRING
-  description: Classification of users based on their browsing activity.
-    E.g., infrequent, casual, regular.
+  description: Classification of users based on their browsing activity. E.g., infrequent,
+    casual, regular.
   aliases:
   - segment
   possible_values:
@@ -50,12 +50,12 @@ fields:
   description: The architecture of the device, (e.g. "arm", "x86").
 - name: branch
   type: STRING
-  description: The Nimbus experiment branch to which the client was assigned
-    (e.g., "control", "treatment-a", "treatment-b").
+  description: The Nimbus experiment branch to which the client was assigned (e.g.,
+    "control", "treatment-a", "treatment-b").
 - name: attribution_campaign
   type: STRING
-  description: The campaign this client/install was attributed to (utm_campaign
-    value, identifying a specific marketing campaign or promotion).
+  description: The campaign this client/install was attributed to (utm_campaign value,
+    identifying a specific marketing campaign or promotion).
 - name: attribution_content
   type: STRING
   description: The attribution content; similar or the same as UTM content.
@@ -80,15 +80,15 @@ fields:
     interaction pings, e.g. top-sites ping.
 - name: country
   type: STRING
-  description: Name of the country in which the activity took place, as determined by
-    the IP geolocation.
+  description: Name of the country in which the activity took place, as determined
+    by the IP geolocation.
   aliases:
   - normalized_country
   - geo
 - name: country_code
   type: STRING
-  description: Code of the country in which the activity took place, as determined by
-    the IP geolocation. Unknown or NULL values are normally stored as '??'.
+  description: Code of the country in which the activity took place, as determined
+    by the IP geolocation. Unknown or NULL values are normally stored as '??'.
   aliases:
   - normalized_country_code
 - name: created_at
@@ -99,8 +99,8 @@ fields:
   - created_date
 - name: dau
   type: INTEGER
-  description: The number of daily active users, corresponding to the count of clients that reported
-    at least one ping on the submission_date and qualify as active.
+  description: The number of daily active users, corresponding to the count of clients
+    that reported at least one ping on the submission_date and qualify as active.
 - name: first_run_date
   type: DATE
   mode: NULLABLE
@@ -111,12 +111,14 @@ fields:
   description: Date when the server first received a ping from this client.
 - name: wau
   type: INTEGER
-  description: The number of weekly active users, corresponding to the count of clients that reported
-    at least one ping on the previous 7 days from the submission_date and qualify as active.
+  description: The number of weekly active users, corresponding to the count of clients
+    that reported at least one ping on the previous 7 days from the submission_date
+    and qualify as active.
 - name: mau
   type: INTEGER
-  description: The number of monthly active users, corresponding to the count of clients that reported
-    at least one ping on the previous 28 days from the submission_date and qualify as active.
+  description: The number of monthly active users, corresponding to the count of clients
+    that reported at least one ping on the previous 28 days from the submission_date
+    and qualify as active.
 - name: distribution_id
   type: STRING
   description: The distribution id associated with the install of Firefox.
@@ -129,7 +131,8 @@ fields:
     than a real user interaction.
 - name: is_default_browser
   type: BOOLEAN
-  description: A flag indicating whether the browser is set as the default browser on the client side.
+  description: A flag indicating whether the browser is set as the default browser
+    on the client side.
 - name: is_desktop
   type: BOOLEAN
   description: Indicates if the client is included in the desktop KPI.
@@ -138,7 +141,8 @@ fields:
   description: Indicates if the client is included in the mobile KPI.
 - name: isp_name
   type: STRING
-  description: The name of the internet service provider associated with the client's IP address.
+  description: The name of the internet service provider associated with the client's
+    IP address.
   aliases:
   - isp
 - name: locale
@@ -164,22 +168,21 @@ fields:
 - name: os_code
   type: STRING
   mode: NULLABLE
-  description: The operating system code based on the Common Platform Enumeration CPE.
+  description: The operating system code based on the Common Platform Enumeration
+    CPE.
 - name: os_version
   type: STRING
-  description: The operating system version running at the client prior to
-    normalization (e.g. "4.18.0-553.97.1.el8_10.aarch64" or
-    "6.11+parrot-amd64" for Linux; "10.0" for Windows, "25.3.0" for macOS,
-    "26.3.1" for iOS, "16" for Android). Windows 10 and Windows 11 both
-    show "10.0". Use `windows_build_number >= 22000` to identify
+  description: The operating system version running at the client prior to normalization
+    (e.g. "4.18.0-553.97.1.el8_10.aarch64" or "6.11+parrot-amd64" for Linux; "10.0"
+    for Windows, "25.3.0" for macOS, "26.3.1" for iOS, "16" for Android). Windows
+    10 and Windows 11 both show "10.0". Use `windows_build_number >= 22000` to identify
     Windows 11.
 - name: normalized_os_version
   type: STRING
-  description: The operating system version normalized to a consistent format
-    at ingestion (e.g. "10.0" for Windows, "16" for Android, "26.3.1" for
-    iOS, "25.3.0" for macOS, "6.8" for Linux). Windows 10 and Windows 11
-    both show "10.0". Use `windows_build_number >= 22000` to identify
-    Windows 11.
+  description: The operating system version normalized to a consistent format at ingestion
+    (e.g. "10.0" for Windows, "16" for Android, "26.3.1" for iOS, "25.3.0" for macOS,
+    "6.8" for Linux). Windows 10 and Windows 11 both show "10.0". Use `windows_build_number
+    >= 22000` to identify Windows 11.
 - name: os_major
   type: INTEGER
   description: Major or first part of the operating system version running at the
@@ -196,11 +199,12 @@ fields:
   - os_version_minor
 - name: profile_group_id
   type: STRING
-  description: A UUID uniquely identifying the profile group, not shared with other telemetry data.
+  description: A UUID uniquely identifying the profile group, not shared with other
+    telemetry data.
 - name: sample_id
   type: INTEGER
-  description: A number, 0-99, that samples by client_id and allows filtering data for analysis.
-    It is a pipeline-generated artifact that should match between pings.
+  description: A number, 0-99, that samples by client_id and allows filtering data
+    for analysis. It is a pipeline-generated artifact that should match between pings.
 - name: source_column
   type: STRING
   description: Column name in the source used to ingest the data.
@@ -217,17 +221,45 @@ fields:
   description: The submission_timestamp truncated to the hour.
 - name: submission_month
   type: DATE
-  description: First calendar day of the month extracted from submission_date or
-    submission_timestamp.
+  description: First calendar day of the month extracted from submission_date or submission_timestamp.
 - name: submission_timestamp
   type: TIMESTAMP
   description: Timestamp when the ping is received on the server side.
 - name: telemetry_sdk_build
   type: STRING
-  description: The version of the Glean SDK at the time the ping was collected (e.g. 25.0.0).
+  description: The version of the Glean SDK at the time the ping was collected (e.g.
+    25.0.0).
 - name: updated_at
   type: TIMESTAMP
   description: Most recent date and time when the row was updated.
   aliases:
   - updated_timestamp
   - updated_date
+- name: appVersion
+  description: The user-visible version string of the application at the time of the
+    event or crash (e.g. "128.0", "130.0.1"). camelCase alias for app_version, used
+    in crash reporting and some event schemas.
+- name: crash_count
+  description: The number of crashes recorded for the given client, process type,
+    or aggregation period. A value greater than 1 indicates multiple crashes were
+    grouped into a single row.
+- name: crash_process_type
+  description: The type of browser process that experienced the crash, as reported
+    by the crash reporter (e.g. "main", "content", "gpu", "utility", "extension").
+    Identifies which part of the multi-process architecture was affected.
+- name: crash_signature
+  description: A structured string token computed by the Socorro crash ingestion pipeline
+    that uniquely identifies a crash's fault location and call stack (e.g. "OOM |
+    small", "shutdownhang | ..."). Used to group related crash reports together.
+- name: document_event_number
+  description: A sequential integer indicating the position of this event within its
+    parent ping document. Used to preserve ordering and support deduplication of events
+    within a single submission.
+- name: event_extra_key
+  description: The key portion of a key-value pair stored in an event's extra metadata
+    map. Each entry captures optional structured context attached to a Glean or legacy
+    telemetry event (e.g. "tab_count", "source").
+- name: project
+  description: The GCP project or Mozilla data-pipeline project identifier associated
+    with the record (e.g. "moz-fx-data-shared-prod"). Scopes the data to a particular
+    deployment environment or organizational boundary.
