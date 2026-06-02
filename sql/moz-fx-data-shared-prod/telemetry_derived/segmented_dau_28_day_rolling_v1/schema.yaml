@@ -10,18 +10,28 @@ fields:
 - name: app_name
   type: STRING
   mode: NULLABLE
+  description: The name of the browser application (e.g., 'Firefox Desktop', 'Fenix',
+    'Firefox iOS').
 - name: adjust_network
   type: STRING
   mode: NULLABLE
+  description: The name of the Adjust Network that sourced the installation. Populated
+    only for mobile clients (~14% non-null).
 - name: attribution_medium
   type: STRING
   mode: NULLABLE
+  description: The attribution medium (similar to UTM medium) associated with the
+    client's install. Null for ~28% of rows.
 - name: attribution_source
   type: STRING
   mode: NULLABLE
+  description: The attribution source (similar to UTM source) associated with the
+    client's install. Null for ~28% of rows.
 - name: first_seen_year
   type: INTEGER
   mode: NULLABLE
+  description: The calendar year when the client profile was first seen by Mozilla
+    telemetry.
 - name: channel
   type: STRING
   mode: NULLABLE
@@ -29,6 +39,8 @@ fields:
 - name: install_source
   type: STRING
   mode: NULLABLE
+  description: The install source identifier for mobile clients (e.g., 'com.android.vending'
+    for Google Play). Null for ~88% of rows.
 - name: is_default_browser
   type: BOOLEAN
   mode: NULLABLE
@@ -37,6 +49,8 @@ fields:
 - name: os_grouped
   type: STRING
   mode: NULLABLE
+  description: Grouped operating system name (e.g., 'Windows', 'Mac', 'Android', 'Linux',
+    'iOS', 'Other').
 - name: segment
   type: STRING
   mode: NULLABLE
@@ -45,6 +59,10 @@ fields:
 - name: dau
   type: INTEGER
   mode: NULLABLE
+  description: The number of daily active users for the dimension combination on the
+    submission_date.
 - name: ma_28_dau
   type: FLOAT
   mode: NULLABLE
+  description: The 28-day moving average of DAU, computed as the average DAU over
+    the 28 days ending on submission_date.
