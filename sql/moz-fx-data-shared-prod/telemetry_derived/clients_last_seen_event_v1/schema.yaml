@@ -6,12 +6,21 @@ fields:
 - name: days_logged_event_bits
   type: INTEGER
   mode: NULLABLE
+  description: A 28-bit integer bitmask representing the days in the last 28 days
+    on which the client had at least one logged telemetry event; bit 0 (LSB) corresponds
+    to submission_date and bit 27 to 27 days prior.
 - name: days_used_pictureinpicture_bits
   type: INTEGER
   mode: NULLABLE
+  description: A 28-bit integer bitmask representing the days in the last 28 days
+    on which the client created at least one picture-in-picture window; bit 0 corresponds
+    to submission_date.
 - name: days_viewed_protection_report_bits
   type: INTEGER
   mode: NULLABLE
+  description: A 28-bit integer bitmask representing the days in the last 28 days
+    on which the client viewed the Privacy Protections report; bit 0 corresponds to
+    submission_date.
 - name: sample_id
   type: INTEGER
   mode: NULLABLE
@@ -24,12 +33,19 @@ fields:
 - name: n_logged_event
   type: INTEGER
   mode: NULLABLE
+  description: The cumulative count of telemetry events logged by this client across
+    the active 28-day window, summed from clients_daily_event_v1.
 - name: n_created_pictureinpicture
   type: INTEGER
   mode: NULLABLE
+  description: The cumulative count of picture-in-picture windows created by this
+    client across the active 28-day window; 0 for the vast majority of clients (sampled
+    2026-06-02).
 - name: n_viewed_protection_report
   type: INTEGER
   mode: NULLABLE
+  description: The cumulative count of times the client viewed the Privacy Protections
+    report across the active 28-day window; 0 for nearly all clients (sampled 2026-06-02).
 - name: profile_group_id
   type: STRING
   mode: NULLABLE
