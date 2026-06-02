@@ -10,6 +10,8 @@ fields:
 - mode: NULLABLE
   name: app_build_id
   type: STRING
+  description: The Firefox application build ID, or '*' to indicate an aggregation
+    across all build IDs for the given channel.
 - mode: NULLABLE
   name: channel
   type: STRING
@@ -17,44 +19,70 @@ fields:
 - mode: NULLABLE
   name: first_bucket
   type: INTEGER
+  description: The lower bound of the first bucket in this histogram's bucket range.
 - mode: NULLABLE
   name: last_bucket
   type: INTEGER
+  description: The upper bound of the last bucket in this histogram's bucket range.
 - mode: NULLABLE
   name: num_buckets
   type: INTEGER
+  description: The total number of buckets in the histogram.
 - mode: NULLABLE
   name: metric
   type: STRING
+  description: The name of the telemetry histogram probe being aggregated (e.g. 'webext_extension_startup_ms_by_addonid').
 - mode: NULLABLE
   name: metric_type
   type: STRING
+  description: The histogram type, one of 'histogram-exponential', 'histogram-enumerated',
+    'histogram-boolean', 'histogram-categorical', 'histogram-linear', or 'histogram-count'.
 - mode: NULLABLE
   name: key
   type: STRING
+  description: The keyed-histogram key; empty string for non-keyed histograms. For
+    keyed histograms, identifies the specific sub-metric (e.g. an add-on ID or a domain
+    name).
 - mode: NULLABLE
   name: process
   type: STRING
+  description: The Firefox process type from which the histogram was recorded, one
+    of 'parent', 'content', or 'gpu'.
 - mode: NULLABLE
   name: agg_type
   type: STRING
+  description: The client-level aggregation method; always 'summed_histogram', indicating
+    that histogram bucket counts are summed across a client's submissions.
 - fields:
   - mode: NULLABLE
     name: key
     type: STRING
+    description: The histogram bucket index (as a string) within the record struct.
   - mode: NULLABLE
     name: value
     type: FLOAT
+    description: The normalized (Dirichlet-smoothed) aggregated count for this histogram
+      bucket within the record struct, expressed as a float.
   mode: NULLABLE
   name: record
   type: RECORD
+  description: A struct holding the normalized (Dirichlet-smoothed) bucket count for
+    a single histogram bucket, where key is the bucket index as a string and value
+    is the aggregated normalized count across all clients.
 - fields:
   - mode: NULLABLE
     name: key
     type: STRING
+    description: The histogram bucket index (as a string) within the non_norm_record
+      struct.
   - mode: NULLABLE
     name: value
     type: FLOAT
+    description: The raw (non-normalized) summed count for this histogram bucket within
+      the non_norm_record struct, expressed as a float.
   mode: NULLABLE
   name: non_norm_record
   type: RECORD
+  description: A struct holding the raw (non-normalized) bucket count for a single
+    histogram bucket, where key is the bucket index as a string and value is the raw
+    summed count across all clients.
