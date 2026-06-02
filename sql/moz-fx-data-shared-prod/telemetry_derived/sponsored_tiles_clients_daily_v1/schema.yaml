@@ -6,6 +6,7 @@ fields:
 - mode: NULLABLE
   name: device
   type: STRING
+  description: The device type or form factor reported by the client.
 - mode: NULLABLE
   name: client_id
   type: STRING
@@ -14,21 +15,33 @@ fields:
   - mode: NULLABLE
     name: version
     type: STRING
+    description: Full browser version string within the browser_version_info record
+      (e.g., '151.0.1').
   - mode: NULLABLE
     name: major_version
     type: NUMERIC
+    description: Major version number of the browser within the browser_version_info
+      record (e.g., 151).
   - mode: NULLABLE
     name: minor_version
     type: NUMERIC
+    description: Minor version number of the browser within the browser_version_info
+      record.
   - mode: NULLABLE
     name: patch_revision
     type: NUMERIC
+    description: Patch revision number of the browser within the browser_version_info
+      record.
   - mode: NULLABLE
     name: is_major_release
     type: BOOLEAN
+    description: True if this browser version is a major release (e.g., 151.0 with
+      no patch); false for point releases.
   mode: NULLABLE
   name: browser_version_info
   type: RECORD
+  description: Structured breakdown of the browser version, including major version,
+    minor version, patch revision, and a flag indicating whether it is a major release.
 - mode: NULLABLE
   name: country
   type: STRING
@@ -48,6 +61,7 @@ fields:
 - mode: NULLABLE
   name: is_new_profile
   type: BOOLEAN
+  description: True if this client created a new Firefox profile on the submission_date.
 - mode: NULLABLE
   name: sample_id
   type: INTEGER
@@ -57,24 +71,38 @@ fields:
   - mode: NULLABLE
     name: key
     type: STRING
+    description: Experiment slug (identifier) for each active Nimbus experiment enrollment
+      within the experiments array.
   - mode: NULLABLE
     name: value
     type: STRING
+    description: Branch assignment for the experiment identified by experiments.key
+      within the experiments array.
   mode: REPEATED
   name: experiments
   type: RECORD
+  description: Array of Nimbus experiment enrollments active for this client on the
+    submission_date, each with an experiment slug key and branch value.
 - mode: NULLABLE
   name: sponsored_tiles_click_count
   type: INTEGER
+  description: Number of times the client clicked on a sponsored topsite tile on the
+    new tab page on this date.
 - mode: NULLABLE
   name: sponsored_tiles_impression_count
   type: INTEGER
+  description: Number of times sponsored topsite tiles were rendered/displayed to
+    the client on the new tab page on this date.
 - mode: NULLABLE
   name: sponsored_tiles_dismissal_count
   type: INTEGER
+  description: Number of times the client dismissed a sponsored topsite tile from
+    the new tab page on this date.
 - mode: NULLABLE
   name: sponsored_tiles_disable_count
   type: INTEGER
+  description: Number of times the client disabled sponsored topsite tiles (via the
+    preference toggle) on this date.
 - mode: NULLABLE
   name: profile_group_id
   type: STRING
