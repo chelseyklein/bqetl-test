@@ -10,60 +10,100 @@ fields:
 - name: nvda
   type: INTEGER
   mode: NULLABLE
+  description: Number of Firefox Desktop clients on this channel that had the NVDA
+    screen reader active during the submission period.
 - name: jaws
   type: INTEGER
   mode: NULLABLE
+  description: Number of Firefox Desktop clients on this channel that had the JAWS
+    screen reader active during the submission period.
 - name: oldjaws
   type: INTEGER
   mode: NULLABLE
+  description: Number of Firefox Desktop clients that had an older version of JAWS
+    (pre-modern JAWS) active during the submission period.
 - name: we
   type: INTEGER
   mode: NULLABLE
+  description: Number of Firefox Desktop clients that had the 'Window Eyes' screen
+    reader active during the submission period.
 - name: dolphin
   type: INTEGER
   mode: NULLABLE
+  description: Number of Firefox Desktop clients that had the Dolphin screen reader/magnifier
+    active during the submission period.
 - name: serotek
   type: INTEGER
   mode: NULLABLE
+  description: Number of Firefox Desktop clients that had the Serotek System Access
+    accessibility software active during the submission period.
 - name: cobra
   type: INTEGER
   mode: NULLABLE
+  description: Number of Firefox Desktop clients that had the Cobra screen reader
+    active during the submission period.
 - name: zoomtext
   type: INTEGER
   mode: NULLABLE
+  description: Number of Firefox Desktop clients that had the ZoomText magnification
+    and screen reader software active during the submission period.
 - name: kazaguru
   type: INTEGER
   mode: NULLABLE
+  description: Number of Firefox Desktop clients that had the Kazaguru screen reader
+    active during the submission period.
 - name: youdao
   type: INTEGER
   mode: NULLABLE
+  description: Number of Firefox Desktop clients that had the Youdao accessibility
+    tool active during the submission period.
 - name: unknown
   type: INTEGER
   mode: NULLABLE
+  description: Number of Firefox Desktop clients that had an unrecognized or uncategorized
+    accessibility tool active during the submission period.
 - name: uiautomation
   type: INTEGER
   mode: NULLABLE
+  description: Number of Firefox Desktop clients where the Windows UI Automation accessibility
+    framework was detected as active, often used by accessibility tools and test automation.
 - name: visperoshared
   type: INTEGER
   mode: NULLABLE
+  description: Number of Firefox Desktop clients that had the VisperO Shared accessibility
+    component active during the submission period.
 - name: magnifier
   type: INTEGER
   mode: NULLABLE
+  description: Number of Firefox Desktop clients that had the Windows Magnifier accessibility
+    tool active during the submission period.
 - name: narrator
   type: INTEGER
   mode: NULLABLE
+  description: Number of Firefox Desktop clients that had the Windows Narrator screen
+    reader active during the submission period.
 - name: on_screen_keyboard
   type: INTEGER
   mode: NULLABLE
+  description: Number of Firefox Desktop clients that had the Windows On-Screen Keyboard
+    accessibility tool active during the submission period.
 - name: speech_recognition
   type: INTEGER
   mode: NULLABLE
+  description: Number of Firefox Desktop clients that had Windows Speech Recognition
+    or a similar voice control accessibility tool active during the submission period.
 - name: touch_keyboard_and_handwriting_panel
   type: INTEGER
   mode: NULLABLE
+  description: Number of Firefox Desktop clients that had the Windows Touch Keyboard
+    and Handwriting Panel accessibility feature active during the submission period.
 - name: voice_over
   type: INTEGER
   mode: NULLABLE
+  description: Number of Firefox Desktop clients that had the macOS VoiceOver screen
+    reader active during the submission period.
 - name: other
   type: INTEGER
   mode: NULLABLE
+  description: Number of Firefox Desktop clients that had another accessibility tool
+    not classified in any named category active during the submission period.
