@@ -2,12 +2,18 @@ fields:
 - mode: NULLABLE
   name: attribution_campaign
   type: STRING
+  description: The attribution campaign identifier from the Firefox installer (similar
+    to UTM campaign), indicating the marketing campaign that drove the installation.
 - mode: NULLABLE
   name: attribution_content
   type: STRING
+  description: The attribution content identifier from the Firefox installer (similar
+    to UTM content), indicating the specific content or link within a campaign.
 - mode: NULLABLE
   name: attribution_experiment
   type: STRING
+  description: The attribution experiment key recorded at install time, used to identify
+    funnel experiments.
 - mode: NULLABLE
   name: attribution_medium
   type: STRING
@@ -17,6 +23,8 @@ fields:
 - mode: NULLABLE
   name: attribution_variation
   type: STRING
+  description: The attribution variation key recorded at install time, used to distinguish
+    experiment arms.
 - description: The type of source of a client installation
   mode: NULLABLE
   name: adjust_network
@@ -28,14 +36,18 @@ fields:
 - mode: NULLABLE
   name: city
   type: STRING
+  description: Name of the city in which the activity took place, as determined by
+    IP geolocation.
 - mode: NULLABLE
   name: country
   type: STRING
-  description: An ISO 3166-1 alpha-2 country code of the country in which the activity took place, as determined
-    by the IP geolocation.
+  description: An ISO 3166-1 alpha-2 country code of the country in which the activity
+    took place, as determined by the IP geolocation.
 - mode: NULLABLE
   name: first_seen_year
   type: INTEGER
+  description: The calendar year of the client's first seen date, used to segment
+    clients by profile cohort vintage.
 - mode: NULLABLE
   name: is_default_browser
   type: BOOLEAN
@@ -44,6 +56,7 @@ fields:
 - mode: NULLABLE
   name: app_name
   type: STRING
+  description: The name of the application (e.g. 'Firefox Desktop', 'Fenix').
 - mode: NULLABLE
   name: submission_date
   type: DATE
@@ -51,36 +64,54 @@ fields:
 - mode: NULLABLE
   name: dau
   type: INTEGER
+  description: 'Daily Active Users: the number of clients that reported at least one
+    ping on the submission_date and qualify as active.'
 - mode: NULLABLE
   name: wau
   type: INTEGER
+  description: 'Weekly Active Users: the number of clients that reported at least
+    one qualifying ping in the 7 days prior to the submission_date.'
 - mode: NULLABLE
   name: mau
   type: INTEGER
+  description: 'Monthly Active Users: the number of clients that reported at least
+    one qualifying ping in the 28 days prior to the submission_date.'
 - mode: NULLABLE
   name: new_profiles
   type: INTEGER
+  description: Count of new browser profiles created on the submission_date.
 - mode: NULLABLE
   name: ad_clicks
   type: INTEGER
+  description: Total number of ad clicks recorded across active clients on the submission_date.
 - mode: NULLABLE
   name: organic_search_count
   type: INTEGER
+  description: Total number of organic (non-SAP) search queries performed by active
+    clients on the submission_date.
 - mode: NULLABLE
   name: search_count
   type: INTEGER
+  description: Total number of search queries performed by active clients on the submission_date.
 - mode: NULLABLE
   name: search_with_ads
   type: INTEGER
+  description: Total number of search result pages with ads viewed by active clients
+    on the submission_date.
 - mode: NULLABLE
   name: uri_count
   type: INTEGER
+  description: Total number of URIs (page loads) recorded by active clients on the
+    submission_date.
 - mode: NULLABLE
   name: active_hours
   type: FLOAT
+  description: Total active browsing hours recorded by active clients on the submission_date.
 - mode: NULLABLE
   name: attributed
   type: BOOLEAN
+  description: True if the client's installation can be attributed to a known marketing
+    source or campaign; false if the install source is unknown or organic.
 - description: Count of distinct, qualified Desktop clients that we received a main
     ping from on a given day. In mobile DAU = QDAU.
   mode: NULLABLE
