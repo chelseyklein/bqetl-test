@@ -10,72 +10,133 @@ fields:
 - name: profile_date
   type: DATE
   mode: NULLABLE
+  description: The date the client's profile was created, derived as the minimum observed
+    profile creation date across all pings received for this client on the submission
+    date.
 - name: sessions
   type: INTEGER
   mode: NULLABLE
+  description: The total number of browsing sessions recorded by the client on this
+    day, summed across all core pings received. Values are capped at 100,000 to avoid
+    integer overflow.
 - name: durations
   type: INTEGER
   mode: NULLABLE
+  description: The total session duration in seconds recorded by the client on this
+    day, summed across all core pings received. Values are capped at 100,000 to avoid
+    integer overflow from pathological input.
 - name: flash_usage
   type: INTEGER
   mode: NULLABLE
+  description: The total number of Flash plugin usages reported by the client on this
+    day. Values are summed across all core pings; always 0 as Flash is no longer supported
+    (sampled 2026-06-02).
 - name: app_name
   type: STRING
   mode: NULLABLE
+  description: The name of the Firefox application reporting telemetry (e.g., 'Fennec',
+    'FirefoxForFireTV', 'Zerda', 'Focus'). Represents the modal value observed across
+    all core pings for this client on the day.
 - name: os
   type: STRING
   mode: NULLABLE
+  description: The operating system of the client device (e.g., 'Android', 'iOS',
+    'iPadOS'). Represents the modal value observed across all core pings for this
+    client on the day.
 - name: country
   type: STRING
   mode: NULLABLE
+  description: The ISO 3166-1 alpha-2 country code for the country in which the activity
+    took place, determined by IP geolocation.
 - name: city
   type: STRING
   mode: NULLABLE
+  description: The city in which the activity took place, as determined by IP geolocation.
+    Null when city-level geolocation is unavailable (null rate ~22% sampled 2026-06-02).
 - name: app_build_id
   type: STRING
   mode: NULLABLE
+  description: The build identifier string of the application version (e.g., '33292015').
+    Represents the modal value across all core pings for this client on the day.
 - name: normalized_channel
   type: STRING
   mode: NULLABLE
+  description: The normalized release channel the application is distributed on (e.g.,
+    'release', 'beta', 'nightly', 'Other'). Set to 'Other' when the channel name was
+    unrecognized.
 - name: locale
   type: STRING
   mode: NULLABLE
+  description: The BCP-47 locale string set on the client (e.g., 'en-US', 'zh-CN').
+    Represents the modal value across all core pings for this client on the day.
 - name: osversion
   type: STRING
   mode: NULLABLE
+  description: The OS version string reported by the client (e.g., '28', '33' for
+    Android API levels). Represents the modal value across all core pings for this
+    client on the day.
 - name: device
   type: STRING
   mode: NULLABLE
+  description: The device model identifier combining manufacturer and model (e.g.,
+    'MediaTek-SMART TV', 'iPhone14,5'). Represents the modal value across all core
+    pings for this client on the day.
 - name: arch
   type: STRING
   mode: NULLABLE
+  description: The CPU architecture of the device (e.g., 'arm64-v8a', 'armeabi-v7a',
+    'arm64', 'x86_64'). Represents the modal value across all core pings for this
+    client on the day.
 - name: default_search
   type: STRING
   mode: NULLABLE
+  description: The identifier of the default search engine configured on the client
+    (e.g., 'google-b-m', 'baidu', 'unknown'). Null (~9%) when the search engine is
+    not reported.
 - name: distribution_id
   type: STRING
   mode: NULLABLE
+  description: The distribution id associated with the install of Firefox (e.g., 'mozillaonline',
+    'lg-m150'). Null (~99%) for most standard Mozilla installs.
 - name: campaign
   type: STRING
   mode: NULLABLE
+  description: The install attribution campaign string. Always null in this table;
+    use campaign_id for campaign attribution data.
 - name: campaign_id
   type: STRING
   mode: NULLABLE
+  description: The install attribution campaign identifier (e.g., 'Anonymous IPs',
+    a Google Ads campaign ID). Null (~99.7%) for most clients; populated for mobile
+    installs with tracked campaigns.
 - name: default_browser
   type: BOOLEAN
   mode: NULLABLE
+  description: Whether the user has set Firefox as their default browser at the time
+    of the ping. Null (~90%) when this preference is not reported by the client.
 - name: show_tracker_stats_share
   type: BOOLEAN
   mode: NULLABLE
+  description: Whether the tracker stats share feature was enabled by the user. Almost
+    always null; this feature has been deprecated.
 - name: metadata_app_version
   type: STRING
   mode: NULLABLE
+  description: The user-visible application version string as reported in the telemetry
+    URI metadata (e.g., '4.5', '4.6', '2.6.2%2820653%29'). Distinct from the app_build_id.
 - name: bug_1501329_affected
   type: BOOLEAN
   mode: NULLABLE
+  description: Whether the client was affected by Bug 1501329, which caused profile
+    dates to be incorrectly reported. True for a small fraction (~0.002%) of clients;
+    null (~90.8%) when not applicable.
 - name: first_seen_date
   type: DATE
   mode: NULLABLE
+  description: The date when the server first received a ping from this client, joined
+    from core_clients_first_seen_v1.
 - name: is_new_profile
   type: BOOLEAN
   mode: NULLABLE
+  description: True if this client was first seen on this submission_date, indicating
+    a newly created profile; false for returning clients.
