@@ -935,45 +935,75 @@ fields:
 - mode: NULLABLE
   name: scalar_parent_storage_sync_api_usage_extensions_using_sum
   type: INTEGER
+  description: Total number of extensions using the storage.sync API; always null
+    in sampled data (sampled 2026-05-29).
 - mode: NULLABLE
   name: search_cohort
   type: STRING
+  description: Legacy search experiment cohort identifier assigned to the client (e.g.
+    'nov17-2', 'apr18-1'); null for ~99.9% of clients as this experiment series has
+    ended (sampled 2026-05-29).
 - mode: NULLABLE
   name: search_count_abouthome
   type: INTEGER
+  description: Number of searches initiated from the about:home page on the reporting
+    day (sampled 2026-05-29).
 - mode: NULLABLE
   name: search_count_contextmenu
   type: INTEGER
+  description: Number of searches initiated by right-clicking and using the context
+    menu search option on the reporting day (sampled 2026-05-29).
 - mode: NULLABLE
   name: search_count_newtab
   type: INTEGER
+  description: Number of searches initiated from a new tab page on the reporting day
+    (sampled 2026-05-29).
 - mode: NULLABLE
   name: search_count_searchbar
   type: INTEGER
+  description: Number of searches initiated from the dedicated search bar on the reporting
+    day (sampled 2026-05-29).
 - mode: NULLABLE
   name: search_count_system
   type: INTEGER
+  description: Number of searches initiated by system or partner mechanisms on the
+    reporting day (sampled 2026-05-29).
 - mode: NULLABLE
   name: search_count_urlbar
   type: INTEGER
+  description: Number of searches initiated from the URL bar (awesome bar) on the
+    reporting day (sampled 2026-05-29).
 - mode: NULLABLE
   name: search_count_all
   type: INTEGER
+  description: Total number of searches across all access points (urlbar, searchbar,
+    about:home, etc.) on the reporting day (sampled 2026-05-29).
 - mode: NULLABLE
   name: search_count_tagged_sap
   type: INTEGER
+  description: Number of searches that were tagged as Search Access Point (SAP) searches,
+    indicating Firefox partner attribution, on the reporting day (sampled 2026-05-29).
 - mode: NULLABLE
   name: search_count_tagged_follow_on
   type: INTEGER
+  description: Number of follow-on tagged searches (where user continues searching
+    after a SAP-tagged search) on the reporting day (sampled 2026-05-29).
 - mode: NULLABLE
   name: search_count_organic
   type: INTEGER
+  description: Number of organic (non-partner-tagged) searches performed on the reporting
+    day (sampled 2026-05-29).
 - mode: NULLABLE
   name: search_count_urlbar_handoff
   type: INTEGER
+  description: Number of searches initiated via URL bar handoff (e.g. from the new
+    tab page search box handing off to the URL bar) on the reporting day (sampled
+    2026-05-29).
 - mode: NULLABLE
   name: search_count_urlbar_persisted
   type: INTEGER
+  description: Number of searches initiated from a persisted URL bar search mode on
+    the reporting day (sampled 2026-05-29).
 - mode: NULLABLE
   name: session_restored_mean
   type: FLOAT
@@ -1055,21 +1085,33 @@ fields:
 - mode: NULLABLE
   name: scalar_parent_urlbar_impression_autofill_about_sum
   type: INTEGER
+  description: 'Total number of address bar autofill impressions triggered by about:
+    page URL matches; null for ~100% of clients (sampled 2026-05-29).'
 - mode: NULLABLE
   name: scalar_parent_urlbar_impression_autofill_adaptive_sum
   type: INTEGER
+  description: Total number of address bar autofill impressions from the adaptive
+    history algorithm; always null in sampled data (sampled 2026-05-29).
 - mode: NULLABLE
   name: scalar_parent_urlbar_impression_autofill_origin_sum
   type: INTEGER
+  description: Total number of address bar autofill impressions triggered by origin
+    (host) matching; null for ~99% of clients (sampled 2026-05-29).
 - mode: NULLABLE
   name: scalar_parent_urlbar_impression_autofill_other_sum
   type: INTEGER
+  description: Total number of address bar autofill impressions from other (uncategorized)
+    sources; always null in sampled data (sampled 2026-05-29).
 - mode: NULLABLE
   name: scalar_parent_urlbar_impression_autofill_preloaded_sum
   type: INTEGER
+  description: Total number of address bar autofill impressions from the preloaded
+    domain list; always null in sampled data (sampled 2026-05-29).
 - mode: NULLABLE
   name: scalar_parent_urlbar_impression_autofill_url_sum
   type: INTEGER
+  description: Total number of address bar autofill impressions triggered by full
+    URL matching; null for ~99.9% of clients (sampled 2026-05-29).
 - fields:
   - mode: NULLABLE
     name: key
@@ -1262,6 +1304,8 @@ fields:
 - mode: NULLABLE
   name: search_count_alias
   type: INTEGER
+  description: Number of searches initiated using a search engine alias in the address
+    bar on the reporting day (sampled 2026-05-29).
 - mode: NULLABLE
   name: search_count_urlbar_searchmode
   type: INTEGER
