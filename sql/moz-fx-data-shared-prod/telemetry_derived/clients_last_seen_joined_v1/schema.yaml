@@ -1007,48 +1007,78 @@ fields:
 - mode: NULLABLE
   name: session_restored_mean
   type: FLOAT
+  description: Mean time in milliseconds for session restore to complete after Firefox
+    startup, averaged across subsessions; null for ~1.3% of clients (sampled 2026-05-29).
 - mode: NULLABLE
   name: sessions_started_on_this_day
   type: INTEGER
+  description: Number of Firefox sessions started by the client on the reporting day;
+    most clients start 1-3 sessions per day (sampled 2026-05-29).
 - mode: NULLABLE
   name: shutdown_kill_sum
   type: INTEGER
+  description: Total number of forced Firefox process terminations (kills during shutdown)
+    on the reporting day; null for ~98% of clients (sampled 2026-05-29).
 - mode: NULLABLE
   name: subsession_hours_sum
   type: NUMERIC
+  description: Total wall-clock hours of Firefox subsessions on the reporting day,
+    summed across all subsessions; approximately 24 hours maximum (sampled 2026-05-29).
 - mode: NULLABLE
   name: ssl_handshake_result_failure_sum
   type: INTEGER
+  description: Total number of failed TLS/SSL handshakes observed by the client on
+    the reporting day; 0 is the most common value (sampled 2026-05-29).
 - mode: NULLABLE
   name: ssl_handshake_result_success_sum
   type: INTEGER
+  description: Total number of successful TLS/SSL handshakes on the reporting day;
+    null for ~65% of clients where no HTTPS activity was recorded (sampled 2026-05-29).
 - mode: NULLABLE
   name: sync_configured
   type: BOOLEAN
+  description: Whether Firefox Sync was configured on the client; null for ~86% of
+    clients who have never set up Sync (sampled 2026-05-29).
 - mode: NULLABLE
   name: sync_count_desktop_mean
   type: FLOAT
+  description: Mean number of other Firefox Desktop clients synced to the same account
+    per subsession; null for ~89% of clients who are not using Sync (sampled 2026-05-29).
 - mode: NULLABLE
   name: sync_count_mobile_mean
   type: FLOAT
+  description: Mean number of mobile clients synced to the same Firefox account per
+    subsession; null for ~89% of clients not using Sync (sampled 2026-05-29).
 - mode: NULLABLE
   name: sync_count_desktop_sum
   type: INTEGER
+  description: Total number of other Firefox Desktop client sync events on the reporting
+    day; null for ~89% of clients not using Sync (sampled 2026-05-29).
 - mode: NULLABLE
   name: sync_count_mobile_sum
   type: INTEGER
+  description: Total number of Firefox mobile client sync events on the reporting
+    day; null for ~89% of clients not using Sync (sampled 2026-05-29).
 - mode: NULLABLE
   name: telemetry_enabled
   type: BOOLEAN
+  description: Whether the client has telemetry enabled via the toolkit.telemetry.enabled
+    pref; null for ~86% of clients where the pref is at its default (sampled 2026-05-29).
 - mode: NULLABLE
   name: timezone_offset
   type: INTEGER
+  description: Client's UTC timezone offset in minutes at the time of the last reported
+    subsession (e.g. 120 = UTC+2, -300 = UTC-5) (sampled 2026-05-29).
 - mode: NULLABLE
   name: total_hours_sum
   type: NUMERIC
+  description: Total browser usage hours from the total_time histogram, summed across
+    subsessions; always null in sampled data (sampled 2026-05-29).
 - mode: NULLABLE
   name: update_auto_download
   type: BOOLEAN
+  description: Whether Firefox updates are downloaded automatically in the background;
+    true for ~92% of clients (sampled 2026-05-29).
 - mode: NULLABLE
   name: update_channel
   type: STRING
@@ -1073,15 +1103,23 @@ fields:
 - mode: NULLABLE
   name: trackers_blocked_sum
   type: INTEGER
+  description: Total number of tracking content items (cookies, scripts, etc.) blocked
+    by Enhanced Tracking Protection on the reporting day; null for ~68% of clients
+    (sampled 2026-05-29).
 - mode: NULLABLE
   name: submission_timestamp_min
   type: TIMESTAMP
 - mode: NULLABLE
   name: ad_clicks_count_all
   type: INTEGER
+  description: Total number of clicks on search-result advertisements across all search
+    access points on the reporting day; null for ~95% of clients (sampled 2026-05-29).
 - mode: NULLABLE
   name: search_with_ads_count_all
   type: INTEGER
+  description: Total number of search result pages that included advertisements, across
+    all search access points, on the reporting day; null for ~88% of clients (sampled
+    2026-05-29).
 - mode: NULLABLE
   name: scalar_parent_urlbar_impression_autofill_about_sum
   type: INTEGER
@@ -1301,6 +1339,8 @@ fields:
 - mode: NULLABLE
   name: search_count_webextension
   type: INTEGER
+  description: Number of searches initiated by a WebExtension (add-on) on the reporting
+    day (sampled 2026-05-29).
 - mode: NULLABLE
   name: search_count_alias
   type: INTEGER
@@ -1309,6 +1349,8 @@ fields:
 - mode: NULLABLE
   name: search_count_urlbar_searchmode
   type: INTEGER
+  description: Number of searches initiated while the URL bar was in a specific search
+    mode (engine-scoped) on the reporting day (sampled 2026-05-29).
 - fields:
   - mode: NULLABLE
     name: key
@@ -1983,6 +2025,8 @@ fields:
 - mode: NULLABLE
   name: update_background
   type: BOOLEAN
+  description: Whether Firefox updates may be installed while the browser is not running;
+    true for ~93% of clients (sampled 2026-05-29).
 - mode: NULLABLE
   name: user_pref_browser_search_suggest_enabled
   type: STRING
