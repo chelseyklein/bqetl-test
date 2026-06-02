@@ -19,6 +19,9 @@ fields:
 - name: subsession_start_date
   type: STRING
   mode: NULLABLE
+  description: ISO 8601 datetime string indicating the start of the telemetry subsession
+    during which this add-on record was reported, including timezone offset (e.g.,
+    '2026-05-26T09:00:00.0+02:00').
 - name: normalized_channel
   type: STRING
   mode: NULLABLE
@@ -26,18 +29,29 @@ fields:
 - name: addon_id
   type: STRING
   mode: NULLABLE
+  description: The unique identifier of the browser add-on as it appears in the Firefox
+    add-on system, e.g., 'pictureinpicture@mozilla.org' or '{guid}'.
 - name: blocklisted
   type: BOOLEAN
   mode: NULLABLE
+  description: True if the add-on appears on Mozilla's blocklist and is disabled for
+    security or compatibility reasons; false otherwise.
 - name: name
   type: STRING
   mode: NULLABLE
+  description: The display name of the add-on as reported in the telemetry environment,
+    e.g., 'Picture-In-Picture' or 'Form Autofill'. Null for a small fraction of add-ons
+    (sampled 2026-06-02).
 - name: user_disabled
   type: BOOLEAN
   mode: NULLABLE
+  description: True if the user manually disabled this add-on in the browser; false
+    otherwise. Null for a small fraction of rows (sampled 2026-06-02).
 - name: app_disabled
   type: BOOLEAN
   mode: NULLABLE
+  description: True if the add-on is disabled by the application due to version incompatibility,
+    dependency issues, or blocklisting; false otherwise.
 - name: version
   type: STRING
   mode: NULLABLE
@@ -45,33 +59,56 @@ fields:
 - name: scope
   type: INTEGER
   mode: NULLABLE
+  description: 'Integer scope code indicating where the add-on is installed: 1 = profile,
+    4 = application, 8 = system, 16 = application-locked. Null for some rows with
+    no scope recorded (sampled 2026-06-02).'
 - name: type
   type: STRING
   mode: NULLABLE
+  description: The add-on type, one of 'extension', 'locale', 'dictionary', or 'service'.
+    Null for a very small fraction of records (sampled 2026-06-02).
 - name: foreign_install
   type: BOOLEAN
   mode: NULLABLE
+  description: True if the add-on was installed by an external process (e.g., a native
+    installer) rather than by the user through the Firefox browser.
 - name: has_binary_components
   type: BOOLEAN
   mode: NULLABLE
+  description: True if the add-on contains binary (non-JavaScript) components. Always
+    false since Firefox 60; retained for historical compatibility.
 - name: install_day
   type: INTEGER
   mode: NULLABLE
+  description: Days since the Unix epoch (1970-01-01) when the add-on was first installed,
+    e.g. 20599 corresponds to 2026-05-26. Zero indicates the epoch or an unknown install
+    date.
 - name: update_day
   type: INTEGER
   mode: NULLABLE
+  description: Days since the Unix epoch when the add-on was last updated, e.g. 20599
+    corresponds to 2026-05-26.
 - name: signed_state
   type: INTEGER
   mode: NULLABLE
+  description: 'Integer code representing the AMO signing state of the add-on: 2 =
+    signed, 3 = system signed, 4 = privileged, -1 = unknown, 0 = unsigned, 1 = obsolete.
+    Null for system add-ons that are not signed through AMO (sampled 2026-06-02).'
 - name: is_system
   type: BOOLEAN
   mode: NULLABLE
+  description: True if the add-on is a Mozilla system add-on automatically managed
+    by Firefox, such as built-in tools; false for user-installed extensions.
 - name: is_web_extension
   type: BOOLEAN
   mode: NULLABLE
+  description: True if the add-on is a WebExtension; false for older XUL-based or
+    legacy add-on formats.
 - name: multiprocess_compatible
   type: BOOLEAN
   mode: NULLABLE
+  description: True if the add-on is compatible with Firefox's multiprocess (e10s)
+    architecture. Since Firefox 61 this is always true.
 - name: profile_group_id
   type: STRING
   mode: NULLABLE
