@@ -2,6 +2,10 @@ fields:
 - name: active_date
   type: DATE
   mode: NULLABLE
+  description: The calendar date on which each subscription was active. Used to filter
+    or join subscription activity by day.
 - name: subscription_id
   type: STRING
   mode: NULLABLE
+  description: The Stripe subscription identifier (e.g. 'sub_1LZXOfJNcmPzuWtRX6qIHqHA')
+    for an active Relay subscription on the active_date.
