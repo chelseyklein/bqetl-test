@@ -6,12 +6,20 @@ fields:
 - mode: NULLABLE
   name: attributed
   type: BOOLEAN
+  description: True if the client's installation can be attributed to a known marketing
+    source; false otherwise.
 - mode: NULLABLE
   name: attribution_medium
   type: STRING
+  description: The attribution medium recorded at install time (similar to UTM medium),
+    e.g. 'referral', 'cpc'. Null for clients without install attribution (sampled
+    2026-06-02).
 - mode: NULLABLE
   name: attribution_source
   type: STRING
+  description: The referring partner domain or source recorded at install time (similar
+    to UTM source), e.g. 'www.google.com'. Null for clients without install attribution
+    (sampled 2026-06-02).
 - mode: NULLABLE
   name: country
   type: STRING
@@ -20,9 +28,13 @@ fields:
 - mode: NULLABLE
   name: device_model
   type: STRING
+  description: The hardware model identifier of the client device (e.g. 'iPhone14,5',
+    'Redmi 7A'). Populated for mobile clients only; null for Desktop (sampled 2026-06-02).
 - mode: NULLABLE
   name: first_seen_year
   type: INTEGER
+  description: The calendar year of the client's first seen date, used to segment
+    clients by profile cohort vintage.
 - mode: NULLABLE
   name: is_default_browser
   type: BOOLEAN
@@ -71,24 +83,38 @@ fields:
 - mode: NULLABLE
   name: new_profiles
   type: INTEGER
+  description: Count of new browser profiles created on the submission_date.
 - mode: NULLABLE
   name: ad_clicks
   type: INTEGER
+  description: Total number of ad clicks recorded across active clients on the submission_date.
+    Null for mobile apps that do not report this metric (sampled 2026-06-02).
 - mode: NULLABLE
   name: organic_search_count
   type: INTEGER
+  description: Total number of organic (non-SAP) search queries. Null for mobile apps
+    that do not report search metrics (sampled 2026-06-02).
 - mode: NULLABLE
   name: search_count
   type: INTEGER
+  description: Total number of search queries performed by active clients on the submission_date.
+    Null for mobile apps that do not report search metrics (sampled 2026-06-02).
 - mode: NULLABLE
   name: search_with_ads
   type: INTEGER
+  description: Total number of search result pages with ads viewed by active clients
+    on the submission_date. Null for mobile apps that do not report this metric (sampled
+    2026-06-02).
 - mode: NULLABLE
   name: uri_count
   type: INTEGER
+  description: Total number of URIs (page loads) recorded by active clients on the
+    submission_date. Null for mobile apps that do not report URI counts (sampled 2026-06-02).
 - mode: NULLABLE
   name: active_hours
   type: FLOAT
+  description: Total active browsing hours recorded by active clients on the submission_date.
+    Null for mobile apps that do not report active hours (sampled 2026-06-02).
 - description: Count of distinct, qualified Desktop clients that we received a main
     ping from on a given day. In mobile DAU = QDAU.
   mode: NULLABLE
