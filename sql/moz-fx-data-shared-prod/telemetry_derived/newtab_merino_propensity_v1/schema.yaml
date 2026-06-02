@@ -2,15 +2,28 @@ fields:
 - mode: NULLABLE
   name: section_position
   type: INTEGER
+  description: Position of the content item within a sections layout on the newtab.
+    Null for non-section (grid) layout rows; reserved for future use in section-based
+    propensity modelling.
 - mode: NULLABLE
   name: position
   type: INTEGER
+  description: 0-indexed position of the tile in the newtab grid (0–200). Used with
+    tile_format to look up the propensity weight for debiasing impression counts.
 - mode: NULLABLE
   name: tile_format
   type: STRING
+  description: 'The tile format category for which this weight applies: ''small-card'',
+    ''medium-card'', ''large-card'', or ''any'' (impression-weighted average across
+    all formats for this position).'
 - mode: NULLABLE
   name: impressions
   type: INTEGER
+  description: Total number of impressions observed at this (position, tile_format)
+    slot over the modelling window, used to weight the propensity estimate.
 - mode: NULLABLE
   name: weight
   type: FLOAT
+  description: Propensity weight for this (position, tile_format) slot, derived via
+    Alternating Least Squares lattice decomposition. Divide raw impression counts
+    by this weight to remove position-format bias from CTR estimates.
