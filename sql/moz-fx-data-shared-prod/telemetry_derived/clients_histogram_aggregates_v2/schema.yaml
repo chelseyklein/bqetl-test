@@ -23,6 +23,8 @@ fields:
 - mode: NULLABLE
   name: app_build_id
   type: STRING
+  description: The build ID of the Firefox application binary, formatted as a timestamp
+    string (e.g. '20251217121356').
 - mode: NULLABLE
   name: channel
   type: STRING
@@ -31,27 +33,43 @@ fields:
   - mode: NULLABLE
     name: first_bucket
     type: INTEGER
+    description: The lower bound of the first bucket in the histogram's bucket range
+      for each entry in histogram_aggregates.
   - mode: NULLABLE
     name: last_bucket
     type: INTEGER
+    description: The upper bound of the last bucket in the histogram's bucket range
+      for each entry in histogram_aggregates.
   - mode: NULLABLE
     name: num_buckets
     type: INTEGER
+    description: The total number of buckets in the histogram for each entry in histogram_aggregates.
   - mode: NULLABLE
     name: metric
     type: STRING
+    description: The name of the telemetry histogram probe (e.g. 'network_dns_end_to_connect_start_exp_ms')
+      for each entry in histogram_aggregates.
   - mode: NULLABLE
     name: metric_type
     type: STRING
+    description: The histogram type for each entry in histogram_aggregates, e.g. 'histogram-exponential',
+      'histogram-enumerated', 'histogram-boolean', 'histogram-categorical', 'histogram-linear',
+      or 'histogram-count'.
   - mode: NULLABLE
     name: key
     type: STRING
+    description: An optional keyed-histogram key for each entry in histogram_aggregates;
+      empty string for non-keyed histograms.
   - mode: NULLABLE
     name: process
     type: STRING
+    description: The Firefox process type from which the histogram was recorded (e.g.
+      'parent', 'content', 'gpu') for each entry in histogram_aggregates.
   - mode: NULLABLE
     name: agg_type
     type: STRING
+    description: The aggregation method applied to the histogram values for each entry
+      in histogram_aggregates; always 'summed_histogram' in this table.
   - fields:
     - mode: NULLABLE
       name: key
@@ -62,6 +80,13 @@ fields:
     mode: REPEATED
     name: aggregates
     type: RECORD
+    description: Repeated array of key-value pairs within each histogram_aggregates
+      entry, where key is the histogram bucket index (as a string) and value is the
+      aggregated count for that bucket across submissions.
   mode: REPEATED
   name: histogram_aggregates
   type: RECORD
+  description: Repeated array of per-metric histogram aggregates for this client,
+    each representing one histogram probe across a specific process, key, and bucket
+    configuration. New data from clients_histogram_aggregates_new_v1 is merged into
+    the previous day's data to produce this rolling per-client view.
