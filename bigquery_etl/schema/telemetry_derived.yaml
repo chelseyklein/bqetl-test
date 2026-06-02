@@ -710,3 +710,917 @@ fields:
 - name: windows_ubr
   description: The Windows Update Build Revision (UBR) number, a patch-level identifier
     within a Windows build; null for non-Windows clients.
+- name: a11y_theme
+  description: Keyed array mapping accessibility theme names to boolean values indicating
+    whether each theme is active for this client (e.g. high contrast mode variants).
+- name: aborts_content_sum
+  description: Total number of content-process abort events recorded by this client
+    over the aggregation period; null when no aborts were observed (96.8% null rate
+    sampled 2026-05-29).
+- name: aborts_gmplugin_sum
+  description: Total number of Gecko Media Plugin (GMP) process aborts aggregated
+    across all pings for the client on this date. Null (100% null rate) indicates
+    this metric is no longer populated.
+- name: aborts_plugin_sum
+  description: Total number of legacy NPAPI plugin process abort events recorded by
+    this client; null when no aborts were observed (100% null rate sampled 2026-05-29).
+- name: active_addons_count_mean
+  description: Mean number of active (non-disabled, non-system) add-ons installed
+    across pings aggregated into this row.
+- name: aggregates
+  description: Array of percentile values computed across contributing clients. Each
+    entry has a key (percentile, e.g., '50', '95', '99.9') and a value (the corresponding
+    percentile of the metric).
+- name: bookmark_migrations_quantity_all
+  description: Total number of bookmarks migrated into Firefox from all browsers combined;
+    null in 99.4% of rows where no migration occurred (sampled 2026-05-29).
+- name: bookmark_migrations_quantity_chrome
+  description: Number of bookmarks migrated from Chrome into Firefox; null in 99.9%
+    of rows where no migration occurred (sampled 2026-05-29).
+- name: bookmark_migrations_quantity_edge
+  description: Number of bookmarks migrated from Microsoft Edge into Firefox; null
+    in 99.9% of rows where no migration occurred (sampled 2026-05-29).
+- name: bookmark_migrations_quantity_safari
+  description: Number of bookmarks migrated from Safari into Firefox; null in 100%
+    of rows for non-macOS clients or where no migration occurred (sampled 2026-05-29).
+- name: campaign_id
+  description: Google Ads campaign ID from GA4 attribution.
+- name: client_clock_skew_mean
+  description: Mean difference in hours between the client's local clock and the server
+    clock, derived from submission timestamps; negative values indicate the client
+    clock is ahead.
+- name: client_submission_latency_mean
+  description: Mean number of hours between when a ping was created on the client
+    and when it was received by the server; negative values (-1) indicate the client
+    clock is ahead of the server.
+- name: contextual_services_quicksuggest_block_dynamic_wikipedia_sum
+  description: Key-value map recording block-button clicks on Dynamic Wikipedia QuickSuggest
+    results, keyed by result identifier.
+- name: contextual_services_quicksuggest_block_nonsponsored_bestmatch_sum
+  description: Keyed array mapping placement context to counts of times a non-sponsored
+    best-match Firefox Suggest result was blocked by the client.
+- name: contextual_services_quicksuggest_block_nonsponsored_sum
+  description: Keyed array mapping placement context to counts of times a non-sponsored
+    Firefox Suggest result was blocked by the client.
+- name: contextual_services_quicksuggest_block_sponsored_bestmatch_sum
+  description: Key-value map recording block-button click counts on sponsored best-match
+    QuickSuggest results, keyed by result identifier.
+- name: contextual_services_quicksuggest_block_sponsored_sum
+  description: Keyed array mapping placement context to counts of times a sponsored
+    Firefox Suggest result was blocked by the client.
+- name: contextual_services_quicksuggest_block_weather_sum
+  description: Key-value map recording block-button clicks on Weather QuickSuggest
+    results, keyed by result identifier.
+- name: contextual_services_quicksuggest_click_dynamic_wikipedia_sum
+  description: Key-value map recording click counts on Dynamic Wikipedia QuickSuggest
+    results, keyed by result identifier.
+- name: contextual_services_quicksuggest_click_nonsponsored_bestmatch_sum
+  description: Keyed array mapping placement context to counts of clicks on non-sponsored
+    best-match Firefox Suggest results for this client.
+- name: contextual_services_quicksuggest_click_nonsponsored_sum
+  description: Key-value map recording click counts on non-sponsored (organic) QuickSuggest
+    results, keyed by result identifier.
+- name: contextual_services_quicksuggest_click_sponsored_bestmatch_sum
+  description: Keyed array mapping placement context to counts of clicks on sponsored
+    best-match Firefox Suggest results for this client.
+- name: contextual_services_quicksuggest_click_sponsored_sum
+  description: Key-value map recording click counts on sponsored QuickSuggest results,
+    keyed by result identifier.
+- name: contextual_services_quicksuggest_click_sum
+  description: Key-value map of Firefox Suggest result types to total click counts
+    across all QuickSuggest result categories during the aggregation period.
+- name: contextual_services_quicksuggest_click_weather_sum
+  description: Key-value map recording click counts on Weather QuickSuggest results,
+    keyed by result identifier.
+- name: contextual_services_quicksuggest_help_dynamic_wikipedia_sum
+  description: Key-value map recording help-button click counts on Dynamic Wikipedia
+    QuickSuggest results, keyed by result identifier.
+- name: contextual_services_quicksuggest_help_nonsponsored_bestmatch_sum
+  description: Key-value map recording help-button click counts on non-sponsored best-match
+    QuickSuggest results, keyed by result identifier.
+- name: contextual_services_quicksuggest_help_nonsponsored_sum
+  description: Key-value map recording help-button click counts on non-sponsored QuickSuggest
+    results, keyed by result identifier.
+- name: contextual_services_quicksuggest_help_sponsored_bestmatch_sum
+  description: Keyed array mapping placement context to counts of times the help button
+    was shown for a sponsored Firefox Suggest best-match result for this client.
+- name: contextual_services_quicksuggest_help_sponsored_sum
+  description: Key-value map recording help-button click counts on sponsored QuickSuggest
+    results, keyed by result identifier.
+- name: contextual_services_quicksuggest_help_sum
+  description: Key-value map of Firefox Suggest result types to total help-button
+    click counts, indicating users who clicked the info icon on a QuickSuggest result
+    during the aggregation period.
+- name: contextual_services_quicksuggest_help_weather_sum
+  description: Key-value map recording help-button click counts on Weather QuickSuggest
+    results, keyed by result identifier.
+- name: contextual_services_quicksuggest_impression_dynamic_wikipedia_sum
+  description: Key-value map recording impression counts for Dynamic Wikipedia QuickSuggest
+    results, keyed by result identifier.
+- name: contextual_services_quicksuggest_impression_nonsponsored_bestmatch_sum
+  description: Keyed array mapping placement context to counts of impressions of non-sponsored
+    best-match Firefox Suggest results for this client.
+- name: contextual_services_quicksuggest_impression_nonsponsored_sum
+  description: Key-value map recording impression counts for non-sponsored QuickSuggest
+    results, keyed by result identifier.
+- name: contextual_services_quicksuggest_impression_sponsored_bestmatch_sum
+  description: Keyed array mapping placement context to counts of impressions of sponsored
+    best-match Firefox Suggest results for this client.
+- name: contextual_services_quicksuggest_impression_sponsored_sum
+  description: Key-value map recording impression counts for sponsored QuickSuggest
+    results, keyed by result identifier.
+- name: contextual_services_quicksuggest_impression_sum
+  description: Key-value map of Firefox Suggest result types to total impression counts
+    (number of times results were shown) across all QuickSuggest categories during
+    the aggregation period.
+- name: contextual_services_quicksuggest_impression_weather_sum
+  description: Key-value map recording impression counts for Weather QuickSuggest
+    results, keyed by result identifier.
+- name: contextual_services_topsites_click_sum
+  description: Key-value map of Top Sites position or type identifiers to total click
+    counts on sponsored Top Sites tiles during the aggregation period.
+- name: contextual_services_topsites_impression_sum
+  description: Key-value map of Top Sites position or type identifiers to total impression
+    counts for sponsored Top Sites tiles during the aggregation period.
+- name: crash_submit_attempt_content_sum
+  description: Total number of crash report submission attempts for content-process
+    crashes; null when no submission attempts occurred (99.9% null rate sampled 2026-05-29).
+- name: crash_submit_attempt_main_sum
+  description: Total number of crash report submission attempts for main-process crashes;
+    null when no submission attempts occurred (99.8% null rate sampled 2026-05-29).
+- name: crash_submit_attempt_plugin_sum
+  description: Total number of crash report submission attempts for legacy plugin
+    process crashes; null when no submission attempts occurred (100% null rate sampled
+    2026-05-29).
+- name: crash_submit_success_content_sum
+  description: Total number of successfully submitted crash reports for content-process
+    crashes; null when no successful submissions occurred (99.9% null rate sampled
+    2026-05-29).
+- name: crash_submit_success_main_sum
+  description: Total number of successfully submitted crash reports for main-process
+    crashes; null when no successful submissions occurred (99.8% null rate sampled
+    2026-05-29).
+- name: crash_submit_success_plugin_sum
+  description: Total number of successfully submitted crash reports for legacy plugin
+    crashes; null when no successful submissions occurred (100% null rate sampled
+    2026-05-29).
+- name: crashes_detected_content_sum
+  description: Total number of content-process crashes detected for this client over
+    the aggregation period; null when no crashes were detected (100% null rate sampled
+    2026-05-29).
+- name: crashes_detected_gmplugin_sum
+  description: Total number of Gecko Media Plugin (GMP) process crashes detected,
+    summed across the client's pings on this submission date. Null for the vast majority
+    of clients. (sampled 2026-05-29)
+- name: crashes_detected_plugin_sum
+  description: Total number of legacy NPAPI plugin process crashes detected for this
+    client; null when no crashes were detected (100% null rate sampled 2026-05-29).
+- name: distribution_version
+  description: The version string of the Firefox distribution (e.g. '1.0', '2023.6');
+    null in 81.1% of rows where no distribution is set (sampled 2026-05-29).
+- name: distributor
+  description: The name of the organisation or channel that distributed this Firefox
+    build (e.g. 'canonical', 'mozillaonline', 'mint'); null in 90.7% of rows for standard
+    Mozilla builds (sampled 2026-05-29).
+- name: distributor_channel
+  description: The distribution channel identifier for the Firefox install (e.g. 'mainWinStub',
+    'ubuntu', 'zena'); null in 90.8% of rows for standard builds (sampled 2026-05-29).
+- name: dom_parentprocess_private_window_used
+  description: Whether the client opened or used a private browsing window during
+    the aggregation period; true for ~4.9% of clients (sampled 2026-05-29).
+- name: env_build_platform_version
+  description: The platform version string from the Gecko build environment; typically
+    identical to env_build_version (e.g. '150.0.3').
+- name: env_build_xpcom_abi
+  description: The XPCOM ABI string identifying the target platform and compiler ABI,
+    e.g. 'x86_64-msvc' (Windows 64-bit) or 'aarch64-gcc3' (ARM 64-bit). (sampled 2026-05-29)
+- name: event_map_values
+  description: A repeated key-value struct carrying additional event-specific metadata,
+    corresponding to the 'extra' map in the legacy telemetry events schema. Each entry
+    holds one key-value pair of supplementary event context.
+- name: event_timestamp
+  description: Milliseconds elapsed from the start of the browser session (session_start_time)
+    to when the event occurred. Sourced via the deanonymize_event UDF applied to main
+    ping event entries.
+- name: first_document_id
+  description: The document ID (UUID) from the very first telemetry ping submitted
+    by this client, used to trace back the originating ping.
+- name: first_paint_mean
+  description: Mean time in milliseconds from Firefox startup to first paint across
+    pings in the aggregation period; null in 10.1% of rows where the metric was not
+    recorded (sampled 2026-05-29).
+- name: first_seen_year
+  description: The calendar year when the client profile was first seen by Mozilla
+    telemetry.
+- name: geo_db_version
+  description: The version timestamp of the MaxMind GeoIP database used to derive
+    geographic fields (country, city, subdivision) for this ping. (sampled 2026-05-29)
+- name: histogram_parent_devtools_aboutdebugging_opened_count_sum
+  description: Total number of times the DevTools 'about:debugging' panel was opened;
+    null for nearly all clients (100% null rate sampled 2026-05-29).
+- name: histogram_parent_devtools_animationinspector_opened_count_sum
+  description: Total number of times the DevTools Animation Inspector panel was opened;
+    null for nearly all clients (100% null rate sampled 2026-05-29).
+- name: histogram_parent_devtools_browserconsole_opened_count_sum
+  description: Total number of times the DevTools Browser Console was opened; null
+    for nearly all clients (100% null rate sampled 2026-05-29).
+- name: histogram_parent_devtools_canvasdebugger_opened_count_sum
+  description: Total number of times the (legacy) DevTools Canvas Debugger was opened;
+    null for all sampled clients (100% null rate sampled 2026-05-29).
+- name: histogram_parent_devtools_computedview_opened_count_sum
+  description: Total number of times the DevTools Computed Styles view was opened;
+    null in 99.9% of rows (sampled 2026-05-29).
+- name: histogram_parent_devtools_custom_opened_count_sum
+  description: Total number of times a custom DevTools panel (from an extension) was
+    opened; null for nearly all clients (100% null rate sampled 2026-05-29).
+- name: histogram_parent_devtools_developertoolbar_opened_count_sum
+  description: Total number of times the legacy DevTools Developer Toolbar (GCLI)
+    was opened; null for all sampled clients as this toolbar was removed in Firefox
+    62 (100% null rate sampled 2026-05-29).
+- name: histogram_parent_devtools_dom_opened_count_sum
+  description: Total number of times the DevTools DOM panel was opened; null for nearly
+    all clients (100% null rate sampled 2026-05-29).
+- name: histogram_parent_devtools_eyedropper_opened_count_sum
+  description: Total number of times any DevTools eyedropper tool was opened (combining
+    toolbar, menu, and picker variants); null for nearly all clients (100% null rate
+    sampled 2026-05-29).
+- name: histogram_parent_devtools_fontinspector_opened_count_sum
+  description: Total number of times the DevTools Font Inspector panel was opened;
+    null for nearly all clients (100% null rate sampled 2026-05-29).
+- name: histogram_parent_devtools_inspector_opened_count_sum
+  description: Total number of times the DevTools HTML/CSS Inspector panel was opened;
+    null in 98.9% of rows (sampled 2026-05-29).
+- name: histogram_parent_devtools_jsbrowserdebugger_opened_count_sum
+  description: Total number of times the DevTools Browser Toolbox JS Debugger was
+    opened; null for nearly all clients (100% null rate sampled 2026-05-29).
+- name: histogram_parent_devtools_jsdebugger_opened_count_sum
+  description: Total number of times the DevTools JavaScript Debugger panel was opened;
+    null in 99.9% of rows (sampled 2026-05-29).
+- name: histogram_parent_devtools_jsprofiler_opened_count_sum
+  description: Total number of times the DevTools JavaScript Performance Profiler
+    was opened; null in 99.9% of rows (sampled 2026-05-29).
+- name: histogram_parent_devtools_layoutview_opened_count_sum
+  description: Number of times the DevTools Layout View panel was opened, summed over
+    the client's pings on this submission date. Null for most clients (~99% null).
+    (sampled 2026-05-29)
+- name: histogram_parent_devtools_memory_opened_count_sum
+  description: Number of times the DevTools Memory panel was opened, summed over the
+    client's pings on this submission date. Null for the vast majority of clients
+    (100% null). (sampled 2026-05-29)
+- name: histogram_parent_devtools_menu_eyedropper_opened_count_sum
+  description: Number of times the DevTools eyedropper was opened from the menu, summed
+    over the client's pings on this date. Null for nearly all clients (100% null rate
+    observed). (sampled 2026-05-29)
+- name: histogram_parent_devtools_netmonitor_opened_count_sum
+  description: Number of times the DevTools Network Monitor panel was opened, summed
+    over the client's pings on this submission date. Null for most clients (~99.7%
+    null). (sampled 2026-05-29)
+- name: histogram_parent_devtools_options_opened_count_sum
+  description: Number of times the DevTools Options/Settings panel was opened, summed
+    over the client's pings on this submission date. Null for nearly all clients (100%
+    null rate). (sampled 2026-05-29)
+- name: histogram_parent_devtools_paintflashing_opened_count_sum
+  description: Number of times the DevTools Paint Flashing toggle was opened, summed
+    over the client's pings. Null for all observed clients (100% null), indicating
+    this feature is rarely used. (sampled 2026-05-29)
+- name: histogram_parent_devtools_picker_eyedropper_opened_count_sum
+  description: Number of times the DevTools color picker eyedropper was opened, summed
+    for this client on the submission date. Null for nearly all clients (100% null
+    rate). (sampled 2026-05-29)
+- name: histogram_parent_devtools_responsive_opened_count_sum
+  description: Total number of times the DevTools Responsive Design Mode was opened;
+    null in 99.9% of rows (sampled 2026-05-29).
+- name: histogram_parent_devtools_ruleview_opened_count_sum
+  description: Total number of times the DevTools CSS Rules view was opened; null
+    in 98.9% of rows (sampled 2026-05-29).
+- name: histogram_parent_devtools_scratchpad_opened_count_sum
+  description: Total number of times the legacy DevTools Scratchpad (JS editor) was
+    opened; null for nearly all clients as Scratchpad was removed in Firefox 71 (100%
+    null rate sampled 2026-05-29).
+- name: histogram_parent_devtools_scratchpad_window_opened_count_sum
+  description: Total number of times a Scratchpad window was opened; null for nearly
+    all clients as Scratchpad was removed in Firefox 71 (100% null rate sampled 2026-05-29).
+- name: histogram_parent_devtools_shadereditor_opened_count_sum
+  description: Total number of times the legacy DevTools Shader Editor was opened;
+    null for all sampled clients as this tool was removed (100% null rate sampled
+    2026-05-29).
+- name: histogram_parent_devtools_storage_opened_count_sum
+  description: Total number of times the DevTools Storage Inspector panel was opened;
+    null in 99.9% of rows (sampled 2026-05-29).
+- name: histogram_parent_devtools_styleeditor_opened_count_sum
+  description: Total number of times the DevTools Style Editor panel was opened; null
+    in 99.9% of rows (sampled 2026-05-29).
+- name: histogram_parent_devtools_webaudioeditor_opened_count_sum
+  description: Total number of times the legacy DevTools Web Audio Editor was opened;
+    null for all sampled clients as this tool was removed (100% null rate sampled
+    2026-05-29).
+- name: histogram_parent_devtools_webconsole_opened_count_sum
+  description: Number of times the DevTools Web Console was opened, summed over the
+    client's pings on this submission date. Null for most clients (~99.7% null). (sampled
+    2026-05-29)
+- name: histogram_parent_devtools_webide_opened_count_sum
+  description: Total number of times the legacy DevTools WebIDE was opened; null for
+    nearly all clients as WebIDE was removed (100% null rate sampled 2026-05-29).
+- name: history_migrations_quantity_all
+  description: Total number of browsing history entries migrated into Firefox from
+    all browsers combined; null in 99.4% of rows (sampled 2026-05-29).
+- name: history_migrations_quantity_chrome
+  description: Number of browsing history entries migrated from Chrome into Firefox;
+    null in 99.9% of rows (sampled 2026-05-29).
+- name: history_migrations_quantity_edge
+  description: Number of browsing history entries migrated from Microsoft Edge into
+    Firefox; null in 99.9% of rows (sampled 2026-05-29).
+- name: history_migrations_quantity_safari
+  description: Number of browsing history entries migrated from Safari into Firefox;
+    null in 100% of rows for non-macOS clients or where no migration occurred (sampled
+    2026-05-29).
+- name: logins_migrations_quantity_all
+  description: Total number of saved logins migrated from any browser to Firefox in
+    a migration event for this client. Null for ~99.4% of clients. (sampled 2026-05-29)
+- name: logins_migrations_quantity_chrome
+  description: Number of saved logins migrated from Google Chrome to Firefox in a
+    migration event for this client. Null for ~99.9% of clients. (sampled 2026-05-29)
+- name: logins_migrations_quantity_edge
+  description: Number of saved logins migrated from Microsoft Edge to Firefox for
+    this client. Null for ~99.9% of clients. (sampled 2026-05-29)
+- name: logins_migrations_quantity_safari
+  description: Number of saved logins migrated from Safari to Firefox for this client.
+    Null for ~100% of clients. (sampled 2026-05-29)
+- name: max_subsession_counter
+  description: The maximum subsession counter value seen across pings aggregated into
+    this row, indicating how many subsessions the client has accumulated over its
+    lifetime.
+- name: media_play_time_ms_audio_sum
+  description: Total audio media playback time in milliseconds, summed across all
+    audio sessions for this client on the submission date. Null for ~100% of clients.
+    (sampled 2026-05-29)
+- name: media_play_time_ms_video_sum
+  description: Total video media playback time in milliseconds, summed across all
+    video sessions for this client on the submission date. Null for ~100% of clients.
+    (sampled 2026-05-29)
+- name: medium
+  description: The attribution medium (UTM medium) for the Firefox installation; null
+    when the client is not attributed (sampled 2026-06-02).
+- name: min_subsession_counter
+  description: The minimum subsession counter value seen across pings aggregated into
+    this row, typically 1 for new clients in their first session.
+- name: os_environment_is_taskbar_pinned_any
+  description: Whether Firefox is pinned to the Windows taskbar in any profile (normal
+    or private); true for ~51.5% of clients (sampled 2026-05-29).
+- name: os_environment_is_taskbar_pinned_private
+  description: Whether Firefox is pinned to the Windows taskbar specifically as a
+    private browsing shortcut for the current profile; true for ~1.0% of clients (sampled
+    2026-05-29).
+- name: os_environment_is_taskbar_pinned_private_any
+  description: Whether Firefox is pinned to the Windows taskbar in a private browsing
+    mode shortcut in any profile; true for ~1.1% of clients (sampled 2026-05-29).
+- name: pings_aggregated_by_this_row
+  description: The number of daily client pings that were combined to produce this
+    row; rows are aggregated from clients_daily_v6 for the current day plus the rolling
+    28-day window (sampled 2026-05-29).
+- name: places_bookmarks_count_mean
+  description: Mean number of bookmarks in the client's Places database across pings
+    aggregated into this row; null in ~26% of rows where Places data was not reported
+    (sampled 2026-05-29).
+- name: places_bookmarks_searchbar_cumulative_searches_sum
+  description: Cumulative number of bookmark searches made via the bookmark search
+    bar in the Firefox Library; null in 99.4% of rows (sampled 2026-05-29).
+- name: places_library_cumulative_bookmark_searches_sum
+  description: Cumulative number of bookmark searches performed in the Firefox Library
+    panel; null in 99.9% of rows (sampled 2026-05-29).
+- name: places_library_cumulative_history_searches_sum
+  description: Cumulative number of history searches performed in the Firefox Library
+    panel; null in 99.7% of rows (sampled 2026-05-29).
+- name: places_pages_count_mean
+  description: Mean number of pages in the client's browsing history (Places) database
+    across pings aggregated into this row; null in ~26% of rows where Places data
+    was not reported (sampled 2026-05-29).
+- name: places_previousday_visits_mean
+  description: Mean number of Places history visits from the previous day, averaged
+    across pings; null in 27.3% of rows (sampled 2026-05-29).
+- name: places_searchbar_cumulative_filter_count_sum
+  description: Cumulative number of filter operations applied in the Places search
+    bar; null in 99.9% of rows (sampled 2026-05-29).
+- name: places_searchbar_cumulative_searches_sum
+  description: Cumulative number of searches performed via the Places database search
+    bar (history/bookmark search panel); null in 99.9% of rows (sampled 2026-05-29).
+- name: platform_version
+  description: The version string of the operating system platform (e.g., '10.0.26200',
+    '36').
+- name: plugin_hangs_sum
+  description: Total number of plugin hang events detected for this client; null for
+    nearly all clients, reflecting the retirement of NPAPI plugins (100% null rate
+    sampled 2026-05-29).
+- name: plugins_infobar_allow_sum
+  description: Total number of times the user clicked 'Allow' in the plugin activation
+    infobar; null for virtually all clients (100% null rate sampled 2026-05-29).
+- name: plugins_infobar_block_sum
+  description: Total number of times the user clicked 'Block' in the plugin activation
+    infobar; null for all sampled clients (100% null rate sampled 2026-05-29).
+- name: plugins_infobar_shown_sum
+  description: Total number of times the plugin activation infobar was displayed to
+    the user; null for virtually all clients (100% null rate sampled 2026-05-29).
+- name: plugins_notification_shown_sum
+  description: Total number of times a plugin notification was shown to the user;
+    null for virtually all clients (100% null rate sampled 2026-05-29).
+- name: pocket_enabled
+  description: Whether the Pocket section was enabled on the newtab during this visit.
+    Corresponds to the browser.newtabpage.activity-stream.feeds.section.topstories
+    pref.
+- name: pocket_sponsored_stories_enabled
+  description: Whether Pocket sponsored stories were enabled on the newtab during
+    this visit.
+- name: profile_age_in_days
+  description: Number of days between the client's profile creation date and submission_date;
+    0 for profiles created on the same day as the ping (sampled 2026-05-29).
+- name: push_api_notify_sum
+  description: Total number of push API notifications received by the client over
+    the aggregation period; null in 96.6% of rows where no notifications were received
+    (sampled 2026-05-29).
+- name: scalar_a11y_hcm_background
+  description: The background color configured for High Contrast Mode, encoded as
+    an ARGB integer (e.g. 4278190080 = black). Null for ~99.8% of clients not using
+    High Contrast Mode. (sampled 2026-05-29)
+- name: scalar_a11y_hcm_foreground
+  description: The foreground color configured for High Contrast Mode, encoded as
+    an ARGB integer (e.g. 4294967295 = white). Null for ~99.8% of clients not using
+    High Contrast Mode. (sampled 2026-05-29)
+- name: scalar_combined_webrtc_nicer_stun_retransmits_sum
+  description: Total number of STUN retransmits recorded by the WebRTC ICE stack;
+    null for all sampled clients (100% null rate sampled 2026-05-29).
+- name: scalar_combined_webrtc_nicer_turn_401s_sum
+  description: Total count of TURN server 401 (Unauthorized) responses encountered
+    by the WebRTC ICE stack, summed for this client. Null for all observed clients
+    (100% null). (sampled 2026-05-29)
+- name: scalar_combined_webrtc_nicer_turn_403s_sum
+  description: Total count of TURN server 403 (Forbidden) responses encountered by
+    the WebRTC ICE stack, summed for this client. Null for all observed clients (100%
+    null). (sampled 2026-05-29)
+- name: scalar_combined_webrtc_nicer_turn_438s_sum
+  description: Total count of TURN server 438 (Stale Nonce) responses encountered
+    by the WebRTC ICE stack, summed for this client. Null for all observed clients
+    (100% null). (sampled 2026-05-29)
+- name: scalar_content_navigator_storage_estimate_count_sum
+  description: Number of times navigator.storage.estimate() was called in the content
+    process, summed for this client. Null for all observed clients (100% null). (sampled
+    2026-05-29)
+- name: scalar_content_navigator_storage_persist_count_sum
+  description: Number of times navigator.storage.persist() was called in the content
+    process, summed for this client. Null for all observed clients (100% null). (sampled
+    2026-05-29)
+- name: scalar_content_telemetry_event_counts_sum
+  description: Keyed array mapping telemetry event category+method+object keys to
+    counts recorded in the content process for this client, summed across pings on
+    the submission date.
+- name: scalar_parent_browser_engagement_total_uri_count_normal_and_private_mode_sum
+  description: Total URI count across both normal and private browsing sessions for
+    this client, summed from the browser engagement scalar. Null for ~21.7% of clients
+    (older builds lacking this metric). (sampled 2026-05-29)
+- name: scalar_parent_browser_engagement_unfiltered_uri_count_sum
+  description: Total number of URI navigations including internal and system pages
+    (unfiltered), across the aggregation period; null in 19.6% of rows (sampled 2026-05-29).
+- name: scalar_parent_browser_ui_interaction_content_context_sum
+  description: Key-value map of content context-menu item identifiers to interaction
+    counts in the browser UI during the aggregation period.
+- name: scalar_parent_browser_ui_interaction_preferences_pane_home_sum
+  description: Keyed array mapping UI element IDs to counts of user interactions within
+    the Firefox Preferences Home pane for this client.
+- name: scalar_parent_browser_ui_interaction_textrecognition_error_sum
+  description: Total number of text recognition API errors triggered in the browser
+    UI; null for all sampled clients (100% null rate sampled 2026-05-29).
+- name: scalar_parent_devtools_accessibility_node_inspected_count_sum
+  description: Total number of accessibility nodes inspected via the Firefox DevTools
+    Accessibility panel; null for nearly all clients (100% null rate sampled 2026-05-29).
+- name: scalar_parent_devtools_accessibility_opened_count_sum
+  description: Number of times the DevTools Accessibility panel was opened, summed
+    for this client on the submission date. Null for ~99.9% of clients. (sampled 2026-05-29)
+- name: scalar_parent_devtools_accessibility_picker_used_count_sum
+  description: Total number of times the accessibility inspector's element picker
+    tool was used; null for nearly all clients (100% null rate sampled 2026-05-29).
+- name: scalar_parent_devtools_accessibility_select_accessible_for_node_sum
+  description: Key-value map recording how many times each accessibility node type
+    was selected in the DevTools Accessibility panel; null/empty for nearly all clients.
+- name: scalar_parent_devtools_accessibility_service_enabled_count_sum
+  description: Total number of times the accessibility service was enabled via DevTools;
+    null for nearly all clients (100% null rate sampled 2026-05-29).
+- name: scalar_parent_devtools_copy_full_css_selector_opened_sum
+  description: Number of times the DevTools 'Copy Full CSS Selector' action was used,
+    summed for this client. Null for all observed clients (100% null). (sampled 2026-05-29)
+- name: scalar_parent_devtools_copy_unique_css_selector_opened_sum
+  description: Number of times the DevTools 'Copy Unique CSS Selector' action was
+    used, summed for this client. Null for all observed clients (100% null). (sampled
+    2026-05-29)
+- name: scalar_parent_devtools_toolbar_eyedropper_opened_sum
+  description: Number of times the DevTools toolbar eyedropper was opened, summed
+    for this client. Null for nearly all clients (100% null rate). (sampled 2026-05-29)
+- name: scalar_parent_dom_contentprocess_troubled_due_to_memory_sum
+  description: Number of times a content process was marked as troubled due to low
+    memory conditions, summed for this client. Null for all observed clients (100%
+    null). (sampled 2026-05-29)
+- name: scalar_parent_library_link_sum
+  description: Key-value map of link type identifiers to total link-click counts from
+    within the Firefox Library panel during the aggregation period.
+- name: scalar_parent_library_opened_sum
+  description: Key-value map of entry-point identifiers to total open-event counts
+    for the Firefox Library panel during the aggregation period.
+- name: scalar_parent_library_search_sum
+  description: Keyed array mapping Library panel search context types (e.g. 'bookmarks',
+    'history') to the number of searches performed by this client via the Library
+    panel.
+- name: scalar_parent_navigator_storage_estimate_count_sum
+  description: Number of times navigator.storage.estimate() was called in the parent
+    process for this client. Null for all observed clients (100% null). (sampled 2026-05-29)
+- name: scalar_parent_navigator_storage_persist_count_sum
+  description: Number of times navigator.storage.persist() was called in the parent
+    process for this client. Null for all observed clients (100% null). (sampled 2026-05-29)
+- name: scalar_parent_os_environment_launched_via_taskbar_private
+  description: Whether Firefox was most recently launched in private browsing mode
+    via a Windows taskbar shortcut; true for 0.2% of clients (sampled 2026-05-29).
+- name: scalar_parent_sidebar_link_sum
+  description: Key-value map of link type identifiers to total link-click counts from
+    within the Firefox Sidebar panels during the aggregation period.
+- name: scalar_parent_sidebar_opened_sum
+  description: Key-value map of sidebar panel identifiers to total open-event counts
+    during the aggregation period.
+- name: scalar_parent_sidebar_search_sum
+  description: Key-value map of sidebar search source identifiers to total search
+    counts from the Firefox Sidebar during the aggregation period.
+- name: scalar_parent_storage_sync_api_usage_extensions_using_sum
+  description: Number of extensions using the browser.storage.sync API on this client,
+    summed across pings. Null for all observed clients (100% null). (sampled 2026-05-29)
+- name: scalar_parent_telemetry_event_counts_sum
+  description: Key-value map of Legacy Telemetry event category strings to their aggregate
+    counts for the parent process across the aggregation period.
+- name: scalar_parent_urlbar_impression_autofill_about_sum
+  description: Total number of urlbar autofill impressions showing 'about:' page suggestions;
+    null for nearly all clients (100% null rate sampled 2026-05-29).
+- name: scalar_parent_urlbar_impression_autofill_adaptive_sum
+  description: Total number of urlbar autofill impressions triggered by adaptive history;
+    null for all sampled clients (100% null rate sampled 2026-05-29).
+- name: scalar_parent_urlbar_impression_autofill_origin_sum
+  description: Number of times the URL bar showed an origin autofill suggestion (completing
+    based on known site origins) for this client. Null for ~98.9% of clients. (sampled
+    2026-05-29)
+- name: scalar_parent_urlbar_impression_autofill_other_sum
+  description: Number of times the URL bar showed an autofill suggestion of an unclassified
+    type for this client. Null for all observed clients (100% null). (sampled 2026-05-29)
+- name: scalar_parent_urlbar_impression_autofill_preloaded_sum
+  description: Number of times the URL bar showed a preloaded site autofill suggestion
+    for this client. Null for all observed clients (100% null). (sampled 2026-05-29)
+- name: scalar_parent_urlbar_impression_autofill_url_sum
+  description: Number of times the URL bar showed a full-URL autofill suggestion for
+    this client. Null for ~99.9% of clients. (sampled 2026-05-29)
+- name: scalar_parent_urlbar_picked_autofill_about_sum
+  description: Key-value map recording how many times 'about:' page autofill results
+    were selected from the urlbar, keyed by page.
+- name: scalar_parent_urlbar_picked_autofill_adaptive_sum
+  description: Key-value map recording how many times adaptive history autofill results
+    were selected from the urlbar.
+- name: scalar_parent_urlbar_picked_autofill_origin_sum
+  description: Key-value map recording how many times origin (domain-prefix) autofill
+    results were selected from the urlbar.
+- name: scalar_parent_urlbar_picked_autofill_other_sum
+  description: Key-value map recording how many times other (unclassified) autofill
+    results were selected from the urlbar.
+- name: scalar_parent_urlbar_picked_autofill_preloaded_sum
+  description: Key-value map recording how many times preloaded-domain autofill results
+    were selected from the urlbar.
+- name: scalar_parent_urlbar_picked_autofill_sum
+  description: Key-value map recording the number of times each autofill type was
+    selected (picked) from the urlbar across the aggregation period.
+- name: scalar_parent_urlbar_picked_autofill_url_sum
+  description: Key-value map recording how many times full URL autofill results were
+    selected from the urlbar.
+- name: scalar_parent_urlbar_picked_bookmark_sum
+  description: Key-value map recording how many times bookmark results were selected
+    from the urlbar dropdown, keyed by type.
+- name: scalar_parent_urlbar_picked_dynamic_sum
+  description: Key-value map recording how many times dynamic (extension-provided)
+    urlbar results were selected, keyed by result type.
+- name: scalar_parent_urlbar_picked_extension_sum
+  description: Key-value map recording how many times extension-provided urlbar results
+    were selected, keyed by extension.
+- name: scalar_parent_urlbar_picked_formhistory_sum
+  description: Key-value map recording how many times form history autofill results
+    were selected from the urlbar.
+- name: scalar_parent_urlbar_picked_history_sum
+  description: Key-value map recording how many times browsing history results were
+    selected from the urlbar dropdown.
+- name: scalar_parent_urlbar_picked_keyword_sum
+  description: Key-value map recording how many times keyword (bookmark keyword) results
+    were selected from the urlbar.
+- name: scalar_parent_urlbar_picked_remotetab_sum
+  description: Key-value map recording how many times synced remote-tab results were
+    selected from the urlbar dropdown.
+- name: scalar_parent_urlbar_picked_searchengine_sum
+  description: Key-value map recording how many times search-engine suggestion results
+    were selected from the urlbar, keyed by engine.
+- name: scalar_parent_urlbar_picked_searchsuggestion_sum
+  description: Key-value map recording how many times search suggestion results (from
+    the search engine API) were selected from the urlbar.
+- name: scalar_parent_urlbar_picked_switchtab_sum
+  description: Key-value map recording how many times 'switch to tab' results were
+    selected from the urlbar dropdown.
+- name: scalar_parent_urlbar_picked_tabtosearch_sum
+  description: Key-value map recording how many times tab-to-search engine results
+    were selected from the urlbar.
+- name: scalar_parent_urlbar_picked_tip_sum
+  description: Key-value map recording how many times Firefox Suggest tip results
+    were selected from the urlbar.
+- name: scalar_parent_urlbar_picked_topsite_sum
+  description: Key-value map recording how many times Top Sites results were selected
+    from the urlbar dropdown.
+- name: scalar_parent_urlbar_picked_unknown_sum
+  description: Key-value map recording how many times urlbar results of an unrecognised
+    type were selected.
+- name: scalar_parent_urlbar_picked_visiturl_sum
+  description: Key-value map recording how many times the user pressed Enter on a
+    typed URL (visit-URL) result in the urlbar.
+- name: scalar_parent_urlbar_searchmode_bookmarkmenu_sum
+  description: Keyed array of URL bar search mode activations via the Bookmarks menu,
+    mapping search engine names to counts for this client.
+- name: scalar_parent_urlbar_searchmode_handoff_sum
+  description: Key-value map recording urlbar search-mode activations via new-tab
+    handoff, keyed by engine identifier, summed across the aggregation period.
+- name: scalar_parent_urlbar_searchmode_keywordoffer_sum
+  description: Key-value map recording urlbar search-mode activations via a keyword
+    offer (engine alias suggestion), keyed by engine identifier, summed across the
+    aggregation period.
+- name: scalar_parent_urlbar_searchmode_oneoff_sum
+  description: Key-value map recording urlbar search-mode activations via the one-off
+    search button, keyed by engine identifier, summed across the aggregation period.
+- name: scalar_parent_urlbar_searchmode_other_sum
+  description: Keyed array of URL bar search mode activations via unclassified entry
+    points, mapping search engine names to counts for this client.
+- name: scalar_parent_urlbar_searchmode_shortcut_sum
+  description: Keyed array of URL bar search mode activations via keyboard shortcut,
+    mapping search engine names to counts for this client.
+- name: scalar_parent_urlbar_searchmode_tabmenu_sum
+  description: Key-value map recording urlbar search-mode activations via the tab
+    menu, keyed by engine identifier, summed across the aggregation period.
+- name: scalar_parent_urlbar_searchmode_tabtosearch_onboard_sum
+  description: Key-value map recording urlbar search-mode activations where the user
+    was shown the tab-to-search onboarding UI, keyed by engine identifier.
+- name: scalar_parent_urlbar_searchmode_tabtosearch_sum
+  description: Key-value map recording urlbar search-mode activations via tab-to-search
+    (typing a site's domain triggers its search engine), keyed by engine identifier.
+- name: scalar_parent_urlbar_searchmode_topsites_newtab_sum
+  description: Keyed array of URL bar search mode activations from a Top Sites entry
+    on the new tab page, mapping search engine names to counts for this client.
+- name: scalar_parent_urlbar_searchmode_topsites_urlbar_sum
+  description: Keyed array of URL bar search mode activations from a Top Sites entry
+    shown in the URL bar dropdown, mapping search engine names to counts for this
+    client.
+- name: scalar_parent_urlbar_searchmode_touchbar_sum
+  description: Keyed array of URL bar search mode activations via the macOS Touch
+    Bar, mapping search engine names to counts for this client.
+- name: scalar_parent_urlbar_searchmode_typed_sum
+  description: Keyed array of URL bar search mode activations by typing a keyword
+    (e.g. '@google'), mapping search engine names to counts for this client.
+- name: search_adclicks_about_home_sum
+  description: Key-value map of search engine identifiers to the count of ad clicks
+    from about:home searches during the aggregation period.
+- name: search_adclicks_about_newtab_sum
+  description: Key-value map of search engine identifiers to the count of ad clicks
+    from new-tab page searches during the aggregation period.
+- name: search_adclicks_contextmenu_sum
+  description: Key-value map of search engine identifiers to the count of ad clicks
+    from context menu searches during the aggregation period.
+- name: search_adclicks_reload_sum
+  description: Key-value map of search engine identifiers to the count of ad clicks
+    from page-reload searches during the aggregation period.
+- name: search_adclicks_searchbar_sum
+  description: Key-value map of search engine identifiers to the count of ad clicks
+    from the search bar during the aggregation period.
+- name: search_adclicks_system_sum
+  description: Key-value map of search engine identifiers to the count of ad clicks
+    from system-initiated searches during the aggregation period.
+- name: search_adclicks_tabhistory_sum
+  description: Key-value map of search engine identifiers to the count of ad clicks
+    from tab history navigation searches during the aggregation period.
+- name: search_adclicks_unknown_sum
+  description: Key-value map of search engine identifiers to the count of ad clicks
+    from unclassified search entry points during the aggregation period.
+- name: search_adclicks_urlbar_handoff_sum
+  description: Key-value map of search engine identifiers to the count of ad clicks
+    from urlbar handoff searches during the aggregation period.
+- name: search_adclicks_urlbar_persisted_sum
+  description: Keyed array mapping search engines to counts of ad clicks on URL bar
+    persisted-mode search result pages for this client.
+- name: search_adclicks_urlbar_searchmode_sum
+  description: Key-value map of search engine identifiers to the count of ad clicks
+    from explicit urlbar search mode during the aggregation period.
+- name: search_adclicks_urlbar_sum
+  description: Key-value map of search engine identifiers to the count of ad clicks
+    from the urlbar during the aggregation period.
+- name: search_adclicks_webextension_sum
+  description: Key-value map of search engine identifiers to the count of ad clicks
+    from WebExtension searches during the aggregation period.
+- name: search_content_about_home_sum
+  description: Key-value map of search engine identifiers to the count of content-search
+    impressions from about:home during the aggregation period.
+- name: search_content_about_newtab_sum
+  description: Key-value map of search engine identifiers to the count of content-search
+    impressions from the new-tab page during the aggregation period.
+- name: search_content_contextmenu_sum
+  description: Key-value map of search engine identifiers to the count of content-search
+    impressions from the right-click context menu during the aggregation period.
+- name: search_content_reload_sum
+  description: Key-value map of search engine identifiers to the count of content-search
+    impressions from page reloads during the aggregation period.
+- name: search_content_searchbar_sum
+  description: Key-value map of search engine identifiers to the count of content-search
+    impressions from the search bar during the aggregation period.
+- name: search_content_system_sum
+  description: Key-value map of search engine identifiers to the count of system-initiated
+    content-search impressions during the aggregation period.
+- name: search_content_tabhistory_sum
+  description: Key-value map of search engine identifiers to the count of content-search
+    impressions from browser tab history navigation during the aggregation period.
+- name: search_content_unknown_sum
+  description: Key-value map of search engine identifiers to the count of content-search
+    impressions from unclassified sources during the aggregation period.
+- name: search_content_urlbar_handoff_sum
+  description: Key-value map of search engine identifiers to the count of content-search
+    impressions from urlbar handoff during the aggregation period.
+- name: search_content_urlbar_persisted_sum
+  description: Keyed array mapping search engines to counts of URL bar persisted-mode
+    content searches for this client.
+- name: search_content_urlbar_searchmode_sum
+  description: Key-value map of search engine identifiers to the count of content-search
+    impressions from explicit urlbar search mode during the aggregation period.
+- name: search_content_urlbar_sum
+  description: Key-value map of search engine identifiers to the count of content-search
+    impressions from the urlbar during the aggregation period.
+- name: search_content_webextension_sum
+  description: Key-value map of search engine identifiers to the count of content-search
+    impressions from WebExtensions during the aggregation period.
+- name: search_count_alias
+  description: Total number of searches triggered via an engine alias (e.g. '@google
+    term') in the address bar during the aggregation period.
+- name: search_count_urlbar_persisted
+  description: Total searches initiated from the URL bar using the persisted search
+    mode (where the search mode is retained between searches). (sampled 2026-05-29)
+- name: search_count_urlbar_searchmode
+  description: Total number of searches performed while the urlbar was in explicit
+    search-mode (i.e. the user selected a specific engine in the urlbar) during the
+    aggregation period.
+- name: search_count_webextension
+  description: Total number of searches initiated by a WebExtension (e.g. add-on that
+    sets the default search engine) during the aggregation period.
+- name: search_withads_about_home_sum
+  description: Key-value map of search engine identifiers to the count of ad-bearing
+    results pages from about:home during the aggregation period.
+- name: search_withads_about_newtab_sum
+  description: Key-value map of search engine identifiers to the count of ad-bearing
+    results pages from the new-tab page during the aggregation period.
+- name: search_withads_contextmenu_sum
+  description: Key-value map of search engine identifiers to the count of ad-bearing
+    results pages from the context menu during the aggregation period.
+- name: search_withads_reload_sum
+  description: Key-value map of search engine identifiers to the count of ad-bearing
+    results pages from page reloads during the aggregation period.
+- name: search_withads_searchbar_sum
+  description: Key-value map of search engine identifiers to the count of ad-bearing
+    results pages from the search bar during the aggregation period.
+- name: search_withads_system_sum
+  description: Key-value map of search engine identifiers to the count of ad-bearing
+    results pages from system-initiated searches during the aggregation period.
+- name: search_withads_tabhistory_sum
+  description: Key-value map of search engine identifiers to the count of ad-bearing
+    results pages from tab history navigation during the aggregation period.
+- name: search_withads_unknown_sum
+  description: Key-value map of search engine identifiers to the count of ad-bearing
+    results pages from unclassified entry points during the aggregation period.
+- name: search_withads_urlbar_handoff_sum
+  description: Key-value map of search engine identifiers to the count of ad-bearing
+    results pages from urlbar handoff during the aggregation period.
+- name: search_withads_urlbar_persisted_sum
+  description: Keyed array mapping search engines to counts of URL bar persisted-mode
+    search result pages containing ads for this client.
+- name: search_withads_urlbar_searchmode_sum
+  description: Key-value map of search engine identifiers to the count of ad-bearing
+    results pages from explicit urlbar search mode during the aggregation period.
+- name: search_withads_urlbar_sum
+  description: Key-value map of search engine identifiers to the count of search result
+    pages with ads shown from the urlbar during the aggregation period.
+- name: search_withads_webextension_sum
+  description: Key-value map of search engine identifiers to the count of ad-bearing
+    results pages from WebExtension searches during the aggregation period.
+- name: session_restored_mean
+  description: Mean time in milliseconds from browser start to session restore completion
+    across pings in the aggregation period; null in 1.3% of rows (sampled 2026-05-29).
+- name: sessions_started_on_this_day
+  description: Number of Firefox sessions started by this client on the submission_date
+    (sampled 2026-05-29).
+- name: shutdown_kill_sum
+  description: Total number of browser processes that were forcibly killed during
+    shutdown (rather than exiting cleanly) across the aggregation period; null in
+    98% of rows (sampled 2026-05-29).
+- name: ssl_handshake_result_failure_sum
+  description: Total number of failed TLS/SSL handshakes during the aggregation period.
+- name: ssl_handshake_result_success_sum
+  description: Total number of successful TLS/SSL handshakes during the aggregation
+    period; null in 64.7% of rows where no handshakes were recorded (sampled 2026-05-29).
+- name: startup_profile_selection_first_ping_only
+  description: The profile selection reason from the very first ping submitted by
+    this client on this day; null in 15.9% of rows (sampled 2026-05-29).
+- name: startup_profile_selection_reason_first
+  description: The reason the Firefox profile was selected when the browser first
+    launched (e.g. 'default', 'firstrun-created-default', 'argument-profile'); null
+    in 21.8% of rows (sampled 2026-05-29).
+- name: submission_timestamp_min
+  description: The earliest ping submission timestamp across pings aggregated into
+    this row, useful for identifying the first daily contact with the server.
+- name: subsession_hours_sum
+  description: Total wall-clock hours of Firefox subsession time accumulated across
+    all pings in the aggregation period (sampled 2026-05-29).
+- name: subsession_id
+  description: A UUID identifying the specific subsession within a browser session,
+    sourced from payload.info.subsession_id in the main ping. A single session can
+    have multiple subsessions (e.g. after a crash or restart).
+- name: sync_count_desktop_sum
+  description: Total number of synced desktop browser client events across the aggregation
+    period; null in 89% of rows where Sync is not configured (sampled 2026-05-29).
+- name: sync_count_mobile_sum
+  description: Total number of synced mobile browser client events across the aggregation
+    period; null in 89% of rows where Sync is not configured (sampled 2026-05-29).
+- name: text_recognition_api_performance_count_sum
+  description: Total number of text recognition API performance measurements recorded;
+    null for nearly all clients (100% null rate sampled 2026-05-29).
+- name: text_recognition_api_performance_sum
+  description: Total elapsed time in milliseconds for all text recognition API calls
+    made by the client; null for nearly all clients (100% null rate sampled 2026-05-29).
+- name: text_recognition_interaction_timing_count_sum
+  description: Total number of text recognition interaction timing measurements recorded;
+    null for nearly all clients (100% null rate sampled 2026-05-29).
+- name: text_recognition_interaction_timing_sum
+  description: Total user interaction time in milliseconds from invoking text recognition
+    to completing selection; null for nearly all clients (100% null rate sampled 2026-05-29).
+- name: text_recognition_text_length_count_sum
+  description: Total number of text recognition length measurements recorded; null
+    for nearly all clients (100% null rate sampled 2026-05-29).
+- name: text_recognition_text_length_sum
+  description: Total number of characters recognised across all text recognition events;
+    null for nearly all clients (100% null rate sampled 2026-05-29).
+- name: total_hours_sum
+  description: Total hours of Firefox usage recorded across all pings in the aggregation
+    period (NUMERIC type); null for all sampled clients, likely superseded by subsession_hours_sum
+    (100% null rate sampled 2026-05-29).
+- name: total_sample
+  description: The total count of observations (sample size) summed across all clients
+    for this metric and aggregation type; 0 for rows where client_agg_type is empty.
+- name: trackers_blocked_sum
+  description: Total number of tracking requests blocked by Firefox Enhanced Tracking
+    Protection during the aggregation period; null in 68.1% of rows where ETP blocked
+    no trackers (sampled 2026-05-29).
+- name: update_background
+  description: Whether Firefox updates are configured to download in the background.
+    True when background update is enabled, false when disabled, null when setting
+    is unavailable (~1.8% null). (sampled 2026-05-29)
+- name: user_pref_app_shield_optoutstudies_enabled
+  description: Whether the user has opted out of Shield studies (SHIELD/Normandy experiments)
+    via preferences; 'false' for ~88% of non-null clients (null in 97.7% of rows sampled
+    2026-05-29).
+- name: user_pref_browser_newtabpage_enabled
+  description: Whether the Firefox new-tab page is enabled (vs. a blank page), per
+    preferences; null in 96.8% of rows (sampled 2026-05-29).
+- name: user_pref_browser_search_suggest_enabled
+  description: Whether search suggestions in the address bar and search bar are enabled,
+    as stored in Firefox preferences; null in 99.1% of rows (sampled 2026-05-29).
+- name: user_pref_browser_urlbar_quicksuggest_data_collection_enabled
+  description: Whether the user has opted into data collection for Firefox Suggest;
+    'false' for nearly all clients where the preference is recorded (null in 82.4%
+    of rows sampled 2026-05-29).
+- name: user_pref_browser_urlbar_quicksuggest_onboarding_dialog_choice
+  description: The choice made by the user in the Firefox Suggest onboarding dialog,
+    one of 'close_1', 'not_now_2', or 'reject_2'. Null for almost all clients (~100%)
+    as the dialog is rarely shown. (sampled 2026-05-29)
+- name: user_pref_browser_urlbar_show_search_suggestions_first
+  description: The user preference controlling whether search suggestions appear before
+    browsing history in the URL bar dropdown. 'false' means history is shown first;
+    null when not explicitly set (~95.2% null). (sampled 2026-05-29)
+- name: user_pref_browser_urlbar_suggest_bestmatch
+  description: Whether the Firefox urlbar best-match feature (showing a prominent
+    single best result) is enabled; null in 92.1% of rows (sampled 2026-05-29).
+- name: user_pref_browser_urlbar_suggest_quicksuggest
+  description: The legacy user preference for Firefox Suggest (Quick Suggest) feature.
+    'true' means enabled, 'false' means disabled; null for nearly all clients (~99.9%
+    null) as this pref was replaced. (sampled 2026-05-29)
+- name: user_pref_browser_urlbar_suggest_quicksuggest_nonsponsored
+  description: Whether non-sponsored Firefox Suggest results are shown in the urlbar;
+    'false' for ~90.3% of clients where the preference is set (null in 82.4% of rows
+    sampled 2026-05-29).
+- name: user_pref_browser_urlbar_suggest_quicksuggest_sponsored
+  description: The user preference controlling whether sponsored Firefox Suggest results
+    appear in the URL bar. 'false' means disabled, 'true' means enabled; null for
+    ~2% of clients. (sampled 2026-05-29)
+- name: user_pref_browser_urlbar_suggest_searches
+  description: Whether the urlbar is configured to show search suggestions, per Firefox
+    preferences; null in 98.6% of rows (sampled 2026-05-29).
+- name: user_pref_browser_widget_in_navbar
+  description: Whether a browser widget (e.g. search bar) is present in the navigation
+    bar, as stored in Firefox preferences; null in 88.7% of rows (sampled 2026-05-29).
+- name: web_notification_shown_sum
+  description: Total number of web push notifications shown to the client; null for
+    nearly all clients (100% null rate sampled 2026-05-29).
