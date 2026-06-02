@@ -1330,15 +1330,24 @@ fields:
 - mode: NULLABLE
   name: scalar_parent_os_environment_launched_via_taskbar
   type: BOOLEAN
+  description: Whether the most recent Firefox launch was initiated by clicking the
+    Windows taskbar icon; true for ~22% of clients (sampled 2026-05-29).
 - mode: NULLABLE
   name: scalar_parent_os_environment_launched_via_other
   type: BOOLEAN
+  description: Whether the most recent Firefox launch was initiated via an unclassified/other
+    method; true for ~24% of clients (sampled 2026-05-29).
 - mode: NULLABLE
   name: scalar_parent_os_environment_launched_via_start_menu
   type: BOOLEAN
+  description: Whether the most recent Firefox launch was initiated via the Windows
+    Start menu; true for ~11% of clients (sampled 2026-05-29).
 - mode: NULLABLE
   name: scalar_parent_os_environment_launched_via_other_shortcut
   type: BOOLEAN
+  description: Whether the most recent Firefox launch was initiated via a shortcut
+    other than desktop, taskbar, or Start menu; true for ~13% of clients (sampled
+    2026-05-29).
 - mode: NULLABLE
   name: days_logged_event_bits
   type: INTEGER
@@ -2316,54 +2325,88 @@ fields:
 - mode: NULLABLE
   name: scalar_parent_os_environment_launched_via_taskbar_private
   type: BOOLEAN
+  description: Whether Firefox was launched into a private browsing window directly
+    from the taskbar; true for ~0.2% of clients (sampled 2026-05-29).
 - mode: NULLABLE
   name: dom_parentprocess_private_window_used
   type: BOOLEAN
+  description: Whether a private browsing window was opened at any point on the reporting
+    day; true for ~5% of clients (sampled 2026-05-29).
 - mode: NULLABLE
   name: os_environment_is_taskbar_pinned_any
   type: BOOLEAN
+  description: Whether Firefox was pinned to the taskbar in any mode (normal or private);
+    true for ~51% of clients (sampled 2026-05-29).
 - mode: NULLABLE
   name: os_environment_is_taskbar_pinned_private_any
   type: BOOLEAN
+  description: Whether Firefox was pinned to the taskbar with a private browsing mode
+    shortcut in any configuration; true for ~1.1% of clients (sampled 2026-05-29).
 - mode: NULLABLE
   name: os_environment_is_taskbar_pinned_private
   type: BOOLEAN
+  description: Whether Firefox is pinned to the Windows taskbar specifically as a
+    private browsing shortcut; true for ~1% of clients (sampled 2026-05-29).
 - mode: NULLABLE
   name: bookmark_migrations_quantity_chrome
   type: INTEGER
+  description: Number of bookmarks migrated from Google Chrome; null for ~99.9% of
+    clients who have not performed a Chrome bookmark migration (sampled 2026-05-29).
 - mode: NULLABLE
   name: bookmark_migrations_quantity_edge
   type: INTEGER
+  description: Number of bookmarks migrated from Microsoft Edge; null for ~99.9% of
+    clients who have not performed an Edge bookmark migration (sampled 2026-05-29).
 - mode: NULLABLE
   name: bookmark_migrations_quantity_safari
   type: INTEGER
+  description: Number of bookmarks migrated from Safari; null for ~100% of clients
+    who have not performed a Safari bookmark migration (sampled 2026-05-29).
 - mode: NULLABLE
   name: bookmark_migrations_quantity_all
   type: INTEGER
+  description: Total number of bookmarks migrated from all browsers combined; null
+    for ~99.4% of clients who have not performed any bookmark migration (sampled 2026-05-29).
 - mode: NULLABLE
   name: history_migrations_quantity_chrome
   type: INTEGER
+  description: Number of history entries migrated from Google Chrome; null for ~99.9%
+    of clients who have not performed a Chrome history migration (sampled 2026-05-29).
 - mode: NULLABLE
   name: history_migrations_quantity_edge
   type: INTEGER
+  description: Number of history entries migrated from Microsoft Edge; null for ~99.9%
+    of clients (sampled 2026-05-29).
 - mode: NULLABLE
   name: history_migrations_quantity_safari
   type: INTEGER
+  description: Number of history entries migrated from Safari; null for ~100% of clients
+    who have not performed a Safari history migration (sampled 2026-05-29).
 - mode: NULLABLE
   name: history_migrations_quantity_all
   type: INTEGER
+  description: Total number of history entries migrated from all browsers combined;
+    null for ~99.4% of clients (sampled 2026-05-29).
 - mode: NULLABLE
   name: logins_migrations_quantity_chrome
   type: INTEGER
+  description: Number of saved passwords migrated from Google Chrome; null for ~99.9%
+    of clients (sampled 2026-05-29).
 - mode: NULLABLE
   name: logins_migrations_quantity_edge
   type: INTEGER
+  description: Number of saved passwords migrated from Microsoft Edge; null for ~99.9%
+    of clients (sampled 2026-05-29).
 - mode: NULLABLE
   name: logins_migrations_quantity_safari
   type: INTEGER
+  description: Number of saved passwords migrated from Safari; null for ~100% of clients
+    who have not migrated Safari logins (sampled 2026-05-29).
 - mode: NULLABLE
   name: logins_migrations_quantity_all
   type: INTEGER
+  description: Total number of saved passwords migrated from all browsers combined;
+    null for ~99.4% of clients (sampled 2026-05-29).
 - mode: NULLABLE
   name: media_play_time_ms_audio_sum
   type: INTEGER
