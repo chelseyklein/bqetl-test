@@ -1,0 +1,2608 @@
+fields:
+- name: cobra
+  description: Number of Firefox Desktop clients that had the Cobra screen reader
+    active during the submission period.
+- name: dolphin
+  description: Number of Firefox Desktop clients that had the Dolphin screen reader/magnifier
+    active during the submission period.
+- name: jaws
+  description: Number of Firefox Desktop clients on this channel that had the JAWS
+    screen reader active during the submission period.
+- name: kazaguru
+  description: Number of Firefox Desktop clients that had the Kazaguru screen reader
+    active during the submission period.
+- name: magnifier
+  description: Number of Firefox Desktop clients that had the Windows Magnifier accessibility
+    tool active during the submission period.
+- name: narrator
+  description: Number of Firefox Desktop clients that had the Windows Narrator screen
+    reader active during the submission period.
+- name: nvda
+  description: Number of Firefox Desktop clients on this channel that had the NVDA
+    screen reader active during the submission period.
+- name: oldjaws
+  description: Number of Firefox Desktop clients that had an older version of JAWS
+    (pre-modern JAWS) active during the submission period.
+- name: on_screen_keyboard
+  description: Number of Firefox Desktop clients that had the Windows On-Screen Keyboard
+    accessibility tool active during the submission period.
+- name: other
+  description: Number of Firefox Desktop clients that had another accessibility tool
+    not classified in any named category active during the submission period.
+- name: serotek
+  description: Number of Firefox Desktop clients that had the Serotek System Access
+    accessibility software active during the submission period.
+- name: speech_recognition
+  description: Number of Firefox Desktop clients that had Windows Speech Recognition
+    or a similar voice control accessibility tool active during the submission period.
+- name: touch_keyboard_and_handwriting_panel
+  description: Number of Firefox Desktop clients that had the Windows Touch Keyboard
+    and Handwriting Panel accessibility feature active during the submission period.
+- name: uiautomation
+  description: Number of Firefox Desktop clients where the Windows UI Automation accessibility
+    framework was detected as active, often used by accessibility tools and test automation.
+- name: unknown
+  description: Number of Firefox Desktop clients that had an unrecognized or uncategorized
+    accessibility tool active during the submission period.
+- name: visperoshared
+  description: Number of Firefox Desktop clients that had the VisperO Shared accessibility
+    component active during the submission period.
+- name: voice_over
+  description: Number of Firefox Desktop clients that had the macOS VoiceOver screen
+    reader active during the submission period.
+- name: we
+  description: Number of Firefox Desktop clients that had the 'Window Eyes' screen
+    reader active during the submission period.
+- name: youdao
+  description: Number of Firefox Desktop clients that had the Youdao accessibility
+    tool active during the submission period.
+- name: zoomtext
+  description: Number of Firefox Desktop clients that had the ZoomText magnification
+    and screen reader software active during the submission period.
+- name: active_hours
+  description: Total active browsing hours recorded by active clients on the submission_date.
+- name: ad_clicks
+  description: Total number of ad clicks recorded across active clients on the submission_date.
+- name: attributed
+  description: True if the client's installation can be attributed to a known marketing
+    source or campaign; false if the install source is unknown or organic.
+- name: first_seen_year
+  description: The calendar year of the client's first seen date, used to segment
+    clients by profile cohort vintage.
+- name: new_profiles
+  description: Count of new browser profiles created on the submission_date.
+- name: organic_search_count
+  description: Total number of organic (non-SAP) search queries performed by active
+    clients on the submission_date.
+- name: qdau_desktop
+  description: 'Qualified Daily Active Users for Desktop: count of distinct Desktop
+    clients from whom a main ping was received on the submission_date. For mobile
+    clients, QDAU equals DAU.'
+- name: search_count
+  description: Total number of search queries performed by active clients on the submission_date.
+- name: search_with_ads
+  description: Total number of search result pages with ads viewed by active clients
+    on the submission_date.
+- name: uri_count
+  description: Total number of URIs (page loads) recorded by active clients on the
+    submission_date.
+- name: active_hours
+  description: Total active browsing hours recorded by active clients on the submission_date.
+    Null for mobile apps that do not report active hours (sampled 2026-06-02).
+- name: ad_clicks
+  description: Total number of ad clicks recorded across active clients on the submission_date.
+    Null for mobile apps that do not report this metric (sampled 2026-06-02).
+- name: attributed
+  description: True if the client's installation can be attributed to a known marketing
+    source; false otherwise.
+- name: device_model
+  description: The hardware model identifier of the client device (e.g. 'iPhone14,5',
+    'Redmi 7A'). Populated for mobile clients only; null for Desktop (sampled 2026-06-02).
+- name: first_seen_year
+  description: The calendar year of the client's first seen date, used to segment
+    clients by profile cohort vintage.
+- name: new_profiles
+  description: Count of new browser profiles created on the submission_date.
+- name: organic_search_count
+  description: Total number of organic (non-SAP) search queries. Null for mobile apps
+    that do not report search metrics (sampled 2026-06-02).
+- name: qdau_desktop
+  description: 'Qualified Daily Active Users for Desktop: count of distinct Desktop
+    clients from whom a main ping was received on the submission_date. Zero for non-Desktop
+    app_name rows.'
+- name: search_count
+  description: Total number of search queries performed by active clients on the submission_date.
+    Null for mobile apps that do not report search metrics (sampled 2026-06-02).
+- name: search_with_ads
+  description: Total number of search result pages with ads viewed by active clients
+    on the submission_date. Null for mobile apps that do not report this metric (sampled
+    2026-06-02).
+- name: uri_count
+  description: Total number of URIs (page loads) recorded by active clients on the
+    submission_date. Null for mobile apps that do not report URI counts (sampled 2026-06-02).
+- name: app_version_is_major_release
+  description: True if the app version corresponds to a major release build (patch
+    revision is 0); false for point releases.
+- name: first_seen_year
+  description: The calendar year of the client's first seen date, used to segment
+    clients by profile cohort vintage.
+- name: active_hours
+  description: Total active browsing hours recorded by active clients on the submission_date.
+- name: ad_clicks
+  description: Total number of ad clicks recorded across active clients on the submission_date.
+- name: attributed
+  description: True if the client's installation can be attributed to a known marketing
+    source; false otherwise.
+- name: first_seen_year
+  description: The calendar year of the client's first seen date, used to segment
+    clients by profile cohort vintage.
+- name: language_name
+  description: The human-readable name of the browser's locale language (e.g. 'English',
+    'German').
+- name: new_profiles
+  description: Count of new browser profiles first seen on the submission_date.
+- name: organic_search_count
+  description: Total number of organic (non-SAP) search queries performed by active
+    clients on the submission_date.
+- name: qdau_desktop
+  description: 'Qualified Daily Active Users for Desktop: count of distinct Desktop
+    clients from whom a main ping was received on the submission_date. For mobile
+    apps, QDAU equals DAU.'
+- name: search_count
+  description: Total number of search queries performed by active clients on the submission_date.
+- name: search_with_ads
+  description: Total number of search result pages with ads viewed by active clients
+    on the submission_date.
+- name: uri_count
+  description: Total number of URIs (page loads) recorded by active clients on the
+    submission_date.
+- name: dag_run_date
+  description: The actual execution date of the DAG run that produced this row.
+- name: daily_users
+  description: Count of daily users from telemetry.active_users for this app name
+    and submission_date, based on ping-sending behavior.
+- name: desktop
+  description: Count of clients qualifying for the Desktop KPI (is_desktop = true)
+    in telemetry.active_users for this app name and submission_date.
+- name: logical_dag_date
+  description: The logical DAG run date as seen by Airflow; this represents the period
+    the DAG is processing, not the actual execution time.
+- name: mobile
+  description: Count of clients qualifying for the Mobile KPI (is_mobile = true) in
+    telemetry.active_users for this app name and submission_date.
+- name: monthly_users
+  description: Count of monthly users from telemetry.active_users for this app name
+    and submission_date.
+- name: row_count
+  description: Total number of rows in telemetry.active_users for this app name and
+    submission_date, as of the DAG run.
+- name: unique_client_ids
+  description: Count of unique client IDs from telemetry.active_users for this app
+    name and submission_date, as of the DAG run.
+- name: weekly_users
+  description: Count of weekly users from telemetry.active_users for this app name
+    and submission_date.
+- name: first_addon_install_date
+  description: Date string (YYYYMMDD) of the earliest add-on installation in the client's
+    profile. Null if no add-ons have been installed (sampled 2026-06-02).
+- name: n_foreign_installed_addons
+  description: Number of add-ons installed by an external process or third-party software
+    (foreign-installed), not by the user directly.
+- name: n_self_installed_addons
+  description: Number of add-ons that the user manually installed (not system, shield,
+    or foreign-installed) as of the submission date.
+- name: n_shield_addons
+  description: Number of Shield study add-ons active in the client's profile on the
+    submission date.
+- name: n_system_addons
+  description: Number of system (built-in) add-ons active in the client's profile
+    on the submission date.
+- name: n_web_extensions
+  description: Number of WebExtension add-ons (as opposed to legacy XUL/XPCOM extensions)
+    active in the client's profile.
+- name: profile_creation_date
+  description: Date string (YYYYMMDD) when the Firefox profile was created.
+- name: addon_id
+  description: Unique identifier string for the add-on (e.g. 'uBlock0@raymondhill.net',
+    'formautofill@mozilla.org').
+- name: app_disabled
+  description: True if Firefox has disabled this add-on due to compatibility issues
+    (e.g. version mismatch or dependency failure); false otherwise.
+- name: blocklisted
+  description: True if the add-on is on Mozilla's blocklist due to security or policy
+    violations; false otherwise.
+- name: foreign_install
+  description: True if the add-on was installed by an external process rather than
+    through the Firefox UI; false if installed by the user.
+- name: has_binary_components
+  description: True if the add-on contains native binary components; always false
+    since Firefox 60.
+- name: install_day
+  description: The days since Unix epoch (1970-01-01) when the add-on was first installed.
+- name: is_system
+  description: True if the add-on is a Firefox system add-on bundled with the browser;
+    false for user-installed add-ons.
+- name: is_web_extension
+  description: True if the add-on uses the WebExtensions API; false for legacy XUL/XPCOM
+    add-ons.
+- name: multiprocess_compatible
+  description: True if the add-on is compatible with Firefox's multi-process (e10s)
+    mode; always true since Firefox 61.
+- name: name
+  description: Human-readable display name of the add-on (e.g. 'uBlock Origin', 'Form
+    Autofill').
+- name: scope
+  description: 'Integer code indicating the install scope of the add-on: 1=profile,
+    2=user, 4=application, 8=system, 16=profile defaults.'
+- name: signed_state
+  description: 'Integer indicating the AMO signature state: 2=signed, 3=system, 4=preliminary,
+    -1=unknown, 0=unsigned, 1=obsolete, -2=broken. Null for system add-ons that are
+    not AMO-signed (sampled 2026-06-02).'
+- name: subsession_start_date
+  description: ISO 8601 timestamp string indicating the start of the browser subsession
+    during which the add-on data was collected.
+- name: type
+  description: The type of the add-on, typically 'extension', 'dictionary', 'locale',
+    or 'service'.
+- name: update_day
+  description: The days since Unix epoch when the add-on was last updated.
+- name: user_disabled
+  description: True if the user has explicitly disabled this add-on; false if it is
+    enabled.
+- name: version
+  description: Version string of the add-on (e.g. '1.0.0').
+- name: app_description
+  description: Human-readable description of the application from the Glean application
+    registry.
+- name: app_id
+  description: Unique application identifier in dot notation (e.g. 'firefox.desktop',
+    'org.mozilla.fenix'), as defined in the Glean application registry.
+- name: bq_dataset_family
+  description: The BigQuery dataset family where ping data for this application is
+    stored (e.g. 'firefox_desktop', 'telemetry').
+- name: canonical_app_name
+  description: The human-readable product name for this application (e.g. 'Firefox
+    for Desktop', 'Firefox for Android').
+- name: document_namespace
+  description: The Telemetry ingestion document namespace for the application (e.g.
+    'firefox-desktop', 'fenix').
+- name: is_glean
+  description: True if the application uses the Glean SDK for telemetry; false if
+    it uses the legacy telemetry system.
+- name: notification_emails
+  description: List of email addresses that receive notifications related to this
+    application's telemetry configuration.
+- name: url
+  description: URL of the application's source code repository (e.g. 'https://github.com/mozilla-firefox/firefox').
+- name: v1_name
+  description: The legacy V1 application name used in older telemetry pipelines (e.g.
+    'firefox-desktop'). Null for applications not present in V1 (sampled 2026-06-02).
+- name: apple_model_id
+  description: The Apple hardware model identifier for macOS clients (e.g. 'MacBookAir10,1').
+    Null for non-Apple devices (sampled 2026-06-02).
+- name: attribution_dlsource
+  description: Identifier indicating the source of the Firefox download (e.g. 'mozillaci',
+    'fxdotcom', 'mozorg'). Null if not available (sampled 2026-06-02).
+- name: attribution_dltoken
+  description: Unique download token created at Firefox download time to associate
+    an install event with its download (sampled 2026-06-02).
+- name: attribution_ua
+  description: The derived user agent browser type at install time (e.g. 'chrome',
+    'edge', 'firefox'). Null if not detected (sampled 2026-06-02).
+- name: db_version
+  description: Version timestamp of the GeoIP database used for geolocation lookup
+    (e.g. '2026-05-22T09:58:02Z').
+- name: distribution_model
+  description: 'Model classification for the Firefox distribution: e.g. ''non-distribution'',
+    ''OS pre-installed'', ''secondary store'', ''OEM pre-installed''.'
+- name: engine_data_load_path
+  description: The anonymized load path of the default search engine XML file (e.g.
+    '[app]google', '[addon]google@search.mozilla.org').
+- name: engine_data_name
+  description: The display name of the client's default search engine (e.g. 'Google',
+    '百度', 'DuckDuckGo').
+- name: engine_data_origin
+  description: 'Origin classification of the default search engine: ''default'' for
+    built-in or partner engines, ''verified'' for user-installed engines with valid
+    hashes, ''invalid'' for broken hashes. Null if no search engine is configured
+    (sampled 2026-06-02).'
+- name: engine_data_submission_url
+  description: The HTTP search submission URL used by the default search engine (e.g.
+    'https://www.google.com/search?client=firefox-b-d&q='). Null for user-installed
+    engines (for privacy).
+- name: funnel_derived
+  description: 'Funnel classification for the client install: ''mozorg windows funnel'',
+    ''mozorg mac funnel'', ''partner'', or ''other''.'
+- name: ga4_ad_crosschannel_campaign
+  description: Campaign name from GA4 cross-channel attribution model. Null if no
+    GA4 session is matched (sampled 2026-06-02).
+- name: ga4_ad_crosschannel_campaign_id
+  description: Campaign ID from GA4 cross-channel attribution model. Null if no GA4
+    session is matched (sampled 2026-06-02).
+- name: ga4_ad_crosschannel_default_channel_group
+  description: Default channel group from GA4 cross-channel attribution (e.g. 'Organic
+    Search', 'Paid Search', 'Referral'). Null if no GA4 session is matched (sampled
+    2026-06-02).
+- name: ga4_ad_crosschannel_medium
+  description: Traffic medium from GA4 cross-channel attribution model (e.g. 'organic',
+    'cpc', 'referral'). Null if no GA4 session is matched (sampled 2026-06-02).
+- name: ga4_ad_crosschannel_primary_channel_group
+  description: Primary channel group from GA4 cross-channel attribution (e.g. 'Organic
+    Search', 'Paid Search', 'Direct'). Null if no GA4 session is matched (sampled
+    2026-06-02).
+- name: ga4_ad_crosschannel_source
+  description: Traffic source from GA4 cross-channel attribution model for the matched
+    session (e.g. 'google', 'bing', '(direct)'). Null if no GA4 session is matched
+    (sampled 2026-06-02).
+- name: ga4_ad_crosschannel_source_platform
+  description: Source platform from GA4 cross-channel attribution (e.g. 'Manual',
+    'Google Ads'). Null if no GA4 session is matched (sampled 2026-06-02).
+- name: ga4_ad_google_account
+  description: Google Ads account name from the matched GA4 session (e.g. 'Mozilla
+    Firefox'). Null if not from a Google Ads campaign (sampled 2026-06-02).
+- name: ga4_ad_google_campaign
+  description: Google Ads campaign name from the matched GA4 session. Null if not
+    from a Google Ads campaign (sampled 2026-06-02).
+- name: ga4_ad_google_campaign_id
+  description: Google Ads campaign ID from the matched GA4 session. Null if not from
+    a Google Ads campaign (sampled 2026-06-02).
+- name: ga4_ad_google_group
+  description: Google Ads ad group name from the matched GA4 session. Null if not
+    from a Google Ads campaign (sampled 2026-06-02).
+- name: ga4_ad_google_group_id
+  description: Google Ads ad group ID from the matched GA4 session. Null if not from
+    a Google Ads campaign (sampled 2026-06-02).
+- name: ga4_all_reported_install_targets
+  description: Array of all install target values reported in the matched GA4 session.
+- name: ga4_browser
+  description: Browser name reported by GA4 for the matched session (e.g. 'Edge',
+    'Chrome', 'Firefox'). Null if no GA4 session is matched (sampled 2026-06-02).
+- name: ga4_browser_version
+  description: Browser version from the GA4 session. Null if no GA4 session is matched
+    (sampled 2026-06-02).
+- name: ga4_city
+  description: City from the matched GA4 session. Null or empty if no GA4 session
+    is matched or the city is unavailable (sampled 2026-06-02).
+- name: ga4_country
+  description: Country name from the matched GA4 session (e.g. 'United States', 'Brazil').
+    Null if no GA4 session is matched (sampled 2026-06-02).
+- name: ga4_device_category
+  description: Device category reported by GA4 for the matched session (always 'desktop'
+    for this table). Null if no GA4 session is matched (sampled 2026-06-02).
+- name: ga4_distinct_campaigns_from_event_params
+  description: Array of all distinct campaign names seen in GA4 event parameters for
+    the matched session. Empty array if no GA4 session is matched.
+- name: ga4_distinct_contents_from_event_params
+  description: Array of all distinct content identifiers from GA4 event parameters
+    for the matched session.
+- name: ga4_distinct_experiment_branches_from_event_params
+  description: Array of all distinct experiment branch names from GA4 event parameters
+    for the matched session.
+- name: ga4_distinct_experiment_ids_from_event_params
+  description: Array of all distinct GA4 experiment IDs from event parameters for
+    the matched session.
+- name: ga4_distinct_gad_campaignid_from_event_params
+  description: Array of all distinct Google Ads campaign IDs (gad_campaignid) from
+    GA4 event parameters for the matched session.
+- name: ga4_distinct_mediums_from_event_params
+  description: Array of all distinct traffic mediums from GA4 event parameters for
+    the matched session.
+- name: ga4_distinct_sources_from_event_params
+  description: Array of all distinct traffic sources from GA4 event parameters for
+    the matched session.
+- name: ga4_distinct_terms_from_event_params
+  description: Array of all distinct search terms from GA4 event parameters for the
+    matched session.
+- name: ga4_firefox_desktop_downloads
+  description: Number of Firefox Desktop download events recorded in the matched GA4
+    session. Null if no GA4 session is matched (sampled 2026-06-02).
+- name: ga4_first_campaign_from_event_params
+  description: First non-null campaign name from GA4 event parameters for the matched
+    session (e.g. '(organic)', 'SET_DEFAULT_BROWSER'). Null if no GA4 session is matched
+    (sampled 2026-06-02).
+- name: ga4_first_content_from_event_params
+  description: First non-null content identifier from GA4 event parameters for the
+    matched session (e.g. 'body-download-button'). Null if not present (sampled 2026-06-02).
+- name: ga4_first_experiment_branch_from_event_params
+  description: First non-null GA4 experiment branch from event parameters (e.g. 'control',
+    'refresh-new-treatment'). Null if not present (sampled 2026-06-02).
+- name: ga4_first_experiment_id_from_event_params
+  description: First non-null GA4 experiment ID from event parameters for the matched
+    session (e.g. 'refresh-new'). Null if not present (sampled 2026-06-02).
+- name: ga4_first_medium_from_event_params
+  description: First non-null traffic medium from GA4 event parameters (e.g. 'organic',
+    'referral', 'cpc'). Null if no GA4 session is matched (sampled 2026-06-02).
+- name: ga4_first_source_from_event_params
+  description: First non-null traffic source from GA4 event parameters (e.g. 'google',
+    'bing'). Null if no GA4 session is matched (sampled 2026-06-02).
+- name: ga4_first_term_from_event_params
+  description: First non-null search term from GA4 event parameters for the matched
+    session. Null if not present (sampled 2026-06-02).
+- name: ga4_ga_client_id
+  description: Google Analytics 4 client ID from the GA4 session matched to this install.
+    Null if no matching GA4 session (sampled 2026-06-02).
+- name: ga4_gclid
+  description: Google Click ID (gclid) from the matched GA4 session, used for Google
+    Ads conversion attribution. Null if no Google Ads click is associated (sampled
+    2026-06-02).
+- name: ga4_gclid_array
+  description: Array of all gclid values seen across events in the matched GA4 session.
+- name: ga4_had_download_event
+  description: True if the matched GA4 session included a Firefox download event;
+    false if a session was matched but no download event occurred. Null if no GA4
+    session is matched (sampled 2026-06-02).
+- name: ga4_landing_screen
+  description: URL of the landing page in the matched GA4 session (e.g. 'https://www.firefox.com/en-US/').
+    Null if no GA4 session is matched (sampled 2026-06-02).
+- name: ga4_language
+  description: Browser language preference from the GA4 session (e.g. 'en-us', 'pt-br').
+    Null if no GA4 session is matched (sampled 2026-06-02).
+- name: ga4_last_reported_install_target
+  description: The last install target reported in the matched GA4 session (e.g. 'product_download',
+    'firefox_download'). Null if no GA4 session is matched (sampled 2026-06-02).
+- name: ga4_manual_campaign_id
+  description: Manual campaign ID from GA4 session metadata (utm_id). Null if not
+    set (sampled 2026-06-02).
+- name: ga4_manual_campaign_name
+  description: Manual campaign name from GA4 session metadata (utm_campaign), e.g.
+    '(organic)', 'SET_DEFAULT_BROWSER'. Null if no GA4 session is matched (sampled
+    2026-06-02).
+- name: ga4_manual_content
+  description: Manual content identifier from GA4 session metadata (utm_content).
+    Null if not set (sampled 2026-06-02).
+- name: ga4_manual_medium
+  description: Manual traffic medium from GA4 session metadata (utm_medium). Null
+    if no GA4 session is matched (sampled 2026-06-02).
+- name: ga4_manual_source
+  description: Manual traffic source from GA4 session metadata (utm_source). Null
+    if no GA4 session is matched (sampled 2026-06-02).
+- name: ga4_manual_term
+  description: Manual search term from GA4 session metadata (utm_term). Null if no
+    GA4 session is matched (sampled 2026-06-02).
+- name: ga4_mobile_device_model
+  description: Mobile device model from the GA4 session. Always null for desktop clients
+    (sampled 2026-06-02).
+- name: ga4_mobile_device_string
+  description: Mobile device string from the GA4 session. Always null for desktop
+    clients (sampled 2026-06-02).
+- name: ga4_operating_system
+  description: Operating system name from the GA4 session (e.g. 'Windows', 'Macintosh').
+    Null if no GA4 session is matched (sampled 2026-06-02).
+- name: ga4_operating_system_version
+  description: Operating system version from the GA4 session (e.g. 'Windows 10', 'Macintosh
+    Intel 10'). Null if no GA4 session is matched (sampled 2026-06-02).
+- name: ga4_region
+  description: Region (state or province) from the matched GA4 session. Null or empty
+    if no GA4 session is matched or the region is unavailable (sampled 2026-06-02).
+- name: ga4_session_date
+  description: Date of the matched GA4 session. Null if no GA4 session is matched
+    (sampled 2026-06-02).
+- name: ga4_session_start_timestamp
+  description: Datetime of the start of the matched GA4 session. Null if no GA4 session
+    is matched (sampled 2026-06-02).
+- name: ga4_stub_session_id
+  description: Stub installer session ID from the matched GA4 session, used to link
+    the web session to the installer attribution logs. Null if no GA4 session is matched
+    (sampled 2026-06-02).
+- name: ga4_website
+  description: 'The Mozilla website from which a GA4 session leading to this install
+    was recorded: ''FIREFOX.COM'' or ''MOZILLA.ORG''. Null if no matching GA4 session
+    (sampled 2026-06-02).'
+- name: installation_first_seen_admin_user
+  description: True if Firefox was installed under an admin user account; false if
+    installed under a non-admin account. Null for non-Windows installs (sampled 2026-06-02).
+- name: installation_first_seen_default_path
+  description: True if Firefox was installed to the default installation path; false
+    if a custom path was used. Null for non-Windows installs (sampled 2026-06-02).
+- name: installation_first_seen_failure_reason
+  description: 'Reason the installer encountered a failure condition: ''NoError''
+    if no error, ''NotFoundError'' or ''SyntaxError'' for error types. Null for non-Windows
+    installs (sampled 2026-06-02).'
+- name: installation_first_seen_from_msi
+  description: True if Firefox was installed via an MSI installer package; false if
+    installed via the EXE installer. Null for non-Windows installs (sampled 2026-06-02).
+- name: installation_first_seen_install_existed
+  description: True if a previous Firefox installation existed on the machine at the
+    time of install; false if this was a fresh install. Null for non-Windows installs
+    (sampled 2026-06-02).
+- name: installation_first_seen_installer_type
+  description: 'Type of installer used: ''full'' for full installer, ''stub'' for
+    stub installer, ''msix'' for MSIX package. Null for non-Windows installs (sampled
+    2026-06-02).'
+- name: installation_first_seen_other_inst
+  description: True if another Firefox installation was detected on the machine at
+    install time; false otherwise. Null for non-Windows installs (sampled 2026-06-02).
+- name: installation_first_seen_other_msix_inst
+  description: True if another Firefox MSIX installation was detected at install time;
+    false otherwise. Null for non-MSIX or non-Windows installs (sampled 2026-06-02).
+- name: installation_first_seen_profdir_existed
+  description: True if a Firefox profile directory already existed at install time;
+    false if the profile was newly created. Null for non-Windows installs (sampled
+    2026-06-02).
+- name: installation_first_seen_silent
+  description: True if the installer ran in silent mode (no UI shown); false if the
+    installer UI was displayed. Null for non-Windows installs (sampled 2026-06-02).
+- name: installation_first_seen_version
+  description: The Firefox version string at the time of first install detection (e.g.
+    '151.0.1'). Null for non-Windows installs (sampled 2026-06-02).
+- name: metadata.first_seen_date_source_ping
+  description: 'The ping type that established the client''s first-seen date: ''new_profile'',
+    ''main'', or ''shutdown''.'
+- name: metadata.reported_main_ping
+  description: True if the client reported a main ping on its first-seen date; false
+    otherwise.
+- name: metadata.reported_new_profile_ping
+  description: True if the client reported a new-profile ping on its first-seen date;
+    false otherwise.
+- name: metadata.reported_shutdown_ping
+  description: True if the client reported a shutdown ping on its first-seen date;
+    false otherwise.
+- name: partner_distribution_version
+  description: Version string of the partner distribution package (e.g. '1.0', '2023.6').
+    Null for non-distribution installs (sampled 2026-06-02).
+- name: partner_distributor
+  description: Name of the distribution partner (e.g. 'canonical', 'mint', 'mozillaonline').
+    Null for non-distribution installs (sampled 2026-06-02).
+- name: partner_distributor_channel
+  description: The distribution channel within the partner's distribution system (e.g.
+    'ubuntu', 'firefox'). Null for non-distribution installs (sampled 2026-06-02).
+- name: partner_id
+  description: Identifier of the partner associated with the Firefox distribution
+    (e.g. 'ubuntu', 'mint'). Null for non-distribution installs (sampled 2026-06-02).
+- name: partner_org
+  description: The partner organization associated with the Firefox distribution (e.g.
+    'Linux - Canonical', 'Microsoft (store)', 'non-distribution').
+- name: platform_version
+  description: The version of the XULRunner platform bundled with Firefox (typically
+    matches app_version).
+- name: second_seen_date
+  description: Date when the server received the second ping from this client. Null
+    if the client has only been seen once (sampled 2026-06-02).
+- name: startup_profile_selection_reason
+  description: The reason the Firefox profile was selected at startup (e.g. 'firstrun-created-default',
+    'default', 'argument-profile'). Null if not reported (sampled 2026-06-02).
+- name: stub_attr_logs_dl_token
+  description: Download token from the stub installer attribution logs, matching the
+    attribution_dltoken field. Null if not available (sampled 2026-06-02).
+- name: stub_attr_logs_download_source
+  description: Download source from the stub installer logs (e.g. 'fxdotcom', 'mozorg').
+    Null if not available (sampled 2026-06-02).
+- name: stub_attr_logs_first_seen_date
+  description: First-seen date from the stub installer attribution logs for this client.
+    Null for clients not acquired via the stub installer (sampled 2026-06-02).
+- name: stub_attr_logs_ga_client_id
+  description: Google Analytics client ID from the stub installer attribution logs,
+    used to join with GA session data. Null if not available (sampled 2026-06-02).
+- name: stub_attr_logs_stub_session_id
+  description: Session ID from the stub installer attribution logs, used to correlate
+    the install event with a GA4 session. Null if not available (sampled 2026-06-02).
+- name: subdivision1
+  description: First major country subdivision (state, province, or equivalent) derived
+    from IP geolocation.
+- name: vendor
+  description: The application vendor (always 'Mozilla' for Firefox builds).
+- name: windows_build_number
+  description: The Windows OS build number as a float (e.g. 26200.0 for Windows 11
+    24H2). Null for non-Windows clients (sampled 2026-06-02).
+- name: windows_version
+  description: Human-readable Windows version label derived from the build number
+    (e.g. 'Windows 10', 'Windows 11', 'Windows 7'). Null for non-Windows clients (sampled
+    2026-06-02).
+- name: xpcom_abi
+  description: The binary ABI identifier for the build, combining processor and compiler
+    (e.g. 'x86_64-msvc', 'x86_64-gcc3').
+- name: lifecycle_stage
+  description: 'The lifecycle stage of the client profile on the submission date:
+    ''new_profile'' for clients seen for the first time, ''repeat_user'' for clients
+    in their first week, and ''existing_user'' for established clients.'
+- name: row_count
+  description: The total number of client-day rows aggregated into this summary row.
+- name: n_created_pictureinpicture
+  description: Number of times the client opened the Picture-in-Picture video player
+    on the submission date.
+- name: n_logged_event
+  description: Total number of legacy telemetry events logged by this client on the
+    submission date, across all processes.
+- name: n_viewed_protection_report
+  description: Number of times the client viewed the Firefox Privacy Protections report
+    on the submission date.
+- name: aborts_content_sum
+  description: Total number of content process aborts (crashes without a submitted
+    crash report) recorded on the submission date.
+- name: aborts_gmplugin_sum
+  description: Total number of Gecko Media Plugin (GMP) process aborts recorded on
+    the submission date.
+- name: aborts_plugin_sum
+  description: Total number of NPAPI plugin process aborts recorded on the submission
+    date.
+- name: active_addons_count_mean
+  description: Mean number of active add-ons across all subsessions aggregated for
+    this client on the submission date.
+- name: active_experiment_branch
+  description: Branch of the active Telemetry experiment enrolled for this client.
+    Null if no experiment is active.
+- name: active_experiment_id
+  description: ID of the active Telemetry experiment enrolled for this client. Null
+    if no experiment is active.
+- name: active_hours_sum
+  description: Total active browsing hours across all subsessions for this client
+    on the submission date.
+- name: ad_clicks_count_all
+  description: Total number of ad clicks across all search access points on the submission
+    date.
+- name: addon_compatibility_check_enabled
+  description: Whether application compatibility is enforced for add-ons in this client's
+    profile.
+- name: apple_model_id
+  description: Apple hardware model identifier for macOS clients (e.g. 'MacBookAir10,1',
+    'Mac14,2'). Null for non-Apple devices (sampled 2026-05-29).
+- name: attribution.dlsource
+  description: Identifier indicating where the Firefox download originated (e.g. 'mozillaci',
+    'mozorg', 'fxdotcom').
+- name: attribution.dltoken
+  description: Unique download token created at Firefox download time to link an install
+    to its download event.
+- name: attribution.ua
+  description: Derived user agent browser type at install time (e.g. 'chrome', 'edge',
+    'firefox', 'ie').
+- name: blocklist_enabled
+  description: True if the Firefox add-on blocklist is enabled for this client; false
+    if it has been disabled.
+- name: bookmark_migrations_quantity_all
+  description: Total number of bookmarks migrated from all browsers on the submission
+    date.
+- name: bookmark_migrations_quantity_chrome
+  description: Number of bookmarks migrated from Google Chrome on the submission date.
+- name: bookmark_migrations_quantity_edge
+  description: Number of bookmarks migrated from Microsoft Edge on the submission
+    date.
+- name: bookmark_migrations_quantity_safari
+  description: Number of bookmarks migrated from Safari on the submission date.
+- name: client_clock_skew_mean
+  description: Mean difference (in hours) between the client's local clock time and
+    the server-received timestamp, used to detect clock drift.
+- name: client_submission_latency_mean
+  description: Mean number of hours between when the ping was generated and when it
+    was received by the server.
+- name: content_crash_count
+  description: Total number of Firefox content process crashes on the submission date.
+- name: cpu_cores
+  description: Number of physical CPU cores on the client device.
+- name: cpu_count
+  description: Number of logical CPU threads (including hyperthreading) on the client
+    device.
+- name: cpu_family
+  description: CPU family identifier from the processor's CPUID instruction.
+- name: cpu_l2_cache_kb
+  description: L2 CPU cache size in kilobytes for the client device.
+- name: cpu_l3_cache_kb
+  description: L3 CPU cache size in kilobytes for the client device.
+- name: cpu_model
+  description: CPU model identifier from the processor's CPUID instruction.
+- name: cpu_speed_mhz
+  description: CPU clock speed in MHz for the client device.
+- name: cpu_stepping
+  description: CPU stepping identifier from the processor's CPUID instruction, indicating
+    a hardware revision within the model.
+- name: cpu_vendor
+  description: CPU vendor identifier string (e.g. 'GenuineIntel', 'AuthenticAMD').
+- name: crash_submit_attempt_content_sum
+  description: Total number of content crash report submission attempts on the submission
+    date.
+- name: crash_submit_attempt_main_sum
+  description: Total number of main process crash report submission attempts on the
+    submission date.
+- name: crash_submit_attempt_plugin_sum
+  description: Total number of plugin crash report submission attempts on the submission
+    date.
+- name: crash_submit_success_content_sum
+  description: Total number of successfully submitted content process crash reports
+    on the submission date.
+- name: crash_submit_success_main_sum
+  description: Total number of successfully submitted main process crash reports on
+    the submission date.
+- name: crash_submit_success_plugin_sum
+  description: Total number of successfully submitted plugin crash reports on the
+    submission date.
+- name: crashes_detected_content_sum
+  description: Total number of detected content process crashes on the submission
+    date.
+- name: crashes_detected_gmplugin_sum
+  description: Total number of detected GMP (Gecko Media Plugin) process crashes on
+    the submission date.
+- name: crashes_detected_plugin_sum
+  description: Total number of detected NPAPI plugin process crashes on the submission
+    date.
+- name: default_private_search_engine
+  description: Identifier for the client's default private browsing search engine.
+    Null if the private search engine is the same as the normal default (sampled 2026-05-29).
+- name: default_private_search_engine_data_load_path
+  description: Anonymized load path for the private browsing default search engine
+    XML. Null if not separately configured (sampled 2026-05-29).
+- name: default_private_search_engine_data_name
+  description: Display name of the private browsing default search engine. Null if
+    not separately configured (sampled 2026-05-29).
+- name: default_private_search_engine_data_origin
+  description: Origin classification of the private browsing default search engine.
+    Null if not separately configured (sampled 2026-05-29).
+- name: default_private_search_engine_data_submission_url
+  description: HTTP search submission URL for the private browsing default search
+    engine. Null if not separately configured (sampled 2026-05-29).
+- name: default_search_engine
+  description: Identifier of the client's default search engine (e.g. 'google-b-d',
+    'baidu', 'ddg').
+- name: default_search_engine_data_load_path
+  description: Anonymized load path of the default search engine XML file (e.g. '[app]google',
+    '[addon]google@search.mozilla.org').
+- name: default_search_engine_data_name
+  description: Display name of the client's default search engine (e.g. 'Google',
+    'DuckDuckGo', '百度').
+- name: default_search_engine_data_origin
+  description: 'Origin classification of the default search engine: ''default'' for
+    built-in engines, ''verified''/''unverified'' for user-installed engines based
+    on signature validity.'
+- name: default_search_engine_data_submission_url
+  description: HTTP search submission URL for the default search engine (e.g. 'https://www.google.com/search?client=firefox-b-d&q=').
+    Null for user-installed engines (for privacy).
+- name: devtools_toolbox_opened_count_sum
+  description: Total number of times the Firefox DevTools toolbox was opened on the
+    submission date.
+- name: distribution_version
+  description: Version string of the partner distribution package (e.g. '1.0', '2023.6').
+    Null for non-distribution installs (sampled 2026-05-29).
+- name: distributor
+  description: Name of the Firefox distribution partner or channel (e.g. 'canonical',
+    'mozillaonline', 'mint'). Null for direct installs (sampled 2026-05-29).
+- name: distributor_channel
+  description: The specific distribution channel within the distributor's system (e.g.
+    'ubuntu', 'firefox', 'mainWinStub'). Null for direct installs (sampled 2026-05-29).
+- name: dom_parentprocess_private_window_used
+  description: True if the client opened at least one private browsing window on the
+    submission date; false otherwise.
+- name: e10s_enabled
+  description: True if multi-process (e10s) mode was enabled for this client on the
+    submission date; false otherwise.
+- name: env_build_arch
+  description: CPU architecture of the Firefox build (e.g. 'x86-64', 'aarch64', 'x86').
+- name: env_build_id
+  description: The build ID of the Firefox application (format YYYYMMDDHHMMSS); same
+    as app_build_id.
+- name: env_build_platform_version
+  description: The XULRunner platform version bundled with Firefox (typically matches
+    app_version).
+- name: env_build_version
+  description: The Firefox application version string from the build environment (e.g.
+    '151.0.1').
+- name: env_build_xpcom_abi
+  description: Binary ABI identifier for the Firefox build (e.g. 'x86_64-msvc', 'x86_64-gcc3',
+    'aarch64-gcc3').
+- name: first_document_id
+  description: The document ID of the first ping received from this client on the
+    submission date.
+- name: first_paint_mean
+  description: Mean time in milliseconds from navigation start to first paint across
+    subsessions on the submission date. Null for sessions where first paint was not
+    recorded (sampled 2026-05-29).
+- name: flash_version
+  description: Adobe Flash plugin version string detected in the client's browser
+    profile. Null if Flash is not installed (sampled 2026-05-29).
+- name: fxa_configured
+  description: True if the client has a Firefox Accounts (FxA) account configured;
+    false if not signed in. Null if state was not reported (sampled 2026-05-29).
+- name: geo_db_version
+  description: Version timestamp of the GeoIP database used for geolocation lookup
+    (e.g. '2026-05-21T07:51:11Z').
+- name: geo_subdivision1
+  description: First major country subdivision (state, province, or equivalent) derived
+    from IP geolocation.
+- name: geo_subdivision2
+  description: Second major country subdivision derived from IP geolocation; not populated
+    for most countries (sampled 2026-05-29).
+- name: gfx_features_advanced_layers_status
+  description: Status of the Advanced Layers compositor feature (e.g. 'available',
+    'blocked', 'unavailable'). Null if not applicable to the platform (sampled 2026-05-29).
+- name: gfx_features_d2d_status
+  description: Status of the Direct2D graphics feature on Windows (e.g. 'available',
+    'disabled', 'blocklisted'). Null for non-Windows clients (sampled 2026-05-29).
+- name: gfx_features_d3d11_status
+  description: Status of the Direct3D 11 compositor feature on Windows (e.g. 'available',
+    'blocklisted'). Null for non-Windows clients (sampled 2026-05-29).
+- name: gfx_features_gpu_process_status
+  description: Status of the GPU process feature (e.g. 'available', 'unused', 'unavailable').
+    Null if not reported (sampled 2026-05-29).
+- name: gpu_crash_count
+  description: Total number of Firefox GPU process crashes on the submission date.
+- name: histogram_parent_devtools_aboutdebugging_opened_count_sum
+  description: Total number of times the 'about:debugging' DevTools panel was opened
+    on the submission date.
+- name: histogram_parent_devtools_animationinspector_opened_count_sum
+  description: Total number of times the Animation Inspector DevTools panel was opened
+    on the submission date.
+- name: histogram_parent_devtools_browserconsole_opened_count_sum
+  description: Total number of times the Browser Console DevTools panel was opened
+    on the submission date.
+- name: histogram_parent_devtools_canvasdebugger_opened_count_sum
+  description: Total number of times the Canvas Debugger DevTools panel was opened
+    on the submission date.
+- name: histogram_parent_devtools_computedview_opened_count_sum
+  description: Total number of times the Computed View CSS panel was opened in DevTools
+    on the submission date.
+- name: histogram_parent_devtools_custom_opened_count_sum
+  description: Total number of times a custom DevTools panel was opened on the submission
+    date.
+- name: histogram_parent_devtools_developertoolbar_opened_count_sum
+  description: Total number of times the legacy Developer Toolbar was opened on the
+    submission date.
+- name: histogram_parent_devtools_dom_opened_count_sum
+  description: Total number of times the DOM Inspector DevTools panel was opened on
+    the submission date.
+- name: histogram_parent_devtools_eyedropper_opened_count_sum
+  description: Total number of times the color picker Eyedropper tool was opened in
+    DevTools on the submission date.
+- name: histogram_parent_devtools_fontinspector_opened_count_sum
+  description: Total number of times the Font Inspector DevTools panel was opened
+    on the submission date.
+- name: histogram_parent_devtools_inspector_opened_count_sum
+  description: Total number of times the DevTools Inspector (element inspector) panel
+    was opened on the submission date.
+- name: histogram_parent_devtools_jsbrowserdebugger_opened_count_sum
+  description: Total number of times the Browser JS Debugger was opened on the submission
+    date.
+- name: histogram_parent_devtools_jsdebugger_opened_count_sum
+  description: Total number of times the JavaScript Debugger DevTools panel was opened
+    on the submission date.
+- name: histogram_parent_devtools_jsprofiler_opened_count_sum
+  description: Total number of times the JavaScript Profiler DevTools panel was opened
+    on the submission date.
+- name: histogram_parent_devtools_layoutview_opened_count_sum
+  description: Total number of times the Layout View (box model) panel was opened
+    in DevTools on the submission date.
+- name: histogram_parent_devtools_memory_opened_count_sum
+  description: Total number of times the Memory DevTools panel was opened on the submission
+    date.
+- name: histogram_parent_devtools_menu_eyedropper_opened_count_sum
+  description: Total number of times the Eyedropper was opened from the browser menu
+    on the submission date.
+- name: histogram_parent_devtools_netmonitor_opened_count_sum
+  description: Total number of times the Network Monitor DevTools panel was opened
+    on the submission date.
+- name: histogram_parent_devtools_options_opened_count_sum
+  description: Total number of times the DevTools Options/Settings panel was opened
+    on the submission date.
+- name: histogram_parent_devtools_paintflashing_opened_count_sum
+  description: Total number of times the Paint Flashing overlay was activated in DevTools
+    on the submission date.
+- name: histogram_parent_devtools_picker_eyedropper_opened_count_sum
+  description: Total number of times the CSS color picker Eyedropper was used via
+    the color picker in DevTools on the submission date.
+- name: histogram_parent_devtools_responsive_opened_count_sum
+  description: Total number of times the Responsive Design Mode was opened in DevTools
+    on the submission date.
+- name: histogram_parent_devtools_ruleview_opened_count_sum
+  description: Total number of times the CSS Rules View panel was opened in DevTools
+    on the submission date.
+- name: histogram_parent_devtools_scratchpad_opened_count_sum
+  description: Total number of times the Scratchpad JavaScript editor was opened in
+    DevTools on the submission date.
+- name: histogram_parent_devtools_scratchpad_window_opened_count_sum
+  description: Total number of times the Scratchpad window was opened from DevTools
+    on the submission date.
+- name: histogram_parent_devtools_shadereditor_opened_count_sum
+  description: Total number of times the Shader Editor DevTools panel was opened on
+    the submission date.
+- name: histogram_parent_devtools_storage_opened_count_sum
+  description: Total number of times the Storage Inspector DevTools panel was opened
+    on the submission date.
+- name: histogram_parent_devtools_styleeditor_opened_count_sum
+  description: Total number of times the Style Editor DevTools panel was opened on
+    the submission date.
+- name: histogram_parent_devtools_webaudioeditor_opened_count_sum
+  description: Total number of times the Web Audio Editor DevTools panel was opened
+    on the submission date.
+- name: histogram_parent_devtools_webconsole_opened_count_sum
+  description: Total number of times the Web Console DevTools panel was opened on
+    the submission date.
+- name: histogram_parent_devtools_webide_opened_count_sum
+  description: Total number of times the WebIDE DevTools panel was opened on the submission
+    date.
+- name: history_migrations_quantity_all
+  description: Total number of history entries migrated from all browsers on the submission
+    date.
+- name: history_migrations_quantity_chrome
+  description: Number of history entries migrated from Google Chrome on the submission
+    date.
+- name: history_migrations_quantity_edge
+  description: Number of history entries migrated from Microsoft Edge on the submission
+    date.
+- name: history_migrations_quantity_safari
+  description: Number of history entries migrated from Safari on the submission date.
+- name: install_year
+  description: Year in which the operating system was installed on the client device
+    (Windows only). Null for non-Windows or if unavailable (sampled 2026-05-29).
+- name: is_wow64
+  description: True if the Firefox process is running under the WoW64 (32-bit process
+    on 64-bit Windows) subsystem; false otherwise. Null for non-Windows clients (sampled
+    2026-05-29).
+- name: isp_organization
+  description: The specific business entity associated with the client's IP address;
+    more specific than isp_name when available.
+- name: logins_migrations_quantity_all
+  description: Total number of saved logins/passwords migrated from all browsers on
+    the submission date.
+- name: logins_migrations_quantity_chrome
+  description: Number of saved logins/passwords migrated from Google Chrome on the
+    submission date.
+- name: logins_migrations_quantity_edge
+  description: Number of saved logins/passwords migrated from Microsoft Edge on the
+    submission date.
+- name: logins_migrations_quantity_safari
+  description: Number of saved logins/passwords migrated from Safari on the submission
+    date.
+- name: main_crash_count
+  description: Total number of Firefox main process crashes on the submission date.
+- name: max_subsession_counter
+  description: Maximum subsession counter value across all pings aggregated for this
+    client on the submission date.
+- name: media_play_time_ms_audio_sum
+  description: Total milliseconds of audio media playback on the submission date.
+- name: media_play_time_ms_video_sum
+  description: Total milliseconds of video media playback on the submission date.
+- name: memory_mb
+  description: Total physical RAM in megabytes available on the client device.
+- name: min_subsession_counter
+  description: Minimum subsession counter value across all pings aggregated for this
+    client on the submission date, typically 1 for the first subsession.
+- name: n_created_pictureinpicture
+  description: Number of times the client opened the Picture-in-Picture video player
+    on the submission date.
+- name: n_logged_event
+  description: Total number of legacy telemetry events logged by this client on the
+    submission date.
+- name: n_viewed_protection_report
+  description: Number of times the client viewed the Firefox Privacy Protections report
+    on the submission date.
+- name: os_environment_is_taskbar_pinned_any
+  description: True if Firefox is pinned to the Windows taskbar in any mode (regular
+    or private); false otherwise.
+- name: os_environment_is_taskbar_pinned_private
+  description: True if Firefox is pinned to the Windows taskbar specifically for private
+    browsing mode; false otherwise.
+- name: os_environment_is_taskbar_pinned_private_any
+  description: True if Firefox is pinned to the Windows taskbar for private browsing
+    in any configuration; false otherwise.
+- name: os_service_pack_major
+  description: Windows Service Pack major version (e.g. 1 for SP1). Zero if no service
+    pack is installed. Null for non-Windows clients (sampled 2026-05-29).
+- name: os_service_pack_minor
+  description: Windows Service Pack minor version. Null for non-Windows clients (sampled
+    2026-05-29).
+- name: partner_id
+  description: The Firefox distribution partner ID (e.g. 'ubuntu', 'mint', 'mozillaonline').
+    Null for non-distribution installs (sampled 2026-05-29).
+- name: pings_aggregated_by_this_row
+  description: Number of main pings from this client aggregated into this single row
+    for the submission date.
+- name: places_bookmarks_count_mean
+  description: Mean number of bookmarks in the client's Places database across subsessions
+    on the submission date.
+- name: places_bookmarks_searchbar_cumulative_searches_sum
+  description: Cumulative number of bookmark searches performed via the bookmarks
+    search bar on the submission date.
+- name: places_library_cumulative_bookmark_searches_sum
+  description: Cumulative number of bookmark searches performed in the Library (history/bookmarks
+    manager) on the submission date.
+- name: places_library_cumulative_history_searches_sum
+  description: Cumulative number of history searches performed in the Library on the
+    submission date.
+- name: places_pages_count_mean
+  description: Mean number of pages in the client's Places history database across
+    subsessions on the submission date.
+- name: places_previousday_visits_mean
+  description: Mean number of history visits from the previous day across subsessions,
+    reflecting browsing history depth.
+- name: places_searchbar_cumulative_filter_count_sum
+  description: Cumulative number of filter operations applied in Places search bar
+    results on the submission date.
+- name: places_searchbar_cumulative_searches_sum
+  description: Cumulative number of Places (history/bookmarks) searches performed
+    via the search bar on the submission date.
+- name: plugin_hangs_sum
+  description: Total number of plugin process hangs detected on the submission date.
+- name: plugins_infobar_allow_sum
+  description: Total number of times the user clicked 'Allow' in the plugin activation
+    infobar on the submission date.
+- name: plugins_infobar_block_sum
+  description: Total number of times the user clicked 'Block' in the plugin activation
+    infobar on the submission date.
+- name: plugins_infobar_shown_sum
+  description: Total number of times the plugin activation infobar was shown to the
+    user on the submission date.
+- name: plugins_notification_shown_sum
+  description: Total number of plugin permission notification prompts shown to the
+    user on the submission date.
+- name: previous_build_id
+  description: Build ID of the previous Firefox installation, present when the client
+    has recently updated. Null for new installs (sampled 2026-05-29).
+- name: profile_age_in_days
+  description: Age of the Firefox profile in days as of the submission date.
+- name: profile_creation_date
+  description: Timestamp string of the date when the Firefox profile was created.
+- name: push_api_notify_sum
+  description: Total number of Web Push API notifications received by the client on
+    the submission date.
+- name: rdd_crash_count
+  description: Total number of Firefox RDD (Remote Data Decoder) process crashes on
+    the submission date.
+- name: sandbox_effective_content_process_level
+  description: The effective content sandbox security level active during the session
+    (OS-dependent integer, higher values indicate stricter sandboxing).
+- name: scalar_a11y_hcm_background
+  description: Background color value (as an ARGB integer) used by Windows High Contrast
+    Mode on the submission date. Null if HCM is not active (sampled 2026-05-29).
+- name: scalar_a11y_hcm_foreground
+  description: Foreground color value (as an ARGB integer) used by Windows High Contrast
+    Mode on the submission date. Null if HCM is not active (sampled 2026-05-29).
+- name: scalar_combined_webrtc_nicer_stun_retransmits_sum
+  description: Total number of WebRTC ICE STUN retransmits on the submission date.
+- name: scalar_combined_webrtc_nicer_turn_401s_sum
+  description: Total number of 401 (Unauthorized) errors received from TURN servers
+    during WebRTC sessions on the submission date.
+- name: scalar_combined_webrtc_nicer_turn_403s_sum
+  description: Total number of 403 (Forbidden) errors received from TURN servers during
+    WebRTC sessions on the submission date.
+- name: scalar_combined_webrtc_nicer_turn_438s_sum
+  description: Total number of 438 (Stale Nonce) errors received from TURN servers
+    during WebRTC sessions on the submission date.
+- name: scalar_content_navigator_storage_estimate_count_sum
+  description: Total number of navigator.storage.estimate() API calls made from content
+    processes on the submission date.
+- name: scalar_content_navigator_storage_persist_count_sum
+  description: Total number of navigator.storage.persist() API calls made from content
+    processes on the submission date.
+- name: scalar_parent_aushelper_websense_reg_version
+  description: Version string from the Websense security software registry key, reported
+    by the AUSHelper component. Null if not present (sampled 2026-05-29).
+- name: scalar_parent_browser_engagement_max_concurrent_tab_count_max
+  description: Maximum number of tabs open simultaneously across all windows on the
+    submission date.
+- name: scalar_parent_browser_engagement_max_concurrent_window_count_max
+  description: Maximum number of browser windows open simultaneously on the submission
+    date.
+- name: scalar_parent_browser_engagement_tab_open_event_count_sum
+  description: Total number of new tabs opened by the user on the submission date.
+- name: scalar_parent_browser_engagement_total_uri_count_normal_and_private_mode_sum
+  description: Total URIs loaded in both normal and private browsing windows on the
+    submission date.
+- name: scalar_parent_browser_engagement_total_uri_count_sum
+  description: Total number of distinct URIs loaded in normal browsing mode on the
+    submission date (excluding private windows).
+- name: scalar_parent_browser_engagement_unfiltered_uri_count_sum
+  description: Total number of URIs loaded including internal pages like about:newtab,
+    counting all page loads unfiltered.
+- name: scalar_parent_browser_engagement_unique_domains_count_max
+  description: Maximum number of unique eTLD+1 domains visited in a single subsession
+    on the submission date.
+- name: scalar_parent_browser_engagement_unique_domains_count_mean
+  description: Mean number of unique eTLD+1 domains visited across subsessions on
+    the submission date.
+- name: scalar_parent_browser_engagement_window_open_event_count_sum
+  description: Total number of new browser windows opened by the user on the submission
+    date.
+- name: scalar_parent_browser_ui_interaction_textrecognition_error_sum
+  description: Total number of errors that occurred during text recognition (OCR)
+    interactions on the submission date.
+- name: scalar_parent_devtools_accessibility_node_inspected_count_sum
+  description: Total number of accessibility nodes inspected via DevTools on the submission
+    date.
+- name: scalar_parent_devtools_accessibility_opened_count_sum
+  description: Total number of times the Accessibility Inspector DevTools panel was
+    opened on the submission date.
+- name: scalar_parent_devtools_accessibility_picker_used_count_sum
+  description: Total number of times the Accessibility Picker tool was activated in
+    DevTools on the submission date.
+- name: scalar_parent_devtools_accessibility_service_enabled_count_sum
+  description: Total number of times the accessibility service was enabled via DevTools
+    on the submission date.
+- name: scalar_parent_devtools_copy_full_css_selector_opened_sum
+  description: Total number of times the 'Copy Full CSS Selector' DevTools feature
+    was used on the submission date.
+- name: scalar_parent_devtools_copy_unique_css_selector_opened_sum
+  description: Total number of times the 'Copy Unique CSS Selector' DevTools feature
+    was used on the submission date.
+- name: scalar_parent_devtools_toolbar_eyedropper_opened_sum
+  description: Total number of times the Eyedropper tool was opened from the DevTools
+    toolbar on the submission date.
+- name: scalar_parent_dom_contentprocess_troubled_due_to_memory_sum
+  description: Total number of content processes that became troubled due to memory
+    pressure on the submission date.
+- name: scalar_parent_navigator_storage_estimate_count_sum
+  description: Total number of navigator.storage.estimate() API calls made from the
+    parent process on the submission date.
+- name: scalar_parent_navigator_storage_persist_count_sum
+  description: Total number of navigator.storage.persist() API calls made from the
+    parent process on the submission date.
+- name: scalar_parent_os_environment_is_taskbar_pinned
+  description: True if Firefox is pinned to the Windows taskbar; false if not pinned.
+    Null if not reported (sampled 2026-05-29).
+- name: scalar_parent_os_environment_launched_via_desktop
+  description: True if Firefox was launched via a desktop shortcut on the submission
+    date; false otherwise.
+- name: scalar_parent_os_environment_launched_via_other
+  description: True if Firefox was launched via a method other than desktop, taskbar,
+    start menu, or other-shortcut; false otherwise.
+- name: scalar_parent_os_environment_launched_via_other_shortcut
+  description: True if Firefox was launched via a non-taskbar, non-desktop shortcut
+    (e.g. a file manager or other shortcut) on the submission date.
+- name: scalar_parent_os_environment_launched_via_start_menu
+  description: True if Firefox was launched from the Windows Start Menu on the submission
+    date; false otherwise.
+- name: scalar_parent_os_environment_launched_via_taskbar
+  description: True if Firefox was launched from the Windows taskbar on the submission
+    date; false otherwise.
+- name: scalar_parent_os_environment_launched_via_taskbar_private
+  description: True if Firefox was launched from a taskbar pin configured for private
+    browsing on the submission date; false otherwise.
+- name: scalar_parent_storage_sync_api_usage_extensions_using_sum
+  description: Total number of extensions that used the Storage Sync API on the submission
+    date.
+- name: scalar_parent_urlbar_impression_autofill_about_sum
+  description: 'Total number of URL bar autocomplete impressions for about: page autofill
+    on the submission date.'
+- name: scalar_parent_urlbar_impression_autofill_adaptive_sum
+  description: Total number of URL bar autocomplete impressions for adaptive history
+    autofill on the submission date.
+- name: scalar_parent_urlbar_impression_autofill_origin_sum
+  description: Total number of URL bar autocomplete impressions for origin (eTLD+1)
+    autofill on the submission date.
+- name: scalar_parent_urlbar_impression_autofill_other_sum
+  description: Total number of URL bar autocomplete impressions for other (uncategorized)
+    autofill types on the submission date.
+- name: scalar_parent_urlbar_impression_autofill_preloaded_sum
+  description: Total number of URL bar autocomplete impressions for preloaded sites
+    autofill on the submission date.
+- name: scalar_parent_urlbar_impression_autofill_url_sum
+  description: Total number of URL bar autocomplete impressions for full URL autofill
+    on the submission date.
+- name: search_cohort
+  description: Search experiment cohort assignment for this client, used in search
+    partnership experiments (e.g. 'nov17-2'). Null for most clients not enrolled in
+    a search cohort (sampled 2026-05-29).
+- name: search_count_abouthome
+  description: Total number of searches initiated from the Firefox about:home page
+    on the submission date.
+- name: search_count_alias
+  description: Total number of searches initiated via search engine keyword alias
+    (e.g. '@google') in the URL bar on the submission date.
+- name: search_count_all
+  description: Total number of searches across all access points on the submission
+    date.
+- name: search_count_contextmenu
+  description: Total number of searches initiated via the browser context menu (right-click
+    search) on the submission date.
+- name: search_count_newtab
+  description: Total number of searches initiated from the New Tab page on the submission
+    date.
+- name: search_count_organic
+  description: Total number of organic (non-tagged, non-SAP) searches on the submission
+    date.
+- name: search_count_searchbar
+  description: Total number of searches initiated from the dedicated search bar on
+    the submission date.
+- name: search_count_system
+  description: Total number of searches initiated from the system (OS-level search,
+    e.g. Windows Search) on the submission date.
+- name: search_count_tagged_follow_on
+  description: Total number of follow-on searches (searches subsequent to a SAP search
+    on the same results page) on the submission date.
+- name: search_count_tagged_sap
+  description: Total number of tagged searches originating from a Search Access Point
+    (SAP) on the submission date.
+- name: search_count_urlbar
+  description: Total number of searches initiated from the URL bar (address bar) on
+    the submission date.
+- name: search_count_urlbar_handoff
+  description: Total number of searches initiated via URL bar handoff (from about:newtab
+    search box handed off to the URL bar) on the submission date.
+- name: search_count_urlbar_persisted
+  description: Total number of searches initiated from the URL bar while a search
+    mode is persisted on the submission date.
+- name: search_count_urlbar_searchmode
+  description: Total number of searches initiated while the URL bar is in search mode
+    on the submission date.
+- name: search_count_webextension
+  description: Total number of searches initiated via WebExtension search APIs on
+    the submission date.
+- name: search_with_ads_count_all
+  description: Total number of search result pages containing ads viewed across all
+    access points on the submission date.
+- name: session_restored_mean
+  description: Mean session restore time in milliseconds across subsessions on the
+    submission date. Null if session restore did not occur (sampled 2026-05-29).
+- name: sessions_started_on_this_day
+  description: Total number of browser sessions started by the client on the submission
+    date.
+- name: shutdown_kill_sum
+  description: Total number of times Firefox's background hang reporter killed the
+    browser due to a hang at shutdown on the submission date.
+- name: socket_crash_count
+  description: Total number of Firefox socket process crashes on the submission date.
+- name: ssl_handshake_result_failure_sum
+  description: Total number of failed TLS/SSL handshakes on the submission date.
+- name: ssl_handshake_result_success_sum
+  description: Total number of successful TLS/SSL handshakes on the submission date.
+- name: startup_profile_selection_first_ping_only
+  description: Profile selection reason from the first ping only, similar to startup_profile_selection_reason_first
+    but may differ if multiple pings are aggregated.
+- name: startup_profile_selection_reason_first
+  description: The profile selection reason from the first ping of the session (e.g.
+    'default', 'firstrun-created-default', 'profile-selector'). Null if not reported.
+- name: submission_timestamp_min
+  description: Timestamp of the earliest telemetry ping received from this client
+    on the submission date.
+- name: subsession_hours_sum
+  description: Total number of hours spent in active browser subsessions on the submission
+    date.
+- name: sync_configured
+  description: True if Firefox Sync is configured and enabled for this client. Null
+    if sync state was not reported (sampled 2026-05-29).
+- name: sync_count_desktop_mean
+  description: Mean number of syncs to/from desktop devices on the submission date.
+    Null if sync is not configured (sampled 2026-05-29).
+- name: sync_count_desktop_sum
+  description: Total number of syncs with desktop devices on the submission date.
+- name: sync_count_mobile_mean
+  description: Mean number of syncs to/from mobile devices on the submission date.
+    Null if sync is not configured (sampled 2026-05-29).
+- name: sync_count_mobile_sum
+  description: Total number of syncs with mobile devices on the submission date.
+- name: telemetry_enabled
+  description: State of the legacy telemetry opt-out pref. True if the client has
+    explicitly opted in; false if opted out. Null for most clients using the default
+    (sampled 2026-05-29).
+- name: text_recognition_api_performance_count_sum
+  description: Total number of OS text recognition API calls made on the submission
+    date.
+- name: text_recognition_api_performance_sum
+  description: Total time in milliseconds spent waiting for the OS text recognition
+    API to respond on the submission date.
+- name: text_recognition_interaction_timing_count_sum
+  description: Total number of text recognition (OCR) interaction timing samples on
+    the submission date.
+- name: text_recognition_interaction_timing_sum
+  description: Total time in milliseconds spent on text recognition (OCR) interactions
+    on the submission date.
+- name: text_recognition_text_length_count_sum
+  description: Total number of text recognition interactions for which text length
+    was measured on the submission date.
+- name: text_recognition_text_length_sum
+  description: Total character length of text recognized via OCR across all interactions
+    on the submission date.
+- name: timezone_offset
+  description: The client's local timezone offset in minutes from UTC at the time
+    of the ping (e.g. 120 = UTC+2, -300 = UTC-5).
+- name: total_hours_sum
+  description: Total hours (active + idle) spent in browser sessions on the submission
+    date. Currently null for all rows.
+- name: trackers_blocked_sum
+  description: Total number of tracking requests blocked by Enhanced Tracking Protection
+    on the submission date. Null if tracking protection was not active (sampled 2026-05-29).
+- name: update_auto_download
+  description: True if Firefox is configured to automatically download updates; false
+    if auto-download is disabled.
+- name: update_background
+  description: True if Firefox is configured to install updates in the background
+    while the browser is not running; false otherwise.
+- name: update_channel
+  description: The Firefox update channel from the build configuration, not normalized
+    (e.g. 'release', 'esr', 'beta', 'nightly', 'default').
+- name: update_enabled
+  description: True if Firefox automatic updates are enabled; false if updates have
+    been disabled.
+- name: user_pref_app_shield_optoutstudies_enabled
+  description: 'Value of the ''app.shield.optoutstudies.enabled'' user preference:
+    ''true'' if Shield studies are allowed, ''false'' if opted out. Null if not set
+    (sampled 2026-05-29).'
+- name: user_pref_browser_newtabpage_enabled
+  description: 'Value of the ''browser.newtabpage.enabled'' pref: ''false'' if the
+    New Tab page is disabled; ''true'' otherwise. Null if default (sampled 2026-05-29).'
+- name: user_pref_browser_search_region
+  description: The search region preference configured for the client's browser (ISO
+    3166-1 alpha-2 country code, e.g. 'US', 'DE').
+- name: user_pref_browser_search_suggest_enabled
+  description: 'Value of ''browser.search.suggest.enabled'': ''false'' if search suggestions
+    are disabled; ''true'' if enabled. Null if default (sampled 2026-05-29).'
+- name: user_pref_browser_urlbar_quicksuggest_data_collection_enabled
+  description: 'Value of the Firefox Suggest data collection preference: ''false''
+    if the user has opted out of data collection for Firefox Suggest. Null if default
+    (sampled 2026-05-29).'
+- name: user_pref_browser_urlbar_quicksuggest_onboarding_dialog_choice
+  description: 'The user''s choice in the Firefox Suggest (Quicksuggest) onboarding
+    dialog: ''close_1'', ''not_now_2'', or ''reject_2''. Null if the dialog was not
+    shown (sampled 2026-05-29).'
+- name: user_pref_browser_urlbar_show_search_suggestions_first
+  description: 'Value of ''browser.urlbar.showSearchSuggestionsFirst'': ''false''
+    if history results are shown before search suggestions in the URL bar. Null if
+    default (sampled 2026-05-29).'
+- name: user_pref_browser_urlbar_suggest_bestmatch
+  description: 'Value of ''browser.urlbar.bestMatch.enabled'': ''true'' if best match
+    suggestions are shown in the URL bar. Null if default (sampled 2026-05-29).'
+- name: user_pref_browser_urlbar_suggest_quicksuggest
+  description: 'Value of ''browser.urlbar.suggest.quicksuggest'': controls legacy
+    Firefox Suggest UI. Null if default (sampled 2026-05-29).'
+- name: user_pref_browser_urlbar_suggest_quicksuggest_nonsponsored
+  description: 'Value of ''browser.urlbar.suggest.quicksuggest.nonsponsored'': ''true''
+    if non-sponsored Firefox Suggest results are enabled; ''false'' if disabled.'
+- name: user_pref_browser_urlbar_suggest_quicksuggest_sponsored
+  description: 'Value of ''browser.urlbar.suggest.quicksuggest.sponsored'': ''true''
+    if sponsored Firefox Suggest results are shown; ''false'' if disabled.'
+- name: user_pref_browser_urlbar_suggest_searches
+  description: 'Value of ''browser.urlbar.suggest.searches'': ''false'' if URL bar
+    search suggestions are disabled. Null if default (sampled 2026-05-29).'
+- name: user_pref_browser_widget_in_navbar
+  description: 'Value of the Firefox widget-in-navbar pref: ''true'' if a specific
+    widget is shown in the navigation bar; ''false'' otherwise. Null if default (sampled
+    2026-05-29).'
+- name: utility_crash_count
+  description: Total number of Firefox utility process crashes on the submission date.
+- name: vendor
+  description: The application vendor string (always 'Mozilla' for Firefox).
+- name: vr_crash_count
+  description: Total number of Firefox VR process crashes on the submission date.
+- name: web_notification_shown_sum
+  description: Total number of Web Notification permission prompts shown to the user
+    on the submission date.
+- name: windows_build_number
+  description: Windows OS build number (e.g. 26200 for Windows 11 24H2). Null for
+    non-Windows clients (sampled 2026-05-29).
+- name: windows_ubr
+  description: Windows Update Build Revision (UBR) number, a sub-version of the build
+    number representing cumulative update patches. Null for non-Windows clients (sampled
+    2026-05-29).
+- name: attribution_dlsource
+  description: The download source that served the Firefox installer (e.g. 'mozorg',
+    'mozillaci', 'fxdotcom', 'desktoplauncher'), as recorded in the attribution data.
+- name: attribution_dltoken
+  description: A unique token identifying the specific download event that led to
+    this installation, used to correlate installs with download records.
+- name: attribution_ua
+  description: The user-agent family of the browser used to download Firefox, derived
+    from the attribution data (e.g. 'chrome', 'edge', 'firefox', 'ie', 'other').
+- name: build_id
+  description: The Firefox build ID (application.buildId) of the build that generated
+    the first-seen ping, in YYYYMMDDHHMMSS format.
+- name: days_interacted_bits
+  description: A 28-bit integer bitmask recording which of the 28 days the client
+    had at least one active interaction (active ticks); used together with days_visited_1_uri_bits
+    to compute qualified DAU metrics.
+- name: days_seen_bits
+  description: A 28-bit integer bitmask recording which of the 28 days after first_seen_date
+    the client sent at least one main ping; the most-significant bit represents day
+    1 and the least-significant bit represents day 28.
+- name: days_visited_1_uri_bits
+  description: A 28-bit integer bitmask recording which of the 28 days the client
+    visited at least one URI; used together with days_interacted_bits to compute qualified
+    DAU metrics.
+- name: app_display_version
+  description: The user-visible version string of the Firefox application, which may
+    include a suffix such as 'esr' (e.g. '140.11.0esr') (sampled 2026-05-29).
+- name: channel
+  description: The Firefox update channel as reported by the client (e.g. 'release',
+    'beta', 'nightly', 'esr'); may differ from normalized_channel for unrecognized
+    values (sampled 2026-05-29).
+- name: default_private_search_engine
+  description: The internal identifier of the client's default private-browsing search
+    engine; null if no separate private engine was configured (sampled 2026-05-29).
+- name: default_private_search_engine_data_load_path
+  description: The load path of the default private-browsing search engine configuration;
+    null when no separate private engine was configured (sampled 2026-05-29).
+- name: default_private_search_engine_data_name
+  description: The human-readable name of the default private-browsing search engine;
+    null when no separate private engine was configured (sampled 2026-05-29).
+- name: default_private_search_engine_data_origin
+  description: The origin of the default private-browsing search engine configuration;
+    null when no separate private engine was configured (sampled 2026-05-29).
+- name: default_private_search_engine_data_submission_url
+  description: The search submission URL for the default private-browsing search engine;
+    null when no separate private engine was configured (sampled 2026-05-29).
+- name: default_search_engine
+  description: The internal identifier of the client's default search engine on the
+    first seen date (e.g. 'google-b-d', 'baidu') (sampled 2026-05-29).
+- name: default_search_engine_data_load_path
+  description: The load path of the default search engine configuration, indicating
+    whether it was bundled with the app, an add-on, or installed via another method
+    (sampled 2026-05-29).
+- name: default_search_engine_data_name
+  description: The human-readable name of the client's default search engine on the
+    first seen date (e.g. 'Google', 'DuckDuckGo') (sampled 2026-05-29).
+- name: default_search_engine_data_origin
+  description: 'The origin of the default search engine configuration: ''default''
+    for built-in engines, ''verified'' for user-installed with valid hash, ''unverified''
+    otherwise; null if not reported (sampled 2026-05-29).'
+- name: default_search_engine_data_submission_url
+  description: The search submission URL of the default search engine, used to construct
+    search queries; not recorded for user-installed engines to protect privacy (sampled
+    2026-05-29).
+- name: second_seen_date
+  description: The second date on which the server received a ping from this client;
+    null if the client has only been seen once (sampled 2026-05-29).
+- name: metadata
+  description: A struct capturing which telemetry pings were observed for this client
+    on or before first_seen_date, including which ping type was the source of the
+    first-seen date.
+- name: histogram_aggregates
+  description: Array of per-metric histogram aggregates for this client, each describing
+    one histogram probe across a specific process, key, and bucket configuration.
+- name: histogram_aggregates.agg_type
+  description: The aggregation method applied to the histogram values for each entry
+    in histogram_aggregates; always 'summed_histogram' in this table.
+- name: histogram_aggregates.first_bucket
+  description: The lower bound of the first bucket in the histogram's bucket range
+    for each entry in histogram_aggregates.
+- name: histogram_aggregates.key
+  description: An optional keyed-histogram key for each entry in histogram_aggregates;
+    empty string for non-keyed histograms.
+- name: histogram_aggregates.last_bucket
+  description: The upper bound of the last bucket in the histogram's bucket range
+    for each entry in histogram_aggregates.
+- name: histogram_aggregates.latest_version
+  description: The most recent Firefox major version observed for this client's histogram
+    entry within histogram_aggregates, used to determine version currency.
+- name: histogram_aggregates.metric
+  description: The name of the telemetry histogram probe (e.g. 'network_dns_end_to_connect_start_exp_ms')
+    for each entry in histogram_aggregates.
+- name: histogram_aggregates.metric_type
+  description: The histogram type for each entry in histogram_aggregates, e.g. 'histogram-exponential',
+    'histogram-enumerated', 'histogram-boolean', 'histogram-categorical', 'histogram-linear',
+    or 'histogram-count'.
+- name: histogram_aggregates.num_buckets
+  description: The total number of buckets in the histogram for each entry in histogram_aggregates.
+- name: histogram_aggregates.process
+  description: The Firefox process type from which the histogram was recorded (e.g.
+    'parent', 'content', 'gpu') for each entry in histogram_aggregates.
+- name: join_key
+  description: A composite string key used to join this table with clients_histogram_aggregates_v2;
+    formed by concatenating client_id, os, app_version, app_build_id, and channel.
+- name: histogram_aggregates
+  description: Repeated array of per-metric histogram aggregates for this client,
+    each representing one histogram probe across a specific process, key, and bucket
+    configuration. New data from clients_histogram_aggregates_new_v1 is merged into
+    the previous day's data to produce this rolling per-client view.
+- name: histogram_aggregates.agg_type
+  description: The aggregation method applied to the histogram values for each entry
+    in histogram_aggregates; always 'summed_histogram' in this table.
+- name: histogram_aggregates.aggregates
+  description: Repeated array of key-value pairs within each histogram_aggregates
+    entry, where key is the histogram bucket index (as a string) and value is the
+    aggregated count for that bucket across submissions.
+- name: histogram_aggregates.first_bucket
+  description: The lower bound of the first bucket in the histogram's bucket range
+    for each entry in histogram_aggregates.
+- name: histogram_aggregates.key
+  description: An optional keyed-histogram key for each entry in histogram_aggregates;
+    empty string for non-keyed histograms.
+- name: histogram_aggregates.last_bucket
+  description: The upper bound of the last bucket in the histogram's bucket range
+    for each entry in histogram_aggregates.
+- name: histogram_aggregates.metric
+  description: The name of the telemetry histogram probe (e.g. 'network_dns_end_to_connect_start_exp_ms')
+    for each entry in histogram_aggregates.
+- name: histogram_aggregates.metric_type
+  description: The histogram type for each entry in histogram_aggregates, e.g. 'histogram-exponential',
+    'histogram-enumerated', 'histogram-boolean', 'histogram-categorical', 'histogram-linear',
+    or 'histogram-count'.
+- name: histogram_aggregates.num_buckets
+  description: The total number of buckets in the histogram for each entry in histogram_aggregates.
+- name: histogram_aggregates.process
+  description: The Firefox process type from which the histogram was recorded (e.g.
+    'parent', 'content', 'gpu') for each entry in histogram_aggregates.
+- name: agg_type
+  description: The client-level aggregation method; always 'summed_histogram', indicating
+    that histogram bucket counts are summed across a client's submissions.
+- name: first_bucket
+  description: The lower bound of the first bucket in this histogram's bucket range.
+- name: key
+  description: The keyed-histogram key; empty string for non-keyed histograms. For
+    keyed histograms, identifies the specific sub-metric (e.g. an add-on ID or a domain
+    name).
+- name: last_bucket
+  description: The upper bound of the last bucket in this histogram's bucket range.
+- name: metric
+  description: The name of the telemetry histogram probe being aggregated (e.g. 'webext_extension_startup_ms_by_addonid').
+- name: metric_type
+  description: The histogram type, one of 'histogram-exponential', 'histogram-enumerated',
+    'histogram-boolean', 'histogram-categorical', 'histogram-linear', or 'histogram-count'.
+- name: non_norm_record
+  description: A struct holding the raw (non-normalized) bucket count for a single
+    histogram bucket, where key is the bucket index as a string and value is the raw
+    summed count across all clients.
+- name: non_norm_record.key
+  description: The histogram bucket index (as a string) within the non_norm_record
+    struct.
+- name: non_norm_record.value
+  description: The raw (non-normalized) summed count for this histogram bucket within
+    the non_norm_record struct, expressed as a float.
+- name: num_buckets
+  description: The total number of buckets in the histogram.
+- name: process
+  description: The Firefox process type from which the histogram was recorded, one
+    of 'parent', 'content', or 'gpu'.
+- name: record
+  description: A struct holding the normalized (Dirichlet-smoothed) bucket count for
+    a single histogram bucket, where key is the bucket index as a string and value
+    is the aggregated normalized count across all clients.
+- name: record.key
+  description: The histogram bucket index (as a string) within the record struct.
+- name: record.value
+  description: The normalized (Dirichlet-smoothed) aggregated count for this histogram
+    bucket within the record struct, expressed as a float.
+- name: agg_type
+  description: The population-level aggregation type; always 'histogram', indicating
+    that per-client histograms are aggregated across all clients matching the row's
+    dimensions.
+- name: aggregates
+  description: Repeated array of normalized (Dirichlet-smoothed) histogram bucket
+    proportions, where key is the bucket index as a string and value is the population-level
+    proportion for that bucket.
+- name: aggregates.key
+  description: The histogram bucket index as a string within the aggregates array.
+- name: aggregates.value
+  description: The Dirichlet-normalized proportion of clients in this bucket within
+    the aggregates array; values sum to approximately 1.0 across all buckets for a
+    given row.
+- name: client_agg_type
+  description: The aggregation type applied at the per-client level before population
+    aggregation; always 'summed_histogram' in this table.
+- name: first_bucket
+  description: The lower bound of the first bucket in this histogram's bucket range.
+- name: key
+  description: The keyed-histogram key; empty string for non-keyed histograms. For
+    keyed histograms, identifies the specific sub-metric (e.g. an add-on ID or a domain
+    name).
+- name: last_bucket
+  description: The upper bound of the last bucket in this histogram's bucket range.
+- name: metric
+  description: The name of the telemetry histogram probe being aggregated (e.g. 'webext_extension_startup_ms_by_addonid').
+- name: metric_type
+  description: The histogram type, one of 'histogram-exponential', 'histogram-enumerated',
+    'histogram-boolean', 'histogram-categorical', 'histogram-linear', or 'histogram-count'.
+- name: non_norm_aggregates
+  description: Repeated array of raw (non-normalized) histogram bucket counts, where
+    key is the bucket index as a string and value is the summed raw count across all
+    clients for that bucket.
+- name: non_norm_aggregates.key
+  description: The histogram bucket index as a string within the non_norm_aggregates
+    array.
+- name: non_norm_aggregates.value
+  description: The raw (non-normalized) summed count for this bucket across all contributing
+    clients within the non_norm_aggregates array.
+- name: num_buckets
+  description: The total number of buckets in the histogram.
+- name: process
+  description: The Firefox process type from which the histogram was recorded, one
+    of 'parent', 'content', or 'gpu'.
+- name: total_users
+  description: The total number of clients contributing to this row's aggregated histogram,
+    used as the denominator for normalized proportions.
+- name: days_logged_event_bits
+  description: A 28-bit integer bitmask representing the days in the last 28 days
+    on which the client had at least one logged telemetry event; bit 0 (LSB) corresponds
+    to submission_date and bit 27 to 27 days prior.
+- name: days_used_pictureinpicture_bits
+  description: A 28-bit integer bitmask representing the days in the last 28 days
+    on which the client created at least one picture-in-picture window; bit 0 corresponds
+    to submission_date.
+- name: days_viewed_protection_report_bits
+  description: A 28-bit integer bitmask representing the days in the last 28 days
+    on which the client viewed the Privacy Protections report; bit 0 corresponds to
+    submission_date.
+- name: n_created_pictureinpicture
+  description: The cumulative count of picture-in-picture windows created by this
+    client across the active 28-day window; 0 for the vast majority of clients (sampled
+    2026-06-02).
+- name: n_logged_event
+  description: The cumulative count of telemetry events logged by this client across
+    the active 28-day window, summed from clients_daily_event_v1.
+- name: n_viewed_protection_report
+  description: The cumulative count of times the client viewed the Privacy Protections
+    report across the active 28-day window; 0 for nearly all clients (sampled 2026-06-02).
+- name: aborts_content_sum
+  description: Total number of Firefox content-process abort events (unclean process
+    terminations) aggregated over the reporting period; null when no aborts occurred
+    (sampled 2026-05-29).
+- name: aborts_gmplugin_sum
+  description: Total number of Gecko Media Plugin (GMP) process abort events aggregated
+    over the reporting period; null when no aborts occurred (sampled 2026-05-29).
+- name: aborts_plugin_sum
+  description: Total number of NPAPI plugin process abort events aggregated over the
+    reporting period; null when no aborts occurred (sampled 2026-05-29).
+- name: active_addons_count_mean
+  description: Mean number of active add-ons installed across the client's subsessions
+    on the reporting day; typically around 7 for most users (sampled 2026-05-29).
+- name: active_experiment_branch
+  description: The branch of the active legacy Normandy experiment the client is enrolled
+    in; null when no experiment is active. Fully null in sampled data (sampled 2026-05-29).
+- name: active_experiment_id
+  description: The identifier of the active legacy Normandy experiment the client
+    is enrolled in; null when no experiment is active. Fully null in sampled data
+    (sampled 2026-05-29).
+- name: active_hours_sum
+  description: Total number of hours the client was actively using Firefox (based
+    on five-second active ticks), summed across all subsessions on the reporting day
+    (sampled 2026-05-29).
+- name: ad_clicks_count_all
+  description: Total number of clicks on search-result advertisements across all search
+    access points on the reporting day; null for ~95% of clients (sampled 2026-05-29).
+- name: addon_compatibility_check_enabled
+  description: Whether application compatibility is enforced for add-ons; true for
+    virtually all clients (sampled 2026-05-29).
+- name: attribution.campaign
+  description: Marketing campaign identifier that led to the Firefox download (e.g.
+    'SET_DEFAULT_BROWSER', '%2528not%2Bset%2529'); null when attribution is unavailable
+    (sampled 2026-05-29).
+- name: attribution.content
+  description: Specific link or content identifier within a marketing campaign that
+    drove the Firefox download; null when attribution is unavailable (sampled 2026-05-29).
+- name: attribution.dlsource
+  description: Identifier indicating where the Firefox installation originated (e.g.
+    'mozillaci', 'mozorg', 'fxdotcom'); null for ~52% of clients where attribution
+    is unavailable (sampled 2026-05-29).
+- name: attribution.dltoken
+  description: Unique token assigned at Firefox download time to correlate the install
+    with a specific download event; null when attribution is unavailable (sampled
+    2026-05-29).
+- name: attribution.experiment
+  description: Funnel experiment parameter captured at Firefox download time; null
+    when no experiment was active or attribution is unavailable (sampled 2026-05-29).
+- name: attribution.medium
+  description: Category of the marketing source that led to the Firefox download (e.g.
+    'referral', 'paidsearch', 'cpc'); null when attribution is unavailable (sampled
+    2026-05-29).
+- name: attribution.source
+  description: Referring partner domain when the Firefox install originated via a
+    known partner (e.g. 'www.google.com', 'www.bing.com'); null when attribution data
+    is unavailable (sampled 2026-05-29).
+- name: attribution.ua
+  description: Derived user agent type of the browser used when downloading Firefox
+    (e.g. 'edge', 'chrome', 'firefox'); null for ~68% of clients (sampled 2026-05-29).
+- name: attribution.variation
+  description: Funnel experiment variation parameter captured at Firefox download
+    time (e.g. 'treatment', 'control'); null when no experiment was active (sampled
+    2026-05-29).
+- name: blocklist_enabled
+  description: Whether the Firefox add-on blocklist is enabled; true for nearly all
+    clients (sampled 2026-05-29).
+- name: bookmark_migrations_quantity_all
+  description: Total number of bookmarks migrated from all browsers combined; null
+    for ~99.4% of clients who have not performed any bookmark migration (sampled 2026-05-29).
+- name: bookmark_migrations_quantity_chrome
+  description: Number of bookmarks migrated from Google Chrome; null for ~99.9% of
+    clients who have not performed a Chrome bookmark migration (sampled 2026-05-29).
+- name: bookmark_migrations_quantity_edge
+  description: Number of bookmarks migrated from Microsoft Edge; null for ~99.9% of
+    clients who have not performed an Edge bookmark migration (sampled 2026-05-29).
+- name: bookmark_migrations_quantity_safari
+  description: Number of bookmarks migrated from Safari; null for ~100% of clients
+    who have not performed a Safari bookmark migration (sampled 2026-05-29).
+- name: browser_backup_archive_enabled
+  description: Whether the Firefox browser backup archiving feature is enabled; null
+    for ~33% of clients (older Firefox versions) (sampled 2026-05-29).
+- name: browser_backup_scheduler_enabled
+  description: Whether the Firefox browser backup scheduler is enabled; null for ~43%
+    of clients (older Firefox versions lacking this feature) (sampled 2026-05-29).
+- name: client_clock_skew_mean
+  description: Mean difference in seconds between the client clock and the server
+    clock at submission time, averaged across subsessions; 0.0 is the most common
+    value (sampled 2026-05-29).
+- name: client_submission_latency_mean
+  description: Mean latency in seconds between when the ping was created and when
+    it was received by the server, averaged across subsessions; 0 indicates pings
+    sent nearly immediately (sampled 2026-05-29).
+- name: crash_submit_attempt_content_sum
+  description: Total number of crash report submission attempts for content-process
+    crashes; null when no such attempts occurred (sampled 2026-05-29).
+- name: crash_submit_attempt_main_sum
+  description: Total number of crash report submission attempts for main-process crashes;
+    null when no such attempts occurred (sampled 2026-05-29).
+- name: crash_submit_attempt_plugin_sum
+  description: Total number of crash report submission attempts for NPAPI plugin crashes;
+    null when no such attempts occurred (sampled 2026-05-29).
+- name: crash_submit_success_content_sum
+  description: Total number of successfully submitted crash reports for content-process
+    crashes; null when no such successes occurred (sampled 2026-05-29).
+- name: crash_submit_success_main_sum
+  description: Total number of successfully submitted crash reports for main-process
+    crashes; null when no such successes occurred (sampled 2026-05-29).
+- name: crash_submit_success_plugin_sum
+  description: Total number of successfully submitted crash reports for NPAPI plugin
+    crashes; null when no such successes occurred (sampled 2026-05-29).
+- name: crashes_detected_content_sum
+  description: Total number of Firefox content-process crashes detected and reported
+    over the reporting period; null when no crashes occurred (sampled 2026-05-29).
+- name: crashes_detected_gmplugin_sum
+  description: Total number of Gecko Media Plugin (GMP) process crashes detected over
+    the reporting period; null when no crashes occurred (sampled 2026-05-29).
+- name: crashes_detected_plugin_sum
+  description: Total number of NPAPI plugin process crashes detected over the reporting
+    period; null when no crashes occurred (sampled 2026-05-29).
+- name: days_created_profile_bits
+  description: Bit-pattern integer indicating the days in the past 28 on which a new
+    Firefox profile was created on the client; non-zero on profile-creation days (sampled
+    2026-05-29).
+- name: days_had_8_active_ticks_bits
+  description: Bit-pattern integer for the days in the past 28 on which the client
+    accumulated at least 8 five-second activity ticks, indicating substantive browser
+    engagement.
+- name: days_interacted_bits
+  description: Bit-pattern integer for the days in the past 28 on which the client
+    had at least one active-tick interaction with the browser (sampled 2026-05-29).
+- name: days_logged_event_bits
+  description: Bit-pattern integer for the days in the past 28 on which the client
+    had at least one Telemetry event logged; null for ~2.3% of clients (sampled 2026-05-29).
+- name: days_opened_dev_tools_bits
+  description: Bit-pattern integer for the days in the past 28 on which the client
+    opened Firefox Developer Tools at least once (sampled 2026-05-29).
+- name: days_seen_bits
+  description: A bit-pattern integer representing the days within the past 28 days
+    on which the client submitted at least one ping, where the least-significant bit
+    represents the most recent day.
+- name: days_used_pictureinpicture_bits
+  description: Bit-pattern integer for the days in the past 28 on which the client
+    used Picture-in-Picture video; null for ~2.3% of clients (sampled 2026-05-29).
+- name: days_viewed_protection_report_bits
+  description: Bit-pattern integer for the days in the past 28 on which the client
+    viewed the Privacy Protections report; null for ~2.3% of clients (sampled 2026-05-29).
+- name: days_visited_10_uri_bits
+  description: Bit-pattern integer for the days in the past 28 on which the client
+    visited at least 10 URIs, a stronger engagement signal than the 5-URI threshold
+    (sampled 2026-05-29).
+- name: days_visited_1_uri_bits
+  description: Bit-pattern integer for the days in the past 28 on which the client
+    visited at least 1 URI, in normal or private browsing mode (sampled 2026-05-29).
+- name: days_visited_1_uri_normal_mode_bits
+  description: Bit-pattern integer for the days in the past 28 on which the client
+    visited at least 1 URI in a normal (non-private) browsing window (sampled 2026-05-29).
+- name: days_visited_1_uri_private_mode_bits
+  description: Bit-pattern integer for the days in the past 28 on which the client
+    visited at least 1 URI in a private browsing window; null-equivalent 0 indicates
+    no private browsing on that day (sampled 2026-05-29).
+- name: days_visited_5_uri_bits
+  description: Bit-pattern integer for the days in the past 28 on which the client
+    visited at least 5 URIs, used as a lightweight engagement threshold (sampled 2026-05-29).
+- name: default_private_search_engine
+  description: Identifier of the client's default private browsing search engine;
+    null for ~100% of clients where the private search engine is not explicitly set
+    (sampled 2026-05-29).
+- name: default_private_search_engine_data_load_path
+  description: Anonymized load path for the default private browsing search engine;
+    null for ~100% of clients where no private engine is explicitly set (sampled 2026-05-29).
+- name: default_private_search_engine_data_name
+  description: Human-readable name of the private browsing default search engine (e.g.
+    'DuckDuckGo'); null for ~100% of clients (sampled 2026-05-29).
+- name: default_private_search_engine_data_origin
+  description: How the private browsing default search engine was set; null for ~100%
+    of clients where it is not explicitly configured (sampled 2026-05-29).
+- name: default_private_search_engine_data_submission_url
+  description: The HTTP URL template used for private browsing searches; null for
+    ~100% of clients where no private engine is explicitly set (sampled 2026-05-29).
+- name: default_search_engine
+  description: Identifier of the client's default search engine (e.g. 'google-b-d',
+    'baidu', 'ddg'); null for ~1% of clients where the setting could not be determined
+    (sampled 2026-05-29).
+- name: default_search_engine_data_load_path
+  description: Anonymized file path indicating how the default search engine was loaded
+    (e.g. '[app]google', '[addon]google@search.mozilla.org'); null for ~1% of clients
+    (sampled 2026-05-29).
+- name: default_search_engine_data_name
+  description: Human-readable name of the client's default search engine (e.g. 'Google',
+    'DuckDuckGo'); null for ~1% of clients (sampled 2026-05-29).
+- name: default_search_engine_data_origin
+  description: How the default search engine was set; values include 'default' (built-in),
+    'verified', 'unverified', 'invalid'; null for ~87% of clients (sampled 2026-05-29).
+- name: default_search_engine_data_submission_url
+  description: The HTTP URL template used when submitting searches to the default
+    engine (e.g. 'https://www.google.com/search?client=firefox-b-d&q='); not recorded
+    for user-installed engines (sampled 2026-05-29).
+- name: devtools_toolbox_opened_count_sum
+  description: Total number of times the Firefox DevTools toolbox was opened across
+    all sessions on the reporting day; null for ~99% of clients who did not open DevTools
+    (sampled 2026-05-29).
+- name: distribution_version
+  description: Version string of the Firefox distribution package (e.g. '1.0', '2023.6');
+    null for ~81% of clients without a partner distribution (sampled 2026-05-29).
+- name: distributor
+  description: Name of the organization that distributed this Firefox build (e.g.
+    'canonical', 'mozillaonline', 'mint', 'archlinux'); null for ~91% of clients without
+    a distributor (sampled 2026-05-29).
+- name: distributor_channel
+  description: Distribution channel of the Firefox build (e.g. 'mainWinStub', 'ubuntu');
+    null for ~91% of clients without a distributor (sampled 2026-05-29).
+- name: dom_parentprocess_private_window_used
+  description: Whether a private browsing window was opened at any point on the reporting
+    day; true for ~5% of clients (sampled 2026-05-29).
+- name: e10s_enabled
+  description: Whether Electrolysis (multi-process Firefox) was enabled; true for
+    nearly all clients (sampled 2026-05-29).
+- name: env_build_arch
+  description: CPU architecture of the Firefox build (e.g. 'x86-64', 'x86', 'aarch64')
+    (sampled 2026-05-29).
+- name: env_build_id
+  description: The build ID of the environment (same as app_build_id); a timestamp
+    string identifying the exact Firefox build, e.g. '20260511200624' (sampled 2026-05-29).
+- name: env_build_platform_version
+  description: Platform (XULRunner) version string from the build environment; matches
+    env_build_version (sampled 2026-05-29).
+- name: env_build_version
+  description: The application version string from the build environment (e.g. '150.0.3',
+    '151.0.1'), same as app_version (sampled 2026-05-29).
+- name: env_build_xpcom_abi
+  description: The XPCOM ABI string identifying the build's processor and compiler
+    combination (e.g. 'x86_64-msvc', 'x86_64-gcc3', 'aarch64-gcc3') (sampled 2026-05-29).
+- name: first_document_id
+  description: Document ID (UUID) of the first telemetry ping received from this client
+    on the reporting day, used to uniquely identify a submission.
+- name: first_paint_mean
+  description: Mean time in milliseconds from Firefox startup until the first browser
+    paint (first visible frame), averaged across subsessions; null for ~10% of clients
+    (sampled 2026-05-29).
+- name: flash_version
+  description: Version string of the Adobe Flash plugin installed on the client (e.g.
+    '32.0.0.465'); null for ~99.6% of clients where Flash is absent (sampled 2026-05-29).
+- name: fxa_configured
+  description: Whether Firefox Accounts is configured on the client; null for ~86%
+    of clients who have not signed in to an FxA account (sampled 2026-05-29).
+- name: histogram_parent_devtools_aboutdebugging_opened_count_sum
+  description: Total number of times the about:debugging DevTools panel was opened
+    by the client; null for ~100% of clients (sampled 2026-05-29).
+- name: histogram_parent_devtools_animationinspector_opened_count_sum
+  description: Total number of times the DevTools Animation Inspector panel was opened;
+    null for ~100% of clients (sampled 2026-05-29).
+- name: histogram_parent_devtools_browserconsole_opened_count_sum
+  description: Total number of times the DevTools Browser Console was opened; null
+    for ~100% of clients (sampled 2026-05-29).
+- name: histogram_parent_devtools_canvasdebugger_opened_count_sum
+  description: Total number of times the DevTools Canvas Debugger panel was opened;
+    always null in sampled data (deprecated tool) (sampled 2026-05-29).
+- name: histogram_parent_devtools_computedview_opened_count_sum
+  description: Total number of times the DevTools Computed View CSS panel was opened;
+    null for ~99.9% of clients (sampled 2026-05-29).
+- name: histogram_parent_devtools_custom_opened_count_sum
+  description: Total number of times a custom DevTools panel was opened; null for
+    ~100% of clients (sampled 2026-05-29).
+- name: histogram_parent_devtools_developertoolbar_opened_count_sum
+  description: Total number of times the DevTools developer toolbar was opened; always
+    null in sampled data (deprecated tool) (sampled 2026-05-29).
+- name: histogram_parent_devtools_dom_opened_count_sum
+  description: Total number of times the DevTools DOM panel was opened; null for ~100%
+    of clients (sampled 2026-05-29).
+- name: histogram_parent_devtools_eyedropper_opened_count_sum
+  description: Total number of times the DevTools color eyedropper tool was opened;
+    null for ~100% of clients (sampled 2026-05-29).
+- name: histogram_parent_devtools_fontinspector_opened_count_sum
+  description: Total number of times the DevTools Font Inspector panel was opened;
+    null for ~100% of clients (sampled 2026-05-29).
+- name: histogram_parent_devtools_inspector_opened_count_sum
+  description: Total number of times the DevTools Inspector (DOM/CSS panel) was opened;
+    null for ~99% of clients (sampled 2026-05-29).
+- name: histogram_parent_devtools_jsbrowserdebugger_opened_count_sum
+  description: Total number of times the DevTools Browser Toolbox JS debugger was
+    opened; null for ~100% of clients (sampled 2026-05-29).
+- name: histogram_parent_devtools_jsdebugger_opened_count_sum
+  description: Total number of times the DevTools JavaScript Debugger panel was opened;
+    null for ~99.9% of clients (sampled 2026-05-29).
+- name: histogram_parent_devtools_jsprofiler_opened_count_sum
+  description: Total number of times the DevTools JavaScript Profiler panel was opened;
+    null for ~99.9% of clients (sampled 2026-05-29).
+- name: histogram_parent_devtools_layoutview_opened_count_sum
+  description: Total number of times the DevTools Layout View (box model / grid inspector)
+    panel was opened; null for ~99% of clients (sampled 2026-05-29).
+- name: histogram_parent_devtools_memory_opened_count_sum
+  description: Total number of times the DevTools Memory panel was opened; null for
+    ~100% of clients (sampled 2026-05-29).
+- name: histogram_parent_devtools_menu_eyedropper_opened_count_sum
+  description: Total number of times the DevTools menu eyedropper was opened via the
+    menu; null for ~100% of clients (sampled 2026-05-29).
+- name: histogram_parent_devtools_netmonitor_opened_count_sum
+  description: Total number of times the DevTools Network Monitor panel was opened;
+    null for ~99.7% of clients (sampled 2026-05-29).
+- name: histogram_parent_devtools_options_opened_count_sum
+  description: Total number of times the DevTools Options/Settings panel was opened;
+    null for ~100% of clients (sampled 2026-05-29).
+- name: histogram_parent_devtools_paintflashing_opened_count_sum
+  description: Total number of times the DevTools Paint Flashing tool was opened;
+    always null in sampled data (deprecated tool) (sampled 2026-05-29).
+- name: histogram_parent_devtools_picker_eyedropper_opened_count_sum
+  description: Total number of times the DevTools color picker eyedropper was opened;
+    null for ~100% of clients (sampled 2026-05-29).
+- name: histogram_parent_devtools_responsive_opened_count_sum
+  description: Total number of times the DevTools Responsive Design Mode was opened;
+    null for ~99.9% of clients (sampled 2026-05-29).
+- name: histogram_parent_devtools_ruleview_opened_count_sum
+  description: Total number of times the DevTools CSS Rule View panel was opened;
+    null for ~99% of clients (sampled 2026-05-29).
+- name: histogram_parent_devtools_scratchpad_opened_count_sum
+  description: Total number of times the DevTools Scratchpad editor was opened; always
+    null in sampled data (removed tool) (sampled 2026-05-29).
+- name: histogram_parent_devtools_scratchpad_window_opened_count_sum
+  description: Total number of times a DevTools Scratchpad window was opened; nearly
+    always null (sampled 2026-05-29).
+- name: histogram_parent_devtools_shadereditor_opened_count_sum
+  description: Total number of times the DevTools Shader Editor panel was opened;
+    always null in sampled data (deprecated tool) (sampled 2026-05-29).
+- name: histogram_parent_devtools_storage_opened_count_sum
+  description: Total number of times the DevTools Storage Inspector panel was opened;
+    null for ~99.9% of clients (sampled 2026-05-29).
+- name: histogram_parent_devtools_styleeditor_opened_count_sum
+  description: Total number of times the DevTools Style Editor panel was opened; null
+    for ~99.9% of clients (sampled 2026-05-29).
+- name: histogram_parent_devtools_webaudioeditor_opened_count_sum
+  description: Total number of times the DevTools Web Audio Editor panel was opened;
+    always null in sampled data (deprecated tool) (sampled 2026-05-29).
+- name: histogram_parent_devtools_webconsole_opened_count_sum
+  description: Total number of times the DevTools Web Console panel was opened; null
+    for ~99.7% of clients (sampled 2026-05-29).
+- name: histogram_parent_devtools_webide_opened_count_sum
+  description: Total number of times the DevTools WebIDE panel was opened; nearly
+    always null (deprecated tool) (sampled 2026-05-29).
+- name: history_migrations_quantity_all
+  description: Total number of history entries migrated from all browsers combined;
+    null for ~99.4% of clients (sampled 2026-05-29).
+- name: history_migrations_quantity_chrome
+  description: Number of history entries migrated from Google Chrome; null for ~99.9%
+    of clients who have not performed a Chrome history migration (sampled 2026-05-29).
+- name: history_migrations_quantity_edge
+  description: Number of history entries migrated from Microsoft Edge; null for ~99.9%
+    of clients (sampled 2026-05-29).
+- name: history_migrations_quantity_safari
+  description: Number of history entries migrated from Safari; null for ~100% of clients
+    who have not performed a Safari history migration (sampled 2026-05-29).
+- name: logins_migrations_quantity_all
+  description: Total number of saved passwords migrated from all browsers combined;
+    null for ~99.4% of clients (sampled 2026-05-29).
+- name: logins_migrations_quantity_chrome
+  description: Number of saved passwords migrated from Google Chrome; null for ~99.9%
+    of clients (sampled 2026-05-29).
+- name: logins_migrations_quantity_edge
+  description: Number of saved passwords migrated from Microsoft Edge; null for ~99.9%
+    of clients (sampled 2026-05-29).
+- name: logins_migrations_quantity_safari
+  description: Number of saved passwords migrated from Safari; null for ~100% of clients
+    who have not migrated Safari logins (sampled 2026-05-29).
+- name: max_subsession_counter
+  description: Highest subsession counter value seen across all pings on the reporting
+    day, reflecting the maximum number of subsessions since the last profile creation
+    (sampled 2026-05-29).
+- name: media_play_time_ms_audio_sum
+  description: Total milliseconds of audio media playback on the reporting day; null
+    for ~100% of clients with no audio playback recorded (sampled 2026-05-29).
+- name: media_play_time_ms_video_sum
+  description: Total milliseconds of video media playback on the reporting day; null
+    for ~100% of clients with no video playback recorded (sampled 2026-05-29).
+- name: min_subsession_counter
+  description: Lowest subsession counter value seen across all pings on the reporting
+    day; 1 is the most common value, indicating a fresh session (sampled 2026-05-29).
+- name: n_created_pictureinpicture
+  description: Number of Picture-in-Picture video sessions created by the client on
+    the reporting day; null for ~2.3% of clients (sampled 2026-05-29).
+- name: n_logged_event
+  description: Number of Telemetry events logged by the client on the reporting day;
+    null for ~2.3% of clients (sampled 2026-05-29).
+- name: n_viewed_protection_report
+  description: Number of times the client viewed the Privacy Protections report on
+    the reporting day; null for ~2.3% of clients (sampled 2026-05-29).
+- name: os_environment_is_taskbar_pinned_any
+  description: Whether Firefox was pinned to the taskbar in any mode (normal or private);
+    true for ~51% of clients (sampled 2026-05-29).
+- name: os_environment_is_taskbar_pinned_private
+  description: Whether Firefox is pinned to the Windows taskbar specifically as a
+    private browsing shortcut; true for ~1% of clients (sampled 2026-05-29).
+- name: os_environment_is_taskbar_pinned_private_any
+  description: Whether Firefox was pinned to the taskbar with a private browsing mode
+    shortcut in any configuration; true for ~1.1% of clients (sampled 2026-05-29).
+- name: partner_id
+  description: Firefox partner identifier from the mozilla.partner.id preference (e.g.
+    'ubuntu', 'mozillaonline', 'mint'); null for ~92% of clients without a partner
+    distribution (sampled 2026-05-29).
+- name: pings_aggregated_by_this_row
+  description: Number of telemetry pings that were aggregated to produce this row;
+    most commonly 1 or 2 per day (sampled 2026-05-29).
+- name: places_bookmarks_count_mean
+  description: Mean number of bookmarks stored in the client's Firefox Places database,
+    averaged across subsessions; null for ~26% of clients (sampled 2026-05-29).
+- name: places_bookmarks_searchbar_cumulative_searches_sum
+  description: Cumulative number of bookmark searches initiated from the browser search
+    bar; null for ~99.4% of clients (sampled 2026-05-29).
+- name: places_library_cumulative_bookmark_searches_sum
+  description: Cumulative number of bookmark searches performed in the Places library
+    panel; null for ~99.9% of clients (sampled 2026-05-29).
+- name: places_library_cumulative_history_searches_sum
+  description: Cumulative number of history searches performed in the Places library
+    panel; null for ~99.7% of clients (sampled 2026-05-29).
+- name: places_pages_count_mean
+  description: Mean number of history entries stored in the client's Firefox Places
+    database, averaged across subsessions; null for ~26% of clients (sampled 2026-05-29).
+- name: places_previousday_visits_mean
+  description: Mean number of pages visited the previous day according to the Places
+    history database; null for ~27% of clients (sampled 2026-05-29).
+- name: places_searchbar_cumulative_filter_count_sum
+  description: Cumulative number of filter operations performed in the Places library
+    search bar; null for ~99.9% of clients (sampled 2026-05-29).
+- name: places_searchbar_cumulative_searches_sum
+  description: Cumulative number of searches performed in the Places library search
+    bar; null for ~99.9% of clients who have not used it (sampled 2026-05-29).
+- name: plugin_hangs_sum
+  description: Total number of NPAPI plugin hang events observed by the client; null
+    for ~100% of clients (sampled 2026-05-29).
+- name: plugins_infobar_allow_sum
+  description: Total number of times the user clicked Allow in a plugin activation
+    infobar; null for ~100% of clients (sampled 2026-05-29).
+- name: plugins_infobar_block_sum
+  description: Total number of times the user clicked Block in a plugin activation
+    infobar; always null in sampled data (sampled 2026-05-29).
+- name: plugins_infobar_shown_sum
+  description: Total number of times a plugin activation infobar was shown to the
+    user; null for ~100% of clients (sampled 2026-05-29).
+- name: plugins_notification_shown_sum
+  description: Total number of plugin activation notification prompts shown to the
+    user; null for ~100% of clients (sampled 2026-05-29).
+- name: previous_build_id
+  description: Build ID of the Firefox version that was running before the most recent
+    update, used to detect build transitions; null for ~52% of clients who have not
+    updated recently (sampled 2026-05-29).
+- name: profile_age_in_days
+  description: Age of the Firefox profile in days, measured from profile creation
+    date to the submission date; 0 indicates a newly created profile (sampled 2026-05-29).
+- name: profile_creation_date
+  description: Date on which the Firefox profile was created, stored as a timestamp
+    string (e.g. '2026-05-12 00:00:00') (sampled 2026-05-29).
+- name: push_api_notify_sum
+  description: Total number of Push API notification events received by the client;
+    null for ~97% of clients who received no push notifications (sampled 2026-05-29).
+- name: sandbox_effective_content_process_level
+  description: Effective sandbox security level applied to Firefox content processes;
+    higher values indicate stronger isolation (e.g. 9 is the most common on modern
+    systems) (sampled 2026-05-29).
+- name: scalar_a11y_hcm_background
+  description: High Contrast Mode background color integer as reported by the OS accessibility
+    settings; null for ~99.8% of clients not using high contrast mode (sampled 2026-05-29).
+- name: scalar_a11y_hcm_foreground
+  description: High Contrast Mode foreground color integer as reported by the OS accessibility
+    settings; null for ~99.8% of clients not using high contrast mode (sampled 2026-05-29).
+- name: scalar_combined_webrtc_nicer_stun_retransmits_sum
+  description: Total number of WebRTC STUN packet retransmissions via the nICEr library;
+    always null in sampled data (sampled 2026-05-29).
+- name: scalar_combined_webrtc_nicer_turn_401s_sum
+  description: Total number of HTTP 401 (Unauthorized) errors received from TURN servers
+    during WebRTC sessions; always null in sampled data (sampled 2026-05-29).
+- name: scalar_combined_webrtc_nicer_turn_403s_sum
+  description: Total number of HTTP 403 (Forbidden) errors received from TURN servers
+    during WebRTC sessions; always null in sampled data (sampled 2026-05-29).
+- name: scalar_combined_webrtc_nicer_turn_438s_sum
+  description: Total number of HTTP 438 (Stale Nonce) errors from TURN servers during
+    WebRTC sessions; always null in sampled data (sampled 2026-05-29).
+- name: scalar_content_navigator_storage_estimate_count_sum
+  description: Total number of times navigator.storage.estimate() was called from
+    a content process; always null in sampled data (sampled 2026-05-29).
+- name: scalar_content_navigator_storage_persist_count_sum
+  description: Total number of times navigator.storage.persist() was called from a
+    content process; always null in sampled data (sampled 2026-05-29).
+- name: scalar_parent_aushelper_websense_reg_version
+  description: Version string of the Websense endpoint security software detected
+    via registry on Windows, as reported by the AUS helper; null for ~100% of clients
+    (sampled 2026-05-29).
+- name: scalar_parent_browser_engagement_max_concurrent_tab_count_max
+  description: Maximum number of tabs open simultaneously across all windows on the
+    reporting day; null for ~2.5% of clients (sampled 2026-05-29).
+- name: scalar_parent_browser_engagement_max_concurrent_window_count_max
+  description: Maximum number of Firefox windows open simultaneously on the reporting
+    day; null for ~1.6% of clients (sampled 2026-05-29).
+- name: scalar_parent_browser_engagement_tab_open_event_count_sum
+  description: Total number of new tab open events on the reporting day; null for
+    ~42% of clients who opened no new tabs (sampled 2026-05-29).
+- name: scalar_parent_browser_engagement_total_uri_count_normal_and_private_mode_sum
+  description: Total URI count across both normal and private browsing windows on
+    the reporting day; null for ~22% of clients (sampled 2026-05-29).
+- name: scalar_parent_browser_engagement_total_uri_count_sum
+  description: Total number of unique URIs visited in normal browsing mode on the
+    reporting day, not counting private windows; null for ~23% of clients (sampled
+    2026-05-29).
+- name: scalar_parent_browser_engagement_unfiltered_uri_count_sum
+  description: Total URI count including all navigation events (filtered and unfiltered),
+    useful for measuring raw browsing volume; null for ~20% of clients (sampled 2026-05-29).
+- name: scalar_parent_browser_engagement_unique_domains_count_max
+  description: Maximum number of unique domains visited in a single session on the
+    reporting day; null for ~25% of clients (sampled 2026-05-29).
+- name: scalar_parent_browser_engagement_unique_domains_count_mean
+  description: Mean number of unique domains visited per session on the reporting
+    day; null for ~25% of clients (sampled 2026-05-29).
+- name: scalar_parent_browser_engagement_window_open_event_count_sum
+  description: Total number of new browser window open events on the reporting day;
+    null for ~82% of clients who opened no new windows (sampled 2026-05-29).
+- name: scalar_parent_browser_ui_interaction_textrecognition_error_sum
+  description: Total number of text recognition errors encountered in the browser
+    UI on the reporting day; always null in sampled data (sampled 2026-05-29).
+- name: scalar_parent_devtools_accessibility_node_inspected_count_sum
+  description: Total number of accessibility nodes inspected via the DevTools Accessibility
+    panel; null for ~100% of clients (sampled 2026-05-29).
+- name: scalar_parent_devtools_accessibility_opened_count_sum
+  description: Total number of times the DevTools Accessibility panel was opened;
+    null for ~99.9% of clients (sampled 2026-05-29).
+- name: scalar_parent_devtools_accessibility_picker_used_count_sum
+  description: Total number of times the DevTools Accessibility picker tool was activated;
+    null for ~100% of clients (sampled 2026-05-29).
+- name: scalar_parent_devtools_accessibility_service_enabled_count_sum
+  description: Total number of times the DevTools Accessibility service was enabled;
+    always null in sampled data (sampled 2026-05-29).
+- name: scalar_parent_devtools_copy_full_css_selector_opened_sum
+  description: Total number of times the 'Copy Full CSS Selector' DevTools command
+    was used; always null in sampled data (sampled 2026-05-29).
+- name: scalar_parent_devtools_copy_unique_css_selector_opened_sum
+  description: Total number of times the 'Copy Unique CSS Selector' DevTools command
+    was used; always null in sampled data (sampled 2026-05-29).
+- name: scalar_parent_devtools_toolbar_eyedropper_opened_sum
+  description: Total number of times the DevTools toolbar eyedropper was opened; always
+    null in sampled data (sampled 2026-05-29).
+- name: scalar_parent_dom_contentprocess_troubled_due_to_memory_sum
+  description: Total number of content process trouble events caused by low memory
+    conditions; always null in sampled data (sampled 2026-05-29).
+- name: scalar_parent_navigator_storage_estimate_count_sum
+  description: Total number of times navigator.storage.estimate() was called from
+    the parent process; always null in sampled data (sampled 2026-05-29).
+- name: scalar_parent_navigator_storage_persist_count_sum
+  description: Total number of times navigator.storage.persist() was called from the
+    parent process; always null in sampled data (sampled 2026-05-29).
+- name: scalar_parent_os_environment_is_taskbar_pinned
+  description: Whether Firefox is pinned to the Windows taskbar; null for ~29% of
+    non-Windows clients (sampled 2026-05-29).
+- name: scalar_parent_os_environment_launched_via_desktop
+  description: Whether the most recent Firefox launch was initiated via a desktop
+    shortcut; false for ~92% of clients (sampled 2026-05-29).
+- name: scalar_parent_os_environment_launched_via_other
+  description: Whether the most recent Firefox launch was initiated via an unclassified/other
+    method; true for ~24% of clients (sampled 2026-05-29).
+- name: scalar_parent_os_environment_launched_via_other_shortcut
+  description: Whether the most recent Firefox launch was initiated via a shortcut
+    other than desktop, taskbar, or Start menu; true for ~13% of clients (sampled
+    2026-05-29).
+- name: scalar_parent_os_environment_launched_via_start_menu
+  description: Whether the most recent Firefox launch was initiated via the Windows
+    Start menu; true for ~11% of clients (sampled 2026-05-29).
+- name: scalar_parent_os_environment_launched_via_taskbar
+  description: Whether the most recent Firefox launch was initiated by clicking the
+    Windows taskbar icon; true for ~22% of clients (sampled 2026-05-29).
+- name: scalar_parent_os_environment_launched_via_taskbar_private
+  description: Whether Firefox was launched into a private browsing window directly
+    from the taskbar; true for ~0.2% of clients (sampled 2026-05-29).
+- name: scalar_parent_storage_sync_api_usage_extensions_using_sum
+  description: Total number of extensions using the storage.sync API; always null
+    in sampled data (sampled 2026-05-29).
+- name: scalar_parent_urlbar_impression_autofill_about_sum
+  description: 'Total number of address bar autofill impressions triggered by about:
+    page URL matches; null for ~100% of clients (sampled 2026-05-29).'
+- name: scalar_parent_urlbar_impression_autofill_adaptive_sum
+  description: Total number of address bar autofill impressions from the adaptive
+    history algorithm; always null in sampled data (sampled 2026-05-29).
+- name: scalar_parent_urlbar_impression_autofill_origin_sum
+  description: Total number of address bar autofill impressions triggered by origin
+    (host) matching; null for ~99% of clients (sampled 2026-05-29).
+- name: scalar_parent_urlbar_impression_autofill_other_sum
+  description: Total number of address bar autofill impressions from other (uncategorized)
+    sources; always null in sampled data (sampled 2026-05-29).
+- name: scalar_parent_urlbar_impression_autofill_preloaded_sum
+  description: Total number of address bar autofill impressions from the preloaded
+    domain list; always null in sampled data (sampled 2026-05-29).
+- name: scalar_parent_urlbar_impression_autofill_url_sum
+  description: Total number of address bar autofill impressions triggered by full
+    URL matching; null for ~99.9% of clients (sampled 2026-05-29).
+- name: search_cohort
+  description: Legacy search experiment cohort identifier assigned to the client (e.g.
+    'nov17-2', 'apr18-1'); null for ~99.9% of clients as this experiment series has
+    ended (sampled 2026-05-29).
+- name: search_count_abouthome
+  description: Number of searches initiated from the about:home page on the reporting
+    day (sampled 2026-05-29).
+- name: search_count_alias
+  description: Number of searches initiated using a search engine alias in the address
+    bar on the reporting day (sampled 2026-05-29).
+- name: search_count_all
+  description: Total number of searches across all access points (urlbar, searchbar,
+    about:home, etc.) on the reporting day (sampled 2026-05-29).
+- name: search_count_contextmenu
+  description: Number of searches initiated by right-clicking and using the context
+    menu search option on the reporting day (sampled 2026-05-29).
+- name: search_count_newtab
+  description: Number of searches initiated from a new tab page on the reporting day
+    (sampled 2026-05-29).
+- name: search_count_organic
+  description: Number of organic (non-partner-tagged) searches performed on the reporting
+    day (sampled 2026-05-29).
+- name: search_count_searchbar
+  description: Number of searches initiated from the dedicated search bar on the reporting
+    day (sampled 2026-05-29).
+- name: search_count_system
+  description: Number of searches initiated by system or partner mechanisms on the
+    reporting day (sampled 2026-05-29).
+- name: search_count_tagged_follow_on
+  description: Number of follow-on tagged searches (where user continues searching
+    after a SAP-tagged search) on the reporting day (sampled 2026-05-29).
+- name: search_count_tagged_sap
+  description: Number of searches that were tagged as Search Access Point (SAP) searches,
+    indicating Firefox partner attribution, on the reporting day (sampled 2026-05-29).
+- name: search_count_urlbar
+  description: Number of searches initiated from the URL bar (awesome bar) on the
+    reporting day (sampled 2026-05-29).
+- name: search_count_urlbar_handoff
+  description: Number of searches initiated via URL bar handoff (e.g. from the new
+    tab page search box handing off to the URL bar) on the reporting day (sampled
+    2026-05-29).
+- name: search_count_urlbar_persisted
+  description: Number of searches initiated from a persisted URL bar search mode on
+    the reporting day (sampled 2026-05-29).
+- name: search_count_urlbar_searchmode
+  description: Number of searches initiated while the URL bar was in a specific search
+    mode (engine-scoped) on the reporting day (sampled 2026-05-29).
+- name: search_count_webextension
+  description: Number of searches initiated by a WebExtension (add-on) on the reporting
+    day (sampled 2026-05-29).
+- name: search_with_ads_count_all
+  description: Total number of search result pages that included advertisements, across
+    all search access points, on the reporting day; null for ~88% of clients (sampled
+    2026-05-29).
+- name: second_seen_date
+  description: Date when the server received the second ping from this client, indicating
+    the client returned after first being seen.
+- name: session_restored_mean
+  description: Mean time in milliseconds for session restore to complete after Firefox
+    startup, averaged across subsessions; null for ~1.3% of clients (sampled 2026-05-29).
+- name: sessions_started_on_this_day
+  description: Number of Firefox sessions started by the client on the reporting day;
+    most clients start 1-3 sessions per day (sampled 2026-05-29).
+- name: shutdown_kill_sum
+  description: Total number of forced Firefox process terminations (kills during shutdown)
+    on the reporting day; null for ~98% of clients (sampled 2026-05-29).
+- name: ssl_handshake_result_failure_sum
+  description: Total number of failed TLS/SSL handshakes observed by the client on
+    the reporting day; 0 is the most common value (sampled 2026-05-29).
+- name: ssl_handshake_result_success_sum
+  description: Total number of successful TLS/SSL handshakes on the reporting day;
+    null for ~65% of clients where no HTTPS activity was recorded (sampled 2026-05-29).
+- name: startup_profile_selection_first_ping_only
+  description: Profile selection reason as recorded in the first ping only (e.g. 'default',
+    'profile-selector', 'restart'); null for ~16% of clients (sampled 2026-05-29).
+- name: startup_profile_selection_reason_first
+  description: Reason for the profile selection at first startup (e.g. 'default',
+    'firstrun-created-default', 'argument-profile'); null for ~22% of clients (sampled
+    2026-05-29).
+- name: submission_timestamp_min
+  description: Timestamp of the earliest telemetry ping submission from this client
+    on the reporting day (sampled 2026-05-29).
+- name: subsession_hours_sum
+  description: Total wall-clock hours of Firefox subsessions on the reporting day,
+    summed across all subsessions; approximately 24 hours maximum (sampled 2026-05-29).
+- name: sync_configured
+  description: Whether Firefox Sync was configured on the client; null for ~86% of
+    clients who have never set up Sync (sampled 2026-05-29).
+- name: sync_count_desktop_mean
+  description: Mean number of other Firefox Desktop clients synced to the same account
+    per subsession; null for ~89% of clients who are not using Sync (sampled 2026-05-29).
+- name: sync_count_desktop_sum
+  description: Total number of other Firefox Desktop client sync events on the reporting
+    day; null for ~89% of clients not using Sync (sampled 2026-05-29).
+- name: sync_count_mobile_mean
+  description: Mean number of mobile clients synced to the same Firefox account per
+    subsession; null for ~89% of clients not using Sync (sampled 2026-05-29).
+- name: sync_count_mobile_sum
+  description: Total number of Firefox mobile client sync events on the reporting
+    day; null for ~89% of clients not using Sync (sampled 2026-05-29).
+- name: telemetry_enabled
+  description: Whether the client has telemetry enabled via the toolkit.telemetry.enabled
+    pref; null for ~86% of clients where the pref is at its default (sampled 2026-05-29).
+- name: text_recognition_api_performance_count_sum
+  description: Total number of text recognition API performance timing measurements
+    recorded; null for ~100% of clients (sampled 2026-05-29).
+- name: text_recognition_api_performance_sum
+  description: Total cumulative time in milliseconds for text recognition API operations
+    on the reporting day; null for ~100% of clients (sampled 2026-05-29).
+- name: text_recognition_interaction_timing_count_sum
+  description: Total number of text recognition user interaction timing measurements
+    recorded; null for ~100% of clients (sampled 2026-05-29).
+- name: text_recognition_interaction_timing_sum
+  description: Total cumulative user interaction timing in milliseconds for the text
+    recognition feature on the reporting day; null for ~100% of clients (sampled 2026-05-29).
+- name: text_recognition_text_length_count_sum
+  description: Total number of text length measurements from text recognition operations;
+    null for ~100% of clients (sampled 2026-05-29).
+- name: text_recognition_text_length_sum
+  description: Total length of text successfully recognized by the text recognition
+    API, in characters, on the reporting day; null for ~100% of clients (sampled 2026-05-29).
+- name: timezone_offset
+  description: Client's UTC timezone offset in minutes at the time of the last reported
+    subsession (e.g. 120 = UTC+2, -300 = UTC-5) (sampled 2026-05-29).
+- name: total_hours_sum
+  description: Total browser usage hours from the total_time histogram, summed across
+    subsessions; always null in sampled data (sampled 2026-05-29).
+- name: trackers_blocked_sum
+  description: Total number of tracking content items (cookies, scripts, etc.) blocked
+    by Enhanced Tracking Protection on the reporting day; null for ~68% of clients
+    (sampled 2026-05-29).
+- name: update_auto_download
+  description: Whether Firefox updates are downloaded automatically in the background;
+    true for ~92% of clients (sampled 2026-05-29).
+- name: update_background
+  description: Whether Firefox updates may be installed while the browser is not running;
+    true for ~93% of clients (sampled 2026-05-29).
+- name: update_channel
+  description: The Firefox update channel as reported by the client (e.g. 'release',
+    'esr', 'beta', 'nightly'); may contain non-standard values set by distributors
+    (sampled 2026-05-29).
+- name: update_enabled
+  description: Whether Firefox automatic updates are enabled; true for ~88% of clients
+    (sampled 2026-05-29).
+- name: user_pref_app_shield_optoutstudies_enabled
+  description: Whether the client has opted out of Shield studies (SHIELD/Normandy
+    experiments); 'false' means opted out; null for ~98% where the default is in effect
+    (sampled 2026-05-29).
+- name: user_pref_browser_newtabpage_enabled
+  description: Whether the Firefox new tab page is enabled; false for ~97% of clients
+    where the preference was explicitly set to false (sampled 2026-05-29).
+- name: user_pref_browser_search_region
+  description: The region code used by Firefox to determine search engine defaults
+    (e.g. 'US', 'DE', 'FR'); null for ~3% of clients (sampled 2026-05-29).
+- name: user_pref_browser_search_suggest_enabled
+  description: Whether the browser.search.suggest.enabled pref is explicitly set (search
+    suggestions toggle); null for ~99% of clients using the default value (sampled
+    2026-05-29).
+- name: user_pref_browser_urlbar_quicksuggest_data_collection_enabled
+  description: Whether data collection for Firefox Suggest is enabled; 'false' for
+    ~18% of clients who opted out; null for ~82% using the default (sampled 2026-05-29).
+- name: user_pref_browser_urlbar_quicksuggest_onboarding_dialog_choice
+  description: The choice the user made in the Firefox Suggest onboarding dialog (e.g.
+    'close_1', 'not_now_2', 'accept_2', 'reject_2'); null for ~100% of clients who
+    have not seen the dialog (sampled 2026-05-29).
+- name: user_pref_browser_urlbar_show_search_suggestions_first
+  description: Whether search suggestions appear before browsing history in the URL
+    bar; 'false' when explicitly changed from the default; null for ~95% of clients
+    (sampled 2026-05-29).
+- name: user_pref_browser_urlbar_suggest_bestmatch
+  description: Whether the Firefox Suggest best-match feature is enabled; 'true' for
+    ~8% of clients with it explicitly enabled; null for ~92% using the default (sampled
+    2026-05-29).
+- name: user_pref_browser_urlbar_suggest_quicksuggest
+  description: Whether the legacy Firefox Suggest (quicksuggest) URL bar suggestions
+    are enabled; null for ~99.9% of clients (sampled 2026-05-29).
+- name: user_pref_browser_urlbar_suggest_quicksuggest_nonsponsored
+  description: Whether non-sponsored Firefox Suggest URL bar suggestions are enabled;
+    'false' for ~16% of clients who have disabled them; null for ~82% using the default
+    (sampled 2026-05-29).
+- name: user_pref_browser_urlbar_suggest_quicksuggest_sponsored
+  description: Whether sponsored Firefox Suggest URL bar suggestions are enabled;
+    'false' for ~71% of clients who have disabled them; null for ~2% (sampled 2026-05-29).
+- name: user_pref_browser_urlbar_suggest_searches
+  description: Whether URL bar search suggestions are enabled; 'false' when explicitly
+    disabled; null for ~99% using the default (sampled 2026-05-29).
+- name: user_pref_browser_widget_in_navbar
+  description: Whether the Firefox search widget is displayed in the navigation bar;
+    null for ~89% of clients using the default setting (sampled 2026-05-29).
+- name: vendor
+  description: The application vendor; always 'Mozilla' for this table (sampled 2026-05-29).
+- name: web_notification_shown_sum
+  description: Total number of web push notifications shown to the user by the browser;
+    null for ~100% of clients (sampled 2026-05-29).
+- name: active_hours_sum
+  description: Total hours of user-active Firefox usage accumulated across all pings
+    aggregated into this row; measured in 5-second active ticks converted to hours.
+- name: days_created_profile_bits
+  description: A 28-bit integer encoding the days within the past 28 days on which
+    the client's profile was created (at most one bit set per client); derived from
+    profile_creation_date within a 7-day trust window.
+- name: days_had_8_active_ticks_bits
+  description: A 28-bit integer encoding the days within the past 28 days on which
+    the client had at least 8 active ticks (active_hours_sum >= 0.011 hours), a measure
+    of engaged usage.
+- name: days_interacted_bits
+  description: A 28-bit integer encoding the days within the past 28 days on which
+    the client had any active hours (active_hours_sum > 0), indicating at least some
+    user interaction.
+- name: days_opened_dev_tools_bits
+  description: A 28-bit integer encoding the days within the past 28 days on which
+    the client opened the Firefox Developer Tools toolbox at least once.
+- name: days_seen_bits
+  description: A 28-bit integer encoding the days within the past 28 days on which
+    this client submitted at least one ping; the rightmost bit represents the most
+    recent day (submission_date).
+- name: days_visited_10_uri_bits
+  description: A 28-bit integer encoding the days within the past 28 days on which
+    the client visited at least 10 URIs (normal + private mode combined).
+- name: days_visited_1_uri_bits
+  description: A 28-bit integer encoding the days within the past 28 days on which
+    the client visited at least 1 URI (normal + private mode combined); used for Active
+    DAU calculations.
+- name: days_visited_1_uri_normal_mode_bits
+  description: A 28-bit integer encoding the days within the past 28 days on which
+    the client visited at least 1 URI in normal (non-private) browsing mode.
+- name: days_visited_1_uri_private_mode_bits
+  description: A 28-bit integer encoding the days within the past 28 days on which
+    the client visited at least 1 URI in private browsing mode; only available for
+    Firefox 84+.
+- name: days_visited_5_uri_bits
+  description: A 28-bit integer encoding the days within the past 28 days on which
+    the client visited at least 5 URIs (normal + private mode combined).
+- name: pings_aggregated_by_this_row
+  description: The number of daily client pings that were combined to produce this
+    row; rows are aggregated from clients_daily_v6 for the current day plus the rolling
+    28-day window (sampled 2026-05-29).
+- name: second_seen_date
+  description: The date when the server received the second ping from this client,
+    used to distinguish genuine new users from one-time senders.
+- name: subsession_hours_sum
+  description: Total wall-clock hours of Firefox subsession time accumulated across
+    all pings in the aggregation period (sampled 2026-05-29).
+- name: days_created_profile_bits
+  description: Bit pattern encoding on which of the previous 28 days a new Firefox
+    profile was created. The rightmost set bit indicates the day the profile was first
+    created relative to the submission date.
+- name: days_visited_1_uri_normal_mode_bits
+  description: Bit pattern encoding on which of the previous 28 days the client visited
+    at least 1 URI in normal (non-private) browsing mode, using scalar_parent_browser_engagement_total_uri_count_sum
+    >= 1.
+- name: days_visited_1_uri_private_mode_bits
+  description: Bit pattern encoding on which of the previous 28 days the client visited
+    at least 1 URI in private browsing mode. Only populated for Firefox 84+; derived
+    from total_uri_count_normal_and_private minus total_uri_count_sum. (sampled 2026-05-29)
+- name: agg_type
+  description: The population-level aggregation type applied across clients. Always
+    'histogram' in this table, indicating that client-level aggregates are binned
+    into a histogram.
+- name: aggregates
+  description: Normalized histogram of scalar probe values across the population,
+    where each entry maps a bucket label to the weighted count of clients falling
+    in that bucket.
+- name: aggregates.key
+  description: The bucket label (formatted to two decimal places for numeric scalars,
+    or 'always'/'never'/'sometimes' for boolean probes) within each entry of the aggregates
+    histogram array.
+- name: aggregates.value
+  description: The weighted count of clients whose scalar probe value falls in this
+    bucket within each entry of the aggregates histogram array. Windows release clients
+    contribute 10 to account for sampling.
+- name: app_build_id
+  description: The build ID of the application, identifying the specific Firefox build.
+    The sentinel value '*' indicates an aggregate across all build IDs.
+- name: client_agg_type
+  description: The per-client aggregation function applied to the scalar probe before
+    population bucketing, one of 'sum', 'min', 'max', 'count', 'avg', or empty string
+    for boolean probes.
+- name: first_bucket
+  description: The lower bound of the first histogram bucket used for aggregation.
+    Always null in this table, which uses histogram-style bucketing derived dynamically
+    from min/max values.
+- name: key
+  description: The keyed-scalar sub-key identifying the specific dimension within
+    a keyed-scalar probe (e.g. a search engine name or a UI element). Empty string
+    for non-keyed scalars. (sampled 2026-06-02)
+- name: last_bucket
+  description: The upper bound of the last histogram bucket. Always null in this table;
+    scalar bucket ranges are computed dynamically from observed min and max values.
+- name: metric
+  description: The name of the scalar or keyed-scalar probe being aggregated, e.g.
+    'browser_ui_toolbar_widgets' or 'telemetry_event_counts'. (sampled 2026-06-02)
+- name: metric_type
+  description: The type of the scalar probe, one of 'scalar', 'keyed-scalar', 'boolean',
+    or 'keyed-scalar-boolean'. Determines how values are bucketed and interpreted.
+- name: non_norm_aggregates
+  description: Non-normalized version of the scalar probe histogram, identical in
+    structure to aggregates but without any normalization applied. Used for raw population
+    distribution analysis.
+- name: non_norm_aggregates.key
+  description: The bucket label within each entry of the non_norm_aggregates histogram
+    array, formatted identically to aggregates.key.
+- name: non_norm_aggregates.value
+  description: The weighted client count per bucket within each entry of the non_norm_aggregates
+    histogram array, without normalization.
+- name: num_buckets
+  description: The total number of histogram buckets. Always null in this table; scalar
+    probes use a fixed 100-bucket scheme generated from the observed data range.
+- name: process
+  description: The Firefox process in which the probe was recorded, typically 'parent',
+    'content', or 'gpu'. (sampled 2026-06-02)
+- name: total_users
+  description: The count of distinct clients contributing to this row's aggregation.
+    Windows release clients are upsampled by a factor of 10 to compensate for 10%
+    sampling.
+- name: profile_date
+  description: The date the client's profile was created, derived as the minimum observed
+    profile creation date across all pings received for this client on the submission
+    date.
+- name: days_created_profile_bits
+  description: A 28-bit integer encoding the days on which the client's profile was
+    created relative to the current submission_date. Used to identify new-profile
+    cohorts.
+- name: days_seen_bits
+  description: A 28-bit integer encoding the client's activity over the past 28 days,
+    where the rightmost bit represents activity on the current submission_date. Used
+    to compute WAU and MAU engagement metrics.
+- name: profile_date
+  description: The most recently observed profile creation date for this client.
+- name: city
+  description: City name derived from IP geolocation, indicating where the client
+    is located. Null for ~17% of rows where city-level geolocation is unavailable.
+- name: db_version
+  description: The version/date of the MaxMind GeoIP database used for the geographic
+    lookup (e.g. '2026-03-06T10:19:09Z'). Used to track the recency of geolocation
+    data.
+- name: num_clients_active_atleastonce_in_last_28_days
+  description: Count of cohort clients that were active at least once in the 28-day
+    rolling window ending on submission_date, based on the days_seen_bits bitmap.
+- name: num_clients_active_atleastonce_in_last_7_days
+  description: Count of cohort clients that were active at least once in the 7-day
+    window ending on submission_date, based on the days_seen_bits rolling activity
+    bitmap.
+- name: num_clients_active_on_day
+  description: Count of cohort clients that were seen (days_seen_bits) on the submission_date.
+    A client counts as active if they sent any ping on that day.
+- name: num_clients_dau_active_atleastonce_in_last_28_days
+  description: Count of cohort clients qualifying as DAU that were active at least
+    once in the 28-day rolling window ending on submission_date, using the DAU activity
+    bitmap.
+- name: num_clients_dau_active_atleastonce_in_last_7_days
+  description: Count of cohort clients qualifying as DAU that were active at least
+    once in the 7-day window ending on submission_date, using the DAU-specific activity
+    bitmap.
+- name: num_clients_dau_on_day
+  description: Count of cohort clients that qualify as Daily Active Users on the submission_date,
+    requiring both a URI visit and user interaction (days_visited_1_uri_bits & days_interacted_bits).
+- name: num_clients_dau_repeat_first_month_users
+  description: Count of cohort clients qualifying as DAU that were active at any point
+    in their first month, measured on the 28th day since first_seen_date. A DAU-qualified
+    version of the first-month retention metric.
+- name: num_clients_in_cohort
+  description: The total number of clients in this cohort grouping (i.e., clients
+    sharing the same first_seen_date and all dimension values). Represents the cohort
+    size.
+- name: num_clients_repeat_first_month_users
+  description: Count of cohort clients that were active in the first 28 days after
+    first_seen_date, counted only on the 28th day of the cohort window. Used as a
+    first-month retention metric.
+- name: partner_distribution_version
+  description: The version string of the partner distribution of Firefox (e.g. '1.0',
+    '2023.6'). Null for ~65% of rows where no partner distribution was used.
+- name: partner_distributor
+  description: The name of the partner organization that distributed Firefox (e.g.
+    'canonical', 'mint', 'archlinux'). Null for ~74% of rows where no partner distribution
+    applies.
+- name: partner_distributor_channel
+  description: The distribution channel used by the partner distributor (e.g. 'firefox',
+    'zena', 'fedora'). Null or empty string for ~74-77% of rows.
+- name: partner_id
+  description: The partner identifier for Firefox distributions via commercial or
+    OEM partnerships (e.g. 'ubuntu', 'mint', 'mozillaonline'). Null for ~81% of rows.
+- name: platform_version
+  description: The Gecko/Firefox platform version string for the browser (e.g. '147.0.3',
+    '148.0.2'). May differ slightly from app_version in ESR or special builds.
+- name: startup_profile_selection_reason
+  description: How the Firefox profile was selected at startup (e.g. 'firstrun-created-default'
+    for new installs, 'default' for returning users, 'profile-selector' when user
+    chose manually). Null for ~4% of rows.
+- name: subdivision1
+  description: First-level administrative subdivision (e.g. state, province) from
+    IP geolocation, using ISO 3166-2 subdivision codes. Null for ~5% of rows.
+- name: vendor
+  description: The vendor name from the Firefox application.vendor preference (almost
+    always 'Mozilla'; occasional non-standard values indicate modified builds).
+- name: os_version
+  description: The truncated (major.minor) version of the operating system on which
+    Firefox was installed, derived from the new-profile ping. Values follow OS-specific
+    conventions such as '10' for Windows 10.
+- name: build_id
+  description: The Firefox build identifier at the time the new profile was created,
+    in YYYYMMDDHHMMSS format. Identifies the exact build binary used for installation.
+- name: country_name
+  description: Full name of the country in which the new profile was created, as determined
+    by IP geolocation and joined from the country_codes lookup table (e.g. 'United
+    States', 'Brazil').
+- name: date
+  description: The date on which the new Firefox profiles were created, derived from
+    the submission_timestamp of the new-profile ping.
+- name: new_profiles
+  description: The count of distinct new Firefox profiles created on the date, filtered
+    to clients whose startup_profile_selection_reason was 'firstrun-created-default'
+    (i.e., clean first-run installs, not profile switches).
