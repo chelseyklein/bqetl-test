@@ -10,60 +10,101 @@ fields:
 - name: nvda
   type: INTEGER
   mode: NULLABLE
+  description: Count of distinct Firefox clients using the NVDA (NonVisual Desktop
+    Access) screen reader on the given submission date and channel.
 - name: jaws
   type: INTEGER
   mode: NULLABLE
+  description: Count of distinct Firefox clients using the JAWS (Job Access With Speech)
+    screen reader on the given submission date and channel.
 - name: oldjaws
   type: INTEGER
   mode: NULLABLE
+  description: Count of distinct Firefox clients using an older version of the JAWS
+    screen reader (consumer code 2) on the given submission date and channel.
 - name: we
   type: INTEGER
   mode: NULLABLE
+  description: Count of distinct Firefox clients using the Window-Eyes screen reader
+    on the given submission date and channel.
 - name: dolphin
   type: INTEGER
   mode: NULLABLE
+  description: Count of distinct Firefox clients using the Dolphin screen reader (Snova.exe)
+    on the given submission date and channel.
 - name: serotek
   type: INTEGER
   mode: NULLABLE
+  description: Count of distinct Firefox clients using the Serotek System Access screen
+    reader on the given submission date and channel.
 - name: cobra
   type: INTEGER
   mode: NULLABLE
+  description: Count of distinct Firefox clients using the Cobra screen reader on
+    the given submission date and channel.
 - name: zoomtext
   type: INTEGER
   mode: NULLABLE
+  description: Count of distinct Firefox clients using the ZoomText screen magnifier/reader
+    on the given submission date and channel.
 - name: kazaguru
   type: INTEGER
   mode: NULLABLE
+  description: Count of distinct Firefox clients using the KazaGuru screen reader
+    on the given submission date and channel.
 - name: youdao
   type: INTEGER
   mode: NULLABLE
+  description: Count of distinct Firefox clients using the Youdao accessibility tool
+    on the given submission date and channel.
 - name: unknown
   type: INTEGER
   mode: NULLABLE
+  description: Count of distinct Firefox clients using an unrecognized accessibility
+    consumer (consumer code 10) on the given submission date and channel.
 - name: uiautomation
   type: INTEGER
   mode: NULLABLE
+  description: Count of distinct Firefox clients accessed via the Windows UIAutomation
+    accessibility framework on the given submission date and channel.
 - name: visperoshared
   type: INTEGER
   mode: NULLABLE
+  description: Count of distinct Firefox clients using the Vispero shared accessibility
+    interface on the given submission date and channel.
 - name: magnifier
   type: INTEGER
   mode: NULLABLE
+  description: Count of distinct Firefox clients using the Windows Magnifier accessibility
+    tool (Magnify.exe) on the given submission date and channel.
 - name: narrator
   type: INTEGER
   mode: NULLABLE
+  description: Count of distinct Firefox clients using the Windows Narrator screen
+    reader (Narrator.exe) on the given submission date and channel.
 - name: on_screen_keyboard
   type: INTEGER
   mode: NULLABLE
+  description: Count of distinct Firefox clients using the Windows On-Screen Keyboard
+    accessibility tool (osk.exe) on the given submission date and channel.
 - name: speech_recognition
   type: INTEGER
   mode: NULLABLE
+  description: Count of distinct Firefox clients using Windows Speech Recognition
+    (sapisvr.exe) on the given submission date and channel.
 - name: touch_keyboard_and_handwriting_panel
   type: INTEGER
   mode: NULLABLE
+  description: Count of distinct Firefox clients using the Windows Touch Keyboard
+    and Handwriting Panel (TabTip.exe) on the given submission date and channel.
 - name: voice_over
   type: INTEGER
   mode: NULLABLE
+  description: Count of distinct Firefox clients using macOS VoiceOver screen reader
+    on the given submission date and channel.
 - name: other
   type: INTEGER
   mode: NULLABLE
+  description: Count of distinct Firefox clients using an accessibility consumer not
+    covered by any other category (consumer code outside 0–12) on the given submission
+    date and channel.
