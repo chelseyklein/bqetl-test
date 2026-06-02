@@ -6,12 +6,18 @@ fields:
 - mode: NULLABLE
   name: attributed
   type: BOOLEAN
+  description: True if the client's Firefox installation is attributed to a known
+    marketing source; false for organic or unattributed installs.
 - mode: NULLABLE
   name: attribution_medium
   type: STRING
+  description: The attribution medium (UTM medium), such as 'referral' or 'cpc', associated
+    with the client's Firefox installation.
 - mode: NULLABLE
   name: attribution_source
   type: STRING
+  description: The attribution source (UTM source), such as a referring partner domain
+    or search engine, associated with the client's Firefox installation.
 - mode: NULLABLE
   name: country
   type: STRING
@@ -20,9 +26,13 @@ fields:
 - mode: NULLABLE
   name: device_model
   type: STRING
+  description: The hardware device model identifier for mobile clients (e.g., 'iPhone14,5'),
+    as reported by the operating system. Null for desktop clients (sampled 2026-06-02).
 - mode: NULLABLE
   name: first_seen_year
   type: INTEGER
+  description: The calendar year in which the client's Firefox profile was first observed
+    by Mozilla telemetry.
 - mode: NULLABLE
   name: is_default_browser
   type: BOOLEAN
@@ -31,6 +41,8 @@ fields:
 - mode: NULLABLE
   name: app_name
   type: STRING
+  description: The name of the Mozilla application, e.g. 'Firefox Desktop', 'Fenix',
+    or 'Firefox iOS'.
 - mode: NULLABLE
   name: channel
   type: STRING
@@ -42,6 +54,8 @@ fields:
 - mode: NULLABLE
   name: os_version
   type: STRING
+  description: The version string of the operating system running on the client, e.g.
+    '10.0' for Windows 10 or '16' for Android 16.
 - mode: NULLABLE
   name: os_version_major
   type: INTEGER
@@ -71,24 +85,41 @@ fields:
 - mode: NULLABLE
   name: new_profiles
   type: INTEGER
+  description: Number of new Firefox profiles first observed on the submission_date,
+    indicating fresh installs.
 - mode: NULLABLE
   name: ad_clicks
   type: INTEGER
+  description: Total count of search ad clicks recorded for clients on the submission_date.
+    Null (95% of rows) when no ad clicks are reported (sampled 2026-06-02).
 - mode: NULLABLE
   name: organic_search_count
   type: INTEGER
+  description: Total number of organic search queries (non-SAP) performed by clients
+    on the submission_date. Null when the client is mobile-only and search counts
+    are unavailable (sampled 2026-06-02).
 - mode: NULLABLE
   name: search_count
   type: INTEGER
+  description: Total number of search queries performed by clients across all sources
+    on the submission_date.
 - mode: NULLABLE
   name: search_with_ads
   type: INTEGER
+  description: Total count of search result pages containing ads viewed by clients
+    on the submission_date.
 - mode: NULLABLE
   name: uri_count
   type: INTEGER
+  description: Total number of URIs loaded by clients on the submission_date, reflecting
+    browsing activity. Null for mobile-only rows where URI counts are unavailable
+    (sampled 2026-06-02).
 - mode: NULLABLE
   name: active_hours
   type: FLOAT
+  description: Total active browser hours accumulated by clients on the submission_date.
+    Null for mobile clients where active hours tracking is not available (sampled
+    2026-06-02).
 - description: Count of distinct, qualified Desktop clients that we received a main
     ping from on a given day. In mobile DAU = QDAU.
   mode: NULLABLE
