@@ -1632,15 +1632,23 @@ fields:
 - mode: NULLABLE
   name: default_private_search_engine_data_load_path
   type: STRING
+  description: Anonymized load path for the default private browsing search engine;
+    null for ~100% of clients where no private engine is explicitly set (sampled 2026-05-29).
 - mode: NULLABLE
   name: default_private_search_engine_data_name
   type: STRING
+  description: Human-readable name of the private browsing default search engine (e.g.
+    'DuckDuckGo'); null for ~100% of clients (sampled 2026-05-29).
 - mode: NULLABLE
   name: default_private_search_engine_data_origin
   type: STRING
+  description: How the private browsing default search engine was set; null for ~100%
+    of clients where it is not explicitly configured (sampled 2026-05-29).
 - mode: NULLABLE
   name: default_private_search_engine_data_submission_url
   type: STRING
+  description: The HTTP URL template used for private browsing searches; null for
+    ~100% of clients where no private engine is explicitly set (sampled 2026-05-29).
 - fields:
   - mode: NULLABLE
     name: engine
