@@ -2,9 +2,14 @@ fields:
 - mode: NULLABLE
   name: legacy_telemetry_client_id
   type: STRING
+  description: The legacy Telemetry client_id UUID for this client. Null (~1.1%) when
+    legacy telemetry was not yet initialized.
 - mode: NULLABLE
   name: newtab_visit_id
   type: STRING
+  description: A UUID identifying a single newtab visit session, used to correlate
+    newtab.opened and newtab.closed events and all tile interactions within the same
+    visit.
 - mode: NULLABLE
   name: submission_date
   type: DATE
@@ -20,6 +25,8 @@ fields:
 - mode: NULLABLE
   name: normalized_os_version
   type: STRING
+  description: The user-visible version of the operating system (e.g. '10.0' for Windows
+    10). Derived from the Glean os_version metric.
 - mode: NULLABLE
   name: country_code
   type: STRING
@@ -36,42 +43,68 @@ fields:
 - mode: NULLABLE
   name: browser_version
   type: STRING
+  description: The user-visible Firefox version string for this visit (e.g. '151.0.1').
+    Derived from the Glean app_display_version metric.
 - mode: NULLABLE
   name: browser_name
   type: STRING
+  description: The name of the browser generating this data. Always 'Firefox Desktop'
+    for this table.
 - mode: NULLABLE
   name: default_search_engine
   type: STRING
+  description: The telemetry ID of the client's default search engine for this visit
+    (e.g. 'google-b-d', 'ddg'). Null (~0.4%) when not available.
 - mode: NULLABLE
   name: default_private_search_engine
   type: STRING
+  description: The telemetry ID of the client's private-browsing default search engine
+    for this visit. Blank string is common; 'other-<name>' for user-installed engines.
 - mode: NULLABLE
   name: pocket_is_signed_in
   type: BOOLEAN
+  description: Whether the client was signed in to Pocket during this newtab visit.
+    Null (~89.6%) when no sign-in state was observed.
 - mode: NULLABLE
   name: pocket_enabled
   type: BOOLEAN
+  description: Whether the Pocket section was enabled on the newtab during this visit.
+    Corresponds to the browser.newtabpage.activity-stream.feeds.section.topstories
+    pref.
 - mode: NULLABLE
   name: pocket_sponsored_stories_enabled
   type: BOOLEAN
+  description: Whether Pocket sponsored stories were enabled on the newtab during
+    this visit.
 - mode: NULLABLE
   name: topsites_enabled
   type: BOOLEAN
+  description: Whether the Shortcuts (Top Sites) section was enabled during this visit.
 - mode: NULLABLE
   name: topsites_sponsored_enabled
   type: BOOLEAN
+  description: Whether sponsored top-site shortcuts (Sponsored Shortcuts) were enabled
+    during this visit.
 - mode: NULLABLE
   name: newtab_homepage_category
   type: STRING
+  description: Category of the client's home page (about:home) setting as of this
+    visit (e.g. 'enabled', 'extension', 'known-hijacker-v3').
 - mode: NULLABLE
   name: newtab_newtab_category
   type: STRING
+  description: Category of the client's new-tab page (about:newtab) setting as of
+    this visit (e.g. 'enabled', 'extension', 'disabled').
 - mode: NULLABLE
   name: newtab_search_enabled
   type: BOOLEAN
+  description: Whether the search input box was enabled on the newtab during this
+    visit.
 - mode: NULLABLE
   name: topsites_rows
   type: INTEGER
+  description: Number of top-site tile rows configured on the client's newtab page
+    during this visit.
 - mode: REPEATED
   name: newtab_blocked_sponsors
   type: STRING
@@ -79,17 +112,25 @@ fields:
   - mode: NULLABLE
     name: key
     type: STRING
+    description: Experiment slug for each active Nimbus experiment or rollout in the
+      experiments array for this visit.
   - fields:
     - mode: NULLABLE
       name: branch
       type: STRING
+      description: The Nimbus branch name assigned to this client for each experiment
+        entry in the experiments array (e.g. 'control', 'treatment-a').
     - fields:
       - mode: NULLABLE
         name: type
         type: STRING
+        description: Enrollment type for each experiment entry in the experiments
+          array (e.g. 'nimbus-rollout', 'nimbus-nimbus').
       - mode: NULLABLE
         name: enrollment_id
         type: STRING
+        description: UUID identifying the specific enrollment event for each experiment
+          entry. Null in ~99.8% of rows.
       mode: NULLABLE
       name: extra
       type: RECORD
@@ -102,46 +143,75 @@ fields:
 - mode: NULLABLE
   name: newtab_visit_started_at
   type: INTEGER
+  description: Timestamp (in milliseconds since ping start) when the newtab was opened/made
+    visible. 0 for a large fraction of visits (~91.6%) indicating preloaded tabs;
+    null (~0.9%) when no opened event was recorded.
 - mode: NULLABLE
   name: newtab_visit_ended_at
   type: INTEGER
+  description: Timestamp (in milliseconds since ping start) when the newtab tab was
+    closed. 0 for instantly-closed tabs; null (~2.0%) when no closed event was recorded.
 - mode: NULLABLE
   name: newtab_open_source
   type: STRING
+  description: The URL from which the newtab was opened (e.g. 'about:newtab', 'about:home',
+    'about:welcome', 'other'). Null (~0.9%) when no opened event was received.
 - mode: NULLABLE
   name: had_non_impression_engagement
   type: BOOLEAN
+  description: True if at least one non-impression action (click, search, or save)
+    occurred during this newtab visit; false otherwise.
 - mode: NULLABLE
   name: had_non_search_engagement
   type: BOOLEAN
+  description: True if at least one non-search action (click or save) occurred during
+    this newtab visit; false otherwise.
 - fields:
   - mode: NULLABLE
     name: search_engine
     type: STRING
+    description: Normalized search engine name for each search interaction entry in
+      the search_interactions array (e.g. 'Google', 'DuckDuckGo').
   - mode: NULLABLE
     name: search_access_point
     type: STRING
+    description: The access point from which this search was issued within the search_interactions
+      array (e.g. 'urlbar_handoff', 'urlbar_persisted', 'unknown').
   - mode: NULLABLE
     name: searches
     type: INTEGER
+    description: Number of searches issued at this access point during this visit,
+      within each entry of the search_interactions array.
   - mode: NULLABLE
     name: tagged_search_ad_clicks
     type: INTEGER
+    description: Number of ad clicks on tagged-search SERPs for each search_interactions
+      entry.
   - mode: NULLABLE
     name: tagged_search_ad_impressions
     type: INTEGER
+    description: Number of tagged-search SERP pages with ad impressions for each search_interactions
+      entry.
   - mode: NULLABLE
     name: follow_on_search_ad_clicks
     type: INTEGER
+    description: Number of ad clicks from follow-on searches for each search_interactions
+      entry.
   - mode: NULLABLE
     name: follow_on_search_ad_impressions
     type: INTEGER
+    description: Number of follow-on search SERP ad impressions for each search_interactions
+      entry.
   - mode: NULLABLE
     name: tagged_follow_on_search_ad_clicks
     type: INTEGER
+    description: Number of tagged follow-on search ad clicks for each search_interactions
+      entry.
   - mode: NULLABLE
     name: tagged_follow_on_search_ad_impressions
     type: INTEGER
+    description: Number of tagged follow-on search SERP ad impressions for each search_interactions
+      entry.
   mode: REPEATED
   name: search_interactions
   type: RECORD
@@ -149,45 +219,75 @@ fields:
   - mode: NULLABLE
     name: topsite_tile_advertiser_name
     type: STRING
+    description: Advertiser name for each sponsored top-site tile entry in the topsite_tile_interactions
+      array. Null (~82.9%) for organic (non-sponsored) tiles.
   - mode: NULLABLE
     name: topsite_tile_position
     type: INTEGER
+    description: 0-indexed position of each top-site tile entry in the topsite_tile_interactions
+      array on the newtab grid.
   - mode: NULLABLE
     name: topsite_tile_id
     type: STRING
+    description: Identifier for each top-site tile in the topsite_tile_interactions
+      array. For sponsored tiles this is a base64-encoded advertiser key; for organic
+      tiles it is a legacy numeric string. Null (~82.9%) for organic tiles.
   - mode: NULLABLE
     name: topsite_tile_assigned_sov_branch
     type: STRING
+    description: The Share-of-Voice (SOV) branch assigned to this tile position for
+      sponsored tiles, encoded as a JSON string (e.g. '"amp"', '"moz-sales"'). Null
+      (~99.9%) when SOV is not active for this position.
   - mode: NULLABLE
     name: topsite_tile_displayed_sov_branch
     type: STRING
+    description: The SOV branch that was actually displayed for this tile position,
+      which may differ from the assigned branch. Null (~99.9%) when SOV is not active.
   - mode: NULLABLE
     name: topsite_tile_clicks
     type: INTEGER
+    description: Number of clicks on each top-site tile entry in the topsite_tile_interactions
+      array.
   - mode: NULLABLE
     name: sponsored_topsite_tile_clicks
     type: INTEGER
+    description: Number of sponsored top-site tile clicks for each entry in the topsite_tile_interactions
+      array.
   - mode: NULLABLE
     name: organic_topsite_tile_clicks
     type: INTEGER
+    description: Number of organic (non-sponsored) top-site tile clicks for each entry
+      in the topsite_tile_interactions array.
   - mode: NULLABLE
     name: topsite_tile_impressions
     type: INTEGER
+    description: Number of impressions (times the tile was visible) for each top-site
+      tile entry in the topsite_tile_interactions array.
   - mode: NULLABLE
     name: sponsored_topsite_tile_impressions
     type: INTEGER
+    description: Number of sponsored top-site tile impressions for each entry in the
+      topsite_tile_interactions array.
   - mode: NULLABLE
     name: organic_topsite_tile_impressions
     type: INTEGER
+    description: Number of organic top-site tile impressions for each entry in the
+      topsite_tile_interactions array.
   - mode: NULLABLE
     name: topsite_tile_dismissals
     type: INTEGER
+    description: Number of dismissals of each top-site tile entry in the topsite_tile_interactions
+      array.
   - mode: NULLABLE
     name: sponsored_topsite_tile_dismissals
     type: INTEGER
+    description: Number of sponsored top-site tile dismissals for each entry in the
+      topsite_tile_interactions array.
   - mode: NULLABLE
     name: organic_topsite_tile_dismissals
     type: INTEGER
+    description: Number of organic top-site tile dismissals for each entry in the
+      topsite_tile_interactions array.
   mode: REPEATED
   name: topsite_tile_interactions
   type: RECORD
@@ -195,105 +295,171 @@ fields:
   - mode: NULLABLE
     name: pocket_story_position
     type: INTEGER
+    description: 0-indexed position of the Pocket story in the newtab grid for each
+      entry in the pocket_interactions array.
   - mode: NULLABLE
     name: pocket_impressions
     type: INTEGER
+    description: Number of impressions (times the tile was visible) for each Pocket
+      story entry in the pocket_interactions array.
   - mode: NULLABLE
     name: sponsored_pocket_impressions
     type: INTEGER
+    description: Number of sponsored Pocket tile impressions for each pocket_interactions
+      entry.
   - mode: NULLABLE
     name: organic_pocket_impressions
     type: INTEGER
+    description: Number of organic (non-sponsored) Pocket tile impressions for each
+      pocket_interactions entry.
   - mode: NULLABLE
     name: pocket_clicks
     type: INTEGER
+    description: Number of clicks on each Pocket story entry in the pocket_interactions
+      array.
   - mode: NULLABLE
     name: sponsored_pocket_clicks
     type: INTEGER
+    description: Number of sponsored Pocket tile clicks for each pocket_interactions
+      entry.
   - mode: NULLABLE
     name: organic_pocket_clicks
     type: INTEGER
+    description: Number of organic Pocket tile clicks for each pocket_interactions
+      entry.
   - mode: NULLABLE
     name: pocket_saves
     type: INTEGER
+    description: Number of Pocket tile saves for each pocket_interactions entry.
   - mode: NULLABLE
     name: sponsored_pocket_saves
     type: INTEGER
+    description: Number of sponsored Pocket tile saves for each pocket_interactions
+      entry. Always 0 in sampled data (2026-06-02).
   - mode: NULLABLE
     name: organic_pocket_saves
     type: INTEGER
+    description: Number of organic Pocket tile saves for each pocket_interactions
+      entry.
   - name: pocket_tile_id
     type: STRING
     mode: NULLABLE
+    description: Numeric identifier for each Pocket tile in the pocket_interactions
+      array. Null (~77.1%) for rows where the tile ID was not provided.
   - name: pocket_recommendation_id
     type: STRING
     mode: NULLABLE
+    description: UUID identifying the specific Pocket recommendation for each pocket_interactions
+      entry. Null (~99.8%) for legacy rows and non-recommendation content.
   - mode: NULLABLE
     name: sponsored_pocket_dismissals
     type: INTEGER
+    description: Number of sponsored Pocket tile dismissals for each pocket_interactions
+      entry.
   - mode: NULLABLE
     name: organic_pocket_dismissals
     type: INTEGER
+    description: Number of organic Pocket tile dismissals for each pocket_interactions
+      entry.
   - mode: NULLABLE
     name: pocket_thumbs_up
     type: INTEGER
+    description: Number of thumbs-up votes cast on each Pocket tile entry in the pocket_interactions
+      array.
   - mode: NULLABLE
     name: pocket_thumbs_down
     type: INTEGER
+    description: Number of thumbs-down votes cast on each Pocket tile entry in the
+      pocket_interactions array.
   - mode: NULLABLE
     name: pocket_received_rank
     type: INTEGER
+    description: Ranking position of the Pocket item as received from the recommendation
+      service for each pocket_interactions entry. Null (~20.9%) when not provided.
   - name: pocket_scheduled_corpus_item_id
     type: STRING
     mode: NULLABLE
+    description: UUID identifying the scheduled corpus slot for each Pocket tile in
+      the pocket_interactions array. Null (~96%) for non-corpus tiles.
   - name: pocket_topic
     type: STRING
     mode: NULLABLE
+    description: Editorial topic category of each Pocket tile (e.g. 'arts', 'tech',
+      'health') in the pocket_interactions array. Null (~95.9%) when not classified.
   - name: pocket_matches_selected_topic
     type: STRING
     mode: NULLABLE
+    description: 'Whether the Pocket tile''s topic matches the user''s selected topic
+      preferences: ''true'', ''false'', ''not-set'' (topics not configured), or ''topic-not-selectable''.
+      Null (~99.7%) when topic matching is not applicable.'
   - name: list_card_clicks
     type: INTEGER
     mode: NULLABLE
+    description: Number of list-card tile clicks for each pocket_interactions entry.
+      Always 0 in sampled data (2026-06-02).
   - name: organic_list_card_clicks
     type: INTEGER
     mode: NULLABLE
+    description: Number of organic list-card tile clicks for each pocket_interactions
+      entry. Always 0 in sampled data (2026-06-02).
   - name: sponsored_list_card_clicks
     type: INTEGER
     mode: NULLABLE
+    description: Number of sponsored list-card tile clicks for each pocket_interactions
+      entry. Always 0 in sampled data (2026-06-02).
   - name: list_card_impressions
     type: INTEGER
     mode: NULLABLE
+    description: Number of list-card tile impressions for each pocket_interactions
+      entry. Near-zero in sampled data (2026-06-02).
   - name: organic_list_card_impressions
     type: INTEGER
     mode: NULLABLE
+    description: Number of organic list-card tile impressions for each pocket_interactions
+      entry. Near-zero in sampled data (2026-06-02).
   - name: sponsored_list_card_impressions
     type: INTEGER
     mode: NULLABLE
+    description: Number of sponsored list-card tile impressions for each pocket_interactions
+      entry. Always 0 in sampled data (2026-06-02).
   - name: list_card_saves
     type: INTEGER
     mode: NULLABLE
+    description: Number of list-card tile saves for each pocket_interactions entry.
+      Always 0 in sampled data (2026-06-02).
   - name: organic_list_card_saves
     type: INTEGER
     mode: NULLABLE
+    description: Number of organic list-card saves for each pocket_interactions entry.
+      Always 0 in sampled data (2026-06-02).
   - name: sponsored_list_card_saves
     type: INTEGER
     mode: NULLABLE
+    description: Number of sponsored list-card saves for each pocket_interactions
+      entry. Always 0 in sampled data (2026-06-02).
   - name: list_card_dismissals
     type: INTEGER
     mode: NULLABLE
+    description: Number of list-card tile dismissals for each pocket_interactions
+      entry. Always 0 in sampled data (2026-06-02).
   - name: organic_list_card_dismissals
     type: INTEGER
     mode: NULLABLE
+    description: Number of organic list-card tile dismissals for each pocket_interactions
+      entry. Always 0 in sampled data (2026-06-02).
   - name: sponsored_list_card_dismissals
     type: INTEGER
     mode: NULLABLE
+    description: Number of sponsored list-card tile dismissals for each pocket_interactions
+      entry. Always 0 in sampled data (2026-06-02).
   mode: REPEATED
   name: pocket_interactions
   type: RECORD
 - mode: NULLABLE
   name: is_new_profile
   type: BOOLEAN
+  description: True if the client's first-seen date equals the submission date, indicating
+    a newly created profile. Null (~1.7%) when activity segment data is unavailable.
 - mode: NULLABLE
   name: activity_segment
   type: STRING
@@ -302,9 +468,14 @@ fields:
 - mode: NULLABLE
   name: newtab_default_ui
   type: STRING
+  description: Whether the newtab was opened with the default Firefox UI ('default')
+    or a non-default UI such as an extension override ('non-default'). Derived from
+    newtab_open_source and the homepage/newtab categories.
 - name: newtab_weather_widget_enabled
   type: BOOLEAN
   mode: NULLABLE
+  description: Whether the weather widget was enabled on the newtab during this visit.
+    Null (~5.5%) when pref data was not received.
 - name: wallpaper_interactions
   type: RECORD
   mode: REPEATED
@@ -312,24 +483,40 @@ fields:
   - name: wallpaper_selected_wallpaper
     type: STRING
     mode: NULLABLE
+    description: The identifier of the wallpaper selected during this visit for each
+      wallpaper_interactions entry (e.g. 'dark-sky', 'eclipse-time-lapse', 'custom').
+      Null (~15%) when no wallpaper was selected in this interaction.
   - name: wallpaper_clicks
     type: INTEGER
     mode: NULLABLE
+    description: Number of wallpaper selection clicks for each wallpaper_interactions
+      entry.
   - name: wallpaper_clicks_had_previous_wallpaper
     type: INTEGER
     mode: NULLABLE
+    description: Number of wallpaper clicks where the client already had a wallpaper
+      set prior to the selection, for each wallpaper_interactions entry.
   - name: wallpaper_clicks_first_selected_wallpaper
     type: INTEGER
     mode: NULLABLE
+    description: Number of wallpaper clicks where the client selected a wallpaper
+      for the first time (no prior wallpaper set), for each wallpaper_interactions
+      entry.
   - name: wallpaper_category_clicks
     type: INTEGER
     mode: NULLABLE
+    description: Number of wallpaper category selection clicks for each wallpaper_interactions
+      entry.
   - name: wallpaper_highlight_dismissals
     type: INTEGER
     mode: NULLABLE
+    description: Number of wallpaper feature-highlight dismissals for each wallpaper_interactions
+      entry. Always 0 in sampled data (2026-06-02).
   - name: wallpaper_highlight_cta_clicks
     type: INTEGER
     mode: NULLABLE
+    description: Number of wallpaper feature-highlight CTA clicks for each wallpaper_interactions
+      entry. Always 0 in sampled data (2026-06-02).
 - name: weather_interactions
   type: RECORD
   mode: REPEATED
@@ -337,21 +524,33 @@ fields:
   - name: weather_widget_impressions
     type: INTEGER
     mode: NULLABLE
+    description: Number of weather widget impressions (times the widget was visible)
+      for each weather_interactions entry.
   - name: weather_widget_location_selected
     type: INTEGER
     mode: NULLABLE
+    description: Number of times a location was selected for the weather widget for
+      each weather_interactions entry.
   - name: weather_widget_clicks
     type: INTEGER
     mode: NULLABLE
+    description: Number of weather widget provider-link clicks for each weather_interactions
+      entry.
   - name: weather_widget_load_errors
     type: INTEGER
     mode: NULLABLE
+    description: Number of weather widget load failures for each weather_interactions
+      entry.
   - name: weather_widget_change_display_to_detailed
     type: INTEGER
     mode: NULLABLE
+    description: Number of times the weather widget was switched to detailed view
+      for each weather_interactions entry.
   - name: weather_widget_change_display_to_simple
     type: INTEGER
     mode: NULLABLE
+    description: Number of times the weather widget was switched to simple view for
+      each weather_interactions entry.
 - name: newtab_selected_topics
   type: STRING
   mode: REPEATED
@@ -362,21 +561,33 @@ fields:
   - name: previous_topics
     type: STRING
     mode: NULLABLE
+    description: The previously selected topics before the topic selection update,
+      for each topic_selection_interactions entry. Null in all sampled data (2026-06-02).
   - name: topics
     type: STRING
     mode: NULLABLE
+    description: The newly selected topics after the topic selection update, for each
+      topic_selection_interactions entry. Null in all sampled data (2026-06-02).
   - name: topic_selection_open
     type: INTEGER
     mode: NULLABLE
+    description: Number of times the topic selection modal was opened for each topic_selection_interactions
+      entry.
   - name: topic_selection_dismiss
     type: INTEGER
     mode: NULLABLE
+    description: Number of times the topic selection modal was dismissed without saving
+      for each topic_selection_interactions entry.
   - name: topic_selection_topics_first_saved
     type: INTEGER
     mode: NULLABLE
+    description: Number of times topics were saved for the first time for each topic_selection_interactions
+      entry.
   - name: topic_selection_topics_updated
     type: INTEGER
     mode: NULLABLE
+    description: Number of times existing topic selections were updated (non-first
+      save) for each topic_selection_interactions entry.
 - mode: NULLABLE
   name: profile_group_id
   type: STRING
@@ -385,9 +596,13 @@ fields:
 - name: newtab_window_inner_height
   type: INTEGER
   mode: NULLABLE
+  description: Inner height of the browser window in pixels at the time the newtab
+    was opened. Null (~6.8%) when no opened event was received.
 - name: newtab_window_inner_width
   type: INTEGER
   mode: NULLABLE
+  description: Inner width of the browser window in pixels at the time the newtab
+    was opened. Null (~6.8%) when no opened event was received.
 - mode: NULLABLE
   name: topsites_sponsored_tiles_configured
   type: INTEGER
