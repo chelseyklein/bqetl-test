@@ -1,29 +1,37 @@
 fields:
-- description: null
+- description: The sequential build number within a given version, starting at 1 and
+    incrementing when re-releases or patch builds are shipped (e.g., 2 indicates a
+    second build attempt for the same version).
   mode: NULLABLE
   name: build_number
   type: INTEGER
-- description: null
+- description: Release category describing the type of Firefox release. Observed values
+    include 'dev' (developer/beta builds), 'stability' (dot releases), 'major' (major
+    version releases), and 'esr' (Extended Support Releases).
   mode: NULLABLE
   name: category
   type: STRING
-- description: null
+- description: The date on which the Firefox release was published.
   mode: NULLABLE
   name: date
   type: DATE
-- description: null
+- description: 'Optional human-readable description providing additional context for
+    the release, such as a CVE reference or blog post link. Null for most releases
+    (sampled 2026-06-02: ~99.8% null).'
   mode: NULLABLE
   name: description
   type: STRING
-- description: null
+- description: True if this release was primarily motivated by a security vulnerability
+    fix; false for routine releases.
   mode: NULLABLE
   name: is_security_driven
   type: BOOLEAN
-- description: null
+- description: The Mozilla product name for this release. Currently always 'firefox'
+    for this table.
   mode: NULLABLE
   name: product
   type: STRING
-- description: null
+- description: The version string of the Firefox release (e.g., '91.0', '91.0.1').
   mode: NULLABLE
   name: version
   type: STRING
