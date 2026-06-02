@@ -123,8 +123,8 @@ fields:
   name: engine_data_origin
   type: STRING
   mode: NULLABLE
-- description: "The HTTP url we would use to search. For privacy, we don\u2019t record\
-    \ this for user-installed engines."
+- description: The HTTP url we would use to search. For privacy, we don’t record this
+    for user-installed engines.
   name: engine_data_submission_url
   type: STRING
   mode: NULLABLE
@@ -183,7 +183,9 @@ fields:
   name: attribution_dlsource
   type: STRING
   mode: NULLABLE
-- description: null
+- description: A struct capturing which telemetry pings were observed for this client
+    on or before first_seen_date, including which ping type was the source of the
+    first-seen date.
   name: metadata
   type: RECORD
   mode: NULLABLE
@@ -212,11 +214,10 @@ fields:
 - name: browser_backup_scheduler_enabled
   type: BOOLEAN
   mode: NULLABLE
-  description: 'The value of payload.processes.parent.scalars.browser_backup_scheduler_enabled
-    most frequently seen on the submission date.
-    If there is a tie, the value seen last according to submission_timestamp.
-    True if the BackupService is configured to automatically create backups in the
-    background.'
+  description: The value of payload.processes.parent.scalars.browser_backup_scheduler_enabled
+    most frequently seen on the submission date. If there is a tie, the value seen
+    last according to submission_timestamp. True if the BackupService is configured
+    to automatically create backups in the background.
 - name: browser_backup_archive_enabled
   type: BOOLEAN
   mode: NULLABLE
