@@ -11,135 +11,228 @@ fields:
 - name: pocket_enabled
   type: BOOLEAN
   mode: NULLABLE
+  description: Whether the Pocket section was enabled on the newtab. Used as a dimension
+    to segment this aggregate; corresponds to the browser.newtabpage.activity-stream.feeds.section.topstories
+    pref.
 - name: pocket_sponsored_stories_enabled
   type: BOOLEAN
   mode: NULLABLE
+  description: Whether Pocket sponsored stories were enabled. Used as a dimension
+    to segment this aggregate; corresponds to the browser.newtabpage.activity-stream.showSponsored
+    pref.
 - name: topsites_enabled
   type: BOOLEAN
   mode: NULLABLE
+  description: Whether the Shortcuts (Top Sites) section was enabled. Used as a dimension
+    to segment this aggregate; corresponds to the browser.newtabpage.activity-stream.feeds.topsites
+    pref.
 - name: total_client_count
   type: INTEGER
   mode: NULLABLE
+  description: Total number of distinct clients across all channels for this country/settings
+    combination.
 - name: total_visit_count
   type: INTEGER
   mode: NULLABLE
+  description: Total number of distinct newtab visits across all channels for this
+    country/settings combination.
 - name: client_count
   type: INTEGER
   mode: NULLABLE
+  description: Number of distinct release-channel clients for this country/settings
+    combination.
 - name: visit_count
   type: INTEGER
   mode: NULLABLE
+  description: Number of distinct newtab visits from release-channel clients for this
+    country/settings combination.
 - name: homepage_category_client_count
   type: INTEGER
   mode: NULLABLE
+  description: Number of release-channel clients whose home page (about:home) was
+    in the 'enabled' (default Firefox) category.
 - name: homepage_category_visit_count
   type: INTEGER
   mode: NULLABLE
+  description: Number of newtab visits from release-channel clients whose home page
+    was in the 'enabled' (default Firefox) category.
 - name: newtab_category_client_count
   type: INTEGER
   mode: NULLABLE
+  description: Number of release-channel clients whose new-tab page (about:newtab)
+    was in the 'enabled' (default Firefox) category.
 - name: newtab_category_visit_count
   type: INTEGER
   mode: NULLABLE
+  description: Number of newtab visits from release-channel clients whose new-tab
+    page was in the 'enabled' (default Firefox) category.
 - name: home_default_client_count
   type: INTEGER
   mode: NULLABLE
+  description: Number of release-channel clients who opened about:home with the Firefox
+    default home page enabled.
 - name: home_default_visit_count
   type: INTEGER
   mode: NULLABLE
+  description: Number of newtab visits from release-channel clients who opened about:home
+    with the Firefox default home page enabled.
 - name: newtab_default_client_count
   type: INTEGER
   mode: NULLABLE
+  description: Number of release-channel clients who opened about:newtab with the
+    Firefox default newtab page enabled.
 - name: newtab_default_visit_count
   type: INTEGER
   mode: NULLABLE
+  description: Number of newtab visits from release-channel clients who opened about:newtab
+    with the default newtab page enabled.
 - name: home_nondefault_client_count
   type: INTEGER
   mode: NULLABLE
+  description: Number of release-channel clients who opened about:home with a non-default
+    (e.g. extension-overridden) home page.
 - name: home_nondefault_visit_count
   type: INTEGER
   mode: NULLABLE
+  description: Number of newtab visits from release-channel clients who opened about:home
+    with a non-default home page.
 - name: newtab_nondefault_client_count
   type: INTEGER
   mode: NULLABLE
+  description: Number of release-channel clients who opened about:newtab with a non-default
+    newtab page.
 - name: newtab_nondefault_visit_count
   type: INTEGER
   mode: NULLABLE
+  description: Number of newtab visits from release-channel clients who opened about:newtab
+    with a non-default newtab page.
 - name: welcome_client_count
   type: INTEGER
   mode: NULLABLE
+  description: Number of release-channel clients who opened about:welcome (first-run
+    onboarding page).
 - name: welcome_visit_count
   type: INTEGER
   mode: NULLABLE
+  description: Number of newtab visits from release-channel clients that came from
+    about:welcome.
 - name: searched_client_count
   type: INTEGER
   mode: NULLABLE
+  description: Number of release-channel clients who performed at least one search
+    from the newtab.
 - name: searched_visit_count
   type: INTEGER
   mode: NULLABLE
+  description: Number of newtab visits from release-channel clients that included
+    at least one search.
 - name: sponsored_topsite_impressed_client_count
   type: INTEGER
   mode: NULLABLE
+  description: Number of release-channel clients who received at least one sponsored
+    top-site tile impression.
 - name: sponsored_topsite_impressed_visit_count
   type: INTEGER
   mode: NULLABLE
+  description: Number of newtab visits from release-channel clients where at least
+    one sponsored top-site tile was shown.
 - name: sponsored_topsite_clicked_client_count
   type: INTEGER
   mode: NULLABLE
+  description: Number of release-channel clients who clicked at least one sponsored
+    top-site tile.
 - name: sponsored_topsite_clicked_visit_count
   type: INTEGER
   mode: NULLABLE
+  description: Number of newtab visits from release-channel clients where at least
+    one sponsored top-site tile was clicked.
 - name: topsite_impressed_client_count
   type: INTEGER
   mode: NULLABLE
+  description: Number of release-channel clients who received at least one top-site
+    tile impression (sponsored or organic).
 - name: topsite_impressed_visit_count
   type: INTEGER
   mode: NULLABLE
+  description: Number of newtab visits from release-channel clients where at least
+    one top-site tile was shown.
 - name: topsite_clicked_client_count
   type: INTEGER
   mode: NULLABLE
+  description: Number of release-channel clients who clicked at least one top-site
+    tile (sponsored or organic).
 - name: topsite_clicked_visit_count
   type: INTEGER
   mode: NULLABLE
+  description: Number of newtab visits from release-channel clients where at least
+    one top-site tile was clicked.
 - name: sponsored_pocket_impressed_client_count
   type: INTEGER
   mode: NULLABLE
+  description: Number of release-channel clients who received at least one sponsored
+    Pocket tile impression.
 - name: sponsored_pocket_impressed_visit_count
   type: INTEGER
   mode: NULLABLE
+  description: Number of newtab visits from release-channel clients where at least
+    one sponsored Pocket tile was shown.
 - name: sponsored_pocket_clicked_client_count
   type: INTEGER
   mode: NULLABLE
+  description: Number of release-channel clients who clicked at least one sponsored
+    Pocket tile.
 - name: sponsored_pocket_clicked_visit_count
   type: INTEGER
   mode: NULLABLE
+  description: Number of newtab visits from release-channel clients where at least
+    one sponsored Pocket tile was clicked.
 - name: organic_pocket_impressed_client_count
   type: INTEGER
   mode: NULLABLE
+  description: Number of release-channel clients who received at least one organic
+    (non-sponsored) Pocket tile impression.
 - name: organic_pocket_impressed_visit_count
   type: INTEGER
   mode: NULLABLE
+  description: Number of newtab visits from release-channel clients where at least
+    one organic Pocket tile was shown.
 - name: organic_pocket_clicked_client_count
   type: INTEGER
   mode: NULLABLE
+  description: Number of release-channel clients who clicked at least one organic
+    Pocket tile.
 - name: organic_pocket_clicked_visit_count
   type: INTEGER
   mode: NULLABLE
+  description: Number of newtab visits from release-channel clients where at least
+    one organic Pocket tile was clicked.
 - name: pocket_impressed_client_count
   type: INTEGER
   mode: NULLABLE
+  description: Number of release-channel clients who received at least one Pocket
+    tile impression (sponsored or organic).
 - name: pocket_impressed_visit_count
   type: INTEGER
   mode: NULLABLE
+  description: Number of newtab visits from release-channel clients where at least
+    one Pocket tile was shown.
 - name: pocket_clicked_client_count
   type: INTEGER
   mode: NULLABLE
+  description: Number of release-channel clients who clicked at least one Pocket tile
+    (sponsored or organic).
 - name: pocket_clicked_visit_count
   type: INTEGER
   mode: NULLABLE
+  description: Number of newtab visits from release-channel clients where at least
+    one Pocket tile was clicked.
 - name: pocket_signed_in_client_count
   type: INTEGER
   mode: NULLABLE
+  description: Number of release-channel clients who were signed in to Pocket on at
+    least one newtab visit during the day.
 - name: pocket_signed_in_visit_count
   type: INTEGER
   mode: NULLABLE
+  description: Number of newtab visits from release-channel clients where the user
+    was signed in to Pocket.
