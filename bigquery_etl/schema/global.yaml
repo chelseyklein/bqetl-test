@@ -588,3 +588,38 @@ fields:
   description: The version string of the browser add-on at the time of the event or observation.
 - name: app
   description: The name of the application or product associated with the record (e.g., 'Firefox', 'Firefox iOS', 'Desktop').
+- name: crash_count
+  description: The number of application crashes recorded for a client or session within the reporting period.
+- name: crash_process_type
+  description: The type of process in which the crash occurred (e.g., 'main', 'content', 'gpu', 'utility'), identifying which part of the application
+    was running when the crash happened.
+- name: customer_id
+  description: The unique identifier for a billing customer account, typically a Stripe customer ID (e.g., 'cus_MFFy4ibodsAQ0Z') or an equivalent identifier
+    from another payment provider.
+- name: ended_at
+  description: The timestamp at which the subscription ended. Null for currently active subscriptions.
+- name: first_reported_country
+  description: The first country code reported by this client, as determined by IP geolocation from the earliest ping received.
+- name: installs
+  description: The count of successful application installations attributed to a given source, campaign, or time period.
+- name: is_daily_user
+  description: Whether the client is considered a daily active user on the given date, based on having reported a qualifying ping on that day.
+- name: is_monthly_user
+  description: Whether the client is considered a monthly active user on the given date, based on having reported a qualifying ping within the preceding
+    28 days.
+- name: is_weekly_user
+  description: Whether the client is considered a weekly active user on the given date, based on having reported a qualifying ping within the preceding
+    7 days.
+- name: medium
+  description: The traffic or attribution medium describing the category of the channel through which a user arrived (e.g., 'organic', 'cpc', 'referral',
+    'email'), corresponding to the utm_medium parameter.
+- name: model
+  description: The identifier of the machine learning or AI model used to process a request (e.g., 'claude-sonnet-4-20250514', 'gpt-4o-2024-08-06').
+- name: project
+  description: The identifier of the cloud or organizational project under which a resource or workload is billed or operated.
+- name: release_channel
+  description: The Firefox release channel from which the client is reporting (e.g., 'release', 'beta', 'nightly', 'esr').
+- name: run_id
+  description: A zero-based integer or string identifier distinguishing individual retry attempts of a task run, where 0 represents the first attempt.
+- name: time
+  description: A Unix timestamp (seconds since epoch) indicating when an event occurred.
