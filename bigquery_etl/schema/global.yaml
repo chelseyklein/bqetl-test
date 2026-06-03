@@ -896,3 +896,33 @@ fields:
 - name: time
   description: The date (truncated to midnight UTC) for which the daily active population
     count is reported.
+- name: appVersion
+  description: The user-visible version string of the application as reported in the
+    raw telemetry payload (e.g. "128.0", "131.0.1"). This camelCase variant is sourced
+    from crash and event pings where the version is embedded directly; prefer the
+    normalized app_version field for analysis.
+- name: crash_count
+  description: The number of crash events recorded for the associated client or aggregation
+    window. A value greater than 1 indicates multiple crashes were observed within
+    the same reporting period.
+- name: crash_process_type
+  description: The type of Firefox process that crashed, as reported by the crash
+    reporter (e.g. "main", "content", "gpu", "rdd", "socket"). Distinguishes between
+    crashes in the browser UI process and those in child processes.
+- name: crash_signature
+  description: The canonical crash signature assigned by the Socorro crash ingestion
+    pipeline, derived from the top frames of the crash stack (e.g. "OOM | small",
+    "shutdownhang | ..."). Used to group related crash reports for triage and trend
+    analysis.
+- name: document_event_number
+  description: The sequential position of an event within its telemetry document or
+    ping, starting at 0. Multiple events can be batched in a single ping submission;
+    this field identifies the ordering of each event within that batch.
+- name: event_extra_key
+  description: The name of an extra key attached to a telemetry event, drawn from
+    the event's predefined extras schema (e.g. "value", "flow_id", "source"). Each
+    event may carry multiple key-value pairs; this field stores a single key name.
+- name: project
+  description: The name of the Mozilla product or engineering project that produced
+    the data (e.g. "firefox", "fenix", "focus-android"). Used to partition or filter
+    cross-product tables where data from multiple applications is combined.
