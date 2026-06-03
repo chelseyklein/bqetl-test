@@ -470,3 +470,8 @@ fields:
     OS strings in some sources.
 - name: event_type
   description: A string identifying the category or kind of event that occurred (e.g., 'impression', 'click', 'fxa_login - complete', 'New', 'Cancelled').
+- name: retained_week_4_new_profiles
+  description: Count of new profiles from the metric_date that were active between days 22 and 28 after the metric_date, indicating fourth-week retention.
+- name: disqualification_count
+  description: Number of experiment disqualification events in the aggregation window, where clients were removed from the experiment for no longer
+    meeting targeting criteria.
