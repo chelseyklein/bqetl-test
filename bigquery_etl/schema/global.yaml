@@ -231,3 +231,17 @@ fields:
   aliases:
   - updated_timestamp
   - updated_date
+- name: appVersion
+  description: User-visible version string (e.g. "136.0.1") at crash or event time. CamelCase alias for app_version, used in Socorro crash payloads.
+- name: crash_count
+  description: Number of crashes aggregated for the row's grouping dimensions. A value of 1 is a single crash; higher values are multiple crashes rolled up.
+- name: crash_process_type
+  description: Firefox process type where the crash occurred (e.g. main, content, gpu). Distinguishes browser from renderer or GPU crashes.
+- name: crash_signature
+  description: Normalized crash signature from Socorro identifying the failure point in code. Crashes sharing a signature are caused by the same defect.
+- name: document_event_number
+  description: Sequential integer giving the ordinal position of an event within a session or ping. Orders events batched into a single submission.
+- name: event_extra_key
+  description: One key from the extra map of a Glean or legacy telemetry event. Corresponds to a single key from the key-value extras recorded with the event.
+- name: project
+  description: GCP project or Mozilla product identifier (e.g. moz-fx-data-shared-prod, firefox). Distinguishes rows from different product lines.
