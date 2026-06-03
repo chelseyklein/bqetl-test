@@ -896,3 +896,33 @@ fields:
 - name: time
   description: The date (truncated to midnight UTC) for which the daily active population
     count is reported.
+- name: appVersion
+  description: The user-visible version string of the application at the time of the
+    crash, as reported by the client before pipeline normalization (e.g. "128.0.1").
+    Equivalent to app_version but preserved in its original camelCase form for compatibility
+    with Socorro crash payloads and legacy telemetry.
+- name: crash_count
+  description: The total number of crash events aggregated for the given combination
+    of dimensions (e.g. date, channel, process type). A value greater than 1 indicates
+    multiple crashes rolled up into a single row.
+- name: crash_process_type
+  description: The type of Firefox process that experienced the crash, as reported
+    by the crash reporter (e.g. "main", "content", "gpu", "rdd", "socket"). Used to
+    distinguish browser-process crashes from renderer or utility process crashes.
+- name: crash_signature
+  description: The Socorro-generated signature string that groups structurally similar
+    crashes together for triage and analysis (e.g. "OOM | large | mozalloc_abort").
+    A single signature may represent many individual crash reports.
+- name: document_event_number
+  description: The sequential index of an event within its parent telemetry document
+    for legacy Firefox event pings, starting at 0. Multiple events can be batched
+    into a single ping document; this field identifies each event's position in that
+    batch.
+- name: event_extra_key
+  description: The key component of a key-value pair from the extra map attached to
+    a legacy telemetry event, providing additional context about the event (e.g. "value",
+    "source", "flow_id"). Each event may carry zero or more extra key-value pairs.
+- name: project
+  description: The GCP project or Mozilla product/project name used to scope the data
+    (e.g. "moz-fx-data-shared-prod", "firefox-desktop"). Identifies the organisational
+    or infrastructure boundary from which the row originates in multi-project pipelines.
