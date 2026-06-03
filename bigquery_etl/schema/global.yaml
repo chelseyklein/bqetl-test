@@ -852,3 +852,31 @@ fields:
 - name: time
   description: The date (truncated to midnight UTC) for which the daily active population
     count is reported.
+- name: appVersion
+  description: User-visible version string of the application at the time the event
+    or ping was recorded (e.g. "128.0", "1.0.3"). This is a camelCase alias of app_version
+    used in some legacy telemetry schemas.
+- name: crash_count
+  description: The number of crash events recorded for the given combination of dimensions
+    (e.g. signature, process type, date). A value of 1 represents a single crash occurrence
+    in non-aggregated tables.
+- name: crash_process_type
+  description: The type of browser process in which the crash occurred, as reported
+    by the crash reporter (e.g. "main", "content", "gpu", "rdd", "socket"). Used to
+    distinguish between browser UI crashes and renderer or utility process crashes.
+- name: crash_signature
+  description: The Socorro-normalized crash signature identifying the topmost unique
+    stack frame or fault location (e.g. "OOM | small", "shutdownhang | js::GC::collect").
+    Used to group and deduplicate crashes that share the same root cause.
+- name: document_event_number
+  description: The sequential ordinal position of this event within its source document
+    or ping, starting from 1. Used to order events emitted within a single ping submission
+    and to deduplicate repeated processing of the same document.
+- name: event_extra_key
+  description: A single key from the event's extra metadata map, which carries arbitrary
+    string annotations attached to a Glean or legacy telemetry event (e.g. "value",
+    "flow_id"). Pivoted out as one row per key when the extras map is unnested.
+- name: project
+  description: The GCP project identifier associated with the data source or pipeline
+    that produced this record (e.g. "moz-fx-data-shared-prod"). Used to scope data
+    lineage and access controls across multi-project pipelines.
