@@ -1,0 +1,101 @@
+fields:
+- name: submission_date
+  description: Date when the telemetry ping is received server-side; the primary partition key across telemetry_derived tables.
+- name: os
+  description: Normalized name of the operating system at the client (e.g., 'Windows', 'Mac', 'Linux').
+- name: country
+  description: ISO 3166-1 alpha-2 country code from IP geolocation; '??' when the country cannot be determined.
+- name: normalized_channel
+  description: Normalized Firefox release channel (e.g., 'release', 'esr', 'beta', 'nightly').
+- name: channel
+  description: Normalized Firefox release channel; equivalent to normalized_channel (e.g., 'release', 'beta', 'nightly').
+- name: app_version
+  description: User-visible version string of the Firefox browser reported in the telemetry ping (e.g., '151.0.1').
+- name: client_id
+  description: UUID that uniquely identifies a Firefox client installation; primary join key across telemetry_derived tables.
+- name: locale
+  description: Browser UI locale tag representing language and region preferences (e.g., 'en-US', 'de', 'fr').
+- name: distribution_id
+  description: ID of the partner or channel that packaged and distributed this Firefox install.
+- name: sample_id
+  description: Deterministic integer (0-99) derived from client_id for reproducible sampling; consistent across tables.
+- name: normalized_os_version
+  description: OS version normalized at ingestion (e.g., '10.0' for Windows, '16' for Android, '25.3.0' for macOS).
+- name: os_version
+  description: Raw OS version string as reported in the telemetry ping (e.g., '10.0', '16', '13').
+- name: normalized_os
+  description: Normalized name of the operating system at the client (e.g., 'Windows', 'Mac', 'Linux').
+- name: app_build_id
+  description: Firefox build ID as reported by the client (e.g., '20191202093317'), encoding build date and time.
+- name: profile_group_id
+  description: UUID identifying the Firefox profile group; not shared with other telemetry datasets.
+- name: app_name
+  description: Name of the Mozilla browser application (e.g., 'Firefox Desktop', 'Fenix', 'Firefox iOS').
+- name: attribution_source
+  description: UTM source or referrer that directed the user to download Firefox (e.g., 'www.google.com'); desktop only.
+- name: branch
+  description: Nimbus experiment branch the client is enrolled in (e.g., 'control', 'treatment-a').
+- name: is_default_browser
+  description: True if Firefox is the default browser on the client at ping submission time.
+- name: attribution_medium
+  description: UTM medium that drove the Firefox install (e.g., 'referral', 'paidsearch'); desktop only, null for mobile.
+- name: city
+  description: City from IP geolocation at ping ingestion; null or '??' when the city cannot be resolved.
+- name: first_seen_date
+  description: Date the server first received a telemetry ping from this client; proxy for profile creation date.
+- name: experiment
+  description: Slug of the Nimbus experiment for which telemetry is aggregated (e.g., 'smart-shortcuts-v4p1'); null when not experiment-scoped.
+- name: experiments
+  description: Array of key-value pairs listing the Nimbus experiments and rollouts the client was enrolled in on the submission date.
+- name: metric
+  description: Name of the Telemetry scalar or keyed-scalar metric being aggregated (e.g., 'browser_ui_toolbar_widgets').
+- name: dau
+  description: Count of distinct Firefox clients with at least one qualifying ping on the submission_date (Daily Active Users).
+- name: attribution_campaign
+  description: UTM campaign identifier for the Firefox install (e.g., 'SET_DEFAULT_BROWSER'); desktop only, null for mobile.
+- name: attribution_content
+  description: UTM content parameter identifying the specific link or creative within the campaign; desktop only.
+- name: attribution_experiment
+  description: Funnel experiment parameter from the Firefox installer attribution; desktop only, null for mobile.
+- name: document_id
+  description: UUID from the ping URI used to deduplicate telemetry messages across telemetry_derived tables.
+- name: mau
+  description: Count of distinct Firefox clients active in the 28 days before the submission_date (Monthly Active Users).
+- name: value
+  description: Numeric or string payload for the metric or KPI row; interpretation varies by table context.
+- name: attribution_ua
+  description: Browser user agent used to download the Firefox installer (e.g., 'chrome', 'firefox'), recorded at first seen.
+- name: attribution_variation
+  description: Variation arm of the installer funnel experiment (e.g., 'treatment', 'control'); desktop only, null for mobile.
+- name: default_search_engine
+  description: Identifier of the default search engine in Firefox at ping time (e.g., 'google-b-d', 'baidu').
+- name: key
+  description: Sub-key within a keyed-scalar metric (e.g., widget ID or search engine name); empty for non-keyed scalars.
+- name: uninstalls_count
+  description: Count of unique Firefox release-channel clients that submitted an uninstall ping on the submission_date.
+- name: build_id
+  description: Firefox product build identifier (e.g., '20260520211922'), encoding build date and time.
+- name: metric_type
+  description: Telemetry or Glean metric type indicating how to interpret values (e.g., 'scalar', 'keyed-scalar', 'timing_distribution').
+- name: new_profiles
+  description: Count of new Firefox profiles first seen on this submission_date matching the dimension combination.
+- name: normalized_country_code
+  description: ISO 3166-1 alpha-2 country code from IP geolocation; unknown values stored as '??'.
+- name: process
+  description: Firefox process type from which the metric was recorded (e.g., 'parent', 'content', 'gpu').
+- name: time
+  description: Date truncated to midnight UTC for which the active-user or metric count is reported.
+- name: attribution_dlsource
+  description: Download source that served the Firefox installer (e.g., 'mozorg', 'fxdotcom', 'desktoplauncher').
+- name: normalized_app_name
+  description: Normalized Mozilla browser application name (e.g., 'Firefox Desktop', 'Fenix', 'Firefox iOS', 'Focus Android').
+- name: wau
+  description: Count of distinct Firefox clients with a qualifying ping in the 7 days before submission_date (Weekly Active Users).
+- name: attributed
+  description: True if both attribution_source and attribution_medium are non-null, indicating a fully attributed install.
+- name: windows_build_number
+  description: Windows OS build number (e.g., 19041 for Windows 10, 22000+ for Windows 11); null for non-Windows clients.
+- name: activity_segment
+  description: Frequency-based classification of Firefox clients (e.g., 'infrequent_user', 'casual_user', 'regular_user', 'core_user').
+- name: id_bucket
+  description: Integer bucket (0-19) derived from client_id for partitioned computation and parallel processing.
