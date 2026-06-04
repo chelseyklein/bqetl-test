@@ -231,3 +231,250 @@ fields:
   aliases:
   - updated_timestamp
   - updated_date
+- name: normalized_app_name
+  type: STRING
+  mode: NULLABLE
+  description: The normalized, human-readable name of the Mozilla application (e.g. 'Firefox Desktop', 'Fenix', 'Firefox iOS', 'Focus Android'). Set
+    to 'Other' when the application name is unrecognized.
+- name: additional_properties
+  type: STRING
+  mode: NULLABLE
+  description: A JSON string containing any payload fields present in the original ping that were not mapped to typed columns in the schema. Preserves
+    forward-compatibility with fields added after schema generation.
+- name: legacy_telemetry_client_id
+  type: STRING
+  mode: NULLABLE
+  description: A UUID identifying the client from the pre-Glean (legacy) telemetry pipeline. Null when legacy telemetry was not initialized or is not
+    applicable for the platform.
+- name: event_timestamp
+  type: TIMESTAMP
+  mode: NULLABLE
+  description: The timestamp at which the event occurred on the client side. The exact semantics (wall-clock time, session-relative offset, or server-assigned
+    time) vary by data source.
+- name: event_name
+  type: STRING
+  mode: NULLABLE
+  description: The name of the recorded event as defined in the application's metrics configuration (e.g. 'engagement', 'abandonment'). Together with
+    event_category, uniquely identifies the type of interaction.
+- name: event_category
+  type: STRING
+  mode: NULLABLE
+  description: The category of the recorded event as defined in the application's metrics configuration (e.g. 'normandy', 'navigation'). Groups related
+    events by functional area.
+- name: event
+  type: STRING
+  mode: NULLABLE
+  description: The name of the event within its category, identifying the specific user action or system occurrence that was recorded (e.g. 'trigger.reason',
+    'click', 'open'). Together with the category, uniquely identifies the event type.
+- name: city
+  type: STRING
+  mode: NULLABLE
+  description: The name of the city in which the activity took place, as determined by IP geolocation. Null or '??' when the city cannot be determined
+    or the population threshold is not met.
+- name: event_id
+  type: STRING
+  mode: NULLABLE
+  description: A UUID that uniquely identifies a single event row. Use COUNT(DISTINCT event_id) to count events accurately when unnesting repeated
+    event structures.
+- name: reason
+  type: STRING
+  mode: NULLABLE
+  description: 'The reason associated with the record, whose meaning depends on context: the reason a ping was submitted, the cause of an event, or
+    an explanation for a status change. Specific values are defined per ping type or data source.'
+- name: days_seen_bits
+  type: INTEGER
+  mode: NULLABLE
+  description: A 28-bit integer bitmask indicating on which of the last 28 days the client was observed sending a ping, with bit 0 (rightmost) representing
+    the current submission date and bit 27 (leftmost) representing 27 days prior.
+- name: event_extra
+  type: JSON
+  mode: NULLABLE
+  description: A JSON object containing additional event-specific key-value pairs that supplement the core event fields. The set of keys varies by
+    event type and is defined in the application's metrics configuration.
+- name: experiments
+  type: ARRAY<STRUCT<key STRING, value STRUCT<branch STRING, extra STRUCT<type STRING, enrollment_id STRING>>>>
+  mode: REQUIRED
+  description: An array of key-value pairs listing the Nimbus experiments and rollouts the client was enrolled in at the time of the ping, where the
+    key is the experiment slug and the value contains the assigned branch and enrollment metadata.
+- name: device_manufacturer
+  type: STRING
+  mode: NULLABLE
+  description: The manufacturer of the device on which the application is running (e.g. 'Samsung', 'Google'). Null when the manufacturer cannot be
+    determined or is not applicable to the platform.
+- name: app_channel
+  type: STRING
+  mode: NULLABLE
+  description: The release channel on which the application is distributed, as reported by the client (e.g. 'release', 'beta', 'nightly'). This is
+    the raw, unnormalized value; use normalized_channel for a consistent representation.
+- name: device_model
+  type: STRING
+  mode: NULLABLE
+  description: The model identifier of the device on which the application is running (e.g. 'iPhone14,5', 'SM-G955U'). On Android this is Build.MODEL,
+    the user-visible marketing name. Null for platforms where device model is not applicable.
+- name: is_new_profile
+  type: BOOLEAN
+  mode: NULLABLE
+  description: True if the client's profile was created for the first time on the submission date (i.e. submission_date equals first_seen_date), indicating
+    a new profile; false for returning clients.
+- name: policies_is_enterprise
+  type: BOOLEAN
+  mode: NULLABLE
+  description: True if the client is determined to be an enterprise user based on various policy signals (e.g. presence of managed policies). Null
+    when the determination cannot be made.
+- name: active_hours_sum
+  type: FLOAT
+  mode: NULLABLE
+  description: The total number of hours the browser was actively used by the client, derived from active ticks (5-second intervals with detected user
+    interaction). Null for platforms where active-tick tracking is unavailable.
+- name: app_build
+  type: STRING
+  mode: NULLABLE
+  description: The build identifier generated by the CI system for this application version (e.g. '1234/A', '2016160439'). Set to 'Unknown' when not
+    provided through configuration.
+- name: attribution_dltoken
+  type: STRING
+  mode: NULLABLE
+  description: A unique token generated at Firefox download time, used to attribute a specific installation to a particular download event. Null when
+    download attribution is unavailable.
+- name: days_active_bits
+  type: INTEGER
+  mode: NULLABLE
+  description: A 28-bit integer bitmask recording the days within the last 28 days on which the client was considered active (e.g. sent a qualifying
+    ping or met an activity threshold), with bit 0 (rightmost) representing the current submission date.
+- name: days_created_profile_bits
+  type: INTEGER
+  mode: NULLABLE
+  description: A 28-bit integer bitmask indicating the days within the last 28 days on which this client's profile was first created. Used to identify
+    newly created profiles within a rolling window.
+- name: durations
+  type: INTEGER
+  mode: NULLABLE
+  description: The total foreground session duration in seconds for the client on the relevant date, aggregated across all baseline pings received.
+    For desktop, this may be expressed in hours depending on the table.
+- name: install_source
+  type: STRING
+  mode: NULLABLE
+  description: The source from which the application was installed (e.g. 'com.android.vending' for Google Play Store on Android). Null or absent when
+    the install source cannot be determined.
+- name: windows_build_number
+  type: INTEGER
+  mode: NULLABLE
+  description: The Windows OS build number as reported by the operating system (e.g. 22000 for Windows 11 21H2). Null for non-Windows clients.
+- name: android_sdk_version
+  type: STRING
+  mode: NULLABLE
+  description: The Android SDK API level of the software running on the device (e.g. '35' for Android 15). Null for non-Android clients.
+- name: geo_subdivision
+  type: STRING
+  mode: NULLABLE
+  description: The first-level administrative subdivision (e.g. state, province, or region) of the client's IP-geolocated location. Null when the subdivision
+    cannot be determined.
+- name: attribution_dlsource
+  type: STRING
+  mode: NULLABLE
+  description: An identifier indicating the download source from which the Firefox installer was obtained (e.g. 'mozorg', 'fxdotcom'). Used for install
+    attribution.
+- name: attribution_ua
+  type: STRING
+  mode: NULLABLE
+  description: The browser user agent string recorded at the time the Firefox installer was downloaded, identifying the browser used to obtain the
+    installer (e.g. 'chrome', 'firefox'). Null when not captured.
+- name: days_seen_session_end_bits
+  type: INTEGER
+  mode: NULLABLE
+  description: A 28-bit integer bitmask recording the days within the last 28 days on which the client recorded a session end event, with bit 0 (rightmost)
+    representing the current submission date.
+- name: days_seen_session_start_bits
+  type: INTEGER
+  mode: NULLABLE
+  description: A 28-bit integer bitmask recording the days within the last 28 days on which the client recorded a session start event, with bit 0 (rightmost)
+    representing the current submission date.
+- name: distribution_version
+  type: STRING
+  mode: NULLABLE
+  description: The version string of the partner distribution package associated with this Firefox install. Null when no distribution is configured.
+- name: document_event_number
+  type: INTEGER
+  mode: NULLABLE
+  description: The sequential index of an event within its source document or ping, used to preserve ordering when a single submission contains multiple
+    events.
+- name: browser_engagement_active_ticks
+  type: INTEGER
+  mode: NULLABLE
+  description: The number of five-second intervals during which the user was considered active (keyboard or mouse interaction detected) in the browser
+    session.
+- name: browser_engagement_uri_count
+  type: INTEGER
+  mode: NULLABLE
+  description: The total number of non-unique HTTP(S) URIs visited during the browser session, including page reloads, after session restoration. URIs
+    in private browsing mode or without user interaction may be excluded.
+- name: distributor
+  type: STRING
+  mode: NULLABLE
+  description: The name of the organization or channel that distributed this Firefox build (e.g. 'canonical', 'mozillaonline', 'mint'). Null when no
+    distributor is set (standard Mozilla distribution).
+- name: distributor_channel
+  type: STRING
+  mode: NULLABLE
+  description: The specific sub-channel or tier within the distributor's distribution network (e.g. 'mainWinStub', 'ubuntu'). Null when no distributor
+    channel is configured.
+- name: startup_profile_selection_reason_first
+  type: STRING
+  mode: NULLABLE
+  description: The reason the Firefox profile was selected when the browser first launched (e.g. 'default', 'firstrun-created-default', 'restart').
+    Null when the selection reason was not recorded.
+- name: attribution_msclkid
+  type: STRING
+  mode: NULLABLE
+  description: The Microsoft Click ID (msclkid) from Microsoft Advertising attribution, captured at Firefox download time. Null when Microsoft attribution
+    is not applicable.
+- name: distribution_partner_id
+  type: STRING
+  mode: NULLABLE
+  description: The partner identifier associated with the distribution of this Firefox install, used to attribute the installation to a specific distribution
+    partner. Null when no partner ID is set.
+- name: metrics
+  type: STRUCT<labeled_counter STRUCT<glean_error_invalid_label ARRAY<STRUCT<key STRING, value INT64>>, glean_error_invalid_overflow ARRAY<STRUCT<key
+    STRING, value INT64>>, glean_error_invalid_state ARRAY<STRUCT<key STRING, value INT64>>, glean_error_invalid_value ARRAY<STRUCT<key STRING, value
+    INT64>>>, string STRUCT<glean_client_annotation_experimentation_id STRING>, string_list STRUCT<glean_ping_uploader_capabilities ARRAY<STRING>>>
+  mode: NULLABLE
+  description: A nested struct containing Glean metric values collected with the ping. The structure varies by ping type and is defined by the application's
+    metrics.yaml; consult the Glean Dictionary for field-level documentation.
+- name: days_visited_1_uri_bits
+  type: INTEGER
+  mode: NULLABLE
+  description: A 28-bit integer bitmask indicating the days within the last 28 days on which the client visited at least one URI, with bit 0 (rightmost)
+    representing the current submission date.
+- name: days_since_seen
+  type: INTEGER
+  mode: NULLABLE
+  description: The number of days since the client was last observed sending any ping, relative to the submission date. A value of 0 means the client
+    was seen on the submission date itself.
+- name: days_since_created_profile
+  type: INTEGER
+  mode: NULLABLE
+  description: The number of days since the client's profile was first created, derived from the profile creation date. Null when the profile creation
+    date is unavailable.
+- name: days_since_active
+  type: INTEGER
+  mode: NULLABLE
+  description: The number of days since the client was last considered active (met the activity criteria). Null for clients who have never been recorded
+    as active.
+- name: days_since_seen_session_end
+  type: INTEGER
+  mode: NULLABLE
+  description: The number of days since the client last recorded a session end event. Null when no session end has ever been recorded for the client.
+- name: days_since_seen_session_start
+  type: INTEGER
+  mode: NULLABLE
+  description: The number of days since the client last recorded a session start event. Null when no session start has ever been recorded for the client.
+- name: days_since_visited_1_uri
+  type: INTEGER
+  mode: NULLABLE
+  description: The number of days since the client last visited at least one URI. Null when URI visit tracking is unavailable or no URI visit has been
+    recorded.
+- name: experiment_branch
+  type: STRING
+  mode: NULLABLE
+  description: The experiment branch to which the client was assigned (e.g. 'control', 'treatment'). Identifies which variant of an experiment a given
+    record is associated with.
