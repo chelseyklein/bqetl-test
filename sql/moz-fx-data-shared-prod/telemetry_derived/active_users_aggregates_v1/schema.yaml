@@ -2,8 +2,7 @@ fields:
 - mode: NULLABLE
   name: segment
   type: STRING
-  description: Classification of users based on their browsing activity. E.g., infrequent,
-    casual, regular.
+  description: Classification of users based on their browsing activity. E.g., infrequent, casual, regular.
 - mode: NULLABLE
   name: app_version
   type: STRING
@@ -11,17 +10,19 @@ fields:
 - mode: NULLABLE
   name: attribution_medium
   type: STRING
+  description: The UTM medium from the Firefox install attribution (e.g., 'referral', 'cpc').
 - mode: NULLABLE
   name: attribution_source
   type: STRING
+  description: The UTM source from the Firefox install attribution (e.g., 'www.google.com').
 - mode: NULLABLE
   name: city
   type: STRING
+  description: City name in which the activity took place, as determined by IP geolocation.
 - mode: NULLABLE
   name: country
   type: STRING
-  description: Name of the country in which the activity took place, as determined
-    by the IP geolocation.
+  description: Name of the country in which the activity took place, as determined by the IP geolocation.
 - mode: NULLABLE
   name: distribution_id
   type: STRING
@@ -29,11 +30,11 @@ fields:
 - mode: NULLABLE
   name: is_default_browser
   type: BOOLEAN
-  description: A flag indicating whether the browser is set as the default browser
-    on the client side.
+  description: A flag indicating whether the browser is set as the default browser on the client side.
 - mode: NULLABLE
   name: app_name
   type: STRING
+  description: The name of the browser or application (e.g., 'Firefox Desktop', 'Fenix').
 - mode: NULLABLE
   name: channel
   type: STRING
@@ -48,13 +49,11 @@ fields:
 - mode: NULLABLE
   name: os_version_major
   type: INTEGER
-  description: Major or first part of the operating system version running at the
-    client. E.g. for version "100.9.11", the major is 100.
+  description: Major or first part of the operating system version running at the client. E.g. for version "100.9.11", the major is 100.
 - mode: NULLABLE
   name: os_version_minor
   type: INTEGER
-  description: Minor part of the operating system version running at the client. E.g.
-    for version "100.9.11", the minor is 9.
+  description: Minor part of the operating system version running at the client. E.g. for version "100.9.11", the minor is 9.
 - mode: NULLABLE
   name: submission_date
   type: DATE
@@ -74,35 +73,44 @@ fields:
 - mode: NULLABLE
   name: new_profiles
   type: INTEGER
+  description: Count of client profiles that were first seen on the submission_date.
 - mode: NULLABLE
   name: ad_clicks
   type: INTEGER
+  description: Total ad clicks recorded for clients in this group on the submission_date.
 - mode: NULLABLE
   name: organic_search_count
   type: INTEGER
+  description: Total organic (non-tagged) searches by clients in this group on the submission_date.
 - mode: NULLABLE
   name: search_count
   type: INTEGER
+  description: Total searches performed by clients in this group on the submission_date.
 - mode: NULLABLE
   name: search_with_ads
   type: INTEGER
+  description: Total search result pages containing ads that were viewed by clients in this group on the submission_date.
 - mode: NULLABLE
   name: uri_count
   type: INTEGER
+  description: Total URIs visited by clients in this group on the submission_date.
 - mode: NULLABLE
   name: active_hours
   type: FLOAT
+  description: Total active browsing hours for clients in this group on the submission_date.
 - mode: NULLABLE
   name: first_seen_year
   type: INTEGER
+  description: Year in which the client profile was first seen by Mozilla telemetry ingestion.
 - mode: NULLABLE
   name: attributed
   type: BOOLEAN
+  description: True if the client installation has associated attribution data; false if no known referral source.
 - mode: NULLABLE
   name: language_name
   type: STRING
-- description: Count of distinct, qualified Desktop clients that we received a main
-    ping from on a given day. In mobile DAU = QDAU.
+  description: Human-readable name of the browser UI language (e.g., 'English (US)'). Derived from the locale field.
+- description: Count of distinct, qualified Desktop clients that we received a main ping from on a given day. In mobile DAU = QDAU.
   mode: NULLABLE
   name: qdau_desktop
   type: INTEGER
