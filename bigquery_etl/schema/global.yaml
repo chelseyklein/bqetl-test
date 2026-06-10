@@ -231,3 +231,32 @@ fields:
   aliases:
   - updated_timestamp
   - updated_date
+- name: client_info.architecture
+  description: The architecture of the device on which the application is running (e.g. "arm", "x86").
+- name: client_info.attribution.campaign
+  description: The optional attribution campaign for this client, similar to or the same as the UTM campaign parameter.
+- name: client_info.attribution.content
+  description: The optional attribution content for this client, similar to or the same as the UTM content parameter.
+- name: client_info.attribution.medium
+  description: The optional attribution medium for this client, similar to or the same as the UTM medium parameter.
+- name: client_info.attribution.source
+  description: The optional attribution source for this client, similar to or the same as the UTM source parameter.
+- name: client_info.attribution.term
+  description: The optional attribution term for this client, similar to or the same as the UTM term parameter.
+- name: client_info.client_id
+  description: A unique identifier (UUID) for the client.
+- name: client_info.first_run_date
+  description: The date of the first run of the application on this client.
+- name: client_info.locale
+  description: The locale of the application during initialization (e.g. "es-ES"). Set to "und" when the locale cannot be determined.
+- name: client_info.os
+  description: The name of the operating system on the client device (e.g. "Windows", "Darwin", "Linux", "Android", "iOS").
+- name: client_info.os_version
+  description: The user-visible version of the operating system (e.g. "1.2.3"). Set to 'Unknown' when version detection fails.
+- name: client_info.telemetry_sdk_build
+  description: The version of the Glean SDK at the time the ping was collected (e.g. 25.0.0).
+- name: metadata.isp.name
+  description: The name of the internet service provider associated with the client's IP address.
+- name: normalized_country_code
+  description: Code of the country in which the activity took place, as determined by IP geolocation. Unknown or NULL values are normally stored as
+    '??'.
