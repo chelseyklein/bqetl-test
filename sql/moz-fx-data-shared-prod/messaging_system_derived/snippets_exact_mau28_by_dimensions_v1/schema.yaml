@@ -2,36 +2,36 @@ fields:
 - name: submission_date
   type: DATE
   mode: NULLABLE
-  description: ''
+  description: The date on which the data was submitted, used as the partition date for this table.
 - name: release_channel
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: The Firefox release channel (e.g. release, beta, nightly) from which the client is reporting.
 - name: country
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: The two-letter ISO 3166-1 alpha-2 country code derived from the client's IP address at submission time.
 - name: country_name
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: The full human-readable country name corresponding to the country code, joined from the static country codes reference table.
 - name: locale
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: The language and region locale string (e.g. en-US) reported by the Firefox client.
 - name: version
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: The Firefox application version string reported by the client.
 - name: mau
   type: INT64
   mode: NULLABLE
-  description: ''
+  description: Monthly Active Users; count of distinct clients seen within the last 28 days as of the submission date.
 - name: wau
   type: INT64
   mode: NULLABLE
-  description: ''
+  description: Weekly Active Users; count of distinct clients seen within the last 7 days as of the submission date.
 - name: dau
   type: INT64
   mode: NULLABLE
-  description: ''
+  description: Daily Active Users; count of distinct clients seen within the last 1 day (i.e. on the submission date itself).
