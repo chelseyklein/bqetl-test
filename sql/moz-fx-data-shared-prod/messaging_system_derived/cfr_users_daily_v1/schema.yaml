@@ -2,32 +2,47 @@ fields:
 - name: submission_date
   type: DATE
   mode: NULLABLE
-  description: ''
+  description: !include-field-description
+    file: /bigquery_etl/schema/messaging_system_derived.yaml
+    field: submission_date
 - name: impression_id
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: !include-field-description
+    file: /bigquery_etl/schema/messaging_system_derived.yaml
+    field: impression_id
 - name: client_id
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: !include-field-description
+    file: /bigquery_etl/schema/messaging_system_derived.yaml
+    field: client_id
 - name: seen_whats_new
   type: BOOLEAN
   mode: NULLABLE
-  description: ''
+  description: True if the user was shown at least one CFR impression whose bucket_id contained 'WHATS_NEW' on this submission date, indicating exposure
+    to the What's New panel messaging. False otherwise.
 - name: release_channel
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: !include-field-description
+    file: /bigquery_etl/schema/messaging_system_derived.yaml
+    field: release_channel
 - name: locale
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: !include-field-description
+    file: /bigquery_etl/schema/messaging_system_derived.yaml
+    field: locale
 - name: country
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: !include-field-description
+    file: /bigquery_etl/schema/messaging_system_derived.yaml
+    field: country
 - name: version
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: !include-field-description
+    file: /bigquery_etl/schema/messaging_system_derived.yaml
+    field: version
