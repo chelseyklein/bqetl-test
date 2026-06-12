@@ -9,6 +9,9 @@ fields:
 - name: days_seen_whats_new_bits
   type: INTEGER
   mode: NULLABLE
+  description: A 28-bit integer encoding the history of days on which the user was shown the 'What's New' panel, with the rightmost bit representing
+    the current submission date and each successive bit representing one day further in the past. Computed by combining the previous day's bit-shifted
+    value with the current day's boolean `seen_whats_new` cast to an integer.
 - name: impression_id
   type: STRING
   mode: NULLABLE
