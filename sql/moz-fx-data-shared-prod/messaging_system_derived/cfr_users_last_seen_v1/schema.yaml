@@ -6,12 +6,21 @@ fields:
 - name: days_seen_bits
   type: INTEGER
   mode: NULLABLE
+  description: !include-field-description
+    file: /bigquery_etl/schema/messaging_system_derived.yaml
+    field: days_seen_bits
 - name: days_seen_whats_new_bits
   type: INTEGER
   mode: NULLABLE
+  description: !include-field-description
+    file: /bigquery_etl/schema/messaging_system_derived.yaml
+    field: days_seen_whats_new_bits
 - name: impression_id
   type: STRING
   mode: NULLABLE
+  description: !include-field-description
+    file: /bigquery_etl/schema/messaging_system_derived.yaml
+    field: impression_id
 - name: client_id
   type: STRING
   mode: NULLABLE
@@ -19,9 +28,14 @@ fields:
 - name: seen_whats_new
   type: BOOLEAN
   mode: NULLABLE
+  description: Whether the user was shown the What's New panel on `submission_date`. True indicates the What's New panel was displayed; False indicates
+    it was not seen on that day.
 - name: release_channel
   type: STRING
   mode: NULLABLE
+  description: !include-field-description
+    file: /bigquery_etl/schema/messaging_system_derived.yaml
+    field: release_channel
 - name: locale
   type: STRING
   mode: NULLABLE
