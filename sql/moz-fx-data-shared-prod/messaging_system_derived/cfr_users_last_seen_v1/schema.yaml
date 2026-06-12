@@ -6,12 +6,20 @@ fields:
 - name: days_seen_bits
   type: INTEGER
   mode: NULLABLE
+  description: !include-field-description
+    file: /bigquery_etl/schema/messaging_system_derived.yaml
+    field: days_seen_bits
 - name: days_seen_whats_new_bits
   type: INTEGER
   mode: NULLABLE
+  description: !include-field-description
+    file: /bigquery_etl/schema/messaging_system_derived.yaml
+    field: days_seen_whats_new_bits
 - name: impression_id
   type: STRING
   mode: NULLABLE
+  description: A UUID identifying a specific CFR (Contextual Feature Recommendation) impression for users who have not provided a client_id. Exactly
+    one of impression_id or client_id is non-null for each row; the non-null value serves as the join key between daily and last-seen tables.
 - name: client_id
   type: STRING
   mode: NULLABLE
@@ -19,9 +27,13 @@ fields:
 - name: seen_whats_new
   type: BOOLEAN
   mode: NULLABLE
+  description: Indicates whether the user viewed the What's New page on the most recent active day. True when the user visited the page, false otherwise.
 - name: release_channel
   type: STRING
   mode: NULLABLE
+  description: !include-field-description
+    file: /bigquery_etl/schema/messaging_system_derived.yaml
+    field: release_channel
 - name: locale
   type: STRING
   mode: NULLABLE
