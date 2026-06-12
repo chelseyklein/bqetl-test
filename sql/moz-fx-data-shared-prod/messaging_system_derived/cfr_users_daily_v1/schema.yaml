@@ -2,32 +2,46 @@ fields:
 - name: submission_date
   type: DATE
   mode: NULLABLE
-  description: ''
+  description: !include-field-description
+    file: /bigquery_etl/schema/messaging_system_derived.yaml
+    field: submission_date
 - name: impression_id
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: A UUID that identifies the Firefox browser instance from the CFR ping, formatted with curly braces. Used together with client_id to uniquely
+    identify a user per day; null when the impression ID is absent from the source ping.
 - name: client_id
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: !include-field-description
+    file: /bigquery_etl/schema/messaging_system_derived.yaml
+    field: client_id
 - name: seen_whats_new
   type: BOOLEAN
   mode: NULLABLE
-  description: ''
+  description: Indicates whether the user encountered a What's New CFR recommendation at any point during the day. True when at least one CFR ping recorded
+    a bucket_id matching the pattern '%WHATS_NEW%'; false otherwise.
 - name: release_channel
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: !include-field-description
+    file: /bigquery_etl/schema/messaging_system_derived.yaml
+    field: release_channel
 - name: locale
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: !include-field-description
+    file: /bigquery_etl/schema/messaging_system_derived.yaml
+    field: locale
 - name: country
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: !include-field-description
+    file: /bigquery_etl/schema/messaging_system_derived.yaml
+    field: country
 - name: version
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: !include-field-description
+    file: /bigquery_etl/schema/messaging_system_derived.yaml
+    field: version
