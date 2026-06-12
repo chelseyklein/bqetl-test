@@ -2,36 +2,51 @@ fields:
 - name: submission_date
   type: DATE
   mode: NULLABLE
-  description: ''
+  description: !include-field-description
+    file: /bigquery_etl/schema/messaging_system_derived.yaml
+    field: submission_date
 - name: release_channel
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: !include-field-description
+    file: /bigquery_etl/schema/messaging_system_derived.yaml
+    field: release_channel
 - name: country
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: !include-field-description
+    file: /bigquery_etl/schema/messaging_system_derived.yaml
+    field: country
 - name: country_name
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: !include-field-description
+    file: /bigquery_etl/schema/messaging_system_derived.yaml
+    field: country_name
 - name: locale
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: !include-field-description
+    file: /bigquery_etl/schema/messaging_system_derived.yaml
+    field: locale
 - name: version
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: !include-field-description
+    file: /bigquery_etl/schema/messaging_system_derived.yaml
+    field: version
 - name: mau
   type: INT64
   mode: NULLABLE
-  description: ''
+  description: The count of distinct onboarding clients active within the past 28 days (Monthly Active Users) for this combination of dimensions on the
+    submission date.
 - name: wau
   type: INT64
   mode: NULLABLE
-  description: ''
+  description: The count of distinct onboarding clients active within the past 7 days (Weekly Active Users) for this combination of dimensions on the
+    submission date.
 - name: dau
   type: INT64
   mode: NULLABLE
-  description: ''
+  description: The count of distinct onboarding clients active within the past 1 day (Daily Active Users) for this combination of dimensions on the submission
+    date.
