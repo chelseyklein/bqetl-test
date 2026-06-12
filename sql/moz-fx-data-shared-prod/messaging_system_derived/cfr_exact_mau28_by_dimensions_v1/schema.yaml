@@ -38,12 +38,15 @@ fields:
 - name: whats_new_mau
   type: INT64
   mode: NULLABLE
-  description: ''
+  description: The number of distinct CFR clients who were active in the What's New panel within the last 28 days of the submission date. Computed as
+    a count of clients whose `days_since_seen_whats_new` is less than 28.
 - name: whats_new_wau
   type: INT64
   mode: NULLABLE
-  description: ''
+  description: The number of distinct CFR clients who were active in the What's New panel within the last 7 days of the submission date. Computed as
+    a count of clients whose `days_since_seen_whats_new` is less than 7.
 - name: whats_new_dau
   type: INT64
   mode: NULLABLE
-  description: ''
+  description: The number of distinct CFR clients who were active in the What's New panel within the last 1 day of the submission date. Computed as a
+    count of clients whose `days_since_seen_whats_new` is less than 1.
