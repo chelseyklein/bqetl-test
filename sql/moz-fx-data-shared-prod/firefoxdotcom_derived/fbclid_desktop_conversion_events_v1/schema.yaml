@@ -2,11 +2,15 @@ fields:
 - name: submission_date
   type: DATE
   mode: NULLABLE
-  description: Logical date processed, also used for partitioning (scheduled to run with 2 day lag).
+  description: !include-field-description
+    file: /bigquery_etl/schema/firefoxdotcom_derived.yaml
+    field: submission_date
 - name: activity_date
   type: DATE
   mode: NULLABLE
-  description: The date that the conversion action took place.
+  description: !include-field-description
+    file: /bigquery_etl/schema/firefoxdotcom_derived.yaml
+    field: activity_date
 - name: fbclid
   type: STRING
   mode: NULLABLE
@@ -18,7 +22,9 @@ fields:
 - name: ga_country
   type: STRING
   mode: NULLABLE
-  description: Country as reported by GA.
+  description: !include-field-description
+    file: /bigquery_etl/schema/firefoxdotcom_derived.yaml
+    field: ga_country
 - name: conversion_name
   type: STRING
   mode: NULLABLE
