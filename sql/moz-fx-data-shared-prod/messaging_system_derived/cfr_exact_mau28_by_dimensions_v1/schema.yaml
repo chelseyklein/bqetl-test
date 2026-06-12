@@ -38,12 +38,15 @@ fields:
 - name: whats_new_mau
   type: INT64
   mode: NULLABLE
-  description: ''
+  description: Count of clients who were active in the What's New CFR surface within the last 28 days (i.e., days_since_seen_whats_new < 28). This is
+    the monthly active user count scoped to interactions with What's New messages.
 - name: whats_new_wau
   type: INT64
   mode: NULLABLE
-  description: ''
+  description: Count of clients who were active in the What's New CFR surface within the last 7 days (i.e., days_since_seen_whats_new < 7). This is the
+    weekly active user count scoped to interactions with What's New messages.
 - name: whats_new_dau
   type: INT64
   mode: NULLABLE
-  description: ''
+  description: Count of clients who were active in the What's New CFR surface within the last day (i.e., days_since_seen_whats_new < 1). This is the
+    daily active user count scoped to interactions with What's New messages.
