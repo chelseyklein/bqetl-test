@@ -2,48 +2,69 @@ fields:
 - name: submission_date
   type: DATE
   mode: NULLABLE
-  description: ''
+  description: !include-field-description
+    file: /bigquery_etl/schema/messaging_system_derived.yaml
+    field: submission_date
 - name: release_channel
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: !include-field-description
+    file: /bigquery_etl/schema/messaging_system_derived.yaml
+    field: release_channel
 - name: country
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: !include-field-description
+    file: /bigquery_etl/schema/messaging_system_derived.yaml
+    field: country
 - name: country_name
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: !include-field-description
+    file: /bigquery_etl/schema/messaging_system_derived.yaml
+    field: country_name
 - name: locale
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: !include-field-description
+    file: /bigquery_etl/schema/messaging_system_derived.yaml
+    field: locale
 - name: version
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: !include-field-description
+    file: /bigquery_etl/schema/messaging_system_derived.yaml
+    field: version
 - name: mau
   type: INT64
   mode: NULLABLE
-  description: ''
+  description: !include-field-description
+    file: /bigquery_etl/schema/messaging_system_derived.yaml
+    field: mau
 - name: wau
   type: INT64
   mode: NULLABLE
-  description: ''
+  description: !include-field-description
+    file: /bigquery_etl/schema/messaging_system_derived.yaml
+    field: wau
 - name: dau
   type: INT64
   mode: NULLABLE
-  description: ''
+  description: !include-field-description
+    file: /bigquery_etl/schema/messaging_system_derived.yaml
+    field: dau
 - name: whats_new_mau
   type: INT64
   mode: NULLABLE
-  description: ''
+  description: The count of distinct CFR clients who engaged with the What's New panel within the 28 days ending on the submission_date, across the given
+    dimension combination.
 - name: whats_new_wau
   type: INT64
   mode: NULLABLE
-  description: ''
+  description: The count of distinct CFR clients who engaged with the What's New panel within the 7 days ending on the submission_date, across the given
+    dimension combination.
 - name: whats_new_dau
   type: INT64
   mode: NULLABLE
-  description: ''
+  description: The count of distinct CFR clients who engaged with the What's New panel on the submission_date itself (days_since_seen_whats_new < 1),
+    across the given dimension combination.
