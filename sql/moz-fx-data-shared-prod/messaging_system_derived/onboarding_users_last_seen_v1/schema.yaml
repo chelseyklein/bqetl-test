@@ -6,6 +6,8 @@ fields:
 - name: days_seen_bits
   type: INTEGER
   mode: NULLABLE
+  description: A 28-bit integer encoding the history of days on which the client was seen, with the rightmost bit representing the current submission
+    date. Each bit shift to the left represents one additional day in the past.
 - name: client_id
   type: STRING
   mode: NULLABLE
@@ -13,6 +15,7 @@ fields:
 - name: release_channel
   type: STRING
   mode: NULLABLE
+  description: The Firefox release channel the client is on (e.g. "release", "beta", "nightly", "esr").
 - name: locale
   type: STRING
   mode: NULLABLE
