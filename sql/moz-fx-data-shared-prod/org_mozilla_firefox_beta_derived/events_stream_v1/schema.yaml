@@ -2,7 +2,9 @@ fields:
 - name: additional_properties
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: !include-field-description
+    file: /bigquery_etl/schema/org_mozilla_firefox_beta_derived.yaml
+    field: additional_properties
 - name: client_info
   type: RECORD
   mode: NULLABLE
@@ -113,7 +115,9 @@ fields:
 - name: document_id
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: !include-field-description
+    file: /bigquery_etl/schema/org_mozilla_firefox_beta_derived.yaml
+    field: document_id
 - name: metadata
   type: RECORD
   mode: NULLABLE
@@ -239,23 +243,33 @@ fields:
 - name: normalized_app_name
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: !include-field-description
+    file: /bigquery_etl/schema/org_mozilla_firefox_beta_derived.yaml
+    field: normalized_app_name
 - name: normalized_channel
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: !include-field-description
+    file: /bigquery_etl/schema/org_mozilla_firefox_beta_derived.yaml
+    field: normalized_channel
 - name: normalized_country_code
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: !include-field-description
+    file: /bigquery_etl/schema/org_mozilla_firefox_beta_derived.yaml
+    field: normalized_country_code
 - name: normalized_os
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: !include-field-description
+    file: /bigquery_etl/schema/org_mozilla_firefox_beta_derived.yaml
+    field: normalized_os
 - name: normalized_os_version
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: !include-field-description
+    file: /bigquery_etl/schema/org_mozilla_firefox_beta_derived.yaml
+    field: normalized_os_version
 - name: ping_info
   type: RECORD
   mode: NULLABLE
@@ -288,76 +302,113 @@ fields:
 - name: sample_id
   type: INT64
   mode: NULLABLE
-  description: ''
+  description: !include-field-description
+    file: /bigquery_etl/schema/org_mozilla_firefox_beta_derived.yaml
+    field: sample_id
 - name: submission_timestamp
   type: TIMESTAMP
   mode: NULLABLE
-  description: ''
+  description: !include-field-description
+    file: /bigquery_etl/schema/org_mozilla_firefox_beta_derived.yaml
+    field: submission_timestamp
 - name: client_id
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: !include-field-description
+    file: /bigquery_etl/schema/org_mozilla_firefox_beta_derived.yaml
+    field: client_id
 - name: reason
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: !include-field-description
+    file: /bigquery_etl/schema/org_mozilla_firefox_beta_derived.yaml
+    field: reason
 - name: experiments
   type: JSON
   mode: NULLABLE
-  description: ''
+  description: !include-field-description
+    file: /bigquery_etl/schema/org_mozilla_firefox_beta_derived.yaml
+    field: experiments
 - name: event_timestamp
   type: TIMESTAMP
   mode: NULLABLE
-  description: ''
+  description: !include-field-description
+    file: /bigquery_etl/schema/org_mozilla_firefox_beta_derived.yaml
+    field: event_timestamp
 - name: event_category
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: !include-field-description
+    file: /bigquery_etl/schema/org_mozilla_firefox_beta_derived.yaml
+    field: event_category
 - name: event_name
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: !include-field-description
+    file: /bigquery_etl/schema/org_mozilla_firefox_beta_derived.yaml
+    field: event_name
 - name: event
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: !include-field-description
+    file: /bigquery_etl/schema/org_mozilla_firefox_beta_derived.yaml
+    field: event
 - name: event_extra
   type: JSON
   mode: NULLABLE
-  description: ''
+  description: !include-field-description
+    file: /bigquery_etl/schema/org_mozilla_firefox_beta_derived.yaml
+    field: event_extra
 - name: metrics
   type: JSON
   mode: NULLABLE
-  description: ''
+  description: !include-field-description
+    file: /bigquery_etl/schema/org_mozilla_firefox_beta_derived.yaml
+    field: metrics
 - name: profile_group_id
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: !include-field-description
+    file: /bigquery_etl/schema/org_mozilla_firefox_beta_derived.yaml
+    field: profile_group_id
 - name: legacy_telemetry_client_id
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: !include-field-description
+    file: /bigquery_etl/schema/org_mozilla_firefox_beta_derived.yaml
+    field: legacy_telemetry_client_id
 - name: app_version_major
   type: NUMERIC
   mode: NULLABLE
-  description: ''
+  description: !include-field-description
+    file: /bigquery_etl/schema/org_mozilla_firefox_beta_derived.yaml
+    field: app_version_major
 - name: app_version_minor
   type: NUMERIC
   mode: NULLABLE
-  description: ''
+  description: !include-field-description
+    file: /bigquery_etl/schema/org_mozilla_firefox_beta_derived.yaml
+    field: app_version_minor
 - name: app_version_patch
   type: NUMERIC
   mode: NULLABLE
-  description: ''
+  description: !include-field-description
+    file: /bigquery_etl/schema/org_mozilla_firefox_beta_derived.yaml
+    field: app_version_patch
 - name: is_bot_generated
   type: BOOLEAN
   mode: NULLABLE
-  description: ''
+  description: !include-field-description
+    file: /bigquery_etl/schema/org_mozilla_firefox_beta_derived.yaml
+    field: is_bot_generated
 - name: document_event_number
   type: INT64
   mode: NULLABLE
-  description: ''
+  description: !include-field-description
+    file: /bigquery_etl/schema/org_mozilla_firefox_beta_derived.yaml
+    field: document_event_number
 - name: event_id
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: Unique identifier for this individual event row, formed by combining the document_id and the event's position number within the ping (e.g.
+    "<uuid>-3").
