@@ -2,36 +2,54 @@ fields:
 - name: submission_date
   type: DATE
   mode: NULLABLE
-  description: The date on which the data was submitted, used as the partition date for this table.
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/messaging_system_derived/messaging_system_derived.yaml
+    field: submission_date
 - name: release_channel
   type: STRING
   mode: NULLABLE
-  description: The Firefox release channel (e.g. release, beta, nightly) from which the client is reporting.
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/messaging_system_derived/messaging_system_derived.yaml
+    field: release_channel
 - name: country
   type: STRING
   mode: NULLABLE
-  description: The two-letter ISO 3166-1 alpha-2 country code derived from the client's IP address at submission time.
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/messaging_system_derived/messaging_system_derived.yaml
+    field: country
 - name: country_name
   type: STRING
   mode: NULLABLE
-  description: The full human-readable country name corresponding to the country code, joined from the static country codes reference table.
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/messaging_system_derived/messaging_system_derived.yaml
+    field: country_name
 - name: locale
   type: STRING
   mode: NULLABLE
-  description: The language and region locale string (e.g. en-US) reported by the Firefox client.
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/messaging_system_derived/messaging_system_derived.yaml
+    field: locale
 - name: version
   type: STRING
   mode: NULLABLE
-  description: The Firefox application version string reported by the client.
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/messaging_system_derived/messaging_system_derived.yaml
+    field: version
 - name: mau
   type: INT64
   mode: NULLABLE
-  description: Monthly Active Users; count of distinct clients seen within the last 28 days as of the submission date.
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/messaging_system_derived/messaging_system_derived.yaml
+    field: mau
 - name: wau
   type: INT64
   mode: NULLABLE
-  description: Weekly Active Users; count of distinct clients seen within the last 7 days as of the submission date.
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/messaging_system_derived/messaging_system_derived.yaml
+    field: wau
 - name: dau
   type: INT64
   mode: NULLABLE
-  description: Daily Active Users; count of distinct clients seen within the last 1 day (i.e. on the submission date itself).
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/messaging_system_derived/messaging_system_derived.yaml
+    field: dau
