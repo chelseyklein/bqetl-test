@@ -38,12 +38,15 @@ fields:
 - name: whats_new_mau
   type: INT64
   mode: NULLABLE
-  description: ''
+  description: Number of distinct clients (by client_id or impression_id) who were seen in the CFR What's New panel within the last 28 days relative
+    to the submission date. This is the Monthly Active Users count scoped to What's New panel activity.
 - name: whats_new_wau
   type: INT64
   mode: NULLABLE
-  description: ''
+  description: Number of distinct clients (by client_id or impression_id) who were seen in the CFR What's New panel within the last 7 days relative to
+    the submission date. This is the Weekly Active Users count scoped to What's New panel activity.
 - name: whats_new_dau
   type: INT64
   mode: NULLABLE
-  description: ''
+  description: Number of distinct clients (by client_id or impression_id) who were seen in the CFR What's New panel within the last 1 day relative to
+    the submission date. This is the Daily Active Users count scoped to What's New panel activity.
