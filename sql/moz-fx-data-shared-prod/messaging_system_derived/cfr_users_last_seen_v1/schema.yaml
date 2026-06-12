@@ -6,12 +6,18 @@ fields:
 - name: days_seen_bits
   type: INTEGER
   mode: NULLABLE
+  description: A 28-bit integer representing the days on which the user was seen sending CFR pings over the past 28 days. Each bit corresponds to one
+    day, with the rightmost bit representing the most recent day; a set bit indicates the user was active on that day.
 - name: days_seen_whats_new_bits
   type: INTEGER
   mode: NULLABLE
+  description: A 28-bit integer tracking the days on which the user viewed the What's New page over the past 28 days. Each bit corresponds to one day,
+    with the rightmost bit representing the most recent day; a set bit indicates the user saw the What's New page on that day.
 - name: impression_id
   type: STRING
   mode: NULLABLE
+  description: A UUID identifying a user who has not yet provided a client_id (e.g. in a pre-onboarding or private-browsing context). Exactly one of
+    impression_id or client_id is populated per row; the other will be null.
 - name: client_id
   type: STRING
   mode: NULLABLE
@@ -19,9 +25,12 @@ fields:
 - name: seen_whats_new
   type: BOOLEAN
   mode: NULLABLE
+  description: True if the user viewed the What's New page on the most recent day they were seen; false otherwise.
 - name: release_channel
   type: STRING
   mode: NULLABLE
+  description: The Firefox release channel on which the client is running, such as 'release', 'beta', 'nightly', or 'esr'. May contain unexpected values
+    where users have manually overridden the channel preference.
 - name: locale
   type: STRING
   mode: NULLABLE
