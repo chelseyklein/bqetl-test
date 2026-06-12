@@ -2,7 +2,9 @@ fields:
 - name: submission_date
   type: DATE
   mode: NULLABLE
-  description: Logical date processed, also used for partitioning.
+  description: !include-field-description
+    file: /bigquery_etl/schema/firefoxdotcom_derived.yaml
+    field: submission_date
 - name: activity_unix_timestamp
   type: INT64
   mode: NULLABLE
