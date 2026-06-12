@@ -38,12 +38,15 @@ fields:
 - name: whats_new_mau
   type: INT64
   mode: NULLABLE
-  description: ''
+  description: Number of distinct clients who were active in the CFR What's New panel within the last 28 days (i.e., days_since_seen_whats_new < 28)
+    for this combination of dimensions. Represents the monthly active user count specific to What's New panel interactions.
 - name: whats_new_wau
   type: INT64
   mode: NULLABLE
-  description: ''
+  description: Number of distinct clients who were active in the CFR What's New panel within the last 7 days (i.e., days_since_seen_whats_new < 7) for
+    this combination of dimensions. Represents the weekly active user count specific to What's New panel interactions.
 - name: whats_new_dau
   type: INT64
   mode: NULLABLE
-  description: ''
+  description: Number of distinct clients who were active in the CFR What's New panel within the last 1 day (i.e., days_since_seen_whats_new < 1) for
+    this combination of dimensions. Represents the daily active user count specific to What's New panel interactions.
