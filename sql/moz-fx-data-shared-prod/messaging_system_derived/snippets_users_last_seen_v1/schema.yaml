@@ -6,6 +6,10 @@ fields:
 - name: days_seen_bits
   type: INTEGER
   mode: NULLABLE
+  description: A 28-bit integer encoding the client's daily activity history over the past 28 days. The rightmost (least significant) bit represents
+    whether the client was active on the current submission date, with each successive bit representing one day further in the past. This field is computed
+    by combining the previous day's shifted bit pattern with the current day's activity using `combine_adjacent_days_28_bits` and `shift_28_bits_one_day`
+    UDFs.
 - name: client_id
   type: STRING
   mode: NULLABLE
@@ -13,6 +17,8 @@ fields:
 - name: release_channel
   type: STRING
   mode: NULLABLE
+  description: The Firefox release channel from which the client submitted the snippets ping (e.g. "release", "beta", "nightly"). Inherited from the
+    upstream `snippets_users_daily_v1` table and carried forward in the last-seen rollup.
 - name: locale
   type: STRING
   mode: NULLABLE
