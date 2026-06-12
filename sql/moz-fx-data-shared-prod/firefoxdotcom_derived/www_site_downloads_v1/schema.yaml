@@ -2,92 +2,138 @@ fields:
 - name: submission_date
   type: DATE
   mode: NULLABLE
-  description: Submission Date
+  description: !include-field-description
+    file: /bigquery_etl/schema/firefoxdotcom_derived.yaml
+    field: submission_date
 - name: visit_identifier
   type: STRING
   mode: NULLABLE
-  description: Visit Identifier
+  description: !include-field-description
+    file: /bigquery_etl/schema/firefoxdotcom_derived.yaml
+    field: visit_identifier
 - name: device_category
   type: STRING
   mode: NULLABLE
-  description: Device Category
+  description: !include-field-description
+    file: /bigquery_etl/schema/firefoxdotcom_derived.yaml
+    field: device_category
 - name: operating_system
   type: STRING
   mode: NULLABLE
-  description: Operating System
+  description: !include-field-description
+    file: /bigquery_etl/schema/firefoxdotcom_derived.yaml
+    field: operating_system
 - name: language
   type: STRING
   mode: NULLABLE
-  description: Language
+  description: !include-field-description
+    file: /bigquery_etl/schema/firefoxdotcom_derived.yaml
+    field: language
 - name: country
   type: STRING
   mode: NULLABLE
-  description: Country
+  description: !include-field-description
+    file: /bigquery_etl/schema/firefoxdotcom_derived.yaml
+    field: country
 - name: traffic_source_name
   type: STRING
   mode: NULLABLE
-  description: Traffic Source Name
+  description: !include-field-description
+    file: /bigquery_etl/schema/firefoxdotcom_derived.yaml
+    field: traffic_source_name
 - name: traffic_source_medium
   type: STRING
   mode: NULLABLE
-  description: Traffic Source Medium
+  description: !include-field-description
+    file: /bigquery_etl/schema/firefoxdotcom_derived.yaml
+    field: traffic_source_medium
 - name: traffic_source_source
   type: STRING
   mode: NULLABLE
-  description: Traffic Source Source
+  description: !include-field-description
+    file: /bigquery_etl/schema/firefoxdotcom_derived.yaml
+    field: traffic_source_source
 - name: manual_campaign_id
   type: STRING
   mode: NULLABLE
-  description: Manual Campaign ID
+  description: !include-field-description
+    file: /bigquery_etl/schema/firefoxdotcom_derived.yaml
+    field: manual_campaign_id
 - name: manual_term
   type: STRING
   mode: NULLABLE
-  description: Manual Term
+  description: !include-field-description
+    file: /bigquery_etl/schema/firefoxdotcom_derived.yaml
+    field: manual_term
 - name: source
   type: STRING
   mode: NULLABLE
-  description: Source
+  description: !include-field-description
+    file: /bigquery_etl/schema/firefoxdotcom_derived.yaml
+    field: source
 - name: medium
   type: STRING
   mode: NULLABLE
-  description: Medium
+  description: !include-field-description
+    file: /bigquery_etl/schema/firefoxdotcom_derived.yaml
+    field: medium
 - name: campaign
   type: STRING
   mode: NULLABLE
-  description: Campaign
+  description: !include-field-description
+    file: /bigquery_etl/schema/firefoxdotcom_derived.yaml
+    field: campaign
 - name: ad_content
   type: STRING
   mode: NULLABLE
-  description: Ad Content
+  description: !include-field-description
+    file: /bigquery_etl/schema/firefoxdotcom_derived.yaml
+    field: ad_content
 - name: browser
   type: STRING
   mode: NULLABLE
-  description: Browser
+  description: !include-field-description
+    file: /bigquery_etl/schema/firefoxdotcom_derived.yaml
+    field: browser
 - name: campaign_from_event_params
   type: STRING
   mode: NULLABLE
-  description: Campaign from Event Parameters
+  description: !include-field-description
+    file: /bigquery_etl/schema/firefoxdotcom_derived.yaml
+    field: campaign_from_event_params
 - name: first_campaign_from_event_params_in_session
   type: STRING
   mode: NULLABLE
-  description: First Campaign from Event Parameters in Session
+  description: !include-field-description
+    file: /bigquery_etl/schema/firefoxdotcom_derived.yaml
+    field: first_campaign_from_event_params_in_session
 - name: source_from_event_params
   type: STRING
   mode: NULLABLE
-  description: Source from Event Parameters
+  description: !include-field-description
+    file: /bigquery_etl/schema/firefoxdotcom_derived.yaml
+    field: source_from_event_params
 - name: first_source_from_event_params_in_session
   type: STRING
   mode: NULLABLE
-  description: First Source from Event Parameters in Session
+  description: !include-field-description
+    file: /bigquery_etl/schema/firefoxdotcom_derived.yaml
+    field: first_source_from_event_params_in_session
 - name: download_events
   type: INTEGER
   mode: NULLABLE
-  description: Download Events
+  description: !include-field-description
+    file: /bigquery_etl/schema/firefoxdotcom_derived.yaml
+    field: download_events
 - name: downloads
   type: INTEGER
   mode: NULLABLE
-  description: Number of Downloads
+  description: !include-field-description
+    file: /bigquery_etl/schema/firefoxdotcom_derived.yaml
+    field: downloads
 - name: non_fx_downloads
   type: INTEGER
   mode: NULLABLE
-  description: Number of Downloads from a Non-Firefox Browser
+  description: !include-field-description
+    file: /bigquery_etl/schema/firefoxdotcom_derived.yaml
+    field: non_fx_downloads
