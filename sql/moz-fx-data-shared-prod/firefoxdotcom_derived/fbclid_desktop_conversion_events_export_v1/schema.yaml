@@ -1,0 +1,21 @@
+fields:
+- name: submission_date
+  type: DATE
+  mode: NULLABLE
+  description: Logical date processed, also used for partitioning.
+- name: activity_unix_timestamp
+  type: INT64
+  mode: NULLABLE
+  description: activity_date in UNIX seconds.
+- name: fbc
+  type: STRING
+  mode: NULLABLE
+  description: 'Formatted fbc (expected format: fb.subdomain_index.creation_time.fbclid).'
+- name: conversion_name
+  type: STRING
+  mode: NULLABLE
+  description: Conversion name.
+- name: run_timestamp
+  type: TIMESTAMP
+  mode: NULLABLE
+  description: Timestamp when the job run.
