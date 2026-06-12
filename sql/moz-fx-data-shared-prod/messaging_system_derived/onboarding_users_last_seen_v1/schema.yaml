@@ -6,6 +6,9 @@ fields:
 - name: days_seen_bits
   type: INTEGER
   mode: NULLABLE
+  description: !include-field-description
+    file: /bigquery_etl/schema/messaging_system_derived.yaml
+    field: days_seen_bits
 - name: client_id
   type: STRING
   mode: NULLABLE
@@ -13,6 +16,9 @@ fields:
 - name: release_channel
   type: STRING
   mode: NULLABLE
+  description: !include-field-description
+    file: /bigquery_etl/schema/messaging_system_derived.yaml
+    field: release_channel
 - name: locale
   type: STRING
   mode: NULLABLE
