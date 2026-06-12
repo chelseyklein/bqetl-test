@@ -1,0 +1,25 @@
+fields:
+- name: submission_date
+  type: DATE
+  mode: NULLABLE
+  description: Logical date processed, also used for partitioning (scheduled to run with 2 day lag).
+- name: activity_date
+  type: DATE
+  mode: NULLABLE
+  description: The date that the conversion action took place.
+- name: fbclid
+  type: STRING
+  mode: NULLABLE
+  description: A Facebook Click ID, which uniquely represent an ad impression for Google ads.
+- name: ga_event_timestamp
+  type: INT64
+  mode: NULLABLE
+  description: Earliest timestamp associated with the fbclid, might prove to be critical when formatting fbclid before sending to Conversions API.
+- name: ga_country
+  type: STRING
+  mode: NULLABLE
+  description: Country as reported by GA.
+- name: conversion_name
+  type: STRING
+  mode: NULLABLE
+  description: Conversion name.
