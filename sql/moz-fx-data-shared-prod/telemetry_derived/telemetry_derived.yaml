@@ -1330,3 +1330,139 @@ fields:
 - name: moz_crash_reason
   description: A string describing the reason for a Firefox crash as recorded by the MOZ_CRASH macro or equivalent crash reporting mechanism (e.g.,
     'MOZ_CRASH(OOM)', 'Shutdown hanging at step XPCOMShutdownThreads'). Null when no specific crash reason was captured.
+- name: multiplicative_terms
+  description: The multiplicative component of a time-series decomposition model applied to telemetry data. A value of 0.0 indicates no multiplicative
+    adjustment is present.
+- name: multiplicative_terms_lower
+  description: The lower bound of the confidence interval for the multiplicative component of a time-series decomposition model. A value of 0.0 indicates
+    no lower-bound adjustment is present.
+- name: multiplicative_terms_upper
+  description: The upper bound of the confidence interval for the multiplicative component of a time-series decomposition model. A value of 0.0 indicates
+    no upper-bound adjustment is present.
+- name: n_created_pictureinpicture
+  description: The number of Picture-in-Picture windows created during a session or observation period. A null value indicates the metric was not recorded
+    for that row.
+- name: n_logged_event
+  description: The total number of events logged during a session or observation period. Higher values indicate more event activity within the period.
+- name: n_viewed_protection_report
+  description: The number of times the Firefox protection report page was viewed during a session or observation period. Zero indicates the report
+    was not viewed.
+- name: name
+  description: The display name associated with an entity such as a browser extension or add-on. This value is user-facing and may be null or contain
+    localization placeholder strings.
+- name: nbr_clients_uninstalling
+  description: The number of client instances recorded as uninstalling Firefox or a related component during the observation period.
+- name: nbr_cpu_cores
+  description: The number of logical CPU cores available on the client device. A null value indicates the hardware information could not be determined.
+- name: nbr_events
+  description: The total count of telemetry events recorded for a given row or aggregation group. A value of 1 is the most common, indicating single-event
+    records.
+- name: nbr_unique_clients_uninstalling
+  description: The count of distinct client identifiers recorded as uninstalling Firefox or a related component during the observation period.
+- name: nbr_unique_users
+  description: The count of distinct user identifiers observed within the aggregation group or time period represented by the row.
+- name: new_profile_metric_date
+  description: A boolean flag indicating whether the date associated with the row is the metric date on which a new Firefox profile was first observed.
+    True means the date is a new-profile metric date; false means it is not.
+- name: new_profile_rate
+  description: The rate at which new Firefox profiles were created relative to a reference population or time period.
+- name: new_profile_ratio
+  description: The proportion of new Firefox profiles relative to the total number of profiles in the aggregation group. A value of 0.0 indicates no
+    new profiles were observed.
+- name: new_profiles
+  description: The count of newly created Firefox profiles observed during the aggregation period. A value of 0 indicates no new profiles were created.
+- name: new_profiles_metric_date
+  description: A numeric representation of the metric date on which new Firefox profiles are counted, used for time-based aggregations and reporting.
+- name: newtab_homepage_category
+  description: A categorical classification of the browser homepage setting at the time of a new-tab event, such as 'enabled' (default Firefox homepage),
+    'disabled', 'search-engine', 'extension', or 'other'. Null values indicate the setting could not be determined.
+- name: newtab_newtab_category
+  description: A categorical classification of the new-tab page setting, such as 'enabled' (default Firefox new-tab), 'disabled', 'extension', or 'other'.
+    Null values indicate the setting could not be determined.
+- name: newtab_open_source
+  description: The URL source from which the new-tab page was opened, such as 'about:newtab', 'about:home', or 'about:welcome'. Null or 'other' values
+    indicate the source was unrecognized or unavailable.
+- name: newtab_search_enabled
+  description: A boolean flag indicating whether the search bar is enabled on the Firefox new-tab page. True means search is enabled; false means it
+    is disabled.
+- name: newtab_visit_count
+  description: The number of new-tab page visits recorded for a client within the aggregation period.
+- name: newtab_visit_ended_at
+  description: The timestamp (in milliseconds or a relative unit) at which a new-tab page visit ended. A value of 0 indicates the visit end was not
+    recorded or the tab was not closed normally.
+- name: newtab_visit_id
+  description: A unique identifier (UUID) for a single new-tab page visit session. This ID links events and interactions that occur within the same
+    new-tab visit.
+- name: newtab_visit_started_at
+  description: The timestamp (in milliseconds or a relative unit) at which a new-tab page visit began. A value of 0 is the most common and may indicate
+    the start time was not captured or the tab opened at session start.
+- name: newtab_weather_widget_enabled
+  description: A boolean flag indicating whether the weather widget is enabled on the Firefox new-tab page. True means the widget is enabled; false
+    means it is disabled. Null indicates the feature state could not be determined.
+- name: non_norm_aggregates
+  description: An array of key-value pairs representing non-normalized aggregated histogram or metric data for a client or cohort. Each entry holds
+    a bucket key and its corresponding aggregate value.
+- name: non_norm_aggregates.key
+  description: The bucket identifier or dimension key within the non-normalized aggregates array, representing a histogram bucket index or categorical
+    dimension label.
+- name: non_norm_aggregates.value
+  description: The numeric aggregate value associated with a specific bucket or dimension key in the non-normalized aggregates array. A value of 0.0
+    is the most common, indicating no observations in that bucket.
+- name: non_norm_histogram
+  description: A JSON-encoded string representing a non-normalized histogram of metric observations, where keys are bucket labels and values are counts.
+    This preserves the raw bucket distribution before normalization.
+- name: normalized_app_name
+  description: A standardized human-readable name for the Mozilla application that submitted telemetry, such as 'Firefox Desktop', 'Fenix', or 'Firefox
+    iOS'. This normalizes across variant builds and platforms.
+- name: normalized_channel
+  description: The standardized release channel of the Firefox application, such as 'release', 'beta', 'nightly', 'esr', or 'aurora'. 'Other' indicates
+    an unrecognized or custom channel.
+- name: normalized_country_code
+  description: The ISO 3166-1 alpha-2 country code representing the client's inferred geographic location, derived from IP address or other signals.
+- name: normalized_os
+  description: The standardized operating system name for the client device, such as 'Windows', 'Mac', or 'Linux'.
+- name: normalized_os_version
+  description: The standardized version string of the client's operating system, formatted for consistency across platforms (e.g., '10.0' for Windows
+    10 or '6.8.0' for a Linux kernel version).
+- name: num_buckets
+  description: The total number of buckets defined in the histogram used to aggregate a telemetry metric. Common values such as 50, 100, or 1000 correspond
+    to standard Firefox histogram configurations.
+- name: num_clients_active_on_day
+  description: The count of distinct clients that were active on a given day within the aggregation group. A value of 0 indicates no clients were active
+    on that day.
+- name: num_clients_in_cohort
+  description: The count of distinct clients belonging to a particular cohort or segmentation group during the observation period.
+- name: numeric_index
+  description: A sequential integer index assigned to a row or record within its aggregation context, used to establish ordering or uniquely identify
+    a position in a series.
+- name: oom_allocation_size
+  description: The size in bytes of the memory allocation that triggered an out-of-memory (OOM) crash or event. Null values, which are prevalent, indicate
+    OOM size information was not available or the crash was not OOM-related.
+- name: organic_pocket_clicks
+  description: The number of clicks on organic (non-sponsored) Pocket content recommendations displayed on the Firefox new-tab page during the observation
+    period.
+- name: organic_pocket_dismissals
+  description: The number of times a user dismissed organic (non-sponsored) Pocket content recommendations on the Firefox new-tab page during the observation
+    period.
+- name: organic_pocket_impressions
+  description: The number of times organic (non-sponsored) Pocket content recommendations were displayed (impressed) on the Firefox new-tab page during
+    the observation period.
+- name: organic_pocket_saves
+  description: The number of times a user saved an organic (non-sponsored) Pocket content recommendation to their Pocket account from the Firefox new-tab
+    page during the observation period.
+- name: organic_search_count
+  description: The number of organic (non-paid, non-tagged) searches performed by the client during the observation period. Null values indicate search
+    data was not available or the client had no recorded search activity.
+- name: organic_topsite_clicks
+  description: The number of clicks on organic (non-sponsored) top site tiles displayed on the Firefox new-tab page during the observation period.
+- name: organic_topsite_dismissals
+  description: The number of times a user dismissed organic (non-sponsored) top site tiles on the Firefox new-tab page during the observation period.
+- name: organic_topsite_impressions
+  description: The number of times organic (non-sponsored) top site tiles were displayed (impressed) on the Firefox new-tab page during the observation
+    period.
+- name: organic_topsite_tile_clicks
+  description: The number of clicks specifically on organic (non-sponsored) top site tile elements on the Firefox new-tab page, potentially distinguished
+    from broader topsite click metrics by tile-level granularity.
+- name: organic_topsite_tile_dismissals
+  description: The number of times a user dismissed organic (non-sponsored) top site tile elements on the Firefox new-tab page, tracked at tile-level
+    granularity during the observation period.
