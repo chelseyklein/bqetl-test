@@ -442,3 +442,150 @@ fields:
 - name: cpu_cores
   description: The number of logical CPU cores available on the client's device. Used to segment clients by hardware capability, with common values
     including 2, 4, 6, and 8 cores.
+- name: cpu_count
+  description: The number of logical CPU cores available on the client device. Higher values indicate multi-core or hyper-threaded processors.
+- name: cpu_family
+  description: The processor family identifier as reported by the CPU's CPUID instruction. This is a numeric code used to classify the CPU microarchitecture
+    generation.
+- name: cpu_l2_cache_kb
+  description: The size of the CPU's L2 cache in kilobytes as reported by the client device. A value of 0 may indicate the cache size could not be
+    determined.
+- name: cpu_l3_cache_kb
+  description: The size of the CPU's L3 cache in kilobytes as reported by the client device. Null or zero values may indicate no L3 cache is present
+    or the size could not be determined.
+- name: cpu_model
+  description: The processor model identifier as reported by the CPU's CPUID instruction. This numeric code distinguishes specific CPU models within
+    a processor family.
+- name: cpu_speed
+  description: The CPU speed as a string value reported by the client device. This field captures the clock speed in a human-readable format.
+- name: cpu_speed_mhz
+  description: The CPU clock speed in megahertz as reported by the client device. A value of 0 may indicate the speed could not be determined.
+- name: cpu_stepping
+  description: The processor stepping identifier as reported by the CPU's CPUID instruction. This numeric code represents a specific revision or manufacturing
+    iteration of a CPU model.
+- name: cpu_vendor
+  description: The CPU manufacturer's vendor string as reported by the CPUID instruction, such as 'GenuineIntel' or 'AuthenticAMD'. An empty or null
+    value indicates the vendor could not be determined.
+- name: crash_submit_attempt_content_sum
+  description: The total number of crash report submission attempts for content process crashes during the reporting period. Null indicates no content
+    process crash submission attempts were recorded.
+- name: crash_submit_attempt_main_sum
+  description: The total number of crash report submission attempts for main process crashes during the reporting period. Null indicates no main process
+    crash submission attempts were recorded.
+- name: crash_submit_attempt_plugin_sum
+  description: The total number of crash report submission attempts for plugin process crashes during the reporting period. Null indicates no plugin
+    process crash submission attempts were recorded.
+- name: crash_submit_success_content_sum
+  description: The total number of successfully submitted crash reports for content process crashes during the reporting period. A value of 0 means
+    submissions were attempted but none succeeded; null means no submissions were attempted.
+- name: crash_submit_success_main_sum
+  description: The total number of successfully submitted crash reports for main process crashes during the reporting period. A value of 0 means submissions
+    were attempted but none succeeded; null means no submissions were attempted.
+- name: crash_submit_success_plugin_sum
+  description: The total number of successfully submitted crash reports for plugin process crashes during the reporting period. Null indicates no plugin
+    process crash submissions were recorded.
+- name: crash_time
+  description: The timestamp at which a crash occurred, represented as a string. This field captures the date and time of the crash event as reported
+    by the client.
+- name: crashes_detected_content_sum
+  description: The total number of content process crashes detected during the reporting period. Null indicates no content process crashes were detected
+    or the value was not reported.
+- name: crashes_detected_gmplugin_sum
+  description: The total number of Gecko Media Plugin (GMP) process crashes detected during the reporting period. Null indicates no GMP crashes were
+    detected or the value was not reported.
+- name: crashes_detected_plugin_sum
+  description: The total number of plugin process crashes detected during the reporting period. Null indicates no plugin crashes were detected or the
+    value was not reported.
+- name: crashing_users
+  description: The number or proportion of users who experienced at least one crash during the reporting period. Higher values indicate more users
+    were affected by crashes.
+- name: cumulative_new_profiles
+  description: The running total count of newly created browser profiles up to and including the reporting date. A value of 0 indicates no new profiles
+    had been created cumulatively to that point.
+- name: daily_users
+  description: The count of unique users active on a given day within the reporting period. A value of 0 indicates no active users were recorded for
+    that day.
+- name: date
+  description: The calendar date associated with the record, formatted as a YYYY-MM-DD string. This field identifies the specific day or reporting
+    period the row represents.
+- name: date_from
+  description: The inclusive start date of the reporting or aggregation window. This field defines the earliest date boundary for the data represented
+    in the record.
+- name: date_to
+  description: The inclusive end date of the reporting or aggregation window. This field defines the latest date boundary for the data represented
+    in the record.
+- name: dau
+  description: The Daily Active Users count representing the number of unique users who were active on a given day. A value of 0 indicates no active
+    users were recorded for that day.
+- name: days_active_bits
+  description: A bitmask representing the days within a 28-day lookback window on which the client was active. Each bit corresponds to one day, with
+    the most significant bit representing the most recent day.
+- name: days_created_profile_bits
+  description: A bitmask representing the days within a 28-day lookback window on which a new browser profile was created. Each bit corresponds to
+    one day, with the most significant bit representing the most recent day.
+- name: days_had_8_active_ticks_bits
+  description: A bitmask representing the days within a 28-day lookback window on which the client recorded at least 8 active ticks, indicating meaningful
+    engagement. Each bit corresponds to one day, with the most significant bit representing the most recent day.
+- name: days_interacted_bits
+  description: A bitmask representing the days within a 28-day lookback window on which the user had at least one recorded interaction with the browser.
+    Each bit corresponds to one day, with the most significant bit representing the most recent day.
+- name: days_logged_event_bits
+  description: A bitmask representing the days within a 28-day lookback window on which the client logged at least one telemetry event. Each bit corresponds
+    to one day, with the most significant bit representing the most recent day.
+- name: days_opened_dev_tools_bits
+  description: A bitmask representing the days within a 28-day lookback window on which the user opened browser developer tools. Each bit corresponds
+    to one day, with the most significant bit representing the most recent day.
+- name: days_seen_bits
+  description: A bitmask representing the days within a 28-day lookback window on which the client submitted any telemetry and was therefore 'seen'.
+    Each bit corresponds to one day, with the most significant bit representing the most recent day.
+- name: days_seen_in_experiment
+  description: An array of structs recording the days a client was observed participating in each experiment and branch, encoded as a bitmask. Each
+    entry contains the experiment identifier, branch name, and a bitmask of days seen within the lookback window.
+- name: days_since_first_seen
+  description: The number of days elapsed between the date the client was first seen submitting telemetry and the current reporting date. A value of
+    0 indicates the client was first seen on the reporting date itself.
+- name: days_since_seen
+  description: The number of days elapsed since the client was last seen submitting telemetry, relative to the reporting date. A value of 0 indicates
+    the client was seen on the reporting date itself.
+- name: days_used_pictureinpicture_bits
+  description: A bitmask representing the days within a 28-day lookback window on which the user used the Picture-in-Picture video feature. Each bit
+    corresponds to one day, with the most significant bit representing the most recent day.
+- name: days_viewed_protection_report_bits
+  description: A bitmask representing the days within a 28-day lookback window on which the user viewed the Privacy Protections report. Each bit corresponds
+    to one day, with the most significant bit representing the most recent day.
+- name: days_visited_10_uri_bits
+  description: A bitmask representing the days within a 28-day lookback window on which the client visited at least 10 distinct URIs, indicating high
+    browsing activity. Each bit corresponds to one day, with the most significant bit representing the most recent day.
+- name: days_visited_1_uri_bits
+  description: A bitmask representing the days within a 28-day lookback window on which the client visited at least 1 URI in any browsing mode. Each
+    bit corresponds to one day, with the most significant bit representing the most recent day.
+- name: days_visited_1_uri_normal_mode_bits
+  description: A bitmask representing the days within a 28-day lookback window on which the client visited at least 1 URI in normal (non-private) browsing
+    mode. Each bit corresponds to one day, with the most significant bit representing the most recent day.
+- name: days_visited_1_uri_private_mode_bits
+  description: A bitmask representing the days within a 28-day lookback window on which the client visited at least 1 URI in private browsing mode.
+    Each bit corresponds to one day, with the most significant bit representing the most recent day.
+- name: days_visited_5_uri_bits
+  description: A bitmask representing the days within a 28-day lookback window on which the client visited at least 5 distinct URIs, indicating moderate
+    browsing activity. Each bit corresponds to one day, with the most significant bit representing the most recent day.
+- name: db_version
+  description: The version identifier of the database or data source used to generate the record, expressed as an ISO 8601 timestamp string. This field
+    tracks which version of the underlying data was in use at the time of processing.
+- name: default_browser
+  description: Indicates whether Firefox was set as the system default browser at the time of the record. True means Firefox was the default browser;
+    false means it was not; null means the status could not be determined.
+- name: default_percent
+  description: The percentage of users or sessions for which Firefox was set as the default browser within the reporting group. Values range from 0.0
+    to 100.0.
+- name: default_private_search_engine
+  description: The identifier of the search engine configured as the default for private browsing mode, such as 'google-b-d' or 'ddg'. This corresponds
+    to the engine's internal identifier rather than its display name.
+- name: default_private_search_engine_data_load_path
+  description: The load path indicating how the default private browsing search engine was installed or sourced, such as from the application bundle.
+    Null indicates this metadata was not available.
+- name: default_private_search_engine_data_name
+  description: The human-readable display name of the search engine configured as the default for private browsing mode, such as 'DuckDuckGo' or 'Google'.
+    Null indicates the name metadata was not available.
+- name: default_private_search_engine_data_origin
+  description: The origin or provenance of the default private browsing search engine configuration, indicating how or where the engine was added.
+    Null indicates this metadata was not available or reported.
