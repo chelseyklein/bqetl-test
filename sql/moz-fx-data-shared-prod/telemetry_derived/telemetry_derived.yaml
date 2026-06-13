@@ -1181,3 +1181,152 @@ fields:
 - name: linkage_last_seen_date
   description: The most recent date on which a linkage between two identifiers or entities was observed. This is used to determine the recency or expiration
     of an identity mapping.
+- name: linked_client_id
+  description: A UUID that links a client across different data sources or ping types, enabling cross-table joins on the same Firefox client. This
+    is a high-cardinality identifier and is never null.
+- name: locale
+  description: The language locale code of the Firefox client (e.g., 'en', 'fr', 'ru'), reflecting the browser's configured display language. May be
+    null when locale information is not reported.
+- name: logins_migrations_quantity_all
+  description: The total number of login credentials migrated from any supported source browser during an import operation. Null when no migration
+    event was recorded; zero indicates a migration was attempted but no logins were transferred.
+- name: logins_migrations_quantity_chrome
+  description: The number of login credentials migrated specifically from Google Chrome during a login import operation. Null when no Chrome migration
+    was recorded; zero indicates a migration attempt with no logins transferred.
+- name: logins_migrations_quantity_edge
+  description: The number of login credentials migrated specifically from Microsoft Edge during a login import operation. Null when no Edge migration
+    was recorded; zero indicates a migration attempt with no logins transferred.
+- name: logins_migrations_quantity_safari
+  description: The number of login credentials migrated specifically from Apple Safari during a login import operation. Null when no Safari migration
+    was recorded; zero indicates a migration attempt with no logins transferred.
+- name: major_version
+  description: The major version number of the Firefox browser (e.g., 122, 128, 150), representing the primary release train the client is running.
+    Used to segment users and metrics by browser generation.
+- name: mau
+  description: The count of distinct active days within the past 28-day window for the client, representing their Monthly Active User engagement level.
+    Higher values indicate more frequent usage within the month.
+- name: max_subsession_counter
+  description: The highest subsession counter value observed within an aggregation period, where each Firefox session is divided into subsessions upon
+    restarts or profile changes. Reflects the upper bound of subsession activity for a client.
+- name: media_play_time_ms_audio_sum
+  description: The cumulative amount of time in milliseconds that audio media was played by the client. Null when no audio playback was detected during
+    the reporting period.
+- name: media_play_time_ms_video_sum
+  description: The cumulative amount of time in milliseconds that video media was played by the client. Null when no video playback was detected during
+    the reporting period.
+- name: medium
+  description: The marketing attribution medium describing how the user arrived at a product or page (e.g., 'referral', 'cpc', 'firefox-desktop').
+    May be null when attribution data is unavailable.
+- name: memory_gb
+  description: The total amount of physical memory installed on the client device, expressed in gigabytes. Used for hardware segmentation and performance
+    analysis.
+- name: memory_mb
+  description: The total amount of physical memory installed on the client device, expressed in megabytes. Provides finer-grained hardware segmentation
+    than the gigabyte equivalent.
+- name: metadata.first_seen_date_source_ping
+  description: The type of telemetry ping from which the client's first-seen date was derived (e.g., 'new_profile', 'main', 'shutdown'). Indicates
+    which ping established the client's earliest known presence in the data.
+- name: metadata.geo.city
+  description: The city-level geographic location of the client as determined by IP address geolocation. May be null when city-level resolution is
+    unavailable or suppressed for privacy.
+- name: metadata.geo.country
+  description: The ISO 3166-1 alpha-2 country code representing the client's geographic location as determined by IP address geolocation (e.g., 'US',
+    'DE', 'IN'). Used for geographic segmentation of telemetry data.
+- name: metadata.geo.db_version
+  description: The version timestamp of the geolocation database used to resolve the client's IP address to a geographic location. Helps identify which
+    version of the geo-lookup data was applied during ingestion.
+- name: metadata.geo.subdivision1
+  description: The first administrative subdivision (e.g., state or province) of the client's geographic location as determined by IP address geolocation.
+    May be null when subdivision-level resolution is unavailable or suppressed.
+- name: metadata.geo.subdivision2
+  description: The second administrative subdivision (e.g., county or district) of the client's geographic location as determined by IP address geolocation.
+    May be null when this level of resolution is unavailable or suppressed.
+- name: metadata.header.date
+  description: The raw HTTP Date header value submitted with the ping request, formatted as an RFC 7231 timestamp string (e.g., 'Wed, 03 Jun 2026 21:57:52
+    GMT'). May be null when the header was not present in the request.
+- name: metadata.header.dnt
+  description: The value of the HTTP Do Not Track (DNT) header sent with the ping request, where '1' indicates the user has requested tracking opt-out.
+    Null when the DNT header was not included in the request.
+- name: metadata.header.parsed_date
+  description: The parsed and structured timestamp representation of the HTTP Date header submitted with the ping request. May be null when the Date
+    header was absent or could not be parsed.
+- name: metadata.header.parsed_x_lb_tags.tls_cipher_hex
+  description: The hexadecimal code identifying the TLS cipher suite used to secure the connection between the client and the ingestion load balancer
+    (e.g., '1301' for TLS_AES_128_GCM_SHA256). Derived from the parsed X-LB-Tags header.
+- name: metadata.header.parsed_x_lb_tags.tls_version
+  description: The TLS protocol version used to secure the connection between the client and the ingestion load balancer (e.g., 'TLSv1.3', 'TLSv1.2').
+    Derived from the parsed X-LB-Tags header.
+- name: metadata.header.parsed_x_source_tags
+  description: An array of source tag strings parsed from the X-Source-Tags HTTP header, used to label the origin or routing path of a ping submission.
+    May be an empty array when no source tags were provided.
+- name: metadata.header.x_debug_id
+  description: The value of the X-Debug-Id HTTP header submitted with the ping, used to identify and route debug pings to a separate pipeline for testing
+    purposes. Null when the header is absent, indicating a standard (non-debug) submission.
+- name: metadata.header.x_foxsec_ip_reputation
+  description: The IP reputation score or classification assigned by Mozilla's FoxSec security system, derived from the X-Foxsec-IP-Reputation HTTP
+    header. Null when no reputation data was available for the submitting IP address.
+- name: metadata.header.x_lb_tags
+  description: The raw value of the X-LB-Tags HTTP header set by the ingestion load balancer, containing TLS connection metadata such as the protocol
+    version and cipher suite (e.g., 'TLSv1.3, 1301'). Used to audit the security properties of the submission connection.
+- name: metadata.header.x_pingsender_version
+  description: The version of the PingSender component used to submit the telemetry ping, derived from the X-PingSender-Version HTTP header. Null when
+    the ping was not submitted via PingSender (e.g., sent directly by the browser).
+- name: metadata.header.x_source_tags
+  description: The raw string value of the X-Source-Tags HTTP header attached to the ping submission, used to identify the source or routing context
+    of the request. Null when the header was not present.
+- name: metadata.header.x_telemetry_agent
+  description: The User-Agent string of the telemetry submission library, identifying the Glean SDK version and platform used to send the ping (e.g.,
+    'Glean/67.2.0 (Rust on Windows)'). Used to track SDK adoption and diagnose submission-layer issues.
+- name: metadata.isp.db_version
+  description: The version timestamp of the ISP database used to resolve the client's IP address to an internet service provider. Helps identify which
+    version of the ISP lookup data was applied during ingestion.
+- name: metadata.isp.name
+  description: The name of the internet service provider associated with the client's IP address at the time of ping submission (e.g., 'Deutsche Telekom
+    AG', 'Orange'). Used for network-level segmentation of telemetry data.
+- name: metadata.isp.organization
+  description: The organization name associated with the client's IP address as determined by ISP geolocation lookup. May differ slightly from the
+    ISP name when the registered organization and the service provider differ.
+- name: metadata.reported_main_ping
+  description: Indicates whether the client reported a main ping for the relevant period. True means a main ping was received; false means it was not.
+- name: metadata.reported_new_profile_ping
+  description: Indicates whether the client reported a new_profile ping, which is sent when a new Firefox profile is created. True means the ping was
+    received; false means it was not.
+- name: metadata.reported_shutdown_ping
+  description: Indicates whether the client reported a shutdown ping, which is sent when the Firefox browser is closed. True means the ping was received;
+    false means it was not.
+- name: metadata.user_agent.browser
+  description: The browser name parsed from the User-Agent string of the ping submission request (e.g., 'Firefox', 'Chrome'). Null when the User-Agent
+    header was absent or could not be parsed to identify a browser.
+- name: metadata.user_agent.os
+  description: The operating system name parsed from the User-Agent string of the ping submission request (e.g., 'Windows 10', 'Android', 'Linux').
+    Null when the User-Agent header was absent or the OS could not be determined.
+- name: metadata.user_agent.version
+  description: The browser version number parsed from the User-Agent string of the ping submission request (e.g., '128', '115'). Null when the User-Agent
+    header was absent or the version could not be parsed.
+- name: metadata_app_version
+  description: The version string of the application that submitted the telemetry ping, as reported in the ping metadata (e.g., '4.5', '4.7.1'). Used
+    to segment telemetry by application release version.
+- name: metric
+  description: The name of the telemetry metric being recorded (e.g., 'gc_ms', 'thread_wakeup'), identifying the specific measurement within a histogram
+    or scalar probe. Used to distinguish individual metric records within aggregated telemetry tables.
+- name: metric_date
+  description: The date for which the metric value was computed or aggregated, used to anchor time-series telemetry records to a specific calendar
+    day.
+- name: metric_name
+  description: A human-readable label identifying the type of usage or behavioral metric being measured (e.g., 'uri_count', 'active_ticks', 'client_submission_latency').
+    Used to distinguish different metric dimensions within an aggregation.
+- name: metric_type
+  description: The telemetry probe type that classifies how a metric's values are collected and structured (e.g., 'histogram-exponential', 'scalar',
+    'keyed-scalar', 'boolean'). Determines the appropriate interpretation and aggregation method for the metric's data.
+- name: metrics
+  description: A nested struct containing all Glean metric values reported in the ping, organized by metric type (e.g., boolean, string, quantity,
+    timespan, labeled_counter). Each sub-field corresponds to a named Glean metric collected by the application.
+- name: min_subsession_counter
+  description: The lowest subsession counter value observed within an aggregation period, where each Firefox session is divided into subsessions upon
+    restarts or profile changes. Reflects the starting subsession index for a client within the period.
+- name: monthly_users
+  description: The number of distinct active days recorded for the client within the current calendar month, used as a measure of monthly engagement
+    depth. Higher values indicate a client who uses Firefox more frequently throughout the month.
+- name: moz_crash_reason
+  description: A string describing the reason for a Firefox crash as recorded by the MOZ_CRASH macro or equivalent crash reporting mechanism (e.g.,
+    'MOZ_CRASH(OOM)', 'Shutdown hanging at step XPCOMShutdownThreads'). Null when no specific crash reason was captured.
