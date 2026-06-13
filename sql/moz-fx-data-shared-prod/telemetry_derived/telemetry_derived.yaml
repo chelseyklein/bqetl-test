@@ -2068,3 +2068,148 @@ fields:
 - name: search_content_tabhistory_sum
   description: Keyed scalar aggregating the number of times a search results page was reached via tab history navigation (back/forward). Each key identifies
     the search engine, and the value is the summed count across the aggregation period.
+- name: search_content_unknown_sum
+  description: An array of key-value pairs mapping search engine identifiers to the total number of searches initiated from an unknown content source.
+    Each entry aggregates search counts for a given engine over the reporting period.
+- name: search_content_urlbar_handoff_sum
+  description: An array of key-value pairs mapping search engine identifiers to the total number of searches initiated via a urlbar handoff content
+    source. Each entry aggregates search counts for a given engine over the reporting period.
+- name: search_content_urlbar_persisted_sum
+  description: An array of key-value pairs mapping search engine identifiers to the total number of searches initiated from the urlbar with a persisted
+    search mode. Each entry aggregates search counts for a given engine over the reporting period.
+- name: search_content_urlbar_searchmode_sum
+  description: An array of key-value pairs mapping search engine identifiers to the total number of searches initiated from the urlbar while in search
+    mode. Each entry aggregates search counts for a given engine over the reporting period.
+- name: search_content_urlbar_sum
+  description: An array of key-value pairs mapping search engine identifiers to the total number of searches initiated from the urlbar. Each entry
+    aggregates search counts for a given engine over the reporting period.
+- name: search_content_webextension_sum
+  description: An array of key-value pairs mapping search engine identifiers to the total number of searches initiated via a web extension content
+    source. Each entry aggregates search counts for a given engine over the reporting period.
+- name: search_count
+  description: The total number of searches performed during the period. A null value indicates the metric was not recorded for that record.
+- name: search_count_abouthome
+  description: The total number of searches initiated from the Firefox about:home page during the period. A value of zero indicates no searches were
+    made from this entry point.
+- name: search_count_alias
+  description: The total number of searches triggered via a search engine alias (e.g., typing an engine's keyword shortcut in the urlbar) during the
+    period. A value of zero indicates no alias-based searches were performed.
+- name: search_count_all
+  description: The total number of searches performed across all entry points and sources during the period. A value of zero indicates no searches
+    were recorded.
+- name: search_count_contextmenu
+  description: The total number of searches initiated via the browser context menu (right-click search) during the period. A value of zero indicates
+    no context menu searches were performed.
+- name: search_count_newtab
+  description: The total number of searches initiated from the Firefox new tab page during the period. A value of zero indicates no searches were made
+    from this entry point.
+- name: search_count_organic
+  description: The total number of organic (non-SAP, non-tagged) searches performed during the period. A value of zero indicates no organic searches
+    were recorded.
+- name: search_count_searchbar
+  description: The total number of searches initiated from the dedicated search bar during the period. A value of zero indicates no searches were made
+    from the search bar.
+- name: search_count_system
+  description: The total number of searches initiated by system-level actions (e.g., OS search integration) during the period. A value of zero indicates
+    no system-initiated searches were recorded.
+- name: search_count_tagged_follow_on
+  description: The total number of tagged follow-on searches — subsequent searches that carry a partner tag originating from a prior tagged search
+    — performed during the period. A value of zero indicates no tagged follow-on searches were recorded.
+- name: search_count_tagged_sap
+  description: The total number of tagged Search Access Point (SAP) searches, where the query was initiated from a Mozilla-partnered access point and
+    carries a partner attribution tag. A value of zero indicates no tagged SAP searches were recorded.
+- name: search_count_urlbar
+  description: The total number of searches initiated from the browser urlbar (address bar) during the period. A value of zero indicates no urlbar
+    searches were performed.
+- name: search_count_urlbar_handoff
+  description: The total number of searches initiated via the urlbar handoff mechanism — where a search begins in a new tab search box and is handed
+    off to the urlbar — during the period. A value of zero indicates no handoff searches were recorded.
+- name: search_count_urlbar_persisted
+  description: The total number of searches initiated from the urlbar while in a persisted search mode during the period. A value of zero indicates
+    no persisted urlbar searches were recorded.
+- name: search_count_urlbar_searchmode
+  description: The total number of searches initiated from the urlbar while explicitly in search mode (i.e., the user has activated a specific engine
+    in the urlbar) during the period. A value of zero indicates no search mode urlbar searches were recorded.
+- name: search_count_webextension
+  description: The total number of searches initiated by a web extension during the period. A value of zero indicates no web extension-initiated searches
+    were recorded.
+- name: search_counts
+  description: An array of structs capturing per-engine, per-source search counts, where each entry contains the search engine name, the search access
+    point source, and the number of searches performed for that combination.
+- name: search_engine
+  description: The identifier of the default or most-used search engine (e.g., 'google', 'google-b-d', 'duckduckgo'). A null value indicates the search
+    engine was not recorded or not applicable for the record.
+- name: search_with_ads
+  description: The total number of search result pages that contained advertisements during the period. A null value indicates the metric was not recorded
+    for that record.
+- name: search_with_ads_count_all
+  description: The total count of search result pages that included ads, aggregated across all search sources and engines for the period. A null value
+    indicates the metric was not recorded for that record.
+- name: search_withads_about_home_sum
+  description: An array of key-value pairs mapping search engine identifiers to the total number of ad-containing search result pages reached from
+    the about:home entry point. Each entry aggregates counts for a given engine over the reporting period.
+- name: search_withads_about_newtab_sum
+  description: An array of key-value pairs mapping search engine identifiers to the total number of ad-containing search result pages reached from
+    the new tab page entry point. Each entry aggregates counts for a given engine over the reporting period.
+- name: search_withads_contextmenu_sum
+  description: An array of key-value pairs mapping search engine identifiers to the total number of ad-containing search result pages reached via a
+    context menu search. Each entry aggregates counts for a given engine over the reporting period.
+- name: search_withads_reload_sum
+  description: An array of key-value pairs mapping search engine identifiers to the total number of ad-containing search result pages reached via a
+    page reload action. Each entry aggregates counts for a given engine over the reporting period.
+- name: search_withads_searchbar_sum
+  description: An array of key-value pairs mapping search engine identifiers to the total number of ad-containing search result pages reached from
+    the dedicated search bar. Each entry aggregates counts for a given engine over the reporting period.
+- name: search_withads_system_sum
+  description: An array of key-value pairs mapping search engine identifiers to the total number of ad-containing search result pages reached via system-initiated
+    searches. Each entry aggregates counts for a given engine over the reporting period.
+- name: search_withads_tabhistory_sum
+  description: An array of key-value pairs mapping search engine identifiers to the total number of ad-containing search result pages reached via tab
+    history navigation. Each entry aggregates counts for a given engine over the reporting period.
+- name: search_withads_unknown_sum
+  description: An array of key-value pairs mapping search engine identifiers to the total number of ad-containing search result pages reached from
+    an unknown source. Each entry aggregates counts for a given engine over the reporting period.
+- name: search_withads_urlbar_handoff_sum
+  description: An array of key-value pairs mapping search engine identifiers to the total number of ad-containing search result pages reached via the
+    urlbar handoff mechanism. Each entry aggregates counts for a given engine over the reporting period.
+- name: search_withads_urlbar_persisted_sum
+  description: An array of key-value pairs mapping search engine identifiers to the total number of ad-containing search result pages reached from
+    the urlbar in persisted search mode. Each entry aggregates counts for a given engine over the reporting period.
+- name: search_withads_urlbar_searchmode_sum
+  description: An array of key-value pairs mapping search engine identifiers to the total number of ad-containing search result pages reached from
+    the urlbar while in search mode. Each entry aggregates counts for a given engine over the reporting period.
+- name: search_withads_urlbar_sum
+  description: An array of key-value pairs mapping search engine identifiers to the total number of ad-containing search result pages reached from
+    the urlbar. Each entry aggregates counts for a given engine over the reporting period.
+- name: search_withads_webextension_sum
+  description: An array of key-value pairs mapping search engine identifiers to the total number of ad-containing search result pages reached via a
+    web extension. Each entry aggregates counts for a given engine over the reporting period.
+- name: searches
+  description: The total number of searches performed during the reporting period. A value of zero indicates no searches were conducted.
+- name: searches_per_user_ratio
+  description: The average number of searches performed per user over the reporting period, calculated as total searches divided by the number of active
+    users. A value of zero indicates no searches were recorded on average.
+- name: second_seen_date
+  description: The calendar date on which the client was observed for the second time. A null value indicates the client has not yet been seen a second
+    time.
+- name: segment
+  description: A categorical label classifying users by their engagement level based on usage frequency, such as 'core_user', 'regular_user', 'casual_user',
+    'infrequent_user', or 'other'.
+- name: session_id
+  description: A unique identifier (UUID) for a browser session. Each session_id corresponds to a single continuous browsing session for a client.
+- name: session_restored_mean
+  description: The mean time in milliseconds for a browser session to be restored after startup. A null value indicates session restoration time was
+    not recorded for that record.
+- name: session_start_time
+  description: The UTC timestamp at which the browser session began. This marks the precise start of user activity within a given session.
+- name: sessions
+  description: The total number of browser sessions recorded for the reporting period. Each session represents a distinct period of browser activity.
+- name: sessions_per_user
+  description: The average number of browser sessions per user over the reporting period, calculated as total sessions divided by the number of active
+    users.
+- name: sessions_started_on_this_day
+  description: The number of new browser sessions that were started on the given day. A value of zero indicates no new sessions were initiated on that
+    day.
+- name: show_tracker_stats_share
+  description: A boolean flag indicating whether the user has enabled sharing of tracker statistics. A value of true indicates sharing is enabled;
+    false indicates it is disabled. This field is almost always null, indicating the setting was not recorded.
