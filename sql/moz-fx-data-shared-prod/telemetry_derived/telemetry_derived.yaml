@@ -743,3 +743,150 @@ fields:
 - name: environment_settings_intl_accept_languages
   description: An ordered list of language tags reflecting the client's preferred languages as configured in the browser's internationalization settings
     (e.g., ['en-US', 'fr']). These correspond to the Accept-Language HTTP header values sent by the browser.
+- name: environment_settings_intl_app_locales
+  description: The list of locales currently active in the Firefox application, as reported by the internationalization (intl) settings environment.
+    Reflects the ordered set of locales the app is using for UI display.
+- name: environment_settings_intl_available_locales
+  description: The list of all locales that are available for use in the Firefox application, as reported by the intl settings environment. These are
+    the locales installed and selectable by the user.
+- name: environment_settings_intl_regional_prefs_locales
+  description: The list of locales derived from the user's regional preferences, as reported by the intl settings environment. These may influence
+    formatting of dates, numbers, and other region-specific content.
+- name: environment_settings_intl_requested_locales
+  description: The list of locales explicitly requested by the user or application configuration, as reported by the intl settings environment. This
+    reflects preference order before locale resolution is applied.
+- name: environment_settings_intl_system_locales
+  description: The list of locales configured at the operating system level, as reported by the intl settings environment. These represent the host
+    OS language/region settings at the time of the ping.
+- name: event
+  description: A dot-separated string identifying the specific telemetry event that was recorded, combining the event object and method or other context.
+    May be null when no discrete event is associated with the record.
+- name: event_category
+  description: The top-level category that groups related telemetry events, such as 'address', 'creditcard', or 'form_autocomplete'. Used to classify
+    events by feature area or product domain.
+- name: event_map_values
+  description: A list of key-value pairs providing additional metadata or attributes associated with a telemetry event. Each entry contains a string
+    key and a string value describing contextual details of the event.
+- name: event_map_values.key
+  description: The name of an additional event attribute within the event_map_values array, such as 'source', 'trigger', or 'networkID'. Identifies
+    what aspect of the event the paired value describes.
+- name: event_map_values.value
+  description: The value associated with a specific event attribute key in the event_map_values array. Contains free-form string data describing the
+    state or context of the attribute at the time the event was recorded.
+- name: event_method
+  description: The action or method that triggered the telemetry event, such as 'detected', 'submitted', or 'show'. Together with event_category and
+    event_object, it fully characterizes what occurred.
+- name: event_object
+  description: The UI element, feature component, or data entity that was acted upon when the event was recorded, such as 'address_form' or 'cc_form_v2'.
+    Provides the target context for the event method.
+- name: event_process
+  description: The Firefox process in which the telemetry event was generated, such as 'parent', 'content', or 'extension'. Identifies the process
+    boundary where the event originated.
+- name: event_properties
+  description: A structured array of key-value property groups associated with a telemetry event, where each entry may itself contain an array of sub-values
+    and an index. Provides rich, nested contextual attributes for complex event types.
+- name: event_properties.index
+  description: The positional index of an entry within the event_properties array, used to preserve ordering of property groups. Starts at 1 and increments
+    for each property entry.
+- name: event_properties.key
+  description: The name of a property group within the event_properties array, such as 'event_value', 'session_id', or 'source'. Identifies which aspect
+    of the event the associated values describe.
+- name: event_string_value
+  description: An optional free-form string value attached to a telemetry event, providing additional context such as an error code, numeric label,
+    or descriptive identifier. High cardinality; may be null or the string 'null' when no value applies.
+- name: event_timestamp
+  description: The time offset in milliseconds from the start of the telemetry session or ping at which the event occurred. Used to establish the relative
+    ordering and timing of events within a session.
+- name: events
+  description: A field representing serialized or aggregated event data associated with a telemetry ping. Typically used as a placeholder or summary
+    container for event information.
+- name: experiment
+  description: The slug or identifier of a Nimbus or Normandy experiment the client was enrolled in at the time of the ping. Null when the client was
+    not enrolled in any experiment.
+- name: experiment_branch
+  description: The branch of an experiment that the client was assigned to, such as 'control' or 'treatment'. Identifies which variant of the experiment
+    the client experienced.
+- name: experiment_id
+  description: A unique string identifier for a specific experiment or study, such as a Normandy or Nimbus experiment slug. Used to join experiment
+    metadata and filter data to a particular study.
+- name: experiments
+  description: An array of key-value pairs representing all experiments the client was enrolled in at the time of the ping, where each key is the experiment
+    slug and the value contains branch and enrollment details.
+- name: experiments.key
+  description: The slug identifier of an experiment within the experiments array, corresponding to the Nimbus or Normandy experiment name. Used to
+    identify which experiment a given enrollment record refers to.
+- name: experiments.key_value
+  description: A nested array of key-value pairs containing additional structured attributes for an experiment enrollment entry. Provides supplementary
+    metadata associated with a specific experiment key.
+- name: experiments.value
+  description: The branch assignment string for a client's enrollment in an experiment within the experiments array, such as 'control', 'treatment-a',
+    or 'rollout-branch'. Indicates which variant of the experiment the client received.
+- name: experiments.value.branch
+  description: The branch name assigned to the client within a specific experiment enrollment, such as 'control', 'treatment-a', or 'rollout-branch'.
+    Identifies the experimental variant experienced by the client.
+- name: experiments.value.enrollment_id
+  description: A UUID that uniquely identifies a client's enrollment instance in a specific experiment. Null in the vast majority of cases; when present,
+    can be used to track enrollment lifecycle events.
+- name: experiments.value.extra.enrollment_id
+  description: An additional enrollment UUID stored in the extra metadata of an experiment enrollment record, used to cross-reference enrollment events.
+    Nearly always null; populated only for specific experiment types.
+- name: experiments.value.extra.type
+  description: The experiment framework type stored in the extra metadata of an enrollment record, indicating whether the experiment is a Nimbus rollout
+    ('nimbus-rollout') or a standard Nimbus experiment ('nimbus-nimbus').
+- name: experiments.value.type
+  description: The framework and experiment type for a client's enrollment, such as 'nimbus-rollout', 'nimbus-nimbus', or 'normandy-prefrollout'. Distinguishes
+    between different experiment delivery systems and study types.
+- name: exposure_count
+  description: The number of times a client was exposed to an experiment's treatment during a given period. A value of 0 indicates the client was enrolled
+    but not yet exposed.
+- name: extra_regressors_additive
+  description: The additive contribution of additional external regressors to a forecasting model's predicted value. A value of 0.0 indicates no extra
+    regressor contribution for that observation.
+- name: extra_regressors_additive_lower
+  description: The lower bound of the confidence interval for the additive extra regressors component in a forecasting model. A value of 0.0 indicates
+    no lower-bound contribution from external regressors.
+- name: extra_regressors_additive_upper
+  description: The upper bound of the confidence interval for the additive extra regressors component in a forecasting model. A value of 0.0 indicates
+    no upper-bound contribution from external regressors.
+- name: fill_counts
+  description: The count of form field fill events recorded within a given aggregation period. Represents the total number of times a form field was
+    automatically populated.
+- name: first_bucket
+  description: The lower boundary value of the first bucket in a histogram distribution. Defines the minimum range of the histogram's initial bin.
+- name: first_document_id
+  description: A UUID identifying the first telemetry document submitted by a client within a given aggregation or session context. Can be used to
+    deduplicate or anchor a sequence of related ping documents.
+- name: first_paint_mean
+  description: The mean time in milliseconds from browser start to first paint across observations in a given aggregation. Null when no first paint
+    data was reported.
+- name: first_seen_date
+  description: The calendar date on which the client profile was first observed submitting telemetry. Used to determine client tenure and cohort membership.
+- name: first_seen_year
+  description: The calendar year in which the client profile was first observed submitting telemetry, derived from first_seen_date. Used for coarse
+    cohort segmentation by year of acquisition.
+- name: first_timestamp
+  description: The UTC timestamp of the earliest event or ping recorded for a client or session within a given aggregation. Null when no timestamp
+    could be determined.
+- name: flash_usage
+  description: The count of Flash plugin usage events recorded for a client during a given period. A value of 0 indicates the Flash plugin was not
+    used.
+- name: flash_version
+  description: The version string of the Adobe Flash plugin installed on the client, such as '32.0.0.465'. Null when Flash is not installed or was
+    not detected.
+- name: follow_on_search_ad_clicks
+  description: The number of times a user clicked on a search advertisement on a follow-on search results page during a given period. A value of 0
+    indicates no follow-on ad clicks occurred.
+- name: follow_on_search_ad_impressions
+  description: The number of search advertisement impressions seen by a user on follow-on search results pages during a given period. A value of 0
+    indicates no follow-on ad impressions occurred.
+- name: forecast_date
+  description: The date string (YYYY-MM-DD) for which a forecast value was generated or to which it applies. Used to align forecast rows with their
+    corresponding calendar date.
+- name: forecast_parameters
+  description: A JSON-encoded string describing the configuration and hyperparameters used to generate a forecast, including model type, seasonality
+    settings, and changepoint scales. Allows forecasts to be traced back to their specific model configuration.
+- name: form_factor
+  description: The device form factor of the client, such as 'desktop', 'phone', or 'tablet'. Null when the form factor could not be determined.
+- name: funnel_date
+  description: The date representing the point in the acquisition or activation funnel to which a record belongs. Used to align funnel metrics with
+    a specific calendar date for cohort and conversion analysis.
