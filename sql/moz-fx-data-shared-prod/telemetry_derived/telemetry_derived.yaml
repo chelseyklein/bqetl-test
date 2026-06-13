@@ -1763,3 +1763,153 @@ fields:
 - name: scalar_parent_browser_engagement_max_concurrent_window_count_max
   description: The maximum number of browser windows that were open simultaneously during the reporting period, as recorded by the browser engagement
     scalar in the parent process. A value of 1 indicates the user never opened more than one window.
+- name: scalar_parent_browser_engagement_tab_open_event_count_sum
+  description: The aggregated sum of tab open events fired in the browser during a reporting period. A higher value indicates more frequent tab-opening
+    behavior by the user.
+- name: scalar_parent_browser_engagement_total_uri_count_normal_and_private_mode_sum
+  description: The aggregated sum of total URIs visited across both normal and private browsing modes during a reporting period. This provides a comprehensive
+    measure of overall browsing activity regardless of privacy mode.
+- name: scalar_parent_browser_engagement_total_uri_count_sum
+  description: The aggregated sum of total URIs visited in normal browsing mode during a reporting period. This serves as a measure of a user's browsing
+    engagement, excluding private browsing sessions.
+- name: scalar_parent_browser_engagement_unfiltered_uri_count_sum
+  description: The aggregated sum of total URIs visited without filtering (e.g., excluding chrome or about pages) during a reporting period. This gives
+    a broader count of all navigation events including internal browser URIs.
+- name: scalar_parent_browser_engagement_unique_domains_count_max
+  description: The maximum number of unique domains visited in any single browsing session during a reporting period. This reflects the breadth of
+    a user's browsing across distinct web destinations.
+- name: scalar_parent_browser_engagement_unique_domains_count_mean
+  description: The mean number of unique domains visited per session during a reporting period. This represents the average breadth of a user's browsing
+    activity across distinct web destinations.
+- name: scalar_parent_browser_engagement_window_open_event_count_sum
+  description: The aggregated sum of browser window open events fired during a reporting period. A higher value indicates more frequent multi-window
+    browsing behavior by the user.
+- name: scalar_parent_browser_ui_interaction_content_context_sum
+  description: A keyed scalar recording the aggregated sum of user interactions with content context menu items in the browser UI. Each key identifies
+    a specific context menu action and its associated interaction count.
+- name: scalar_parent_browser_ui_interaction_preferences_pane_home_sum
+  description: A keyed scalar recording the aggregated sum of user interactions within the Home preferences pane in the browser UI. Each key identifies
+    a specific UI element or action and its associated interaction count.
+- name: scalar_parent_browser_ui_interaction_textrecognition_error_sum
+  description: The aggregated sum of errors encountered during text recognition operations in the browser. A null or zero value indicates no text recognition
+    errors were recorded during the reporting period.
+- name: scalar_parent_devtools_accessibility_node_inspected_count_sum
+  description: The aggregated sum of the number of accessibility nodes inspected via the DevTools Accessibility panel. A null or zero value indicates
+    the feature was not used during the reporting period.
+- name: scalar_parent_devtools_accessibility_opened_count_sum
+  description: The aggregated sum of the number of times the DevTools Accessibility panel was opened during a reporting period. Higher values indicate
+    more frequent use of the accessibility inspection tool.
+- name: scalar_parent_devtools_accessibility_picker_used_count_sum
+  description: The aggregated sum of the number of times the accessibility picker tool was used within the DevTools Accessibility panel. A null or
+    zero value indicates the picker was not used during the reporting period.
+- name: scalar_parent_devtools_accessibility_select_accessible_for_node_sum
+  description: A keyed scalar recording the aggregated sum of times an accessible object was selected for a specific DOM node in the DevTools Accessibility
+    panel. Each key identifies the context or trigger for the selection.
+- name: scalar_parent_devtools_accessibility_service_enabled_count_sum
+  description: The aggregated sum of the number of times the accessibility service was enabled via DevTools during a reporting period. A null or zero
+    value indicates the accessibility service was not enabled through DevTools.
+- name: scalar_parent_devtools_copy_full_css_selector_opened_sum
+  description: The aggregated sum of the number of times the 'Copy Full CSS Selector' feature was used in DevTools during a reporting period. A null
+    or zero value indicates the feature was not used.
+- name: scalar_parent_devtools_copy_unique_css_selector_opened_sum
+  description: The aggregated sum of the number of times the 'Copy Unique CSS Selector' feature was used in DevTools during a reporting period. A null
+    or zero value indicates the feature was not used.
+- name: scalar_parent_devtools_toolbar_eyedropper_opened_sum
+  description: The aggregated sum of the number of times the eyedropper color-picker tool in the DevTools toolbar was opened during a reporting period.
+    A null or zero value indicates the tool was not used.
+- name: scalar_parent_dom_contentprocess_troubled_due_to_memory_sum
+  description: The aggregated sum of the number of content processes that entered a troubled state due to memory pressure during a reporting period.
+    A null or zero value indicates no such events were recorded.
+- name: scalar_parent_library_link_sum
+  description: A keyed scalar recording the aggregated sum of link-related interactions within the browser's Library panel. Each key identifies a specific
+    link type or destination and its associated click count.
+- name: scalar_parent_library_opened_sum
+  description: A keyed scalar recording the aggregated sum of the number of times the browser's Library panel was opened, broken down by entry point
+    or panel section. Each key identifies the specific trigger or section accessed.
+- name: scalar_parent_library_search_sum
+  description: A keyed scalar recording the aggregated sum of search interactions performed within the browser's Library panel. Each key identifies
+    a specific search context or section within the Library.
+- name: scalar_parent_navigator_storage_estimate_count_sum
+  description: The aggregated sum of the number of times the Navigator Storage Estimate API was called during a reporting period. A null or zero value
+    indicates the API was not invoked.
+- name: scalar_parent_navigator_storage_persist_count_sum
+  description: The aggregated sum of the number of times the Navigator Storage Persist API was called during a reporting period. A null or zero value
+    indicates the API was not invoked.
+- name: scalar_parent_os_environment_is_taskbar_pinned
+  description: Indicates whether the Firefox browser is pinned to the operating system taskbar. True means Firefox is pinned to the taskbar; false
+    means it is not.
+- name: scalar_parent_os_environment_launched_via_desktop
+  description: Indicates whether the Firefox browser session was launched via a desktop shortcut. True means the browser was started from a desktop
+    icon; false means it was not.
+- name: scalar_parent_os_environment_launched_via_other
+  description: Indicates whether the Firefox browser session was launched via an unclassified or miscellaneous launch method. True means the browser
+    was started through some other means not captured by more specific launch scalars; false means it was not.
+- name: scalar_parent_os_environment_launched_via_other_shortcut
+  description: Indicates whether the Firefox browser session was launched via a shortcut other than a desktop or taskbar shortcut. True means the browser
+    was started from a non-standard shortcut location; false means it was not.
+- name: scalar_parent_os_environment_launched_via_start_menu
+  description: Indicates whether the Firefox browser session was launched from the operating system Start Menu. True means the browser was started
+    via the Start Menu; false means it was not.
+- name: scalar_parent_os_environment_launched_via_taskbar
+  description: Indicates whether the Firefox browser session was launched by clicking the taskbar icon. True means the browser was started from the
+    taskbar; false means it was not.
+- name: scalar_parent_os_environment_launched_via_taskbar_private
+  description: Indicates whether a Firefox Private Browsing window was launched directly from the taskbar (e.g., via a taskbar jump list option). True
+    means a private session was initiated from the taskbar; false means it was not.
+- name: scalar_parent_sidebar_link_sum
+  description: A keyed scalar recording the aggregated sum of link-related interactions within the browser's Sidebar panel. Each key identifies a specific
+    link type or destination and its associated click count.
+- name: scalar_parent_sidebar_opened_sum
+  description: A keyed scalar recording the aggregated sum of the number of times the browser's Sidebar panel was opened, broken down by panel or entry
+    point. Each key identifies the specific sidebar panel or trigger accessed.
+- name: scalar_parent_sidebar_search_sum
+  description: A keyed scalar recording the aggregated sum of search interactions performed within the browser's Sidebar panel. Each key identifies
+    a specific search context or section within the Sidebar.
+- name: scalar_parent_storage_sync_api_usage_extensions_using_sum
+  description: The aggregated sum of the number of extensions actively using the Storage Sync API during a reporting period. A null or zero value indicates
+    no extensions used this API.
+- name: scalar_parent_telemetry_event_counts_sum
+  description: A keyed scalar recording the aggregated sum of telemetry event counts, broken down by event category and method. Each key identifies
+    a specific telemetry event and its associated total occurrence count.
+- name: scalar_parent_urlbar_impression_autofill_about_sum
+  description: The aggregated sum of the number of times an 'about:' page URL was shown as an autofill suggestion in the URL bar during a reporting
+    period. Reflects user exposure to autofill results for internal browser pages.
+- name: scalar_parent_urlbar_impression_autofill_adaptive_sum
+  description: The aggregated sum of the number of times an adaptive history-based autofill suggestion was shown in the URL bar during a reporting
+    period. A null or zero value indicates no adaptive autofill impressions were recorded.
+- name: scalar_parent_urlbar_impression_autofill_origin_sum
+  description: The aggregated sum of the number of times an origin-based (domain) autofill suggestion was shown in the URL bar during a reporting period.
+    Reflects how frequently the browser autofills based on previously visited site origins.
+- name: scalar_parent_urlbar_impression_autofill_other_sum
+  description: The aggregated sum of the number of times an autofill suggestion of an unclassified or miscellaneous type was shown in the URL bar during
+    a reporting period. A null or zero value indicates no such impressions were recorded.
+- name: scalar_parent_urlbar_impression_autofill_preloaded_sum
+  description: The aggregated sum of the number of times a preloaded (built-in) site autofill suggestion was shown in the URL bar during a reporting
+    period. A null or zero value indicates no preloaded autofill impressions were recorded.
+- name: scalar_parent_urlbar_impression_autofill_url_sum
+  description: The aggregated sum of the number of times a full URL autofill suggestion was shown in the URL bar during a reporting period. Reflects
+    how frequently the browser autofills complete URLs based on browsing history.
+- name: scalar_parent_urlbar_picked_autofill_about_sum
+  description: A keyed scalar recording the aggregated sum of times a user selected an 'about:' page autofill suggestion from the URL bar. Each key
+    identifies the specific autofill result position or type that was chosen.
+- name: scalar_parent_urlbar_picked_autofill_adaptive_sum
+  description: A keyed scalar recording the aggregated sum of times a user selected an adaptive history-based autofill suggestion from the URL bar.
+    Each key identifies the specific autofill result position or type that was chosen.
+- name: scalar_parent_urlbar_picked_autofill_origin_sum
+  description: A keyed scalar recording the aggregated sum of times a user selected an origin-based autofill suggestion from the URL bar. Each key
+    identifies the specific result position or origin type that was chosen.
+- name: scalar_parent_urlbar_picked_autofill_other_sum
+  description: A keyed scalar recording the aggregated sum of times a user selected a miscellaneous or unclassified autofill suggestion from the URL
+    bar. Each key identifies the specific result position or type that was chosen.
+- name: scalar_parent_urlbar_picked_autofill_preloaded_sum
+  description: A keyed scalar recording the aggregated sum of times a user selected a preloaded (built-in) site autofill suggestion from the URL bar.
+    Each key identifies the specific result position or site that was chosen.
+- name: scalar_parent_urlbar_picked_autofill_sum
+  description: A keyed scalar recording the aggregated sum of times a user selected any autofill suggestion from the URL bar, across all autofill types.
+    Each key identifies the specific result position or autofill category that was chosen.
+- name: scalar_parent_urlbar_picked_autofill_url_sum
+  description: A keyed scalar recording the aggregated sum of times a user selected a full URL autofill suggestion from the URL bar. Each key identifies
+    the specific result position or URL type that was chosen.
+- name: scalar_parent_urlbar_picked_bookmark_sum
+  description: A keyed scalar recording the aggregated sum of times a user selected a bookmarked URL suggestion from the URL bar. Each key identifies
+    the specific result position or bookmark type that was chosen.
