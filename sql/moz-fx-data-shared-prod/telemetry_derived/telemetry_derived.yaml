@@ -1910,3 +1910,153 @@ fields:
 - name: scalar_parent_urlbar_impression_autofill_preloaded_sum
   description: The total number of times the URL bar autofill feature showed a suggestion sourced from Firefox's preloaded (built-in) list of top sites
     during the reporting period.
+- name: scalar_parent_urlbar_impression_autofill_url_sum
+  description: The total number of times the Firefox address bar (urlbar) displayed an autofill suggestion based on a full URL match during a given
+    period. A non-null value indicates at least one autofill URL impression occurred.
+- name: scalar_parent_urlbar_picked_autofill_about_sum
+  description: A keyed sum recording how many times a user selected an autofill suggestion for an about; page (e.g., about:preferences) from the urlbar,
+    broken down by key (e.g., search engine or entry point). Each array entry contains a key-value pair where the value is the pick count.
+- name: scalar_parent_urlbar_picked_autofill_adaptive_sum
+  description: A keyed sum recording how many times a user selected an adaptive-history autofill suggestion from the urlbar, broken down by key. Adaptive
+    autofill learns from past URL selections to predict and complete the current input.
+- name: scalar_parent_urlbar_picked_autofill_origin_sum
+  description: A keyed sum recording how many times a user selected an origin-based autofill suggestion (e.g., a domain or host) from the urlbar, broken
+    down by key. Each array entry contains a key-value pair where the value is the pick count.
+- name: scalar_parent_urlbar_picked_autofill_other_sum
+  description: A keyed sum recording how many times a user selected an autofill suggestion that does not fall into any other specific autofill category
+    from the urlbar, broken down by key. Each array entry contains a key-value pair where the value is the pick count.
+- name: scalar_parent_urlbar_picked_autofill_preloaded_sum
+  description: A keyed sum recording how many times a user selected a preloaded autofill suggestion from the urlbar, broken down by key. Preloaded
+    autofill suggestions are built into Firefox for popular domains.
+- name: scalar_parent_urlbar_picked_autofill_sum
+  description: A keyed sum recording the total number of times a user selected any autofill suggestion from the urlbar, broken down by key. This aggregates
+    all autofill result types picked by the user.
+- name: scalar_parent_urlbar_picked_autofill_url_sum
+  description: A keyed sum recording how many times a user selected a full-URL autofill suggestion from the urlbar, broken down by key. Each array
+    entry contains a key-value pair where the value is the pick count.
+- name: scalar_parent_urlbar_picked_bookmark_sum
+  description: A keyed sum recording how many times a user selected a bookmark result from the urlbar dropdown, broken down by key. Each array entry
+    contains a key-value pair where the value is the pick count.
+- name: scalar_parent_urlbar_picked_dynamic_sum
+  description: A keyed sum recording how many times a user selected a dynamic result from the urlbar dropdown, broken down by key. Dynamic results
+    are generated on-the-fly by urlbar providers such as Firefox Suggest.
+- name: scalar_parent_urlbar_picked_extension_sum
+  description: A keyed sum recording how many times a user selected a result contributed by a browser extension from the urlbar dropdown, broken down
+    by key. Each array entry contains a key-value pair where the value is the pick count.
+- name: scalar_parent_urlbar_picked_formhistory_sum
+  description: A keyed sum recording how many times a user selected a form history suggestion from the urlbar dropdown, broken down by key. Form history
+    results are previously entered search terms or form values.
+- name: scalar_parent_urlbar_picked_history_sum
+  description: A keyed sum recording how many times a user selected a browsing history result from the urlbar dropdown, broken down by key. Each array
+    entry contains a key-value pair where the value is the pick count.
+- name: scalar_parent_urlbar_picked_keyword_sum
+  description: A keyed sum recording how many times a user selected a keyword search result from the urlbar dropdown, broken down by key. Keyword results
+    are typically associated with bookmark keywords or search shortcuts.
+- name: scalar_parent_urlbar_picked_remotetab_sum
+  description: A keyed sum recording how many times a user selected a remote tab result (a tab open on another synced device) from the urlbar dropdown,
+    broken down by key. Each array entry contains a key-value pair where the value is the pick count.
+- name: scalar_parent_urlbar_picked_searchengine_sum
+  description: A keyed sum recording how many times a user selected a search engine one-click shortcut result from the urlbar dropdown, broken down
+    by key. Each array entry contains a key-value pair where the value is the pick count.
+- name: scalar_parent_urlbar_picked_searchsuggestion_sum
+  description: A keyed sum recording how many times a user selected a search suggestion result from the urlbar dropdown, broken down by key. Search
+    suggestions are provided by the user's active search engine.
+- name: scalar_parent_urlbar_picked_switchtab_sum
+  description: A keyed sum recording how many times a user selected a switch-to-tab result from the urlbar dropdown, broken down by key. Switch-to-tab
+    results allow users to navigate to an already-open tab.
+- name: scalar_parent_urlbar_picked_tabtosearch_sum
+  description: A keyed sum recording how many times a user selected a tab-to-search result from the urlbar dropdown, broken down by key. Tab-to-search
+    results offer a quick way to search a site directly from the urlbar.
+- name: scalar_parent_urlbar_picked_tip_sum
+  description: A keyed sum recording how many times a user selected a tip result from the urlbar dropdown, broken down by key. Tip results are informational
+    or action-oriented suggestions surfaced by Firefox.
+- name: scalar_parent_urlbar_picked_topsite_sum
+  description: A keyed sum recording how many times a user selected a top site result from the urlbar dropdown, broken down by key. Top site results
+    are frequently or recently visited sites surfaced in the urlbar.
+- name: scalar_parent_urlbar_picked_unknown_sum
+  description: A keyed sum recording how many times a user selected a result of an unknown or unclassified type from the urlbar dropdown, broken down
+    by key. Each array entry contains a key-value pair where the value is the pick count.
+- name: scalar_parent_urlbar_picked_visiturl_sum
+  description: A keyed sum recording how many times a user selected the heuristic 'visit URL' result from the urlbar dropdown, broken down by key.
+    This result type is shown when the input looks like a navigable URL the user typed directly.
+- name: scalar_parent_urlbar_searchmode_bookmarkmenu_sum
+  description: A keyed sum recording how many times search mode was entered in the urlbar via the bookmark menu entry point, broken down by key (e.g.,
+    search engine). Search mode restricts urlbar results to a specific search engine or local data source.
+- name: scalar_parent_urlbar_searchmode_handoff_sum
+  description: A keyed sum recording how many times search mode was entered in the urlbar via the new tab page handoff entry point, broken down by
+    key. Handoff occurs when a user begins typing on the new tab page and focus is transferred to the urlbar.
+- name: scalar_parent_urlbar_searchmode_keywordoffer_sum
+  description: A keyed sum recording how many times search mode was entered in the urlbar via a keyword offer, broken down by key. A keyword offer
+    is presented when the user types a search engine's domain, prompting them to enter search mode.
+- name: scalar_parent_urlbar_searchmode_oneoff_sum
+  description: A keyed sum recording how many times search mode was entered in the urlbar by clicking a one-off search engine button, broken down by
+    key. One-off buttons appear at the bottom of the urlbar dropdown panel.
+- name: scalar_parent_urlbar_searchmode_other_sum
+  description: A keyed sum recording how many times search mode was entered in the urlbar via an entry point that does not fall into any other defined
+    category, broken down by key. Each array entry contains a key-value pair where the value is the activation count.
+- name: scalar_parent_urlbar_searchmode_shortcut_sum
+  description: A keyed sum recording how many times search mode was entered in the urlbar via a keyboard shortcut, broken down by key. Each array entry
+    contains a key-value pair where the value is the activation count.
+- name: scalar_parent_urlbar_searchmode_tabmenu_sum
+  description: A keyed sum recording how many times search mode was entered in the urlbar via the tab menu entry point, broken down by key. Each array
+    entry contains a key-value pair where the value is the activation count.
+- name: scalar_parent_urlbar_searchmode_tabtosearch_onboard_sum
+  description: A keyed sum recording how many times search mode was entered via the tab-to-search onboarding experience in the urlbar, broken down
+    by key. This entry point is shown to users being introduced to the tab-to-search feature for the first time.
+- name: scalar_parent_urlbar_searchmode_tabtosearch_sum
+  description: A keyed sum recording how many times search mode was entered in the urlbar via the tab-to-search result, broken down by key. Each array
+    entry contains a key-value pair where the value is the activation count.
+- name: scalar_parent_urlbar_searchmode_topsites_newtab_sum
+  description: A keyed sum recording how many times search mode was entered in the urlbar by interacting with a top site on the new tab page, broken
+    down by key. Each array entry contains a key-value pair where the value is the activation count.
+- name: scalar_parent_urlbar_searchmode_topsites_urlbar_sum
+  description: A keyed sum recording how many times search mode was entered in the urlbar by selecting a top site result within the urlbar dropdown,
+    broken down by key. Each array entry contains a key-value pair where the value is the activation count.
+- name: scalar_parent_urlbar_searchmode_touchbar_sum
+  description: A keyed sum recording how many times search mode was entered in the urlbar via the macOS Touch Bar, broken down by key. Each array entry
+    contains a key-value pair where the value is the activation count.
+- name: scalar_parent_urlbar_searchmode_typed_sum
+  description: A keyed sum recording how many times search mode was entered in the urlbar by the user manually typing a search mode token (e.g., '@engine'),
+    broken down by key. Each array entry contains a key-value pair where the value is the activation count.
+- name: scheduled_corpus_item_id
+  description: A unique identifier (UUID) for a scheduled corpus item, representing a specific piece of content (e.g., an article or recommendation)
+    that was scheduled for display in Firefox. This ID can be used to join with corpus scheduling data.
+- name: search_access_point
+  description: The UI entry point through which a search was initiated, such as 'urlbar', 'searchbar', 'contextmenu', 'urlbar_handoff', or 'tabhistory'.
+    This field identifies where in the browser the user triggered the search action.
+- name: search_adclicks_about_home_sum
+  description: A keyed sum recording the number of ad clicks on search result pages that were initiated from the Firefox about:home page, broken down
+    by search engine key. Each array entry contains a key-value pair where the value is the ad click count.
+- name: search_adclicks_about_newtab_sum
+  description: A keyed sum recording the number of ad clicks on search result pages that were initiated from the Firefox about:newtab page, broken
+    down by search engine key. Each array entry contains a key-value pair where the value is the ad click count.
+- name: search_adclicks_contextmenu_sum
+  description: A keyed sum recording the number of ad clicks on search result pages that were initiated via the browser context menu (right-click search),
+    broken down by search engine key. Each array entry contains a key-value pair where the value is the ad click count.
+- name: search_adclicks_reload_sum
+  description: A keyed sum recording the number of ad clicks on search result pages where the search originated from a page reload, broken down by
+    search engine key. Each array entry contains a key-value pair where the value is the ad click count.
+- name: search_adclicks_searchbar_sum
+  description: A keyed sum recording the number of ad clicks on search result pages that were initiated from the Firefox search bar, broken down by
+    search engine key. Each array entry contains a key-value pair where the value is the ad click count.
+- name: search_adclicks_system_sum
+  description: A keyed sum recording the number of ad clicks on search result pages that were initiated via a system-level search (e.g., OS search
+    integration), broken down by search engine key. Each array entry contains a key-value pair where the value is the ad click count.
+- name: search_adclicks_tabhistory_sum
+  description: A keyed sum recording the number of ad clicks on search result pages that were initiated via tab history navigation, broken down by
+    search engine key. Each array entry contains a key-value pair where the value is the ad click count.
+- name: search_adclicks_unknown_sum
+  description: A keyed sum recording the number of ad clicks on search result pages where the originating access point could not be determined or is
+    unclassified, broken down by search engine key. Each array entry contains a key-value pair where the value is the ad click count.
+- name: search_adclicks_urlbar_handoff_sum
+  description: A keyed sum recording the number of ad clicks on search result pages that were initiated via the new tab page urlbar handoff mechanism,
+    broken down by search engine key. Each array entry contains a key-value pair where the value is the ad click count.
+- name: search_adclicks_urlbar_persisted_sum
+  description: A keyed sum recording the number of ad clicks on search result pages where the search was initiated from the urlbar in a persisted search
+    mode session, broken down by search engine key. Each array entry contains a key-value pair where the value is the ad click count.
+- name: search_adclicks_urlbar_searchmode_sum
+  description: A keyed sum recording the number of ad clicks on search result pages that were initiated from the urlbar while in search mode, broken
+    down by search engine key. Each array entry contains a key-value pair where the value is the ad click count.
+- name: search_adclicks_urlbar_sum
+  description: A keyed sum recording the number of ad clicks on search result pages that were initiated from the Firefox urlbar (address bar), broken
+    down by search engine key. Each array entry contains a key-value pair where the value is the ad click count.
