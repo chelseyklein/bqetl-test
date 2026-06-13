@@ -296,3 +296,152 @@ fields:
 - name: browser_version_info.minor_version
   description: The minor version number component extracted from the browser version string (e.g., 0 for version 151.0). A value of 0 is the most common,
     representing the base release within a major version.
+- name: browser_version_info.patch_revision
+  description: The patch revision number component of the browser version (e.g., the '2' in a version like 115.0.2). A null value indicates the patch
+    revision is not applicable or not recorded for that release.
+- name: browser_version_info.version
+  description: The full version string of the Firefox browser (e.g., '115.0a1' or '151.0.2'), including major, minor, patch, and pre-release identifiers
+    where applicable.
+- name: bug_1501329_affected
+  description: Indicates whether the client was affected by the regression tracked in Mozilla bug 1501329. True means the client was affected; false
+    means it was not; null indicates the check was not applicable or not performed.
+- name: build_architecture
+  description: The CPU architecture for which the Firefox build was compiled, such as 'x86-64', 'aarch64', 'x86', or 'arm'. This reflects the binary
+    target architecture rather than the host machine's architecture.
+- name: build_channel
+  description: The release channel on which the Firefox build was distributed, such as 'release', 'beta', 'nightly', or 'aurora'. Unofficial or third-party
+    channel names may also appear for non-standard builds.
+- name: build_id
+  description: A timestamp-based string identifier for the specific Firefox build, formatted as YYYYMMDDHHmmSS (e.g., '20260514164700'). This uniquely
+    identifies when a particular build was compiled.
+- name: build_version
+  description: The version string associated with a specific Firefox build. This corresponds to the product version at the time the build was produced.
+- name: campaign
+  description: The marketing campaign name or identifier associated with a user acquisition or engagement event, typically derived from UTM campaign
+    parameters. A null value indicates no campaign attribution was recorded.
+- name: campaign_id
+  description: A unique identifier for the specific advertising or marketing campaign that drove a user acquisition event, often including the ad platform's
+    internal campaign ID. A null value indicates no campaign ID was attributed.
+- name: category
+  description: A categorical label used to classify an event or record into a functional area or feature group (e.g., 'devtools.main', 'pwmgr', 'doh').
+    A null value indicates the category was not specified or is not applicable.
+- name: cdou
+  description: The cumulative days of use metric, representing the total number of days a client has actively used the browser up to the point of measurement.
+    Higher values indicate longer-tenured or more active users.
+- name: channel
+  description: The Firefox release channel associated with the client or event, such as 'release', 'beta', 'nightly', 'esr', or 'aurora'. This field
+    may contain raw or normalized channel values depending on the pipeline.
+- name: channel_raw
+  description: The raw, unnormalized marketing or traffic channel through which a user arrived, such as 'Organic Search', 'Paid Search', 'Referral',
+    or 'Direct'. A null value indicates the channel could not be determined.
+- name: city
+  description: The city associated with the client's IP address or reported location at the time of the event. A null value indicates the city could
+    not be determined through geolocation.
+- name: click_count
+  description: The total number of click interactions recorded for a given session, surface, or feature within the specified aggregation period. A
+    value of zero indicates no clicks were recorded.
+- name: client_agg_type
+  description: Describes the aggregation method applied to client-level metric values, such as 'summed_histogram', 'count', 'avg', 'sum', 'min', or
+    'max'. An empty string indicates the aggregation type was not specified.
+- name: client_clock_skew_mean
+  description: The mean clock skew (in hours) observed for a client, representing the average difference between the client's local clock and the server's
+    reference time. Negative values indicate the client clock is behind the server.
+- name: client_count
+  description: The number of distinct clients contributing to an aggregated row or metric. A value of 1 indicates data for a single client, while higher
+    values represent grouped or rolled-up aggregations.
+- name: client_id
+  description: A UUID that uniquely identifies a Firefox client installation. This identifier persists across sessions and is used to track longitudinal
+    behavior for a given browser profile.
+- name: client_submission_latency_mean
+  description: The mean latency (in seconds) between when telemetry data was generated on the client and when it was received by the ingestion pipeline.
+    A value of zero indicates near-instantaneous submission.
+- name: clients
+  description: The total count of distinct clients included in a given aggregation or summary row. This is typically used in rollup or reporting tables
+    to indicate population size.
+- name: cohort_date
+  description: The specific calendar date on which a cohort of clients is defined, typically corresponding to the date of first activity, installation,
+    or enrollment. Used to group clients by their entry point for retention and engagement analysis.
+- name: cohort_date_week
+  description: The Monday-aligned start date of the week in which a client's cohort date falls. Used for weekly cohort-based analysis of retention
+    and engagement trends.
+- name: content
+  description: The UTM content parameter or creative identifier associated with a marketing touchpoint, used to distinguish between different ad creatives
+    or link placements within the same campaign. A null value indicates no content attribution was recorded.
+- name: contextual_services_quicksuggest_block_dynamic_wikipedia_sum
+  description: An array of key-value pairs aggregating the total number of times a user blocked a dynamic Wikipedia suggestion in Firefox's Quick Suggest
+    feature, keyed by a relevant dimension such as match type or source. Each value represents the summed block count.
+- name: contextual_services_quicksuggest_block_nonsponsored_bestmatch_sum
+  description: An array of key-value pairs aggregating the total number of times a user blocked a non-sponsored best-match suggestion in Firefox's
+    Quick Suggest feature. Each value represents the summed block count for the corresponding dimension key.
+- name: contextual_services_quicksuggest_block_nonsponsored_sum
+  description: An array of key-value pairs aggregating the total number of times a user blocked a non-sponsored Quick Suggest result in Firefox's address
+    bar. Each value represents the summed block count for the corresponding dimension key.
+- name: contextual_services_quicksuggest_block_sponsored_bestmatch_sum
+  description: An array of key-value pairs aggregating the total number of times a user blocked a sponsored best-match suggestion in Firefox's Quick
+    Suggest feature. Each value represents the summed block count for the corresponding dimension key.
+- name: contextual_services_quicksuggest_block_sponsored_sum
+  description: An array of key-value pairs aggregating the total number of times a user blocked a sponsored Quick Suggest result in Firefox's address
+    bar. Each value represents the summed block count for the corresponding dimension key.
+- name: contextual_services_quicksuggest_block_weather_sum
+  description: An array of key-value pairs aggregating the total number of times a user blocked a weather-related Quick Suggest result in Firefox's
+    address bar. Each value represents the summed block count for the corresponding dimension key.
+- name: contextual_services_quicksuggest_click_dynamic_wikipedia_sum
+  description: An array of key-value pairs aggregating the total number of clicks on dynamic Wikipedia suggestions surfaced by Firefox's Quick Suggest
+    feature. Each value represents the summed click count for the corresponding dimension key.
+- name: contextual_services_quicksuggest_click_nonsponsored_bestmatch_sum
+  description: An array of key-value pairs aggregating the total number of clicks on non-sponsored best-match suggestions in Firefox's Quick Suggest
+    feature. Each value represents the summed click count for the corresponding dimension key.
+- name: contextual_services_quicksuggest_click_nonsponsored_sum
+  description: An array of key-value pairs aggregating the total number of clicks on non-sponsored Quick Suggest results in Firefox's address bar.
+    Each value represents the summed click count for the corresponding dimension key.
+- name: contextual_services_quicksuggest_click_sponsored_bestmatch_sum
+  description: An array of key-value pairs aggregating the total number of clicks on sponsored best-match suggestions in Firefox's Quick Suggest feature.
+    Each value represents the summed click count for the corresponding dimension key.
+- name: contextual_services_quicksuggest_click_sponsored_sum
+  description: An array of key-value pairs aggregating the total number of clicks on sponsored Quick Suggest results in Firefox's address bar. Each
+    value represents the summed click count for the corresponding dimension key.
+- name: contextual_services_quicksuggest_click_sum
+  description: An array of key-value pairs aggregating the total number of clicks across all Quick Suggest result types in Firefox's address bar. Each
+    value represents the summed click count for the corresponding dimension key.
+- name: contextual_services_quicksuggest_click_weather_sum
+  description: An array of key-value pairs aggregating the total number of clicks on weather-related Quick Suggest results in Firefox's address bar.
+    Each value represents the summed click count for the corresponding dimension key.
+- name: contextual_services_quicksuggest_help_dynamic_wikipedia_sum
+  description: An array of key-value pairs aggregating the total number of times a user clicked the help link associated with a dynamic Wikipedia Quick
+    Suggest result. Each value represents the summed help-click count for the corresponding dimension key.
+- name: contextual_services_quicksuggest_help_nonsponsored_bestmatch_sum
+  description: An array of key-value pairs aggregating the total number of times a user clicked the help link on a non-sponsored best-match Quick Suggest
+    result. Each value represents the summed help-click count for the corresponding dimension key.
+- name: contextual_services_quicksuggest_help_nonsponsored_sum
+  description: An array of key-value pairs aggregating the total number of times a user clicked the help link associated with a non-sponsored Quick
+    Suggest result. Each value represents the summed help-click count for the corresponding dimension key.
+- name: contextual_services_quicksuggest_help_sponsored_bestmatch_sum
+  description: An array of key-value pairs aggregating the total number of times a user clicked the help link on a sponsored best-match Quick Suggest
+    result. Each value represents the summed help-click count for the corresponding dimension key.
+- name: contextual_services_quicksuggest_help_sponsored_sum
+  description: An array of key-value pairs aggregating the total number of times a user clicked the help link associated with a sponsored Quick Suggest
+    result. Each value represents the summed help-click count for the corresponding dimension key.
+- name: contextual_services_quicksuggest_help_sum
+  description: An array of key-value pairs aggregating the total number of times a user clicked a help link across all Quick Suggest result types in
+    Firefox's address bar. Each value represents the summed help-click count for the corresponding dimension key.
+- name: contextual_services_quicksuggest_help_weather_sum
+  description: An array of key-value pairs aggregating the total number of times a user clicked the help link associated with a weather-related Quick
+    Suggest result. Each value represents the summed help-click count for the corresponding dimension key.
+- name: contextual_services_quicksuggest_impression_dynamic_wikipedia_sum
+  description: An array of key-value pairs aggregating the total number of times a dynamic Wikipedia suggestion was shown to a user via Firefox's Quick
+    Suggest feature. Each value represents the summed impression count for the corresponding dimension key.
+- name: contextual_services_quicksuggest_impression_nonsponsored_bestmatch_sum
+  description: An array of key-value pairs aggregating the total number of times a non-sponsored best-match Quick Suggest result was displayed to a
+    user. Each value represents the summed impression count for the corresponding dimension key.
+- name: contextual_services_quicksuggest_impression_nonsponsored_sum
+  description: An array of key-value pairs aggregating the total number of impressions for non-sponsored Quick Suggest results shown in Firefox's address
+    bar. Each value represents the summed impression count for the corresponding dimension key.
+- name: contextual_services_quicksuggest_impression_sponsored_bestmatch_sum
+  description: An array of key-value pairs aggregating the total number of times a sponsored best-match Quick Suggest result was displayed to a user.
+    Each value represents the summed impression count for the corresponding dimension key.
+- name: contextual_services_quicksuggest_impression_sponsored_sum
+  description: An array of key-value pairs aggregating the total number of impressions for sponsored Quick Suggest results shown in Firefox's address
+    bar. Each value represents the summed impression count for the corresponding dimension key.
+- name: contextual_services_quicksuggest_impression_sum
+  description: An array of key-value pairs aggregating the total number of impressions across all Quick Suggest result types shown in Firefox's address
+    bar. Each value represents the summed impression count for the corresponding dimension key.
