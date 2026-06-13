@@ -594,3 +594,152 @@ fields:
 - name: days_visited_1_uri_normal_mode_bits
   description: A bitmask where each bit represents a day in a rolling window, with a set bit indicating the client visited at least 1 URI in a normal
     (non-private) browsing window on that day. This excludes private browsing activity from the usage signal.
+- name: days_visited_1_uri_private_mode_bits
+  description: A bitfield representing which days in a rolling 28-day window the client visited at least 1 URI in private browsing mode. Each bit corresponds
+    to one day, with 0 indicating no qualifying private-mode activity on that day.
+- name: days_visited_5_uri_bits
+  description: A bitfield representing which days in a rolling 28-day window the client visited at least 5 URIs in normal browsing mode. Each bit corresponds
+    to one day, allowing reconstruction of the client's multi-URI active days over the window.
+- name: db_version
+  description: The timestamp-based version string identifying the release of the underlying database or data source in use. Values follow an ISO 8601
+    UTC datetime format and indicate when the database snapshot was published.
+- name: default_browser
+  description: Indicates whether Firefox is set as the system default browser on the client device. True means Firefox is the default browser; false
+    means it is not; null indicates the status could not be determined.
+- name: default_percent
+  description: The percentage of clients or sessions for which Firefox is set as the default browser within a given segment or cohort. Values range
+    from 0.0 to 100.0.
+- name: default_private_search_engine
+  description: The identifier of the search engine configured as the default for private browsing mode on the client. Common values include partner-coded
+    Google variants (e.g., 'google-b-d') and DuckDuckGo ('ddg').
+- name: default_private_search_engine_data_load_path
+  description: The load path indicating how the default private browsing search engine was installed or sourced (e.g., '[app]ddg' for a built-in app
+    engine). This field is almost always null and only rarely populated.
+- name: default_private_search_engine_data_name
+  description: The human-readable display name of the search engine configured as the default for private browsing mode (e.g., 'DuckDuckGo', 'Google').
+    This field is almost always null and only populated in rare cases.
+- name: default_private_search_engine_data_origin
+  description: The origin or provenance of the default private browsing search engine configuration, indicating how it was set or verified. This field
+    is currently always null and reserved for future use.
+- name: default_private_search_engine_data_submission_url
+  description: The URL template used to submit search queries to the default private browsing search engine. This field is almost always null and only
+    populated in rare cases where engine metadata is available.
+- name: default_search
+  description: The identifier of the default search engine in use on the client, often including partner or channel-specific codes (e.g., 'google-b-m').
+    The value 'unknown' indicates the engine could not be identified.
+- name: default_search_engine
+  description: The identifier string for the client's configured default search engine, including partner and distribution-specific variants (e.g.,
+    'google-b-d', 'baidu'). This is the engine used for searches initiated from the browser's address bar or search box.
+- name: default_search_engine_data_load_path
+  description: The load path describing how the default search engine was sourced or installed, distinguishing between built-in app engines (e.g.,
+    '[app]google'), add-on-provided engines (e.g., '[addon]google@search.mozilla.org'), and other origins.
+- name: default_search_engine_data_name
+  description: The human-readable display name of the client's default search engine as reported by the browser (e.g., 'Google', 'DuckDuckGo', '百度').
+    The name may be localized based on the user's language settings.
+- name: default_search_engine_data_origin
+  description: Indicates how the default search engine's configuration was established or verified, with values such as 'default' (browser default),
+    'verified', 'unverified', or 'invalid'. A null value means the origin was not recorded.
+- name: default_search_engine_data_submission_url
+  description: The URL template used to submit search queries to the client's default search engine, typically including client and partner identification
+    parameters in the query string.
+- name: device
+  description: A combined identifier representing the device manufacturer and model name (e.g., 'iPhone16,2', 'MediaTek-SMART TV'). This field captures
+    the hardware platform on which the browser or application is running.
+- name: device_model
+  description: The model identifier of the client's device (e.g., 'iPhone14,5'), providing a more granular hardware identifier than the general device
+    field. Null values indicate the device model could not be determined or is not applicable.
+- name: devtools_toolbox_opened_count_sum
+  description: The total number of times the browser developer tools toolbox was opened by the client across the aggregation period. A null value indicates
+    no developer tools activity was recorded.
+- name: dismiss_count
+  description: The number of times a user dismissed a prompt, notification, or UI element during the observed period. A value of 0 indicates the element
+    was never dismissed.
+- name: display_version
+  description: The human-readable version string of the Firefox application as shown to end users (e.g., '151.0.2', '115.31.0esr'). This may include
+    ESR (Extended Support Release) suffixes where applicable.
+- name: disqualification_count
+  description: The number of times a client or record was disqualified from an experiment, study, or eligibility check during the observed period.
+    A value of 0 indicates no disqualifications occurred.
+- name: distribution_id
+  description: An identifier for the Firefox distribution or build variant the client is using (e.g., 'default', 'mozilla-MSIX', 'canonical-002').
+    This distinguishes Mozilla's standard builds from partner or OS-specific distributions.
+- name: distribution_model
+  description: A categorical label describing the channel through which the Firefox distribution was delivered to the user (e.g., 'OS pre-installed',
+    'secondary store', 'partner website', 'non-distribution').
+- name: distribution_version
+  description: The version string of the specific Firefox distribution package (e.g., '1.0', '2023.6'), which may differ from the Firefox application
+    version. Null indicates no distribution version was recorded.
+- name: distributor
+  description: The name of the organization or party responsible for distributing this Firefox build to the end user (e.g., 'canonical', 'mozillaonline',
+    'mint'). Null indicates the browser was obtained directly from Mozilla or via an untracked channel.
+- name: distributor_channel
+  description: The specific channel used by the distributor to deliver the Firefox build (e.g., 'ubuntu', 'mainWinStub'). Null or empty values indicate
+    the channel was not recorded or is not applicable.
+- name: doc_type
+  description: The type of telemetry document or ping submitted by the client (e.g., 'main', 'crash', 'event'). This field identifies the schema and
+    category of the telemetry payload.
+- name: document_id
+  description: A globally unique UUID assigned to each telemetry document or ping submission. This identifier is used to deduplicate records and trace
+    individual submissions through the data pipeline.
+- name: dom_parentprocess_private_window_used
+  description: Indicates whether a private browsing window was used in the browser's parent process during the session. True means at least one private
+    window was opened; false means no private window activity was detected.
+- name: domains_per_user
+  description: The average number of distinct domains visited per user within the aggregation period. A null value indicates no browsing activity was
+    recorded or the metric could not be computed.
+- name: downloads
+  description: The total number of file downloads initiated by the client during the observed period. A value of 0 indicates no downloads were recorded.
+- name: ds
+  description: The UTC timestamp representing the date partition or reporting date for the record, truncated to midnight. This field is used to identify
+    the time window to which the aggregated or snapshot data belongs.
+- name: durations
+  description: The total active session duration recorded for the client during the observed period, typically measured in seconds or minutes. A value
+    of 0 indicates no measurable active time was recorded.
+- name: e10s_cohort
+  description: The cohort identifier assigned to the client as part of the Electrolysis (e10s) multi-process Firefox experiment. This field is no longer
+    populated and is always null in current data.
+- name: e10s_enabled
+  description: Indicates whether the Electrolysis (e10s) multi-process architecture was enabled in the browser. True means e10s was active; false means
+    the browser was running in single-process mode.
+- name: endpoint
+  description: The telemetry submission endpoint to which the ping was sent, identifying the ingestion target for the data. This field categorizes
+    records by their intended data pipeline destination.
+- name: engine_data_load_path
+  description: The load path indicating the source from which a search engine definition was loaded, such as a built-in app bundle ('[app]google')
+    or a browser extension ('[addon]google@search.mozilla.org').
+- name: engine_data_name
+  description: The human-readable display name of a search engine as reported in telemetry (e.g., 'Google', 'DuckDuckGo', '百度'). The name may be localized
+    and can vary across clients.
+- name: engine_data_origin
+  description: Indicates how the search engine's configuration was established or verified, with values such as 'default', 'verified', 'unverified',
+    or 'invalid'. A null value means the origin was not recorded for that engine.
+- name: engine_data_submission_url
+  description: The URL template used to submit search queries to a specific search engine, often containing client identification or partner parameters.
+    This is used to associate search events with the correct engine endpoint.
+- name: enroll_count
+  description: The total number of times a client was enrolled in a Nimbus experiment or feature rollout during the observed period. A value of 0 indicates
+    the client was not enrolled in any experiments.
+- name: enroll_failed_count
+  description: The total number of times an experiment or feature rollout enrollment attempt failed for the client during the observed period. A value
+    of 0 indicates no enrollment failures occurred.
+- name: env_build_arch
+  description: The CPU architecture of the Firefox build running on the client (e.g., 'x86-64', 'aarch64', 'x86'). This reflects the compiled target
+    architecture of the browser binary.
+- name: env_build_id
+  description: The unique build identifier for the Firefox application, formatted as a timestamp string (e.g., '20260520211922'). This pinpoints the
+    exact build of Firefox the client is running.
+- name: env_build_platform_version
+  description: The version of the Gecko platform (XULRunner/Firefox platform) on which the browser is built (e.g., '151.0.1'). This may differ from
+    the application-level display version for ESR or specialized builds.
+- name: env_build_version
+  description: The Firefox application build version string as recorded in the environment (e.g., '151.0.1', '115.36.0'). This identifies the specific
+    Firefox release the client was running at the time of the ping.
+- name: env_build_xpcom_abi
+  description: The XPCOM Application Binary Interface (ABI) identifier for the Firefox build, combining the CPU architecture and compiler toolchain
+    (e.g., 'x86_64-msvc', 'aarch64-gcc3'). This is used to identify binary compatibility for add-ons and components.
+- name: environment
+  description: The deployment or runtime environment context associated with the record (e.g., production, staging). This field is used to distinguish
+    data collected from different operating environments.
+- name: environment_settings_intl_accept_languages
+  description: An ordered list of language tags reflecting the client's preferred languages as configured in the browser's internationalization settings
+    (e.g., ['en-US', 'fr']). These correspond to the Accept-Language HTTP header values sent by the browser.
