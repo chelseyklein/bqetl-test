@@ -589,3 +589,150 @@ fields:
 - name: default_private_search_engine_data_origin
   description: The origin or provenance of the default private browsing search engine configuration, indicating how or where the engine was added.
     Null indicates this metadata was not available or reported.
+- name: default_private_search_engine_data_submission_url
+  description: The base submission URL for the default private browsing search engine, used to construct search queries. This field is predominantly
+    null, indicating most clients do not have a distinct private search engine configured.
+- name: default_search
+  description: The identifier for the client's default search engine, typically expressed as a short engine code (e.g., 'google-b-m'). A value of 'unknown'
+    indicates the engine could not be identified.
+- name: default_search_engine
+  description: The identifier string for the user's default search engine, combining the engine name with optional distribution or channel codes (e.g.,
+    'google-b-d', 'baidu'). This identifies which search engine is active as the browser default.
+- name: default_search_engine_data_load_path
+  description: The path describing how the default search engine was loaded, indicating its origin source such as a built-in app bundle ('[app]') or
+    an add-on ('[addon]'). This helps distinguish between pre-bundled and user-installed search engines.
+- name: default_search_engine_data_name
+  description: The human-readable display name of the default search engine (e.g., 'Google', 'DuckDuckGo', '百度'). This is the localized name as presented
+    to the user in the browser.
+- name: default_search_engine_data_origin
+  description: Indicates how the default search engine was set, with values such as 'default', 'verified', 'unverified', or 'invalid'. This field is
+    mostly null and is only populated when the engine origin can be determined.
+- name: default_search_engine_data_submission_url
+  description: The base URL used to submit search queries to the default search engine, including any partner or distribution-specific query parameters.
+    This URL uniquely identifies the search engine partner agreement in effect.
+- name: device
+  description: A string identifying the device hardware, typically in the format 'Manufacturer-Model' (e.g., 'iPhone14,5', 'MediaTek-SMART TV'). This
+    represents the specific hardware platform on which the browser is running.
+- name: device_model
+  description: The hardware model identifier of the device (e.g., 'iPhone14,5'), representing the specific device variant. This field may be null for
+    desktop or unrecognized platforms.
+- name: devtools_toolbox_opened_count_sum
+  description: The total number of times the browser developer tools toolbox was opened during the reporting period. A null value indicates the metric
+    was not recorded, typically for sessions where developer tools were never used.
+- name: dismiss_count
+  description: The number of times a user dismissed a UI element (such as a notification, prompt, or recommendation) during the reporting period. A
+    value of zero indicates the element was never dismissed.
+- name: display_version
+  description: The human-readable version string of the browser as displayed to the user, including point releases and ESR designations (e.g., '151.0.2',
+    '115.31.0esr'). This may differ slightly from the internal build version.
+- name: disqualification_count
+  description: The number of times a client or session was disqualified from a study, experiment, or targeting criteria during the reporting period.
+    A value of zero indicates no disqualifications occurred.
+- name: distribution_id
+  description: An identifier for the Firefox distribution or partner build the client is using (e.g., 'default', 'mozilla-MSIX', 'canonical-002').
+    A value of 'default' indicates a standard Mozilla release with no partner customization.
+- name: distribution_model
+  description: A categorical label describing the channel through which the Firefox distribution was delivered (e.g., 'non-distribution', 'OS pre-installed',
+    'OEM pre-installed', 'secondary store'). This classifies the business relationship behind the distribution.
+- name: distribution_version
+  description: The version string of the partner distribution configuration or customization applied to the Firefox build. This is null for standard
+    Mozilla builds that carry no partner-specific versioning.
+- name: distributor
+  description: The name of the organization or project that distributed this Firefox build (e.g., 'canonical', 'mozillaonline', 'mint'). This field
+    is null for builds distributed directly by Mozilla.
+- name: distributor_channel
+  description: The specific channel or method used by the distributor to deliver Firefox (e.g., 'ubuntu', 'mainWinStub', 'firefox'). This field is
+    null for builds not associated with a particular distributor channel.
+- name: doc_type
+  description: The type of telemetry document or ping submitted (e.g., 'main', 'crash', 'event'). This identifies the schema and intended purpose of
+    the telemetry payload.
+- name: document_id
+  description: A UUID uniquely identifying a single telemetry document submission. This is used to deduplicate ingested pings across the pipeline.
+- name: dom_parentprocess_private_window_used
+  description: A boolean indicating whether a private browsing window was used in the parent DOM process during the session. True means at least one
+    private window was opened; false means no private window was used.
+- name: domains_per_user
+  description: The average number of distinct domains visited per user during the reporting period. This metric is used to characterize browsing breadth
+    across a population.
+- name: downloads
+  description: The number of file downloads initiated by the user during the reporting period. A value of zero indicates no downloads were started.
+- name: ds
+  description: The UTC timestamp representing the date partition or logical date associated with the record, typically truncated to midnight. This
+    field is used for time-based partitioning and filtering of the dataset.
+- name: durations
+  description: The total active duration, measured in seconds, associated with the session or activity being recorded. A value of zero indicates negligible
+    or unmeasured activity.
+- name: e10s_cohort
+  description: The experiment cohort assigned to the client for the Electrolysis (e10s) multi-process Firefox rollout. This field is fully null in
+    current data, indicating the e10s cohort experiment has concluded.
+- name: e10s_enabled
+  description: A boolean indicating whether the Electrolysis (e10s) multi-process architecture was enabled for the browser session. True means multi-process
+    mode was active; false means it was disabled.
+- name: endpoint
+  description: The telemetry or data pipeline endpoint to which the ping or event was submitted. This identifies the ingestion target for the document.
+- name: engine_data_load_path
+  description: The path describing how a search engine was loaded, indicating whether it originated from the built-in app bundle ('[app]'), an add-on
+    ('[addon]'), or another source ('[other]'). This is used to determine the provenance of a search engine configuration.
+- name: engine_data_name
+  description: The human-readable display name of the search engine referenced in the event or record (e.g., 'Google', 'DuckDuckGo', '百度'). This is
+    the localized name as presented to the user.
+- name: engine_data_origin
+  description: Indicates how the referenced search engine was set, with values such as 'default', 'verified', 'unverified', or 'invalid'. A null value
+    means the origin could not be determined for this engine.
+- name: engine_data_submission_url
+  description: The base URL used to submit queries to the referenced search engine, including any partner or distribution-specific parameters. This
+    identifies the specific search engine partner agreement associated with the engine in context.
+- name: enroll_count
+  description: The number of times the client was enrolled in a Nimbus experiment or Normandy study during the reporting period. A value of zero indicates
+    no new enrollments occurred.
+- name: enroll_failed_count
+  description: The number of times an attempt to enroll the client in a Nimbus experiment or Normandy study failed during the reporting period. A value
+    of zero indicates all enrollment attempts succeeded or none were made.
+- name: env_build_arch
+  description: The CPU architecture of the Firefox build environment (e.g., 'x86-64', 'aarch64', 'x86'). This reflects the architecture the binary
+    was compiled for, not necessarily the underlying hardware.
+- name: env_build_id
+  description: The build identifier for the Firefox binary, expressed as a timestamp string in YYYYMMDDHHmmss format (e.g., '20260520211922'). This
+    uniquely identifies a specific compiled build of Firefox.
+- name: env_build_platform_version
+  description: The version string of the underlying Gecko platform used by the Firefox build (e.g., '151.0.1', '115.36.0'). This may differ from the
+    product version for ESR or specialized builds.
+- name: env_build_version
+  description: The version string of the Firefox build as reported by the environment (e.g., '151.0.1', '115.36.0'). This reflects the version of the
+    browser that generated the telemetry record.
+- name: env_build_xpcom_abi
+  description: The XPCOM ABI string identifying the compiler toolchain and target architecture of the Firefox build (e.g., 'x86_64-msvc', 'aarch64-gcc3').
+    This is used to uniquely identify binary compatibility characteristics of the build.
+- name: environment
+  description: The deployment or runtime environment context associated with the telemetry record (e.g., production, staging). This field classifies
+    where the data originated from within the pipeline infrastructure.
+- name: environment_settings_intl_accept_languages
+  description: An ordered list of BCP 47 language tags representing the browser's configured 'Accept-Language' header preferences. These reflect the
+    user's language preferences for web content negotiation.
+- name: environment_settings_intl_app_locales
+  description: The list of locale codes representing the active application locales used by the Firefox browser UI. These determine the language and
+    regional formatting applied to the browser interface.
+- name: environment_settings_intl_available_locales
+  description: The list of locale codes for all language packs available in the Firefox installation. This reflects the full set of languages the browser
+    could display, regardless of which is currently active.
+- name: environment_settings_intl_regional_prefs_locales
+  description: The list of locale codes used for regional preferences such as date, time, and number formatting in the Firefox browser. These settings
+    may differ from the UI display language.
+- name: environment_settings_intl_requested_locales
+  description: The list of locale codes explicitly requested by the user or system for the Firefox browser. This reflects the preferred languages as
+    configured before the browser resolved them to available locales.
+- name: environment_settings_intl_system_locales
+  description: The list of locale codes reported by the underlying operating system. These represent the OS-level language and regional settings at
+    the time the telemetry was collected.
+- name: event
+  description: A dot-separated string identifying the specific telemetry event that occurred, combining the event object and method (e.g., 'cancel.modal',
+    'trigger.reason'). A null value indicates no specific event was associated with the record.
+- name: event_category
+  description: The category grouping for a telemetry event, used to classify the browser component or feature area that generated it (e.g., 'address',
+    'creditcard', 'memory_watcher'). This is the top-level namespace for event classification.
+- name: event_map_values
+  description: A repeated key-value struct containing additional metadata associated with a telemetry event. Each entry provides supplementary context
+    about the event, such as branch assignments, trigger reasons, or result codes.
+- name: event_map_values_key
+  description: The key component of an event map values entry, identifying the type of supplementary metadata attached to a telemetry event (e.g.,
+    'source', 'trigger', 'networkID'). This field is the lookup key for the corresponding value in the event map.
