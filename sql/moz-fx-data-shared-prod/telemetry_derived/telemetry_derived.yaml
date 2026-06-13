@@ -144,3 +144,152 @@ fields:
 - name: app_display_version
   description: The human-readable version string of the application as displayed to users (e.g., '151.0.1', '115.36.0esr'). Used to segment telemetry
     data by application version.
+- name: app_name
+  description: The internal identifier for the Mozilla application that generated the telemetry record (e.g., 'firefox_desktop', 'fenix', 'firefox_ios').
+    Each value corresponds to a distinct Mozilla product or platform variant.
+- name: app_version
+  description: The full version string of the application at the time the record was generated (e.g., '151.0.2'). This includes major, minor, and patch
+    components as a dot-separated string.
+- name: app_version_is_major_release
+  description: Indicates whether the application version corresponds to a major release (e.g., 151.0). True means the version is a major release; false
+    means it is a minor or patch update.
+- name: app_version_major
+  description: The major version number component of the application version (e.g., 151 for version 151.0.2). This is the primary release cycle identifier.
+- name: app_version_minor
+  description: The minor version number component of the application version (e.g., 0 for version 151.0.2). A value of 0 typically indicates a base
+    major release, while non-zero values indicate point releases within a major cycle.
+- name: app_version_patch
+  description: The patch-level version number component of the application version (e.g., 2 for version 151.0.2). Null values indicate the version
+    does not include an explicit patch component.
+- name: app_version_patch_revision
+  description: The patch revision component of the application version, representing incremental update revisions within a patch release. Null values
+    indicate no patch revision is applicable for the given version.
+- name: apple_model_id
+  description: The Apple hardware model identifier for macOS or iOS devices (e.g., 'MacBookAir10,1', 'Mac16,12'). This field is null for non-Apple
+    hardware.
+- name: application
+  description: The name of the Mozilla application as reported in the telemetry payload (e.g., 'Firefox', 'FirefoxForFireTV', 'Focus'). This identifies
+    the end-user product at a high level.
+- name: arch
+  description: The CPU architecture of the device as reported by the Android ABI or platform (e.g., 'arm64-v8a', 'armeabi-v7a', 'x86_64'). This reflects
+    the instruction set the application binary is running on.
+- name: architecture
+  description: The CPU architecture of the device or build environment (e.g., 'x86-64', 'aarch64', 'arm'). This indicates the hardware instruction
+    set supported by the running application.
+- name: asofdate
+  description: The reference date for which a given record or aggregation applies, stored as a date string in YYYY-MM-DD format. This is used to represent
+    the effective snapshot or reporting date of the data.
+- name: attributed
+  description: Indicates whether the client or install event has been attributed to a known acquisition source or campaign. True means attribution
+    data is present; false means no attribution was recorded.
+- name: attribution_campaign
+  description: The marketing campaign identifier associated with the client's acquisition, sourced from attribution metadata (e.g., 'SET_DEFAULT_BROWSER',
+    'about-dialog'). Null when no campaign attribution is available.
+- name: attribution_content
+  description: The content parameter from the acquisition attribution metadata, typically identifying the specific ad creative or page element that
+    led to the install (e.g., 'body-download-button'). Null when no content attribution is available.
+- name: attribution_dlsource
+  description: The download source identifier from acquisition attribution metadata, indicating which Mozilla-operated or partner property served the
+    installer (e.g., 'mozorg', 'fxdotcom'). Null when no download source is recorded.
+- name: attribution_dltoken
+  description: A unique token (UUID) associated with a specific attributed download event, used to link an install back to a particular download session.
+    Null when no download token is present.
+- name: attribution_experiment
+  description: The experiment identifier from acquisition attribution metadata, indicating whether the install was part of a download-side experiment.
+    Null when no experiment attribution is present.
+- name: attribution_medium
+  description: The marketing medium from acquisition attribution metadata, describing the broad channel through which the user arrived (e.g., 'referral',
+    'firefox-desktop'). Null when no medium attribution is available.
+- name: attribution_msstoresignedin
+  description: Indicates whether the user was signed in to the Microsoft Store at the time of the attributed install. This field is currently fully
+    null, meaning no data has been collected for this attribute.
+- name: attribution_source
+  description: The referring source from acquisition attribution metadata, typically the domain or service that referred the user to download the application
+    (e.g., 'www.google.com', 'www.bing.com'). Null when no source attribution is available.
+- name: attribution_ua
+  description: The user agent type of the browser the user was using at the time of the attributed download (e.g., 'chrome', 'edge', 'firefox'). Null
+    when no user agent attribution is available.
+- name: attribution_variation
+  description: The variation or variant identifier from acquisition attribution metadata, typically used to identify which test variant was seen during
+    a download-side experiment. Null when no variation attribution is available.
+- name: average_profile_age
+  description: The average age of a Firefox profile in days, calculated across a population of clients. Higher values indicate older, more established
+    profiles.
+- name: avg_hours_usage_daily
+  description: The average number of hours per day the application was actively used by a client or cohort. This metric reflects active engagement
+    time rather than total time the application was open.
+- name: blocklist_enabled
+  description: Indicates whether the Firefox blocklist (used to block known malicious add-ons and plugins) is enabled for the client. True means the
+    blocklist is active; false means it has been disabled.
+- name: bookmark_migrations_quantity_all
+  description: The total number of bookmarks migrated from all supported source browsers during a migration event. Null when no migration was performed
+    or data is unavailable.
+- name: bookmark_migrations_quantity_chrome
+  description: The number of bookmarks migrated specifically from Google Chrome during a browser migration event. Null when no Chrome migration was
+    performed or data is unavailable.
+- name: bookmark_migrations_quantity_edge
+  description: The number of bookmarks migrated specifically from Microsoft Edge during a browser migration event. Null when no Edge migration was
+    performed or data is unavailable.
+- name: bookmark_migrations_quantity_safari
+  description: The number of bookmarks migrated specifically from Apple Safari during a browser migration event. Null when no Safari migration was
+    performed or data is unavailable.
+- name: bookmarks_added_per_dau
+  description: The ratio of bookmark add events to daily active users (DAU) for a given segment or time period. Null when there are insufficient active
+    users to compute the metric.
+- name: bookmarks_opened_per_dau
+  description: The ratio of bookmark open events to daily active users (DAU) for a given segment or time period. Null when there are insufficient active
+    users to compute the metric.
+- name: branch
+  description: The experiment branch to which a client was assigned (e.g., 'control', 'treatment-a', 'rollout'). This identifies the specific variant
+    of an experiment or rollout a client is part of.
+- name: browser_arch
+  description: The CPU architecture of the browser process (e.g., 'x86-64', 'aarch64'). This reflects the instruction set the browser binary was compiled
+    for and is running on.
+- name: browser_backup_archive_enabled
+  description: Indicates whether the Firefox browser backup archive feature is enabled for the client. True means backup archiving is active; false
+    means it has been disabled; null means the feature state is unknown or not applicable.
+- name: browser_backup_scheduler_enabled
+  description: Indicates whether the Firefox browser backup scheduler is enabled for the client. True means the scheduler is active and backups are
+    being triggered automatically; false means the scheduler is disabled; null means the state is unknown or not applicable.
+- name: browser_name
+  description: The human-readable name of the browser product (e.g., 'Firefox Desktop'). This provides a display-friendly label for the browser as
+    opposed to internal product identifiers.
+- name: browser_version
+  description: The full version string of the browser at the time the record was generated (e.g., '151.0.2'). This includes all version components
+    as a dot-separated string.
+- name: browser_version_info_is_major_release
+  description: Indicates whether the browser version represents a major release (e.g., 151.0 with no patch). True means the version is a major release;
+    false means it is a patch or point update.
+- name: browser_version_info_major_version
+  description: The major version number component extracted from the browser version string (e.g., 151 for version 151.0.2). This corresponds to the
+    primary release train identifier.
+- name: browser_version_info_minor_version
+  description: The minor version number component extracted from the browser version string (e.g., 0 for version 151.0.2). A value of 0 typically indicates
+    a base major release build.
+- name: browser_version_info_patch_revision
+  description: The patch revision component extracted from the browser version string, representing incremental updates within a patch release. Null
+    values indicate no patch revision is applicable for the given version.
+- name: browser_version_info_version
+  description: The full, unparsed browser version string as extracted from version metadata (e.g., '151.0.2', '115.0a1'). This is the canonical version
+    string from which other browser_version_info components are derived.
+- name: bug_1501329_affected
+  description: Indicates whether the client was affected by the issue tracked in Firefox bug 1501329. True means the client was confirmed affected;
+    false means it was not; null means the affected status could not be determined.
+- name: build_architecture
+  description: The CPU architecture for which the application binary was compiled (e.g., 'x86-64', 'aarch64', 'x86'). This reflects the build target
+    and may differ from the runtime device architecture in emulation scenarios.
+- name: build_channel
+  description: The release channel for which the application was built (e.g., 'release', 'beta', 'nightly', 'aurora'). This identifies the intended
+    update and distribution track for the build.
+- name: build_id
+  description: A timestamp-based identifier for the specific application build, formatted as YYYYMMDDHHmmSS (e.g., '20260514164700'). This uniquely
+    identifies a particular nightly or release build.
+- name: build_version
+  description: The version string of the application build as reported in build metadata. This provides a label for the build distinct from the user-facing
+    application version.
+- name: campaign
+  description: The marketing campaign name or identifier associated with the client's acquisition or activity (e.g., 'SET_DEFAULT_BROWSER', 'non-fx-button').
+    Null when no campaign is associated with the record.
+- name: campaign_id
+  description: A unique identifier for the specific paid or organic marketing campaign associated with the client's acquisition. Null when no campaign
+    identifier is present or the acquisition was unattributed.
