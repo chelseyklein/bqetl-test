@@ -2637,3 +2637,54 @@ fields:
 - name: xpcom_abi
   description: The XPCOM ABI (Application Binary Interface) string identifying the processor architecture and compiler toolchain of the Firefox build,
     such as 'x86_64-msvc' or 'aarch64-gcc3'.
+- name: yearly
+  description: The annualized forecast value for the metric being modeled, extrapolated from the time-series model. Represents the estimated total
+    or rate of the metric on a yearly basis.
+- name: yearly_lower
+  description: The lower bound of the confidence interval for the annualized forecast value. Represents the pessimistic end of the yearly estimate
+    range produced by the forecasting model.
+- name: yearly_upper
+  description: The upper bound of the confidence interval for the annualized forecast value. Represents the optimistic end of the yearly estimate range
+    produced by the forecasting model.
+- name: yhat
+  description: The point estimate of the forecasted value produced by the time-series model (e.g. Prophet) for a given time period. This is the model's
+    best single prediction for the metric at that point in time.
+- name: yhat_lower
+  description: The lower bound of the uncertainty interval around the forecasted value `yhat`. Values below `yhat` indicate the model's pessimistic
+    prediction range for the metric.
+- name: yhat_upper
+  description: The upper bound of the uncertainty interval around the forecasted value `yhat`. Values above `yhat` indicate the model's optimistic
+    prediction range for the metric.
+- name: yhat_p5
+  description: The 5th percentile of the forecasted value distribution, representing the low tail of the model's predicted range. Null when percentile-level
+    forecast outputs are not available for a given row.
+- name: yhat_p10
+  description: The 10th percentile of the forecasted value distribution, indicating the value below which 10% of model predictions fall. Null when
+    percentile-level forecast outputs are not available for a given row.
+- name: yhat_p20
+  description: The 20th percentile of the forecasted value distribution, indicating the value below which 20% of model predictions fall. Null when
+    percentile-level forecast outputs are not available for a given row.
+- name: yhat_p30
+  description: The 30th percentile of the forecasted value distribution, indicating the value below which 30% of model predictions fall. Null when
+    percentile-level forecast outputs are not available for a given row.
+- name: yhat_p40
+  description: The 40th percentile of the forecasted value distribution, indicating the value below which 40% of model predictions fall. Null when
+    percentile-level forecast outputs are not available for a given row.
+- name: yhat_p50
+  description: The 50th percentile (median) of the forecasted value distribution, representing the midpoint of the model's predicted range. Null when
+    percentile-level forecast outputs are not available for a given row.
+- name: yhat_p60
+  description: The 60th percentile of the forecasted value distribution, indicating the value below which 60% of model predictions fall. Null when
+    percentile-level forecast outputs are not available for a given row.
+- name: yhat_p70
+  description: The 70th percentile of the forecasted value distribution, indicating the value below which 70% of model predictions fall. Null when
+    percentile-level forecast outputs are not available for a given row.
+- name: yhat_p80
+  description: The 80th percentile of the forecasted value distribution, indicating the value below which 80% of model predictions fall. Null when
+    percentile-level forecast outputs are not available for a given row.
+- name: yhat_p90
+  description: The 90th percentile of the forecasted value distribution, indicating the value below which 90% of model predictions fall. Null when
+    percentile-level forecast outputs are not available for a given row.
+- name: yhat_p95
+  description: The 95th percentile of the forecasted value distribution, representing the high tail of the model's predicted range. Null when percentile-level
+    forecast outputs are not available for a given row.
