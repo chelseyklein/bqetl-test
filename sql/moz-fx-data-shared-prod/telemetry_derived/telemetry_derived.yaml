@@ -2499,3 +2499,141 @@ fields:
 - name: update_channel
   description: The Firefox update channel the client is subscribed to, such as 'release', 'beta', 'nightly', or 'esr'. Determines which build and update
     stream the client receives.
+- name: update_count
+  description: The number of browser updates applied during the reporting period. A value of 0 indicates no updates were applied.
+- name: update_enabled
+  description: Indicates whether automatic browser updates are enabled for the client. True means updates are enabled; false means they have been disabled.
+- name: update_failed_count
+  description: The number of browser update attempts that failed during the reporting period. A value of 0 indicates no update failures occurred.
+- name: uri_count
+  description: The total number of URIs visited by the user during the reporting period. Null values indicate the metric was not collected or not applicable
+    for that record.
+- name: uri_method
+  description: The HTTP method associated with a URI request (e.g. GET, POST). Used to classify the type of network request made.
+- name: uris_per_user
+  description: The average number of URIs visited per user during the reporting period. Computed as a floating-point ratio to capture fractional averages
+    across aggregated cohorts.
+- name: usage
+  description: A categorical label describing the type of Firefox Desktop activity observed, such as any activity, visiting 5 or more URIs, or opening
+    Developer Tools.
+- name: user_agent
+  description: The browser or client type used to access a Mozilla service, with recognized values including firefox, chrome, edge, ie, and other.
+    Null indicates the user agent could not be determined.
+- name: user_cancelled
+  description: Indicates whether the user explicitly cancelled an in-progress action or flow. True means the user cancelled; false means they did not.
+    Null indicates the cancellation state was not recorded.
+- name: user_pref_app_shield_optoutstudies_enabled
+  description: The user's preference string for whether Firefox Shield opt-out studies are enabled. Values are 'true' or 'false'; null indicates the
+    preference was not recorded.
+- name: user_pref_browser_newtabpage_enabled
+  description: The user's preference string for whether the browser's New Tab page is enabled. Values are 'true' or 'false'; null indicates the preference
+    was not recorded.
+- name: user_pref_browser_search_region
+  description: The region code associated with the user's browser search preference, typically reflecting the geographic market used to configure the
+    default search experience (e.g. 'US', 'DE').
+- name: user_pref_browser_search_suggest_enabled
+  description: The user's preference string for whether search suggestions are enabled in the browser. Values are 'true' or 'false'; null indicates
+    the preference was not recorded.
+- name: user_pref_browser_urlbar_quicksuggest_data_collection_enabled
+  description: The user's preference string for whether data collection for the urlbar quick suggest feature is enabled. Values are 'true' or 'false';
+    null indicates the preference was not recorded.
+- name: user_pref_browser_urlbar_quicksuggest_onboarding_dialog_choice
+  description: The choice the user made when presented with the quick suggest onboarding dialog in the urlbar, such as 'close_1', 'not_now_2', or 'reject_2'.
+    Null indicates the dialog was not shown or the choice was not recorded.
+- name: user_pref_browser_urlbar_show_search_suggestions_first
+  description: The user's preference string for whether search suggestions are shown before browsing history in the urlbar. A value of 'false' indicates
+    the user has disabled this ordering; null indicates the preference was not recorded.
+- name: user_pref_browser_urlbar_suggest_bestmatch
+  description: The user's preference string for whether the urlbar best match feature is enabled. A value of 'true' indicates the feature is on; null
+    indicates the preference was not recorded.
+- name: user_pref_browser_urlbar_suggest_quicksuggest
+  description: The user's preference string for the legacy quick suggest setting in the urlbar. Values are 'true' or 'false'; null indicates the preference
+    was not set or not recorded.
+- name: user_pref_browser_urlbar_suggest_quicksuggest_nonsponsored
+  description: The user's preference string for whether non-sponsored quick suggestions are shown in the urlbar. Values are 'true' or 'false'; null
+    indicates the preference was not recorded.
+- name: user_pref_browser_urlbar_suggest_quicksuggest_sponsored
+  description: The user's preference string for whether sponsored quick suggestions are shown in the urlbar. Values are 'true' or 'false'; null indicates
+    the preference was not recorded.
+- name: user_pref_browser_urlbar_suggest_searches
+  description: The user's preference string for whether search suggestions are shown in the urlbar dropdown. Values are 'true' or 'false'; null indicates
+    the preference was not recorded.
+- name: user_pref_browser_widget_in_navbar
+  description: The user's preference string for whether a specific browser widget is displayed in the navigation bar. Values are 'true' or 'false';
+    null indicates the preference was not recorded.
+- name: users
+  description: The count of distinct users associated with a given dimension or cohort during the reporting period.
+- name: validation_failed_count
+  description: The number of data validation failures recorded during the reporting period. A value of 0 indicates all validation checks passed.
+- name: value
+  description: A generic integer metric value whose meaning depends on the context of the enclosing record, such as a count, score, or measurement
+    associated with a specific event or probe.
+- name: vendor
+  description: The name of the organization that produced the browser or product being reported on. For Firefox telemetry this is consistently 'Mozilla'.
+- name: version
+  description: The version string of the browser, add-on, or component being reported on, following standard versioning conventions (e.g. '1.0.0',
+    '144.0.0').
+- name: visited_5_uri_dau
+  description: The number of distinct active users who visited 5 or more URIs on a given day, used as a daily active user engagement metric.
+- name: visited_5_uri_mau
+  description: The number of distinct active users who visited 5 or more URIs at least once in the past 28 days, used as a monthly active user engagement
+    metric.
+- name: visited_5_uri_wau
+  description: The number of distinct active users who visited 5 or more URIs at least once in the past 7 days, used as a weekly active user engagement
+    metric.
+- name: visits
+  description: The total number of visits or sessions recorded for a given dimension during the reporting period. Null indicates the visit count was
+    not available for that record.
+- name: visits_with_default_ui
+  description: The number of urlbar or search visits where the browser's default UI configuration was in use, without any user customization that would
+    alter the standard experience.
+- name: visits_with_non_impression_engagement
+  description: The number of urlbar or search visits where the user performed an engagement action beyond a simple impression, such as clicking a result
+    or navigating to a suggestion.
+- name: visits_with_non_search_engagement
+  description: The number of urlbar visits where the user's engagement was with a non-search result type, such as a bookmark, history entry, or other
+    browser suggestion.
+- name: wallpaper_clicks
+  description: The count of times a user clicked on a wallpaper element in the browser's New Tab page during the reporting period. A value of 0 indicates
+    no wallpaper clicks occurred.
+- name: wau
+  description: The count of weekly active users (WAU) for a given dimension or cohort, representing distinct users active in a 7-day window.
+- name: weather_widget_change_display_to_detailed
+  description: The number of times a user switched the New Tab page weather widget from simple to detailed view during the reporting period. A value
+    of 0 indicates no such interaction occurred.
+- name: weather_widget_change_display_to_simple
+  description: The number of times a user switched the New Tab page weather widget from detailed to simple view during the reporting period. A value
+    of 0 indicates no such interaction occurred.
+- name: weather_widget_clicks
+  description: The number of times a user clicked on the weather widget on the New Tab page during the reporting period. A value of 0 indicates no
+    clicks occurred.
+- name: web_notification_shown_sum
+  description: The total number of web notifications shown to the user during the reporting period. Null indicates the metric was not collected or
+    not applicable for that record.
+- name: weekly
+  description: A floating-point metric representing a weekly aggregated value, such as an estimated count or modeled quantity for the 7-day reporting
+    window. May be negative for model residuals or difference metrics.
+- name: weekly_lower
+  description: The lower bound of the confidence or credible interval for the corresponding weekly metric estimate, expressed as a floating-point value.
+- name: weekly_upper
+  description: The upper bound of the confidence or credible interval for the corresponding weekly metric estimate, expressed as a floating-point value.
+- name: weekly_users
+  description: The count of distinct users active during a 7-day window for a given dimension or cohort, used as a weekly active user count metric.
+- name: window_end
+  description: The UTC timestamp marking the end of the time window for the aggregation or streaming record. Paired with window_start to define the
+    interval over which data was collected.
+- name: window_start
+  description: The UTC timestamp marking the start of the time window for the aggregation or streaming record. Paired with window_end to define the
+    interval over which data was collected.
+- name: windows_build_number
+  description: The numeric Windows OS build number for the client's operating system (e.g. 19045 for Windows 10 22H2). Null indicates the client was
+    not running Windows or the value was not collected.
+- name: windows_ubr
+  description: The Windows Update Build Revision (UBR) number, which identifies the specific cumulative update applied on top of the base Windows build.
+    Null indicates the value was not available or the client was not running Windows.
+- name: windows_version
+  description: The human-readable Windows operating system version string for the client (e.g. 'Windows 10', 'Windows 11'). Null indicates the client
+    was not running Windows or the version could not be determined.
+- name: xpcom_abi
+  description: The XPCOM ABI (Application Binary Interface) string identifying the processor architecture and compiler toolchain of the Firefox build,
+    such as 'x86_64-msvc' or 'aarch64-gcc3'.
