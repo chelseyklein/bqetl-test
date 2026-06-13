@@ -887,3 +887,152 @@ fields:
   description: The availability status of the Direct2D (D2D) graphics acceleration feature in Firefox, indicating whether it is 'available', 'disabled',
     'unavailable', 'blocked', or 'blocklisted', often accompanied by a specific failure reason code. A null value indicates the status was not reported,
     typically on non-Windows platforms.
+- name: gfx_features_d3d11_status
+  description: The availability status of the Direct3D 11 graphics feature on the client device. Values indicate whether the feature is available,
+    unavailable (with a specific failure reason code), or blocklisted (with a reason such as an empty or unknown driver version).
+- name: gfx_features_gpu_process_status
+  description: The availability status of the GPU process graphics feature on the client device. Values indicate whether the GPU process is available,
+    unused, or unavailable due to platform or OS version constraints, along with a specific failure reason code where applicable.
+- name: graduate_count
+  description: The number of experiments or studies from which the client has graduated during the reporting period. A value of 0 indicates the client
+    did not graduate from any experiments.
+- name: has_addon_ratio
+  description: The proportion of sessions or clients in an aggregation that have at least one add-on installed. Values range from 0.0 (no sessions
+    with add-ons) to 1.0 (all sessions with add-ons).
+- name: has_flash
+  description: Indicates whether the Adobe Flash plugin is installed and available on the client. True means Flash is present; false means it is not.
+- name: histogram
+  description: A JSON-serialized histogram representing the normalized distribution of values for a given metric, where keys are bucket labels and
+    values are the proportional frequency of observations in each bucket.
+- name: histogram_aggregates
+  description: An array of aggregated histogram records for various metrics, each containing bucket range metadata, metric identity fields (name, type,
+    key, process), the aggregation type, and the per-bucket aggregate counts.
+- name: histogram_aggregates_agg_type
+  description: The type of aggregation applied to the histogram data within the histogram_aggregates array. The value 'summed_histogram' indicates
+    that bucket values have been summed across clients or sessions.
+- name: histogram_aggregates_first_bucket
+  description: The lower boundary value of the first bucket in an aggregated histogram. This defines the minimum range of values captured by the histogram's
+    bucketing scheme.
+- name: histogram_aggregates_key
+  description: A sub-key used to further distinguish histogram measurements within a metric, such as a DNS provider name or feature flag label. An
+    empty string indicates the metric has no sub-key breakdown.
+- name: histogram_aggregates_last_bucket
+  description: The upper boundary value of the last bucket in an aggregated histogram. This defines the maximum range of values captured by the histogram's
+    bucketing scheme.
+- name: histogram_aggregates_latest_version
+  description: The most recent Firefox major version number observed among the clients contributing to this aggregated histogram record. This reflects
+    the highest version seen across all sessions in the aggregation.
+- name: histogram_aggregates_metric
+  description: The name of the Telemetry histogram metric being aggregated, such as a network timing or memory measurement probe name. This identifies
+    what is being measured in the histogram record.
+- name: histogram_aggregates_metric_type
+  description: The type of histogram used to collect the metric, such as 'histogram-exponential', 'histogram-enumerated', 'histogram-boolean', or 'histogram-linear'.
+    This determines how bucket boundaries are defined and how values are interpreted.
+- name: histogram_aggregates_num_buckets
+  description: The total number of buckets in the aggregated histogram. This controls the resolution of the distribution and varies by metric type
+    and configuration.
+- name: histogram_aggregates_process
+  description: The Firefox process type from which the histogram metric was collected, such as 'parent', 'content', or 'gpu'. This distinguishes measurements
+    originating from different browser process contexts.
+- name: histogram_parent_devtools_aboutdebugging_opened_count_sum
+  description: The total number of times the About Debugging DevTools panel was opened in the parent process during the reporting period. A null value
+    indicates the panel was not opened.
+- name: histogram_parent_devtools_animationinspector_opened_count_sum
+  description: The total number of times the Animation Inspector DevTools panel was opened in the parent process during the reporting period. A null
+    value indicates the panel was not opened.
+- name: histogram_parent_devtools_browserconsole_opened_count_sum
+  description: The total number of times the Browser Console DevTools panel was opened in the parent process during the reporting period. A null value
+    indicates the panel was not opened.
+- name: histogram_parent_devtools_canvasdebugger_opened_count_sum
+  description: The total number of times the Canvas Debugger DevTools panel was opened in the parent process during the reporting period. A null value
+    indicates the panel was not opened.
+- name: histogram_parent_devtools_computedview_opened_count_sum
+  description: The total number of times the Computed View CSS panel was opened in the DevTools inspector during the reporting period. A null value
+    indicates the panel was not opened.
+- name: histogram_parent_devtools_custom_opened_count_sum
+  description: The total number of times a custom DevTools panel was opened in the parent process during the reporting period. A null value indicates
+    no custom panel was opened.
+- name: histogram_parent_devtools_developertoolbar_opened_count_sum
+  description: The total number of times the Developer Toolbar was opened in the parent process during the reporting period. A null value indicates
+    the toolbar was not opened.
+- name: histogram_parent_devtools_dom_opened_count_sum
+  description: The total number of times the DOM DevTools panel was opened in the parent process during the reporting period. A null value indicates
+    the panel was not opened.
+- name: histogram_parent_devtools_eyedropper_opened_count_sum
+  description: The total number of times the Eyedropper color picker tool was opened via DevTools during the reporting period. A null value indicates
+    the tool was not opened.
+- name: histogram_parent_devtools_fontinspector_opened_count_sum
+  description: The total number of times the Font Inspector DevTools panel was opened in the parent process during the reporting period. A null value
+    indicates the panel was not opened.
+- name: histogram_parent_devtools_inspector_opened_count_sum
+  description: The total number of times the DOM/CSS Inspector DevTools panel was opened in the parent process during the reporting period. A null
+    value indicates the panel was not opened.
+- name: histogram_parent_devtools_jsbrowserdebugger_opened_count_sum
+  description: The total number of times the JavaScript Browser Debugger DevTools panel was opened in the parent process during the reporting period.
+    A null value indicates the panel was not opened.
+- name: histogram_parent_devtools_jsdebugger_opened_count_sum
+  description: The total number of times the JavaScript Debugger DevTools panel was opened in the parent process during the reporting period. A null
+    value indicates the panel was not opened.
+- name: histogram_parent_devtools_jsprofiler_opened_count_sum
+  description: The total number of times the JavaScript Profiler DevTools panel was opened in the parent process during the reporting period. A null
+    value indicates the panel was not opened.
+- name: histogram_parent_devtools_layoutview_opened_count_sum
+  description: The total number of times the Layout View (box model) DevTools panel was opened in the parent process during the reporting period. A
+    null value indicates the panel was not opened.
+- name: histogram_parent_devtools_memory_opened_count_sum
+  description: The total number of times the Memory DevTools panel was opened in the parent process during the reporting period. A null value indicates
+    the panel was not opened.
+- name: histogram_parent_devtools_menu_eyedropper_opened_count_sum
+  description: The total number of times the Eyedropper tool was opened via the DevTools menu during the reporting period. A null value indicates the
+    tool was not opened through this entry point.
+- name: histogram_parent_devtools_netmonitor_opened_count_sum
+  description: The total number of times the Network Monitor DevTools panel was opened in the parent process during the reporting period. A null value
+    indicates the panel was not opened.
+- name: histogram_parent_devtools_options_opened_count_sum
+  description: The total number of times the DevTools Options/Settings panel was opened in the parent process during the reporting period. A null value
+    indicates the panel was not opened.
+- name: histogram_parent_devtools_paintflashing_opened_count_sum
+  description: The total number of times the Paint Flashing DevTools toggle was opened in the parent process during the reporting period. A null value
+    indicates the feature was not activated.
+- name: histogram_parent_devtools_picker_eyedropper_opened_count_sum
+  description: The total number of times the Eyedropper color picker tool was opened via the color picker widget in DevTools during the reporting period.
+    A null value indicates the tool was not opened through this entry point.
+- name: histogram_parent_devtools_responsive_opened_count_sum
+  description: The total number of times the Responsive Design Mode DevTools panel was opened in the parent process during the reporting period. A
+    null value indicates the panel was not opened.
+- name: histogram_parent_devtools_ruleview_opened_count_sum
+  description: The total number of times the CSS Rule View DevTools panel was opened in the parent process during the reporting period. A null value
+    indicates the panel was not opened.
+- name: histogram_parent_devtools_scratchpad_opened_count_sum
+  description: The total number of times the Scratchpad JavaScript editor DevTools panel was opened in the parent process during the reporting period.
+    A null value indicates the panel was not opened.
+- name: histogram_parent_devtools_scratchpad_window_opened_count_sum
+  description: The total number of times the Scratchpad window was opened via DevTools during the reporting period. A null value indicates the window
+    was not opened.
+- name: histogram_parent_devtools_shadereditor_opened_count_sum
+  description: The total number of times the Shader Editor DevTools panel was opened in the parent process during the reporting period. A null value
+    indicates the panel was not opened.
+- name: histogram_parent_devtools_storage_opened_count_sum
+  description: The total number of times the Storage Inspector DevTools panel was opened in the parent process during the reporting period. A null
+    value indicates the panel was not opened.
+- name: histogram_parent_devtools_styleeditor_opened_count_sum
+  description: The total number of times the Style Editor DevTools panel was opened in the parent process during the reporting period. A null value
+    indicates the panel was not opened.
+- name: histogram_parent_devtools_webaudioeditor_opened_count_sum
+  description: The total number of times the Web Audio Editor DevTools panel was opened in the parent process during the reporting period. A null value
+    indicates the panel was not opened.
+- name: histogram_parent_devtools_webconsole_opened_count_sum
+  description: The total number of times the Web Console DevTools panel was opened in the parent process during the reporting period. A null value
+    indicates the panel was not opened.
+- name: histogram_parent_devtools_webide_opened_count_sum
+  description: The total number of times the WebIDE DevTools panel was opened in the parent process during the reporting period. A null value indicates
+    the panel was not opened.
+- name: history_migrations_quantity_all
+  description: The total number of history entries migrated from all supported browsers during a browser migration event. A value of 0 indicates a
+    migration was attempted but no history entries were transferred.
+- name: history_migrations_quantity_chrome
+  description: The number of history entries migrated specifically from Google Chrome during a browser migration event. A value of 0 indicates a Chrome
+    migration was attempted but no history entries were transferred.
+- name: history_migrations_quantity_edge
+  description: The number of history entries migrated specifically from Microsoft Edge during a browser migration event. A value of 0 indicates an
+    Edge migration was attempted but no history entries were transferred.
