@@ -1615,3 +1615,148 @@ fields:
 - name: plugins_infobar_block_sum
   description: The total number of times a user clicked 'Block' on a plugin activation infobar over the aggregation period. This field is null for
     all records, indicating this metric is no longer actively collected.
+- name: plugins_infobar_shown_sum
+  description: The aggregated count of times the plugin notification infobar was shown to the user. A null value indicates the metric was not recorded
+    for that client.
+- name: plugins_notification_shown_sum
+  description: The aggregated count of times a plugin notification was shown to the user. A null value indicates the metric was not recorded for that
+    client.
+- name: pocket_clicks
+  description: The total number of clicks on Pocket content (e.g., stories or recommendations) during the reporting period. A value of 0 indicates
+    no clicks occurred.
+- name: pocket_enabled
+  description: Indicates whether the Pocket feature is enabled for the user. True means Pocket is enabled; false means it is disabled.
+- name: pocket_impressions
+  description: The total number of times Pocket content was displayed (impressed) to the user during the reporting period. A value of 0 indicates no
+    impressions were recorded.
+- name: pocket_is_signed_in
+  description: Indicates whether the user is signed in to a Pocket account. True means the user is signed in; false means they are not. Null indicates
+    the sign-in state was not recorded.
+- name: pocket_saves
+  description: The total number of items the user saved to Pocket during the reporting period. A value of 0 indicates no saves occurred.
+- name: pocket_sponsored_stories_enabled
+  description: Indicates whether sponsored Pocket stories are enabled for the user. True means sponsored stories are shown; false means they are not.
+- name: pocket_story_position
+  description: The zero-based position index of a Pocket story within the content feed or grid. Null indicates the position was not recorded or the
+    event did not involve a positional placement.
+- name: pocket_thumb_voting_events
+  description: The total number of thumb-voting (thumbs up/down) interactions the user performed on Pocket stories during the reporting period. A value
+    of 0 indicates no voting events occurred.
+- name: position
+  description: The ordinal position of an item (e.g., a search suggestion, recommendation, or UI element) within its containing list or grid. Values
+    are zero- or one-based depending on context.
+- name: previous_build_id
+  description: The build ID of the Firefox version that was installed prior to the most recent update, formatted as a timestamp string (e.g., YYYYMMDDHHMMSS).
+    Null indicates no previous build was recorded, typically for new installations.
+- name: process
+  description: The name of the Firefox process from which a measurement or event originated, such as 'parent' (the main browser process), 'content'
+    (a content rendering process), or 'gpu' (the GPU process).
+- name: process_type
+  description: The type of Firefox process associated with a measurement or crash, such as 'parent', 'content', 'gpu', 'rdd', 'plugin', 'socket', or
+    'utility'. Null indicates the process type was not recorded.
+- name: product
+  description: The name of the Mozilla product from which the data originates, such as 'Fenix', 'Firefox iOS', 'Focus Android', or 'Fennec'. Used to
+    distinguish metrics across different Mozilla browser products.
+- name: profile_age_in_days
+  description: The age of the Firefox profile in days at the time of the observation, calculated as the difference between the reporting date and the
+    profile creation date. A value of 0 indicates a newly created profile.
+- name: profile_created
+  description: An integer representation of the date or timestamp when the Firefox profile was created. Used to determine profile age and cohort membership.
+- name: profile_creation_date
+  description: The date on which the Firefox profile was first created, formatted as a YYYYMMDD string. Used to derive profile age and segment users
+    into new-profile cohorts.
+- name: profile_date
+  description: The date on which the Firefox profile was created, stored as a DATE type. Used to compute profile age and identify new-profile cohorts.
+- name: profile_group_id
+  description: A UUID that identifies a group of related Firefox profiles, typically corresponding to a single installation or user account across
+    multiple profiles. Null indicates the group identifier was not available.
+- name: push_api_notify_sum
+  description: The aggregated count of push API notifications delivered to the browser during the reporting period. Null indicates no push notifications
+    were recorded for that client.
+- name: qdau_desktop
+  description: The count of qualifying daily active usage sessions on desktop Firefox for the reporting period. A value of 0 indicates no qualifying
+    activity was observed.
+- name: qualified_second_day
+  description: Indicates whether the user met the qualification criteria for activity on the second day after profile creation. True means the user
+    qualified; false means they did not.
+- name: qualified_week4
+  description: Indicates whether the user met the qualification criteria for activity during the fourth week after profile creation. True means the
+    user qualified; false means they did not.
+- name: realm
+  description: The deployment realm or environment context in which the data was collected, used to distinguish between different operational environments
+    such as production or staging.
+- name: reason
+  description: The technical reason or signal associated with a crash or process termination, such as a signal name (e.g., 'SIGSEGV / SEGV_MAPERR')
+    or Windows exception code (e.g., 'EXCEPTION_BREAKPOINT'). Null indicates the reason was not captured.
+- name: recommendation_id
+  description: A UUID that uniquely identifies a specific recommendation or suggested content item shown to the user. Null indicates no recommendation
+    was associated with the record.
+- name: record.key
+  description: The key component of a key-value record pair, typically representing a histogram bucket index, category label, or other categorical
+    identifier within a structured data record.
+- name: record.value
+  description: The numeric value associated with a key in a key-value record pair, representing a measured quantity such as a proportion, count, or
+    normalized metric. A value of 0.0 is the most common, indicating no contribution from that key.
+- name: region
+  description: The two-letter ISO 3166-1 alpha-2 country code representing the geographic region of the user or data source (e.g., 'US', 'DE', 'GB').
+    Null indicates the region could not be determined.
+- name: regressor_00
+  description: The point estimate value of the first external regressor used in a forecasting or modeling pipeline. A value of 0.0 typically indicates
+    no regressor contribution for that observation.
+- name: regressor_00_lower
+  description: The lower bound of the confidence interval for the first external regressor value used in a forecasting or modeling pipeline. A value
+    of 0.0 indicates no lower-bound adjustment for that observation.
+- name: regressor_00_upper
+  description: The upper bound of the confidence interval for the first external regressor value used in a forecasting or modeling pipeline. A value
+    of 0.0 indicates no upper-bound adjustment for that observation.
+- name: repeat_profile
+  description: Indicates whether the profile has been seen in a previous reporting period, identifying it as a returning rather than new profile. True
+    means the profile is a repeat; false means it is newly observed.
+- name: repeat_profiles
+  description: The count of profiles that have been observed in a previous reporting period within the aggregated data. Used to distinguish returning
+    profiles from new ones in cohort analyses.
+- name: resolution
+  description: The resolution or outcome associated with a record, such as the disposition of a crash report or the result of an action. Used to categorize
+    the final state of an event or workflow item.
+- name: retained_week4
+  description: An integer flag (0) indicating whether a new profile was retained through the fourth week after creation. A value of 0 indicates the
+    user was not retained; null indicates the retention window has not yet elapsed.
+- name: retained_week_4
+  description: Indicates whether the user was retained (i.e., returned and was active) during the fourth week after their profile creation date. True
+    means retained; false means not retained. Null indicates retention could not be determined.
+- name: retained_week_4_new_profile
+  description: Indicates whether a newly created profile was retained through the fourth week after creation. True means the new profile was retained;
+    false means it was not.
+- name: retained_week_4_new_profiles
+  description: The count of newly created profiles that were retained through the fourth week after their creation date. Used to measure early retention
+    for new user cohorts.
+- name: return_user
+  description: An integer flag (0) indicating whether the user returned to Firefox after an initial session. A value of 0 indicates the user did not
+    return; null indicates the return status could not be determined.
+- name: returned_second_day
+  description: Indicates whether the user returned to use the browser on the second day after their profile was created. True means the user returned;
+    false means they did not.
+- name: row_count
+  description: The number of rows associated with a given record or aggregation group. Used to understand the volume of underlying data contributing
+    to a summarized result.
+- name: row_source
+  description: The platform or device category from which the row of data originates, such as 'Desktop' or 'Mobile'. Used to distinguish between data
+    collected from different form factors.
+- name: sample_id
+  description: A numeric identifier (0–99) derived from the client ID, used to partition clients into consistent 1% samples for efficient querying
+    and analysis without processing the full population.
+- name: sandbox_effective_content_process_level
+  description: The effective sandboxing level applied to Firefox content processes, where higher values indicate more restrictive sandbox policies.
+    A value of 0 indicates no sandboxing; null indicates the level was not recorded.
+- name: save_count
+  description: The number of times a user saved an item (e.g., a Pocket story or bookmark) during the reporting period. A value of 0 indicates no saves
+    occurred.
+- name: scalar_a11y_hcm_background
+  description: The background color value used in High Contrast Mode (HCM) accessibility settings, stored as a 32-bit ARGB integer. Null indicates
+    the metric was not recorded, meaning HCM was not active or not detected.
+- name: scalar_a11y_hcm_foreground
+  description: The foreground (text) color value used in High Contrast Mode (HCM) accessibility settings, stored as a 32-bit ARGB integer. Null indicates
+    the metric was not recorded, meaning HCM was not active or not detected.
+- name: scalar_combined_webrtc_nicer_stun_retransmits_sum
+  description: The aggregated count of STUN packet retransmits recorded by the WebRTC ICE/STUN stack (nICEr) during the reporting period. A null value
+    indicates no WebRTC STUN activity was recorded for that client.
