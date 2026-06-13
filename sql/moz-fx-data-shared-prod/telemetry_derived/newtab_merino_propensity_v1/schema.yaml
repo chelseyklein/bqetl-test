@@ -2,15 +2,30 @@ fields:
 - mode: NULLABLE
   name: section_position
   type: INTEGER
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: section_position
 - mode: NULLABLE
   name: position
   type: INTEGER
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: position
 - mode: NULLABLE
   name: tile_format
   type: STRING
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: tile_format
 - mode: NULLABLE
   name: impressions
   type: INTEGER
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: impressions
 - mode: NULLABLE
   name: weight
   type: FLOAT
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: weight
