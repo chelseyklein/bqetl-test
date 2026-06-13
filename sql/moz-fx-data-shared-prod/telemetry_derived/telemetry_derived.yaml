@@ -445,3 +445,152 @@ fields:
 - name: contextual_services_quicksuggest_impression_sum
   description: An array of key-value pairs aggregating the total number of impressions across all Quick Suggest result types shown in Firefox's address
     bar. Each value represents the summed impression count for the corresponding dimension key.
+- name: contextual_services_quicksuggest_impression_weather_sum
+  description: An array of key-value pairs aggregating the total number of weather-related Quick Suggest impressions served via Contextual Services,
+    broken down by a string key dimension. Each entry records the impression count for that key over the aggregation period.
+- name: contextual_services_topsites_click_sum
+  description: An array of key-value pairs aggregating the total number of clicks on Top Sites tiles served via Contextual Services, broken down by
+    a string key dimension. Each entry records the click count for that key over the aggregation period.
+- name: contextual_services_topsites_impression_sum
+  description: An array of key-value pairs aggregating the total number of impressions for Top Sites tiles served via Contextual Services, broken down
+    by a string key dimension. Each entry records the impression count for that key over the aggregation period.
+- name: corpus_item_id
+  description: A unique UUID identifying a specific content item within the recommendation corpus (e.g., a Pocket article or sponsored tile). This
+    ID can be used to join or look up metadata about the individual content piece.
+- name: count
+  description: A general-purpose integer count representing the number of occurrences or records associated with the row's dimensions. The specific
+    event or entity being counted depends on the context of the table.
+- name: country
+  description: The ISO 3166-1 alpha-2 country code representing the country associated with the client or record (e.g., 'US' for United States, 'DE'
+    for Germany).
+- name: country_code
+  description: The ISO 3166-1 alpha-2 country code identifying the country of the client or record. Similar to the country field, this value is derived
+    from client metadata or geo-IP lookup.
+- name: country_name
+  description: The full human-readable name of the country associated with the client or record (e.g., 'United States', 'India'). This complements
+    country code fields with a display-friendly label.
+- name: cpu_cores
+  description: The number of logical CPU cores available on the client device. This reflects hardware parallelism capability and is used for device
+    characterization.
+- name: cpu_count
+  description: The total number of logical processors (CPUs) reported by the client device. This may include hyperthreaded cores and is used alongside
+    cpu_cores to characterize device hardware.
+- name: cpu_family
+  description: The numeric CPU family identifier as reported by the processor's CPUID instruction. This value categorizes the processor into a broad
+    architectural family (e.g., 6 for Intel Core).
+- name: cpu_l2_cache_kb
+  description: The size of the CPU's L2 cache in kilobytes as reported by the client device. A value of 0 may indicate the cache size could not be
+    determined.
+- name: cpu_l3_cache_kb
+  description: The size of the CPU's L3 cache in kilobytes as reported by the client device. A null or 0 value may indicate the processor has no L3
+    cache or the size could not be determined.
+- name: cpu_model
+  description: The numeric CPU model identifier as reported by the processor's CPUID instruction. Together with cpu_family and cpu_stepping, this uniquely
+    identifies the processor microarchitecture.
+- name: cpu_speed
+  description: The CPU clock speed as a string value reported by the client device. This field captures the processor's rated or reported speed in
+    a free-form text format.
+- name: cpu_speed_mhz
+  description: The CPU clock speed in megahertz (MHz) as reported by the client device. A value of 0 may indicate the speed could not be determined.
+- name: cpu_stepping
+  description: The numeric CPU stepping identifier as reported by the processor's CPUID instruction. Stepping identifies a specific revision within
+    a CPU model and is used together with family and model for precise processor identification.
+- name: cpu_vendor
+  description: The CPU vendor identifier string as reported by the processor's CPUID instruction (e.g., 'GenuineIntel', 'AuthenticAMD'). An empty or
+    null value indicates the vendor could not be determined.
+- name: crash_submit_attempt_content_sum
+  description: The total number of crash report submission attempts for content process crashes during the aggregation period. A null value indicates
+    no content process crash submissions were attempted.
+- name: crash_submit_attempt_main_sum
+  description: The total number of crash report submission attempts for main process crashes during the aggregation period. A null value indicates
+    no main process crash submissions were attempted.
+- name: crash_submit_attempt_plugin_sum
+  description: The total number of crash report submission attempts for plugin process crashes during the aggregation period. This field is typically
+    null, indicating plugin crash submissions are no longer tracked or observed.
+- name: crash_submit_success_content_sum
+  description: The total number of successfully submitted crash reports for content process crashes during the aggregation period. A value of 0 means
+    submissions were attempted but none succeeded; null means no attempts occurred.
+- name: crash_submit_success_main_sum
+  description: The total number of successfully submitted crash reports for main process crashes during the aggregation period. A value of 0 means
+    submissions were attempted but none succeeded; null means no attempts occurred.
+- name: crash_submit_success_plugin_sum
+  description: The total number of successfully submitted crash reports for plugin process crashes during the aggregation period. This field is typically
+    null, indicating plugin crash submissions are no longer tracked or observed.
+- name: crash_time
+  description: A string representation of the timestamp at which a crash occurred. The format may vary and captures the wall-clock time of the crash
+    event as reported by the client.
+- name: crashes_detected_content_sum
+  description: The total number of content process crashes detected on the client during the aggregation period. A null value indicates no content
+    process crashes were detected.
+- name: crashes_detected_gmplugin_sum
+  description: The total number of Gecko Media Plugin (GMP) process crashes detected on the client during the aggregation period. A null value indicates
+    no GMP crashes were detected.
+- name: crashes_detected_plugin_sum
+  description: The total number of plugin process crashes detected on the client during the aggregation period. A null value indicates no plugin crashes
+    were detected.
+- name: crashing_users
+  description: The number of unique users who experienced at least one crash during the aggregation period. This is a floating-point value to support
+    weighted or fractional user counting methodologies.
+- name: cumulative_new_profiles
+  description: The running cumulative total of new Firefox profiles created up to and including the current period. A value of 0 indicates no new profiles
+    were created in the relevant segment; null indicates the metric is unavailable.
+- name: daily_users
+  description: The count of unique users active on a given day, used to measure daily engagement. A value of 0 indicates no users were active for that
+    dimension combination on that day.
+- name: date
+  description: A string representation of the calendar date associated with the record, typically in YYYY-MM-DD format. This field is used for time-series
+    partitioning and filtering.
+- name: date_from
+  description: The inclusive start date of the time window covered by the record. Used together with date_to to define a date range for the aggregation
+    or analysis.
+- name: date_to
+  description: The inclusive end date of the time window covered by the record. Used together with date_from to define a date range for the aggregation
+    or analysis.
+- name: dau
+  description: Daily Active Users (DAU); the count of unique users considered active on a specific day according to the applicable activity definition.
+    A value of 0 indicates no active users for that dimension combination.
+- name: days_active_bits
+  description: A 28-bit integer bitmask where each bit represents one day in a rolling 28-day window, with a set bit indicating the client was active
+    on that day. The most significant bit represents the most recent day.
+- name: days_created_profile_bits
+  description: A bitmask where each bit represents a day in a rolling window, with a set bit indicating a new Firefox profile was created on that day.
+    Used to track the recency and frequency of new profile creation events.
+- name: days_had_8_active_ticks_bits
+  description: A bitmask where each bit represents a day in a rolling window, with a set bit indicating the client had at least 8 active ticks (approximately
+    40 minutes of activity) on that day. Used to measure days of substantive usage.
+- name: days_interacted_bits
+  description: A bitmask where each bit represents a day in a rolling window, with a set bit indicating the client had at least one recorded user interaction
+    (e.g., URI visit or active tick) on that day.
+- name: days_logged_event_bits
+  description: A bitmask where each bit represents a day in a rolling window, with a set bit indicating that at least one telemetry event was logged
+    for the client on that day.
+- name: days_opened_dev_tools_bits
+  description: A bitmask where each bit represents a day in a rolling window, with a set bit indicating the client opened Firefox Developer Tools on
+    that day. Used to identify developer-oriented usage patterns.
+- name: days_seen_bits
+  description: A bitmask where each bit represents a day in a rolling window, with a set bit indicating a telemetry ping was received from the client
+    on that day. This is the broadest activity signal, indicating the client was 'seen' regardless of usage intensity.
+- name: days_seen_in_experiment
+  description: An array of structs recording, for each experiment the client is enrolled in, the experiment ID, branch assignment, and a bitmask of
+    days the client was observed while enrolled. Used to track experiment exposure over time.
+- name: days_since_first_seen
+  description: The number of days elapsed between the date the client's profile was first seen (i.e., the profile creation or first-ping date) and
+    the current record's date. A value of 0 indicates the client was first seen on the same day.
+- name: days_since_seen
+  description: The number of days since the client was last seen in telemetry data prior to the current record's date. A value of 0 indicates the client
+    was seen on the current day.
+- name: days_used_pictureinpicture_bits
+  description: A bitmask where each bit represents a day in a rolling window, with a set bit indicating the client used the Picture-in-Picture video
+    feature on that day. Used to measure adoption and frequency of this feature.
+- name: days_viewed_protection_report_bits
+  description: A bitmask where each bit represents a day in a rolling window, with a set bit indicating the client viewed the Firefox Privacy Protections
+    report on that day. Used to track engagement with privacy-related UI.
+- name: days_visited_10_uri_bits
+  description: A bitmask where each bit represents a day in a rolling window, with a set bit indicating the client visited at least 10 URIs on that
+    day. Used as a proxy for high-intensity browsing activity.
+- name: days_visited_1_uri_bits
+  description: A bitmask where each bit represents a day in a rolling window, with a set bit indicating the client visited at least 1 URI on that day.
+    This is a broad indicator of any browsing activity occurring on a given day.
+- name: days_visited_1_uri_normal_mode_bits
+  description: A bitmask where each bit represents a day in a rolling window, with a set bit indicating the client visited at least 1 URI in a normal
+    (non-private) browsing window on that day. This excludes private browsing activity from the usage signal.
