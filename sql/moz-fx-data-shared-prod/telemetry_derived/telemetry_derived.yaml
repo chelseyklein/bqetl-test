@@ -1466,3 +1466,152 @@ fields:
 - name: organic_topsite_tile_dismissals
   description: The number of times a user dismissed organic (non-sponsored) top site tile elements on the Firefox new-tab page, tracked at tile-level
     granularity during the observation period.
+- name: organic_topsite_tile_impressions
+  description: The total number of impressions recorded for organic top site tiles on the new tab page. A value of 0 indicates no impressions were
+    recorded for that period.
+- name: os
+  description: The raw operating system name as reported by the client, such as 'Windows_NT', 'Darwin', 'Android', 'iOS', or 'Linux'. This is the unprocessed
+    OS string and may include uncommon or malformed values.
+- name: os_environment_is_taskbar_pinned_any
+  description: Indicates whether Firefox is pinned to the Windows taskbar in any browser mode (regular or private). True means Firefox is pinned in
+    at least one mode; false means it is not pinned in any mode.
+- name: os_environment_is_taskbar_pinned_private
+  description: Indicates whether the Firefox private browsing shortcut is specifically pinned to the Windows taskbar. True means the private browsing
+    shortcut is pinned; false means it is not.
+- name: os_environment_is_taskbar_pinned_private_any
+  description: Indicates whether a Firefox private browsing shortcut is pinned to the Windows taskbar in any configuration. True means at least one
+    private browsing shortcut is pinned; false means none are pinned.
+- name: os_grouped
+  description: A high-level grouping of the client's operating system into one of four categories; 'Windows', 'Mac', 'Linux', or 'Other'. This provides
+    a simplified OS classification for aggregation and reporting.
+- name: os_name
+  description: The normalized operating system name of the client, with values such as 'Windows', 'Mac', 'Linux', 'Android', or 'Other'. Unlike the
+    raw 'os' field, this reflects a standardized classification.
+- name: os_service_pack_major
+  description: The major version number of the Windows Service Pack installed on the client's operating system. This field is null for non-Windows
+    operating systems or when service pack information is unavailable.
+- name: os_service_pack_minor
+  description: The minor version number of the Windows Service Pack installed on the client's operating system. This field is null for non-Windows
+    operating systems or when service pack information is unavailable.
+- name: os_version
+  description: The full version string of the client's operating system, such as '10.0' for Windows 10 or '13.5.1' for macOS. The format varies by
+    platform and may include major, minor, and patch components.
+- name: os_version_major
+  description: The major version number component of the client's operating system version. For example, this would be 10 for Windows 10 or 14 for
+    macOS Sonoma.
+- name: os_version_minor
+  description: The minor version number component of the client's operating system version. This is 0 for many OS releases where no minor version distinction
+    exists, and non-zero for specific point releases.
+- name: osversion
+  description: The operating system version string as reported in a specific telemetry context, often representing Android API levels or similar platform-specific
+    version identifiers. Values are typically numeric strings.
+- name: partner_distribution_version
+  description: The version identifier of the partner distribution package used to install Firefox, such as '1.0' or '2023.6'. This field is null when
+    Firefox was not installed through a partner distribution.
+- name: partner_distributor
+  description: The name of the partner or Linux distribution that bundled or distributed Firefox, such as 'canonical', 'mint', or 'archlinux'. This
+    field is null for standard Mozilla-direct installs.
+- name: partner_distributor_channel
+  description: The specific distribution channel used by the partner to deliver Firefox, such as 'ubuntu' or 'esrWinFull'. This field is null when
+    no partner distributor channel is associated with the install.
+- name: partner_id
+  description: A short identifier for the partner organization that distributed Firefox, such as 'ubuntu', 'mint', or 'mozillaonline'. This field is
+    null for installs not associated with a recognized partner.
+- name: partner_org
+  description: A human-readable categorization of the partner or distribution organization associated with a Firefox install, such as 'Linux - Canonical',
+    'Mozilla - China', or 'non-distribution'. This field classifies installs into named partner groups for reporting.
+- name: payload.crashDate
+  description: The date on which the crash occurred, as reported in the crash ping payload. This is a string field formatted as a date value.
+- name: payload.crashTime
+  description: The time at which the crash occurred, as reported in the crash ping payload. This is a string field representing a timestamp or epoch
+    value.
+- name: payload.hasCrashEnvironment
+  description: Indicates whether the crash ping payload includes an environment block with additional client context. True means environment data was
+    captured alongside the crash report; false means it was not.
+- name: payload.metadata.key_value
+  description: An array of key-value string pairs containing supplementary metadata fields included in the crash ping payload. Each entry represents
+    an individual metadata attribute and its associated value.
+- name: payload.processType
+  description: The type of Firefox process that generated the crash, such as 'main', 'content', or 'gpu'. This identifies which part of the browser's
+    multi-process architecture experienced the crash.
+- name: payload.version
+  description: The schema version number of the crash ping payload format. This integer is used to identify which version of the payload structure
+    was used when the ping was submitted.
+- name: pct_users_profile_age_8_to_365_days
+  description: The proportion of users in a cohort whose Firefox profile age is between 8 and 365 days at the time of measurement. Values range from
+    0.0 (none) to 1.0 (all users in the group).
+- name: pct_users_profile_age_less_than_7_days
+  description: The proportion of users in a cohort whose Firefox profile age is less than 7 days at the time of measurement, representing relatively
+    new users. Values range from 0.0 (none) to 1.0 (all users in the group).
+- name: pct_users_profile_age_over_365_days
+  description: The proportion of users in a cohort whose Firefox profile age exceeds 365 days at the time of measurement, representing established
+    long-term users. Values range from 0.0 (none) to 1.0 (all users in the group).
+- name: ping_sent_metric_date
+  description: Indicates whether a telemetry ping was sent on the relevant metric date. True means a ping was received for that date; null indicates
+    the metric date is not applicable or the ping was absent.
+- name: ping_sent_week_4
+  description: Indicates whether a telemetry ping was sent during the fourth week of a user's lifecycle or observation window. True means a ping was
+    received in week 4; false means no ping was received; null means the week is not yet applicable.
+- name: pings_aggregated_by_this_row
+  description: The number of individual telemetry pings that have been combined into this aggregated row. Higher values indicate more pings were collapsed
+    into a single record.
+- name: placement
+  description: The named placement or slot on the new tab page where a sponsored or recommended content item was shown, such as 'newtab_spocs' or 'newtab_stories_1'.
+    This field is null when no placement is associated with the record.
+- name: places_bookmarks_count_mean
+  description: The mean number of bookmarks stored in the user's Firefox Places database over the aggregation period. This field is null when bookmark
+    count data is unavailable for the client.
+- name: places_bookmarks_searchbar_cumulative_searches_sum
+  description: The cumulative total number of searches performed using the bookmarks search bar within Firefox's Places library over the aggregation
+    period. This field is null when no relevant activity was recorded.
+- name: places_library_cumulative_bookmark_searches_sum
+  description: The cumulative total number of bookmark searches performed through the Firefox Places library panel over the aggregation period. This
+    field is null when no bookmark search activity was recorded.
+- name: places_library_cumulative_history_searches_sum
+  description: The cumulative total number of history searches performed through the Firefox Places library panel over the aggregation period. This
+    field is null when no history search activity was recorded.
+- name: places_pages_count_mean
+  description: The mean number of pages stored in the user's Firefox browsing history (Places database) over the aggregation period. This field is
+    null when history count data is unavailable for the client.
+- name: places_previousday_visits_mean
+  description: The mean number of page visits recorded in the Firefox Places database for the previous day, averaged over the aggregation period. A
+    value of 0.0 indicates the user had no history visits on the prior day.
+- name: places_searchbar_cumulative_filter_count_sum
+  description: The cumulative total number of times the user applied a filter in the Firefox Places searchbar over the aggregation period. This field
+    is null when no filter activity was recorded.
+- name: places_searchbar_cumulative_searches_sum
+  description: The cumulative total number of searches performed using the Firefox Places searchbar over the aggregation period. This field is null
+    when no Places searchbar search activity was recorded.
+- name: platform_version
+  description: The version string of the Firefox platform (Gecko) as reported by the client, such as '151.0.3'. This may differ from the application
+    version in cases involving extended support or specialized builds.
+- name: play_store_attribution_campaign
+  description: The UTM campaign name associated with the Google Play Store install attribution, such as 'firefox-desktop' or 'mozilla-org'. This field
+    is null when no campaign attribution is available.
+- name: play_store_attribution_content
+  description: The UTM content parameter associated with the Google Play Store install attribution, identifying the specific creative or surface that
+    drove the install, such as 'onboarding-modal' or 'firefoxview'. This field is null when no content attribution is available.
+- name: play_store_attribution_install_referrer_response
+  description: The raw referrer string returned by the Google Play Store install referrer API, containing UTM and other attribution parameters encoded
+    as a query string. This field is null when no referrer data was captured.
+- name: play_store_attribution_medium
+  description: The UTM medium parameter associated with the Google Play Store install attribution, describing the marketing channel (e.g., 'organic',
+    'paid'). This field is predominantly null, indicating medium data is generally not captured.
+- name: play_store_attribution_source
+  description: The UTM source parameter associated with the Google Play Store install attribution, identifying the origin of the install such as 'google-play',
+    'google', or 'eea-browser-choice'. This field is null when source attribution is unavailable.
+- name: play_store_attribution_term
+  description: The UTM term parameter associated with the Google Play Store install attribution, typically representing the search keyword that led
+    to the install, such as 'firefox' or 'mozilla firefox'. This field is null when no term attribution is available.
+- name: play_time_ratio
+  description: The ratio of active play or usage time relative to a reference time window for the client. Higher values indicate a greater proportion
+    of active engagement relative to the measured period.
+- name: plugin_hangs_sum
+  description: The total number of plugin hang events recorded for the client over the aggregation period. This field is null when no plugin hang data
+    was reported, which is the case for the vast majority of clients.
+- name: plugins_infobar_allow_sum
+  description: The total number of times a user clicked 'Allow' on a plugin activation infobar over the aggregation period. This field is null for
+    all records, indicating this metric is no longer actively collected.
+- name: plugins_infobar_block_sum
+  description: The total number of times a user clicked 'Block' on a plugin activation infobar over the aggregation period. This field is null for
+    all records, indicating this metric is no longer actively collected.
