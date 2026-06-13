@@ -1032,3 +1032,152 @@ fields:
 - name: histogram_parent_devtools_scratchpad_window_opened_count_sum
   description: The total number of times the Scratchpad window was opened via DevTools in the parent process during the reporting period. Null indicates
     the window was never opened.
+- name: histogram_parent_devtools_shadereditor_opened_count_sum
+  description: The total number of times the DevTools Shader Editor panel was opened in the parent process, aggregated as a sum of histogram values.
+    A null value indicates no recorded opens for the reporting period.
+- name: histogram_parent_devtools_storage_opened_count_sum
+  description: The total number of times the DevTools Storage Inspector panel was opened in the parent process, aggregated as a sum of histogram values.
+    Higher values indicate more frequent use of the Storage Inspector tool.
+- name: histogram_parent_devtools_styleeditor_opened_count_sum
+  description: The total number of times the DevTools Style Editor panel was opened in the parent process, aggregated as a sum of histogram values.
+    A null value indicates no recorded opens for the reporting period.
+- name: histogram_parent_devtools_webaudioeditor_opened_count_sum
+  description: The total number of times the DevTools Web Audio Editor panel was opened in the parent process, aggregated as a sum of histogram values.
+    A null value indicates no recorded opens for the reporting period.
+- name: histogram_parent_devtools_webconsole_opened_count_sum
+  description: The total number of times the DevTools Web Console panel was opened in the parent process, aggregated as a sum of histogram values.
+    Higher values reflect more frequent developer console usage within a session.
+- name: histogram_parent_devtools_webide_opened_count_sum
+  description: The total number of times the DevTools WebIDE panel was opened in the parent process, aggregated as a sum of histogram values. A null
+    value indicates no recorded opens for the reporting period.
+- name: history_migrations_quantity_all
+  description: The total number of history entries migrated from all source browsers combined. A value of 0 indicates a migration was attempted but
+    no history items were transferred.
+- name: history_migrations_quantity_chrome
+  description: The number of history entries migrated from Google Chrome. A value of 0 indicates a migration was attempted but no Chrome history items
+    were transferred.
+- name: history_migrations_quantity_edge
+  description: The number of history entries migrated from Microsoft Edge. A value of 0 indicates a migration was attempted but no Edge history items
+    were transferred.
+- name: history_migrations_quantity_safari
+  description: The number of history entries migrated from Apple Safari. A value of 0 indicates a migration was attempted but no Safari history items
+    were transferred.
+- name: holidays
+  description: The estimated additive effect of holidays on a forecasted metric, as produced by a time-series forecasting model (e.g., Prophet). A
+    value of 0.0 indicates no holiday effect was detected for that data point.
+- name: holidays_lower
+  description: The lower bound of the uncertainty interval for the holiday component of a time-series forecast. A value of 0.0 indicates no lower-bound
+    holiday adjustment for that data point.
+- name: holidays_upper
+  description: The upper bound of the uncertainty interval for the holiday component of a time-series forecast. A value of 0.0 indicates no upper-bound
+    holiday adjustment for that data point.
+- name: id_bucket
+  description: A numeric bucket assignment (0–19) used to partition client or profile IDs into evenly sized groups for sampling or experimentation
+    purposes. Buckets are uniformly distributed to enable percentage-based rollouts.
+- name: impression_count
+  description: The total number of times a UI element, recommendation, or advertisement was displayed to users. Higher values indicate more frequent
+    exposure events within the reporting period.
+- name: index
+  description: A string identifier used to uniquely label or order rows within a dataset or result set. It may represent a sequential position or a
+    named key depending on the context.
+- name: install_source
+  description: The source or distribution channel through which the application was installed, such as 'com.android.vending' for the Google Play Store
+    or 'Unknown' when the source cannot be determined.
+- name: install_year
+  description: The calendar year in which the application was installed. A null value indicates the install year could not be determined.
+- name: installation_first_seen_admin_user
+  description: Indicates whether the user had administrative privileges at the time of the first observed installation. True means admin rights were
+    present; false means they were not.
+- name: installation_first_seen_default_path
+  description: Indicates whether the application was installed to its default file system path when first observed. True means the default path was
+    used; false means a custom path was chosen.
+- name: installation_first_seen_failure_reason
+  description: The reason recorded for a failure during the first observed installation attempt. A value of 'NoError' indicates the installation completed
+    successfully without errors.
+- name: installation_first_seen_from_msi
+  description: Indicates whether the application was installed using an MSI package at the time it was first observed. True means an MSI installer
+    was used; false means another installer type was used.
+- name: installation_first_seen_install_existed
+  description: Indicates whether a prior installation of the application already existed when the first installation event was observed. True means
+    a previous install was detected; false means this was a fresh installation.
+- name: installation_first_seen_installer_type
+  description: The type of installer used during the first observed installation, such as 'stub' (a small downloader), 'full' (a complete offline installer),
+    or 'msix' (a Windows app package format).
+- name: installation_first_seen_other_inst
+  description: Indicates whether another non-MSIX installation of the application was detected at the time of the first observed install event. True
+    means another installation existed; false means none was found.
+- name: installation_first_seen_other_msix_inst
+  description: Indicates whether another MSIX-packaged installation of the application was detected at the time of the first observed install event.
+    True means another MSIX install existed; false means none was found.
+- name: installation_first_seen_profdir_existed
+  description: Indicates whether a Firefox profile directory already existed on the system when the first installation was observed. True means a profile
+    directory was present; false means none was found.
+- name: installation_first_seen_silent
+  description: Indicates whether the first observed installation was performed silently, without user-facing UI prompts. True means a silent install
+    occurred; false means an interactive installation was used.
+- name: installation_first_seen_version
+  description: The version string of the application recorded at the time of the first observed installation event. This reflects the version that
+    was initially installed, not necessarily the current running version.
+- name: installer_type
+  description: The type of installer package used to install the application, either 'full' (a complete offline installer) or 'stub' (a lightweight
+    downloader that fetches the full package).
+- name: installs
+  description: The count of installation events recorded within the reporting period. A value of 0 indicates no successful installs occurred despite
+    the record being present.
+- name: intensity
+  description: A floating-point measure of the intensity or magnitude of a signal, event, or usage pattern. The precise meaning depends on the context
+    in which it is applied.
+- name: ipc_channel_error
+  description: The error message or reason associated with a failure in an inter-process communication (IPC) channel, such as 'ShutDownKill' or 'GPUProcessKill'.
+    A null value indicates no IPC channel error was recorded.
+- name: is_dau
+  description: Indicates whether the client is counted as a Daily Active User (DAU) for the given date. True means the client meets the DAU criteria;
+    false means it does not.
+- name: is_default_browser
+  description: Indicates whether Firefox was set as the user's default browser at the time of the record. True means Firefox was the default; false
+    means another browser was set as default.
+- name: is_desktop
+  description: Indicates whether the client is running on a desktop platform. True means the client is a desktop device; false means it is a non-desktop
+    device such as a mobile phone or tablet.
+- name: is_new_profile
+  description: Indicates whether the Firefox profile associated with this record was newly created. True means the profile was created for the first
+    time; false means the profile existed previously.
+- name: is_system
+  description: Indicates whether an add-on or component is a system-level item rather than a user-installed one. True means it is a system item; false
+    means it was installed by the user.
+- name: is_wow64
+  description: Indicates whether the Firefox process is running as a 32-bit application under the 64-bit Windows-on-Windows (WoW64) compatibility layer.
+    True means WoW64 is active; false means the process is running natively.
+- name: isp
+  description: The full name of the Internet Service Provider associated with the client's IP address. This field provides granular ISP identification
+    and may include regional carrier names.
+- name: isp_name
+  description: A normalized or simplified name of the Internet Service Provider associated with the client's IP address. This field typically contains
+    the primary brand or company name of the ISP.
+- name: isp_organization
+  description: The name of the organization registered to the IP address block, which may differ from the ISP brand name. This often represents the
+    autonomous system or network operator.
+- name: key
+  description: A string key that identifies a specific metric, event, search entry, or configuration item within a record. An empty string may represent
+    a default or unkeyed entry.
+- name: last_bucket
+  description: The upper boundary value of the last bucket in a histogram. It defines the maximum range of the histogram and is used to interpret the
+    distribution of recorded values.
+- name: latest_version
+  description: The most recent major version number of the application available or tracked at the time of the record. This is used to assess version
+    adoption or currency.
+- name: latest_version_ratio
+  description: The proportion of clients or records running the latest version of the application, expressed as a floating-point ratio between 0 and
+    1. A value of 1.0 indicates all clients are on the latest version.
+- name: legacy_telemetry_client_count
+  description: The number of distinct legacy telemetry client IDs associated with a given entity or profile. Values greater than 1 may indicate multiple
+    devices or profile resets linked to the same entity.
+- name: legacy_telemetry_client_id
+  description: The UUID that uniquely identifies a Firefox client in the legacy telemetry system. This identifier persists across sessions and is used
+    to track longitudinal client behavior.
+- name: linkage_first_seen_date
+  description: The earliest date on which a linkage between two identifiers or entities was first observed. This is used to establish the start of
+    a relationship or identity mapping.
+- name: linkage_last_seen_date
+  description: The most recent date on which a linkage between two identifiers or entities was observed. This is used to determine the recency or expiration
+    of an identity mapping.
