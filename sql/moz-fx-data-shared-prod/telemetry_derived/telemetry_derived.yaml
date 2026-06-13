@@ -1760,3 +1760,153 @@ fields:
 - name: scalar_combined_webrtc_nicer_stun_retransmits_sum
   description: The aggregated count of STUN packet retransmits recorded by the WebRTC ICE/STUN stack (nICEr) during the reporting period. A null value
     indicates no WebRTC STUN activity was recorded for that client.
+- name: scalar_combined_webrtc_nicer_turn_401s_sum
+  description: Aggregated sum of WebRTC TURN server 401 Unauthorized response errors encountered across processes. A non-null value indicates authentication
+    failures during TURN negotiation.
+- name: scalar_combined_webrtc_nicer_turn_403s_sum
+  description: Aggregated sum of WebRTC TURN server 403 Forbidden response errors encountered across processes. A non-null value indicates authorization
+    failures during TURN negotiation.
+- name: scalar_combined_webrtc_nicer_turn_438s_sum
+  description: Aggregated sum of WebRTC TURN server 438 Stale Nonce response errors encountered across processes. A non-null value indicates nonce
+    expiry issues during TURN authentication.
+- name: scalar_content_navigator_storage_estimate_count_sum
+  description: Total number of times the Navigator StorageManager.estimate() API was called from content processes. This reflects how often web content
+    queries available storage quota information.
+- name: scalar_content_navigator_storage_persist_count_sum
+  description: Total number of times the Navigator StorageManager.persist() API was called from content processes. This reflects how often web content
+    requests persistent (eviction-resistant) storage.
+- name: scalar_content_telemetry_event_counts_sum
+  description: A keyed map of Telemetry event category/method/object keys to their summed occurrence counts, as recorded in content processes. Each
+    key identifies a distinct telemetry event type.
+- name: scalar_parent_aushelper_websense_reg_version
+  description: The version string of the Websense security software detected in the Windows registry by the AUS (Application Update Service) helper
+    component. A null value indicates Websense was not detected.
+- name: scalar_parent_browser_engagement_max_concurrent_tab_count_max
+  description: The maximum number of tabs that were open simultaneously across all browser windows during the reporting period. Higher values indicate
+    more intensive multitasking behaviour.
+- name: scalar_parent_browser_engagement_max_concurrent_window_count_max
+  description: The maximum number of browser windows that were open simultaneously during the reporting period. A value of 1 indicates only a single
+    window was ever open at one time.
+- name: scalar_parent_browser_engagement_tab_open_event_count_sum
+  description: The total number of new tab open events recorded during the reporting period. This counts discrete user actions that opened a new tab,
+    not the peak number of tabs open.
+- name: scalar_parent_browser_engagement_total_uri_count_normal_and_private_mode_sum
+  description: The total number of URIs navigated to across both normal and private browsing windows during the reporting period. This is a combined
+    engagement signal spanning all browsing modes.
+- name: scalar_parent_browser_engagement_total_uri_count_sum
+  description: The total number of URIs navigated to in normal (non-private) browsing windows during the reporting period. This serves as a measure
+    of overall browsing activity.
+- name: scalar_parent_browser_engagement_unfiltered_uri_count_sum
+  description: The total number of URI navigations recorded before any engagement filtering is applied during the reporting period. This includes all
+    navigations, including internal and non-user-initiated ones.
+- name: scalar_parent_browser_engagement_unique_domains_count_max
+  description: The maximum number of unique domains visited in a single session during the reporting period. This reflects the breadth of browsing
+    activity within the most diverse session.
+- name: scalar_parent_browser_engagement_unique_domains_count_mean
+  description: The mean number of unique domains visited per session during the reporting period. This reflects the average breadth of browsing activity
+    across all sessions.
+- name: scalar_parent_browser_engagement_window_open_event_count_sum
+  description: The total number of new browser window open events recorded during the reporting period. This counts discrete actions that opened a
+    new browser window, not the peak window count.
+- name: scalar_parent_browser_ui_interaction_content_context_sum
+  description: A keyed map of content context menu item identifiers to their summed interaction counts. Each key represents a specific context menu
+    element that the user interacted with.
+- name: scalar_parent_browser_ui_interaction_preferences_pane_home_sum
+  description: A keyed map of UI element identifiers within the Preferences Home pane to their summed interaction counts. Each key represents a specific
+    control or link the user clicked.
+- name: scalar_parent_browser_ui_interaction_textrecognition_error_sum
+  description: The total number of errors encountered during text recognition (e.g., live text or OCR) UI interactions. A null value indicates no errors
+    were recorded during the reporting period.
+- name: scalar_parent_devtools_accessibility_node_inspected_count_sum
+  description: The total number of times an accessibility node was inspected using the DevTools Accessibility panel. Higher values reflect more intensive
+    use of accessibility inspection features.
+- name: scalar_parent_devtools_accessibility_opened_count_sum
+  description: The total number of times the DevTools Accessibility panel was opened during the reporting period. Higher values indicate more frequent
+    use of the accessibility inspection tooling.
+- name: scalar_parent_devtools_accessibility_picker_used_count_sum
+  description: The total number of times the accessibility picker tool was activated within the DevTools Accessibility panel. This reflects how often
+    users selected page elements via the picker.
+- name: scalar_parent_devtools_accessibility_select_accessible_for_node_sum
+  description: A keyed map of node types or identifiers to the number of times the 'Select Accessible for Node' action was triggered in the DevTools
+    Accessibility panel.
+- name: scalar_parent_devtools_accessibility_service_enabled_count_sum
+  description: The total number of times the accessibility service was explicitly enabled via DevTools during the reporting period. A null value indicates
+    the service was never toggled on.
+- name: scalar_parent_devtools_copy_full_css_selector_opened_sum
+  description: The total number of times the 'Copy Full CSS Selector' action was triggered from the DevTools Inspector context menu. A null value indicates
+    this action was never used.
+- name: scalar_parent_devtools_copy_unique_css_selector_opened_sum
+  description: The total number of times the 'Copy Unique CSS Selector' action was triggered from the DevTools Inspector context menu. A null value
+    indicates this action was never used.
+- name: scalar_parent_devtools_toolbar_eyedropper_opened_sum
+  description: The total number of times the eyedropper color-picker tool was opened from the DevTools toolbar during the reporting period. A null
+    value indicates the tool was never used.
+- name: scalar_parent_dom_contentprocess_troubled_due_to_memory_sum
+  description: The total number of content processes that entered a troubled state due to memory pressure during the reporting period. A null value
+    indicates no such events occurred.
+- name: scalar_parent_library_link_sum
+  description: A keyed map of link type identifiers to the number of times links were followed from the Library panel. Each key represents a distinct
+    link destination or category.
+- name: scalar_parent_library_opened_sum
+  description: A keyed map of entry-point identifiers to the number of times the Library panel was opened via each entry point. Each key represents
+    a distinct way the panel was accessed.
+- name: scalar_parent_library_search_sum
+  description: A keyed map of search context identifiers to the number of times a search was performed within the Library panel. Each key represents
+    a distinct search scope or category.
+- name: scalar_parent_navigator_storage_estimate_count_sum
+  description: Total number of times the Navigator StorageManager.estimate() API was called from the parent process. This reflects how often storage
+    quota information was queried outside of content processes.
+- name: scalar_parent_navigator_storage_persist_count_sum
+  description: Total number of times the Navigator StorageManager.persist() API was called from the parent process. This reflects how often persistent
+    storage was requested outside of content processes.
+- name: scalar_parent_os_environment_is_taskbar_pinned
+  description: Indicates whether Firefox is pinned to the operating system taskbar. True means Firefox has a taskbar pin, false means it does not,
+    and null means the status could not be determined.
+- name: scalar_parent_os_environment_launched_via_desktop
+  description: Indicates whether Firefox was launched from a desktop shortcut in the current session. True means the desktop shortcut was the launch
+    method; false means it was not.
+- name: scalar_parent_os_environment_launched_via_other
+  description: Indicates whether Firefox was launched via a method not covered by the other launch-source scalars (e.g., command line, file association).
+    True means an uncategorised launch method was used.
+- name: scalar_parent_os_environment_launched_via_other_shortcut
+  description: Indicates whether Firefox was launched from a shortcut located somewhere other than the desktop, Start menu, or taskbar. True means
+    such an alternative shortcut was used to start Firefox.
+- name: scalar_parent_os_environment_launched_via_start_menu
+  description: Indicates whether Firefox was launched from a Start menu entry in the current session. True means the Start menu was used as the launch
+    method; false means it was not.
+- name: scalar_parent_os_environment_launched_via_taskbar
+  description: Indicates whether Firefox was launched by clicking its taskbar icon or pin in the current session. True means the taskbar was the launch
+    method; false means it was not.
+- name: scalar_parent_os_environment_launched_via_taskbar_private
+  description: Indicates whether Firefox was launched into a Private Browsing window via a dedicated taskbar shortcut. True means a taskbar private-browsing
+    shortcut was used; false means it was not.
+- name: scalar_parent_sidebar_link_sum
+  description: A keyed map of link type identifiers to the number of times links were followed from the browser sidebar. Each key represents a distinct
+    link destination or category within the sidebar.
+- name: scalar_parent_sidebar_opened_sum
+  description: A keyed map of sidebar panel identifiers to the number of times each panel was opened. Each key represents a distinct sidebar panel
+    (e.g., bookmarks, history, synced tabs).
+- name: scalar_parent_sidebar_search_sum
+  description: A keyed map of search context identifiers to the number of times a search was performed within the browser sidebar. Each key represents
+    a distinct sidebar search scope.
+- name: scalar_parent_storage_sync_api_usage_extensions_using_sum
+  description: The total number of extensions that used the storage.sync API during the reporting period. A null value indicates no extensions made
+    use of this API.
+- name: scalar_parent_telemetry_event_counts_sum
+  description: A keyed map of Telemetry event category/method/object keys to their summed occurrence counts, as recorded in the parent process. Each
+    key identifies a distinct telemetry event type.
+- name: scalar_parent_urlbar_impression_autofill_about_sum
+  description: The total number of times the URL bar autofill feature showed a suggestion for an about; page (e.g., about:preferences) during the reporting
+    period.
+- name: scalar_parent_urlbar_impression_autofill_adaptive_sum
+  description: The total number of times the URL bar autofill feature showed an adaptive history-based suggestion during the reporting period. Adaptive
+    autofill learns from the user's navigation patterns.
+- name: scalar_parent_urlbar_impression_autofill_origin_sum
+  description: The total number of times the URL bar autofill feature completed the origin (scheme + host) portion of a URL based on browsing history
+    during the reporting period.
+- name: scalar_parent_urlbar_impression_autofill_other_sum
+  description: The total number of times the URL bar autofill feature showed a suggestion that did not fall into any other categorised autofill type
+    during the reporting period.
+- name: scalar_parent_urlbar_impression_autofill_preloaded_sum
+  description: The total number of times the URL bar autofill feature showed a suggestion sourced from Firefox's preloaded (built-in) list of top sites
+    during the reporting period.
