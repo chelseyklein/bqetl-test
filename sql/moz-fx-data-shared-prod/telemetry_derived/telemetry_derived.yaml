@@ -147,3 +147,152 @@ fields:
 - name: app_display_version
   description: The human-readable version string of the application as displayed to users (e.g., '151.0.1' or '115.36.0esr'). Includes extended
     support release (ESR) suffixes where applicable.
+- name: app_name
+  description: The internal identifier for the Mozilla application that generated the telemetry record (e.g., 'firefox_desktop', 'fenix', 'firefox_ios').
+    Each value corresponds to a distinct Mozilla product or platform variant.
+- name: app_version
+  description: The full version string of the application at the time of data collection (e.g., '151.0.2'). This includes major, minor, and patch components
+    as a dot-separated string.
+- name: app_version_is_major_release
+  description: Indicates whether the application version corresponds to a major release (e.g., 151.0). True means the version is a major release; false
+    means it is a minor or patch update.
+- name: app_version_major
+  description: The major version number component of the application version (e.g., 151 for version 151.0.2). This is used to group records by major
+    release cycle.
+- name: app_version_minor
+  description: The minor version number component of the application version (e.g., 0 for version 151.0.2). A value of 0 is by far the most common,
+    representing the initial release within a major version.
+- name: app_version_patch
+  description: The patch version number component of the application version (e.g., 2 for version 151.0.2). This field may be null when no patch component
+    is present in the version string.
+- name: app_version_patch_revision
+  description: The patch revision sub-component of the application version, representing incremental updates within a patch release. This field is
+    null when no patch revision is applicable.
+- name: apple_model_id
+  description: The Apple hardware model identifier for macOS or iOS devices (e.g., 'MacBookAir10,1', 'Mac16,12'). This field is null for non-Apple
+    hardware and is sparsely populated.
+- name: application
+  description: The human-readable name of the Mozilla application (e.g., 'Firefox', 'Focus', 'FirefoxForFireTV'). This distinguishes between different
+    Mozilla browser products within the same dataset.
+- name: arch
+  description: The CPU architecture of the device on which the application is running (e.g., 'arm64-v8a', 'armeabi-v7a', 'x86_64'). This is typically
+    populated for mobile platforms using Android ABI identifiers.
+- name: architecture
+  description: The processor architecture of the client device (e.g., 'x86-64', 'aarch64', 'arm'). This field reflects the architecture of the host
+    system as reported by the application.
+- name: asofdate
+  description: The date for which the record's metrics or state are calculated, formatted as a YYYY-MM-DD string. This field represents the reference
+    date of the snapshot rather than the ingestion or submission date.
+- name: attributed
+  description: Indicates whether the client installation has attribution data associated with it. True means attribution information is present; false
+    means the installation has no known attribution source.
+- name: attribution.campaign
+  description: The marketing campaign name or identifier from the installation attribution parameters, URL-encoded. This field is null when attribution
+    data is not available.
+- name: attribution.content
+  description: The content parameter from the installation attribution data, typically identifying the specific creative or link element that led to
+    the download, URL-encoded. This field is null when attribution data is not available.
+- name: attribution.dlsource
+  description: The download source identifier from attribution data, indicating the platform or channel through which the installer was obtained (e.g.,
+    'mozorg', 'mozillaci', 'fxdotcom'). This field is null when attribution data is not available.
+- name: attribution.dltoken
+  description: A unique token (UUID) associated with the specific download event, used to link an installation back to a particular download attribution
+    record. This field is null when attribution data is not available.
+- name: attribution.experiment
+  description: The experiment identifier from the installation attribution data, indicating which A/B test or download experiment the user was part
+    of when they downloaded the application. This field is null when no experiment attribution is present.
+- name: attribution.medium
+  description: The marketing medium from the installation attribution data, describing the channel type that drove the download (e.g., 'referral',
+    'paidsearch', 'email'), URL-encoded. This field is null when attribution data is not available.
+- name: attribution.source
+  description: The traffic source from the installation attribution data, typically identifying the referring website or platform (e.g., 'www.google.com',
+    'www.bing.com'), URL-encoded. This field is null when attribution data is not available.
+- name: attribution.ua
+  description: The user agent type of the browser used to download the application, as captured in attribution data (e.g., 'chrome', 'edge', 'firefox',
+    'ie'). This field is null when attribution data is not available.
+- name: attribution.variation
+  description: The experiment variation or branch from the installation attribution data, identifying which variant of a download experiment the user
+    encountered (e.g., 'control', 'treatment'). This field is null when no variation attribution is present.
+- name: attribution_campaign
+  description: The marketing campaign name or identifier from the client's installation attribution, URL-encoded. This is a scalar counterpart to the
+    nested attribution.campaign field and is null when attribution data is absent.
+- name: attribution_content
+  description: The content parameter from the client's installation attribution data, identifying the specific creative or download link element, URL-encoded.
+    This field is null when attribution data is absent.
+- name: attribution_dlsource
+  description: The download source from the client's installation attribution, indicating the platform or channel through which the installer was obtained
+    (e.g., 'mozorg', 'mozillaci', 'fxdotcom'). This field is null when attribution data is absent.
+- name: attribution_dltoken
+  description: A unique UUID token associated with the specific download event for this client, used to link an installation to a download attribution
+    record. This field is null when attribution data is absent.
+- name: attribution_experiment
+  description: The experiment identifier from the client's installation attribution data, indicating which download experiment the user was part of
+    at the time of installation. This field is null when no experiment attribution is present.
+- name: attribution_medium
+  description: The marketing channel medium from the client's installation attribution (e.g., 'referral', 'paidsearch', 'firefox-desktop'), URL-encoded.
+    This field is null when attribution data is absent.
+- name: attribution_msstoresignedin
+  description: Indicates whether the user was signed into the Microsoft Store at the time of installation, relevant for installs originating from the
+    Microsoft Store. This field is currently always null and is reserved for future population.
+- name: attribution_source
+  description: The traffic source from the client's installation attribution, identifying the referring website or platform that led to the download
+    (e.g., 'www.google.com', 'www.bing.com'), URL-encoded. This field is null when attribution data is absent.
+- name: attribution_ua
+  description: The user agent type of the browser used to download the application, as captured in the client's scalar attribution data (e.g., 'chrome',
+    'edge', 'firefox'). This field is null when attribution data is absent.
+- name: attribution_variation
+  description: The experiment variation or branch from the client's installation attribution data, identifying which variant of a download experiment
+    was encountered (e.g., 'control', 'treatment'). This field is null when no variation attribution is present.
+- name: average_profile_age
+  description: The average age of the Firefox profile in days, computed across a cohort or aggregated unit. Higher values indicate longer-lived profiles.
+- name: avg_hours_usage_daily
+  description: The average number of hours per day the application was actively used. This metric is used to characterize typical daily engagement
+    with the browser.
+- name: blocklist_enabled
+  description: Indicates whether the browser's blocklist feature is enabled on the client. True means the blocklist is active; false means it has been
+    disabled.
+- name: bookmark_migrations_quantity_all
+  description: The total number of bookmarks migrated from all source browsers combined during a browser migration event. This field is null when no
+    migration has taken place.
+- name: bookmark_migrations_quantity_chrome
+  description: The number of bookmarks migrated specifically from Google Chrome during a browser migration event. This field is null when no Chrome
+    migration has occurred.
+- name: bookmark_migrations_quantity_edge
+  description: The number of bookmarks migrated specifically from Microsoft Edge during a browser migration event. This field is null when no Edge
+    migration has occurred.
+- name: bookmark_migrations_quantity_safari
+  description: The number of bookmarks migrated specifically from Apple Safari during a browser migration event. This field is null when no Safari
+    migration has occurred.
+- name: bookmarks_added_per_dau
+  description: The ratio of bookmarks added to the number of daily active users (DAU) for a given aggregation period. This metric measures the rate
+    of bookmark creation activity normalized by active user count.
+- name: bookmarks_opened_per_dau
+  description: The ratio of bookmark open events to the number of daily active users (DAU) for a given aggregation period. This metric measures how
+    frequently users engage with existing bookmarks, normalized by active user count.
+- name: branch
+  description: The experiment branch or rollout variant the client is enrolled in (e.g., 'control', 'treatment-a', 'rollout'). This field identifies
+    which experimental condition the client was assigned to.
+- name: browser_arch
+  description: The CPU architecture of the browser process (e.g., x86-64, aarch64). This field describes the compiled architecture of the browser binary
+    being run on the client device.
+- name: browser_backup_archive_enabled
+  description: Indicates whether the browser backup archive feature is enabled for the client. True means backup archiving is active; false means it
+    is explicitly disabled; null means the feature state was not reported.
+- name: browser_backup_scheduler_enabled
+  description: Indicates whether the browser's automatic backup scheduler is enabled for the client. True means the scheduler is active; false means
+    it is disabled; null means the feature state was not reported.
+- name: browser_name
+  description: The human-readable name of the browser as reported by the client (e.g., 'Firefox Desktop'). This field identifies the browser product
+    in a display-friendly format.
+- name: browser_version
+  description: The full version string of the browser (e.g., '151.0.2'), including major, minor, and patch components. This field represents the precise
+    browser release installed on the client.
+- name: browser_version_info.is_major_release
+  description: Indicates whether the browser version is a major release. True means the version represents a major release (e.g., 151.0); false means
+    it is a minor or patch update.
+- name: browser_version_info.major_version
+  description: The major version number component extracted from the browser version string (e.g., 151 for version 151.0.2). This is used to group
+    clients by major browser release.
+- name: browser_version_info.minor_version
+  description: The minor version number component extracted from the browser version string (e.g., 0 for version 151.0). A value of 0 is the most common,
+    representing the base release within a major version.
