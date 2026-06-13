@@ -2060,3 +2060,158 @@ fields:
 - name: search_adclicks_urlbar_sum
   description: A keyed sum recording the number of ad clicks on search result pages that were initiated from the Firefox urlbar (address bar), broken
     down by search engine key. Each array entry contains a key-value pair where the value is the ad click count.
+- name: search_adclicks_webextension_sum
+  description: An array of key-value pairs mapping search engine identifiers to the total number of ad clicks that originated from a WebExtension search
+    entry point. Each entry represents a distinct search engine and its aggregated ad click count.
+- name: search_cohort
+  description: An identifier for the search experiment or cohort group the client was assigned to, used to track search-related A/B test participation.
+    Values follow a date-based naming convention (e.g., 'nov17-2', 'apr18-1'); null indicates the client was not part of any search cohort.
+- name: search_content_about_home_sum
+  description: An array of key-value pairs mapping search engine identifiers to the total number of searches initiated from the Firefox about:home
+    page. Each entry represents a distinct search engine and its aggregated search count for this entry point.
+- name: search_content_about_newtab_sum
+  description: An array of key-value pairs mapping search engine identifiers to the total number of searches initiated from the Firefox about:newtab
+    page. Each entry represents a distinct search engine and its aggregated search count for this entry point.
+- name: search_content_contextmenu_sum
+  description: An array of key-value pairs mapping search engine identifiers to the total number of searches initiated via the browser context menu.
+    Each entry represents a distinct search engine and its aggregated search count for this entry point.
+- name: search_content_reload_sum
+  description: An array of key-value pairs mapping search engine identifiers to the total number of searches that were triggered by reloading a search
+    results page. Each entry represents a distinct search engine and its aggregated search count for this entry point.
+- name: search_content_searchbar_sum
+  description: An array of key-value pairs mapping search engine identifiers to the total number of searches initiated from the Firefox search bar.
+    Each entry represents a distinct search engine and its aggregated search count for this entry point.
+- name: search_content_system_sum
+  description: An array of key-value pairs mapping search engine identifiers to the total number of searches initiated via a system-level entry point
+    (e.g., OS search integration). Each entry represents a distinct search engine and its aggregated search count for this entry point.
+- name: search_content_tabhistory_sum
+  description: An array of key-value pairs mapping search engine identifiers to the total number of searches triggered via browser tab history navigation.
+    Each entry represents a distinct search engine and its aggregated search count for this entry point.
+- name: search_content_unknown_sum
+  description: An array of key-value pairs mapping search engine identifiers to the total number of searches whose entry point could not be determined
+    or classified. Each entry represents a distinct search engine and its aggregated search count for this entry point.
+- name: search_content_urlbar_handoff_sum
+  description: An array of key-value pairs mapping search engine identifiers to the total number of searches initiated via a URL bar handoff interaction,
+    where input is passed from the new tab page search box to the URL bar. Each entry represents a distinct search engine and its aggregated search
+    count for this entry point.
+- name: search_content_urlbar_persisted_sum
+  description: An array of key-value pairs mapping search engine identifiers to the total number of searches made from the URL bar where the search
+    mode was persisted from a prior session. Each entry represents a distinct search engine and its aggregated search count for this entry point.
+- name: search_content_urlbar_searchmode_sum
+  description: An array of key-value pairs mapping search engine identifiers to the total number of searches performed from the URL bar while in search
+    mode, where the user has explicitly selected a specific search engine. Each entry represents a distinct search engine and its aggregated search
+    count for this entry point.
+- name: search_content_urlbar_sum
+  description: An array of key-value pairs mapping search engine identifiers to the total number of searches initiated from the Firefox URL bar (address
+    bar). Each entry represents a distinct search engine and its aggregated search count for this entry point.
+- name: search_content_webextension_sum
+  description: An array of key-value pairs mapping search engine identifiers to the total number of searches initiated through a WebExtension search
+    entry point. Each entry represents a distinct search engine and its aggregated search count for this entry point.
+- name: search_count
+  description: The total number of searches performed by the client during the reporting period, across all search engines and entry points. A null
+    value indicates that search count data was not recorded or submitted.
+- name: search_count_abouthome
+  description: The total number of searches performed by the client using the about:home page as the entry point during the reporting period. A value
+    of zero indicates no searches were made from this entry point.
+- name: search_count_alias
+  description: The total number of searches performed using a search engine alias (a shorthand keyword that triggers a specific search engine) as the
+    entry point. A value of zero indicates no alias-triggered searches were made during the reporting period.
+- name: search_count_all
+  description: The total number of searches performed by the client across all search engines and all entry points during the reporting period. A value
+    of zero indicates no searches were recorded.
+- name: search_count_contextmenu
+  description: The total number of searches initiated via the browser's right-click context menu during the reporting period. A value of zero indicates
+    no searches were triggered from this entry point.
+- name: search_count_newtab
+  description: The total number of searches performed by the client using the new tab page as the entry point during the reporting period. A value
+    of zero indicates no searches were made from this entry point.
+- name: search_count_organic
+  description: The total number of organic searches performed by the client, meaning searches that were not attributed to a search access point (SAP)
+    partnership or tagged follow-on query. A value of zero indicates no organic searches were recorded during the reporting period.
+- name: search_count_searchbar
+  description: The total number of searches initiated from the dedicated Firefox search bar during the reporting period. A value of zero indicates
+    no searches were made from this entry point.
+- name: search_count_system
+  description: The total number of searches triggered via a system-level integration (e.g., OS-level search) during the reporting period. A value of
+    zero indicates no system-level searches were recorded.
+- name: search_count_tagged_follow_on
+  description: The total number of follow-on searches that were tagged with a search access point (SAP) partner code, meaning searches that occurred
+    after an initial SAP search and retained the attribution tag. A value of zero indicates no tagged follow-on searches were recorded.
+- name: search_count_tagged_sap
+  description: The total number of searches attributed to a search access point (SAP) partnership, where the search query carries a partner attribution
+    tag. A value of zero indicates no tagged SAP searches were recorded during the reporting period.
+- name: search_count_urlbar
+  description: The total number of searches initiated from the Firefox URL bar (address bar) during the reporting period. A value of zero indicates
+    no URL bar searches were performed.
+- name: search_count_urlbar_handoff
+  description: The total number of searches performed via a URL bar handoff, where a query typed in the new tab page search box is handed off to and
+    executed in the URL bar. A value of zero indicates no handoff searches were recorded.
+- name: search_count_urlbar_persisted
+  description: The total number of searches made from the URL bar while in a persisted search mode, where the search engine selection carried over
+    from a previous interaction. A value of zero indicates no persisted URL bar searches were recorded.
+- name: search_count_urlbar_searchmode
+  description: The total number of searches performed from the URL bar while the user had explicitly activated search mode to target a specific search
+    engine. A value of zero indicates no searches were made via this entry point during the reporting period.
+- name: search_count_webextension
+  description: The total number of searches initiated through a WebExtension-powered search entry point during the reporting period. A value of zero
+    indicates no WebExtension-sourced searches were recorded.
+- name: search_counts
+  description: An array of structs capturing per-engine, per-source search counts, where each element contains the search engine name, the search entry
+    point source, and the count of searches performed for that combination during the reporting period.
+- name: search_engine
+  description: The identifier of the default or most-used search engine for the client during the reporting period (e.g., 'google', 'google-b-d', 'duckduckgo').
+    A null value indicates that no search engine preference was recorded or the client did not perform searches.
+- name: search_with_ads
+  description: The total number of search result pages containing ads that were viewed by the client during the reporting period. A null value indicates
+    that no ad-containing search pages were detected or the data was not available.
+- name: search_with_ads_count_all
+  description: The total count of search result pages with ads viewed across all search engines and entry points during the reporting period. A null
+    value indicates no such pages were detected or data was unavailable.
+- name: search_withads_about_home_sum
+  description: An array of key-value pairs mapping search engine identifiers to the total number of search result pages containing ads that were viewed
+    from the about:home entry point. Each entry represents a distinct search engine and its aggregated ad-impression count for this entry point.
+- name: search_withads_about_newtab_sum
+  description: An array of key-value pairs mapping search engine identifiers to the total number of search result pages containing ads that were viewed
+    from the about:newtab entry point. Each entry represents a distinct search engine and its aggregated ad-impression count for this entry point.
+- name: search_withads_contextmenu_sum
+  description: An array of key-value pairs mapping search engine identifiers to the total number of search result pages containing ads that were viewed
+    after a context menu search. Each entry represents a distinct search engine and its aggregated ad-impression count for this entry point.
+- name: search_withads_reload_sum
+  description: An array of key-value pairs mapping search engine identifiers to the total number of search result pages containing ads that were viewed
+    after a page reload search. Each entry represents a distinct search engine and its aggregated ad-impression count for this entry point.
+- name: search_withads_searchbar_sum
+  description: An array of key-value pairs mapping search engine identifiers to the total number of search result pages containing ads that were viewed
+    after a search from the Firefox search bar. Each entry represents a distinct search engine and its aggregated ad-impression count for this entry
+    point.
+- name: search_withads_system_sum
+  description: An array of key-value pairs mapping search engine identifiers to the total number of search result pages containing ads that were viewed
+    after a system-level search. Each entry represents a distinct search engine and its aggregated ad-impression count for this entry point.
+- name: search_withads_tabhistory_sum
+  description: An array of key-value pairs mapping search engine identifiers to the total number of search result pages containing ads that were viewed
+    after a tab history navigation search. Each entry represents a distinct search engine and its aggregated ad-impression count for this entry point.
+- name: search_withads_unknown_sum
+  description: An array of key-value pairs mapping search engine identifiers to the total number of search result pages containing ads that were viewed
+    where the entry point source was unknown or unclassified. Each entry represents a distinct search engine and its aggregated ad-impression count
+    for this entry point.
+- name: search_withads_urlbar_handoff_sum
+  description: An array of key-value pairs mapping search engine identifiers to the total number of search result pages containing ads that were viewed
+    after a URL bar handoff search. Each entry represents a distinct search engine and its aggregated ad-impression count for this entry point.
+- name: search_withads_urlbar_persisted_sum
+  description: An array of key-value pairs mapping search engine identifiers to the total number of search result pages containing ads that were viewed
+    after a persisted URL bar search mode search. Each entry represents a distinct search engine and its aggregated ad-impression count for this entry
+    point.
+- name: search_withads_urlbar_searchmode_sum
+  description: An array of key-value pairs mapping search engine identifiers to the total number of search result pages containing ads that were viewed
+    after a URL bar search mode search. Each entry represents a distinct search engine and its aggregated ad-impression count for this entry point.
+- name: search_withads_urlbar_sum
+  description: An array of key-value pairs mapping search engine identifiers to the total number of search result pages containing ads that were viewed
+    after a URL bar search. Each entry represents a distinct search engine and its aggregated ad-impression count for this entry point.
+- name: search_withads_webextension_sum
+  description: An array of key-value pairs mapping search engine identifiers to the total number of search result pages containing ads that were viewed
+    after a WebExtension-initiated search. Each entry represents a distinct search engine and its aggregated ad-impression count for this entry point.
+- name: searches
+  description: The total number of searches performed by the client during the reporting period, typically aggregated at the client or session level.
+    A value of zero indicates that no searches were recorded.
+- name: searches_per_user_ratio
+  description: The average number of searches performed per active user within a given cohort or aggregation group during the reporting period. A value
+    of 0.0 indicates no searches were performed on average across the group.
