@@ -1036,3 +1036,145 @@ fields:
 - name: history_migrations_quantity_edge
   description: The number of history entries migrated specifically from Microsoft Edge during a browser migration event. A value of 0 indicates an
     Edge migration was attempted but no history entries were transferred.
+- name: history_migrations_quantity_safari
+  description: The number of browsing history entries migrated from Safari into Firefox. A null value indicates that no Safari history migration was
+    attempted or recorded.
+- name: holidays
+  description: The estimated holiday effect component from a time-series forecasting model, representing the additive contribution of holiday periods
+    to the predicted metric. A value of 0.0 indicates no holiday effect.
+- name: holidays_lower
+  description: The lower bound of the uncertainty interval for the holiday effect component in a time-series forecasting model. A value of 0.0 indicates
+    no estimated holiday contribution at the lower bound.
+- name: holidays_upper
+  description: The upper bound of the uncertainty interval for the holiday effect component in a time-series forecasting model. A value of 0.0 indicates
+    no estimated holiday contribution at the upper bound.
+- name: id_bucket
+  description: A bucketing identifier (0–19) used to partition clients or records into evenly distributed groups, typically for sampling or incremental
+    processing purposes.
+- name: impression_count
+  description: The total number of times a UI element, recommendation, or message was shown to a user. Higher values indicate repeated exposures.
+- name: index
+  description: A positional or ordering identifier for a record within its context, such as a ranked result or sequence position.
+- name: install_source
+  description: The source through which the application was installed, such as the Google Play Store ('com.android.vending') or an unknown/other channel.
+    A null value indicates the install source was not recorded.
+- name: install_year
+  description: The calendar year in which the application or browser was installed. A null value indicates the installation year could not be determined.
+- name: installation_first_seen_admin_user
+  description: Indicates whether the user had administrator privileges at the time of the first observed installation. True means admin rights were
+    present; false means they were not.
+- name: installation_first_seen_default_path
+  description: Indicates whether Firefox was installed to the default installation path when first observed. True means the default path was used;
+    false means a custom path was chosen.
+- name: installation_first_seen_failure_reason
+  description: The reason the installation metadata lookup failed when the installation was first seen. 'NoError' indicates success; values like 'NotFoundError'
+    or 'SyntaxError' describe specific failure conditions.
+- name: installation_first_seen_from_msi
+  description: Indicates whether Firefox was installed via an MSI package when first observed. True means an MSI installer was used; false means another
+    installer type was used.
+- name: installation_first_seen_install_existed
+  description: Indicates whether a prior Firefox installation already existed on the system when the current installation was first observed. True
+    means a previous install was detected; false means it was a fresh installation.
+- name: installation_first_seen_installer_type
+  description: The type of installer used for the first observed Firefox installation, such as 'stub' (a small downloader), 'full' (a complete offline
+    installer), or 'msix' (a Windows app package).
+- name: installation_first_seen_other_inst
+  description: Indicates whether another non-MSIX Firefox installation was present on the system when the installation was first observed. True means
+    another installation existed; false means it did not.
+- name: installation_first_seen_other_msix_inst
+  description: Indicates whether another MSIX-packaged Firefox installation was present on the system when the installation was first observed. True
+    means another MSIX install was detected; false means it was not.
+- name: installation_first_seen_profdir_existed
+  description: Indicates whether a Firefox profile directory already existed on the system when the installation was first observed. True means a profile
+    directory was found; false means none was present.
+- name: installation_first_seen_silent
+  description: Indicates whether the first observed Firefox installation was performed silently (without user-facing UI). True means a silent install
+    occurred; false means the installer UI was shown.
+- name: installation_first_seen_version
+  description: The version of Firefox that was recorded at the time of the first observed installation, such as '128.0'. A null value indicates the
+    version could not be determined.
+- name: installer_type
+  description: The type of Firefox installer used, either 'full' (a complete offline installer package) or 'stub' (a small installer that downloads
+    Firefox during installation).
+- name: installs
+  description: The count of Firefox installations recorded for a given client or cohort within the relevant time period. A null value indicates no
+    installation data was available.
+- name: intensity
+  description: A measure of user engagement intensity, reflecting the frequency or depth of usage activity within a given period.
+- name: ipc_channel_error
+  description: The error message or code associated with an IPC (Inter-Process Communication) channel failure, such as a GPU process kill or shutdown
+    event. A null value indicates no IPC channel error was recorded.
+- name: is_dau
+  description: Indicates whether the client qualifies as a Daily Active User (DAU) for the given day. True means the client meets the DAU criteria;
+    false means it does not.
+- name: is_default_browser
+  description: Indicates whether Firefox is set as the system default browser. True means Firefox is the default; false means another browser is set
+    as default.
+- name: is_desktop
+  description: Indicates whether the client is running on a desktop platform. True means the client is a desktop device; false means it is a non-desktop
+    device such as mobile.
+- name: is_new_profile
+  description: Indicates whether the Firefox profile is newly created. True means the profile was created recently; false means it is an existing profile.
+- name: is_system
+  description: Indicates whether the add-on or component is a system-level extension rather than a user-installed one. True means it is a system extension;
+    false means it is user-installed.
+- name: is_wow64
+  description: Indicates whether the Firefox process is running as a 32-bit application under 64-bit Windows (WOW64 emulation). True means WOW64 is
+    active; false means it is not.
+- name: isp
+  description: The name of the Internet Service Provider associated with the client's IP address, as determined by GeoIP lookup. Reflects the full
+    provider name including regional variants.
+- name: isp_name
+  description: The canonical or normalized name of the client's Internet Service Provider, as derived from GeoIP data. May differ from the full isp
+    field by omitting regional suffixes.
+- name: isp_organization
+  description: The organization or company name registered to the client's IP address, as determined by GeoIP lookup. This may represent a business,
+    institution, or ISP operating the network.
+- name: key
+  description: A string identifier representing the specific event, action, or data point being recorded, such as a search entry point or engine key.
+    An empty string indicates no specific key was associated with the record.
+- name: last_bucket
+  description: The upper boundary value of the last bucket in a histogram, defining the maximum range of the final bin used to aggregate metric values.
+- name: latest_version
+  description: The most recent major version number of Firefox available or observed at the time of the record, used for tracking update adoption.
+- name: latest_version_ratio
+  description: The proportion of clients or records associated with the latest Firefox version relative to all versions observed. A value of 1.0 would
+    indicate all clients are on the latest version.
+- name: legacy_telemetry_client_count
+  description: The number of distinct legacy telemetry client IDs associated with a given record or entity. Values greater than 1 indicate multiple
+    client IDs have been linked to the same entity.
+- name: legacy_telemetry_client_id
+  description: The UUID that uniquely identifies a Firefox client within the legacy telemetry system. This corresponds to the client_id field used
+    in older Telemetry pings.
+- name: linkage_first_seen_date
+  description: The earliest date on which a client or identity linkage was first observed in the dataset. Used to determine when a relationship between
+    identifiers was established.
+- name: linkage_last_seen_date
+  description: The most recent date on which a client or identity linkage was observed in the dataset. Used to determine the most recent activity associated
+    with a linked identifier relationship.
+- name: linked_client_id
+  description: A UUID identifying a Firefox client that has been linked to the current record through identity resolution or cross-identifier matching.
+- name: locale
+  description: The language and regional locale setting of the Firefox browser, represented as a BCP 47 language tag (e.g., 'en', 'fr', 'es'). A null
+    value indicates the locale was not reported.
+- name: logins_migrations_quantity_all
+  description: The total number of saved login entries migrated from all supported browsers into Firefox. A null value indicates no migration data
+    was recorded.
+- name: logins_migrations_quantity_chrome
+  description: The number of saved login entries migrated specifically from Google Chrome into Firefox. A null value indicates no Chrome login migration
+    was attempted or recorded.
+- name: logins_migrations_quantity_edge
+  description: The number of saved login entries migrated specifically from Microsoft Edge into Firefox. A null value indicates no Edge login migration
+    was attempted or recorded.
+- name: logins_migrations_quantity_safari
+  description: The number of saved login entries migrated specifically from Safari into Firefox. A null value indicates no Safari login migration was
+    attempted or recorded.
+- name: major_version
+  description: The major version number of the Firefox browser (e.g., 122, 128, 151), representing the primary release version without minor or patch
+    components.
+- name: mau
+  description: The count of days within the past 28-day window that a client was active, used to compute Monthly Active User (MAU) metrics. A value
+    of 1 indicates the client was active on exactly one day in the window.
+- name: max_subsession_counter
+  description: The highest subsession counter value recorded for a client within the relevant time period, indicating the maximum number of browser
+    subsessions observed in a single session.
