@@ -2495,3 +2495,150 @@ fields:
 - name: ua_os_family
   description: The operating system family of the client device as parsed from the user agent string, such as 'Windows', 'macOS', or 'Android'. Broadly
     identifies the OS platform of the client.
+- name: unenroll_count
+  description: The total number of times a client was unenrolled from a Nimbus or Shield experiment or rollout. A value of 0 indicates the client remained
+    enrolled throughout the observation period.
+- name: unenroll_failed_count
+  description: The total number of failed unenrollment attempts from a Nimbus or Shield experiment or rollout. A value of 0 indicates all unenrollments
+    completed successfully or no unenrollment was attempted.
+- name: uninstall_same_day_as_install
+  description: Indicates whether the client uninstalled Firefox on the same calendar day it was installed. True means the uninstall occurred on the
+    install date; false means it did not.
+- name: uninstall_to_install_ratio
+  description: The ratio of uninstall events to install events for a given dimension or time period. A value of 0.0 indicates no uninstalls relative
+    to installs; a value of 1.0 indicates an equal number of uninstalls and installs.
+- name: uninstalls_count
+  description: The total number of Firefox uninstall events recorded for a given dimension or time period. Higher values indicate more frequent uninstalls.
+- name: unit
+  description: The time unit used to express the associated metric or retention window. Values are 'day' for daily granularity and 'month' for monthly
+    granularity.
+- name: update_auto_download
+  description: Indicates whether Firefox is configured to automatically download updates. True means automatic download is enabled; false means it
+    is disabled.
+- name: update_background
+  description: Indicates whether Firefox updates are applied in the background without requiring user interaction. True means background updates are
+    enabled; false means they are not.
+- name: update_channel
+  description: The Firefox release channel the client is subscribed to, such as 'release', 'beta', 'nightly', or 'esr'. This determines which update
+    stream and feature set the client receives.
+- name: update_count
+  description: The number of Firefox update events recorded in the observation period. A value of 0 indicates no update occurred; 1 indicates a single
+    update was applied.
+- name: update_enabled
+  description: Indicates whether the Firefox update mechanism is enabled for the client. True means updates are enabled; false means they have been
+    disabled.
+- name: update_failed_count
+  description: The number of Firefox update attempts that failed during the observation period. A value of 0 indicates all update attempts succeeded
+    or no updates were attempted.
+- name: uri_count
+  description: The total number of URIs loaded by the client during the observation period. Higher values indicate greater browsing activity; null
+    values indicate no browsing activity was recorded.
+- name: uri_method
+  description: The HTTP method used for a URI request (e.g., GET, POST). This field identifies how the client initiated the network request.
+- name: uris_per_user
+  description: The average number of URIs loaded per user over the observation period. Higher values indicate more intensive browsing activity relative
+    to the user population.
+- name: usage
+  description: A categorical label describing the type or intensity of Firefox Desktop usage observed. Examples include 'Any Firefox Desktop Activity',
+    'Firefox Desktop Visited 5 URI', and 'Firefox Desktop Opened Dev Tools'.
+- name: user_agent
+  description: The browser family of the user agent making a request, categorized into values such as 'firefox', 'chrome', 'edge', 'ie', or 'other'.
+    This field identifies which browser the client was using.
+- name: user_cancelled
+  description: Indicates whether the user explicitly cancelled an operation or flow. True means the user cancelled; false means the operation was not
+    cancelled by the user. Null indicates the field was not applicable.
+- name: user_pref_app_shield_optoutstudies_enabled
+  description: The user preference value for opting into or out of Shield studies (app.shield.optoutstudies.enabled). 'true' means the user has opted
+    in; 'false' means the user has opted out.
+- name: user_pref_browser_newtabpage_enabled
+  description: The user preference value controlling whether the Firefox New Tab page is enabled (browser.newtabpage.enabled). 'false' means the New
+    Tab page is disabled; 'true' means it is enabled.
+- name: user_pref_browser_search_region
+  description: The region code stored in the browser's search region preference (browser.search.region), typically an ISO 3166-1 alpha-2 country code
+    such as 'US' or 'DE'. This influences the default search engine and search experience.
+- name: user_pref_browser_search_suggest_enabled
+  description: The user preference value controlling whether search suggestions are enabled in the browser (browser.search.suggest.enabled). 'true'
+    means suggestions are enabled; 'false' means they are disabled.
+- name: user_pref_browser_urlbar_quicksuggest_data_collection_enabled
+  description: The user preference value for whether data collection for Firefox Suggest (Quicksuggest) is enabled (browser.urlbar.quicksuggest.dataCollection.enabled).
+    'true' means data collection is opted in; 'false' means it is opted out.
+- name: user_pref_browser_urlbar_quicksuggest_onboarding_dialog_choice
+  description: The user's selection in the Firefox Suggest (Quicksuggest) onboarding dialog, capturing how the user dismissed or responded to the prompt.
+    Example values include 'close_1', 'not_now_2', and 'reject_2'.
+- name: user_pref_browser_urlbar_show_search_suggestions_first
+  description: The user preference value controlling whether search suggestions are displayed before browsing history in the URL bar (browser.urlbar.showSearchSuggestionsFirst).
+    'false' means history results appear first.
+- name: user_pref_browser_urlbar_suggest_bestmatch
+  description: The user preference value for whether the URL bar Best Match feature is enabled (browser.urlbar.suggest.bestmatch). 'true' means Best
+    Match suggestions are shown in the URL bar.
+- name: user_pref_browser_urlbar_suggest_quicksuggest
+  description: The user preference value for whether Firefox Suggest (Quicksuggest) suggestions are shown in the URL bar (browser.urlbar.suggest.quicksuggest).
+    'true' means suggestions are enabled; 'false' means they are disabled.
+- name: user_pref_browser_urlbar_suggest_quicksuggest_nonsponsored
+  description: The user preference value for whether non-sponsored Firefox Suggest results are shown in the URL bar (browser.urlbar.suggest.quicksuggest.nonsponsored).
+    'true' means non-sponsored suggestions are enabled; 'false' means they are disabled.
+- name: user_pref_browser_urlbar_suggest_quicksuggest_sponsored
+  description: The user preference value for whether sponsored Firefox Suggest results are shown in the URL bar (browser.urlbar.suggest.quicksuggest.sponsored).
+    'true' means sponsored suggestions are enabled; 'false' means they are disabled.
+- name: user_pref_browser_urlbar_suggest_searches
+  description: The user preference value for whether search suggestions are shown in the URL bar (browser.urlbar.suggest.searches). 'true' means URL
+    bar search suggestions are enabled; 'false' means they are disabled.
+- name: user_pref_browser_widget_in_navbar
+  description: The user preference value indicating whether a specific browser widget is placed in the navigation bar. 'true' means the widget is in
+    the navbar; 'false' means it has been removed or is elsewhere.
+- name: users
+  description: The count of distinct users associated with a given dimension or aggregation group. Higher values indicate a larger number of unique
+    users within the group.
+- name: validation_failed_count
+  description: The number of experiment or feature configuration validation failures recorded for a client. A value of 0 indicates all validations
+    passed successfully.
+- name: value
+  description: A generic integer metric value associated with a specific event, probe, or aggregation. The meaning of this field varies by the context
+    in which it appears.
+- name: vendor
+  description: The organization or vendor associated with the browser or product. This field typically contains 'Mozilla' for Firefox telemetry records.
+- name: version
+  description: The version string of the product, add-on, or component being reported. This follows standard semantic versioning conventions (e.g.,
+    '1.0.0', '144.0.0').
+- name: visited_5_uri_dau
+  description: The number of distinct active users who visited 5 or more URIs in a given day (Daily Active Users with 5+ URI visits). A value of 0
+    indicates no users met this engagement threshold on that day.
+- name: visited_5_uri_mau
+  description: The number of distinct active users who visited 5 or more URIs within a given 28-day window (Monthly Active Users with 5+ URI visits).
+    A value of 0 indicates no users met this threshold in the period.
+- name: visited_5_uri_wau
+  description: The number of distinct active users who visited 5 or more URIs within a given 7-day window (Weekly Active Users with 5+ URI visits).
+    A value of 0 indicates no users met this threshold in the period.
+- name: visits
+  description: The total number of browsing visits or sessions recorded for a client or dimension group. Null values indicate that visit data was not
+    available for the record.
+- name: visits_with_default_ui
+  description: The number of URL bar visits or sessions where the default UI layout was shown to the user. Higher values indicate more exposure to
+    the default URL bar experience.
+- name: visits_with_non_impression_engagement
+  description: The number of URL bar visits or sessions where the user engaged with a result beyond a passive impression (e.g., clicked a result).
+    A value of 0 indicates visits with no such engagement.
+- name: visits_with_non_search_engagement
+  description: The number of URL bar visits or sessions where the user engaged with a non-search result (e.g., a bookmark or history entry). A value
+    of 0 indicates visits where only search engagements or no engagements occurred.
+- name: wallpaper_clicks
+  description: The total number of times a user clicked on a wallpaper option in the Firefox New Tab page. A value of 0 indicates no wallpaper was
+    clicked during the observation period.
+- name: wau
+  description: The count of Weekly Active Users (WAU) for a given dimension or time period, representing distinct users who were active within the
+    past 7 days. A value of 0 indicates no users were active in the week.
+- name: weather_widget_change_display_to_detailed
+  description: The number of times a user switched the New Tab page weather widget display to the detailed view. A value of 0 indicates the user did
+    not toggle to this view.
+- name: weather_widget_change_display_to_simple
+  description: The number of times a user switched the New Tab page weather widget display to the simple view. A value of 0 indicates the user did
+    not toggle to this view.
+- name: weather_widget_clicks
+  description: The total number of times a user clicked on the weather widget on the Firefox New Tab page. A value of 0 indicates no weather widget
+    clicks occurred during the observation period.
+- name: web_notification_shown_sum
+  description: The total number of web notifications shown to the user during the observation period. Null values are prevalent and indicate the metric
+    was not collected or not applicable for most records.
+- name: weekly
+  description: A weekly aggregated metric value, expressed as a float, representing usage or activity totalled over a 7-day period. The specific meaning
+    depends on the metric context in which this field appears.
