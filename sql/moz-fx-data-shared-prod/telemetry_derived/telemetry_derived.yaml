@@ -1913,3 +1913,158 @@ fields:
 - name: scalar_parent_urlbar_picked_bookmark_sum
   description: A keyed scalar recording the aggregated sum of times a user selected a bookmarked URL suggestion from the URL bar. Each key identifies
     the specific result position or bookmark type that was chosen.
+- name: scalar_parent_urlbar_picked_dynamic_sum
+  description: Keyed scalar aggregating the number of times a user selected a dynamic result type from the URL bar dropdown. Each key identifies a
+    search engine or context, and the value is the summed count of picks across the aggregation period.
+- name: scalar_parent_urlbar_picked_extension_sum
+  description: Keyed scalar aggregating the number of times a user selected an extension-provided result from the URL bar dropdown. Each key identifies
+    a search engine or context, and the value is the summed count of picks across the aggregation period.
+- name: scalar_parent_urlbar_picked_formhistory_sum
+  description: Keyed scalar aggregating the number of times a user selected a form history result from the URL bar dropdown. Each key identifies a
+    search engine or context, and the value is the summed count of picks across the aggregation period.
+- name: scalar_parent_urlbar_picked_history_sum
+  description: Keyed scalar aggregating the number of times a user selected a browsing history result from the URL bar dropdown. Each key identifies
+    a search engine or context, and the value is the summed count of picks across the aggregation period.
+- name: scalar_parent_urlbar_picked_keyword_sum
+  description: Keyed scalar aggregating the number of times a user selected a keyword bookmark result from the URL bar dropdown. Each key identifies
+    a search engine or context, and the value is the summed count of picks across the aggregation period.
+- name: scalar_parent_urlbar_picked_remotetab_sum
+  description: Keyed scalar aggregating the number of times a user selected a remote tab (synced from another device) result from the URL bar dropdown.
+    Each key identifies a search engine or context, and the value is the summed count of picks across the aggregation period.
+- name: scalar_parent_urlbar_picked_searchengine_sum
+  description: Keyed scalar aggregating the number of times a user selected a search engine suggestion result from the URL bar dropdown. Each key identifies
+    a search engine or context, and the value is the summed count of picks across the aggregation period.
+- name: scalar_parent_urlbar_picked_searchsuggestion_sum
+  description: Keyed scalar aggregating the number of times a user selected a search suggestion (e.g. from a remote suggestions provider) from the
+    URL bar dropdown. Each key identifies a search engine or context, and the value is the summed count of picks across the aggregation period.
+- name: scalar_parent_urlbar_picked_switchtab_sum
+  description: Keyed scalar aggregating the number of times a user selected a switch-to-tab result from the URL bar dropdown. Each key identifies a
+    search engine or context, and the value is the summed count of picks across the aggregation period.
+- name: scalar_parent_urlbar_picked_tabtosearch_sum
+  description: Keyed scalar aggregating the number of times a user selected a tab-to-search result from the URL bar dropdown, which initiates a search
+    directly within a specific engine. Each key identifies a search engine or context, and the value is the summed count of picks across the aggregation
+    period.
+- name: scalar_parent_urlbar_picked_tip_sum
+  description: Keyed scalar aggregating the number of times a user selected a tip result (an informational or action card) from the URL bar dropdown.
+    Each key identifies a search engine or context, and the value is the summed count of picks across the aggregation period.
+- name: scalar_parent_urlbar_picked_topsite_sum
+  description: Keyed scalar aggregating the number of times a user selected a top site result from the URL bar dropdown. Each key identifies a search
+    engine or context, and the value is the summed count of picks across the aggregation period.
+- name: scalar_parent_urlbar_picked_unknown_sum
+  description: Keyed scalar aggregating the number of times a user selected a result of an unrecognized or uncategorized type from the URL bar dropdown.
+    Each key identifies a search engine or context, and the value is the summed count of picks across the aggregation period.
+- name: scalar_parent_urlbar_picked_visiturl_sum
+  description: Keyed scalar aggregating the number of times a user selected the 'visit URL' result (directly navigating to a typed URL) from the URL
+    bar dropdown. Each key identifies a search engine or context, and the value is the summed count of picks across the aggregation period.
+- name: scalar_parent_urlbar_searchmode_bookmarkmenu_sum
+  description: Keyed scalar aggregating the number of times URL bar search mode was entered via the bookmark menu entry point. Each key identifies
+    a search engine or context, and the value is the summed activation count across the aggregation period.
+- name: scalar_parent_urlbar_searchmode_handoff_sum
+  description: Keyed scalar aggregating the number of times URL bar search mode was entered via the new tab page handoff entry point. Each key identifies
+    a search engine or context, and the value is the summed activation count across the aggregation period.
+- name: scalar_parent_urlbar_searchmode_keywordoffer_sum
+  description: Keyed scalar aggregating the number of times URL bar search mode was entered via the keyword offer entry point, where Firefox suggests
+    activating a specific search engine. Each key identifies a search engine or context, and the value is the summed activation count across the aggregation
+    period.
+- name: scalar_parent_urlbar_searchmode_oneoff_sum
+  description: Keyed scalar aggregating the number of times URL bar search mode was entered by clicking a one-off search engine button in the URL bar
+    panel. Each key identifies a search engine or context, and the value is the summed activation count across the aggregation period.
+- name: scalar_parent_urlbar_searchmode_other_sum
+  description: Keyed scalar aggregating the number of times URL bar search mode was entered via an entry point not covered by other specific categories.
+    Each key identifies a search engine or context, and the value is the summed activation count across the aggregation period.
+- name: scalar_parent_urlbar_searchmode_shortcut_sum
+  description: Keyed scalar aggregating the number of times URL bar search mode was entered via a keyboard shortcut. Each key identifies a search engine
+    or context, and the value is the summed activation count across the aggregation period.
+- name: scalar_parent_urlbar_searchmode_tabmenu_sum
+  description: Keyed scalar aggregating the number of times URL bar search mode was entered via the tab menu entry point. Each key identifies a search
+    engine or context, and the value is the summed activation count across the aggregation period.
+- name: scalar_parent_urlbar_searchmode_tabtosearch_onboard_sum
+  description: Keyed scalar aggregating the number of times URL bar search mode was entered via the tab-to-search onboarding flow, where users are
+    introduced to the feature for the first time. Each key identifies a search engine or context, and the value is the summed activation count across
+    the aggregation period.
+- name: scalar_parent_urlbar_searchmode_tabtosearch_sum
+  description: Keyed scalar aggregating the number of times URL bar search mode was entered via the tab-to-search feature. Each key identifies a search
+    engine or context, and the value is the summed activation count across the aggregation period.
+- name: scalar_parent_urlbar_searchmode_topsites_newtab_sum
+  description: Keyed scalar aggregating the number of times URL bar search mode was entered by interacting with a top site on the new tab page. Each
+    key identifies a search engine or context, and the value is the summed activation count across the aggregation period.
+- name: scalar_parent_urlbar_searchmode_topsites_urlbar_sum
+  description: Keyed scalar aggregating the number of times URL bar search mode was entered by interacting with a top site result directly within the
+    URL bar. Each key identifies a search engine or context, and the value is the summed activation count across the aggregation period.
+- name: scalar_parent_urlbar_searchmode_touchbar_sum
+  description: Keyed scalar aggregating the number of times URL bar search mode was entered via the macOS Touch Bar. Each key identifies a search engine
+    or context, and the value is the summed activation count across the aggregation period.
+- name: scalar_parent_urlbar_searchmode_typed_sum
+  description: Keyed scalar aggregating the number of times URL bar search mode was entered by the user manually typing a search mode keyword or engine
+    alias. Each key identifies a search engine or context, and the value is the summed activation count across the aggregation period.
+- name: scheduled_corpus_item_id
+  description: A unique identifier (UUID) for a scheduled corpus item, representing a specific piece of content that has been queued for recommendation
+    or delivery to users. This ID links engagement events back to the particular content item scheduled in the corpus.
+- name: search_access_point
+  description: The UI surface or mechanism through which a search was initiated, such as the URL bar, search bar, context menu, tab history, or a handoff
+    from the new tab page. This field helps attribute search activity to the specific entry point used by the user.
+- name: search_adclicks_about_home_sum
+  description: Keyed scalar aggregating the number of times a user clicked on a search advertisement that originated from a search performed on the
+    Firefox Home (about:home) page. Each key identifies the search engine, and the value is the summed ad click count across the aggregation period.
+- name: search_adclicks_about_newtab_sum
+  description: Keyed scalar aggregating the number of times a user clicked on a search advertisement that originated from a search performed on the
+    new tab page (about:newtab). Each key identifies the search engine, and the value is the summed ad click count across the aggregation period.
+- name: search_adclicks_contextmenu_sum
+  description: Keyed scalar aggregating the number of times a user clicked on a search advertisement that originated from a search initiated via the
+    browser context menu. Each key identifies the search engine, and the value is the summed ad click count across the aggregation period.
+- name: search_adclicks_reload_sum
+  description: Keyed scalar aggregating the number of times a user clicked on a search advertisement on a search results page that was reached via
+    a page reload. Each key identifies the search engine, and the value is the summed ad click count across the aggregation period.
+- name: search_adclicks_searchbar_sum
+  description: Keyed scalar aggregating the number of times a user clicked on a search advertisement that originated from a search performed using
+    the browser's dedicated search bar. Each key identifies the search engine, and the value is the summed ad click count across the aggregation period.
+- name: search_adclicks_system_sum
+  description: Keyed scalar aggregating the number of times a user clicked on a search advertisement that originated from a system-level search (e.g.
+    initiated by the OS or an external application). Each key identifies the search engine, and the value is the summed ad click count across the aggregation
+    period.
+- name: search_adclicks_tabhistory_sum
+  description: Keyed scalar aggregating the number of times a user clicked on a search advertisement on a search results page reached via tab history
+    navigation (back/forward). Each key identifies the search engine, and the value is the summed ad click count across the aggregation period.
+- name: search_adclicks_unknown_sum
+  description: Keyed scalar aggregating the number of times a user clicked on a search advertisement where the originating search access point could
+    not be determined. Each key identifies the search engine, and the value is the summed ad click count across the aggregation period.
+- name: search_adclicks_urlbar_handoff_sum
+  description: Keyed scalar aggregating the number of times a user clicked on a search advertisement originating from a search handed off from the
+    new tab page to the URL bar. Each key identifies the search engine, and the value is the summed ad click count across the aggregation period.
+- name: search_adclicks_urlbar_persisted_sum
+  description: Keyed scalar aggregating the number of times a user clicked on a search advertisement originating from a persisted URL bar search (where
+    the search terms remain visible in the URL bar). Each key identifies the search engine, and the value is the summed ad click count across the aggregation
+    period.
+- name: search_adclicks_urlbar_searchmode_sum
+  description: Keyed scalar aggregating the number of times a user clicked on a search advertisement originating from a search performed while the
+    URL bar was in search mode. Each key identifies the search engine, and the value is the summed ad click count across the aggregation period.
+- name: search_adclicks_urlbar_sum
+  description: Keyed scalar aggregating the number of times a user clicked on a search advertisement that originated from a search performed via the
+    URL bar. Each key identifies the search engine, and the value is the summed ad click count across the aggregation period.
+- name: search_adclicks_webextension_sum
+  description: Keyed scalar aggregating the number of times a user clicked on a search advertisement that originated from a search initiated by a web
+    extension. Each key identifies the search engine, and the value is the summed ad click count across the aggregation period.
+- name: search_cohort
+  description: A label identifying the search experimentation cohort a user was assigned to, used to group users for analysis of specific search-related
+    experiments or studies. A null value indicates the user was not part of any tracked search cohort.
+- name: search_content_about_home_sum
+  description: Keyed scalar aggregating the number of searches performed from the Firefox Home (about:home) page. Each key identifies the search engine
+    used, and the value is the summed search count across the aggregation period.
+- name: search_content_about_newtab_sum
+  description: Keyed scalar aggregating the number of searches performed from the new tab page (about:newtab). Each key identifies the search engine
+    used, and the value is the summed search count across the aggregation period.
+- name: search_content_contextmenu_sum
+  description: Keyed scalar aggregating the number of searches initiated via the browser's context menu. Each key identifies the search engine used,
+    and the value is the summed search count across the aggregation period.
+- name: search_content_reload_sum
+  description: Keyed scalar aggregating the number of search results pages reached via a page reload. Each key identifies the search engine, and the
+    value is the summed reload count across the aggregation period.
+- name: search_content_searchbar_sum
+  description: Keyed scalar aggregating the number of searches performed using the browser's dedicated search bar. Each key identifies the search engine
+    used, and the value is the summed search count across the aggregation period.
+- name: search_content_system_sum
+  description: Keyed scalar aggregating the number of searches initiated at the system level, such as those triggered by the operating system or an
+    external application. Each key identifies the search engine used, and the value is the summed search count across the aggregation period.
+- name: search_content_tabhistory_sum
+  description: Keyed scalar aggregating the number of times a search results page was reached via tab history navigation (back/forward). Each key identifies
+    the search engine, and the value is the summed count across the aggregation period.
