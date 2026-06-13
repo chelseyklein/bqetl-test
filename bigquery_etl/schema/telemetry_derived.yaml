@@ -1,0 +1,5 @@
+fields:
+- name: yhat_p10
+  description: 10th percentile of the forecast distribution; 10% of outcomes fall below this value. Null when percentile bounds are not computed.
+- name: yhat_p30
+  description: 30th percentile of the forecast distribution; 30% of outcomes fall below this value. Null when percentile bounds are not computed.
