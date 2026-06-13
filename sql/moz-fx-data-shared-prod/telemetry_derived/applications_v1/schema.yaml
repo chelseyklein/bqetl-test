@@ -6,40 +6,60 @@ fields:
 - mode: NULLABLE
   name: app_description
   type: STRING
-  description: App Description
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: app_description
 - mode: NULLABLE
   name: app_id
   type: STRING
-  description: App ID
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: app_id
 - mode: NULLABLE
   name: app_name
   type: STRING
-  description: App Name
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: app_name
 - mode: NULLABLE
   name: bq_dataset_family
   type: STRING
-  description: Dataset name ping data is stored in
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: bq_dataset_family
 - mode: NULLABLE
   name: canonical_app_name
   type: STRING
-  description: Human readable app name
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: canonical_app_name
 - mode: NULLABLE
   name: document_namespace
   type: STRING
-  description: Document Namespace
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: document_namespace
 - mode: REPEATED
   name: notification_emails
   type: STRING
-  description: Set of emails that will receive any app-related notifications
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: notification_emails
 - mode: NULLABLE
   name: url
   type: STRING
-  description: Repository URL
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: url
 - mode: NULLABLE
   name: v1_name
   type: STRING
-  description: V1 App Name
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: v1_name
 - mode: NULLABLE
   name: is_glean
   type: BOOL
-  description: Whether the application is using Glean
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: is_glean
