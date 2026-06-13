@@ -2351,3 +2351,147 @@ fields:
 - name: system_is_wow64
   description: Indicates whether the Firefox process is running as a 32-bit application under the WOW64 compatibility layer on a 64-bit Windows system.
     True means WOW64 is active; false means the process is running natively.
+- name: system_memory_mb
+  description: The total amount of physical RAM available on the client device, measured in megabytes. Common values correspond to standard memory
+    configurations such as 8 GB, 16 GB, and 32 GB.
+- name: tagged_follow_on_search_ad_clicks
+  description: The number of ad clicks recorded on follow-on searches that were tagged with a search attribution code. A follow-on search occurs when
+    a user performs a subsequent search originating from an initial tagged search.
+- name: tagged_follow_on_search_ad_impressions
+  description: The number of ad impressions recorded on follow-on searches that were tagged with a search attribution code. A follow-on search occurs
+    when a user performs a subsequent search originating from an initial tagged search.
+- name: tagged_search_ad_clicks
+  description: The number of ad clicks recorded on searches that were tagged with a search attribution code. A value of 0 indicates no ad clicks occurred
+    during tagged searches.
+- name: tagged_search_ad_impressions
+  description: The number of ad impressions recorded on searches that were tagged with a search attribution code. A value of 0 indicates no ads were
+    shown during tagged searches.
+- name: target
+  description: The product or audience target associated with the record, such as 'desktop' or 'mobile', potentially further qualified by an activity
+    metric segment such as DAU, QDAU, or CDOU. Identifies which platform or user cohort the data applies to.
+- name: telemetry_enabled
+  description: Indicates whether the user has telemetry data collection enabled. A value of true means telemetry is active; false means the user has
+    opted out. A null value indicates the preference was not recorded.
+- name: text_recognition_api_performance_count_sum
+  description: The total count of text recognition API performance measurements recorded across all sessions. This field is almost always null, indicating
+    the feature was not used or the metric was not collected.
+- name: text_recognition_api_performance_sum
+  description: The sum of text recognition API performance timings (in milliseconds) recorded across all sessions. This field is almost always null,
+    with non-null values reflecting rare usage of the text recognition feature.
+- name: text_recognition_interaction_timing_count_sum
+  description: The total count of user interaction timing measurements for the text recognition feature recorded across all sessions. This field is
+    almost always null, indicating the feature was not used or the metric was not collected.
+- name: text_recognition_interaction_timing_sum
+  description: The sum of user interaction timings (in milliseconds) for the text recognition feature recorded across all sessions. This field is almost
+    always null, with non-null values reflecting rare usage of the feature.
+- name: text_recognition_text_length_count_sum
+  description: The total count of text length measurements recorded by the text recognition feature across all sessions. This field is almost always
+    null, indicating the feature was not used or the metric was not collected.
+- name: text_recognition_text_length_sum
+  description: The sum of the lengths of text recognized by the text recognition feature across all sessions. This field is almost always null, with
+    non-null values reflecting rare usage of the feature.
+- name: tile_id
+  description: A unique numeric identifier for a sponsored or top-site tile displayed to the user. A value of -1 may indicate an unrecognized or missing
+    tile.
+- name: time
+  description: A UTC timestamp representing the time associated with the record, typically truncated to a coarse granularity such as a day or hour.
+    Used for time-series analysis and partitioning.
+- name: timestamp
+  description: A high-resolution UTC timestamp indicating the precise date and time the event or record was created. Used for fine-grained temporal
+    ordering and event sequencing.
+- name: timezone_offset
+  description: The client's local timezone offset from UTC, expressed in minutes. Positive values indicate timezones east of UTC and negative values
+    indicate timezones west of UTC.
+- name: top_addons
+  description: An array of the most prevalent browser add-ons observed, each entry containing the add-on name and its proportional representation (ratio)
+    within the population.
+- name: top_addons.addon_name
+  description: The name of a browser add-on, as it appears within the top_addons array. Identifies the specific extension or plugin being referenced.
+- name: top_addons.ratio
+  description: The proportional share of the population using this add-on, expressed as a ratio between 0 and 1. A higher value indicates the add-on
+    is more prevalent within the observed population.
+- name: top_locales
+  description: An array of the most common browser locales observed, each entry containing the locale identifier and its proportional representation
+    (ratio) within the population.
+- name: top_locales.locale
+  description: A locale identifier string (e.g., 'en-US', 'fr') representing a commonly observed browser language setting within the top_locales array.
+- name: top_locales.ratio
+  description: The proportional share of the population using this locale, expressed as a ratio between 0 and 1. A higher value indicates the locale
+    is more prevalent within the observed population.
+- name: topic_preferences_set
+  description: Indicates whether the user has explicitly configured topic preferences in the New Tab page content feed. A value of true means preferences
+    have been set; false means they have not. A null value indicates the feature state was not recorded.
+- name: topic_selection_dismissals
+  description: The number of times the user dismissed the topic selection UI without making changes. A value of 0 indicates the topic selection prompt
+    was never dismissed.
+- name: topic_selection_opened
+  description: The number of times the user opened the topic selection UI. A value of 0 indicates the topic selection UI was never opened.
+- name: topic_selection_updates
+  description: The number of times the user saved changes to their topic preferences via the topic selection UI. A value of 0 indicates no topic preference
+    updates were made.
+- name: topsite_clicks
+  description: The total number of clicks on top-site entries (including both organic and sponsored tiles) recorded for the period. A value of 0 indicates
+    no top-site clicks occurred.
+- name: topsite_dismissals
+  description: The total number of times the user dismissed a top-site entry (including both organic and sponsored tiles). A value of 0 indicates no
+    dismissals occurred.
+- name: topsite_impressions
+  description: The total number of times top-site tiles (including both organic and sponsored) were displayed to the user. A value of 0 indicates no
+    top-site impressions were recorded.
+- name: topsite_tile_clicks
+  description: The number of clicks on sponsored top-site tiles specifically. A value of 0 indicates no sponsored tile clicks were recorded.
+- name: topsite_tile_dismissals
+  description: The number of times the user dismissed a sponsored top-site tile. A value of 0 indicates no sponsored tile dismissals occurred.
+- name: topsite_tile_impressions
+  description: The number of times sponsored top-site tiles were displayed to the user. A value of 0 indicates no sponsored tile impressions were recorded.
+- name: topsites_enabled
+  description: Indicates whether the Top Sites feature is enabled on the user's New Tab page. A value of true means Top Sites are visible; false means
+    the feature has been turned off. A null value indicates the setting was not recorded.
+- name: topsites_rows
+  description: The number of rows of top-site tiles configured to be displayed on the user's New Tab page. Common values are 1 through 4, with 1 being
+    the most prevalent default.
+- name: topsites_sponsored_enabled
+  description: Indicates whether sponsored top-site tiles are enabled on the user's New Tab page. A value of true means sponsored tiles are active;
+    false means the user has disabled them.
+- name: topsites_sponsored_tiles_configured
+  description: The number of sponsored tile slots configured to be available in the Top Sites section. Typical values are 2, 3, or 4, reflecting different
+    sponsored capacity configurations.
+- name: total_hours_sum
+  description: The total number of hours aggregated across all sessions for the record. This field is currently always null, indicating the metric
+    is not yet populated.
+- name: total_sample
+  description: The total size of the sample population underlying the aggregated record. A value of 0 may indicate no eligible users were observed
+    for that combination of dimensions.
+- name: total_users
+  description: The total number of distinct users included in the aggregated record. Represents the size of the user population for a given set of
+    dimensions.
+- name: tou_daily_active_users
+  description: The count of users who were active on a given day as measured by the Terms of Use (TOU) activity definition. A value of 0 indicates
+    no qualifying active users were observed.
+- name: tou_monthly_active_users
+  description: The count of users who were active within the current calendar month as measured by the Terms of Use (TOU) activity definition. A value
+    of 0 indicates no qualifying active users were observed.
+- name: tou_weekly_active_users
+  description: The count of users who were active within the current calendar week as measured by the Terms of Use (TOU) activity definition. A value
+    of 0 indicates no qualifying active users were observed.
+- name: trackers_blocked_sum
+  description: The total number of trackers blocked by the browser's Enhanced Tracking Protection across all sessions for the record. A null value
+    indicates the metric was not reported, often because tracking protection was not active.
+- name: trend
+  description: The central estimate of the trend component extracted from a time-series model for a given metric. Represents the underlying directional
+    movement of the metric, smoothed of seasonal and irregular variation.
+- name: trend_lower
+  description: The lower bound of the confidence interval for the trend estimate derived from a time-series model. Values at or near the trend value
+    indicate a narrow confidence interval around the trend estimate.
+- name: trend_upper
+  description: The upper bound of the confidence interval for the trend estimate derived from a time-series model. Values at or near the trend value
+    indicate a narrow confidence interval around the trend estimate.
+- name: type
+  description: The category or kind of the record, such as 'extension', 'locale', 'dictionary', or 'service'. Classifies the nature of the add-on or
+    component being described.
+- name: ua_form_factor
+  description: The form factor of the device as parsed from the user agent string, such as 'phone', 'tablet', or 'desktop'. Describes the physical
+    device class of the client.
+- name: ua_os_family
+  description: The operating system family of the client device as parsed from the user agent string, such as 'Windows', 'macOS', or 'Android'. Broadly
+    identifies the OS platform of the client.
