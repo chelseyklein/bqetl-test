@@ -1326,3 +1326,153 @@ fields:
 - name: nbr_cpu_cores
   description: The number of logical CPU cores available on the client device. Used to characterize the processing capabilities of the hardware environment
     on which the product is running.
+- name: nbr_events
+  description: The total number of events recorded in the row's context. A value of 1 indicates a single event occurred, while higher values reflect
+    multiple events aggregated together.
+- name: nbr_unique_clients_uninstalling
+  description: The count of distinct clients that performed an uninstall action within the aggregation period. Each client is counted only once regardless
+    of how many uninstall events it generated.
+- name: nbr_unique_users
+  description: The count of distinct users observed within the aggregation period. Each user is counted only once, regardless of the number of sessions
+    or events they generated.
+- name: new_profile_metric_date
+  description: Indicates whether the record corresponds to the date on which a new profile was created. True means the metric date coincides with the
+    profile creation date; False means it does not.
+- name: new_profile_rate
+  description: The rate at which new profiles are being created, expressed as a floating-point ratio. This is typically computed relative to a baseline
+    population or time window.
+- name: new_profile_ratio
+  description: The proportion of records or clients that represent newly created profiles within the aggregation window. A value of 0.0 indicates no
+    new profiles, while higher values reflect a greater share of new profiles.
+- name: new_profiles
+  description: The count of newly created Firefox profiles within the aggregation period. A value of 0 indicates no new profiles were observed for
+    that row's dimensions.
+- name: new_profiles_metric_date
+  description: The numeric representation of the metric date associated with new profile counts. This is used to align new-profile measurements to
+    a specific reporting date.
+- name: newtab_homepage_category
+  description: The category classification of the browser's homepage setting as observed on a new-tab event. Values include states such as 'enabled',
+    'disabled', 'search-engine', 'extension', 'social-media', and others indicating the type of homepage configured.
+- name: newtab_newtab_category
+  description: The category classification of the new-tab page setting at the time of a new-tab event. Common values are 'enabled' (default Firefox
+    new tab), 'disabled', 'extension' (a third-party extension controls the page), and 'other'.
+- name: newtab_open_source
+  description: The URL or source from which the new-tab page was opened, such as 'about:newtab', 'about:home', or 'about:welcome'. A null or 'other'
+    value indicates the page was opened from an unrecognized or untracked source.
+- name: newtab_search_enabled
+  description: Indicates whether the search box is enabled on the new-tab page. True means the search feature is active; False means it has been disabled
+    by the user or policy.
+- name: newtab_visit_count
+  description: The total number of new-tab page visits recorded for the given client or session within the aggregation period. Higher values indicate
+    more frequent new-tab page openings.
+- name: newtab_visit_ended_at
+  description: The timestamp (in milliseconds relative to session start or another epoch) at which the new-tab page visit ended. A value of 0 typically
+    indicates the end time was not captured or the visit was still in progress.
+- name: newtab_visit_id
+  description: A unique identifier (UUID) assigned to a single new-tab page visit. It is used to join or deduplicate events belonging to the same new-tab
+    visit across tables.
+- name: newtab_visit_started_at
+  description: The timestamp (in milliseconds relative to session start or another epoch) at which the new-tab page visit began. A value of 0 often
+    indicates the start time was not available; the sentinel value 9223372036854775807 (INT64 max) may indicate an unset state.
+- name: newtab_weather_widget_enabled
+  description: Indicates whether the weather widget is enabled on the new-tab page. True means the widget is active and visible; False means it has
+    been turned off.
+- name: non_norm_aggregates
+  description: An array of key-value pairs representing non-normalized aggregate metric values. Each entry maps a bucket key or dimension label to
+    its corresponding floating-point aggregated measurement.
+- name: non_norm_aggregates_key
+  description: The key component of a non-normalized aggregate entry, typically representing a histogram bucket index or a named dimension. It is used
+    alongside non_norm_aggregates_value to identify the specific metric slot being measured.
+- name: non_norm_aggregates_value
+  description: The floating-point value component of a non-normalized aggregate entry, representing the raw (non-normalized) measurement for the corresponding
+    key. A value of 0.0 is the most common, indicating no activity in that bucket.
+- name: non_norm_histogram
+  description: A JSON-encoded string representing a non-normalized histogram, where each key is a bucket label or index and the corresponding value
+    is the raw count for that bucket. This captures the full distribution of a metric without normalization.
+- name: normalized_app_name
+  description: The standardized, human-readable name of the Firefox application that submitted the telemetry data, such as 'Firefox Desktop', 'Fenix',
+    'Firefox iOS', or 'Focus Android'. This normalizes raw app identifiers into consistent product names.
+- name: normalized_channel
+  description: The standardized Firefox release channel from which the telemetry was submitted. Possible values include 'release', 'beta', 'nightly',
+    'esr', 'aurora', and 'Other' for unrecognized channels.
+- name: normalized_country_code
+  description: The ISO 3166-1 alpha-2 country code representing the country associated with the client's telemetry submission, such as 'US', 'DE',
+    or 'IN'. This is derived from geo-IP resolution of the client's network address.
+- name: normalized_os
+  description: The standardized operating system name on which Firefox is running, normalized to one of 'Windows', 'Mac', or 'Linux'. This collapses
+    raw OS strings into consistent, comparable values.
+- name: normalized_os_version
+  description: The standardized version string of the operating system on which Firefox is running, such as '10.0' for Windows 10 or '6.8.0' for a
+    Linux kernel version. This normalizes raw OS version strings for consistent cross-platform comparison.
+- name: num_buckets
+  description: The number of buckets defined in the histogram used to record a metric. Common values such as 50, 100, or 1000 reflect different histogram
+    resolutions used across Firefox telemetry probes.
+- name: num_clients_active_on_day
+  description: The count of distinct clients that were active on a specific day within the cohort or aggregation window. A value of 0 indicates no
+    clients in that segment were active on that day.
+- name: num_clients_in_cohort
+  description: The total number of distinct clients belonging to the cohort defined by the row's dimensions. This represents the cohort size used as
+    the denominator for retention and engagement calculations.
+- name: numeric_index
+  description: A sequential numeric index assigned to a record, typically used to order rows or uniquely identify a position within a series or partition.
+    Values are generally monotonically increasing and unique within their context.
+- name: oom_allocation_size
+  description: The size in bytes of the memory allocation that triggered an out-of-memory (OOM) condition. This field is frequently null when no OOM
+    allocation size was recorded; common non-null values correspond to typical allocation sizes such as 4096 or 65536 bytes.
+- name: organic_pocket_clicks
+  description: The count of user clicks on organic (non-sponsored) Pocket content recommendations displayed on the new-tab page. A value of 0 indicates
+    no clicks occurred for that session or aggregation period.
+- name: organic_pocket_dismissals
+  description: The count of times a user dismissed an organic (non-sponsored) Pocket content recommendation on the new-tab page. A value of 0 indicates
+    no dismissals occurred for that session or aggregation period.
+- name: organic_pocket_impressions
+  description: The count of times organic (non-sponsored) Pocket content recommendations were displayed (impressed) to the user on the new-tab page.
+    A value of 0 indicates the Pocket section was not shown or no impressions were recorded.
+- name: organic_pocket_saves
+  description: The count of times a user saved an organic (non-sponsored) Pocket content recommendation to their Pocket list from the new-tab page.
+    A value of 0 indicates no saves occurred for that session or aggregation period.
+- name: organic_search_count
+  description: The count of organic (non-paid, non-tagged) search queries performed by the client within the aggregation period. Null values indicate
+    the search count was not available or not applicable for the given row's dimensions.
+- name: organic_topsite_clicks
+  description: The count of user clicks on organic (non-sponsored) top site tiles displayed on the new-tab page. A value of 0 indicates no clicks occurred
+    for that session or aggregation period.
+- name: organic_topsite_dismissals
+  description: The count of times a user dismissed an organic (non-sponsored) top site tile from the new-tab page. A value of 0 indicates no dismissals
+    occurred for that session or aggregation period.
+- name: organic_topsite_impressions
+  description: The count of times organic (non-sponsored) top site tiles were displayed (impressed) to the user on the new-tab page. A value of 0 indicates
+    no impressions were recorded, typically because top sites were not shown.
+- name: organic_topsite_tile_clicks
+  description: The count of user clicks specifically on organic (non-sponsored) top site tile entries on the new-tab page. This metric may differ from
+    organic_topsite_clicks when tile-level granularity is tracked separately.
+- name: organic_topsite_tile_dismissals
+  description: The count of times a user dismissed a specific organic (non-sponsored) top site tile entry on the new-tab page. A value of 0 indicates
+    no tile-level dismissals occurred for that session or aggregation period.
+- name: organic_topsite_tile_impressions
+  description: The count of times specific organic (non-sponsored) top site tile entries were displayed to the user on the new-tab page. This tracks
+    tile-level impression counts, which may differ from aggregate topsite impression counts.
+- name: os
+  description: The raw operating system name as reported by the client, such as 'Windows_NT', 'Darwin', 'Linux', 'Android', or 'iOS'. This is the unprocessed
+    value before any normalization is applied.
+- name: os_environment_is_taskbar_pinned_any
+  description: Indicates whether Firefox is pinned to the Windows taskbar in any configuration (standard or private browsing). True means at least
+    one Firefox shortcut is pinned to the taskbar; False means it is not pinned in any form.
+- name: os_environment_is_taskbar_pinned_private
+  description: Indicates whether the Firefox Private Browsing shortcut is specifically pinned to the Windows taskbar. True means the private browsing
+    shortcut is pinned; False means it is not.
+- name: os_environment_is_taskbar_pinned_private_any
+  description: Indicates whether Firefox Private Browsing is pinned to the Windows taskbar in any configuration. True means a private browsing shortcut
+    exists on the taskbar in some form; False means it does not.
+- name: os_grouped
+  description: A coarser grouping of the operating system into broad categories; 'Windows', 'Mac', 'Linux', or 'Other'. This simplifies OS-level analysis
+    by collapsing detailed OS variants into major platform groups.
+- name: os_name
+  description: The standardized name of the operating system, such as 'Windows', 'Mac', 'Linux', or 'Android'. This is a normalized representation
+    of the OS, distinct from the raw os field and used for consistent cross-platform reporting.
+- name: os_service_pack_major
+  description: The major version number of the Windows Service Pack installed on the client's operating system. A value of 0 indicates no service pack
+    is installed; null indicates the field is not applicable (e.g., for non-Windows platforms).
+- name: os_service_pack_minor
+  description: The minor version number of the Windows Service Pack installed on the client's operating system. A value of 0 is the most common, indicating
+    the minor service pack version is zero; null indicates the field is not applicable for non-Windows platforms.
