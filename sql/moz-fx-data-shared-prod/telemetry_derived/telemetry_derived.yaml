@@ -2642,3 +2642,81 @@ fields:
 - name: weekly
   description: A weekly aggregated metric value, expressed as a float, representing usage or activity totalled over a 7-day period. The specific meaning
     depends on the metric context in which this field appears.
+- name: weekly_lower
+  description: The lower bound of the confidence interval for a weekly forecast or metric estimate. Values may be negative when the model extrapolates
+    below zero.
+- name: weekly_upper
+  description: The upper bound of the confidence interval for a weekly forecast or metric estimate. Values may be negative when the model extrapolates
+    below zero.
+- name: weekly_users
+  description: The count of unique users observed or predicted within a weekly aggregation window. A value of zero indicates no users were active during
+    that period.
+- name: window_end
+  description: The UTC timestamp marking the exclusive end of a time-based aggregation or analysis window. Together with window_start, it defines the
+    exact interval covered by a row.
+- name: window_start
+  description: The UTC timestamp marking the inclusive start of a time-based aggregation or analysis window. Together with window_end, it defines the
+    exact interval covered by a row.
+- name: windows_build_number
+  description: The numeric build number of the Windows operating system installed on the client device (e.g., 19045 for Windows 10 22H2). Null when
+    the client is not running Windows.
+- name: windows_ubr
+  description: The Update Build Revision (UBR) component of the Windows version, identifying the specific cumulative update applied on top of the base
+    build. Null when the client is not running Windows or the value is unavailable.
+- name: windows_version
+  description: The human-readable name of the Windows operating system version running on the client device (e.g., 'Windows 10', 'Windows 11'). Null
+    when the client is not running Windows.
+- name: xpcom_abi
+  description: The XPCOM Application Binary Interface string identifying the CPU architecture and compiler toolchain of the Firefox build (e.g., 'x86_64-msvc',
+    'aarch64-gcc3'). This value determines binary compatibility for XPCOM components and add-ons.
+- name: yearly
+  description: The point estimate of a metric aggregated or forecasted at a yearly granularity. Values may be negative when the model extrapolates
+    below zero.
+- name: yearly_lower
+  description: The lower bound of the confidence interval for a yearly forecast or metric estimate. Values may be negative when the model extrapolates
+    below zero.
+- name: yearly_upper
+  description: The upper bound of the confidence interval for a yearly forecast or metric estimate. Values may be negative when the model extrapolates
+    below zero.
+- name: yhat
+  description: The central point estimate (predicted value) produced by a forecasting model for a given time period. This is the model's best single-value
+    prediction before uncertainty bounds are applied.
+- name: yhat_lower
+  description: The lower bound of the forecasting model's prediction interval for a given time period. This represents the pessimistic end of the expected
+    range around the yhat point estimate.
+- name: yhat_p10
+  description: The 10th percentile of the forecasting model's predictive distribution for a given time period. Ninety percent of predicted outcomes
+    are expected to fall above this value.
+- name: yhat_p20
+  description: The 20th percentile of the forecasting model's predictive distribution for a given time period. Eighty percent of predicted outcomes
+    are expected to fall above this value.
+- name: yhat_p30
+  description: The 30th percentile of the forecasting model's predictive distribution for a given time period. Seventy percent of predicted outcomes
+    are expected to fall above this value.
+- name: yhat_p40
+  description: The 40th percentile of the forecasting model's predictive distribution for a given time period. Sixty percent of predicted outcomes
+    are expected to fall above this value.
+- name: yhat_p5
+  description: The 5th percentile of the forecasting model's predictive distribution for a given time period. Ninety-five percent of predicted outcomes
+    are expected to fall above this value.
+- name: yhat_p50
+  description: The 50th percentile (median) of the forecasting model's predictive distribution for a given time period. Half of predicted outcomes
+    are expected to fall above and half below this value.
+- name: yhat_p60
+  description: The 60th percentile of the forecasting model's predictive distribution for a given time period. Forty percent of predicted outcomes
+    are expected to fall above this value.
+- name: yhat_p70
+  description: The 70th percentile of the forecasting model's predictive distribution for a given time period. Thirty percent of predicted outcomes
+    are expected to fall above this value.
+- name: yhat_p80
+  description: The 80th percentile of the forecasting model's predictive distribution for a given time period. Twenty percent of predicted outcomes
+    are expected to fall above this value.
+- name: yhat_p90
+  description: The 90th percentile of the forecasting model's predictive distribution for a given time period. Ten percent of predicted outcomes are
+    expected to fall above this value.
+- name: yhat_p95
+  description: The 95th percentile of the forecasting model's predictive distribution for a given time period. Five percent of predicted outcomes are
+    expected to fall above this value.
+- name: yhat_upper
+  description: The upper bound of the forecasting model's prediction interval for a given time period. This represents the optimistic end of the expected
+    range around the yhat point estimate.
