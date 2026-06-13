@@ -2363,3 +2363,139 @@ fields:
 - name: text_recognition_api_performance_sum
   description: The sum of performance timings (in milliseconds) for text recognition API calls made during the aggregation period. A null value indicates
     no text recognition API activity was recorded for the record.
+- name: text_recognition_interaction_timing_count_sum
+  description: The total count of timing samples recorded for text recognition interaction events. This is the sum of histogram bucket counts across
+    all text recognition interaction timing measurements.
+- name: text_recognition_interaction_timing_sum
+  description: The sum of elapsed time (in milliseconds) for text recognition interaction events. Reflects the cumulative duration of user interactions
+    with the text recognition feature.
+- name: text_recognition_text_length_count_sum
+  description: The total count of text length samples recorded during text recognition events. This is the sum of histogram bucket counts across all
+    text recognition text length measurements.
+- name: text_recognition_text_length_sum
+  description: The cumulative sum of character lengths of text recognized during text recognition events. Reflects the total volume of text processed
+    by the text recognition feature.
+- name: tile_id
+  description: A numeric identifier for a sponsored or organic top-site tile. Values of -1 indicate tiles without an assigned identifier.
+- name: time
+  description: The UTC timestamp representing the time associated with the record, typically truncated to a day or other reporting granularity. Used
+    for time-series aggregation and reporting.
+- name: timestamp
+  description: The precise UTC timestamp at which the event or record was ingested or generated. Used to order and identify records at sub-second granularity.
+- name: timezone_offset
+  description: The client's local timezone offset from UTC, expressed in minutes. Positive values indicate timezones east of UTC and negative values
+    indicate timezones west of UTC.
+- name: top_addons
+  description: An array of the most prevalent add-ons observed within a cohort or segment, each entry containing the add-on name and its relative share
+    as a ratio.
+- name: top_addons_addon_name
+  description: The name of a top add-on within a cohort or segment. This is a nested field extracted from the top_addons array.
+- name: top_addons_ratio
+  description: The proportional share of a given add-on among the top add-ons for a cohort or segment, expressed as a decimal between 0 and 1. This
+    is a nested field extracted from the top_addons array.
+- name: top_locales
+  description: An array of the most prevalent application locales observed within a cohort or segment, each entry containing the locale code and its
+    relative share as a ratio.
+- name: top_locales_locale
+  description: The locale code (e.g., 'en-US') of a top locale within a cohort or segment. This is a nested field extracted from the top_locales array.
+- name: top_locales_ratio
+  description: The proportional share of a given locale among the top locales for a cohort or segment, expressed as a decimal between 0 and 1. This
+    is a nested field extracted from the top_locales array.
+- name: topic_preferences_set
+  description: Indicates whether the user has explicitly configured topic preferences for content recommendations. True means preferences have been
+    set; false means they have not; null indicates the value was not recorded.
+- name: topic_selection_dismissals
+  description: The number of times the user dismissed the topic selection UI without saving changes. A value of 0 indicates no dismissals occurred.
+- name: topic_selection_opened
+  description: The number of times the user opened the topic selection UI. A value of 0 indicates the UI was never opened.
+- name: topic_selection_updates
+  description: The number of times the user saved updates to their topic selections. A value of 0 indicates no updates were made.
+- name: topsite_clicks
+  description: The total number of times the user clicked on any top-site entry. Includes both organic and sponsored top-site clicks.
+- name: topsite_dismissals
+  description: The total number of times the user dismissed a top-site entry. A value of 0 indicates no top sites were dismissed.
+- name: topsite_impressions
+  description: The total number of times top-site tiles were displayed to the user. Values are typically multiples of the number of tiles shown per
+    row.
+- name: topsite_tile_clicks
+  description: The total number of clicks on individual top-site tiles. This may be scoped to a specific tile type or sponsor compared to the broader
+    topsite_clicks metric.
+- name: topsite_tile_dismissals
+  description: The total number of times the user dismissed an individual top-site tile. A value of 0 indicates no tile dismissals occurred.
+- name: topsite_tile_impressions
+  description: The total number of impressions recorded for individual top-site tiles. Values are typically multiples of the number of tiles shown
+    per row.
+- name: topsites_enabled
+  description: Indicates whether the top-sites feature is enabled in the user's New Tab Page settings. True means top sites are shown; false means
+    they are hidden.
+- name: topsites_rows
+  description: The number of rows of top-site tiles configured to be displayed on the New Tab Page. Higher values indicate more top-site tiles visible
+    at once.
+- name: topsites_sponsored_enabled
+  description: Indicates whether sponsored top-site tiles are enabled for the user. True means sponsored tiles can be shown; false means they are disabled.
+- name: topsites_sponsored_tiles_configured
+  description: The number of sponsored top-site tile slots configured for display on the New Tab Page. Typical values are 2, 3, or 4 slots.
+- name: total_hours_sum
+  description: The total number of hours aggregated across records in a reporting period. This field is currently unpopulated and reserved for future
+    use.
+- name: total_sample
+  description: The total size of the sample or population used for a given aggregation or calculation. A value of 0 indicates no sample was available.
+- name: total_users
+  description: The total count of distinct users associated with a given aggregation group or dimension. Used to measure population size across segments.
+- name: tou_daily_active_users
+  description: The number of Terms of Use (ToU) daily active users within a given aggregation period. A value of 0 indicates no active users on that
+    day.
+- name: tou_monthly_active_users
+  description: The number of Terms of Use (ToU) monthly active users within a given aggregation period. A value of 0 indicates no active users in that
+    month.
+- name: tou_weekly_active_users
+  description: The number of Terms of Use (ToU) weekly active users within a given aggregation period. A value of 0 indicates no active users in that
+    week.
+- name: trackers_blocked_sum
+  description: The total number of trackers blocked by the browser's Enhanced Tracking Protection feature over a reporting period. Null values indicate
+    the feature was not active or data was not collected.
+- name: trend
+  description: The modeled trend value for a metric at a given point in time, derived from a time-series forecasting model. Represents the underlying
+    directional movement of the metric, excluding seasonal effects.
+- name: trend_lower
+  description: The lower bound of the confidence interval for the modeled trend value at a given point in time. Used alongside trend_upper to express
+    uncertainty in the trend estimate.
+- name: trend_upper
+  description: The upper bound of the confidence interval for the modeled trend value at a given point in time. Used alongside trend_lower to express
+    uncertainty in the trend estimate.
+- name: type
+  description: The category or type of an add-on or browser component, such as 'extension', 'locale', 'dictionary', or 'service'. Describes the functional
+    role of the item.
+- name: ua_form_factor
+  description: The form factor of the device as derived from the user-agent string, such as 'desktop', 'phone', or 'tablet'. Used to classify client
+    device categories.
+- name: ua_os_family
+  description: The operating system family as derived from the user-agent string, such as 'Windows', 'Mac OS X', or 'Linux'. Used to classify the client
+    operating environment.
+- name: unenroll_count
+  description: The total number of times clients successfully unenrolled from an experiment or feature rollout during a reporting period. A value of
+    0 indicates no unenrollments occurred.
+- name: unenroll_failed_count
+  description: The total number of times an attempt to unenroll a client from an experiment or feature rollout failed during a reporting period. A
+    value of 0 indicates no failed unenrollments.
+- name: uninstall_same_day_as_install
+  description: Indicates whether an add-on or application was uninstalled on the same calendar day it was installed. True means the uninstall occurred
+    on the install date; false means it did not.
+- name: uninstall_to_install_ratio
+  description: The ratio of uninstalls to installs for a given add-on or product over a reporting period. A value of 0.0 indicates no uninstalls relative
+    to installs; a value of 1.0 indicates equal counts.
+- name: uninstalls_count
+  description: The total number of uninstall events recorded for an add-on or product during a reporting period. Counts each uninstall action as one
+    unit.
+- name: unit
+  description: The time unit used to define the reporting or retention period, such as 'day' or 'month'. Determines the granularity of the associated
+    metric.
+- name: update_auto_download
+  description: Indicates whether the browser is configured to automatically download updates. True means automatic download is enabled; false means
+    it is disabled.
+- name: update_background
+  description: Indicates whether browser updates are applied in the background without requiring user interaction. True means background updates are
+    enabled; false means they require user action.
+- name: update_channel
+  description: The Firefox update channel the client is subscribed to, such as 'release', 'beta', 'nightly', or 'esr'. Determines which build and update
+    stream the client receives.
