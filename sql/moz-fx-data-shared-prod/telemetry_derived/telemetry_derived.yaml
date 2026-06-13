@@ -2213,3 +2213,153 @@ fields:
 - name: show_tracker_stats_share
   description: A boolean flag indicating whether the user has enabled sharing of tracker statistics. A value of true indicates sharing is enabled;
     false indicates it is disabled. This field is almost always null, indicating the setting was not recorded.
+- name: shutdown_kill_sum
+  description: The total number of times a browser process was forcibly killed during shutdown rather than exiting cleanly. A null value indicates
+    no forced shutdowns were recorded in the period.
+- name: signature
+  description: A string identifying the most representative stack frame or error type associated with a crash or hang, used to group similar incidents
+    together. Values may indicate OOM conditions, specific library frames, or that no frame data was available.
+- name: silent
+  description: Indicates whether an update or notification was delivered silently without user interaction. True means the action was silent; false
+    means the user was prompted or notified.
+- name: smoothed_dau
+  description: The 7-day rolling average of Daily Active Users (DAU) for a given segment or product. This smoothed metric reduces day-to-day noise
+    in activity counts.
+- name: source
+  description: The referring domain or origin from which a user navigated to a Mozilla property, such as addons.mozilla.org or support.mozilla.org.
+    A null value indicates the source was not captured or was unavailable.
+- name: sponsored_pocket_clicks
+  description: The total number of clicks on sponsored Pocket content tiles shown to the user. A value of zero indicates the user had no clicks on
+    sponsored Pocket items during the period.
+- name: sponsored_pocket_dismissals
+  description: The total number of times the user dismissed sponsored Pocket content tiles. A value of zero indicates no sponsored Pocket tiles were
+    dismissed during the period.
+- name: sponsored_pocket_impressions
+  description: The total number of times sponsored Pocket content tiles were displayed to the user. A value of zero indicates no sponsored Pocket tiles
+    were shown during the period.
+- name: sponsored_pocket_saves
+  description: The total number of times the user saved sponsored Pocket content items. A value of zero indicates no sponsored Pocket items were saved
+    during the period.
+- name: sponsored_topsite_clicks
+  description: The total number of clicks on sponsored top site tiles shown on the new tab page. A value of zero indicates no sponsored top site tiles
+    were clicked during the period.
+- name: sponsored_topsite_dismissals
+  description: The total number of times the user dismissed sponsored top site tiles from the new tab page. A value of zero indicates no sponsored
+    top site tiles were dismissed during the period.
+- name: sponsored_topsite_impressions
+  description: The total number of times sponsored top site tiles were displayed on the new tab page. A value of zero indicates no sponsored top site
+    tiles were shown during the period.
+- name: sponsored_topsite_tile_clicks
+  description: The total number of clicks on individual sponsored top site tile positions on the new tab page. This is a more granular tile-level complement
+    to sponsored_topsite_clicks.
+- name: sponsored_topsite_tile_dismissals
+  description: The total number of times a user dismissed individual sponsored top site tile positions on the new tab page. A value of zero indicates
+    no such tile dismissals occurred during the period.
+- name: sponsored_topsite_tile_impressions
+  description: The total number of times individual sponsored top site tile positions were rendered on the new tab page. This captures tile-level impression
+    counts rather than session-level totals.
+- name: ssl_handshake_result_failure_sum
+  description: The total number of failed SSL/TLS handshake attempts recorded during the period. A value of zero indicates all handshake attempts succeeded
+    or none were attempted.
+- name: ssl_handshake_result_success_sum
+  description: The total number of successful SSL/TLS handshake completions recorded during the period. A null value indicates no successful handshake
+    data was available for the record.
+- name: startup_profile_selection_first_ping_only
+  description: The method by which the Firefox profile was selected at startup, captured only from the first ping of a session. Common values include
+    'default', 'restart', 'profile-selector', and 'argument-profile', indicating how the active profile was determined.
+- name: startup_profile_selection_reason
+  description: The reason or mechanism by which the Firefox profile was selected at startup for the current session. Values such as 'firstrun-created-default',
+    'default', 'restart', and 'argument-profile' describe how the active profile was determined.
+- name: startup_profile_selection_reason_first
+  description: The profile selection reason recorded from the first observed startup event for a client. This field captures the initial method used
+    to choose the active profile, with values such as 'default', 'profile-selector', and 'firstrun-created-default'.
+- name: subchannel
+  description: The marketing or advertising subchannel through which a user acquisition or campaign interaction was attributed. Values include categories
+    such as 'Brand', 'Non-Brand', 'Competitor', 'PMax', and 'Other', with 'All' representing aggregated totals.
+- name: subdivision1
+  description: The first-level administrative subdivision (e.g., state, province, or region) of the user's inferred geographic location. This is typically
+    derived from IP geolocation and may be null when the subdivision cannot be determined.
+- name: submission_date
+  description: The calendar date on which a ping or record was received by Mozilla's ingestion pipeline. This field is commonly used as a partition
+    key for time-based queries.
+- name: submission_timestamp
+  description: The exact UTC timestamp at which a ping or record was received by Mozilla's ingestion pipeline. This provides sub-second precision for
+    ordering and deduplicating submissions.
+- name: submission_timestamp_min
+  description: The earliest UTC timestamp at which a ping or event was received within an aggregated group or window. This is used to anchor the time
+    of the first observed submission for a given set of records.
+- name: submission_year
+  description: The calendar year in which a ping or record was submitted to Mozilla's ingestion pipeline, extracted from the submission timestamp.
+    This field is useful for coarse time partitioning and year-level filtering.
+- name: subsession_hours_per_user_ratio
+  description: The ratio of total subsession hours to the number of users in an aggregated group, representing average browser usage time per user.
+    This metric normalizes engagement intensity across cohorts of different sizes.
+- name: subsession_hours_sum
+  description: The total number of hours spent in active Firefox subsessions, summed across all sessions in the aggregation period. Values close to
+    24 hours typically represent a full day's usage for a single client.
+- name: subsession_id
+  description: A unique UUID identifying a single Firefox subsession, which is the period of browser activity between a start event and a pause or
+    shutdown. Each new subsession receives a new identifier.
+- name: subsession_length
+  description: The duration of a Firefox subsession in seconds, measured from the subsession start to its end. This represents the length of a single
+    continuous period of browser activity.
+- name: subsession_start_date
+  description: The local date and time at which a Firefox subsession began, encoded as an ISO 8601 string including the client's UTC offset. This reflects
+    the user's local clock at the time the subsession started.
+- name: succeeded
+  description: Indicates whether an operation, update, or process completed successfully. True means the operation succeeded; false means it encountered
+    a failure.
+- name: success
+  description: A count or numeric indicator of successful outcomes for a given operation or event during the aggregation period. A null value indicates
+    the success count was not recorded or not applicable.
+- name: sync_configured
+  description: Indicates whether Firefox Sync was configured and enabled on the client. True means Sync was active; false means it was available but
+    not configured; null indicates the configuration state was not reported.
+- name: sync_count_desktop
+  description: The number of desktop devices connected to the user's Firefox Sync account. This reflects the count of non-mobile devices linked to
+    the account at the time of measurement.
+- name: sync_count_desktop_mean
+  description: The average number of desktop devices connected to the Firefox Sync account, computed across the aggregation period. A null value indicates
+    Sync was not configured or data was unavailable.
+- name: sync_count_desktop_sum
+  description: The total number of desktop device-sync events or connected desktop devices recorded across the aggregation period. A null value indicates
+    Sync was not configured or data was unavailable.
+- name: sync_count_mobile
+  description: The number of mobile devices connected to the user's Firefox Sync account. This reflects the count of mobile devices linked to the account
+    at the time of measurement.
+- name: sync_count_mobile_mean
+  description: The average number of mobile devices connected to the Firefox Sync account, computed across the aggregation period. A null value indicates
+    Sync was not configured or data was unavailable.
+- name: sync_count_mobile_sum
+  description: The total number of mobile device-sync events or connected mobile devices recorded across the aggregation period. A null value indicates
+    Sync was not configured or data was unavailable.
+- name: system_is_wow64
+  description: Indicates whether the Firefox process was running as a 32-bit application under the WOW64 compatibility layer on a 64-bit Windows operating
+    system. True means WOW64 was active; false means the process was running natively.
+- name: system_memory_mb
+  description: The total amount of physical RAM installed on the client's system, measured in megabytes. Common values correspond to standard memory
+    configurations such as 8192 MB (8 GB) or 16384 MB (16 GB).
+- name: tagged_follow_on_search_ad_clicks
+  description: The total number of ad clicks on search result pages that were reached via a follow-on search from a tagged (partner-attributed) initial
+    search. A value of zero indicates no such ad clicks occurred during the period.
+- name: tagged_follow_on_search_ad_impressions
+  description: The total number of ad impressions on search result pages reached via a follow-on search from a tagged initial search. A value of zero
+    indicates no follow-on search ads were displayed during the period.
+- name: tagged_search_ad_clicks
+  description: The total number of ad clicks on search result pages originating from a tagged (partner-attributed) search query. A value of zero indicates
+    no tagged search ad clicks occurred during the period.
+- name: tagged_search_ad_impressions
+  description: The total number of ad impressions on search result pages originating from a tagged (partner-attributed) search query. A value of zero
+    indicates no tagged search ads were displayed during the period.
+- name: target
+  description: The product platform or audience segment that a record, experiment, or metric is associated with. Values such as 'desktop' and 'mobile'
+    identify the Firefox product surface, while suffixed variants like 'desktop_QDAU' denote specific engagement metric targets.
+- name: telemetry_enabled
+  description: Indicates whether the client had Firefox telemetry data collection enabled at the time of the ping. True means telemetry was enabled;
+    false means the user had disabled telemetry; null indicates the setting was not reported.
+- name: text_recognition_api_performance_count_sum
+  description: The total number of text recognition API calls made during the aggregation period. This field is almost always null, reflecting that
+    text recognition activity is rare among the general user population.
+- name: text_recognition_api_performance_sum
+  description: The sum of performance timings (in milliseconds) for text recognition API calls made during the aggregation period. A null value indicates
+    no text recognition API activity was recorded for the record.
