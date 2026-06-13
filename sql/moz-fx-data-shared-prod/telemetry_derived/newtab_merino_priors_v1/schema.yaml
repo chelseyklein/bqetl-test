@@ -2,15 +2,30 @@ fields:
 - mode: NULLABLE
   name: region
   type: STRING
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: region
 - mode: NULLABLE
   name: average_ctr_top2_items
   type: FLOAT
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: average_ctr_top2_items
 - mode: NULLABLE
   name: average_ctr_top10_items
   type: FLOAT
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: average_ctr_top10_items
 - mode: NULLABLE
   name: impressions_per_item
   type: FLOAT
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: impressions_per_item
 - mode: NULLABLE
   name: total_impressions_per_day
   type: FLOAT
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: total_impressions_per_day
