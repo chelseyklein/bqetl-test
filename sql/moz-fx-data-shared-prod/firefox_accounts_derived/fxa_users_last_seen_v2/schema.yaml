@@ -3,31 +3,34 @@ fields:
 - mode: NULLABLE
   name: submission_date
   type: DATE
-  description: |
-    Corresponds to ETL processing date.
-    Also, used for partitioning the table.
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+    field: submission_date
 
 - mode: NULLABLE
   name: user_id
   type: STRING
-  description: |
-    A 36 char long hash value representing
-    User ID (registered user).
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+    field: user_id
 
 - mode: NULLABLE
   name: days_seen_bits
   type: INTEGER
-  description: |
-    No. of days since the user had activity event.
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+    field: days_seen_bits
 
 - mode: NULLABLE
   name: days_seen_in_tier1_country_bits
   type: INTEGER
-  description: |
-    No. of days since seen_in_tier1_country was last True.
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+    field: days_seen_in_tier1_country_bits
 
 - mode: NULLABLE
   name: days_registered_bits
   type: INTEGER
-  description: |
-    No. of days since registration event.
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+    field: days_registered_bits
