@@ -26,7 +26,8 @@ fields:
 - name: os_version
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: The operating system version string of the device or client from which the authentication event was generated, as reported in the FxA
+    auth server log payload.
 - name: utm_source
   type: STRING
   mode: NULLABLE
@@ -46,8 +47,10 @@ fields:
 - name: utm_term
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: The UTM term marketing parameter associated with the authentication event, used to identify paid search keywords or other campaign targeting
+    terms that brought the user to the FxA auth flow.
 - name: device_id
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: A SHA-256 hex-encoded hash of the device identifier associated with the authentication event, derived from either `device_id` or `deviceid`
+    fields in the source log payload to anonymize the raw device identifier.
