@@ -53,6 +53,9 @@ fields:
   - mode: NULLABLE
     name: severity
     type: STRING
+    description: !include-field-description
+      file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+      field: severity
   - mode: NULLABLE
     name: priority
     type: STRING
