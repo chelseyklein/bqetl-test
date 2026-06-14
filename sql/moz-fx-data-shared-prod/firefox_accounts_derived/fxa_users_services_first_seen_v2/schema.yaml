@@ -3,9 +3,9 @@ fields:
 - mode: NULLABLE
   name: submission_date
   type: DATE
-  description: |
-    Corresponds to the submission_date of the record
-    used from fxa_users_services_daily_v2.
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+    field: submission_date
 
     IMPORTANT:
     submission_date and first_service_flow_timestamp
@@ -17,17 +17,16 @@ fields:
 - mode: NULLABLE
   name: user_id
   type: STRING
-  description: |
-    36-char long hash randomly assigned when the account
-    is created.
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+    field: user_id
 
 - mode: NULLABLE
   name: service
   type: STRING
-  description: |
-    The service identifier. For Sync it may be empty or sync.
-    For OAuth reliers it is their hex client id.
-    Example: sync
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+    field: service
 
 - mode: NULLABLE
   name: did_register
