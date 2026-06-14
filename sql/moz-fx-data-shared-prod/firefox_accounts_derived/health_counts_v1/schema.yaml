@@ -2,9 +2,15 @@ fields:
   - mode: NULLABLE
     name: date
     type: TIMESTAMP
+    description: !include-field-description
+      file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+      field: date
   - mode: NULLABLE
     name: type
     type: STRING
+    description: !include-field-description
+      file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+      field: type
   - mode: NULLABLE
     name: state
     type: STRING
