@@ -393,3 +393,125 @@ fields:
     code.
 - name: jsonPayload_fields_emails
   description: A collection or serialized representation of email addresses associated with the user or account involved in the logged event.
+- name: jsonPayload_fields_emailverified
+  description: Indicates whether the Firefox Account user's email address has been verified. A non-zero value represents a verified state.
+- name: jsonPayload_fields_enabled
+  description: Indicates whether a feature, service, or account option is currently enabled. True means the item is active; false means it is disabled.
+- name: jsonPayload_fields_enrollments
+  description: A list of Nimbus experiment enrollments associated with the event, each containing details such as the app ID, experiment name, branch,
+    experiment type, preview status, and Nimbus user identifier.
+- name: jsonPayload_fields_entrypoint
+  description: The named entry point through which the user initiated the Firefox Accounts flow, such as a specific product surface or UI location.
+- name: jsonPayload_fields_entrypoint_experiment
+  description: The identifier of an experiment associated with the entry point, used to attribute the user's flow to a specific entrypoint experiment.
+- name: jsonPayload_fields_entrypoint_variation
+  description: The variation or branch of the entrypoint experiment that was presented to the user when initiating the Firefox Accounts flow.
+- name: jsonPayload_fields_err
+  description: A string representation of an error object associated with the logged event. This field is typically null when no error occurred.
+- name: jsonPayload_fields_errcode
+  description: A short error code string identifying the category or type of error encountered during an account or service operation.
+- name: jsonPayload_fields_errno
+  description: A numeric error code corresponding to a specific error condition in the Firefox Accounts service. This field is typically null when
+    no error occurred.
+- name: jsonPayload_fields_error
+  description: A descriptive error message string recorded when an operation fails. This field is typically null when no error occurred.
+- name: jsonPayload_fields_errorcode
+  description: A numeric code identifying a specific error type returned by the service. This field is typically null when no error occurred.
+- name: jsonPayload_fields_errorname
+  description: The human-readable name of the error class or type encountered during processing. This field is typically null when no error occurred.
+- name: jsonPayload_fields_event
+  description: The name or identifier of the event being logged. This field is typically null when no specific event name is captured.
+- name: jsonPayload_fields_event_properties
+  description: A JSON-encoded string containing additional key-value properties associated with the logged event. This field is typically null when
+    no extra properties are present.
+- name: jsonPayload_fields_event_type
+  description: A string identifying the category and action of the Firefox Accounts event, formatted as '<category> - <action>' (e.g., 'fxa_reg - view').
+    This field distinguishes different user interactions and funnel steps across account flows.
+- name: jsonPayload_fields_events
+  description: A numeric value representing a count or index of events associated with the log record. Used to quantify event occurrences within a
+    given context.
+- name: jsonPayload_fields_expires_at
+  description: The timestamp or date string indicating when a token, session, or resource is scheduled to expire.
+- name: jsonPayload_fields_features_free_trial_feature_enabled
+  description: Indicates whether the free trial feature is enabled for the user or subscription context. This field is typically null when the feature
+    flag state is not applicable.
+- name: jsonPayload_fields_features_welcome_feature_enabled
+  description: Indicates whether the welcome feature is enabled for the user or subscription context. This field is typically null when the feature
+    flag state is not applicable.
+- name: jsonPayload_fields_flow_id
+  description: A unique identifier for the authentication or registration flow session, used to correlate related events across a single user journey.
+- name: jsonPayload_fields_flow_time
+  description: The elapsed time in milliseconds from the start of the flow to the current event, representing how far into the flow the user has progressed.
+- name: jsonPayload_fields_flowbegintime
+  description: The timestamp string recording when the current authentication or registration flow began, used as a reference point for flow timing
+    calculations.
+- name: jsonPayload_fields_flowcompletesignal
+  description: The signal or event name that marks the successful completion of a Firefox Accounts flow, indicating what action concluded the session.
+- name: jsonPayload_fields_flowid
+  description: A unique identifier for the authentication or registration flow, used to link all events belonging to the same user flow session.
+- name: jsonPayload_fields_flowtype
+  description: A string describing the type or category of the Firefox Accounts flow, such as sign-in, registration, or password reset.
+- name: jsonPayload_fields_granttype
+  description: The OAuth grant type used during token issuance, such as 'authorization_code' or 'refresh_token', indicating how the access token was
+    obtained.
+- name: jsonPayload_fields_hasid
+  description: Indicates whether an identifier is present in the request or session context. True means an ID was supplied; false means it was absent.
+- name: jsonPayload_fields_hastoken
+  description: Indicates whether an authentication or access token is present in the request or session context. True means a token was supplied; false
+    means it was absent.
+- name: jsonPayload_fields_hasuid
+  description: Indicates whether a Firefox Account user ID (UID) is present in the request or session context. True means a UID was supplied; false
+    means it was absent.
+- name: jsonPayload_fields_header
+  description: An HTTP header value captured as part of the request context. This field is typically null when no relevant header is recorded.
+- name: jsonPayload_fields_headers
+  description: A serialized string representation of HTTP request headers associated with the logged event, used for debugging and request tracing.
+- name: jsonPayload_fields_host
+  description: The hostname or IP address of the server or client involved in the request. This field is typically null when the host is not recorded.
+- name: jsonPayload_fields_hostname
+  description: The hostname of the server that generated the log entry, identifying which instance or node processed the request.
+- name: jsonPayload_fields_id
+  description: A generic string identifier associated with the logged entity, such as a client ID, resource ID, or session ID. This field is typically
+    null when no identifier is applicable.
+- name: jsonPayload_fields_index
+  description: A numeric index value indicating the position or ordering of an item within a sequence, such as a device list or event batch.
+- name: jsonPayload_fields_info
+  description: An additional informational string providing supplementary context about the logged event or operation. This field is typically null
+    when no extra information is available.
+- name: jsonPayload_fields_interval
+  description: A string representing the billing or subscription interval (e.g., 'month', 'year') associated with a plan or payment event. This field
+    is typically null when not applicable.
+- name: jsonPayload_fields_invoiceid
+  description: The unique identifier of the invoice associated with a billing or subscription event. This field is typically null when no invoice is
+    linked to the event.
+- name: jsonPayload_fields_ip_address
+  description: The IP address of the client making the request. This field contains personally identifiable information and is suppressed in analysis
+    contexts.
+- name: jsonPayload_fields_ipaddress
+  description: The IP address of the client as recorded in the log payload, used for geolocation or fraud detection purposes.
+- name: jsonPayload_fields_ipnmessage
+  description: The raw Instant Payment Notification (IPN) message string received from a payment provider, used to record billing event details.
+- name: jsonPayload_fields_is_placeholder
+  description: Indicates whether the account or resource is a placeholder rather than a fully created entity. True means it is a placeholder; false
+    means it is a fully provisioned record.
+- name: jsonPayload_fields_isboom
+  description: Indicates whether the response is a Boom HTTP error object. True means the error was wrapped as a Boom error; false means it was not.
+- name: jsonPayload_fields_isprimary
+  description: A numeric flag indicating whether the associated email or resource is the primary one for the account. A non-zero value typically represents
+    the primary designation.
+- name: jsonPayload_fields_isserver
+  description: Indicates whether the error or event originated from the server side. True means the source was server-side; false means it was client-side.
+- name: jsonPayload_fields_isverified
+  description: A numeric flag indicating whether the account or email address has been verified. A non-zero value represents a verified state.
+- name: jsonPayload_fields_joierrors
+  description: A string containing Joi schema validation errors encountered during request payload validation. This field is typically null when validation
+    passes.
+- name: jsonPayload_fields_ka
+  description: A string value representing the key agreement or cryptographic parameter used during account key operations in the Firefox Accounts
+    protocol.
+- name: jsonPayload_fields_key
+  description: A string identifier for a specific configuration key, cache entry, or resource key referenced by the log event. This field is typically
+    null when no key is associated.
+- name: jsonPayload_fields_keys
+  description: Indicates whether cryptographic keys were requested or returned as part of the OAuth token grant. True means keys were included; false
+    means they were not.
