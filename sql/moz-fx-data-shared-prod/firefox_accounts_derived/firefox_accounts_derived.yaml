@@ -1230,3 +1230,140 @@ fields:
 - name: os_version
   description: The version string of the operating system on the device used during the event (e.g., '10' for Windows 10, '10.15' for macOS Catalina).
     This field may be null when the OS version cannot be determined from the available metadata.
+- name: receiveTimestamp
+  description: The timestamp at which the log entry was received by the Cloud Logging pipeline. This reflects ingestion time and may differ slightly
+    from the event's own timestamp.
+- name: region
+  description: The geographic region associated with the event or resource. Used to identify the broad geographic area where the activity originated
+    or the resource is located.
+- name: registered
+  description: Indicates whether the Firefox Accounts user was already registered at the time of the event. A value of true means the account existed
+    prior to the event; false means the user was not yet registered.
+- name: resource_labels_cluster_name
+  description: The name of the Kubernetes cluster on which the service pod was running when the log entry was produced. Used to identify the infrastructure
+    context of the log event.
+- name: resource_labels_container_name
+  description: The name of the container within the Kubernetes pod that generated the log entry. Identifies which application container (e.g., admin-backend)
+    produced the event.
+- name: resource_labels_instance_id
+  description: The unique identifier of the compute instance associated with the log resource. Used to pinpoint the specific VM or node that emitted
+    the log entry.
+- name: resource_labels_location
+  description: The GCP region or zone location label associated with the Kubernetes resource that produced the log entry (e.g., us-west1). Indicates
+    where the workload is physically running.
+- name: resource_labels_namespace_name
+  description: The Kubernetes namespace in which the service is deployed (e.g., fxa-prod). Used to scope resources and log entries within a cluster
+    to a specific environment or application group.
+- name: resource_labels_pod_name
+  description: The name of the specific Kubernetes pod that generated the log entry. Enables tracing of log events back to an individual running pod
+    instance within the cluster.
+- name: resource_labels_project_id
+  description: The GCP project ID associated with the Kubernetes resource that produced the log entry (e.g., moz-fx-webservices-high-prod). Identifies
+    the billing and organizational context of the resource.
+- name: resource_labels_zone
+  description: The GCP availability zone of the resource that produced the log entry. Provides finer-grained geographic placement within a region for
+    the underlying infrastructure.
+- name: resource_type
+  description: The type of GCP monitored resource that produced the log entry (e.g., k8s_container). Used to identify the class of infrastructure resource
+    associated with the log.
+- name: seen_in_tier1_country
+  description: Indicates whether the user has been observed accessing Firefox Accounts from a Tier 1 country. A value of true means at least one activity
+    has been recorded from a Tier 1 country; false means no such activity has been detected.
+- name: sender
+  description: A hashed identifier representing the device or account that initiated a command or action. Used to attribute events to a specific originating
+    party without exposing raw user identifiers.
+- name: sender_os
+  description: The operating system of the device that sent the command or initiated the event (e.g., Android, Windows, iOS). May be null when the
+    sender device information is unavailable.
+- name: sender_type
+  description: The form factor category of the device that sent the command or initiated the event (e.g., mobile, desktop, tablet, vr). May be null
+    when sender device information is not available.
+- name: service
+  description: The name of the Mozilla service or client application that generated the event (e.g., firefox-desktop, sync, fenix, firefox-ios). Used
+    to attribute activity to a specific product or integration.
+- name: severity
+  description: The severity level of the log entry as defined by Cloud Logging (e.g., INFO, WARNING, ERROR). Indicates the importance or urgency of
+    the logged event.
+- name: sourceLocation_file
+  description: The source code file name that produced the log entry, as reported by the application. This field is typically null when source location
+    information is not emitted by the service.
+- name: sourceLocation_function
+  description: The name of the function or method in the source code that produced the log entry. This field is typically null when source location
+    information is not emitted by the service.
+- name: sourceLocation_line
+  description: The line number within the source code file that produced the log entry. This field is typically null when source location information
+    is not emitted by the service.
+- name: spanId
+  description: The span identifier associated with a distributed trace for the log entry. Used to correlate log entries with a specific span in a trace;
+    typically null when distributed tracing is not in use.
+- name: split_index
+  description: The zero-based index of this record within a set of splits, used when a large log payload is broken into multiple parts. Null when the
+    entry has not been split.
+- name: split_totalSplits
+  description: The total number of split parts that together comprise a single original log payload. Null when the entry has not been split.
+- name: split_uid
+  description: A unique identifier shared across all split parts of a single original log payload, used to reassemble them. Null when the entry has
+    not been split.
+- name: submission_date
+  description: The date on which the event or record was submitted to the data pipeline, in UTC. Used as a partitioning and filtering key for date-based
+    queries.
+- name: submission_timestamp
+  description: The precise UTC timestamp at which the event or record was submitted to the data pipeline. Provides sub-second resolution for ordering
+    and deduplication within a submission date.
+- name: target
+  description: A hashed identifier representing the device or account that is the recipient of a command or action. Used to attribute events to a specific
+    destination party without exposing raw user identifiers.
+- name: target_os
+  description: The operating system of the device that received the command or was the target of the event (e.g., Windows, Android, iOS). May be null
+    when target device information is unavailable.
+- name: target_type
+  description: The form factor category of the device that received the command or was the target of the event (e.g., desktop, mobile, tablet, tv,
+    vr). May be null when target device information is not available.
+- name: textPayload
+  description: The raw text payload of the log entry, used when the log message is an unstructured string rather than a structured JSON object. Typically
+    null for structured log entries.
+- name: timestamp
+  description: The UTC timestamp of the event as recorded by the originating service or application. This reflects when the event actually occurred,
+    and may differ from the ingestion receiveTimestamp.
+- name: trace
+  description: The distributed trace identifier associated with the log entry, formatted as a Cloud Trace resource name. Typically null when distributed
+    tracing is not enabled for the service.
+- name: traceSampled
+  description: Indicates whether the log entry's associated trace was sampled for distributed tracing. A value of true means the trace was sampled;
+    null or false means it was not.
+- name: type
+  description: The event type identifier describing the specific action or occurrence being recorded (e.g., device.command.retrieved, device.command.invoked).
+    Used to categorize and filter events by their nature.
+- name: ua_browser
+  description: The name of the web browser derived from the user-agent string associated with the event (e.g., Firefox, Chrome, Safari). May be null
+    when no user-agent information is available.
+- name: ua_os
+  description: The operating system derived from the user-agent string associated with the event (e.g., Windows, macOS, Android). Used to understand
+    the platform context of the user's session.
+- name: ua_version
+  description: The version string of the browser derived from the user-agent associated with the event (e.g., 151.0). May be null when user-agent information
+    is not present or parseable.
+- name: uid
+  description: The Firefox Accounts unique identifier for the user associated with the event. This is a stable, opaque identifier used to track a user
+    across FxA services.
+- name: user_id
+  description: A hashed unique identifier for the Firefox Accounts user associated with the event. Used to link activity records to a specific user
+    without exposing raw account credentials.
+- name: useragent
+  description: The raw user-agent string submitted with the request, identifying the client application and environment. Used for parsing browser,
+    OS, and version information.
+- name: utm_campaign
+  description: The UTM campaign parameter from the marketing URL that referred the user to Firefox Accounts. Used to attribute account activity to
+    a specific marketing campaign; typically null when not set.
+- name: utm_content
+  description: The UTM content parameter from the marketing URL that referred the user to Firefox Accounts. Used to differentiate ads or links within
+    the same campaign; typically null when not set.
+- name: utm_medium
+  description: The UTM medium parameter from the marketing URL that referred the user to Firefox Accounts (e.g., email, cpc). Identifies the marketing
+    channel; typically null when not set.
+- name: utm_source
+  description: The UTM source parameter from the marketing URL that referred the user to Firefox Accounts (e.g., newsletter, google). Identifies the
+    traffic source; typically null when not set.
+- name: utm_term
+  description: The UTM term parameter from the marketing URL that referred the user to Firefox Accounts. Used to identify paid search keywords associated
+    with the referral; typically null when not set.
