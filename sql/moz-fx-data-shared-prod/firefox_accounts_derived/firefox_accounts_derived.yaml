@@ -146,3 +146,133 @@ fields:
 - name: httpRequest_cacheValidatedWithOriginServer
   description: Indicates whether the cached response was validated against the origin server for the HTTP request. True means the cache was revalidated;
     false means it was not. Null when revalidation information is not available.
+- name: httpRequest_protocol
+  description: The network protocol used for the HTTP request (e.g., HTTP/1.1, HTTP/2). This field is part of the structured HTTP request metadata
+    logged alongside application events.
+- name: httpRequest_referer
+  description: The HTTP Referer header value from the incoming request, indicating the URL of the page that originated the request. May be null if
+    no referrer was present.
+- name: httpRequest_remoteIp
+  description: The IP address of the client that made the HTTP request. Used to identify the origin of inbound traffic at the network level.
+- name: httpRequest_requestMethod
+  description: The HTTP method used for the request (e.g., GET, POST, PUT, DELETE). Indicates the type of operation the client intended to perform.
+- name: httpRequest_requestSize
+  description: The size of the HTTP request body in bytes. Represents the amount of data sent by the client in the request.
+- name: httpRequest_requestUrl
+  description: The full URL of the HTTP request, including path and query parameters. Identifies the specific resource or endpoint that was targeted.
+- name: httpRequest_responseSize
+  description: The size of the HTTP response body in bytes. Represents the amount of data returned by the server to the client.
+- name: httpRequest_serverIp
+  description: The IP address of the server that handled the HTTP request. Used to identify which backend instance or node processed the request.
+- name: httpRequest_status
+  description: The HTTP status code returned in the response (e.g., 200, 400, 500). Indicates whether the request succeeded or describes the nature
+    of any error.
+- name: httpRequest_userAgent
+  description: The User-Agent header string from the HTTP request, identifying the client software (e.g., browser type and version) that sent the request.
+- name: index
+  description: A hash-based index identifier used to correlate or deduplicate log entries. Serves as a high-cardinality key that may be null when no
+    index context is available.
+- name: insertId
+  description: A unique identifier assigned to each log entry at ingestion time, used to deduplicate log records within the logging pipeline.
+- name: jsonPayload_bytes_sent
+  description: The number of bytes sent in the response payload. Used to measure data transfer volume for individual requests or events.
+- name: jsonPayload_code
+  description: An application-level code string associated with the logged event, typically representing an error code or status classification. May
+    be null when no code applies.
+- name: jsonPayload_context
+  description: A contextual label or identifier describing the operational context in which the event occurred, such as the service module or flow
+    name.
+- name: jsonPayload_country
+  description: The country associated with the event, typically derived from the client's IP address or user profile. Used for geographic segmentation
+    of account activity.
+- name: jsonPayload_entrypoint
+  description: The entrypoint identifier indicating where a user originated within the Firefox Accounts funnel or product flow, used for attribution
+    and flow analysis.
+- name: jsonPayload_envversion
+  description: The version of the logging envelope or environment schema used to structure the JSON payload (e.g., '2.0'). Helps consumers parse and
+    validate the payload format.
+- name: jsonPayload_errno
+  description: A numeric error code from the application layer indicating the specific type of error encountered. Null when no error occurred.
+- name: jsonPayload_error_jse_cause_code
+  description: The error code from the underlying cause of a JavaScript error, providing detail about the root cause of a chained exception. Null when
+    no causal error is present.
+- name: jsonPayload_error_jse_cause_input
+  description: The input value that triggered the underlying cause of a JavaScript error. Provides additional context for diagnosing the root cause
+    of a chained exception.
+- name: jsonPayload_error_jse_cause_kind
+  description: The kind or category of the underlying causal error in a chained JavaScript exception (e.g., a validation type or error class grouping).
+    Null when no causal error is present.
+- name: jsonPayload_error_jse_cause_message
+  description: The human-readable message from the underlying cause of a chained JavaScript error. Provides a description of the root-cause error.
+- name: jsonPayload_error_jse_cause_name
+  description: The name or type identifier of the underlying cause in a chained JavaScript error (e.g., 'Error', 'TypeError'). Null when no causal
+    error is present.
+- name: jsonPayload_error_jse_cause_type
+  description: The type classification of the underlying causal error in a chained JavaScript exception, used to categorize errors programmatically.
+    Null when no causal error is present.
+- name: jsonPayload_error_jse_shortmsg
+  description: A short, human-readable summary message for a JavaScript error, providing a concise description of the error condition. Null when no
+    error is present.
+- name: jsonPayload_error_message
+  description: The full message string of a logged application error. Provides a human-readable explanation of the error that occurred.
+- name: jsonPayload_error_name
+  description: The name or type of the logged application error (e.g., 'Error', 'AuthenticationError'). Used to classify errors by kind.
+- name: jsonPayload_event
+  description: The name or type of the application event being logged (e.g., 'login', 'account.created'). Identifies what action or occurrence the
+    log record represents.
+- name: jsonPayload_fields__
+  description: A catch-all or overflow field within the structured log payload used to capture additional unclassified fields. Null when no extra fields
+    are present.
+- name: jsonPayload_fields__intboolfields
+  description: A serialized representation of fields that contain integer or boolean values within the structured log payload, used to preserve type
+    information for mixed-type field sets.
+- name: jsonPayload_fields__original
+  description: The original, unmodified version of the structured log fields before any transformation or normalization was applied by the logging
+    pipeline.
+- name: jsonPayload_fields__res
+  description: A serialized representation of response-related fields within the structured log payload. Null when no response field data is available.
+- name: jsonPayload_fields__uuidfields
+  description: A serialized representation of fields that contain UUID values within the structured log payload, used to preserve and identify UUID-typed
+    fields across log entries.
+- name: jsonPayload_fields_accountrecreated
+  description: A boolean flag indicating whether the Firefox Account was recreated during the logged event. True means the account was recreated; false
+    means it was not.
+- name: jsonPayload_fields_action
+  description: The specific action performed during the logged event (e.g., 'create', 'delete', 'update'). Null when no action context is captured.
+- name: jsonPayload_fields_agent
+  description: The user agent string or identifier of the client involved in the logged event. Null when agent information is not available.
+- name: jsonPayload_fields_amplitudeevent
+  description: The name of the corresponding Amplitude analytics event associated with the log entry. Used to correlate server-side logs with client-side
+    analytics tracking.
+- name: jsonPayload_fields_amrvalues
+  description: The Authentication Method Reference (AMR) values indicating the authentication methods used during a session (e.g., 'pwd', 'otp'). Null
+    when not applicable.
+- name: jsonPayload_fields_api
+  description: A numeric identifier or version for the API endpoint involved in the logged event. Null when no API context is available.
+- name: jsonPayload_fields_app_version
+  description: The version string of the application or client that generated the logged event. Null when version information is not provided.
+- name: jsonPayload_fields_assertion
+  description: A cryptographic or identity assertion token associated with the event, typically used during authentication or authorization flows.
+    Null when not applicable.
+- name: jsonPayload_fields_assertion_verification_time
+  description: The time in milliseconds taken to verify an identity assertion during an authentication flow. Null when assertion verification did not
+    occur.
+- name: jsonPayload_fields_atleast18atreg
+  description: A string field indicating whether the user confirmed they were at least 18 years old at the time of registration. Null when age confirmation
+    was not collected.
+- name: jsonPayload_fields_auth
+  description: An authentication identifier or token associated with the event, used to link activity to a specific auth session or credential. Null
+    when no auth context is present.
+- name: jsonPayload_fields_authsalt
+  description: The cryptographic salt value used in the authentication process for deriving or verifying credentials. Null when not applicable.
+- name: jsonPayload_fields_auto_completed
+  description: A boolean flag indicating whether the associated flow or form was completed automatically (e.g., via a saved credential or prefill).
+    Null when auto-completion status was not recorded.
+- name: jsonPayload_fields_automatic_tax
+  description: A string indicating the automatic tax calculation status or configuration applied to a billing event (e.g., 'enabled', 'disabled').
+    Used in subscription and payment-related log entries.
+- name: jsonPayload_fields_avatar
+  description: The URL or identifier of the user's avatar image associated with the Firefox Account. Null when no avatar has been set.
+- name: jsonPayload_fields_avatardefault
+  description: A boolean flag indicating whether the user is using the default avatar for their Firefox Account. True means the default avatar is in
+    use; false means a custom avatar has been set.
