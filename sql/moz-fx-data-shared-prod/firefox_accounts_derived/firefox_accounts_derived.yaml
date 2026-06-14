@@ -1080,3 +1080,153 @@ fields:
 - name: labels_application
   description: The name of the application or service component associated with the log entry, as set in the resource or log labels. Used to identify
     which FxA application produced the event.
+- name: labels_compute_googleapis_com_resource_name
+  description: The name of the Google Compute Engine resource (e.g., a GKE node) associated with the log entry, as assigned by the Compute API. This
+    identifies the specific virtual machine instance within the FxA production cluster that emitted the record.
+- name: labels_defau
+  description: A resource label field representing a default or miscellaneous label attribute attached to the log entry's resource. The value provides
+    supplementary metadata about the originating resource.
+- name: labels_env
+  description: A resource label indicating the deployment environment associated with the log entry's resource (e.g., production, staging). This helps
+    distinguish records originating from different operational environments.
+- name: labels_fxa_______4
+  description: An FxA-specific resource label field carrying supplementary metadata about the originating resource. The exact label key suffix is encoded
+    and may represent a particular FxA service attribute.
+- name: labels_fxa________
+  description: An FxA-specific resource label field carrying supplementary metadata about the originating resource. The exact label key suffix is encoded
+    and may represent a particular FxA service attribute.
+- name: labels_fxa_______d
+  description: An FxA-specific resource label field carrying supplementary metadata about the originating resource. The exact label key suffix is encoded
+    and may represent a particular FxA service attribute.
+- name: labels_fxa_______e
+  description: An FxA-specific resource label field carrying supplementary metadata about the originating resource. The exact label key suffix is encoded
+    and may represent a particular FxA service attribute.
+- name: labels_fxa_______g
+  description: An FxA-specific resource label field carrying supplementary metadata about the originating resource. The exact label key suffix is encoded
+    and may represent a particular FxA service attribute.
+- name: labels_fxa_______j
+  description: An FxA-specific resource label field carrying supplementary metadata about the originating resource. The exact label key suffix is encoded
+    and may represent a particular FxA service attribute.
+- name: labels_fxa_______k
+  description: An FxA-specific resource label field carrying supplementary metadata about the originating resource. The exact label key suffix is encoded
+    and may represent a particular FxA service attribute.
+- name: labels_fxa_______m
+  description: An FxA-specific resource label field carrying supplementary metadata about the originating resource. The exact label key suffix is encoded
+    and may represent a particular FxA service attribute.
+- name: labels_fxa______g_
+  description: An FxA-specific resource label field carrying supplementary metadata about the originating resource. The exact label key suffix is encoded
+    and may represent a particular FxA service attribute.
+- name: labels_fxa______i_
+  description: An FxA-specific resource label field carrying supplementary metadata about the originating resource. The exact label key suffix is encoded
+    and may represent a particular FxA service attribute.
+- name: labels_fxa______n_
+  description: An FxA-specific resource label field carrying supplementary metadata about the originating resource. The exact label key suffix is encoded
+    and may represent a particular FxA service attribute.
+- name: labels_fxa______u_
+  description: An FxA-specific resource label field carrying supplementary metadata about the originating resource. The exact label key suffix is encoded
+    and may represent a particular FxA service attribute.
+- name: labels_fxa______w_
+  description: An FxA-specific resource label field carrying supplementary metadata about the originating resource. The exact label key suffix is encoded
+    and may represent a particular FxA service attribute.
+- name: labels_k8s_pod_app_kubernetes_io_component
+  description: The Kubernetes recommended label identifying the component within the application that the pod belongs to (e.g., 'fxa-web'). This follows
+    the app.kubernetes.io/component label convention for categorizing workloads within a larger application.
+- name: labels_k8s_pod_app_kubernetes_io_instance
+  description: The Kubernetes recommended label identifying a unique instance of the application, used to distinguish between multiple deployments
+    of the same application. This follows the app.kubernetes.io/instance label convention and may be null when not applicable.
+- name: labels_k8s_pod_app_kubernetes_io_managed_by
+  description: The Kubernetes recommended label indicating the tool or controller responsible for managing the pod's lifecycle (e.g., Helm, a custom
+    operator). This follows the app.kubernetes.io/managed-by label convention.
+- name: labels_k8s_pod_app_kubernetes_io_name
+  description: The Kubernetes recommended label identifying the name of the application the pod belongs to (e.g., 'fxa'). This follows the app.kubernetes.io/name
+    label convention and provides a high-level grouping for related workloads.
+- name: labels_k8s_pod_app_kubernetes_io_part_of
+  description: The Kubernetes recommended label indicating the higher-level application or suite that the pod is part of. This follows the app.kubernetes.io/part-of
+    label convention for expressing application hierarchy.
+- name: labels_k8s_pod_app_kubernetes_io_version
+  description: The Kubernetes recommended label indicating the current version of the application running in the pod. This follows the app.kubernetes.io/version
+    label convention and corresponds to the deployed release version.
+- name: labels_k8s_pod_batch_kubernetes_io_controller_uid
+  description: The unique identifier of the Kubernetes batch controller (e.g., a Job) that owns the pod, used to associate pods with their controlling
+    batch workload. This field is null when the pod is not managed by a batch controller.
+- name: labels_k8s_pod_batch_kubernetes_io_job_name
+  description: The name of the Kubernetes Job that owns the pod, present only when the pod was created as part of a batch Job workload. This field
+    is null for pods managed by non-batch controllers such as Deployments or DaemonSets.
+- name: labels_k8s_pod_controller_revision_hash
+  description: The hash of the controller revision for the pod, used by Kubernetes to track rolling updates for StatefulSet and DaemonSet workloads.
+    This label helps correlate pods with a specific revision of their controlling resource.
+- name: labels_k8s_pod_controller_uid
+  description: The unique identifier of the Kubernetes controller (e.g., ReplicaSet, StatefulSet) that owns the pod. This field is null when the pod
+    is not associated with a tracked controller.
+- name: labels_k8s_pod_deployment
+  description: The name of the Kubernetes Deployment that manages the pod (e.g., 'admin-backend'). This label links the pod back to its owning Deployment
+    resource for identification and routing purposes.
+- name: labels_k8s_pod_env_code
+  description: A short code identifying the deployment environment in which the pod is running (e.g., 'prod' for production). This label is used to
+    differentiate workloads across environments within the Kubernetes cluster.
+- name: labels_k8s_pod_fullname
+  description: The full descriptive name assigned to the Kubernetes pod, typically combining service name and environment context. This label provides
+    a human-readable identifier for the pod beyond its generated name.
+- name: labels_k8s_pod_jenkins_build_id
+  description: The Jenkins build identifier associated with the CI/CD pipeline run that deployed the pod. This label enables traceability between a
+    running pod and the specific build that produced its container image.
+- name: labels_k8s_pod_job_name
+  description: The name of the Kubernetes Job associated with the pod, present only when the pod is part of a Job workload. This field is null for
+    pods managed by long-running controllers such as Deployments.
+- name: labels_k8s_pod_k8s_app
+  description: A legacy Kubernetes label used to identify the application name associated with the pod. This label predates the standardized app.kubernetes.io
+    label set and may be used for selector and grouping purposes.
+- name: labels_k8s_pod_pod_template_generation
+  description: A Kubernetes label tracking the generation number of the pod template, incremented whenever the pod spec is updated. This is typically
+    used by DaemonSet controllers to manage rolling updates.
+- name: labels_k8s_pod_pod_template_hash
+  description: A hash of the pod template spec appended by Kubernetes ReplicaSets to uniquely identify pods belonging to a specific template version.
+    This label is used internally for routing and rollout management.
+- name: labels_k8s_pod_redis
+  description: A Kubernetes pod label used to associate or identify pods related to a Redis instance or role within the cluster. This field is null
+    when the pod has no Redis-related label applied.
+- name: labels_k8s_pod_run
+  description: A Kubernetes pod label typically set when a pod is created via 'kubectl run', carrying the name provided at creation time. This field
+    is null for pods managed by higher-level controllers.
+- name: labels_logging_gke_io_top_level_controller_name
+  description: The name of the top-level Kubernetes controller (e.g., a Deployment) responsible for the pod, as determined by GKE's logging infrastructure
+    (e.g., 'gha-fxa-admin-backend'). This label is injected by GKE to enable log aggregation at the controller level.
+- name: labels_logging_gke_io_top_level_controller_type
+  description: The type of the top-level Kubernetes controller (e.g., 'Deployment') responsible for the pod, as determined by GKE's logging infrastructure.
+    This label is injected by GKE to classify the workload kind for log routing and aggregation.
+- name: labels_pro
+  description: A resource label field representing a project-level or profile-related attribute attached to the log entry's originating resource. The
+    value provides supplementary metadata for resource classification.
+- name: labels_stack
+  description: A resource label indicating the technology stack or service stack associated with the log entry's originating resource. This helps categorize
+    resources by their infrastructure or application stack.
+- name: labels_type
+  description: A resource label indicating the type or category of the log entry's originating resource. This provides a classification tag used for
+    filtering and grouping resources within the infrastructure.
+- name: language
+  description: The language or locale code representing the user's preferred language at the time of the event (e.g., 'en-US', 'de', 'fr'). This is
+    derived from the user's browser or account settings and follows BCP 47 language tag formatting.
+- name: locale
+  description: The locale setting associated with the user or request, representing a combination of language and regional preferences. This field
+    may overlap with the language field and is used to capture localization context for the event.
+- name: logName
+  description: The fully qualified name of the Google Cloud Logging log stream that the entry was written to (e.g., 'projects/moz-fx-webservices-high-prod/logs/stdout').
+    This identifies the source log stream within the GCP project.
+- name: operation_first
+  description: A boolean flag indicating whether this log entry is the first entry in a multi-part operation sequence. A value of true marks the start
+    of the operation; this field is null when the log entry is not part of a tracked operation.
+- name: operation_id
+  description: A unique identifier for a multi-part operation, used to correlate all log entries that belong to the same logical operation. This field
+    is null when the log entry is not associated with a tracked operation.
+- name: operation_last
+  description: A boolean flag indicating whether this log entry is the final entry in a multi-part operation sequence. A value of true marks the completion
+    of the operation; this field is null when the log entry is not part of a tracked operation.
+- name: operation_producer
+  description: An identifier for the service or component that produced a multi-part operation, used alongside operation_id to scope operation tracking
+    to a specific producer. This field is null when the log entry is not part of a tracked operation.
+- name: os_name
+  description: The name of the operating system on the device used during the event (e.g., 'Windows', 'Android', 'Mac OS X', 'iOS', 'Linux'). This
+    is derived from the user-agent or device metadata associated with the request.
+- name: os_version
+  description: The version string of the operating system on the device used during the event (e.g., '10' for Windows 10, '10.15' for macOS Catalina).
+    This field may be null when the OS version cannot be determined from the available metadata.
