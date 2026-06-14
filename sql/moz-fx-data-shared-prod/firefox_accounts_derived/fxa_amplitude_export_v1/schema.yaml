@@ -2,30 +2,44 @@ fields:
 - mode: NULLABLE
   name: submission_date_pacific
   type: DATE
+  description: The submission date in Pacific time (PDT/PST) for this record. Because FxA logs are UTC-based, the ETL aligns records to this Pacific-time
+    date using a two-day UTC window.
 - mode: NULLABLE
   name: user_id
   type: STRING
 - mode: NULLABLE
   name: insert_id
   type: STRING
+  description: A unique identifier for the Amplitude event record, derived from the BigQuery insertId of the source log row with a '-user' suffix. Used
+    by Amplitude for deduplication.
 - mode: NULLABLE
   name: region
   type: STRING
+  description: The geographic region (sub-national, e.g. state or province) of the user, derived from the most recent FxA auth log event. Corresponds
+    to an Amplitude user property.
 - mode: NULLABLE
   name: country
   type: STRING
 - mode: NULLABLE
   name: language
   type: STRING
+  description: The language setting reported by the user's browser or FxA client at the time of the auth event, derived as the most recent value across
+    events in the day.
 - mode: REPEATED
   name: services
   type: STRING
+  description: Array of distinct FxA service identifiers (e.g. 'sync', 'relay') observed in event properties across all auth events for this user on
+    this date.
 - mode: REPEATED
   name: oauth_client_ids
   type: STRING
+  description: Array of distinct OAuth client IDs seen in event properties for this user on this date, representing the OAuth-relying-party applications
+    the user authenticated with.
 - mode: REPEATED
   name: fxa_services_used
   type: STRING
+  description: Array of distinct FxA services appended to the user's Amplitude user properties via the '$append' operation, reflecting the cumulative
+    set of services this user has engaged with.
 - fields:
   - mode: NULLABLE
     name: key
@@ -36,18 +50,24 @@ fields:
   mode: REPEATED
   name: os_used_month
   type: RECORD
+  description: A repeated key-value structure tracking the operating systems (by OS name) used by the account over a rolling 28-day window. The key is
+    the OS name and the value is a bit-packed integer encoding the days on which that OS was seen.
 - mode: NULLABLE
   name: sync_device_count
   type: INTEGER
+  description: The maximum number of devices the user had connected to Firefox Sync on this date, as reported in the FxA user properties.
 - mode: NULLABLE
   name: sync_active_devices_day
   type: INTEGER
+  description: The maximum number of Sync-connected devices that were active on the current day, as reported in the FxA user properties.
 - mode: NULLABLE
   name: sync_active_devices_week
   type: INTEGER
+  description: The maximum number of Sync-connected devices that were active in the past week, as reported in the FxA user properties.
 - mode: NULLABLE
   name: sync_active_devices_month
   type: INTEGER
+  description: The maximum number of Sync-connected devices that were active in the past month, as reported in the FxA user properties.
 - mode: NULLABLE
   name: ua_version
   type: STRING
@@ -57,12 +77,17 @@ fields:
 - mode: NULLABLE
   name: app_version
   type: FLOAT
+  description: The maximum Firefox application version number seen across all auth events for this user on this date, stored as a float.
 - mode: NULLABLE
   name: days_seen_bits
   type: INTEGER
+  description: A 28-bit integer encoding the days within a rolling 28-day window on which the user was seen, with each bit representing one day. Combined
+    with the previous day's value via the combine_adjacent_days_28_bits UDF to maintain a rolling history.
 - mode: REPEATED
   name: rollup_events
   type: STRING
+  description: Array of distinct FxA event types (e.g. 'fxa_activity - cert_signed', 'fxa_activity - access_token_created') observed for this user on
+    this date, used to summarize which authentication activity types occurred.
 - mode: NULLABLE
   name: timestamp
   type: DATETIME
