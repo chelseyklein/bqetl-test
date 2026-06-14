@@ -2,6 +2,9 @@ fields:
   - mode: NULLABLE
     name: date
     type: DATE
+    description: !include-field-description
+      file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+      field: date
   - mode: NULLABLE
     name: category
     type: STRING
