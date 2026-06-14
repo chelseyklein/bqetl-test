@@ -2,3 +2,6 @@ fields:
 - mode: NULLABLE
   name: user_id
   type: STRING
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+    field: user_id
