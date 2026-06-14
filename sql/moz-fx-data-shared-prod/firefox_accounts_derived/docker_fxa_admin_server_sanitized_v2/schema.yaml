@@ -901,6 +901,7 @@ fields:
   type: RECORD
   mode: NULLABLE
   fields:
+  description: Google Cloud App Hub metadata for the service that generated the log, grouping application, service, and workload identifiers.
   - name: application
     type: RECORD
     mode: NULLABLE
@@ -944,6 +945,7 @@ fields:
   type: RECORD
   mode: NULLABLE
   fields:
+  description: Google Cloud App Hub metadata describing the destination service or workload that received traffic from the log source.
   - name: application
     type: RECORD
     mode: NULLABLE
@@ -987,6 +989,7 @@ fields:
   type: RECORD
   mode: NULLABLE
   fields:
+  description: Google Cloud App Hub metadata describing the source service or workload that originated traffic captured in this log entry.
   - name: application
     type: RECORD
     mode: NULLABLE
