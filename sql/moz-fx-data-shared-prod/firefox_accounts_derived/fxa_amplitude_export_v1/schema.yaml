@@ -7,6 +7,9 @@ fields:
 - mode: NULLABLE
   name: user_id
   type: STRING
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+    field: jsonPayload_fields_user_id
 - mode: NULLABLE
   name: insert_id
   type: STRING
@@ -15,16 +18,21 @@ fields:
 - mode: NULLABLE
   name: region
   type: STRING
-  description: The geographic region (sub-national, e.g. state or province) of the user, derived from the most recent FxA auth log event. Corresponds
-    to an Amplitude user property.
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+    field: jsonPayload_fields_region
 - mode: NULLABLE
   name: country
   type: STRING
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+    field: jsonPayload_fields_country
 - mode: NULLABLE
   name: language
   type: STRING
-  description: The language setting reported by the user's browser or FxA client at the time of the auth event, derived as the most recent value across
-    events in the day.
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+    field: jsonPayload_fields_language
 - mode: REPEATED
   name: services
   type: STRING
@@ -77,7 +85,9 @@ fields:
 - mode: NULLABLE
   name: app_version
   type: FLOAT
-  description: The maximum Firefox application version number seen across all auth events for this user on this date, stored as a float.
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+    field: jsonPayload_fields_app_version
 - mode: NULLABLE
   name: days_seen_bits
   type: INTEGER
