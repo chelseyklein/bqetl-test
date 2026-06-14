@@ -2,8 +2,10 @@ fields:
 - name: key_id
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: A string identifier that names the encryption key stored in this row, such as the HMAC key used in Firefox Accounts operations. Used to
+    look up or reference a specific key by name.
 - name: ciphertext
   type: BYTES
   mode: NULLABLE
-  description: ''
+  description: The encrypted binary payload associated with the key identified by `key_id`. Stored as raw bytes representing the ciphertext output of
+    the encryption operation applied to the key material.
