@@ -2,6 +2,7 @@ fields:
 - name: date
   type: DATE
   mode: NULLABLE
+  description: The date of the log entry, derived from the submission_date query parameter. Used as the primary partition date for this table.
 - name: logName
   type: STRING
   mode: NULLABLE
@@ -582,6 +583,7 @@ fields:
   - name: timestamp
     type: FLOAT
     mode: NULLABLE
+  description: The timestamp of the original log entry as recorded by the FxA customs service.
   - name: pid
     type: FLOAT
     mode: NULLABLE
@@ -1019,6 +1021,7 @@ fields:
 - name: timestamp
   type: TIMESTAMP
   mode: NULLABLE
+  description: The timestamp of the original log entry as recorded by the FxA customs service.
 - name: receiveTimestamp
   type: TIMESTAMP
   mode: NULLABLE
