@@ -1,0 +1,148 @@
+fields:
+- name: app_version
+  description: The version string of the Firefox Accounts application that generated the record. Used to track which application release a given
+    event or metric is associated with.
+- name: apphubDestination_application_container
+  description: The container identifier of the destination application as registered in Google Cloud App Hub. This field is typically null when
+    App Hub metadata is not available for the destination resource.
+- name: apphubDestination_application_id
+  description: The unique application identifier of the destination service as registered in Google Cloud App Hub. This field is typically null
+    when App Hub metadata is not available for the destination resource.
+- name: apphubDestination_application_location
+  description: The geographic location of the destination application as registered in Google Cloud App Hub. This field is typically null when
+    App Hub metadata is not available for the destination resource.
+- name: apphubDestination_service_criticalityType
+  description: The criticality classification of the destination service as defined in Google Cloud App Hub (e.g., mission-critical, high, medium,
+    low). This field is typically null when App Hub metadata is not available.
+- name: apphubDestination_service_environmentType
+  description: The environment classification of the destination service as defined in Google Cloud App Hub (e.g., production, staging, development).
+    This field is typically null when App Hub metadata is not available.
+- name: apphubDestination_service_id
+  description: The unique service identifier of the destination resource as registered in Google Cloud App Hub. This field is typically null when
+    App Hub metadata is not available for the destination resource.
+- name: apphubDestination_workload_criticalityType
+  description: The criticality classification of the destination workload as defined in Google Cloud App Hub (e.g., mission-critical, high, medium,
+    low). This field is typically null when App Hub metadata is not available.
+- name: apphubDestination_workload_environmentType
+  description: The environment classification of the destination workload as defined in Google Cloud App Hub (e.g., production, staging, development).
+    This field is typically null when App Hub metadata is not available.
+- name: apphubDestination_workload_id
+  description: The unique workload identifier of the destination resource as registered in Google Cloud App Hub. This field is typically null
+    when App Hub metadata is not available for the destination resource.
+- name: apphubSource_application_container
+  description: The container identifier of the source application as registered in Google Cloud App Hub. This field is typically null when App
+    Hub metadata is not available for the source resource.
+- name: apphubSource_application_id
+  description: The unique application identifier of the source service as registered in Google Cloud App Hub. This field is typically null when
+    App Hub metadata is not available for the source resource.
+- name: apphubSource_application_location
+  description: The geographic location of the source application as registered in Google Cloud App Hub. This field is typically null when App
+    Hub metadata is not available for the source resource.
+- name: apphubSource_service_criticalityType
+  description: The criticality classification of the source service as defined in Google Cloud App Hub (e.g., mission-critical, high, medium,
+    low). This field is typically null when App Hub metadata is not available.
+- name: apphubSource_service_environmentType
+  description: The environment classification of the source service as defined in Google Cloud App Hub (e.g., production, staging, development).
+    This field is typically null when App Hub metadata is not available.
+- name: apphubSource_service_id
+  description: The unique service identifier of the source resource as registered in Google Cloud App Hub. This field is typically null when App
+    Hub metadata is not available for the source resource.
+- name: apphubSource_workload_criticalityType
+  description: The criticality classification of the source workload as defined in Google Cloud App Hub (e.g., mission-critical, high, medium,
+    low). This field is typically null when App Hub metadata is not available.
+- name: apphubSource_workload_environmentType
+  description: The environment classification of the source workload as defined in Google Cloud App Hub (e.g., production, staging, development).
+    This field is typically null when App Hub metadata is not available.
+- name: apphubSource_workload_id
+  description: The unique workload identifier of the source resource as registered in Google Cloud App Hub. This field is typically null when
+    App Hub metadata is not available for the source resource.
+- name: apphub_application_container
+  description: The container identifier of the application as registered in Google Cloud App Hub. This field is typically null when App Hub metadata
+    is not available for the resource.
+- name: apphub_application_id
+  description: The unique application identifier as registered in Google Cloud App Hub. This field is typically null when App Hub metadata is
+    not available for the resource.
+- name: apphub_application_location
+  description: The geographic location of the application as registered in Google Cloud App Hub. This field is typically null when App Hub metadata
+    is not available for the resource.
+- name: apphub_service_criticalityType
+  description: The criticality classification of the service as defined in Google Cloud App Hub (e.g., mission-critical, high, medium, low). This
+    field is typically null when App Hub metadata is not available.
+- name: apphub_service_environmentType
+  description: The environment classification of the service as defined in Google Cloud App Hub (e.g., production, staging, development). This
+    field is typically null when App Hub metadata is not available.
+- name: apphub_service_id
+  description: The unique service identifier as registered in Google Cloud App Hub. This field is typically null when App Hub metadata is not
+    available for the resource.
+- name: apphub_workload_criticalityType
+  description: The criticality classification of the workload as defined in Google Cloud App Hub (e.g., mission-critical, high, medium, low).
+    This field is typically null when App Hub metadata is not available.
+- name: apphub_workload_environmentType
+  description: The environment classification of the workload as defined in Google Cloud App Hub (e.g., production, staging, development). This
+    field is typically null when App Hub metadata is not available.
+- name: apphub_workload_id
+  description: The unique workload identifier as registered in Google Cloud App Hub. This field is typically null when App Hub metadata is not
+    available for the resource.
+- name: command
+  description: The FxA Send Tab command URI indicating the type of action requested between devices, such as opening or closing a URI. Null when
+    no command is associated with the record.
+- name: country
+  description: The full country name associated with the user or event, derived from geolocation data. Null when the country cannot be determined.
+- name: date
+  description: The calendar date on which the event or record was generated. Used for partitioning and time-based aggregations.
+- name: day
+  description: The calendar date representing the day dimension of the record. Used for partitioning and daily-level aggregations.
+- name: days_registered_bits
+  description: A bitmask representing the days on which a user was registered relative to the current date, where each bit corresponds to one
+    day in a rolling 28-day window. A value of 0 indicates no registration activity was detected in the window.
+- name: days_seen_bits
+  description: A bitmask representing the days on which a user was observed active relative to the current date, where each bit corresponds to
+    one day in a rolling 28-day window. Higher values indicate more recent or more frequent activity.
+- name: days_seen_in_tier1_country_bits
+  description: A bitmask representing the days on which a user was observed active from a Tier 1 country (e.g., US, CA, DE, FR, GB) in a rolling
+    28-day window. A value of 0 indicates no activity from a Tier 1 country was detected in the window.
+- name: device_id
+  description: A hashed identifier representing a specific device associated with a Firefox Account. Used to distinguish individual devices for
+    a given user across events.
+- name: entrypoint
+  description: The UI entrypoint through which the user initiated the Firefox Accounts flow (e.g., a specific page or button). Null when no entrypoint
+    metadata is available.
+- name: errorGroups
+  description: An array of error group structures associated with the record, each containing an identifier for a class of errors encountered.
+    Used to link records to known error categories.
+- name: errorGroups_id
+  description: The identifier of an error group that classifies a specific type of error encountered. Used to correlate records with known error
+    categories.
+- name: event
+  description: The name of the Firefox Accounts event that was recorded. Identifies the specific action or milestone that occurred during a user
+    interaction.
+- name: event_type
+  description: A compound label describing both the FxA flow category and the event milestone, formatted as '<flow> - <action>' (e.g., 'fxa_login
+    - complete', 'fxa_reg - complete'). Used to distinguish login completions from registration completions and other event types.
+- name: first_seen_date
+  description: The timestamp at which the user or device was first observed in the Firefox Accounts system. Used to determine account or device
+    age.
+- name: flow_id
+  description: A hashed identifier that groups all events belonging to a single Firefox Accounts authentication or registration flow. Used to
+    reconstruct and analyze end-to-end user journeys.
+- name: flow_time
+  description: The elapsed time in milliseconds from the start of the Firefox Accounts flow to the point at which the current event occurred.
+    Used to measure step durations within a flow.
+- name: fxa_server
+  description: The Firefox Accounts server component that handled or generated the event (e.g., 'content'). Used to identify which part of the
+    FxA infrastructure the record originated from.
+- name: hmac_user_id
+  description: An HMAC-hashed representation of the Firefox Account user identifier, used to pseudonymously identify a user across records without
+    exposing the raw user ID.
+- name: httpRequest_cacheFillBytes
+  description: The number of bytes used to fill the cache for the associated HTTP request. Null when cache fill information is not available for
+    the request.
+- name: httpRequest_cacheHit
+  description: Indicates whether the HTTP request was served from cache. True means the response was a cache hit; false means it was not. Null
+    when cache hit information is not available.
+- name: httpRequest_cacheLookup
+  description: Indicates whether a cache lookup was performed for the HTTP request. True means a cache lookup was attempted; false means it was
+    not. Null when cache lookup information is not available.
+- name: httpRequest_cacheValidatedWithOriginServer
+  description: Indicates whether the cached response was validated against the origin server for the HTTP request. True means the cache was revalidated;
+    false means it was not. Null when revalidation information is not available.
