@@ -515,3 +515,143 @@ fields:
 - name: jsonPayload_fields_keys
   description: Indicates whether cryptographic keys were requested or returned as part of the OAuth token grant. True means keys were included; false
     means they were not.
+- name: jsonPayload_fields_keyschangedat
+  description: Timestamp (as a numeric value) indicating when the account's cryptographic keys were last changed. Useful for tracking key rotation
+    events.
+- name: jsonPayload_fields_lang
+  description: The language tag associated with the request or account, typically in BCP 47 format (e.g., 'en', 'fr'). Represents the preferred language
+    setting at the time of the event.
+- name: jsonPayload_fields_language
+  description: The language preference reported for the account or session, in BCP 47 format (e.g., 'en-US', 'de'). May be 'unknown' when the language
+    could not be determined.
+- name: jsonPayload_fields_line
+  description: The source code line number associated with a log entry or error event. Typically used for debugging and is often null in production
+    log records.
+- name: jsonPayload_fields_locale
+  description: The locale setting associated with the account or request, representing a combination of language and regional preferences. Often null
+    when locale information is not available.
+- name: jsonPayload_fields_location
+  description: A string representing the geographic or network location associated with the event. May encode city, country, or other location-related
+    metadata.
+- name: jsonPayload_fields_locator
+  description: An identifier or reference used to locate a specific resource or entity within the system. Typically null when not applicable to the
+    event type.
+- name: jsonPayload_fields_lockedat
+  description: Timestamp indicating when the account was locked, represented as a string. A non-null value signals that the account is or was in a
+    locked state.
+- name: jsonPayload_fields_message
+  description: A human-readable message associated with a log or error event. Typically null in structured log records where the message is captured
+    elsewhere.
+- name: jsonPayload_fields_messageid
+  description: A unique identifier for a specific message or notification sent as part of an account event. Null when no message was generated for
+    the event.
+- name: jsonPayload_fields_method
+  description: The HTTP method (e.g., GET, POST) used in the request that triggered the event. Null when the event is not associated with an HTTP request.
+- name: jsonPayload_fields_metricsenabled
+  description: A boolean flag indicating whether metrics collection is enabled for the account or session. True means metrics are being collected;
+    false means they are disabled.
+- name: jsonPayload_fields_metricsoptoutat
+  description: Timestamp string recording when the account holder opted out of metrics collection. A non-null value indicates that the user has opted
+    out.
+- name: jsonPayload_fields_missingflowid
+  description: A boolean flag indicating whether the flow ID was absent from the event. True means the flow ID was missing; false means it was present.
+- name: jsonPayload_fields_msg
+  description: A short informational message logged by the service, typically describing an initialization step or configuration state. Distinct from
+    the free-form 'message' field.
+- name: jsonPayload_fields_mysql
+  description: A numeric value related to MySQL database activity, such as query count or connection metrics. Used for monitoring database interactions
+    within the service.
+- name: jsonPayload_fields_name
+  description: A generic name field associated with the log event, such as an error name or entity label. Typically null when not applicable to the
+    event type.
+- name: jsonPayload_fields_newsletters
+  description: A string representing the newsletter subscription preferences or identifiers associated with the account. Encodes which newsletters
+    the user is subscribed to.
+- name: jsonPayload_fields_normalizedemail
+  description: The normalized form of the account's email address, with consistent casing and formatting applied. Used for deduplication and matching
+    purposes.
+- name: jsonPayload_fields_numsessions
+  description: The number of active or historical sessions associated with an account at the time of the event. Reflects session activity volume.
+- name: jsonPayload_fields_offeringid
+  description: An identifier for a specific product or service offering associated with the event. Null when the event is not linked to a particular
+    offering.
+- name: jsonPayload_fields_op
+  description: A short code or label identifying the operation type that generated the log entry. Null when the operation type is not specified for
+    the event.
+- name: jsonPayload_fields_operation
+  description: The full name of the operation or action performed during the event, such as a database or API operation. Null when the operation is
+    not captured for the event type.
+- name: jsonPayload_fields_options
+  description: A string encoding optional configuration or request parameters passed along with the event. Represents ancillary settings that modify
+    event behavior.
+- name: jsonPayload_fields_originaltransactionid
+  description: The identifier of the original transaction associated with a subscription or billing event. Null when the event does not relate to a
+    transaction renewal or update.
+- name: jsonPayload_fields_originaltransactionids
+  description: A collection of original transaction identifiers associated with the event, typically used when multiple prior transactions are referenced.
+    Null when not applicable.
+- name: jsonPayload_fields_os_name
+  description: The name of the operating system used by the client at the time of the event (e.g., 'Windows', 'macOS'). Null when the OS could not
+    be determined.
+- name: jsonPayload_fields_os_version
+  description: The version of the client's operating system at the time of the event (e.g., '10', '10.15'). Null when the OS version could not be determined.
+- name: jsonPayload_fields_output
+  description: A string capturing the output produced by a process or command associated with the event. Used for logging results of internal service
+    operations.
+- name: jsonPayload_fields_param
+  description: A single parameter value passed with the request or operation that triggered the event. Provides additional context for the specific
+    action performed.
+- name: jsonPayload_fields_params
+  description: A string encoding multiple parameters associated with the request or operation. Typically serialized as a key-value structure for multi-argument
+    operations.
+- name: jsonPayload_fields_path
+  description: The URL path of the request that generated the event. Null when the event is not associated with an HTTP request path.
+- name: jsonPayload_fields_pathname
+  description: The pathname component of the URL for the request associated with the event. Null when the event is not tied to a specific URL pathname.
+- name: jsonPayload_fields_payload
+  description: The raw payload body associated with the event, typically containing serialized request or response data. Null when no payload is present
+    or captured.
+- name: jsonPayload_fields_phonenumber
+  description: The phone number associated with an account or verification event. Null when phone number information is not relevant to the event type.
+- name: jsonPayload_fields_plan
+  description: A string identifying the subscription plan associated with the event, such as a plan name or tier. Describes the billing plan context
+    of the action.
+- name: jsonPayload_fields_plan_id
+  description: The unique identifier for the subscription plan associated with the event. Used to reference a specific billing plan in the payments
+    system.
+- name: jsonPayload_fields_planid
+  description: An alternate representation of the subscription plan identifier associated with the event. Equivalent to plan_id and used to link events
+    to a specific billing plan.
+- name: jsonPayload_fields_poolstats
+  description: A JSON-encoded string capturing database connection pool statistics at the time of the event, including connection limits and active
+    connection counts. Used for monitoring database pool health.
+- name: jsonPayload_fields_port
+  description: The network port number associated with the request or connection that triggered the event. Null when port information is not captured
+    for the event type.
+- name: jsonPayload_fields_postalcode
+  description: The postal code associated with the account's billing or registration address. Used in the context of payment and geographic information.
+- name: jsonPayload_fields_preview
+  description: A boolean flag indicating whether the event or request was executed in preview mode. True means it was a preview (non-production) action;
+    false means it was a live action.
+- name: jsonPayload_fields_priceid
+  description: The unique identifier for the price configuration associated with a subscription or payment event. Used to reference specific pricing
+    within the billing system.
+- name: jsonPayload_fields_primaryemail
+  description: The primary email address on the Firefox Account at the time of the event. This is the main contact address associated with the account.
+- name: jsonPayload_fields_product_id
+  description: The unique identifier for the Mozilla product associated with the event. Used to link events to a specific product in the subscription
+    platform.
+- name: jsonPayload_fields_productid
+  description: An alternate representation of the product identifier associated with the event. Equivalent to product_id and used to reference the
+    product in the subscriptions system.
+- name: jsonPayload_fields_profile_changed_at
+  description: A numeric timestamp indicating when the account's profile information was last changed. Null when no profile change has been recorded.
+- name: jsonPayload_fields_profilechangedat
+  description: A numeric timestamp recording the most recent time the account profile was modified. Null when profile change data is not available
+    for the event.
+- name: jsonPayload_fields_purchase
+  description: A string representing the purchase details or identifier associated with the event, typically from an in-app or subscription purchase.
+    Provides context for billing and commerce events.
+- name: jsonPayload_fields_purchasetoken
+  description: A token identifying a specific in-app purchase, used to validate and track purchases from app stores. Null when the event is not associated
+    with a purchase token.
