@@ -800,3 +800,145 @@ fields:
 - name: jsonPayload_fields_twofactorauthentication
   description: A boolean flag indicating whether two-factor authentication was enabled or required for the associated account or session. True means
     2FA was active; false means it was not. Typically null when not applicable.
+- name: jsonPayload_fields_type
+  description: The type classification of the logged event or operation within the Firefox Accounts service. Used to categorize the nature of the action
+    being recorded.
+- name: jsonPayload_fields_uabrowser
+  description: The name of the browser derived from the user agent string associated with the request. Identifies the browser family (e.g., Firefox,
+    Chrome) making the request.
+- name: jsonPayload_fields_uabrowserversion
+  description: The version of the browser derived from the user agent string. Captures the specific release of the browser at the time of the request.
+- name: jsonPayload_fields_uaos
+  description: The operating system name derived from the user agent string associated with the request. Identifies the platform (e.g., Windows, macOS,
+    Android) on which the browser is running.
+- name: jsonPayload_fields_uaosversion
+  description: The version of the operating system derived from the user agent string. Captures the specific OS release at the time of the request.
+- name: jsonPayload_fields_uid
+  description: The Firefox Accounts unique identifier for the user associated with the event. May be null when the event is not tied to an authenticated
+    user session.
+- name: jsonPayload_fields_unblockcode
+  description: A one-time code used to unblock a Firefox Accounts user who has been flagged for suspicious login activity. This code is sent to the
+    user's email to verify their identity.
+- name: jsonPayload_fields_url
+  description: The URL associated with the logged event, such as the endpoint or resource being accessed. May be null when no URL context is applicable
+    to the event.
+- name: jsonPayload_fields_user
+  description: A binary representation of the user associated with the logged event. May be null when no specific user context is available.
+- name: jsonPayload_fields_user_agent
+  description: The raw user agent string submitted by the client making the request. May be null when the user agent is not captured or not applicable
+    to the event.
+- name: jsonPayload_fields_user_id
+  description: A hashed identifier representing the Firefox Accounts user associated with the event. Used to link events to a specific user without
+    exposing personally identifiable information.
+- name: jsonPayload_fields_user_properties
+  description: A JSON-encoded object containing additional user-level properties at the time of the event, such as entrypoint, flow ID, UTM parameters,
+    UA details, and appended user attributes like services used or security settings. Provides enriched context for user behavior analysis.
+- name: jsonPayload_fields_useragent
+  description: The full user agent string associated with the request, used to identify the client browser and platform. May be null when the user
+    agent is not recorded for the event.
+- name: jsonPayload_fields_usergroupheader
+  description: The value of the user group header included in the request, used to identify or route requests by group membership. May be null when
+    no group header is present.
+- name: jsonPayload_fields_usergroupheader_notnull
+  description: A normalized version of the user group header that enforces a non-null representation. May still appear null in records where the header
+    was absent from the original request.
+- name: jsonPayload_fields_userid
+  description: An alternate representation of the Firefox Accounts user identifier logged with the event. May be null when the event is not associated
+    with a specific user.
+- name: jsonPayload_fields_utm_campaign
+  description: The UTM campaign parameter from the referring URL, identifying the specific marketing campaign that directed the user to the Firefox
+    Accounts flow.
+- name: jsonPayload_fields_utm_content
+  description: The UTM content parameter from the referring URL, used to differentiate between links within the same campaign, such as specific ad
+    creatives or placements.
+- name: jsonPayload_fields_utm_medium
+  description: The UTM medium parameter from the referring URL, identifying the marketing channel (e.g., email, referral, paid search) that drove the
+    user to the Firefox Accounts flow.
+- name: jsonPayload_fields_utm_source
+  description: The UTM source parameter from the referring URL, identifying the originating property or platform (e.g., activity-stream, spotlight)
+    that referred the user.
+- name: jsonPayload_fields_utm_term
+  description: The UTM term parameter from the referring URL, used to capture the specific keyword or targeting term associated with the campaign that
+    drove the user to the Firefox Accounts flow.
+- name: jsonPayload_fields_val
+  description: A generic value field captured in the log payload, representing a scalar measurement or result associated with the logged event.
+- name: jsonPayload_fields_valid
+  description: A boolean flag indicating whether the associated entity or operation passed validation. A value of true means validation succeeded;
+    false means it failed.
+- name: jsonPayload_fields_value
+  description: A generic string value associated with the logged event, whose meaning depends on the event type. Used to capture miscellaneous scalar
+    data that does not fit a more specific field.
+- name: jsonPayload_fields_verifiedat
+  description: A timestamp string indicating when the user's email or account was verified within Firefox Accounts. Used to track the verification
+    lifecycle of an account.
+- name: jsonPayload_fields_verifiersetat
+  description: A numeric timestamp recording when the account verifier (i.e., the credential used to verify identity) was set or last updated for the
+    user.
+- name: jsonPayload_fields_verifierversion
+  description: A numeric value indicating the version of the verifier algorithm or credential scheme used for the account. Allows tracking of authentication
+    scheme upgrades over time.
+- name: jsonPayload_fields_version
+  description: The version string of the Firefox Accounts service or client involved in the logged event. May be null when version information is not
+    available in the log payload.
+- name: jsonPayload_fields_violated
+  description: Indicates which Content Security Policy (CSP) directive or security constraint was violated during the request. May be null when no
+    violation occurred.
+- name: jsonPayload_fields_warning
+  description: A warning message logged alongside the event, describing a non-fatal condition or deprecation notice encountered during processing.
+- name: jsonPayload_fields_webhooks
+  description: Information about webhooks configured or triggered in relation to the logged event. May be null when no webhooks are associated with
+    the event.
+- name: jsonPayload_fields_wrapwrapkb
+  description: A wrapped encryption key value (wrapKb) used in Firefox Accounts' key derivation process for Sync. Represents an encrypted form of a
+    user's key bundle.
+- name: jsonPayload_fields_zip
+  description: The postal ZIP code associated with a billing or account record. Used in subscription and payment-related events to capture the user's
+    billing location.
+- name: jsonPayload_flow_id
+  description: A unique identifier for the authentication or registration flow session. Used to correlate all log events that belong to the same end-to-end
+    user flow.
+- name: jsonPayload_flow_time
+  description: The elapsed time in milliseconds since the start of the current flow, indicating how far into the flow the logged event occurred.
+- name: jsonPayload_hostname
+  description: The hostname of the server instance that generated the log entry. Used to identify which specific service node produced the event.
+- name: jsonPayload_input
+  description: The raw input string or request body associated with the logged operation. May be null when input data is not captured or not applicable
+    to the event.
+- name: jsonPayload_interval
+  description: The time interval associated with a scheduled or recurring operation logged by the Firefox Accounts service. May be null when the event
+    is not interval-based.
+- name: jsonPayload_jse_cause_jse_shortmsg
+  description: The short error message from the root-cause JavaScript exception that triggered the logged error. May be null when the error has no
+    chained cause exception.
+- name: jsonPayload_jse_cause_message
+  description: The full message from the root-cause JavaScript exception that triggered the logged error. May be null when no underlying cause exception
+    is present.
+- name: jsonPayload_jse_info_interval
+  description: The interval value captured in the extra info of a JavaScript exception, providing context about a recurring or scheduled operation
+    at the time of the error. May be null when not applicable.
+- name: jsonPayload_jse_info_offeringid
+  description: The offering identifier captured in the extra info of a JavaScript exception, indicating which subscription product or service offering
+    was involved when the error occurred. May be null when not applicable.
+- name: jsonPayload_jse_shortmsg
+  description: A short summary message of the JavaScript exception logged by the Firefox Accounts service. May be null when no exception was thrown
+    as part of the event.
+- name: jsonPayload_level
+  description: The log severity level of the event (e.g., info, warn, error). May be null when the level is not explicitly set in the log payload.
+- name: jsonPayload_locale
+  description: The locale identifier (e.g., en-US, fr) representing the user's language and regional preference at the time of the event. Used to understand
+    the geographic and linguistic distribution of account activity.
+- name: jsonPayload_log_type
+  description: A string categorizing the type of log entry within the Firefox Accounts logging infrastructure. May be null when the log type is not
+    specified in the payload.
+- name: jsonPayload_logger
+  description: The name of the logger or service component that emitted the log entry (e.g., fxa-user-admin-server). Used to identify the originating
+    subsystem within the Firefox Accounts platform.
+- name: jsonPayload_message
+  description: The human-readable log message describing the event or condition being recorded. May be null when the message is captured in an alternate
+    field such as msg.
+- name: jsonPayload_method
+  description: The HTTP method (e.g., GET, POST, DELETE) of the request associated with the logged event. May be null when the event is not tied to
+    an HTTP request.
+- name: jsonPayload_msg
+  description: An alternate human-readable message field describing the logged event, used by some Firefox Accounts service components in place of
+    the message field. May be null when the message is stored in jsonPayload_message instead.
