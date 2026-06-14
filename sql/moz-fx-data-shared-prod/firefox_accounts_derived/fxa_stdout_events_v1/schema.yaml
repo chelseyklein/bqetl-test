@@ -62,6 +62,9 @@ fields:
   - name: trace
     type: STRING
     mode: NULLABLE
+    description: !include-field-description
+      file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+      field: trace
   - name: status
     type: STRING
     mode: NULLABLE
@@ -92,6 +95,9 @@ fields:
   - name: type
     type: STRING
     mode: NULLABLE
+    description: !include-field-description
+      file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+      field: type
   - name: envversion
     type: STRING
     mode: NULLABLE
@@ -117,6 +123,9 @@ fields:
     - name: useragent
       type: STRING
       mode: NULLABLE
+      description: !include-field-description
+        file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+        field: useragent
     - name: path
       type: STRING
       mode: NULLABLE
@@ -132,12 +141,21 @@ fields:
     - name: os_version
       type: STRING
       mode: NULLABLE
+      description: !include-field-description
+        file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+        field: os_version
     - name: event_type
       type: STRING
       mode: NULLABLE
+      description: !include-field-description
+        file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+        field: event_type
     - name: app_version
       type: STRING
       mode: NULLABLE
+      description: !include-field-description
+        file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+        field: app_version
     - name: user_properties
       type: STRING
       mode: NULLABLE
@@ -156,6 +174,9 @@ fields:
     - name: os_name
       type: STRING
       mode: NULLABLE
+      description: !include-field-description
+        file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+        field: os_name
     - name: device_model
       type: STRING
       mode: NULLABLE
@@ -183,6 +204,9 @@ fields:
     - name: language
       type: STRING
       mode: NULLABLE
+      description: !include-field-description
+        file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+        field: language
     - name: countrycode
       type: STRING
       mode: NULLABLE
@@ -192,27 +216,42 @@ fields:
     - name: user_id
       type: STRING
       mode: NULLABLE
+      description: !include-field-description
+        file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+        field: user_id
     - name: device_id
       type: STRING
       mode: NULLABLE
+      description: !include-field-description
+        file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+        field: device_id
     - name: context
       type: STRING
       mode: NULLABLE
     - name: event
       type: STRING
       mode: NULLABLE
+      description: !include-field-description
+        file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+        field: event
   - name: pid
     type: FLOAT
     mode: NULLABLE
   - name: timestamp
     type: FLOAT
     mode: NULLABLE
+    description: !include-field-description
+      file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+      field: timestamp
   - name: logger
     type: STRING
     mode: NULLABLE
   - name: severity
     type: FLOAT
     mode: NULLABLE
+    description: !include-field-description
+      file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+      field: severity
   - name: log_type
     type: STRING
     mode: NULLABLE
@@ -275,6 +314,9 @@ fields:
 - name: timestamp
   type: TIMESTAMP
   mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+    field: timestamp
 - name: receiveTimestamp
   type: TIMESTAMP
   mode: NULLABLE
@@ -541,4 +583,6 @@ fields:
 - name: submission_date
   type: DATE
   mode: NULLABLE
-  description: DO NOT USE! This column was added accidentally and isn't populated.
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+    field: submission_date
