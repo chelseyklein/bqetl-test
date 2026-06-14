@@ -276,3 +276,120 @@ fields:
 - name: jsonPayload_fields_avatardefault
   description: A boolean flag indicating whether the user is using the default avatar for their Firefox Account. True means the default avatar is in
     use; false means a custom avatar has been set.
+- name: jsonPayload_fields_blocked
+  description: Indicates whether the request or action was blocked, typically due to rate limiting or security policies. Null when no blocking was
+    applied.
+- name: jsonPayload_fields_body
+  description: The raw body content of an HTTP request or response associated with the logged event. Null when no body is present or applicable.
+- name: jsonPayload_fields_bodysize
+  description: The size of the HTTP request or response body in bytes. Useful for monitoring payload size across service interactions.
+- name: jsonPayload_fields_bundle
+  description: Identifies the bundle or package associated with the logged event, such as a software or capability bundle. Null when not applicable.
+- name: jsonPayload_fields_cause
+  description: Describes the root cause or reason associated with a logged event, error, or action. Null when no cause is specified.
+- name: jsonPayload_fields_changed
+  description: Indicates what attributes or properties were changed during the logged event. Null when no changes occurred or the field is not applicable.
+- name: jsonPayload_fields_client
+  description: Identifies the client application or service that initiated the request or action being logged.
+- name: jsonPayload_fields_client_id
+  description: A unique identifier for the client application or OAuth client involved in the logged event. Null when not associated with a specific
+    client.
+- name: jsonPayload_fields_clientaddress
+  description: The network address (e.g., IP address) of the client that made the request. Null when the client address is unavailable or not recorded.
+- name: jsonPayload_fields_clientcapabilities
+  description: Describes the capabilities advertised or supported by the client during the interaction. Null when capability information is not available.
+- name: jsonPayload_fields_clientid
+  description: A unique identifier for the client associated with the logged event, used to distinguish between different client applications or sessions.
+    Null when not present.
+- name: jsonPayload_fields_closed
+  description: Indicates whether a connection, session, or resource was closed at the time of the event. True means it was closed; false means it remained
+    open. Null when not applicable.
+- name: jsonPayload_fields_code
+  description: A numeric code associated with the logged event, such as an HTTP status code or an error code. Null when no code is recorded.
+- name: jsonPayload_fields_column
+  description: The column number within a source file or data structure where an event or error occurred. Null when column information is not available.
+- name: jsonPayload_fields_command
+  description: The command or operation that was executed or requested as part of the logged event.
+- name: jsonPayload_fields_config
+  description: Configuration information or settings associated with the logged event or service. Null when configuration details are not recorded.
+- name: jsonPayload_fields_connlimit
+  description: The maximum number of allowed connections configured for the service or resource at the time of the event.
+- name: jsonPayload_fields_contentlength
+  description: The value of the HTTP Content-Length header associated with the request or response. Null when the header is absent or not recorded.
+- name: jsonPayload_fields_context
+  description: Contextual information describing the circumstances or environment in which the logged event occurred. Null when no context is provided.
+- name: jsonPayload_fields_context_language
+  description: The language context associated with the request or event, typically derived from user or browser locale settings. Null when language
+    context is unavailable.
+- name: jsonPayload_fields_context_region
+  description: The geographic region associated with the request or event context, such as a country subdivision or locale region. Null when region
+    context is unavailable.
+- name: jsonPayload_fields_count
+  description: A numeric count associated with the logged event, such as the number of items, retries, or occurrences. Null when a count is not applicable.
+- name: jsonPayload_fields_country
+  description: The full name of the country associated with the request or user, derived from geolocation data. Used to understand the geographic distribution
+    of activity.
+- name: jsonPayload_fields_country_code
+  description: The ISO country code representing the country associated with the request or user, derived from geolocation data.
+- name: jsonPayload_fields_countrycode
+  description: The country code associated with the request or user, used to identify geographic origin. May be formatted differently from country_code
+    depending on the source service.
+- name: jsonPayload_fields_created_at
+  description: A string-formatted timestamp indicating when the associated record or entity was created.
+- name: jsonPayload_fields_createdat
+  description: A numeric (epoch) timestamp indicating when the associated record or entity was created.
+- name: jsonPayload_fields_customerid
+  description: A unique identifier for the customer associated with the logged event, typically referencing a billing or subscription system record.
+- name: jsonPayload_fields_customeruid
+  description: A unique identifier for the customer in the context of the Firefox Accounts ecosystem, used to correlate customer records across services.
+- name: jsonPayload_fields_data
+  description: A generic payload field containing supplementary data associated with the logged event. Null when no additional data is included.
+- name: jsonPayload_fields_dbpath
+  description: The file system path of the database involved in the logged event, used to identify which database instance was accessed or affected.
+- name: jsonPayload_fields_detail
+  description: A brief detail or description providing additional context about the logged event. Null when no detail is recorded.
+- name: jsonPayload_fields_details
+  description: Extended descriptive information providing additional context or metadata about the logged event.
+- name: jsonPayload_fields_device_id
+  description: A unique identifier for the device associated with the logged event, used to track activity across sessions for a specific device.
+- name: jsonPayload_fields_device_model
+  description: The model name of the device associated with the logged event (e.g., iPhone, iPad). Null when the device model is not available or the
+    request did not originate from a known device.
+- name: jsonPayload_fields_deviceid
+  description: A unique identifier for the device involved in the logged event, used to associate log entries with a specific device.
+- name: jsonPayload_fields_directory
+  description: The file system directory path relevant to the logged event or operation. Null when directory information is not applicable.
+- name: jsonPayload_fields_disabledat
+  description: A timestamp indicating when the associated account, device, or resource was disabled.
+- name: jsonPayload_fields_displayname
+  description: The human-readable display name associated with a user, device, or resource at the time of the logged event. Null when a display name
+    is not set or available.
+- name: jsonPayload_fields_document_id
+  description: The unique identifier of a document associated with the logged event, such as a telemetry document submitted to the data pipeline. Null
+    when not applicable.
+- name: jsonPayload_fields_document_namespace
+  description: The namespace of the document associated with the logged event, used to categorize the document within the data pipeline schema. Null
+    when not applicable.
+- name: jsonPayload_fields_document_type
+  description: The type of document associated with the logged event, identifying the schema or category of the submitted telemetry or data document.
+    Null when not applicable.
+- name: jsonPayload_fields_document_version
+  description: The version of the document schema associated with the logged event, used to identify which schema version applies to the submitted
+    document. Null when not applicable.
+- name: jsonPayload_fields_domain
+  description: The domain name associated with the logged event, such as an email domain or web domain relevant to the operation. Null when not recorded.
+- name: jsonPayload_fields_duration
+  description: The duration of the logged operation or event, typically measured in milliseconds or seconds. Null when timing information is not available.
+- name: jsonPayload_fields_ecosystemanonid
+  description: An anonymized identifier that links a Firefox Accounts user to the Mozilla ecosystem without exposing personally identifiable information.
+- name: jsonPayload_fields_eligibilitystatus
+  description: Indicates the eligibility status of a user or account for a particular feature, subscription, or promotion. Null when eligibility has
+    not been evaluated.
+- name: jsonPayload_fields_email
+  description: The email address associated with the Firefox Account user involved in the logged event. This field is PII-suppressed and stored as
+    bytes.
+- name: jsonPayload_fields_emailcode
+  description: A code sent to the user's email address for verification or authentication purposes, such as a sign-in confirmation or account recovery
+    code.
+- name: jsonPayload_fields_emails
+  description: A collection or serialized representation of email addresses associated with the user or account involved in the logged event.
