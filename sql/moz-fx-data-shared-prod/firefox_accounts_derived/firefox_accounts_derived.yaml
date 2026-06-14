@@ -942,3 +942,141 @@ fields:
 - name: jsonPayload_msg
   description: An alternate human-readable message field describing the logged event, used by some Firefox Accounts service components in place of
     the message field. May be null when the message is stored in jsonPayload_message instead.
+- name: jsonPayload_name
+  description: The name associated with the log event or entity being described in the JSON payload. This field may be null when the log source does
+    not emit a named entity.
+- name: jsonPayload_offeringid
+  description: The identifier of the product or service offering associated with the log event. This field is null when no offering context is present
+    in the log entry.
+- name: jsonPayload_op
+  description: The operation or action being performed at the time the log event was generated, such as a specific service method or command name.
+- name: jsonPayload_path
+  description: The URL path or file system path associated with the log event. This field is null when the event does not involve a path-based resource.
+- name: jsonPayload_pid
+  description: The process ID of the service or application that generated the log entry. Identifies which OS-level process produced the event.
+- name: jsonPayload_protocol
+  description: The network protocol used for the request or connection associated with the log event (e.g., HTTP/1.1, HTTP/2). Null when no protocol
+    context is available.
+- name: jsonPayload_proxy_host
+  description: The hostname of the proxy server that handled or forwarded the request. Populated when traffic is routed through a proxy layer.
+- name: jsonPayload_referrer
+  description: The HTTP referrer URL from the request associated with the log event, indicating the page or resource that originated the request. Null
+    when no referrer was provided.
+- name: jsonPayload_region
+  description: The geographic or cloud region associated with the service or request that generated the log event, such as an AWS or GCP region identifier.
+- name: jsonPayload_remote_addr
+  description: The remote IP address of the client that initiated the request, as seen by the server. Null when address information is not available
+    in the log entry.
+- name: jsonPayload_remote_user
+  description: The authenticated remote user associated with the request, if any. Null when the request is unauthenticated or user information is not
+    logged.
+- name: jsonPayload_remoteaddr
+  description: The remote IP address of the client that made the request, as captured in the structured log payload. Null when not available in the
+    log source format.
+- name: jsonPayload_request
+  description: The full HTTP request line or request descriptor associated with the log event (e.g., method, path, and protocol). Null when the event
+    does not represent an HTTP request.
+- name: jsonPayload_request_time
+  description: The total time taken to process the request, typically measured in seconds. Null when timing information is not captured for the event.
+- name: jsonPayload_requestheaders
+  description: An array of HTTP request headers sent with the request, where each element contains a name-value pair. May be empty when no headers
+    are recorded.
+- name: jsonPayload_requestid
+  description: A unique identifier assigned to the HTTP request, used for correlating log entries across services or systems. Null when the request
+    ID is not available.
+- name: jsonPayload_requestidstr
+  description: A string representation of the unique request identifier, used for correlating log entries. Null when the request ID string is not present
+    in the log payload.
+- name: jsonPayload_responsecode
+  description: The numeric HTTP response code returned for the request (e.g., 200, 404, 500). Null when the event does not involve an HTTP response.
+- name: jsonPayload_responseheaders
+  description: An array of HTTP response headers returned with the server's response, where each element contains a name-value pair. May be empty when
+    no headers are recorded.
+- name: jsonPayload_responsemillis
+  description: The time taken to generate and send the HTTP response, measured in milliseconds. Null when response timing is not captured for the event.
+- name: jsonPayload_responsesize
+  description: The size of the HTTP response body in bytes. Null when response size information is not available in the log entry.
+- name: jsonPayload_retryable
+  description: Indicates whether the failed operation or error is eligible for retry (true) or should not be retried (false). Null when retry eligibility
+    is not applicable or not recorded.
+- name: jsonPayload_retrydelay
+  description: The delay duration before a retry should be attempted, typically in seconds or milliseconds. Null when retry delay is not applicable
+    or not recorded.
+- name: jsonPayload_scheme
+  description: The URL scheme of the request (e.g., 'http' or 'https'). Null when scheme information is not present in the log entry.
+- name: jsonPayload_serverhostname
+  description: The hostname of the server that handled the request or generated the log event. Null when server hostname information is not captured.
+- name: jsonPayload_servername
+  description: The logical or configured name of the server instance that generated the log event. Null when not available in the log payload.
+- name: jsonPayload_service
+  description: The name of the Firefox Accounts service component that generated the log entry (e.g., auth server, content server). Used to identify
+    the source service within the FxA ecosystem.
+- name: jsonPayload_severity
+  description: The numeric severity level of the log entry, following standard syslog conventions (e.g., 6 corresponds to informational). Used to classify
+    the importance or urgency of the log event.
+- name: jsonPayload_signals
+  description: An array of security or threat detection signals associated with the request, each containing details such as signal type, detector,
+    location, value, and related attributes. May be empty when no signals are detected.
+- name: jsonPayload_stack
+  description: The stack trace captured at the time of an error or exception. Null when the log event is not associated with an error or no stack trace
+    was recorded.
+- name: jsonPayload_status
+  description: A string representing the status of the operation or request associated with the log event (e.g., 'ok', 'error'). Null when status is
+    not applicable or not recorded.
+- name: jsonPayload_statuscode
+  description: A numeric status code indicating the outcome of an operation or request. Null when a status code is not applicable or not recorded for
+    the event.
+- name: jsonPayload_timestamp
+  description: The high-precision timestamp at which the log event occurred, recorded as a numeric value in nanoseconds since the Unix epoch. Used
+    for precise event ordering and time-based analysis.
+- name: jsonPayload_tlscipher
+  description: The TLS cipher suite used for the encrypted connection associated with the log event (e.g., 'ECDHE-RSA-AES128-GCM-SHA256'). Null when
+    TLS information is not available.
+- name: jsonPayload_tlsprotocol
+  description: The TLS protocol version used for the encrypted connection (e.g., 'TLSv1.2', 'TLSv1.3'). Null when TLS protocol information is not captured
+    in the log entry.
+- name: jsonPayload_trace
+  description: A distributed tracing identifier used to correlate the log event with a specific request trace across multiple services. Null when tracing
+    information is not available.
+- name: jsonPayload_type
+  description: The type or category of the log event, identifying the emitting component or subsystem (e.g., a database service type or server configuration
+    component). Used to classify events by their origin.
+- name: jsonPayload_uri
+  description: The full URI of the request associated with the log event, including path and query parameters. Null when the event does not involve
+    a URI-based resource.
+- name: jsonPayload_user_agent
+  description: The HTTP User-Agent string from the client that made the request, indicating the browser or client software. Null when the user agent
+    is not present in the request headers.
+- name: jsonPayload_useragent
+  description: The HTTP User-Agent string captured in the structured log payload, representing the client software making the request. Null when not
+    available in the log source format.
+- name: jsonPayload_utm_campaign
+  description: The UTM campaign parameter from the request URL, identifying the specific marketing campaign that drove the user interaction. Used for
+    attribution and marketing analytics.
+- name: jsonPayload_utm_content
+  description: The UTM content parameter from the request URL, used to differentiate between multiple links or creatives within the same campaign.
+    Supports A/B testing and content performance analysis.
+- name: jsonPayload_utm_medium
+  description: The UTM medium parameter from the request URL, indicating the marketing channel through which the user arrived (e.g., 'email', 'cpc').
+    Used for traffic source attribution.
+- name: jsonPayload_utm_source
+  description: The UTM source parameter from the request URL, identifying the specific source of traffic such as a search engine or newsletter name.
+    Used for marketing attribution and funnel analysis.
+- name: jsonPayload_v
+  description: A numeric version indicator embedded in the log payload, typically used to identify the schema or format version of the log entry. Enables
+    forward and backward compatibility in log processing.
+- name: jsonPayload_version
+  description: The version string of the service or application that generated the log entry. Null when version information is not included in the
+    log payload.
+- name: jsonPayload_wafresponse
+  description: The numeric response code or decision returned by the Web Application Firewall (WAF) for the request. Null when the request was not
+    evaluated by a WAF.
+- name: jsonPayload_x_forwarded_for
+  description: The value of the X-Forwarded-For HTTP header, containing the originating IP address(es) of the client as the request passed through
+    proxies. Null when the header is not present.
+- name: jsonPayload_x_forwarded_proto
+  description: The value of the X-Forwarded-Proto HTTP header, indicating the protocol (http or https) used by the client to connect to the proxy.
+    Null when the header is not present.
+- name: labels_application
+  description: The name of the application or service component associated with the log entry, as set in the resource or log labels. Used to identify
+    which FxA application produced the event.
