@@ -655,3 +655,148 @@ fields:
 - name: jsonPayload_fields_purchasetoken
   description: A token identifying a specific in-app purchase, used to validate and track purchases from app stores. Null when the event is not associated
     with a purchase token.
+- name: jsonPayload_fields_query
+  description: The query string or search query associated with a request or operation. This field is typically null when no query context is present.
+- name: jsonPayload_fields_queuelength
+  description: The number of items currently waiting in a processing queue at the time the log entry was recorded. Reflects backpressure or load on
+    a background worker.
+- name: jsonPayload_fields_reason
+  description: A descriptive reason or explanation for the outcome or action recorded in the log entry. This field is typically null when no specific
+    reason is provided.
+- name: jsonPayload_fields_recency
+  description: A string indicating how recently a relevant event or action occurred relative to the current log entry. Used to categorize the freshness
+    of an associated record or session.
+- name: jsonPayload_fields_redirectto
+  description: The destination URL or path to which a user or request is being redirected. Captures the target of an HTTP or application-level redirect.
+- name: jsonPayload_fields_referer
+  description: The HTTP Referer header value indicating the URL of the page that initiated the request. This field is typically null when no referring
+    page is available.
+- name: jsonPayload_fields_referrer
+  description: The referrer URL associated with the event, indicating the origin page or surface that led to the current action. This field is typically
+    null when no referrer information is present.
+- name: jsonPayload_fields_region
+  description: The geographic region (e.g., state, province, or administrative area) associated with the request or user, derived from IP geolocation.
+    May be null when region cannot be determined.
+- name: jsonPayload_fields_remaining
+  description: The number of remaining allowances, attempts, or quota units available at the time of the log entry. Commonly used in the context of
+    rate limiting.
+- name: jsonPayload_fields_remoteaddresschain
+  description: The chain of IP addresses from the client through any proxies, as seen in the request headers. This field is typically null when no
+    proxy chain information is captured.
+- name: jsonPayload_fields_removed
+  description: A boolean flag indicating whether an entity or resource was removed as part of the logged operation. True means the removal occurred;
+    false means it did not. Typically null when not applicable.
+- name: jsonPayload_fields_reqtime
+  description: The time taken to process a request, measured in milliseconds or another consistent time unit. This field is typically null when request
+    timing is not recorded.
+- name: jsonPayload_fields_request
+  description: A representation of the incoming request, such as the HTTP method and path or a serialized request body. This field is typically null
+    when request details are not captured.
+- name: jsonPayload_fields_requestcode
+  description: A code or identifier associated with a specific request type or operation. This field is typically null when no request code is applicable
+    to the logged event.
+- name: jsonPayload_fields_resourceservers
+  description: A list or identifier of resource servers targeted by an authorization or token request. This field is typically null when no resource
+    server scope is specified.
+- name: jsonPayload_fields_response
+  description: A representation of the server's response to a request, such as a serialized body or status message. This field is typically null when
+    response details are not captured.
+- name: jsonPayload_fields_result
+  description: The outcome or result of the logged operation or event, such as a success indicator or descriptive result code. This field is typically
+    null when no explicit result is recorded.
+- name: jsonPayload_fields_rp
+  description: The relying party identifier associated with an authentication or OAuth flow. This field is typically null when no relying party context
+    is present.
+- name: jsonPayload_fields_sample
+  description: A sample value or identifier associated with a sampled log entry or metric observation. This field is typically null when sampling is
+    not in use.
+- name: jsonPayload_fields_scope
+  description: The OAuth or permission scope string associated with a token request or authorization event. This field is typically null when no scope
+    is specified.
+- name: jsonPayload_fields_search_type
+  description: The type of search operation performed, distinguishing between different search strategies or index types. This field is typically null
+    when no search is involved in the logged event.
+- name: jsonPayload_fields_sender
+  description: The identifier or address of the entity that sent a message or initiated a communication. Used to attribute the origin of an outgoing
+    event or notification.
+- name: jsonPayload_fields_senderos
+  description: The operating system of the sending entity or device. Used to identify the platform from which a message or event was dispatched.
+- name: jsonPayload_fields_sendertype
+  description: The classification or type of the sending entity, such as a device category or client type. Used to distinguish between different kinds
+    of message originators.
+- name: jsonPayload_fields_service
+  description: The name or identifier of the Firefox Accounts service that generated the log entry. This field is typically null when no specific service
+    context is associated.
+- name: jsonPayload_fields_session_id
+  description: A numeric identifier for the user session associated with the logged event. High cardinality values represent unique sessions across
+    users and time.
+- name: jsonPayload_fields_signal
+  description: The name of a signal or event type emitted by the application during processing. This field is typically null when no signal is associated
+    with the log entry.
+- name: jsonPayload_fields_source
+  description: The origin or source component that produced the log entry or triggered the event. This field is typically null when the source is not
+    recorded.
+- name: jsonPayload_fields_stack
+  description: The stack trace captured at the time of an error or exception. This field is typically null when no error condition is present in the
+    log entry.
+- name: jsonPayload_fields_status
+  description: A string representing the status of an operation or resource at the time of logging, such as an account state or job status. This field
+    is typically null when no status is applicable.
+- name: jsonPayload_fields_statuscode
+  description: The numeric HTTP or application-level status code associated with a response. This field is typically null when no response code is
+    recorded for the event.
+- name: jsonPayload_fields_subscriptionid
+  description: The identifier of a subscription associated with the logged event, such as a billing or push notification subscription. This field is
+    typically null when no subscription is involved.
+- name: jsonPayload_fields_subscriptionsbyclientid
+  description: A mapping or list of subscriptions grouped by client identifier, used to track which clients hold active subscriptions. This field is
+    typically null when not applicable.
+- name: jsonPayload_fields_success
+  description: A numeric flag indicating whether the logged operation succeeded, where a non-null value typically represents a success count or binary
+    outcome. This field is typically null when the success state is not recorded.
+- name: jsonPayload_fields_syscall
+  description: The name of the operating system system call invoked during the logged operation. Used for low-level diagnostics and security auditing.
+- name: jsonPayload_fields_t
+  description: A short-form tag or type label associated with the log entry, used to categorize or route events. This field is typically null when
+    no tag is present.
+- name: jsonPayload_fields_target
+  description: The identifier or name of the target entity or resource acted upon in the logged event. Used to indicate what was affected by an operation.
+- name: jsonPayload_fields_targetos
+  description: The operating system of the target device or entity involved in the logged event. Used to identify the platform of the recipient or
+    destination.
+- name: jsonPayload_fields_targettype
+  description: The classification or category of the target entity, such as a device type or resource class. Used to distinguish different kinds of
+    targets within an operation.
+- name: jsonPayload_fields_template
+  description: The name or identifier of the template used to render a notification or page associated with the event. This field is typically null
+    when no template is involved.
+- name: jsonPayload_fields_templatename
+  description: The human-readable name of the template used to generate an email or notification. Identifies which specific template was rendered for
+    the communication.
+- name: jsonPayload_fields_templateversion
+  description: The version string of the template used to generate a notification or email. Used to track which iteration of a template was active
+    at the time of the event.
+- name: jsonPayload_fields_time
+  description: A high-precision numeric timestamp, typically in milliseconds since the Unix epoch, representing when the logged event occurred. High
+    cardinality reflects unique event times across the dataset.
+- name: jsonPayload_fields_timestamp
+  description: A string-formatted timestamp associated with the logged event. This field is typically null when the timestamp is captured in another
+    format or field.
+- name: jsonPayload_fields_to
+  description: The destination address or recipient identifier for a message or notification. This field is typically null when no explicit recipient
+    is recorded.
+- name: jsonPayload_fields_token
+  description: An authentication or authorization token associated with the logged event, such as a session token or verification token. Used to link
+    events to a specific credential or access grant.
+- name: jsonPayload_fields_tokenverificationid
+  description: The identifier of a token verification record, used to track the lifecycle of a token confirmation flow. Links a log entry to a specific
+    pending verification.
+- name: jsonPayload_fields_traceid
+  description: A distributed tracing identifier used to correlate log entries across multiple services for a single request or workflow. Enables end-to-end
+    trace reconstruction.
+- name: jsonPayload_fields_trustedissuers
+  description: A list or identifier of trusted token issuers recognized by the service for authentication purposes. This field is typically null when
+    issuer trust context is not applicable.
+- name: jsonPayload_fields_twofactorauthentication
+  description: A boolean flag indicating whether two-factor authentication was enabled or required for the associated account or session. True means
+    2FA was active; false means it was not. Typically null when not applicable.
