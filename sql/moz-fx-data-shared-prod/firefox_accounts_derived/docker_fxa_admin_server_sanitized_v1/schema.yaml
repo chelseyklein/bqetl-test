@@ -56,6 +56,9 @@ fields:
   - name: type
     type: STRING
     mode: NULLABLE
+    description: !include-field-description
+      file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+      field: jsonPayload_fields_type
   - name: pid
     type: FLOAT
     mode: NULLABLE
@@ -81,6 +84,9 @@ fields:
     - name: email
       type: BYTES
       mode: NULLABLE
+      description: !include-field-description
+        file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+        field: jsonPayload_email
     - name: user
       type: BYTES
       mode: NULLABLE
@@ -93,6 +99,9 @@ fields:
     - name: msg
       type: STRING
       mode: NULLABLE
+      description: !include-field-description
+        file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+        field: jsonPayload_msg
     - name: poolstats
       type: STRING
       mode: NULLABLE
@@ -102,6 +111,9 @@ fields:
     - name: err
       type: STRING
       mode: NULLABLE
+      description: !include-field-description
+        file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+        field: jsonPayload_fields_err
     - name: originaltransactionids
       type: STRING
       mode: NULLABLE
@@ -245,12 +257,18 @@ fields:
   - name: env
     type: STRING
     mode: NULLABLE
+    description: !include-field-description
+      file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+      field: jsonPayload_config_env
   - name: compute_googleapis_com_resource_name
     type: STRING
     mode: NULLABLE
   - name: type
     type: STRING
     mode: NULLABLE
+    description: !include-field-description
+      file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+      field: jsonPayload_fields_type
 - name: operation
   type: RECORD
   mode: NULLABLE
