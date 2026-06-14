@@ -3,69 +3,65 @@ fields:
 - mode: NULLABLE
   name: submission_date
   type: DATE
-  description: |
-    Represents ETL job date.
-    Also, used for table partitioning.
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+    field: submission_date
 
 - mode: NULLABLE
   name: user_id
   type: STRING
-  description: |
-    A 36 char long hash value representing
-    User ID (registered user).
-    Also, used as a clustering field.
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+    field: user_id
 
 - mode: NULLABLE
   name: country
   type: STRING
-  description: |
-    User's country where activity took place.
-    See: UDF mozdata.stats.mode_last for more
-    info on how the function operates.
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+    field: country
 
 - mode: NULLABLE
   name: language
   type: STRING
-  description: |
-    User's language.
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+    field: language
 
 - mode: NULLABLE
   name: app_version
   type: STRING
-  description: |
-    Mozilla app version,
-    follows format: major.minor.patch (e.g. 99.3.3).
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+    field: app_version
 
 - mode: NULLABLE
   name: os_name
   type: STRING
-  description: |
-    OS on which the app was running.
-    For example: Android.
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+    field: os_name
 
 - mode: NULLABLE
   name: os_version
   type: STRING
-  description: |
-    Version of the OS the device was using.
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+    field: os_version
 
 - mode: NULLABLE
   name: seen_in_tier1_country
   type: BOOLEAN
-  description: |
-    Set to True if a user sent an event from
-    one of the following countries for
-    a specific submission_date:
-    ('United States','France',
-    'Germany','United Kingdom','Canada')
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+    field: seen_in_tier1_country
 
 - mode: NULLABLE
   name: registered
   type: BOOLEAN
-  description: |
-    Set to True if the user submitted
-    the event_type of `fxa_reg - complete`
-    event on the specific submission_date.
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+    field: registered
 
 - mode: NULLABLE
   name: monitor_only
