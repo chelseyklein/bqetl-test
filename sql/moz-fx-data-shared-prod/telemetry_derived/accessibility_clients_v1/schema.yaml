@@ -2,88 +2,132 @@ fields:
 - mode: NULLABLE
   name: submission_date
   type: DATE
-  description: The date when the telemetry ping is received on the server side.
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: submission_date
 - name: normalized_channel
   type: STRING
   mode: NULLABLE
-  description: The normalized channel the application is being distributed on.
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: normalized_channel
 - name: nvda
   type: INTEGER
   mode: NULLABLE
-  description: Count of clients using NVDA (NonVisual Desktop Access) screen reader on the given submission date and channel.
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: nvda
 - name: jaws
   type: INTEGER
   mode: NULLABLE
-  description: Count of clients using JAWS (Job Access With Speech) screen reader on the given submission date and channel.
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: jaws
 - name: oldjaws
   type: INTEGER
   mode: NULLABLE
-  description: Count of clients using an older version of the JAWS screen reader on the given submission date and channel.
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: oldjaws
 - name: we
   type: INTEGER
   mode: NULLABLE
-  description: Count of clients using the Window-Eyes screen reader on the given submission date and channel.
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: we
 - name: dolphin
   type: INTEGER
   mode: NULLABLE
-  description: Count of clients using the Dolphin screen reader on the given submission date and channel.
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: dolphin
 - name: serotek
   type: INTEGER
   mode: NULLABLE
-  description: Count of clients using the Serotek screen reader on the given submission date and channel.
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: serotek
 - name: cobra
   type: INTEGER
   mode: NULLABLE
-  description: Count of clients using the Cobra screen reader on the given submission date and channel.
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: cobra
 - name: zoomtext
   type: INTEGER
   mode: NULLABLE
-  description: Count of clients using ZoomText magnification software on the given submission date and channel.
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: zoomtext
 - name: kazaguru
   type: INTEGER
   mode: NULLABLE
-  description: Count of clients using the Kazaguru assistive technology on the given submission date and channel.
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: kazaguru
 - name: youdao
   type: INTEGER
   mode: NULLABLE
-  description: Count of clients using the Youdao assistive technology on the given submission date and channel.
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: youdao
 - name: unknown
   type: INTEGER
   mode: NULLABLE
-  description: Count of clients using an unidentified assistive technology product on the given submission date and channel.
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: unknown
 - name: uiautomation
   type: INTEGER
   mode: NULLABLE
-  description: Count of clients where the Windows UI Automation accessibility framework was detected on the given submission date and channel.
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: uiautomation
 - name: visperoshared
   type: INTEGER
   mode: NULLABLE
-  description: Count of clients using Vispero shared accessibility components (parent company of JAWS) on the given submission date and channel.
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: visperoshared
 - name: magnifier
   type: INTEGER
   mode: NULLABLE
-  description: Count of clients using the Windows Magnifier accessibility tool on the given submission date and channel.
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: magnifier
 - name: narrator
   type: INTEGER
   mode: NULLABLE
-  description: Count of clients using Windows Narrator screen reader on the given submission date and channel.
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: narrator
 - name: on_screen_keyboard
   type: INTEGER
   mode: NULLABLE
-  description: Count of clients using the Windows On-Screen Keyboard accessibility feature on the given submission date and channel.
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: on_screen_keyboard
 - name: speech_recognition
   type: INTEGER
   mode: NULLABLE
-  description: Count of clients using a speech recognition assistive technology on the given submission date and channel.
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: speech_recognition
 - name: touch_keyboard_and_handwriting_panel
   type: INTEGER
   mode: NULLABLE
-  description: Count of clients using the Windows Touch Keyboard and Handwriting Panel on the given submission date and channel.
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: touch_keyboard_and_handwriting_panel
 - name: voice_over
   type: INTEGER
   mode: NULLABLE
-  description: Count of clients using Apple VoiceOver screen reader on the given submission date and channel.
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: voice_over
 - name: other
   type: INTEGER
   mode: NULLABLE
-  description: Count of clients using other accessibility tools not covered by the specific named columns on the given submission date and channel.
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: other
