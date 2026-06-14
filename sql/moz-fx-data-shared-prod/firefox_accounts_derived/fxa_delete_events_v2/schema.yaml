@@ -2,13 +2,21 @@ fields:
 - name: submission_timestamp
   type: TIMESTAMP
   mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+    field: submission_timestamp
 - name: user_id
   type: STRING
   mode: NULLABLE
-  description: Hashed user_id
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+    field: user_id
 - name: hmac_user_id
   type: STRING
   mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+    field: hmac_user_id
 - name: user_id_unhashed
   type: STRING
   mode: NULLABLE
