@@ -2,7 +2,9 @@ fields:
 - mode: NULLABLE
   name: submission_date
   type: DATE
-  description: 'Corresponds to ETL processing date.
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+    field: submission_date
 
     Also, used for partitioning the table.
 
@@ -28,7 +30,9 @@ fields:
 - mode: NULLABLE
   name: user_id
   type: STRING
-  description: 'A 36 char long hash value representing
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+    field: user_id
 
     User ID (registered user).
 
@@ -36,7 +40,9 @@ fields:
 - mode: NULLABLE
   name: country
   type: STRING
-  description: 'User''s country where activity took place.
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+    field: country
 
     See: UDF mozdata.stats.mode_last for more
 
@@ -46,13 +52,17 @@ fields:
 - mode: NULLABLE
   name: language
   type: STRING
-  description: 'Most recently used language.
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+    field: jsonPayload_fields_language
 
     '
 - mode: NULLABLE
   name: app_version
   type: STRING
-  description: 'Mozilla app version most recently used,
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+    field: jsonPayload_fields_app_version
 
     follows format: major.minor.patch (e.g. 99.3.3).
 
@@ -60,7 +70,9 @@ fields:
 - mode: NULLABLE
   name: os_name
   type: STRING
-  description: 'OS on which the app was most recently running.
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+    field: jsonPayload_fields_os_name
 
     For example: Android.
 
@@ -68,7 +80,9 @@ fields:
 - mode: NULLABLE
   name: os_version
   type: STRING
-  description: 'Version of the OS the device was most recently using.
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+    field: jsonPayload_fields_os_version
 
     '
 - mode: NULLABLE
