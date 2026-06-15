@@ -2,6 +2,8 @@ fields:
 - name: fxa_server
   type: STRING
   mode: NULLABLE
+  description: The FxA server component that emitted the log entry, extracted from the logger field (e.g., 'auth', 'content', 'payments'). Derived by
+    splitting jsonPayload.logger on '-' and taking the second token.
 - name: logName
   type: STRING
   mode: NULLABLE
