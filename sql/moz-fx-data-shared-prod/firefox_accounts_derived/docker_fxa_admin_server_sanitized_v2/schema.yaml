@@ -2,6 +2,9 @@ fields:
 - name: date
   type: DATE
   mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+    field: date
 - name: logName
   type: STRING
   mode: NULLABLE
@@ -25,24 +28,45 @@ fields:
     type: RECORD
     mode: NULLABLE
     fields:
+    description: !include-field-description
+      file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+      field: resource_labels
     - name: project_id
       type: STRING
       mode: NULLABLE
+      description: !include-field-description
+        file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+        field: resource_labels_project_id
     - name: pod_name
       type: STRING
       mode: NULLABLE
+      description: !include-field-description
+        file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+        field: resource_labels_pod_name
     - name: container_name
       type: STRING
       mode: NULLABLE
+      description: !include-field-description
+        file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+        field: resource_labels_container_name
     - name: cluster_name
       type: STRING
       mode: NULLABLE
+      description: !include-field-description
+        file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+        field: resource_labels_cluster_name
     - name: namespace_name
       type: STRING
       mode: NULLABLE
+      description: !include-field-description
+        file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+        field: resource_labels_namespace_name
     - name: location
       type: STRING
       mode: NULLABLE
+      description: !include-field-description
+        file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+        field: apphubSource_application_location
 - name: textPayload
   type: STRING
   mode: NULLABLE
@@ -59,48 +83,93 @@ fields:
   - name: log_type
     type: STRING
     mode: NULLABLE
+    description: !include-field-description
+      file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+      field: jsonPayload_log_type
   - name: request
     type: STRING
     mode: NULLABLE
+    description: !include-field-description
+      file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+      field: jsonPayload_request
   - name: request_time
     type: FLOAT
     mode: NULLABLE
+    description: !include-field-description
+      file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+      field: jsonPayload_request_time
   - name: x_forwarded_for
     type: STRING
     mode: NULLABLE
+    description: !include-field-description
+      file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+      field: jsonPayload_x_forwarded_for
   - name: bytes_sent
     type: FLOAT
     mode: NULLABLE
+    description: !include-field-description
+      file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+      field: jsonPayload_bytes_sent
   - name: user_agent
     type: STRING
     mode: NULLABLE
+    description: !include-field-description
+      file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+      field: jsonPayload_user_agent
   - name: x_forwarded_proto
     type: STRING
     mode: NULLABLE
+    description: !include-field-description
+      file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+      field: jsonPayload_x_forwarded_proto
   - name: trace
     type: STRING
     mode: NULLABLE
+    description: !include-field-description
+      file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+      field: jsonPayload_trace
   - name: remote_user
     type: STRING
     mode: NULLABLE
+    description: !include-field-description
+      file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+      field: jsonPayload_remote_user
   - name: remote_addr
     type: STRING
     mode: NULLABLE
+    description: !include-field-description
+      file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+      field: jsonPayload_remote_addr
   - name: referrer
     type: STRING
     mode: NULLABLE
+    description: !include-field-description
+      file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+      field: jsonPayload_referrer
   - name: status
     type: STRING
     mode: NULLABLE
+    description: !include-field-description
+      file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+      field: jsonPayload_fields_status
   - name: logger
     type: STRING
     mode: NULLABLE
+    description: !include-field-description
+      file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+      field: jsonPayload_logger
   - name: pid
     type: FLOAT
     mode: NULLABLE
+    description: !include-field-description
+      file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+      field: jsonPayload_pid
   - name: timestamp
     type: FLOAT
     mode: NULLABLE
+    description: !include-field-description
+      file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+      field: jsonPayload_fields_timestamp
   - name: fields
     type: RECORD
     mode: NULLABLE
@@ -108,117 +177,231 @@ fields:
     - name: remoteaddresschain
       type: STRING
       mode: NULLABLE
+      description: !include-field-description
+        file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+        field: jsonPayload_fields_remoteaddresschain
     - name: t
       type: STRING
       mode: NULLABLE
+      description: !include-field-description
+        file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+        field: jsonPayload_fields_t
     - name: method
       type: STRING
       mode: NULLABLE
+      description: !include-field-description
+        file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+        field: jsonPayload_method
     - name: status
       type: STRING
       mode: NULLABLE
+      description: !include-field-description
+        file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+        field: jsonPayload_fields_status
     - name: useragent
       type: STRING
       mode: NULLABLE
+      description: !include-field-description
+        file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+        field: jsonPayload_useragent
     - name: contentlength
       type: STRING
       mode: NULLABLE
+      description: !include-field-description
+        file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+        field: jsonPayload_fields_contentlength
     - name: clientaddress
       type: STRING
       mode: NULLABLE
+      description: !include-field-description
+        file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+        field: jsonPayload_fields_clientaddress
     - name: path
       type: STRING
       mode: NULLABLE
+      description: !include-field-description
+        file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+        field: jsonPayload_path
     - name: errno
       type: FLOAT
       mode: NULLABLE
+      description: !include-field-description
+        file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+        field: jsonPayload_errno
     - name: code
       type: FLOAT
       mode: NULLABLE
+      description: !include-field-description
+        file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+        field: jsonPayload_error_jse_cause_code
     - name: agent
       type: STRING
       mode: NULLABLE
+      description: !include-field-description
+        file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+        field: jsonPayload_fields_agent
     - name: client_id
       type: STRING
       mode: NULLABLE
+      description: !include-field-description
+        file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+        field: jsonPayload_fields_client_id
     - name: uid
       type: STRING
       mode: NULLABLE
+      description: !include-field-description
+        file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+        field: jsonPayload_uid
     - name: referer
       type: STRING
       mode: NULLABLE
+      description: !include-field-description
+        file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+        field: jsonPayload_fields_referer
     - name: message
       type: STRING
       mode: NULLABLE
+      description: !include-field-description
+        file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+        field: jsonPayload_fields_message
     - name: event
       type: STRING
       mode: NULLABLE
+      description: !include-field-description
+        file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+        field: jsonPayload_event
     - name: time
       type: FLOAT
       mode: NULLABLE
+      description: !include-field-description
+        file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+        field: jsonPayload_time
     - name: event_type
       type: STRING
       mode: NULLABLE
+      description: !include-field-description
+        file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+        field: jsonPayload_fields_event_type
     - name: region
       type: STRING
       mode: NULLABLE
+      description: !include-field-description
+        file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+        field: jsonPayload_region
     - name: country
       type: STRING
       mode: NULLABLE
+      description: !include-field-description
+        file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+        field: country
     - name: session_id
       type: FLOAT
       mode: NULLABLE
+      description: !include-field-description
+        file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+        field: jsonPayload_fields_session_id
     - name: language
       type: STRING
       mode: NULLABLE
+      description: !include-field-description
+        file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+        field: jsonPayload_fields_language
     - name: app_version
       type: STRING
       mode: NULLABLE
+      description: !include-field-description
+        file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+        field: jsonPayload_fields_app_version
     - name: user_properties
       type: STRING
       mode: NULLABLE
+      description: !include-field-description
+        file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+        field: jsonPayload_fields_user_properties
     - name: event_properties
       type: STRING
       mode: NULLABLE
+      description: !include-field-description
+        file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+        field: jsonPayload_fields_event_properties
     - name: device_id
       type: STRING
       mode: NULLABLE
+      description: !include-field-description
+        file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+        field: jsonPayload_fields_device_id
     - name: op
       type: STRING
       mode: NULLABLE
+      description: !include-field-description
+        file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+        field: jsonPayload_op
     - name: os_name
       type: STRING
       mode: NULLABLE
+      description: !include-field-description
+        file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+        field: jsonPayload_fields_os_name
     - name: err
       type: STRING
       mode: NULLABLE
+      description: !include-field-description
+        file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+        field: jsonPayload_fields_err
     - name: joierrors
       type: STRING
       mode: NULLABLE
+      description: !include-field-description
+        file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+        field: jsonPayload_fields_joierrors
     - name: stack
       type: STRING
       mode: NULLABLE
+      description: !include-field-description
+        file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+        field: labels_stack
     - name: reason
       type: STRING
       mode: NULLABLE
+      description: !include-field-description
+        file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+        field: jsonPayload_reason
     - name: result
       type: STRING
       mode: NULLABLE
+      description: !include-field-description
+        file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+        field: jsonPayload_fields_result
     - name: api
       type: FLOAT
       mode: NULLABLE
+      description: !include-field-description
+        file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+        field: jsonPayload_fields_api
     - name: os_version
       type: STRING
       mode: NULLABLE
+      description: !include-field-description
+        file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+        field: jsonPayload_fields_os_version
     - name: user_id
       type: STRING
       mode: NULLABLE
+      description: !include-field-description
+        file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+        field: user_id
     - name: msg
       type: STRING
       mode: NULLABLE
+      description: !include-field-description
+        file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+        field: jsonPayload_fields_msg
     - name: error
       type: STRING
       mode: NULLABLE
+      description: !include-field-description
+        file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+        field: jsonPayload_fields_error
     - name: source
       type: STRING
       mode: NULLABLE
@@ -234,60 +417,111 @@ fields:
     - name: referrer
       type: STRING
       mode: NULLABLE
+      description: !include-field-description
+        file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+        field: jsonPayload_referrer
     - name: violated
       type: STRING
       mode: NULLABLE
     - name: url
       type: STRING
       mode: NULLABLE
+      description: !include-field-description
+        file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+        field: jsonPayload_config_tracing_otel_url
     - name: version
       type: STRING
       mode: NULLABLE
+      description: !include-field-description
+        file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+        field: jsonPayload_version
     - name: directory
       type: STRING
       mode: NULLABLE
+      description: !include-field-description
+        file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+        field: jsonPayload_fields_directory
     - name: port
       type: FLOAT
       mode: NULLABLE
+      description: !include-field-description
+        file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+        field: jsonPayload_port
     - name: poolstats
       type: STRING
       mode: NULLABLE
+      description: !include-field-description
+        file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+        field: jsonPayload_fields_poolstats
     - name: signal
       type: STRING
       mode: NULLABLE
+      description: !include-field-description
+        file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+        field: jsonPayload_fields_signal
     - name: reqtime
       type: FLOAT
       mode: NULLABLE
+      description: !include-field-description
+        file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+        field: jsonPayload_fields_reqtime
     - name: rp
       type: STRING
       mode: NULLABLE
+      description: !include-field-description
+        file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+        field: jsonPayload_fields_rp
     - name: assertion_verification_time
       type: FLOAT
       mode: NULLABLE
+      description: !include-field-description
+        file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+        field: jsonPayload_fields_assertion_verification_time
     - name: trustedissuers
       type: STRING
       mode: NULLABLE
+      description: !include-field-description
+        file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+        field: jsonPayload_fields_trustedissuers
     - name: assertion
       type: STRING
       mode: NULLABLE
+      description: !include-field-description
+        file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+        field: jsonPayload_fields_assertion
     - name: host
       type: STRING
       mode: NULLABLE
+      description: !include-field-description
+        file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+        field: jsonPayload_host
     - name: header
       type: STRING
       mode: NULLABLE
+      description: !include-field-description
+        file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+        field: jsonPayload_fields_header
     - name: usergroupheader
       type: STRING
       mode: NULLABLE
     - name: usergroupheader_notnull
       type: STRING
       mode: NULLABLE
+      description: !include-field-description
+        file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+        field: jsonPayload_fields_usergroupheader_notnull
     - name: user
       type: BYTES
       mode: NULLABLE
+      description: !include-field-description
+        file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+        field: jsonPayload_fields_user
     - name: email
       type: BYTES
       mode: NULLABLE
+      description: !include-field-description
+        file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+        field: jsonPayload_email
     - name: search_type
       type: STRING
       mode: NULLABLE
@@ -297,159 +531,309 @@ fields:
     - name: payload
       type: STRING
       mode: NULLABLE
+      description: !include-field-description
+        file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+        field: jsonPayload_fields_payload
     - name: user_agent
       type: STRING
       mode: NULLABLE
+      description: !include-field-description
+        file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+        field: jsonPayload_user_agent
     - name: ip_address
       type: STRING
       mode: NULLABLE
+      description: !include-field-description
+        file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+        field: jsonPayload_fields_ip_address
     - name: document_version
       type: STRING
       mode: NULLABLE
+      description: !include-field-description
+        file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+        field: jsonPayload_fields_document_version
     - name: document_namespace
       type: STRING
       mode: NULLABLE
+      description: !include-field-description
+        file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+        field: jsonPayload_fields_document_namespace
     - name: document_type
       type: STRING
       mode: NULLABLE
+      description: !include-field-description
+        file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+        field: jsonPayload_fields_document_type
     - name: document_id
       type: STRING
       mode: NULLABLE
+      description: !include-field-description
+        file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+        field: jsonPayload_fields_document_id
     - name: originaltransactionid
       type: STRING
       mode: NULLABLE
+      description: !include-field-description
+        file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+        field: jsonPayload_fields_originaltransactionid
     - name: config
       type: STRING
       mode: NULLABLE
+      description: !include-field-description
+        file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+        field: jsonPayload_fields_config
     - name: duration
       type: FLOAT
       mode: NULLABLE
+      description: !include-field-description
+        file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+        field: jsonPayload_fields_duration
     - name: info
       type: STRING
       mode: NULLABLE
+      description: !include-field-description
+        file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+        field: jsonPayload_fields_info
     - name: detail
       type: STRING
       mode: NULLABLE
+      description: !include-field-description
+        file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+        field: jsonPayload_fields_detail
     - name: cause
       type: STRING
       mode: NULLABLE
+      description: !include-field-description
+        file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+        field: jsonPayload_fields_cause
     - name: success
       type: FLOAT
       mode: NULLABLE
     - name: device_model
       type: STRING
       mode: NULLABLE
+      description: !include-field-description
+        file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+        field: jsonPayload_fields_device_model
     - name: sample
       type: STRING
       mode: NULLABLE
     - name: request
       type: STRING
       mode: NULLABLE
+      description: !include-field-description
+        file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+        field: jsonPayload_request
     - name: name
       type: STRING
       mode: NULLABLE
+      description: !include-field-description
+        file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+        field: jsonPayload_error_name
     - name: closed
       type: BOOLEAN
       mode: NULLABLE
+      description: !include-field-description
+        file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+        field: jsonPayload_fields_closed
     - name: _res
       type: STRING
       mode: NULLABLE
+      description: !include-field-description
+        file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+        field: jsonPayload_fields__res
     - name: operation
       type: STRING
       mode: NULLABLE
+      description: !include-field-description
+        file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+        field: jsonPayload_fields_operation
     - name: service
       type: STRING
       mode: NULLABLE
+      description: !include-field-description
+        file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+        field: jsonPayload_service
     - name: locator
       type: STRING
       mode: NULLABLE
+      description: !include-field-description
+        file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+        field: jsonPayload_fields_locator
     - name: locale
       type: STRING
       mode: NULLABLE
+      description: !include-field-description
+        file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+        field: locale
     - name: twofactorauthentication
       type: BOOLEAN
       mode: NULLABLE
+      description: !include-field-description
+        file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+        field: jsonPayload_fields_twofactorauthentication
     - name: profilechangedat
       type: FLOAT
       mode: NULLABLE
+      description: !include-field-description
+        file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+        field: jsonPayload_fields_profilechangedat
     - name: atleast18atreg
       type: STRING
       mode: NULLABLE
+      description: !include-field-description
+        file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+        field: jsonPayload_fields_atleast18atreg
     - name: metricsenabled
       type: BOOLEAN
       mode: NULLABLE
+      description: !include-field-description
+        file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+        field: jsonPayload_fields_metricsenabled
     - name: amrvalues
       type: STRING
       mode: NULLABLE
+      description: !include-field-description
+        file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+        field: jsonPayload_fields_amrvalues
     - name: purchasetoken
       type: STRING
       mode: NULLABLE
+      description: !include-field-description
+        file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+        field: jsonPayload_fields_purchasetoken
     - name: _
       type: STRING
       mode: NULLABLE
+      description: !include-field-description
+        file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+        field: jsonPayload_fields__
     - name: originaltransactionids
       type: STRING
       mode: NULLABLE
+      description: !include-field-description
+        file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+        field: jsonPayload_fields_originaltransactionids
     - name: bundle
       type: STRING
       mode: NULLABLE
+      description: !include-field-description
+        file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+        field: jsonPayload_fields_bundle
     - name: userid
       type: STRING
       mode: NULLABLE
+      description: !include-field-description
+        file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+        field: jsonPayload_fields_userid
     - name: errorcode
       type: FLOAT
       mode: NULLABLE
+      description: !include-field-description
+        file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+        field: jsonPayload_fields_errorcode
     - name: subscriptionsbyclientid
       type: STRING
       mode: NULLABLE
+      description: !include-field-description
+        file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+        field: jsonPayload_fields_subscriptionsbyclientid
     - name: pathname
       type: STRING
       mode: NULLABLE
+      description: !include-field-description
+        file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+        field: jsonPayload_fields_pathname
     - name: interval
       type: STRING
       mode: NULLABLE
+      description: !include-field-description
+        file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+        field: jsonPayload_jse_info_interval
     - name: offeringid
       type: STRING
       mode: NULLABLE
+      description: !include-field-description
+        file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+        field: jsonPayload_fields_offeringid
     - name: eligibilitystatus
       type: STRING
       mode: NULLABLE
+      description: !include-field-description
+        file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+        field: jsonPayload_fields_eligibilitystatus
     - name: requestcode
       type: STRING
       mode: NULLABLE
+      description: !include-field-description
+        file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+        field: jsonPayload_fields_requestcode
     - name: body
       type: STRING
       mode: NULLABLE
+      description: !include-field-description
+        file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+        field: jsonPayload_fields_body
     - name: phonenumber
       type: STRING
       mode: NULLABLE
+      description: !include-field-description
+        file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+        field: jsonPayload_fields_phonenumber
     - name: query
       type: STRING
       mode: NULLABLE
+      description: !include-field-description
+        file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+        field: jsonPayload_fields_query
     - name: template
       type: STRING
       mode: NULLABLE
+      description: !include-field-description
+        file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+        field: jsonPayload_fields_template
     - name: to
       type: STRING
       mode: NULLABLE
+      description: !include-field-description
+        file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+        field: jsonPayload_fields_to
     - name: action
       type: STRING
       mode: NULLABLE
+      description: !include-field-description
+        file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+        field: jsonPayload_action
     - name: timestamp
       type: STRING
       mode: NULLABLE
+      description: !include-field-description
+        file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+        field: jsonPayload_fields_timestamp
     - name: errorname
       type: STRING
       mode: NULLABLE
+      description: !include-field-description
+        file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+        field: jsonPayload_fields_errorname
   - name: envversion
     type: STRING
     mode: NULLABLE
+    description: !include-field-description
+      file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+      field: jsonPayload_envversion
   - name: type
     type: STRING
     mode: NULLABLE
+    description: !include-field-description
+      file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+      field: jsonPayload_type
   - name: severity
     type: FLOAT
     mode: NULLABLE
+    description: !include-field-description
+      file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+      field: severity
   - name: jse_cause
     type: RECORD
     mode: NULLABLE
@@ -457,21 +841,39 @@ fields:
     - name: jse_shortmsg
       type: STRING
       mode: NULLABLE
+      description: !include-field-description
+        file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+        field: jsonPayload_error_jse_shortmsg
     - name: message
       type: STRING
       mode: NULLABLE
+      description: !include-field-description
+        file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+        field: jsonPayload_fields_message
   - name: message
     type: STRING
     mode: NULLABLE
+    description: !include-field-description
+      file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+      field: jsonPayload_fields_message
   - name: level
     type: STRING
     mode: NULLABLE
+    description: !include-field-description
+      file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+      field: jsonPayload_config_log_level
   - name: stack
     type: STRING
     mode: NULLABLE
+    description: !include-field-description
+      file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+      field: labels_stack
   - name: name
     type: STRING
     mode: NULLABLE
+    description: !include-field-description
+      file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+      field: jsonPayload_error_name
   - name: jse_info
     type: RECORD
     mode: NULLABLE
@@ -479,114 +881,216 @@ fields:
     - name: offeringid
       type: STRING
       mode: NULLABLE
+      description: !include-field-description
+        file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+        field: jsonPayload_fields_offeringid
     - name: interval
       type: STRING
       mode: NULLABLE
+      description: !include-field-description
+        file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+        field: jsonPayload_jse_info_interval
   - name: jse_shortmsg
     type: STRING
     mode: NULLABLE
+    description: !include-field-description
+      file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+      field: jsonPayload_error_jse_shortmsg
   - name: retryable
     type: BOOLEAN
     mode: NULLABLE
+    description: !include-field-description
+      file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+      field: jsonPayload_retryable
   - name: statuscode
     type: FLOAT
     mode: NULLABLE
+    description: !include-field-description
+      file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+      field: jsonPayload_fields_statuscode
   - name: retrydelay
     type: FLOAT
     mode: NULLABLE
+    description: !include-field-description
+      file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+      field: jsonPayload_retrydelay
   - name: code
     type: STRING
     mode: NULLABLE
+    description: !include-field-description
+      file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+      field: jsonPayload_error_jse_cause_code
   - name: requestid
     type: STRING
     mode: NULLABLE
+    description: !include-field-description
+      file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+      field: jsonPayload_requestid
   - name: msg
     type: STRING
     mode: NULLABLE
+    description: !include-field-description
+      file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+      field: jsonPayload_fields_msg
   - name: scheme
     type: STRING
     mode: NULLABLE
+    description: !include-field-description
+      file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+      field: jsonPayload_scheme
   - name: serverhostname
     type: STRING
     mode: NULLABLE
+    description: !include-field-description
+      file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+      field: jsonPayload_serverhostname
   - name: useragent
     type: STRING
     mode: NULLABLE
+    description: !include-field-description
+      file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+      field: jsonPayload_useragent
   - name: responseheaders
     type: RECORD
     mode: REPEATED
     fields:
+    description: !include-field-description
+      file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+      field: jsonPayload_responseheaders
     - name: value
       type: STRING
       mode: NULLABLE
+      description: !include-field-description
+        file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+        field: jsonPayload_fields_value
     - name: name
       type: STRING
       mode: NULLABLE
+      description: !include-field-description
+        file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+        field: jsonPayload_error_name
   - name: protocol
     type: STRING
     mode: NULLABLE
+    description: !include-field-description
+      file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+      field: jsonPayload_protocol
   - name: responsesize
     type: FLOAT
     mode: NULLABLE
+    description: !include-field-description
+      file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+      field: jsonPayload_responsesize
   - name: responsemillis
     type: FLOAT
     mode: NULLABLE
+    description: !include-field-description
+      file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+      field: jsonPayload_responsemillis
   - name: remoteaddr
     type: STRING
     mode: NULLABLE
+    description: !include-field-description
+      file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+      field: jsonPayload_remoteaddr
   - name: version
     type: STRING
     mode: NULLABLE
+    description: !include-field-description
+      file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+      field: jsonPayload_version
   - name: responsecode
     type: FLOAT
     mode: NULLABLE
+    description: !include-field-description
+      file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+      field: jsonPayload_responsecode
   - name: method
     type: STRING
     mode: NULLABLE
+    description: !include-field-description
+      file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+      field: jsonPayload_method
   - name: tlscipher
     type: STRING
     mode: NULLABLE
+    description: !include-field-description
+      file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+      field: jsonPayload_tlscipher
   - name: requestheaders
     type: RECORD
     mode: REPEATED
     fields:
+    description: !include-field-description
+      file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+      field: jsonPayload_requestheaders
     - name: name
       type: STRING
       mode: NULLABLE
+      description: !include-field-description
+        file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+        field: jsonPayload_error_name
     - name: value
       type: STRING
       mode: NULLABLE
+      description: !include-field-description
+        file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+        field: jsonPayload_fields_value
   - name: uri
     type: STRING
     mode: NULLABLE
+    description: !include-field-description
+      file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+      field: jsonPayload_uri
   - name: servername
     type: STRING
     mode: NULLABLE
+    description: !include-field-description
+      file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+      field: jsonPayload_servername
   - name: requestidstr
     type: STRING
     mode: NULLABLE
+    description: !include-field-description
+      file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+      field: jsonPayload_requestidstr
   - name: signals
     type: RECORD
     mode: REPEATED
     fields:
+    description: !include-field-description
+      file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+      field: jsonPayload_signals
     - name: redaction
       type: STRING
       mode: NULLABLE
     - name: value
       type: STRING
       mode: NULLABLE
+      description: !include-field-description
+        file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+        field: jsonPayload_fields_value
     - name: type
       type: STRING
       mode: NULLABLE
+      description: !include-field-description
+        file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+        field: jsonPayload_type
     - name: location
       type: STRING
       mode: NULLABLE
+      description: !include-field-description
+        file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+        field: apphubSource_application_location
     - name: detector
       type: STRING
       mode: NULLABLE
     - name: name
       type: STRING
       mode: NULLABLE
+      description: !include-field-description
+        file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+        field: jsonPayload_error_name
     - name: attrs
       type: RECORD
       mode: NULLABLE
@@ -594,6 +1098,9 @@ fields:
       - name: type
         type: STRING
         mode: NULLABLE
+        description: !include-field-description
+          file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+          field: jsonPayload_type
       - name: fingerprint
         type: STRING
         mode: NULLABLE
@@ -612,18 +1119,33 @@ fields:
   - name: path
     type: STRING
     mode: NULLABLE
+    description: !include-field-description
+      file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+      field: jsonPayload_path
   - name: tlsprotocol
     type: STRING
     mode: NULLABLE
+    description: !include-field-description
+      file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+      field: jsonPayload_tlsprotocol
   - name: wafresponse
     type: FLOAT
     mode: NULLABLE
+    description: !include-field-description
+      file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+      field: jsonPayload_wafresponse
   - name: input
     type: STRING
     mode: NULLABLE
+    description: !include-field-description
+      file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+      field: jsonPayload_input
 - name: timestamp
   type: TIMESTAMP
   mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+    field: jsonPayload_fields_timestamp
 - name: receiveTimestamp
   type: TIMESTAMP
   mode: NULLABLE
@@ -743,48 +1265,93 @@ fields:
   - name: k8s_pod_app_kubernetes_io_component
     type: STRING
     mode: NULLABLE
+    description: !include-field-description
+      file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+      field: labels_k8s_pod_app_kubernetes_io_component
   - name: k8s_pod_deployment
     type: STRING
     mode: NULLABLE
+    description: !include-field-description
+      file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+      field: labels_k8s_pod_deployment
   - name: compute_googleapis_com_resource_name
     type: STRING
     mode: NULLABLE
+    description: !include-field-description
+      file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+      field: labels_compute_googleapis_com_resource_name
   - name: k8s_pod_env_code
     type: STRING
     mode: NULLABLE
+    description: !include-field-description
+      file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+      field: labels_k8s_pod_env_code
   - name: k8s_pod_pod_template_hash
     type: STRING
     mode: NULLABLE
+    description: !include-field-description
+      file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+      field: labels_k8s_pod_pod_template_hash
   - name: k8s_pod_app_kubernetes_io_name
     type: STRING
     mode: NULLABLE
+    description: !include-field-description
+      file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+      field: labels_k8s_pod_app_kubernetes_io_name
   - name: k8s_pod_job_name
     type: STRING
     mode: NULLABLE
+    description: !include-field-description
+      file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+      field: labels_k8s_pod_job_name
   - name: k8s_pod_controller_uid
     type: STRING
     mode: NULLABLE
+    description: !include-field-description
+      file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+      field: labels_k8s_pod_controller_uid
   - name: k8s_pod_redis
     type: STRING
     mode: NULLABLE
+    description: !include-field-description
+      file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+      field: labels_k8s_pod_redis
   - name: k8s_pod_batch_kubernetes_io_controller_uid
     type: STRING
     mode: NULLABLE
+    description: !include-field-description
+      file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+      field: labels_k8s_pod_batch_kubernetes_io_controller_uid
   - name: k8s_pod_batch_kubernetes_io_job_name
     type: STRING
     mode: NULLABLE
+    description: !include-field-description
+      file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+      field: labels_k8s_pod_batch_kubernetes_io_job_name
   - name: k8s_pod_run
     type: STRING
     mode: NULLABLE
+    description: !include-field-description
+      file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+      field: labels_k8s_pod_run
   - name: logging_gke_io_top_level_controller_type
     type: STRING
     mode: NULLABLE
+    description: !include-field-description
+      file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+      field: labels_logging_gke_io_top_level_controller_type
   - name: logging_gke_io_top_level_controller_name
     type: STRING
     mode: NULLABLE
+    description: !include-field-description
+      file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+      field: labels_logging_gke_io_top_level_controller_name
   - name: k8s_pod_app_kubernetes_io_instance
     type: STRING
     mode: NULLABLE
+    description: !include-field-description
+      file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+      field: labels_k8s_pod_app_kubernetes_io_instance
 - name: operation
   type: RECORD
   mode: NULLABLE
@@ -905,28 +1472,52 @@ fields:
     type: RECORD
     mode: NULLABLE
     fields:
+    description: !include-field-description
+      file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+      field: labels_application
     - name: container
       type: STRING
       mode: NULLABLE
+      description: !include-field-description
+        file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+        field: apphubDestination_application_container
     - name: location
       type: STRING
       mode: NULLABLE
+      description: !include-field-description
+        file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+        field: apphubSource_application_location
     - name: id
       type: STRING
       mode: NULLABLE
+      description: !include-field-description
+        file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+        field: apphub_workload_id
   - name: service
     type: RECORD
     mode: NULLABLE
     fields:
+    description: !include-field-description
+      file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+      field: jsonPayload_service
     - name: id
       type: STRING
       mode: NULLABLE
+      description: !include-field-description
+        file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+        field: apphub_workload_id
     - name: environmentType
       type: STRING
       mode: NULLABLE
+      description: !include-field-description
+        file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+        field: apphubDestination_service_environmentType
     - name: criticalityType
       type: STRING
       mode: NULLABLE
+      description: !include-field-description
+        file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+        field: apphubSource_service_criticalityType
   - name: workload
     type: RECORD
     mode: NULLABLE
@@ -934,12 +1525,21 @@ fields:
     - name: id
       type: STRING
       mode: NULLABLE
+      description: !include-field-description
+        file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+        field: apphub_workload_id
     - name: environmentType
       type: STRING
       mode: NULLABLE
+      description: !include-field-description
+        file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+        field: apphubDestination_service_environmentType
     - name: criticalityType
       type: STRING
       mode: NULLABLE
+      description: !include-field-description
+        file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+        field: apphubSource_service_criticalityType
 - name: apphubDestination
   type: RECORD
   mode: NULLABLE
@@ -948,28 +1548,52 @@ fields:
     type: RECORD
     mode: NULLABLE
     fields:
+    description: !include-field-description
+      file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+      field: labels_application
     - name: container
       type: STRING
       mode: NULLABLE
+      description: !include-field-description
+        file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+        field: apphubDestination_application_container
     - name: location
       type: STRING
       mode: NULLABLE
+      description: !include-field-description
+        file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+        field: apphubSource_application_location
     - name: id
       type: STRING
       mode: NULLABLE
+      description: !include-field-description
+        file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+        field: apphub_workload_id
   - name: service
     type: RECORD
     mode: NULLABLE
     fields:
+    description: !include-field-description
+      file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+      field: jsonPayload_service
     - name: id
       type: STRING
       mode: NULLABLE
+      description: !include-field-description
+        file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+        field: apphub_workload_id
     - name: environmentType
       type: STRING
       mode: NULLABLE
+      description: !include-field-description
+        file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+        field: apphubDestination_service_environmentType
     - name: criticalityType
       type: STRING
       mode: NULLABLE
+      description: !include-field-description
+        file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+        field: apphubSource_service_criticalityType
   - name: workload
     type: RECORD
     mode: NULLABLE
@@ -977,12 +1601,21 @@ fields:
     - name: id
       type: STRING
       mode: NULLABLE
+      description: !include-field-description
+        file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+        field: apphub_workload_id
     - name: environmentType
       type: STRING
       mode: NULLABLE
+      description: !include-field-description
+        file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+        field: apphubDestination_service_environmentType
     - name: criticalityType
       type: STRING
       mode: NULLABLE
+      description: !include-field-description
+        file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+        field: apphubSource_service_criticalityType
 - name: apphubSource
   type: RECORD
   mode: NULLABLE
@@ -991,28 +1624,52 @@ fields:
     type: RECORD
     mode: NULLABLE
     fields:
+    description: !include-field-description
+      file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+      field: labels_application
     - name: container
       type: STRING
       mode: NULLABLE
+      description: !include-field-description
+        file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+        field: apphubDestination_application_container
     - name: location
       type: STRING
       mode: NULLABLE
+      description: !include-field-description
+        file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+        field: apphubSource_application_location
     - name: id
       type: STRING
       mode: NULLABLE
+      description: !include-field-description
+        file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+        field: apphub_workload_id
   - name: service
     type: RECORD
     mode: NULLABLE
     fields:
+    description: !include-field-description
+      file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+      field: jsonPayload_service
     - name: id
       type: STRING
       mode: NULLABLE
+      description: !include-field-description
+        file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+        field: apphub_workload_id
     - name: environmentType
       type: STRING
       mode: NULLABLE
+      description: !include-field-description
+        file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+        field: apphubDestination_service_environmentType
     - name: criticalityType
       type: STRING
       mode: NULLABLE
+      description: !include-field-description
+        file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+        field: apphubSource_service_criticalityType
   - name: workload
     type: RECORD
     mode: NULLABLE
@@ -1020,9 +1677,18 @@ fields:
     - name: id
       type: STRING
       mode: NULLABLE
+      description: !include-field-description
+        file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+        field: apphub_workload_id
     - name: environmentType
       type: STRING
       mode: NULLABLE
+      description: !include-field-description
+        file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+        field: apphubDestination_service_environmentType
     - name: criticalityType
       type: STRING
       mode: NULLABLE
+      description: !include-field-description
+        file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+        field: apphubSource_service_criticalityType
