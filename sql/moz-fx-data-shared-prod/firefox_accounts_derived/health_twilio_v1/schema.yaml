@@ -2,15 +2,21 @@ fields:
   - mode: NULLABLE
     name: date
     type: DATE
-  description: The date for which the Twilio usage record applies.
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+    field: date
   - mode: NULLABLE
     name: category
     type: STRING
-  description: The Twilio usage category for this record (e.g., SMS, voice calls, phone number lookups), as defined by Twilio's usage record API.
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+    field: category
   - mode: NULLABLE
     name: count
     type: INTEGER
-  description: The number of individual usage events (e.g., messages sent, calls made) recorded for this category on the given date.
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+    field: jsonPayload_fields_count
   - mode: NULLABLE
     name: usage
     type: FLOAT
