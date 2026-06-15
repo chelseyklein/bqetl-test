@@ -2,24 +2,37 @@ fields:
   - mode: NULLABLE
     name: avgresponse
     type: INTEGER
+  description: The average response time in milliseconds for the monitored Firefox Accounts service during the reporting period, as recorded by Pingdom.
   - mode: NULLABLE
     name: downtime
     type: INTEGER
+  description: The total number of seconds the Firefox Accounts service was considered down (unavailable) during the reporting period, as recorded by
+    Pingdom.
   - mode: NULLABLE
     name: starttime
     type: TIMESTAMP
+  description: The timestamp marking the beginning of the reporting period for which this Pingdom health summary row was collected.
   - mode: NULLABLE
     name: unmonitored
     type: INTEGER
+  description: The total number of seconds the Firefox Accounts service was in an unmonitored state (e.g., paused checks or maintenance windows) during
+    the reporting period, as recorded by Pingdom.
   - mode: NULLABLE
     name: uptime
     type: INTEGER
+  description: The total number of seconds the Firefox Accounts service was confirmed up and reachable during the reporting period, as recorded by Pingdom.
   - mode: NULLABLE
     name: project
     type: STRING
+  description: The name or identifier of the Firefox Accounts service or component being monitored by this Pingdom check (e.g., a specific endpoint or
+    sub-service).
   - mode: NULLABLE
     name: fuzzy_uptime_percent
     type: FLOAT
+  description: The approximate uptime percentage for the reporting period, calculated as uptime divided by the sum of uptime and downtime (excluding
+    unmonitored time). Values range from 0.0 to 1.0 (or 0–100%).
   - mode: NULLABLE
     name: unmonitored_percent
     type: FLOAT
+  description: The percentage of the reporting period during which the service was in an unmonitored state, calculated as unmonitored seconds divided
+    by the total period duration. Values range from 0.0 to 1.0 (or 0–100%).
