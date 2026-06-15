@@ -2,21 +2,31 @@ fields:
   - mode: NULLABLE
     name: timestamp
     type: TIMESTAMP
+  description: The timestamp at which the health check data was recorded or collected.
   - mode: NULLABLE
     name: server
     type: STRING
+  description: Identifier for the Firefox Accounts server instance that reported this health check (e.g., a hostname or environment label).
   - mode: NULLABLE
     name: version
     type: STRING
+  description: The deployed software version of the Firefox Accounts service at the time of the health check.
   - mode: NULLABLE
     name: commit
     type: STRING
+  description: The Git commit hash corresponding to the deployed code version of the Firefox Accounts service, used to pinpoint the exact build.
   - mode: NULLABLE
     name: l10n
     type: STRING
+  description: The localization (l10n) version or tag indicating which set of locale/translation resources is active on the server at the time of the
+    health check.
   - mode: NULLABLE
     name: tospp
     type: STRING
+  description: The version or tag of the Terms of Service and Privacy Policy (ToS/PP) content deployed on the Firefox Accounts server at the time of
+    the health check.
   - mode: NULLABLE
     name: since_last_push
     type: FLOAT
+  description: The elapsed time in seconds (or fractional seconds) since the last content or configuration push was applied to the server, indicating
+    how recently the server was updated.
