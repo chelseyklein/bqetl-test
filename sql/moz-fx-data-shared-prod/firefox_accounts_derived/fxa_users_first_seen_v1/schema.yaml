@@ -8,3 +8,5 @@ fields:
 - name: services_used
   type: STRING
   mode: REPEATED
+  description: Distinct list of Firefox Accounts services (e.g. sync, relay) that the user has been observed using across all FxA auth, auth_bounce,
+    content, and OAuth log events up to and including the current date. Values are sorted alphabetically and accumulated incrementally over time.
