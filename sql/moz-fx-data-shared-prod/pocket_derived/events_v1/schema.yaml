@@ -2,9 +2,11 @@ fields:
 - mode: NULLABLE
   name: submission_timestamp
   type: TIMESTAMP
+  description: The timestamp at which the Pocket frontend event data was submitted and ingested from GCS. Used to partition the table by date.
 - mode: NULLABLE
   name: normalized_app_id
   type: STRING
+  description: The normalized application identifier for the Pocket app that produced the event, sourced from the APP_ID field in the raw Parquet data.
 - mode: NULLABLE
   name: metadata
   type: RECORD
@@ -57,9 +59,14 @@ fields:
 - mode: NULLABLE
   name: event
   type: STRING
+  description: The name of the Pocket frontend event that occurred, sourced from the EVENT_NAME field in the raw Parquet data (e.g. a user action or
+    system event).
 - mode: NULLABLE
   name: event_timestamp
   type: TIMESTAMP
+  description: The timestamp at which the Pocket frontend event occurred on the client, sourced from the EVENT_TIMESTAMP field in the raw Parquet data.
 - mode: NULLABLE
   name: event_extra
   type: JSON
+  description: A JSON object containing additional key-value metadata associated with the event, parsed from the EVENT_EXTRAS field in the raw Parquet
+    data. Contents vary by event type.
