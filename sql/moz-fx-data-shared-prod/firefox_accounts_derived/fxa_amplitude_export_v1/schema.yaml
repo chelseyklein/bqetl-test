@@ -5,18 +5,30 @@ fields:
 - mode: NULLABLE
   name: user_id
   type: STRING
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+    field: jsonPayload_fields_user_id
 - mode: NULLABLE
   name: insert_id
   type: STRING
 - mode: NULLABLE
   name: region
   type: STRING
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+    field: region
 - mode: NULLABLE
   name: country
   type: STRING
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+    field: jsonPayload_fields_country
 - mode: NULLABLE
   name: language
   type: STRING
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+    field: language
 - mode: REPEATED
   name: services
   type: STRING
@@ -30,6 +42,9 @@ fields:
   - mode: NULLABLE
     name: key
     type: STRING
+    description: !include-field-description
+      file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+      field: jsonPayload_fields_key
   - mode: NULLABLE
     name: value
     type: INTEGER
@@ -57,6 +72,9 @@ fields:
 - mode: NULLABLE
   name: app_version
   type: FLOAT
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+    field: jsonPayload_fields_app_version
 - mode: NULLABLE
   name: days_seen_bits
   type: INTEGER
@@ -66,3 +84,6 @@ fields:
 - mode: NULLABLE
   name: timestamp
   type: DATETIME
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+    field: timestamp
