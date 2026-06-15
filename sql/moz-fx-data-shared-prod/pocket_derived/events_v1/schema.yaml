@@ -2,9 +2,12 @@ fields:
 - mode: NULLABLE
   name: submission_timestamp
   type: TIMESTAMP
+  description: The timestamp at which the event record was submitted and received by the data pipeline. Used to partition the table by date.
 - mode: NULLABLE
   name: normalized_app_id
   type: STRING
+  description: The normalized application identifier for the Pocket frontend app that produced the event, sourced from the APP_ID field in the raw Parquet
+    data.
 - mode: NULLABLE
   name: metadata
   type: RECORD
@@ -57,9 +60,14 @@ fields:
 - mode: NULLABLE
   name: event
   type: STRING
+  description: The name of the Pocket frontend event that occurred, sourced from EVENT_NAME in the raw data (e.g. a user action or system event type).
 - mode: NULLABLE
   name: event_timestamp
   type: TIMESTAMP
+  description: The timestamp at which the event occurred on the client, sourced from EVENT_TIMESTAMP in the raw data. Distinct from submission_timestamp,
+    which reflects pipeline ingestion time.
 - mode: NULLABLE
   name: event_extra
   type: JSON
+  description: A JSON object containing additional key-value metadata associated with the event, sourced from EVENT_EXTRAS in the raw data. Contents
+    vary by event type and may include contextual attributes specific to the event.
