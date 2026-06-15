@@ -2,13 +2,17 @@ fields:
 - mode: NULLABLE
   name: submission_timestamp
   type: TIMESTAMP
+  description: The timestamp at which the event record was submitted and received into the data pipeline. Sourced from the raw Parquet file's SUBMISSION_TIMESTAMP
+    field.
 - mode: NULLABLE
   name: normalized_app_id
   type: STRING
+  description: The identifier for the Pocket application that produced this event, normalized from the raw APP_ID field in the source data.
 - mode: NULLABLE
   name: metadata
   type: RECORD
   fields:
+  description: A struct containing request-level metadata parsed from the raw METADATA JSON field, including geographic and user-agent information.
   - mode: NULLABLE
     name: geo
     type: RECORD
@@ -36,6 +40,7 @@ fields:
   name: client_info
   type: RECORD
   fields:
+  description: A struct containing client-side device and application information parsed from the raw CLIENT_INFO JSON field supplied by the Pocket frontend.
   - mode: NULLABLE
     name: client_id
     type: STRING
@@ -57,9 +62,13 @@ fields:
 - mode: NULLABLE
   name: event
   type: STRING
+  description: The name of the Pocket frontend event that occurred (e.g. a user action or system event), sourced from the raw EVENT_NAME field.
 - mode: NULLABLE
   name: event_timestamp
   type: TIMESTAMP
+  description: The timestamp at which the Pocket frontend event occurred on the client side, sourced from the raw EVENT_TIMESTAMP field.
 - mode: NULLABLE
   name: event_extra
   type: JSON
+  description: A JSON object containing additional key-value metadata associated with the event, parsed from the raw EVENT_EXTRAS field. Contents vary
+    by event type.
