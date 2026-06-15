@@ -2,24 +2,32 @@ fields:
   - mode: NULLABLE
     name: date
     type: DATE
+  description: The date for which the Twilio usage record applies.
   - mode: NULLABLE
     name: category
     type: STRING
+  description: The Twilio usage category for this record (e.g., SMS, voice calls, phone number lookups), as defined by Twilio's usage record API.
   - mode: NULLABLE
     name: count
     type: INTEGER
+  description: The number of individual usage events (e.g., messages sent, calls made) recorded for this category on the given date.
   - mode: NULLABLE
     name: usage
     type: FLOAT
+  description: The quantity of usage consumed for this category on the given date, expressed in the units specified by usage_unit.
   - mode: NULLABLE
     name: usage_unit
     type: STRING
+  description: The unit of measurement for the usage field (e.g., messages, minutes, bytes) as reported by Twilio.
   - mode: NULLABLE
     name: price
     type: FLOAT
+  description: The monetary cost incurred for this category on the given date, expressed in the currency specified by price_unit.
   - mode: NULLABLE
     name: price_unit
     type: STRING
+  description: The currency code for the price field (e.g., USD), indicating the denomination of the reported cost.
   - mode: NULLABLE
     name: description
     type: STRING
+  description: A human-readable description of the Twilio usage category, as provided by the Twilio API.
