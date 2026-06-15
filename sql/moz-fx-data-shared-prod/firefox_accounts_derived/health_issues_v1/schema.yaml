@@ -2,8 +2,9 @@ fields:
   - mode: NULLABLE
     name: key
     type: STRING
-  description: The unique issue key identifier in the project tracking system (e.g. Jira), typically formatted as a project code followed by a number
-    (e.g. FXA-1234).
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+    field: jsonPayload_fields_key
   - mode: NULLABLE
     name: permalink
     type: STRING
@@ -11,7 +12,9 @@ fields:
   - mode: NULLABLE
     name: id
     type: INTEGER
-  description: The internal numeric identifier assigned to the issue by the project tracking system.
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+    field: apphub_workload_id
   - mode: NULLABLE
     name: assignee
     type: STRING
@@ -44,7 +47,9 @@ fields:
   - mode: NULLABLE
     name: status
     type: STRING
-  description: The current workflow status of the issue in the project tracking system (e.g. Open, In Progress, In Review, Done).
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+    field: jsonPayload_fields_status
   - mode: NULLABLE
     name: storypoints
     type: INTEGER
@@ -74,7 +79,9 @@ fields:
   - mode: NULLABLE
     name: severity
     type: STRING
-  description: The severity level of the health issue, indicating the degree of impact on users or the system (e.g. Critical, Major, Minor, Trivial).
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+    field: severity
   - mode: NULLABLE
     name: priority
     type: STRING
@@ -82,7 +89,9 @@ fields:
   - mode: NULLABLE
     name: labels
     type: STRING
-  description: A set of free-form labels or tags applied to the issue for categorization and filtering purposes in the project tracking system.
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+    field: resource_labels
   - mode: NULLABLE
     name: workcategory
     type: STRING
