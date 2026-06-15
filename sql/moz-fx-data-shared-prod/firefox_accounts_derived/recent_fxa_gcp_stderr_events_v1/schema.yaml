@@ -2,6 +2,7 @@ fields:
 - name: fxa_server
   type: STRING
   mode: NULLABLE
+  description: Identifies the Firefox Accounts server component that emitted the log entry (e.g., auth-server, content-server, oauth-server).
 - name: logName
   type: STRING
   mode: NULLABLE
@@ -870,6 +871,7 @@ fields:
   - name: timestamp
     type: FLOAT
     mode: NULLABLE
+  description: The timestamp at which the log entry was recorded by the FxA server, used for partitioning and filtering recent events.
   - name: pid
     type: FLOAT
     mode: NULLABLE
@@ -1728,6 +1730,7 @@ fields:
 - name: timestamp
   type: TIMESTAMP
   mode: NULLABLE
+  description: The timestamp at which the log entry was recorded by the FxA server, used for partitioning and filtering recent events.
 - name: receiveTimestamp
   type: TIMESTAMP
   mode: NULLABLE
