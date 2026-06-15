@@ -14,9 +14,15 @@ fields:
 - name: resurrected_same_service
   type: BOOLEAN
   mode: NULLABLE
+  description: True if the user re-appeared on this service after having been absent for more than 28 days (i.e., dropped out of the last-seen window)
+    and was previously recorded in the first-seen table for the same service. False for users who are newly registered, continuously active, or whose
+    prior activity predates the 2019-03-01 first-seen data cutoff.
 - name: resurrected_any_service
   type: BOOLEAN
   mode: NULLABLE
+  description: True if the user re-appeared on this service after having been absent for more than 28 days and was previously recorded in the first-seen
+    table for any Firefox Accounts service (not necessarily the current one). False for brand-new users, continuously active users, or users whose prior
+    activity predates the 2019-03-01 first-seen data cutoff.
 - name: user_id
   type: STRING
   mode: NULLABLE
