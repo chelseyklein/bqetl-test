@@ -2,18 +2,27 @@ fields:
   - mode: NULLABLE
     name: key
     type: STRING
+    description: !include-field-description
+      file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+      field: jsonPayload_fields_key
   - mode: NULLABLE
     name: permalink
     type: STRING
   - mode: NULLABLE
     name: id
     type: INTEGER
+    description: !include-field-description
+      file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+      field: jsonPayload_fields_id
   - mode: NULLABLE
     name: assignee
     type: STRING
   - mode: NULLABLE
     name: created
     type: TIMESTAMP
+    description: !include-field-description
+      file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+      field: jsonPayload_fields_created
   - mode: NULLABLE
     name: found_in
     type: STRING
@@ -32,6 +41,9 @@ fields:
   - mode: NULLABLE
     name: status
     type: STRING
+    description: !include-field-description
+      file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+      field: jsonPayload_fields_status
   - mode: NULLABLE
     name: storypoints
     type: INTEGER
@@ -53,12 +65,18 @@ fields:
   - mode: NULLABLE
     name: severity
     type: STRING
+    description: !include-field-description
+      file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+      field: severity
   - mode: NULLABLE
     name: priority
     type: STRING
   - mode: NULLABLE
     name: labels
     type: STRING
+    description: !include-field-description
+      file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+      field: resource_labels
   - mode: NULLABLE
     name: workcategory
     type: STRING
