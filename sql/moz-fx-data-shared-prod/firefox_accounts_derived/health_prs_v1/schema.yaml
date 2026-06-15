@@ -2,45 +2,61 @@ fields:
   - mode: NULLABLE
     name: id
     type: INTEGER
+  description: The unique internal GitHub identifier for the pull request.
   - mode: NULLABLE
     name: number
     type: INTEGER
+  description: The human-readable pull request number within the repository, as shown in the GitHub UI.
   - mode: NULLABLE
     name: url
     type: STRING
+  description: The full URL to the pull request on GitHub.
   - mode: NULLABLE
     name: title
     type: STRING
+  description: The title of the pull request as set by the author.
   - mode: NULLABLE
     name: state
     type: STRING
+  description: The current state of the pull request, such as 'open', 'closed', or 'merged'.
   - mode: NULLABLE
     name: author
     type: STRING
+  description: The GitHub username of the person who opened the pull request.
   - mode: NULLABLE
     name: created_at
     type: TIMESTAMP
+  description: The timestamp when the pull request was first opened.
   - mode: NULLABLE
     name: updated_at
     type: TIMESTAMP
+  description: The timestamp when the pull request was last updated, including commits, comments, or label changes.
   - mode: NULLABLE
     name: closed_at
     type: TIMESTAMP
+  description: The timestamp when the pull request was closed; null if the pull request is still open.
   - mode: NULLABLE
     name: merged_at
     type: TIMESTAMP
+  description: The timestamp when the pull request was merged into the target branch; null if it was closed without merging.
   - mode: NULLABLE
     name: draft
     type: BOOLEAN
+  description: Indicates whether the pull request was marked as a draft (true) or ready for review (false).
   - mode: NULLABLE
     name: time_to_close
     type: INTEGER
+  description: The elapsed time in seconds (or another integer unit) between when the pull request was opened and when it was closed.
   - mode: NULLABLE
     name: reviewers
     type: STRING
+  description: A string listing the GitHub usernames of reviewers assigned to or who reviewed the pull request.
   - mode: NULLABLE
     name: has_an_issue
     type: BOOLEAN
+  description: Indicates whether the pull request is linked to a GitHub issue (true) or has no associated issue (false).
   - mode: NULLABLE
     name: time_to_merge
     type: INTEGER
+  description: The elapsed time in seconds (or another integer unit) between when the pull request was opened and when it was merged; null if the pull
+    request was not merged.
