@@ -1,0 +1,2044 @@
+fields:
+- name: app_version
+  description: The version string of the Firefox Accounts application that generated the record. Used to track which application release a given
+    event or metric is associated with.
+- name: apphubDestination_application_container
+  description: The container identifier of the destination application as registered in Google Cloud App Hub. This field is typically null when
+    App Hub metadata is not available for the destination resource.
+- name: apphubDestination_application_id
+  description: The unique application identifier of the destination service as registered in Google Cloud App Hub. This field is typically null
+    when App Hub metadata is not available for the destination resource.
+- name: apphubDestination_application_location
+  description: The geographic location of the destination application as registered in Google Cloud App Hub. This field is typically null when
+    App Hub metadata is not available for the destination resource.
+- name: apphubDestination_service_criticalityType
+  description: The criticality classification of the destination service as defined in Google Cloud App Hub (e.g., mission-critical, high, medium,
+    low). This field is typically null when App Hub metadata is not available.
+- name: apphubDestination_service_environmentType
+  description: The environment classification of the destination service as defined in Google Cloud App Hub (e.g., production, staging, development).
+    This field is typically null when App Hub metadata is not available.
+- name: apphubDestination_service_id
+  description: The unique service identifier of the destination resource as registered in Google Cloud App Hub. This field is typically null when
+    App Hub metadata is not available for the destination resource.
+- name: apphubDestination_workload_criticalityType
+  description: The criticality classification of the destination workload as defined in Google Cloud App Hub (e.g., mission-critical, high, medium,
+    low). This field is typically null when App Hub metadata is not available.
+- name: apphubDestination_workload_environmentType
+  description: The environment classification of the destination workload as defined in Google Cloud App Hub (e.g., production, staging, development).
+    This field is typically null when App Hub metadata is not available.
+- name: apphubDestination_workload_id
+  description: The unique workload identifier of the destination resource as registered in Google Cloud App Hub. This field is typically null
+    when App Hub metadata is not available for the destination resource.
+- name: apphubSource_application_container
+  description: The container identifier of the source application as registered in Google Cloud App Hub. This field is typically null when App
+    Hub metadata is not available for the source resource.
+- name: apphubSource_application_id
+  description: The unique application identifier of the source service as registered in Google Cloud App Hub. This field is typically null when
+    App Hub metadata is not available for the source resource.
+- name: apphubSource_application_location
+  description: The geographic location of the source application as registered in Google Cloud App Hub. This field is typically null when App
+    Hub metadata is not available for the source resource.
+- name: apphubSource_service_criticalityType
+  description: The criticality classification of the source service as defined in Google Cloud App Hub (e.g., mission-critical, high, medium,
+    low). This field is typically null when App Hub metadata is not available.
+- name: apphubSource_service_environmentType
+  description: The environment classification of the source service as defined in Google Cloud App Hub (e.g., production, staging, development).
+    This field is typically null when App Hub metadata is not available.
+- name: apphubSource_service_id
+  description: The unique service identifier of the source resource as registered in Google Cloud App Hub. This field is typically null when App
+    Hub metadata is not available for the source resource.
+- name: apphubSource_workload_criticalityType
+  description: The criticality classification of the source workload as defined in Google Cloud App Hub (e.g., mission-critical, high, medium,
+    low). This field is typically null when App Hub metadata is not available.
+- name: apphubSource_workload_environmentType
+  description: The environment classification of the source workload as defined in Google Cloud App Hub (e.g., production, staging, development).
+    This field is typically null when App Hub metadata is not available.
+- name: apphubSource_workload_id
+  description: The unique workload identifier of the source resource as registered in Google Cloud App Hub. This field is typically null when
+    App Hub metadata is not available for the source resource.
+- name: apphub_application_container
+  description: The container identifier of the application as registered in Google Cloud App Hub. This field is typically null when App Hub metadata
+    is not available for the resource.
+- name: apphub_application_id
+  description: The unique application identifier as registered in Google Cloud App Hub. This field is typically null when App Hub metadata is
+    not available for the resource.
+- name: apphub_application_location
+  description: The geographic location of the application as registered in Google Cloud App Hub. This field is typically null when App Hub metadata
+    is not available for the resource.
+- name: apphub_service_criticalityType
+  description: The criticality classification of the service as defined in Google Cloud App Hub (e.g., mission-critical, high, medium, low). This
+    field is typically null when App Hub metadata is not available.
+- name: apphub_service_environmentType
+  description: The environment classification of the service as defined in Google Cloud App Hub (e.g., production, staging, development). This
+    field is typically null when App Hub metadata is not available.
+- name: apphub_service_id
+  description: The unique service identifier as registered in Google Cloud App Hub. This field is typically null when App Hub metadata is not
+    available for the resource.
+- name: apphub_workload_criticalityType
+  description: The criticality classification of the workload as defined in Google Cloud App Hub (e.g., mission-critical, high, medium, low).
+    This field is typically null when App Hub metadata is not available.
+- name: apphub_workload_environmentType
+  description: The environment classification of the workload as defined in Google Cloud App Hub (e.g., production, staging, development). This
+    field is typically null when App Hub metadata is not available.
+- name: apphub_workload_id
+  description: The unique workload identifier as registered in Google Cloud App Hub. This field is typically null when App Hub metadata is not
+    available for the resource.
+- name: command
+  description: The FxA Send Tab command URI indicating the type of action requested between devices, such as opening or closing a URI. Null when
+    no command is associated with the record.
+- name: country
+  description: The full country name associated with the user or event, derived from geolocation data. Null when the country cannot be determined.
+- name: date
+  description: The calendar date on which the event or record was generated. Used for partitioning and time-based aggregations.
+- name: day
+  description: The calendar date representing the day dimension of the record. Used for partitioning and daily-level aggregations.
+- name: days_registered_bits
+  description: A bitmask representing the days on which a user was registered relative to the current date, where each bit corresponds to one
+    day in a rolling 28-day window. A value of 0 indicates no registration activity was detected in the window.
+- name: days_seen_bits
+  description: A bitmask representing the days on which a user was observed active relative to the current date, where each bit corresponds to
+    one day in a rolling 28-day window. Higher values indicate more recent or more frequent activity.
+- name: days_seen_in_tier1_country_bits
+  description: A bitmask representing the days on which a user was observed active from a Tier 1 country (e.g., US, CA, DE, FR, GB) in a rolling
+    28-day window. A value of 0 indicates no activity from a Tier 1 country was detected in the window.
+- name: device_id
+  description: A hashed identifier representing a specific device associated with a Firefox Account. Used to distinguish individual devices for
+    a given user across events.
+- name: entrypoint
+  description: The UI entrypoint through which the user initiated the Firefox Accounts flow (e.g., a specific page or button). Null when no entrypoint
+    metadata is available.
+- name: errorGroups
+  description: An array of error group structures associated with the record, each containing an identifier for a class of errors encountered.
+    Used to link records to known error categories.
+- name: errorGroups_id
+  description: The identifier of an error group that classifies a specific type of error encountered. Used to correlate records with known error
+    categories.
+- name: event
+  description: The name of the Firefox Accounts event that was recorded. Identifies the specific action or milestone that occurred during a user
+    interaction.
+- name: event_type
+  description: A compound label describing both the FxA flow category and the event milestone, formatted as '<flow> - <action>' (e.g., 'fxa_login
+    - complete', 'fxa_reg - complete'). Used to distinguish login completions from registration completions and other event types.
+- name: first_seen_date
+  description: The timestamp at which the user or device was first observed in the Firefox Accounts system. Used to determine account or device
+    age.
+- name: flow_id
+  description: A hashed identifier that groups all events belonging to a single Firefox Accounts authentication or registration flow. Used to
+    reconstruct and analyze end-to-end user journeys.
+- name: flow_time
+  description: The elapsed time in milliseconds from the start of the Firefox Accounts flow to the point at which the current event occurred.
+    Used to measure step durations within a flow.
+- name: fxa_server
+  description: The Firefox Accounts server component that handled or generated the event (e.g., 'content'). Used to identify which part of the
+    FxA infrastructure the record originated from.
+- name: hmac_user_id
+  description: An HMAC-hashed representation of the Firefox Account user identifier, used to pseudonymously identify a user across records without
+    exposing the raw user ID.
+- name: httpRequest_cacheFillBytes
+  description: The number of bytes used to fill the cache for the associated HTTP request. Null when cache fill information is not available for
+    the request.
+- name: httpRequest_cacheHit
+  description: Indicates whether the HTTP request was served from cache. True means the response was a cache hit; false means it was not. Null
+    when cache hit information is not available.
+- name: httpRequest_cacheLookup
+  description: Indicates whether a cache lookup was performed for the HTTP request. True means a cache lookup was attempted; false means it was
+    not. Null when cache lookup information is not available.
+- name: httpRequest_cacheValidatedWithOriginServer
+  description: Indicates whether the cached response was validated against the origin server for the HTTP request. True means the cache was revalidated;
+    false means it was not. Null when revalidation information is not available.
+- name: httpRequest_protocol
+  description: The network protocol used for the HTTP request (e.g., HTTP/1.1, HTTP/2). This field is part of the structured HTTP request metadata
+    logged alongside application events.
+- name: httpRequest_referer
+  description: The HTTP Referer header value from the incoming request, indicating the URL of the page that originated the request. May be null if
+    no referrer was present.
+- name: httpRequest_remoteIp
+  description: The IP address of the client that made the HTTP request. Used to identify the origin of inbound traffic at the network level.
+- name: httpRequest_requestMethod
+  description: The HTTP method used for the request (e.g., GET, POST, PUT, DELETE). Indicates the type of operation the client intended to perform.
+- name: httpRequest_requestSize
+  description: The size of the HTTP request body in bytes. Represents the amount of data sent by the client in the request.
+- name: httpRequest_requestUrl
+  description: The full URL of the HTTP request, including path and query parameters. Identifies the specific resource or endpoint that was targeted.
+- name: httpRequest_responseSize
+  description: The size of the HTTP response body in bytes. Represents the amount of data returned by the server to the client.
+- name: httpRequest_serverIp
+  description: The IP address of the server that handled the HTTP request. Used to identify which backend instance or node processed the request.
+- name: httpRequest_status
+  description: The HTTP status code returned in the response (e.g., 200, 400, 500). Indicates whether the request succeeded or describes the nature
+    of any error.
+- name: httpRequest_userAgent
+  description: The User-Agent header string from the HTTP request, identifying the client software (e.g., browser type and version) that sent the request.
+- name: index
+  description: A hash-based index identifier used to correlate or deduplicate log entries. Serves as a high-cardinality key that may be null when no
+    index context is available.
+- name: insertId
+  description: A unique identifier assigned to each log entry at ingestion time, used to deduplicate log records within the logging pipeline.
+- name: jsonPayload_bytes_sent
+  description: The number of bytes sent in the response payload. Used to measure data transfer volume for individual requests or events.
+- name: jsonPayload_code
+  description: An application-level code string associated with the logged event, typically representing an error code or status classification. May
+    be null when no code applies.
+- name: jsonPayload_context
+  description: A contextual label or identifier describing the operational context in which the event occurred, such as the service module or flow
+    name.
+- name: jsonPayload_country
+  description: The country associated with the event, typically derived from the client's IP address or user profile. Used for geographic segmentation
+    of account activity.
+- name: jsonPayload_entrypoint
+  description: The entrypoint identifier indicating where a user originated within the Firefox Accounts funnel or product flow, used for attribution
+    and flow analysis.
+- name: jsonPayload_envversion
+  description: The version of the logging envelope or environment schema used to structure the JSON payload (e.g., '2.0'). Helps consumers parse and
+    validate the payload format.
+- name: jsonPayload_errno
+  description: A numeric error code from the application layer indicating the specific type of error encountered. Null when no error occurred.
+- name: jsonPayload_error_jse_cause_code
+  description: The error code from the underlying cause of a JavaScript error, providing detail about the root cause of a chained exception. Null when
+    no causal error is present.
+- name: jsonPayload_error_jse_cause_input
+  description: The input value that triggered the underlying cause of a JavaScript error. Provides additional context for diagnosing the root cause
+    of a chained exception.
+- name: jsonPayload_error_jse_cause_kind
+  description: The kind or category of the underlying causal error in a chained JavaScript exception (e.g., a validation type or error class grouping).
+    Null when no causal error is present.
+- name: jsonPayload_error_jse_cause_message
+  description: The human-readable message from the underlying cause of a chained JavaScript error. Provides a description of the root-cause error.
+- name: jsonPayload_error_jse_cause_name
+  description: The name or type identifier of the underlying cause in a chained JavaScript error (e.g., 'Error', 'TypeError'). Null when no causal
+    error is present.
+- name: jsonPayload_error_jse_cause_type
+  description: The type classification of the underlying causal error in a chained JavaScript exception, used to categorize errors programmatically.
+    Null when no causal error is present.
+- name: jsonPayload_error_jse_shortmsg
+  description: A short, human-readable summary message for a JavaScript error, providing a concise description of the error condition. Null when no
+    error is present.
+- name: jsonPayload_error_message
+  description: The full message string of a logged application error. Provides a human-readable explanation of the error that occurred.
+- name: jsonPayload_error_name
+  description: The name or type of the logged application error (e.g., 'Error', 'AuthenticationError'). Used to classify errors by kind.
+- name: jsonPayload_event
+  description: The name or type of the application event being logged (e.g., 'login', 'account.created'). Identifies what action or occurrence the
+    log record represents.
+- name: jsonPayload_fields__
+  description: A catch-all or overflow field within the structured log payload used to capture additional unclassified fields. Null when no extra fields
+    are present.
+- name: jsonPayload_fields__intboolfields
+  description: A serialized representation of fields that contain integer or boolean values within the structured log payload, used to preserve type
+    information for mixed-type field sets.
+- name: jsonPayload_fields__original
+  description: The original, unmodified version of the structured log fields before any transformation or normalization was applied by the logging
+    pipeline.
+- name: jsonPayload_fields__res
+  description: A serialized representation of response-related fields within the structured log payload. Null when no response field data is available.
+- name: jsonPayload_fields__uuidfields
+  description: A serialized representation of fields that contain UUID values within the structured log payload, used to preserve and identify UUID-typed
+    fields across log entries.
+- name: jsonPayload_fields_accountrecreated
+  description: A boolean flag indicating whether the Firefox Account was recreated during the logged event. True means the account was recreated; false
+    means it was not.
+- name: jsonPayload_fields_action
+  description: The specific action performed during the logged event (e.g., 'create', 'delete', 'update'). Null when no action context is captured.
+- name: jsonPayload_fields_agent
+  description: The user agent string or identifier of the client involved in the logged event. Null when agent information is not available.
+- name: jsonPayload_fields_amplitudeevent
+  description: The name of the corresponding Amplitude analytics event associated with the log entry. Used to correlate server-side logs with client-side
+    analytics tracking.
+- name: jsonPayload_fields_amrvalues
+  description: The Authentication Method Reference (AMR) values indicating the authentication methods used during a session (e.g., 'pwd', 'otp'). Null
+    when not applicable.
+- name: jsonPayload_fields_api
+  description: A numeric identifier or version for the API endpoint involved in the logged event. Null when no API context is available.
+- name: jsonPayload_fields_app_version
+  description: The version string of the application or client that generated the logged event. Null when version information is not provided.
+- name: jsonPayload_fields_assertion
+  description: A cryptographic or identity assertion token associated with the event, typically used during authentication or authorization flows.
+    Null when not applicable.
+- name: jsonPayload_fields_assertion_verification_time
+  description: The time in milliseconds taken to verify an identity assertion during an authentication flow. Null when assertion verification did not
+    occur.
+- name: jsonPayload_fields_atleast18atreg
+  description: A string field indicating whether the user confirmed they were at least 18 years old at the time of registration. Null when age confirmation
+    was not collected.
+- name: jsonPayload_fields_auth
+  description: An authentication identifier or token associated with the event, used to link activity to a specific auth session or credential. Null
+    when no auth context is present.
+- name: jsonPayload_fields_authsalt
+  description: The cryptographic salt value used in the authentication process for deriving or verifying credentials. Null when not applicable.
+- name: jsonPayload_fields_auto_completed
+  description: A boolean flag indicating whether the associated flow or form was completed automatically (e.g., via a saved credential or prefill).
+    Null when auto-completion status was not recorded.
+- name: jsonPayload_fields_automatic_tax
+  description: A string indicating the automatic tax calculation status or configuration applied to a billing event (e.g., 'enabled', 'disabled').
+    Used in subscription and payment-related log entries.
+- name: jsonPayload_fields_avatar
+  description: The URL or identifier of the user's avatar image associated with the Firefox Account. Null when no avatar has been set.
+- name: jsonPayload_fields_avatardefault
+  description: A boolean flag indicating whether the user is using the default avatar for their Firefox Account. True means the default avatar is in
+    use; false means a custom avatar has been set.
+- name: jsonPayload_fields_blocked
+  description: Indicates whether the request or action was blocked, typically due to rate limiting or security policies. Null when no blocking was
+    applied.
+- name: jsonPayload_fields_body
+  description: The raw body content of an HTTP request or response associated with the logged event. Null when no body is present or applicable.
+- name: jsonPayload_fields_bodysize
+  description: The size of the HTTP request or response body in bytes. Useful for monitoring payload size across service interactions.
+- name: jsonPayload_fields_bundle
+  description: Identifies the bundle or package associated with the logged event, such as a software or capability bundle. Null when not applicable.
+- name: jsonPayload_fields_cause
+  description: Describes the root cause or reason associated with a logged event, error, or action. Null when no cause is specified.
+- name: jsonPayload_fields_changed
+  description: Indicates what attributes or properties were changed during the logged event. Null when no changes occurred or the field is not applicable.
+- name: jsonPayload_fields_client
+  description: Identifies the client application or service that initiated the request or action being logged.
+- name: jsonPayload_fields_client_id
+  description: A unique identifier for the client application or OAuth client involved in the logged event. Null when not associated with a specific
+    client.
+- name: jsonPayload_fields_clientaddress
+  description: The network address (e.g., IP address) of the client that made the request. Null when the client address is unavailable or not recorded.
+- name: jsonPayload_fields_clientcapabilities
+  description: Describes the capabilities advertised or supported by the client during the interaction. Null when capability information is not available.
+- name: jsonPayload_fields_clientid
+  description: A unique identifier for the client associated with the logged event, used to distinguish between different client applications or sessions.
+    Null when not present.
+- name: jsonPayload_fields_closed
+  description: Indicates whether a connection, session, or resource was closed at the time of the event. True means it was closed; false means it remained
+    open. Null when not applicable.
+- name: jsonPayload_fields_code
+  description: A numeric code associated with the logged event, such as an HTTP status code or an error code. Null when no code is recorded.
+- name: jsonPayload_fields_column
+  description: The column number within a source file or data structure where an event or error occurred. Null when column information is not available.
+- name: jsonPayload_fields_command
+  description: The command or operation that was executed or requested as part of the logged event.
+- name: jsonPayload_fields_config
+  description: Configuration information or settings associated with the logged event or service. Null when configuration details are not recorded.
+- name: jsonPayload_fields_connlimit
+  description: The maximum number of allowed connections configured for the service or resource at the time of the event.
+- name: jsonPayload_fields_contentlength
+  description: The value of the HTTP Content-Length header associated with the request or response. Null when the header is absent or not recorded.
+- name: jsonPayload_fields_context
+  description: Contextual information describing the circumstances or environment in which the logged event occurred. Null when no context is provided.
+- name: jsonPayload_fields_context_language
+  description: The language context associated with the request or event, typically derived from user or browser locale settings. Null when language
+    context is unavailable.
+- name: jsonPayload_fields_context_region
+  description: The geographic region associated with the request or event context, such as a country subdivision or locale region. Null when region
+    context is unavailable.
+- name: jsonPayload_fields_count
+  description: A numeric count associated with the logged event, such as the number of items, retries, or occurrences. Null when a count is not applicable.
+- name: jsonPayload_fields_country
+  description: The full name of the country associated with the request or user, derived from geolocation data. Used to understand the geographic distribution
+    of activity.
+- name: jsonPayload_fields_country_code
+  description: The ISO country code representing the country associated with the request or user, derived from geolocation data.
+- name: jsonPayload_fields_countrycode
+  description: The country code associated with the request or user, used to identify geographic origin. May be formatted differently from country_code
+    depending on the source service.
+- name: jsonPayload_fields_created_at
+  description: A string-formatted timestamp indicating when the associated record or entity was created.
+- name: jsonPayload_fields_createdat
+  description: A numeric (epoch) timestamp indicating when the associated record or entity was created.
+- name: jsonPayload_fields_customerid
+  description: A unique identifier for the customer associated with the logged event, typically referencing a billing or subscription system record.
+- name: jsonPayload_fields_customeruid
+  description: A unique identifier for the customer in the context of the Firefox Accounts ecosystem, used to correlate customer records across services.
+- name: jsonPayload_fields_data
+  description: A generic payload field containing supplementary data associated with the logged event. Null when no additional data is included.
+- name: jsonPayload_fields_dbpath
+  description: The file system path of the database involved in the logged event, used to identify which database instance was accessed or affected.
+- name: jsonPayload_fields_detail
+  description: A brief detail or description providing additional context about the logged event. Null when no detail is recorded.
+- name: jsonPayload_fields_details
+  description: Extended descriptive information providing additional context or metadata about the logged event.
+- name: jsonPayload_fields_device_id
+  description: A unique identifier for the device associated with the logged event, used to track activity across sessions for a specific device.
+- name: jsonPayload_fields_device_model
+  description: The model name of the device associated with the logged event (e.g., iPhone, iPad). Null when the device model is not available or the
+    request did not originate from a known device.
+- name: jsonPayload_fields_deviceid
+  description: A unique identifier for the device involved in the logged event, used to associate log entries with a specific device.
+- name: jsonPayload_fields_directory
+  description: The file system directory path relevant to the logged event or operation. Null when directory information is not applicable.
+- name: jsonPayload_fields_disabledat
+  description: A timestamp indicating when the associated account, device, or resource was disabled.
+- name: jsonPayload_fields_displayname
+  description: The human-readable display name associated with a user, device, or resource at the time of the logged event. Null when a display name
+    is not set or available.
+- name: jsonPayload_fields_document_id
+  description: The unique identifier of a document associated with the logged event, such as a telemetry document submitted to the data pipeline. Null
+    when not applicable.
+- name: jsonPayload_fields_document_namespace
+  description: The namespace of the document associated with the logged event, used to categorize the document within the data pipeline schema. Null
+    when not applicable.
+- name: jsonPayload_fields_document_type
+  description: The type of document associated with the logged event, identifying the schema or category of the submitted telemetry or data document.
+    Null when not applicable.
+- name: jsonPayload_fields_document_version
+  description: The version of the document schema associated with the logged event, used to identify which schema version applies to the submitted
+    document. Null when not applicable.
+- name: jsonPayload_fields_domain
+  description: The domain name associated with the logged event, such as an email domain or web domain relevant to the operation. Null when not recorded.
+- name: jsonPayload_fields_duration
+  description: The duration of the logged operation or event, typically measured in milliseconds or seconds. Null when timing information is not available.
+- name: jsonPayload_fields_ecosystemanonid
+  description: An anonymized identifier that links a Firefox Accounts user to the Mozilla ecosystem without exposing personally identifiable information.
+- name: jsonPayload_fields_eligibilitystatus
+  description: Indicates the eligibility status of a user or account for a particular feature, subscription, or promotion. Null when eligibility has
+    not been evaluated.
+- name: jsonPayload_fields_email
+  description: The email address associated with the Firefox Account user involved in the logged event. This field is PII-suppressed and stored as
+    bytes.
+- name: jsonPayload_fields_emailcode
+  description: A code sent to the user's email address for verification or authentication purposes, such as a sign-in confirmation or account recovery
+    code.
+- name: jsonPayload_fields_emails
+  description: A collection or serialized representation of email addresses associated with the user or account involved in the logged event.
+- name: jsonPayload_fields_emailverified
+  description: Indicates whether the Firefox Account user's email address has been verified. A non-zero value represents a verified state.
+- name: jsonPayload_fields_enabled
+  description: Indicates whether a feature, service, or account option is currently enabled. True means the item is active; false means it is disabled.
+- name: jsonPayload_fields_enrollments
+  description: A list of Nimbus experiment enrollments associated with the event, each containing details such as the app ID, experiment name, branch,
+    experiment type, preview status, and Nimbus user identifier.
+- name: jsonPayload_fields_entrypoint
+  description: The named entry point through which the user initiated the Firefox Accounts flow, such as a specific product surface or UI location.
+- name: jsonPayload_fields_entrypoint_experiment
+  description: The identifier of an experiment associated with the entry point, used to attribute the user's flow to a specific entrypoint experiment.
+- name: jsonPayload_fields_entrypoint_variation
+  description: The variation or branch of the entrypoint experiment that was presented to the user when initiating the Firefox Accounts flow.
+- name: jsonPayload_fields_err
+  description: A string representation of an error object associated with the logged event. This field is typically null when no error occurred.
+- name: jsonPayload_fields_errcode
+  description: A short error code string identifying the category or type of error encountered during an account or service operation.
+- name: jsonPayload_fields_errno
+  description: A numeric error code corresponding to a specific error condition in the Firefox Accounts service. This field is typically null when
+    no error occurred.
+- name: jsonPayload_fields_error
+  description: A descriptive error message string recorded when an operation fails. This field is typically null when no error occurred.
+- name: jsonPayload_fields_errorcode
+  description: A numeric code identifying a specific error type returned by the service. This field is typically null when no error occurred.
+- name: jsonPayload_fields_errorname
+  description: The human-readable name of the error class or type encountered during processing. This field is typically null when no error occurred.
+- name: jsonPayload_fields_event
+  description: The name or identifier of the event being logged. This field is typically null when no specific event name is captured.
+- name: jsonPayload_fields_event_properties
+  description: A JSON-encoded string containing additional key-value properties associated with the logged event. This field is typically null when
+    no extra properties are present.
+- name: jsonPayload_fields_event_type
+  description: A string identifying the category and action of the Firefox Accounts event, formatted as '<category> - <action>' (e.g., 'fxa_reg - view').
+    This field distinguishes different user interactions and funnel steps across account flows.
+- name: jsonPayload_fields_events
+  description: A numeric value representing a count or index of events associated with the log record. Used to quantify event occurrences within a
+    given context.
+- name: jsonPayload_fields_expires_at
+  description: The timestamp or date string indicating when a token, session, or resource is scheduled to expire.
+- name: jsonPayload_fields_features_free_trial_feature_enabled
+  description: Indicates whether the free trial feature is enabled for the user or subscription context. This field is typically null when the feature
+    flag state is not applicable.
+- name: jsonPayload_fields_features_welcome_feature_enabled
+  description: Indicates whether the welcome feature is enabled for the user or subscription context. This field is typically null when the feature
+    flag state is not applicable.
+- name: jsonPayload_fields_flow_id
+  description: A unique identifier for the authentication or registration flow session, used to correlate related events across a single user journey.
+- name: jsonPayload_fields_flow_time
+  description: The elapsed time in milliseconds from the start of the flow to the current event, representing how far into the flow the user has progressed.
+- name: jsonPayload_fields_flowbegintime
+  description: The timestamp string recording when the current authentication or registration flow began, used as a reference point for flow timing
+    calculations.
+- name: jsonPayload_fields_flowcompletesignal
+  description: The signal or event name that marks the successful completion of a Firefox Accounts flow, indicating what action concluded the session.
+- name: jsonPayload_fields_flowid
+  description: A unique identifier for the authentication or registration flow, used to link all events belonging to the same user flow session.
+- name: jsonPayload_fields_flowtype
+  description: A string describing the type or category of the Firefox Accounts flow, such as sign-in, registration, or password reset.
+- name: jsonPayload_fields_granttype
+  description: The OAuth grant type used during token issuance, such as 'authorization_code' or 'refresh_token', indicating how the access token was
+    obtained.
+- name: jsonPayload_fields_hasid
+  description: Indicates whether an identifier is present in the request or session context. True means an ID was supplied; false means it was absent.
+- name: jsonPayload_fields_hastoken
+  description: Indicates whether an authentication or access token is present in the request or session context. True means a token was supplied; false
+    means it was absent.
+- name: jsonPayload_fields_hasuid
+  description: Indicates whether a Firefox Account user ID (UID) is present in the request or session context. True means a UID was supplied; false
+    means it was absent.
+- name: jsonPayload_fields_header
+  description: An HTTP header value captured as part of the request context. This field is typically null when no relevant header is recorded.
+- name: jsonPayload_fields_headers
+  description: A serialized string representation of HTTP request headers associated with the logged event, used for debugging and request tracing.
+- name: jsonPayload_fields_host
+  description: The hostname or IP address of the server or client involved in the request. This field is typically null when the host is not recorded.
+- name: jsonPayload_fields_hostname
+  description: The hostname of the server that generated the log entry, identifying which instance or node processed the request.
+- name: jsonPayload_fields_id
+  description: A generic string identifier associated with the logged entity, such as a client ID, resource ID, or session ID. This field is typically
+    null when no identifier is applicable.
+- name: jsonPayload_fields_index
+  description: A numeric index value indicating the position or ordering of an item within a sequence, such as a device list or event batch.
+- name: jsonPayload_fields_info
+  description: An additional informational string providing supplementary context about the logged event or operation. This field is typically null
+    when no extra information is available.
+- name: jsonPayload_fields_interval
+  description: A string representing the billing or subscription interval (e.g., 'month', 'year') associated with a plan or payment event. This field
+    is typically null when not applicable.
+- name: jsonPayload_fields_invoiceid
+  description: The unique identifier of the invoice associated with a billing or subscription event. This field is typically null when no invoice is
+    linked to the event.
+- name: jsonPayload_fields_ip_address
+  description: The IP address of the client making the request. This field contains personally identifiable information and is suppressed in analysis
+    contexts.
+- name: jsonPayload_fields_ipaddress
+  description: The IP address of the client as recorded in the log payload, used for geolocation or fraud detection purposes.
+- name: jsonPayload_fields_ipnmessage
+  description: The raw Instant Payment Notification (IPN) message string received from a payment provider, used to record billing event details.
+- name: jsonPayload_fields_is_placeholder
+  description: Indicates whether the account or resource is a placeholder rather than a fully created entity. True means it is a placeholder; false
+    means it is a fully provisioned record.
+- name: jsonPayload_fields_isboom
+  description: Indicates whether the response is a Boom HTTP error object. True means the error was wrapped as a Boom error; false means it was not.
+- name: jsonPayload_fields_isprimary
+  description: A numeric flag indicating whether the associated email or resource is the primary one for the account. A non-zero value typically represents
+    the primary designation.
+- name: jsonPayload_fields_isserver
+  description: Indicates whether the error or event originated from the server side. True means the source was server-side; false means it was client-side.
+- name: jsonPayload_fields_isverified
+  description: A numeric flag indicating whether the account or email address has been verified. A non-zero value represents a verified state.
+- name: jsonPayload_fields_joierrors
+  description: A string containing Joi schema validation errors encountered during request payload validation. This field is typically null when validation
+    passes.
+- name: jsonPayload_fields_ka
+  description: A string value representing the key agreement or cryptographic parameter used during account key operations in the Firefox Accounts
+    protocol.
+- name: jsonPayload_fields_key
+  description: A string identifier for a specific configuration key, cache entry, or resource key referenced by the log event. This field is typically
+    null when no key is associated.
+- name: jsonPayload_fields_keys
+  description: Indicates whether cryptographic keys were requested or returned as part of the OAuth token grant. True means keys were included; false
+    means they were not.
+- name: jsonPayload_fields_keyschangedat
+  description: Timestamp (as a numeric value) indicating when the account's cryptographic keys were last changed. Useful for tracking key rotation
+    events.
+- name: jsonPayload_fields_lang
+  description: The language tag associated with the request or account, typically in BCP 47 format (e.g., 'en', 'fr'). Represents the preferred language
+    setting at the time of the event.
+- name: jsonPayload_fields_language
+  description: The language preference reported for the account or session, in BCP 47 format (e.g., 'en-US', 'de'). May be 'unknown' when the language
+    could not be determined.
+- name: jsonPayload_fields_line
+  description: The source code line number associated with a log entry or error event. Typically used for debugging and is often null in production
+    log records.
+- name: jsonPayload_fields_locale
+  description: The locale setting associated with the account or request, representing a combination of language and regional preferences. Often null
+    when locale information is not available.
+- name: jsonPayload_fields_location
+  description: A string representing the geographic or network location associated with the event. May encode city, country, or other location-related
+    metadata.
+- name: jsonPayload_fields_locator
+  description: An identifier or reference used to locate a specific resource or entity within the system. Typically null when not applicable to the
+    event type.
+- name: jsonPayload_fields_lockedat
+  description: Timestamp indicating when the account was locked, represented as a string. A non-null value signals that the account is or was in a
+    locked state.
+- name: jsonPayload_fields_message
+  description: A human-readable message associated with a log or error event. Typically null in structured log records where the message is captured
+    elsewhere.
+- name: jsonPayload_fields_messageid
+  description: A unique identifier for a specific message or notification sent as part of an account event. Null when no message was generated for
+    the event.
+- name: jsonPayload_fields_method
+  description: The HTTP method (e.g., GET, POST) used in the request that triggered the event. Null when the event is not associated with an HTTP request.
+- name: jsonPayload_fields_metricsenabled
+  description: A boolean flag indicating whether metrics collection is enabled for the account or session. True means metrics are being collected;
+    false means they are disabled.
+- name: jsonPayload_fields_metricsoptoutat
+  description: Timestamp string recording when the account holder opted out of metrics collection. A non-null value indicates that the user has opted
+    out.
+- name: jsonPayload_fields_missingflowid
+  description: A boolean flag indicating whether the flow ID was absent from the event. True means the flow ID was missing; false means it was present.
+- name: jsonPayload_fields_msg
+  description: A short informational message logged by the service, typically describing an initialization step or configuration state. Distinct from
+    the free-form 'message' field.
+- name: jsonPayload_fields_mysql
+  description: A numeric value related to MySQL database activity, such as query count or connection metrics. Used for monitoring database interactions
+    within the service.
+- name: jsonPayload_fields_name
+  description: A generic name field associated with the log event, such as an error name or entity label. Typically null when not applicable to the
+    event type.
+- name: jsonPayload_fields_newsletters
+  description: A string representing the newsletter subscription preferences or identifiers associated with the account. Encodes which newsletters
+    the user is subscribed to.
+- name: jsonPayload_fields_normalizedemail
+  description: The normalized form of the account's email address, with consistent casing and formatting applied. Used for deduplication and matching
+    purposes.
+- name: jsonPayload_fields_numsessions
+  description: The number of active or historical sessions associated with an account at the time of the event. Reflects session activity volume.
+- name: jsonPayload_fields_offeringid
+  description: An identifier for a specific product or service offering associated with the event. Null when the event is not linked to a particular
+    offering.
+- name: jsonPayload_fields_op
+  description: A short code or label identifying the operation type that generated the log entry. Null when the operation type is not specified for
+    the event.
+- name: jsonPayload_fields_operation
+  description: The full name of the operation or action performed during the event, such as a database or API operation. Null when the operation is
+    not captured for the event type.
+- name: jsonPayload_fields_options
+  description: A string encoding optional configuration or request parameters passed along with the event. Represents ancillary settings that modify
+    event behavior.
+- name: jsonPayload_fields_originaltransactionid
+  description: The identifier of the original transaction associated with a subscription or billing event. Null when the event does not relate to a
+    transaction renewal or update.
+- name: jsonPayload_fields_originaltransactionids
+  description: A collection of original transaction identifiers associated with the event, typically used when multiple prior transactions are referenced.
+    Null when not applicable.
+- name: jsonPayload_fields_os_name
+  description: The name of the operating system used by the client at the time of the event (e.g., 'Windows', 'macOS'). Null when the OS could not
+    be determined.
+- name: jsonPayload_fields_os_version
+  description: The version of the client's operating system at the time of the event (e.g., '10', '10.15'). Null when the OS version could not be determined.
+- name: jsonPayload_fields_output
+  description: A string capturing the output produced by a process or command associated with the event. Used for logging results of internal service
+    operations.
+- name: jsonPayload_fields_param
+  description: A single parameter value passed with the request or operation that triggered the event. Provides additional context for the specific
+    action performed.
+- name: jsonPayload_fields_params
+  description: A string encoding multiple parameters associated with the request or operation. Typically serialized as a key-value structure for multi-argument
+    operations.
+- name: jsonPayload_fields_path
+  description: The URL path of the request that generated the event. Null when the event is not associated with an HTTP request path.
+- name: jsonPayload_fields_pathname
+  description: The pathname component of the URL for the request associated with the event. Null when the event is not tied to a specific URL pathname.
+- name: jsonPayload_fields_payload
+  description: The raw payload body associated with the event, typically containing serialized request or response data. Null when no payload is present
+    or captured.
+- name: jsonPayload_fields_phonenumber
+  description: The phone number associated with an account or verification event. Null when phone number information is not relevant to the event type.
+- name: jsonPayload_fields_plan
+  description: A string identifying the subscription plan associated with the event, such as a plan name or tier. Describes the billing plan context
+    of the action.
+- name: jsonPayload_fields_plan_id
+  description: The unique identifier for the subscription plan associated with the event. Used to reference a specific billing plan in the payments
+    system.
+- name: jsonPayload_fields_planid
+  description: An alternate representation of the subscription plan identifier associated with the event. Equivalent to plan_id and used to link events
+    to a specific billing plan.
+- name: jsonPayload_fields_poolstats
+  description: A JSON-encoded string capturing database connection pool statistics at the time of the event, including connection limits and active
+    connection counts. Used for monitoring database pool health.
+- name: jsonPayload_fields_port
+  description: The network port number associated with the request or connection that triggered the event. Null when port information is not captured
+    for the event type.
+- name: jsonPayload_fields_postalcode
+  description: The postal code associated with the account's billing or registration address. Used in the context of payment and geographic information.
+- name: jsonPayload_fields_preview
+  description: A boolean flag indicating whether the event or request was executed in preview mode. True means it was a preview (non-production) action;
+    false means it was a live action.
+- name: jsonPayload_fields_priceid
+  description: The unique identifier for the price configuration associated with a subscription or payment event. Used to reference specific pricing
+    within the billing system.
+- name: jsonPayload_fields_primaryemail
+  description: The primary email address on the Firefox Account at the time of the event. This is the main contact address associated with the account.
+- name: jsonPayload_fields_product_id
+  description: The unique identifier for the Mozilla product associated with the event. Used to link events to a specific product in the subscription
+    platform.
+- name: jsonPayload_fields_productid
+  description: An alternate representation of the product identifier associated with the event. Equivalent to product_id and used to reference the
+    product in the subscriptions system.
+- name: jsonPayload_fields_profile_changed_at
+  description: A numeric timestamp indicating when the account's profile information was last changed. Null when no profile change has been recorded.
+- name: jsonPayload_fields_profilechangedat
+  description: A numeric timestamp recording the most recent time the account profile was modified. Null when profile change data is not available
+    for the event.
+- name: jsonPayload_fields_purchase
+  description: A string representing the purchase details or identifier associated with the event, typically from an in-app or subscription purchase.
+    Provides context for billing and commerce events.
+- name: jsonPayload_fields_purchasetoken
+  description: A token identifying a specific in-app purchase, used to validate and track purchases from app stores. Null when the event is not associated
+    with a purchase token.
+- name: jsonPayload_fields_query
+  description: The query string or search query associated with a request or operation. This field is typically null when no query context is present.
+- name: jsonPayload_fields_queuelength
+  description: The number of items currently waiting in a processing queue at the time the log entry was recorded. Reflects backpressure or load on
+    a background worker.
+- name: jsonPayload_fields_reason
+  description: A descriptive reason or explanation for the outcome or action recorded in the log entry. This field is typically null when no specific
+    reason is provided.
+- name: jsonPayload_fields_recency
+  description: A string indicating how recently a relevant event or action occurred relative to the current log entry. Used to categorize the freshness
+    of an associated record or session.
+- name: jsonPayload_fields_redirectto
+  description: The destination URL or path to which a user or request is being redirected. Captures the target of an HTTP or application-level redirect.
+- name: jsonPayload_fields_referer
+  description: The HTTP Referer header value indicating the URL of the page that initiated the request. This field is typically null when no referring
+    page is available.
+- name: jsonPayload_fields_referrer
+  description: The referrer URL associated with the event, indicating the origin page or surface that led to the current action. This field is typically
+    null when no referrer information is present.
+- name: jsonPayload_fields_region
+  description: The geographic region (e.g., state, province, or administrative area) associated with the request or user, derived from IP geolocation.
+    May be null when region cannot be determined.
+- name: jsonPayload_fields_remaining
+  description: The number of remaining allowances, attempts, or quota units available at the time of the log entry. Commonly used in the context of
+    rate limiting.
+- name: jsonPayload_fields_remoteaddresschain
+  description: The chain of IP addresses from the client through any proxies, as seen in the request headers. This field is typically null when no
+    proxy chain information is captured.
+- name: jsonPayload_fields_removed
+  description: A boolean flag indicating whether an entity or resource was removed as part of the logged operation. True means the removal occurred;
+    false means it did not. Typically null when not applicable.
+- name: jsonPayload_fields_reqtime
+  description: The time taken to process a request, measured in milliseconds or another consistent time unit. This field is typically null when request
+    timing is not recorded.
+- name: jsonPayload_fields_request
+  description: A representation of the incoming request, such as the HTTP method and path or a serialized request body. This field is typically null
+    when request details are not captured.
+- name: jsonPayload_fields_requestcode
+  description: A code or identifier associated with a specific request type or operation. This field is typically null when no request code is applicable
+    to the logged event.
+- name: jsonPayload_fields_resourceservers
+  description: A list or identifier of resource servers targeted by an authorization or token request. This field is typically null when no resource
+    server scope is specified.
+- name: jsonPayload_fields_response
+  description: A representation of the server's response to a request, such as a serialized body or status message. This field is typically null when
+    response details are not captured.
+- name: jsonPayload_fields_result
+  description: The outcome or result of the logged operation or event, such as a success indicator or descriptive result code. This field is typically
+    null when no explicit result is recorded.
+- name: jsonPayload_fields_rp
+  description: The relying party identifier associated with an authentication or OAuth flow. This field is typically null when no relying party context
+    is present.
+- name: jsonPayload_fields_sample
+  description: A sample value or identifier associated with a sampled log entry or metric observation. This field is typically null when sampling is
+    not in use.
+- name: jsonPayload_fields_scope
+  description: The OAuth or permission scope string associated with a token request or authorization event. This field is typically null when no scope
+    is specified.
+- name: jsonPayload_fields_search_type
+  description: The type of search operation performed, distinguishing between different search strategies or index types. This field is typically null
+    when no search is involved in the logged event.
+- name: jsonPayload_fields_sender
+  description: The identifier or address of the entity that sent a message or initiated a communication. Used to attribute the origin of an outgoing
+    event or notification.
+- name: jsonPayload_fields_senderos
+  description: The operating system of the sending entity or device. Used to identify the platform from which a message or event was dispatched.
+- name: jsonPayload_fields_sendertype
+  description: The classification or type of the sending entity, such as a device category or client type. Used to distinguish between different kinds
+    of message originators.
+- name: jsonPayload_fields_service
+  description: The name or identifier of the Firefox Accounts service that generated the log entry. This field is typically null when no specific service
+    context is associated.
+- name: jsonPayload_fields_session_id
+  description: A numeric identifier for the user session associated with the logged event. High cardinality values represent unique sessions across
+    users and time.
+- name: jsonPayload_fields_signal
+  description: The name of a signal or event type emitted by the application during processing. This field is typically null when no signal is associated
+    with the log entry.
+- name: jsonPayload_fields_source
+  description: The origin or source component that produced the log entry or triggered the event. This field is typically null when the source is not
+    recorded.
+- name: jsonPayload_fields_stack
+  description: The stack trace captured at the time of an error or exception. This field is typically null when no error condition is present in the
+    log entry.
+- name: jsonPayload_fields_status
+  description: A string representing the status of an operation or resource at the time of logging, such as an account state or job status. This field
+    is typically null when no status is applicable.
+- name: jsonPayload_fields_statuscode
+  description: The numeric HTTP or application-level status code associated with a response. This field is typically null when no response code is
+    recorded for the event.
+- name: jsonPayload_fields_subscriptionid
+  description: The identifier of a subscription associated with the logged event, such as a billing or push notification subscription. This field is
+    typically null when no subscription is involved.
+- name: jsonPayload_fields_subscriptionsbyclientid
+  description: A mapping or list of subscriptions grouped by client identifier, used to track which clients hold active subscriptions. This field is
+    typically null when not applicable.
+- name: jsonPayload_fields_success
+  description: A numeric flag indicating whether the logged operation succeeded, where a non-null value typically represents a success count or binary
+    outcome. This field is typically null when the success state is not recorded.
+- name: jsonPayload_fields_syscall
+  description: The name of the operating system system call invoked during the logged operation. Used for low-level diagnostics and security auditing.
+- name: jsonPayload_fields_t
+  description: A short-form tag or type label associated with the log entry, used to categorize or route events. This field is typically null when
+    no tag is present.
+- name: jsonPayload_fields_target
+  description: The identifier or name of the target entity or resource acted upon in the logged event. Used to indicate what was affected by an operation.
+- name: jsonPayload_fields_targetos
+  description: The operating system of the target device or entity involved in the logged event. Used to identify the platform of the recipient or
+    destination.
+- name: jsonPayload_fields_targettype
+  description: The classification or category of the target entity, such as a device type or resource class. Used to distinguish different kinds of
+    targets within an operation.
+- name: jsonPayload_fields_template
+  description: The name or identifier of the template used to render a notification or page associated with the event. This field is typically null
+    when no template is involved.
+- name: jsonPayload_fields_templatename
+  description: The human-readable name of the template used to generate an email or notification. Identifies which specific template was rendered for
+    the communication.
+- name: jsonPayload_fields_templateversion
+  description: The version string of the template used to generate a notification or email. Used to track which iteration of a template was active
+    at the time of the event.
+- name: jsonPayload_fields_time
+  description: A high-precision numeric timestamp, typically in milliseconds since the Unix epoch, representing when the logged event occurred. High
+    cardinality reflects unique event times across the dataset.
+- name: jsonPayload_fields_timestamp
+  description: A string-formatted timestamp associated with the logged event. This field is typically null when the timestamp is captured in another
+    format or field.
+- name: jsonPayload_fields_to
+  description: The destination address or recipient identifier for a message or notification. This field is typically null when no explicit recipient
+    is recorded.
+- name: jsonPayload_fields_token
+  description: An authentication or authorization token associated with the logged event, such as a session token or verification token. Used to link
+    events to a specific credential or access grant.
+- name: jsonPayload_fields_tokenverificationid
+  description: The identifier of a token verification record, used to track the lifecycle of a token confirmation flow. Links a log entry to a specific
+    pending verification.
+- name: jsonPayload_fields_traceid
+  description: A distributed tracing identifier used to correlate log entries across multiple services for a single request or workflow. Enables end-to-end
+    trace reconstruction.
+- name: jsonPayload_fields_trustedissuers
+  description: A list or identifier of trusted token issuers recognized by the service for authentication purposes. This field is typically null when
+    issuer trust context is not applicable.
+- name: jsonPayload_fields_twofactorauthentication
+  description: A boolean flag indicating whether two-factor authentication was enabled or required for the associated account or session. True means
+    2FA was active; false means it was not. Typically null when not applicable.
+- name: jsonPayload_fields_type
+  description: The type classification of the logged event or operation within the Firefox Accounts service. Used to categorize the nature of the action
+    being recorded.
+- name: jsonPayload_fields_uabrowser
+  description: The name of the browser derived from the user agent string associated with the request. Identifies the browser family (e.g., Firefox,
+    Chrome) making the request.
+- name: jsonPayload_fields_uabrowserversion
+  description: The version of the browser derived from the user agent string. Captures the specific release of the browser at the time of the request.
+- name: jsonPayload_fields_uaos
+  description: The operating system name derived from the user agent string associated with the request. Identifies the platform (e.g., Windows, macOS,
+    Android) on which the browser is running.
+- name: jsonPayload_fields_uaosversion
+  description: The version of the operating system derived from the user agent string. Captures the specific OS release at the time of the request.
+- name: jsonPayload_fields_uid
+  description: The Firefox Accounts unique identifier for the user associated with the event. May be null when the event is not tied to an authenticated
+    user session.
+- name: jsonPayload_fields_unblockcode
+  description: A one-time code used to unblock a Firefox Accounts user who has been flagged for suspicious login activity. This code is sent to the
+    user's email to verify their identity.
+- name: jsonPayload_fields_url
+  description: The URL associated with the logged event, such as the endpoint or resource being accessed. May be null when no URL context is applicable
+    to the event.
+- name: jsonPayload_fields_user
+  description: A binary representation of the user associated with the logged event. May be null when no specific user context is available.
+- name: jsonPayload_fields_user_agent
+  description: The raw user agent string submitted by the client making the request. May be null when the user agent is not captured or not applicable
+    to the event.
+- name: jsonPayload_fields_user_id
+  description: A hashed identifier representing the Firefox Accounts user associated with the event. Used to link events to a specific user without
+    exposing personally identifiable information.
+- name: jsonPayload_fields_user_properties
+  description: A JSON-encoded object containing additional user-level properties at the time of the event, such as entrypoint, flow ID, UTM parameters,
+    UA details, and appended user attributes like services used or security settings. Provides enriched context for user behavior analysis.
+- name: jsonPayload_fields_useragent
+  description: The full user agent string associated with the request, used to identify the client browser and platform. May be null when the user
+    agent is not recorded for the event.
+- name: jsonPayload_fields_usergroupheader
+  description: The value of the user group header included in the request, used to identify or route requests by group membership. May be null when
+    no group header is present.
+- name: jsonPayload_fields_usergroupheader_notnull
+  description: A normalized version of the user group header that enforces a non-null representation. May still appear null in records where the header
+    was absent from the original request.
+- name: jsonPayload_fields_userid
+  description: An alternate representation of the Firefox Accounts user identifier logged with the event. May be null when the event is not associated
+    with a specific user.
+- name: jsonPayload_fields_utm_campaign
+  description: The UTM campaign parameter from the referring URL, identifying the specific marketing campaign that directed the user to the Firefox
+    Accounts flow.
+- name: jsonPayload_fields_utm_content
+  description: The UTM content parameter from the referring URL, used to differentiate between links within the same campaign, such as specific ad
+    creatives or placements.
+- name: jsonPayload_fields_utm_medium
+  description: The UTM medium parameter from the referring URL, identifying the marketing channel (e.g., email, referral, paid search) that drove the
+    user to the Firefox Accounts flow.
+- name: jsonPayload_fields_utm_source
+  description: The UTM source parameter from the referring URL, identifying the originating property or platform (e.g., activity-stream, spotlight)
+    that referred the user.
+- name: jsonPayload_fields_utm_term
+  description: The UTM term parameter from the referring URL, used to capture the specific keyword or targeting term associated with the campaign that
+    drove the user to the Firefox Accounts flow.
+- name: jsonPayload_fields_val
+  description: A generic value field captured in the log payload, representing a scalar measurement or result associated with the logged event.
+- name: jsonPayload_fields_valid
+  description: A boolean flag indicating whether the associated entity or operation passed validation. A value of true means validation succeeded;
+    false means it failed.
+- name: jsonPayload_fields_value
+  description: A generic string value associated with the logged event, whose meaning depends on the event type. Used to capture miscellaneous scalar
+    data that does not fit a more specific field.
+- name: jsonPayload_fields_verifiedat
+  description: A timestamp string indicating when the user's email or account was verified within Firefox Accounts. Used to track the verification
+    lifecycle of an account.
+- name: jsonPayload_fields_verifiersetat
+  description: A numeric timestamp recording when the account verifier (i.e., the credential used to verify identity) was set or last updated for the
+    user.
+- name: jsonPayload_fields_verifierversion
+  description: A numeric value indicating the version of the verifier algorithm or credential scheme used for the account. Allows tracking of authentication
+    scheme upgrades over time.
+- name: jsonPayload_fields_version
+  description: The version string of the Firefox Accounts service or client involved in the logged event. May be null when version information is not
+    available in the log payload.
+- name: jsonPayload_fields_violated
+  description: Indicates which Content Security Policy (CSP) directive or security constraint was violated during the request. May be null when no
+    violation occurred.
+- name: jsonPayload_fields_warning
+  description: A warning message logged alongside the event, describing a non-fatal condition or deprecation notice encountered during processing.
+- name: jsonPayload_fields_webhooks
+  description: Information about webhooks configured or triggered in relation to the logged event. May be null when no webhooks are associated with
+    the event.
+- name: jsonPayload_fields_wrapwrapkb
+  description: A wrapped encryption key value (wrapKb) used in Firefox Accounts' key derivation process for Sync. Represents an encrypted form of a
+    user's key bundle.
+- name: jsonPayload_fields_zip
+  description: The postal ZIP code associated with a billing or account record. Used in subscription and payment-related events to capture the user's
+    billing location.
+- name: jsonPayload_flow_id
+  description: A unique identifier for the authentication or registration flow session. Used to correlate all log events that belong to the same end-to-end
+    user flow.
+- name: jsonPayload_flow_time
+  description: The elapsed time in milliseconds since the start of the current flow, indicating how far into the flow the logged event occurred.
+- name: jsonPayload_hostname
+  description: The hostname of the server instance that generated the log entry. Used to identify which specific service node produced the event.
+- name: jsonPayload_input
+  description: The raw input string or request body associated with the logged operation. May be null when input data is not captured or not applicable
+    to the event.
+- name: jsonPayload_interval
+  description: The time interval associated with a scheduled or recurring operation logged by the Firefox Accounts service. May be null when the event
+    is not interval-based.
+- name: jsonPayload_jse_cause_jse_shortmsg
+  description: The short error message from the root-cause JavaScript exception that triggered the logged error. May be null when the error has no
+    chained cause exception.
+- name: jsonPayload_jse_cause_message
+  description: The full message from the root-cause JavaScript exception that triggered the logged error. May be null when no underlying cause exception
+    is present.
+- name: jsonPayload_jse_info_interval
+  description: The interval value captured in the extra info of a JavaScript exception, providing context about a recurring or scheduled operation
+    at the time of the error. May be null when not applicable.
+- name: jsonPayload_jse_info_offeringid
+  description: The offering identifier captured in the extra info of a JavaScript exception, indicating which subscription product or service offering
+    was involved when the error occurred. May be null when not applicable.
+- name: jsonPayload_jse_shortmsg
+  description: A short summary message of the JavaScript exception logged by the Firefox Accounts service. May be null when no exception was thrown
+    as part of the event.
+- name: jsonPayload_level
+  description: The log severity level of the event (e.g., info, warn, error). May be null when the level is not explicitly set in the log payload.
+- name: jsonPayload_locale
+  description: The locale identifier (e.g., en-US, fr) representing the user's language and regional preference at the time of the event. Used to understand
+    the geographic and linguistic distribution of account activity.
+- name: jsonPayload_log_type
+  description: A string categorizing the type of log entry within the Firefox Accounts logging infrastructure. May be null when the log type is not
+    specified in the payload.
+- name: jsonPayload_logger
+  description: The name of the logger or service component that emitted the log entry (e.g., fxa-user-admin-server). Used to identify the originating
+    subsystem within the Firefox Accounts platform.
+- name: jsonPayload_message
+  description: The human-readable log message describing the event or condition being recorded. May be null when the message is captured in an alternate
+    field such as msg.
+- name: jsonPayload_method
+  description: The HTTP method (e.g., GET, POST, DELETE) of the request associated with the logged event. May be null when the event is not tied to
+    an HTTP request.
+- name: jsonPayload_msg
+  description: An alternate human-readable message field describing the logged event, used by some Firefox Accounts service components in place of
+    the message field. May be null when the message is stored in jsonPayload_message instead.
+- name: jsonPayload_name
+  description: The name associated with the log event or entity being described in the JSON payload. This field may be null when the log source does
+    not emit a named entity.
+- name: jsonPayload_offeringid
+  description: The identifier of the product or service offering associated with the log event. This field is null when no offering context is present
+    in the log entry.
+- name: jsonPayload_op
+  description: The operation or action being performed at the time the log event was generated, such as a specific service method or command name.
+- name: jsonPayload_path
+  description: The URL path or file system path associated with the log event. This field is null when the event does not involve a path-based resource.
+- name: jsonPayload_pid
+  description: The process ID of the service or application that generated the log entry. Identifies which OS-level process produced the event.
+- name: jsonPayload_protocol
+  description: The network protocol used for the request or connection associated with the log event (e.g., HTTP/1.1, HTTP/2). Null when no protocol
+    context is available.
+- name: jsonPayload_proxy_host
+  description: The hostname of the proxy server that handled or forwarded the request. Populated when traffic is routed through a proxy layer.
+- name: jsonPayload_referrer
+  description: The HTTP referrer URL from the request associated with the log event, indicating the page or resource that originated the request. Null
+    when no referrer was provided.
+- name: jsonPayload_region
+  description: The geographic or cloud region associated with the service or request that generated the log event, such as an AWS or GCP region identifier.
+- name: jsonPayload_remote_addr
+  description: The remote IP address of the client that initiated the request, as seen by the server. Null when address information is not available
+    in the log entry.
+- name: jsonPayload_remote_user
+  description: The authenticated remote user associated with the request, if any. Null when the request is unauthenticated or user information is not
+    logged.
+- name: jsonPayload_remoteaddr
+  description: The remote IP address of the client that made the request, as captured in the structured log payload. Null when not available in the
+    log source format.
+- name: jsonPayload_request
+  description: The full HTTP request line or request descriptor associated with the log event (e.g., method, path, and protocol). Null when the event
+    does not represent an HTTP request.
+- name: jsonPayload_request_time
+  description: The total time taken to process the request, typically measured in seconds. Null when timing information is not captured for the event.
+- name: jsonPayload_requestheaders
+  description: An array of HTTP request headers sent with the request, where each element contains a name-value pair. May be empty when no headers
+    are recorded.
+- name: jsonPayload_requestid
+  description: A unique identifier assigned to the HTTP request, used for correlating log entries across services or systems. Null when the request
+    ID is not available.
+- name: jsonPayload_requestidstr
+  description: A string representation of the unique request identifier, used for correlating log entries. Null when the request ID string is not present
+    in the log payload.
+- name: jsonPayload_responsecode
+  description: The numeric HTTP response code returned for the request (e.g., 200, 404, 500). Null when the event does not involve an HTTP response.
+- name: jsonPayload_responseheaders
+  description: An array of HTTP response headers returned with the server's response, where each element contains a name-value pair. May be empty when
+    no headers are recorded.
+- name: jsonPayload_responsemillis
+  description: The time taken to generate and send the HTTP response, measured in milliseconds. Null when response timing is not captured for the event.
+- name: jsonPayload_responsesize
+  description: The size of the HTTP response body in bytes. Null when response size information is not available in the log entry.
+- name: jsonPayload_retryable
+  description: Indicates whether the failed operation or error is eligible for retry (true) or should not be retried (false). Null when retry eligibility
+    is not applicable or not recorded.
+- name: jsonPayload_retrydelay
+  description: The delay duration before a retry should be attempted, typically in seconds or milliseconds. Null when retry delay is not applicable
+    or not recorded.
+- name: jsonPayload_scheme
+  description: The URL scheme of the request (e.g., 'http' or 'https'). Null when scheme information is not present in the log entry.
+- name: jsonPayload_serverhostname
+  description: The hostname of the server that handled the request or generated the log event. Null when server hostname information is not captured.
+- name: jsonPayload_servername
+  description: The logical or configured name of the server instance that generated the log event. Null when not available in the log payload.
+- name: jsonPayload_service
+  description: The name of the Firefox Accounts service component that generated the log entry (e.g., auth server, content server). Used to identify
+    the source service within the FxA ecosystem.
+- name: jsonPayload_severity
+  description: The numeric severity level of the log entry, following standard syslog conventions (e.g., 6 corresponds to informational). Used to classify
+    the importance or urgency of the log event.
+- name: jsonPayload_signals
+  description: An array of security or threat detection signals associated with the request, each containing details such as signal type, detector,
+    location, value, and related attributes. May be empty when no signals are detected.
+- name: jsonPayload_stack
+  description: The stack trace captured at the time of an error or exception. Null when the log event is not associated with an error or no stack trace
+    was recorded.
+- name: jsonPayload_status
+  description: A string representing the status of the operation or request associated with the log event (e.g., 'ok', 'error'). Null when status is
+    not applicable or not recorded.
+- name: jsonPayload_statuscode
+  description: A numeric status code indicating the outcome of an operation or request. Null when a status code is not applicable or not recorded for
+    the event.
+- name: jsonPayload_timestamp
+  description: The high-precision timestamp at which the log event occurred, recorded as a numeric value in nanoseconds since the Unix epoch. Used
+    for precise event ordering and time-based analysis.
+- name: jsonPayload_tlscipher
+  description: The TLS cipher suite used for the encrypted connection associated with the log event (e.g., 'ECDHE-RSA-AES128-GCM-SHA256'). Null when
+    TLS information is not available.
+- name: jsonPayload_tlsprotocol
+  description: The TLS protocol version used for the encrypted connection (e.g., 'TLSv1.2', 'TLSv1.3'). Null when TLS protocol information is not captured
+    in the log entry.
+- name: jsonPayload_trace
+  description: A distributed tracing identifier used to correlate the log event with a specific request trace across multiple services. Null when tracing
+    information is not available.
+- name: jsonPayload_type
+  description: The type or category of the log event, identifying the emitting component or subsystem (e.g., a database service type or server configuration
+    component). Used to classify events by their origin.
+- name: jsonPayload_uri
+  description: The full URI of the request associated with the log event, including path and query parameters. Null when the event does not involve
+    a URI-based resource.
+- name: jsonPayload_user_agent
+  description: The HTTP User-Agent string from the client that made the request, indicating the browser or client software. Null when the user agent
+    is not present in the request headers.
+- name: jsonPayload_useragent
+  description: The HTTP User-Agent string captured in the structured log payload, representing the client software making the request. Null when not
+    available in the log source format.
+- name: jsonPayload_utm_campaign
+  description: The UTM campaign parameter from the request URL, identifying the specific marketing campaign that drove the user interaction. Used for
+    attribution and marketing analytics.
+- name: jsonPayload_utm_content
+  description: The UTM content parameter from the request URL, used to differentiate between multiple links or creatives within the same campaign.
+    Supports A/B testing and content performance analysis.
+- name: jsonPayload_utm_medium
+  description: The UTM medium parameter from the request URL, indicating the marketing channel through which the user arrived (e.g., 'email', 'cpc').
+    Used for traffic source attribution.
+- name: jsonPayload_utm_source
+  description: The UTM source parameter from the request URL, identifying the specific source of traffic such as a search engine or newsletter name.
+    Used for marketing attribution and funnel analysis.
+- name: jsonPayload_v
+  description: A numeric version indicator embedded in the log payload, typically used to identify the schema or format version of the log entry. Enables
+    forward and backward compatibility in log processing.
+- name: jsonPayload_version
+  description: The version string of the service or application that generated the log entry. Null when version information is not included in the
+    log payload.
+- name: jsonPayload_wafresponse
+  description: The numeric response code or decision returned by the Web Application Firewall (WAF) for the request. Null when the request was not
+    evaluated by a WAF.
+- name: jsonPayload_x_forwarded_for
+  description: The value of the X-Forwarded-For HTTP header, containing the originating IP address(es) of the client as the request passed through
+    proxies. Null when the header is not present.
+- name: jsonPayload_x_forwarded_proto
+  description: The value of the X-Forwarded-Proto HTTP header, indicating the protocol (http or https) used by the client to connect to the proxy.
+    Null when the header is not present.
+- name: labels_application
+  description: The name of the application or service component associated with the log entry, as set in the resource or log labels. Used to identify
+    which FxA application produced the event.
+- name: labels_compute_googleapis_com_resource_name
+  description: The name of the Google Compute Engine resource (e.g., a GKE node) associated with the log entry, as assigned by the Compute API. This
+    identifies the specific virtual machine instance within the FxA production cluster that emitted the record.
+- name: labels_defau
+  description: A resource label field representing a default or miscellaneous label attribute attached to the log entry's resource. The value provides
+    supplementary metadata about the originating resource.
+- name: labels_env
+  description: A resource label indicating the deployment environment associated with the log entry's resource (e.g., production, staging). This helps
+    distinguish records originating from different operational environments.
+- name: labels_fxa_______4
+  description: An FxA-specific resource label field carrying supplementary metadata about the originating resource. The exact label key suffix is encoded
+    and may represent a particular FxA service attribute.
+- name: labels_fxa________
+  description: An FxA-specific resource label field carrying supplementary metadata about the originating resource. The exact label key suffix is encoded
+    and may represent a particular FxA service attribute.
+- name: labels_fxa_______d
+  description: An FxA-specific resource label field carrying supplementary metadata about the originating resource. The exact label key suffix is encoded
+    and may represent a particular FxA service attribute.
+- name: labels_fxa_______e
+  description: An FxA-specific resource label field carrying supplementary metadata about the originating resource. The exact label key suffix is encoded
+    and may represent a particular FxA service attribute.
+- name: labels_fxa_______g
+  description: An FxA-specific resource label field carrying supplementary metadata about the originating resource. The exact label key suffix is encoded
+    and may represent a particular FxA service attribute.
+- name: labels_fxa_______j
+  description: An FxA-specific resource label field carrying supplementary metadata about the originating resource. The exact label key suffix is encoded
+    and may represent a particular FxA service attribute.
+- name: labels_fxa_______k
+  description: An FxA-specific resource label field carrying supplementary metadata about the originating resource. The exact label key suffix is encoded
+    and may represent a particular FxA service attribute.
+- name: labels_fxa_______m
+  description: An FxA-specific resource label field carrying supplementary metadata about the originating resource. The exact label key suffix is encoded
+    and may represent a particular FxA service attribute.
+- name: labels_fxa______g_
+  description: An FxA-specific resource label field carrying supplementary metadata about the originating resource. The exact label key suffix is encoded
+    and may represent a particular FxA service attribute.
+- name: labels_fxa______i_
+  description: An FxA-specific resource label field carrying supplementary metadata about the originating resource. The exact label key suffix is encoded
+    and may represent a particular FxA service attribute.
+- name: labels_fxa______n_
+  description: An FxA-specific resource label field carrying supplementary metadata about the originating resource. The exact label key suffix is encoded
+    and may represent a particular FxA service attribute.
+- name: labels_fxa______u_
+  description: An FxA-specific resource label field carrying supplementary metadata about the originating resource. The exact label key suffix is encoded
+    and may represent a particular FxA service attribute.
+- name: labels_fxa______w_
+  description: An FxA-specific resource label field carrying supplementary metadata about the originating resource. The exact label key suffix is encoded
+    and may represent a particular FxA service attribute.
+- name: labels_k8s_pod_app_kubernetes_io_component
+  description: The Kubernetes recommended label identifying the component within the application that the pod belongs to (e.g., 'fxa-web'). This follows
+    the app.kubernetes.io/component label convention for categorizing workloads within a larger application.
+- name: labels_k8s_pod_app_kubernetes_io_instance
+  description: The Kubernetes recommended label identifying a unique instance of the application, used to distinguish between multiple deployments
+    of the same application. This follows the app.kubernetes.io/instance label convention and may be null when not applicable.
+- name: labels_k8s_pod_app_kubernetes_io_managed_by
+  description: The Kubernetes recommended label indicating the tool or controller responsible for managing the pod's lifecycle (e.g., Helm, a custom
+    operator). This follows the app.kubernetes.io/managed-by label convention.
+- name: labels_k8s_pod_app_kubernetes_io_name
+  description: The Kubernetes recommended label identifying the name of the application the pod belongs to (e.g., 'fxa'). This follows the app.kubernetes.io/name
+    label convention and provides a high-level grouping for related workloads.
+- name: labels_k8s_pod_app_kubernetes_io_part_of
+  description: The Kubernetes recommended label indicating the higher-level application or suite that the pod is part of. This follows the app.kubernetes.io/part-of
+    label convention for expressing application hierarchy.
+- name: labels_k8s_pod_app_kubernetes_io_version
+  description: The Kubernetes recommended label indicating the current version of the application running in the pod. This follows the app.kubernetes.io/version
+    label convention and corresponds to the deployed release version.
+- name: labels_k8s_pod_batch_kubernetes_io_controller_uid
+  description: The unique identifier of the Kubernetes batch controller (e.g., a Job) that owns the pod, used to associate pods with their controlling
+    batch workload. This field is null when the pod is not managed by a batch controller.
+- name: labels_k8s_pod_batch_kubernetes_io_job_name
+  description: The name of the Kubernetes Job that owns the pod, present only when the pod was created as part of a batch Job workload. This field
+    is null for pods managed by non-batch controllers such as Deployments or DaemonSets.
+- name: labels_k8s_pod_controller_revision_hash
+  description: The hash of the controller revision for the pod, used by Kubernetes to track rolling updates for StatefulSet and DaemonSet workloads.
+    This label helps correlate pods with a specific revision of their controlling resource.
+- name: labels_k8s_pod_controller_uid
+  description: The unique identifier of the Kubernetes controller (e.g., ReplicaSet, StatefulSet) that owns the pod. This field is null when the pod
+    is not associated with a tracked controller.
+- name: labels_k8s_pod_deployment
+  description: The name of the Kubernetes Deployment that manages the pod (e.g., 'admin-backend'). This label links the pod back to its owning Deployment
+    resource for identification and routing purposes.
+- name: labels_k8s_pod_env_code
+  description: A short code identifying the deployment environment in which the pod is running (e.g., 'prod' for production). This label is used to
+    differentiate workloads across environments within the Kubernetes cluster.
+- name: labels_k8s_pod_fullname
+  description: The full descriptive name assigned to the Kubernetes pod, typically combining service name and environment context. This label provides
+    a human-readable identifier for the pod beyond its generated name.
+- name: labels_k8s_pod_jenkins_build_id
+  description: The Jenkins build identifier associated with the CI/CD pipeline run that deployed the pod. This label enables traceability between a
+    running pod and the specific build that produced its container image.
+- name: labels_k8s_pod_job_name
+  description: The name of the Kubernetes Job associated with the pod, present only when the pod is part of a Job workload. This field is null for
+    pods managed by long-running controllers such as Deployments.
+- name: labels_k8s_pod_k8s_app
+  description: A legacy Kubernetes label used to identify the application name associated with the pod. This label predates the standardized app.kubernetes.io
+    label set and may be used for selector and grouping purposes.
+- name: labels_k8s_pod_pod_template_generation
+  description: A Kubernetes label tracking the generation number of the pod template, incremented whenever the pod spec is updated. This is typically
+    used by DaemonSet controllers to manage rolling updates.
+- name: labels_k8s_pod_pod_template_hash
+  description: A hash of the pod template spec appended by Kubernetes ReplicaSets to uniquely identify pods belonging to a specific template version.
+    This label is used internally for routing and rollout management.
+- name: labels_k8s_pod_redis
+  description: A Kubernetes pod label used to associate or identify pods related to a Redis instance or role within the cluster. This field is null
+    when the pod has no Redis-related label applied.
+- name: labels_k8s_pod_run
+  description: A Kubernetes pod label typically set when a pod is created via 'kubectl run', carrying the name provided at creation time. This field
+    is null for pods managed by higher-level controllers.
+- name: labels_logging_gke_io_top_level_controller_name
+  description: The name of the top-level Kubernetes controller (e.g., a Deployment) responsible for the pod, as determined by GKE's logging infrastructure
+    (e.g., 'gha-fxa-admin-backend'). This label is injected by GKE to enable log aggregation at the controller level.
+- name: labels_logging_gke_io_top_level_controller_type
+  description: The type of the top-level Kubernetes controller (e.g., 'Deployment') responsible for the pod, as determined by GKE's logging infrastructure.
+    This label is injected by GKE to classify the workload kind for log routing and aggregation.
+- name: labels_pro
+  description: A resource label field representing a project-level or profile-related attribute attached to the log entry's originating resource. The
+    value provides supplementary metadata for resource classification.
+- name: labels_stack
+  description: A resource label indicating the technology stack or service stack associated with the log entry's originating resource. This helps categorize
+    resources by their infrastructure or application stack.
+- name: labels_type
+  description: A resource label indicating the type or category of the log entry's originating resource. This provides a classification tag used for
+    filtering and grouping resources within the infrastructure.
+- name: language
+  description: The language or locale code representing the user's preferred language at the time of the event (e.g., 'en-US', 'de', 'fr'). This is
+    derived from the user's browser or account settings and follows BCP 47 language tag formatting.
+- name: locale
+  description: The locale setting associated with the user or request, representing a combination of language and regional preferences. This field
+    may overlap with the language field and is used to capture localization context for the event.
+- name: logName
+  description: The fully qualified name of the Google Cloud Logging log stream that the entry was written to (e.g., 'projects/moz-fx-webservices-high-prod/logs/stdout').
+    This identifies the source log stream within the GCP project.
+- name: operation_first
+  description: A boolean flag indicating whether this log entry is the first entry in a multi-part operation sequence. A value of true marks the start
+    of the operation; this field is null when the log entry is not part of a tracked operation.
+- name: operation_id
+  description: A unique identifier for a multi-part operation, used to correlate all log entries that belong to the same logical operation. This field
+    is null when the log entry is not associated with a tracked operation.
+- name: operation_last
+  description: A boolean flag indicating whether this log entry is the final entry in a multi-part operation sequence. A value of true marks the completion
+    of the operation; this field is null when the log entry is not part of a tracked operation.
+- name: operation_producer
+  description: An identifier for the service or component that produced a multi-part operation, used alongside operation_id to scope operation tracking
+    to a specific producer. This field is null when the log entry is not part of a tracked operation.
+- name: os_name
+  description: The name of the operating system on the device used during the event (e.g., 'Windows', 'Android', 'Mac OS X', 'iOS', 'Linux'). This
+    is derived from the user-agent or device metadata associated with the request.
+- name: os_version
+  description: The version string of the operating system on the device used during the event (e.g., '10' for Windows 10, '10.15' for macOS Catalina).
+    This field may be null when the OS version cannot be determined from the available metadata.
+- name: receiveTimestamp
+  description: The timestamp at which the log entry was received by the Cloud Logging pipeline. This reflects ingestion time and may differ slightly
+    from the event's own timestamp.
+- name: region
+  description: The geographic region associated with the event or resource. Used to identify the broad geographic area where the activity originated
+    or the resource is located.
+- name: registered
+  description: Indicates whether the Firefox Accounts user was already registered at the time of the event. A value of true means the account existed
+    prior to the event; false means the user was not yet registered.
+- name: resource_labels_cluster_name
+  description: The name of the Kubernetes cluster on which the service pod was running when the log entry was produced. Used to identify the infrastructure
+    context of the log event.
+- name: resource_labels_container_name
+  description: The name of the container within the Kubernetes pod that generated the log entry. Identifies which application container (e.g., admin-backend)
+    produced the event.
+- name: resource_labels_instance_id
+  description: The unique identifier of the compute instance associated with the log resource. Used to pinpoint the specific VM or node that emitted
+    the log entry.
+- name: resource_labels_location
+  description: The GCP region or zone location label associated with the Kubernetes resource that produced the log entry (e.g., us-west1). Indicates
+    where the workload is physically running.
+- name: resource_labels_namespace_name
+  description: The Kubernetes namespace in which the service is deployed (e.g., fxa-prod). Used to scope resources and log entries within a cluster
+    to a specific environment or application group.
+- name: resource_labels_pod_name
+  description: The name of the specific Kubernetes pod that generated the log entry. Enables tracing of log events back to an individual running pod
+    instance within the cluster.
+- name: resource_labels_project_id
+  description: The GCP project ID associated with the Kubernetes resource that produced the log entry (e.g., moz-fx-webservices-high-prod). Identifies
+    the billing and organizational context of the resource.
+- name: resource_labels_zone
+  description: The GCP availability zone of the resource that produced the log entry. Provides finer-grained geographic placement within a region for
+    the underlying infrastructure.
+- name: resource_type
+  description: The type of GCP monitored resource that produced the log entry (e.g., k8s_container). Used to identify the class of infrastructure resource
+    associated with the log.
+- name: seen_in_tier1_country
+  description: Indicates whether the user has been observed accessing Firefox Accounts from a Tier 1 country. A value of true means at least one activity
+    has been recorded from a Tier 1 country; false means no such activity has been detected.
+- name: sender
+  description: A hashed identifier representing the device or account that initiated a command or action. Used to attribute events to a specific originating
+    party without exposing raw user identifiers.
+- name: sender_os
+  description: The operating system of the device that sent the command or initiated the event (e.g., Android, Windows, iOS). May be null when the
+    sender device information is unavailable.
+- name: sender_type
+  description: The form factor category of the device that sent the command or initiated the event (e.g., mobile, desktop, tablet, vr). May be null
+    when sender device information is not available.
+- name: service
+  description: The name of the Mozilla service or client application that generated the event (e.g., firefox-desktop, sync, fenix, firefox-ios). Used
+    to attribute activity to a specific product or integration.
+- name: severity
+  description: The severity level of the log entry as defined by Cloud Logging (e.g., INFO, WARNING, ERROR). Indicates the importance or urgency of
+    the logged event.
+- name: sourceLocation_file
+  description: The source code file name that produced the log entry, as reported by the application. This field is typically null when source location
+    information is not emitted by the service.
+- name: sourceLocation_function
+  description: The name of the function or method in the source code that produced the log entry. This field is typically null when source location
+    information is not emitted by the service.
+- name: sourceLocation_line
+  description: The line number within the source code file that produced the log entry. This field is typically null when source location information
+    is not emitted by the service.
+- name: spanId
+  description: The span identifier associated with a distributed trace for the log entry. Used to correlate log entries with a specific span in a trace;
+    typically null when distributed tracing is not in use.
+- name: split_index
+  description: The zero-based index of this record within a set of splits, used when a large log payload is broken into multiple parts. Null when the
+    entry has not been split.
+- name: split_totalSplits
+  description: The total number of split parts that together comprise a single original log payload. Null when the entry has not been split.
+- name: split_uid
+  description: A unique identifier shared across all split parts of a single original log payload, used to reassemble them. Null when the entry has
+    not been split.
+- name: submission_date
+  description: The date on which the event or record was submitted to the data pipeline, in UTC. Used as a partitioning and filtering key for date-based
+    queries.
+- name: submission_timestamp
+  description: The precise UTC timestamp at which the event or record was submitted to the data pipeline. Provides sub-second resolution for ordering
+    and deduplication within a submission date.
+- name: target
+  description: A hashed identifier representing the device or account that is the recipient of a command or action. Used to attribute events to a specific
+    destination party without exposing raw user identifiers.
+- name: target_os
+  description: The operating system of the device that received the command or was the target of the event (e.g., Windows, Android, iOS). May be null
+    when target device information is unavailable.
+- name: target_type
+  description: The form factor category of the device that received the command or was the target of the event (e.g., desktop, mobile, tablet, tv,
+    vr). May be null when target device information is not available.
+- name: textPayload
+  description: The raw text payload of the log entry, used when the log message is an unstructured string rather than a structured JSON object. Typically
+    null for structured log entries.
+- name: timestamp
+  description: The UTC timestamp of the event as recorded by the originating service or application. This reflects when the event actually occurred,
+    and may differ from the ingestion receiveTimestamp.
+- name: trace
+  description: The distributed trace identifier associated with the log entry, formatted as a Cloud Trace resource name. Typically null when distributed
+    tracing is not enabled for the service.
+- name: traceSampled
+  description: Indicates whether the log entry's associated trace was sampled for distributed tracing. A value of true means the trace was sampled;
+    null or false means it was not.
+- name: type
+  description: The event type identifier describing the specific action or occurrence being recorded (e.g., device.command.retrieved, device.command.invoked).
+    Used to categorize and filter events by their nature.
+- name: ua_browser
+  description: The name of the web browser derived from the user-agent string associated with the event (e.g., Firefox, Chrome, Safari). May be null
+    when no user-agent information is available.
+- name: ua_os
+  description: The operating system derived from the user-agent string associated with the event (e.g., Windows, macOS, Android). Used to understand
+    the platform context of the user's session.
+- name: ua_version
+  description: The version string of the browser derived from the user-agent associated with the event (e.g., 151.0). May be null when user-agent information
+    is not present or parseable.
+- name: uid
+  description: The Firefox Accounts unique identifier for the user associated with the event. This is a stable, opaque identifier used to track a user
+    across FxA services.
+- name: user_id
+  description: A hashed unique identifier for the Firefox Accounts user associated with the event. Used to link activity records to a specific user
+    without exposing raw account credentials.
+- name: useragent
+  description: The raw user-agent string submitted with the request, identifying the client application and environment. Used for parsing browser,
+    OS, and version information.
+- name: utm_campaign
+  description: The UTM campaign parameter from the marketing URL that referred the user to Firefox Accounts. Used to attribute account activity to
+    a specific marketing campaign; typically null when not set.
+- name: utm_content
+  description: The UTM content parameter from the marketing URL that referred the user to Firefox Accounts. Used to differentiate ads or links within
+    the same campaign; typically null when not set.
+- name: utm_medium
+  description: The UTM medium parameter from the marketing URL that referred the user to Firefox Accounts (e.g., email, cpc). Identifies the marketing
+    channel; typically null when not set.
+- name: utm_source
+  description: The UTM source parameter from the marketing URL that referred the user to Firefox Accounts (e.g., newsletter, google). Identifies the
+    traffic source; typically null when not set.
+- name: utm_term
+  description: The UTM term parameter from the marketing URL that referred the user to Firefox Accounts. Used to identify paid search keywords associated
+    with the referral; typically null when not set.
+- name: jsonPayload_fields_maxtokenagewindowsize
+  description: The window size in time units used to determine the maximum token age during a token cleanup operation.
+- name: jsonPayload_fields_input
+  description: The raw input value passed to an operation or validation, captured for debugging purposes.
+- name: jsonPayload_fields__accountresettokensdeleted
+  description: The count of expired account-reset tokens deleted during a cleanup job execution.
+- name: jsonPayload_uid
+  description: The Firefox Accounts user ID associated with the event, if the log entry relates to a specific user account action.
+- name: jsonPayload_config_dataflow_enabled
+  description: Configuration flag indicating whether the dataflow integration is active in the customs service. True means the service consumes events
+    from the configured Pub/Sub subscription.
+- name: jsonPayload_config_tracing_otel_concurrencylimit
+  description: Configuration value specifying the maximum number of concurrent export requests allowed by the OpenTelemetry trace exporter.
+- name: jsonPayload_fields_bouncesubtype
+  description: The subtype of an email bounce event, providing more granular classification (e.g., 'general', 'suppressed').
+- name: jsonPayload_config_sentry_env
+  description: The environment label (e.g., production, staging) attached to Sentry error reports from the customs service.
+- name: jsonPayload_config_limits_maxunblockattempts
+  description: Configuration value defining the maximum number of unblock code attempts allowed per account before further unblocking is denied.
+- name: jsonPayload_config_tracing_servicename
+  description: The service name identifier used when registering spans with the configured distributed tracing backend.
+- name: jsonPayload_config_userdefinedratelimitrules_tokencoderules_actions
+  description: List of FxA account actions to which the user-defined token code rate limit rules apply.
+- name: jsonPayload_config_redis_accesstokens_prefix
+  description: The key prefix used for access token records stored in this Redis instance.
+- name: jsonPayload_config_userdefinedratelimitrules_recoveryphonecreatecoderules_actions
+  description: Array of action names subject to the recovery phone create-code rate-limit rule.
+- name: jsonPayload_err_message
+  description: The human-readable error message from the top-level error object.
+- name: jsonPayload_fields_complaintfeedbacktype
+  description: The feedback type reported in an email complaint notification (e.g., 'abuse', 'fraud').
+- name: jsonPayload_fields_complaint
+  description: Indicates whether an email complaint (spam report) was received for the account. True means a complaint was recorded.
+- name: jsonPayload_config_userdefinedratelimitrules_recoveryphonetotpcoderules_limits_max
+  description: The maximum number of recovery phone TOTP-code verifications allowed within the rate-limit period.
+- name: jsonPayload_config_redis_sessiontokens_enabled
+  description: Indicates whether the session tokens Redis store is enabled. True means session tokens are cached in Redis.
+- name: jsonPayload_config_redis_refreshtokens_port
+  description: The port of the Redis instance used to store FxA refresh tokens.
+- name: jsonPayload_err_isoperational
+  description: Indicates whether the error is an operational error (expected runtime error) as opposed to a programming bug. True means it is an operational
+    error.
+- name: jsonPayload_err_stack
+  description: The stack trace string for the top-level error object, useful for pinpointing the source of the failure in code.
+- name: jsonPayload_fields_currency
+  description: The ISO 4217 currency code (e.g., USD, EUR) for the subscription or payment amount.
+- name: jsonPayload_config_redis_refreshtokens_recordlimit
+  description: The maximum number of refresh token records stored per user in this Redis instance.
+- name: jsonPayload_config_limits_maxaccountstatuscheck
+  description: Configuration value defining the maximum number of account status check requests allowed per IP within the rate limit interval.
+- name: jsonPayload_config_redis_customs_password
+  description: The password used to authenticate with the customs-specific Redis instance.
+- name: jsonPayload_fields_registered
+  description: Indicates whether a device or resource has been successfully registered, populated during device registration events.
+- name: jsonPayload_config_userdefinedratelimitrules_totpcoderules_limits_max
+  description: Configuration value defining the maximum number of TOTP code attempts allowed within the rate limit period under user-defined rules.
+- name: jsonPayload_config_reputationservice_suspectbelow
+  description: Configuration threshold below which a reputation score causes the customs service to flag a client as suspect.
+- name: jsonPayload_config_publicurl
+  description: The public-facing base URL of the FxA customs service, used for self-reference in responses or documentation.
+- name: jsonPayload_config_tracing_otel_url
+  description: The endpoint URL to which the customs service exports OpenTelemetry trace data.
+- name: jsonPayload_fields_nvpdata
+  description: Name-value pair data string from a PayPal IPN or NVP API response associated with a subscription event.
+- name: jsonPayload_config_dataflow_gcppubsub_projectid
+  description: The GCP project ID of the Pub/Sub subscription used by the customs service dataflow integration to receive event data.
+- name: jsonPayload_config_userdefinedratelimitrules_getcredentialsstatusrules_actions
+  description: Array of action names subject to the get-credentials-status rate-limit rule.
+- name: jsonPayload_fields_complaintuseragent
+  description: The user agent string reported in the email complaint notification.
+- name: jsonPayload_config_updatepollintervalseconds
+  description: Configuration value specifying how frequently (in seconds) the customs service polls for updates to its configuration or blocklist data.
+- name: jsonPayload_config_redis_accesstokens_host
+  description: The hostname of the Redis instance used to store FxA access tokens.
+- name: jsonPayload_config_redis_metrics_lifetime
+  description: The TTL in seconds for metric records stored in this Redis instance.
+- name: jsonPayload_fields_maxsessionsmaxdeletions
+  description: The configured maximum number of session deletions allowed in a single cleanup job execution.
+- name: jsonPayload_fields_moreinfo
+  description: A URL or string providing additional information or documentation about the logged error or event.
+- name: jsonPayload_config_redis_initialbackoff
+  description: The initial backoff duration in milliseconds before retrying a failed Redis connection.
+- name: jsonPayload_fields_rawtype
+  description: The type identifier of the raw message payload before parsing or normalization.
+- name: jsonPayload_fields_bundlekey
+  description: The key used to identify a push notification bundle sent to a connected FxA device.
+- name: jsonPayload_config_statsd_enabled
+  description: Indicates whether StatsD metrics reporting is enabled. True means metrics are sent to the StatsD server.
+- name: jsonPayload_config_ipblocklist_enable
+  description: Configuration flag indicating whether the IP blocklist feature is active in the customs service. True means blocklist enforcement is
+    on.
+- name: jsonPayload_config_redis_customs_host
+  description: The hostname of the Redis instance used by the FxA customs server.
+- name: jsonPayload_fields_jse_cause
+  description: The cause chain from a JSON-serialized VError or WError, representing the underlying error that caused this exception.
+- name: jsonPayload_config_redis_subhub_minconnections
+  description: The minimum number of connections maintained in the SubHub Redis connection pool.
+- name: jsonPayload_fields_currentperiodend
+  description: The Unix timestamp when the current subscription billing period ends.
+- name: jsonPayload_config_redis_refreshtokens_maxttl
+  description: The maximum TTL in seconds for refresh token records stored in Redis.
+- name: jsonPayload_config_limits_maxbadlogins
+  description: Configuration value defining the maximum number of failed login attempts allowed per account before blocking is triggered.
+- name: jsonPayload_fields_clientsalt
+  description: The client-side salt used in FxA's key stretching protocol for password-based authentication.
+- name: jsonPayload_config_env
+  description: The deployment environment of the customs service instance (e.g., production, staging), used for environment-specific configuration.
+- name: jsonPayload_config_requestchecks_flowidrequiredonlogin
+  description: Configuration flag indicating whether a flow ID is required on login requests. True means login requests lacking a flow ID are rejected
+    or flagged.
+- name: jsonPayload_config_requestchecks_flowidexemptuseragentres
+  description: List of user-agent regular expressions that are exempt from the flow ID requirement on login requests.
+- name: jsonPayload_config_redis_refreshtokens_host
+  description: The hostname of the Redis instance used to store FxA refresh tokens.
+- name: jsonPayload_regex
+  description: The regular expression pattern used during a blocklist or heuristic match that triggered the log event.
+- name: jsonPayload_fields_skew
+  description: The measured time skew in milliseconds between the client's clock and the server's clock, used to detect clock drift issues.
+- name: jsonPayload_config_redis_accesstokens_maxttl
+  description: The maximum TTL in seconds for access token records stored in Redis.
+- name: jsonPayload_config_redis_authservercache_port
+  description: The port of the Redis instance used as an auth-server cache.
+- name: jsonPayload_config_redis_recoveryphone_port
+  description: The port of the Redis instance used to store recovery phone state.
+- name: jsonPayload_fields_stripeeligibilityresult
+  description: The eligibility determination result from Stripe for the user's target subscription plan.
+- name: jsonPayload_config_limits_passwordresetotplimits_passwordresetotpverificationblockwindowseconds
+  description: The time window in seconds used to evaluate password reset OTP verification attempts for blocking.
+- name: jsonPayload_fields_authkey
+  description: The authentication key used in cryptographic operations for FxA push notifications or session management.
+- name: jsonPayload_config_tracing_sentry_enabled
+  description: Indicates whether Sentry integration for tracing error capture is enabled.
+- name: jsonPayload_fields_reminders
+  description: Serialized reminder configuration or state for a subscription renewal or payment reminder event.
+- name: jsonPayload_fields_diagnosticcode
+  description: The diagnostic code returned by the receiving mail server when an email delivery failure or bounce occurred.
+- name: jsonPayload_fields_notificationtype
+  description: The top-level type of a subscription notification, such as 'SUBSCRIBED', 'CANCELLED', or 'DID_RENEW', from the Apple App Store.
+- name: jsonPayload_config_limits_uidratelimit_maxchecks
+  description: Configuration value defining the maximum number of customs checks allowed per user ID within the UID rate limit interval.
+- name: jsonPayload_config_userdefinedratelimitrules_recoveryphonesendsignincoderules_actions
+  description: Array of action names subject to the recovery phone send-sign-in-code rate-limit rule.
+- name: jsonPayload_fields_maxtokenage
+  description: The configured maximum age allowed for tokens before they are eligible for deletion by the cleanup job.
+- name: jsonPayload_config_limits_maxbadloginsperemail
+  description: Configuration value defining the maximum number of bad login attempts allowed per email address before rate limiting is applied.
+- name: jsonPayload_config_limits_ratelimitintervalseconds
+  description: Configuration value specifying the time window in seconds used for general rate limit counting in the customs service.
+- name: jsonPayload_fields_currentperiodstart
+  description: The Unix timestamp when the current subscription billing period started.
+- name: jsonPayload_config_allowedphonenumbers
+  description: List of phone numbers explicitly allowed by the customs service, exempting them from SMS rate limiting rules.
+- name: jsonPayload_config_redis_authservercache_enabled
+  description: Indicates whether the auth-server Redis cache is enabled. True means it is actively used for caching.
+- name: jsonPayload_fields_tokenid
+  description: The identifier of the session token or verification token associated with the event.
+- name: count
+  description: The number of Firefox Accounts entities that fall into the given type and state on the given date.
+- name: jsonPayload_fields_currentdatems
+  description: The current date and time in milliseconds (Unix epoch) at the time the logged operation was executed.
+- name: category
+  description: The Lighthouse audit category under which this result falls, such as performance, accessibility, best-practices, or SEO.
+- name: jsonPayload_config_redis_recoveryphone_host
+  description: The hostname of the Redis instance used to store recovery phone state.
+- name: jsonPayload_fields_promotioncode
+  description: Promotion or coupon code applied to a Mozilla subscription purchase.
+- name: jsonPayload_config_tracing_clientname
+  description: The client name identifier used when registering the customs service with the configured tracing backend.
+- name: jsonPayload_fields__unblockcodesdeleted
+  description: The count of expired unblock codes deleted during a cleanup job execution.
+- name: jsonPayload_fields_devicetype
+  description: The type of the FxA device (e.g., mobile, desktop) associated with the logged event.
+- name: jsonPayload_config_redis_authservercache_prefix
+  description: The key prefix used for auth-server cache records stored in Redis.
+- name: jsonPayload_config_userdefinedratelimitrules_recoveryphoneconfirmcoderules_limits_ratelimitintervalms
+  description: The block interval in milliseconds applied when the recovery phone confirm-code rate limit is exceeded.
+- name: jsonPayload_fields_eventtimemillis
+  description: The event timestamp in milliseconds from a Google Play or external payment notification.
+- name: jsonPayload_config_limits_blockintervalseconds
+  description: Configuration value specifying the duration in seconds that a client remains in the blocked state after exceeding the bad login threshold.
+- name: jsonPayload_loadedin
+  description: The time in milliseconds taken to load an IP blocklist or configuration file into the customs service.
+- name: jsonPayload_config_redis_accesstokens_password
+  description: The password used to authenticate with the Redis instance storing FxA access tokens.
+- name: jsonPayload_config_requestchecks_treateveryonewithsuspicion
+  description: Configuration flag that, when true, causes the customs service to treat all incoming requests as suspect regardless of their history.
+- name: jsonPayload_err_name
+  description: The class name of the top-level error object (e.g., Error, TypeError, StatusCodeError).
+- name: jsonPayload_config_ipblocklist_logonlylists
+  description: List of IP blocklist sources that the customs service monitors in log-only mode, recording hits without enforcing blocks.
+- name: jsonPayload_config_redis_sessiontokens_minconnections
+  description: The minimum number of connections maintained in the session tokens Redis connection pool.
+- name: jsonPayload_config_redis_password
+  description: The password used to authenticate with the default Redis instance.
+- name: jsonPayload_config_userdefinedratelimitrules_recoveryphonesendsetupcoderules_actions
+  description: Array of action names subject to the recovery phone send-setup-code rate-limit rule.
+- name: jsonPayload_fields_tokenverified
+  description: Indicates whether the session or sign-in token for the account has been verified. True means it is verified.
+- name: jsonPayload_config_ipblocklist_lists
+  description: List of IP blocklist sources (e.g., URLs or identifiers) that the customs service actively enforces for blocking requests.
+- name: jsonPayload_config_redis_email_minconnections
+  description: The minimum number of connections maintained in the email Redis connection pool.
+- name: jsonPayload_config_memcache_recordlifetimeseconds
+  description: Configuration value specifying how long (in seconds) records are retained in the Memcache instance used by the customs service.
+- name: jsonPayload_fields_now
+  description: Current timestamp string at the time of the log event, used for relative time calculations in the FxA service.
+- name: jsonPayload_config_userdefinedratelimitrules_recoveryphonetotpcoderules_actions
+  description: Array of action names subject to the recovery phone TOTP-code rate-limit rule.
+- name: jsonPayload_fields_provider
+  description: The name of the third-party identity provider (e.g., Google, Apple) used for federated authentication.
+- name: jsonPayload_fields_total
+  description: The total monetary amount in the smallest currency unit (e.g., cents) for a subscription invoice or payment event.
+- name: jsonPayload_fields_stripesubscribedplans
+  description: Serialized list of Stripe subscription plans the user is currently subscribed to.
+- name: jsonPayload_config_redis_email_enabled
+  description: Indicates whether the email Redis store is enabled. True means email-related data is cached in Redis.
+- name: jsonPayload_fields_securityevent
+  description: The name of a security event recorded against an account, such as a login attempt or password change.
+- name: jsonPayload_email
+  description: SHA-256 hash of the user's email address, anonymized from the original value for privacy. The raw email is suppressed and replaced with
+    this hash in the sanitized table.
+- name: jsonPayload_fields_encoding
+  description: The character encoding used for an SMS message (e.g., GSM7, UCS2), as reported by Twilio.
+- name: jsonPayload_fields_segmentscount
+  description: The number of SMS segments used to send a message, as reported by the Twilio delivery receipt.
+- name: jsonPayload_config_redis_subhub_prefix
+  description: The key prefix used for SubHub-related records stored in Redis.
+- name: jsonPayload_config_userdefinedratelimitrules_recoveryphonecreatecoderules_limits_ratelimitintervalms
+  description: The block interval in milliseconds applied when the recovery phone create-code rate limit is exceeded.
+- name: jsonPayload_config_limits_smsratelimit_maxsms
+  description: Configuration value defining the maximum number of SMS messages allowed per account or IP within the SMS rate limit interval.
+- name: jsonPayload_config_userdefinedratelimitrules_recoveryphoneconfirmcoderules_actions
+  description: Array of action names subject to the recovery phone confirm-code rate-limit rule.
+- name: jsonPayload_fields_raw
+  description: The raw, unparsed content of a message or payload as received by the FxA customs service.
+- name: jsonPayload_config_limits_uidratelimit_limitintervalseconds
+  description: Configuration value specifying the time window in seconds over which per-user-ID rate limit checks are counted.
+- name: jsonPayload_config_redis_subhub_enabled
+  description: Indicates whether the SubHub Redis store is enabled for subscription event caching.
+- name: jsonPayload_fields_deletions
+  description: The total number of records (tokens, sessions, or codes) deleted during a cleanup job execution.
+- name: jsonPayload
+  description: The structured JSON payload of the log entry when the Firefox Accounts service emits structured stderr output.
+- name: jsonPayload_reason
+  description: A string describing the reason the customs service took a particular action or flagged the request.
+- name: jsonPayload_fields_bundleid
+  description: The bundle identifier for an Apple App Store app, used in the context of in-app purchase or subscription notifications.
+- name: jsonPayload_config_redis_sessiontokens_prefix
+  description: The key prefix used for session token records stored in Redis.
+- name: jsonPayload_fields_rawdlrdonedate
+  description: The raw delivery receipt done date string from a Twilio SMS delivery report.
+- name: jsonPayload_fields_nonmatchingplans
+  description: Serialized list of subscription plans that did not match during a plan eligibility check.
+- name: jsonPayload_config_limits_maxverifycodes
+  description: Configuration value defining the maximum number of verification code attempts allowed per account or IP within the rate limit interval.
+- name: jsonPayload_fields_due
+  description: The Unix timestamp when a subscription invoice payment is due.
+- name: jsonPayload_fields_devicename
+  description: The user-assigned display name of the FxA connected device.
+- name: jsonPayload_config_userdefinedratelimitrules_recoveryphonesendsignincoderules_limits_periodms
+  description: The length of the recovery phone send-sign-in-code rate-limit period in milliseconds.
+- name: jsonPayload_fields_lifetime
+  description: The configured lifetime in milliseconds of a token, session, or code.
+- name: jsonPayload_fields_bounce
+  description: Indicates whether an email sent to the account has bounced. True means a bounce was recorded.
+- name: jsonPayload_config_limits_disableinterval
+  description: Configuration value specifying the time interval (in seconds) for which account disabling is enforced after the disable threshold is
+    exceeded.
+- name: state
+  description: The health state or status classification for the given type on the given date, representing a condition such as active, inactive, verified,
+    or unverified.
+- name: jsonPayload_config_reputationservice_baseurl
+  description: The base URL of the FxA reputation service that the customs service calls to retrieve reputation scores for clients.
+- name: jsonPayload_config_statsd_samplerate
+  description: The fraction of metric events sampled for StatsD reporting (0.0 to 1.0).
+- name: jsonPayload_config_listen_host
+  description: The hostname or IP address on which the customs service HTTP server is configured to listen for incoming connections.
+- name: jsonPayload_config_allowedemaildomains
+  description: List of email domains that are explicitly allowed by the customs service, exempting them from certain rate-limiting or blocking rules.
+- name: jsonPayload_config_limits_passwordresetotplimits_passwordresetotpverificationlimitintervalseconds
+  description: The rate-limit interval in seconds for password reset OTP verification attempts.
+- name: jsonPayload_fields__passwordchangetokensdeleted
+  description: The count of expired password-change tokens deleted during a cleanup job execution.
+- name: jsonPayload_blockreason
+  description: A detailed reason string explaining why a request was blocked by the customs service, complementing the block flag.
+- name: jsonPayload_config_userdefinedratelimitrules_recoveryphonesendsetupcoderules_limits_periodms
+  description: The length of the recovery phone send-setup-code rate-limit period in milliseconds.
+- name: jsonPayload_fields_mustverifysession
+  description: Indicates whether the session must be verified before proceeding. True means verification is required.
+- name: jsonPayload_host
+  description: The host value from the HTTP request or connection context processed by the customs service.
+- name: jsonPayload_config_redis_authservercache_password
+  description: The password used to authenticate with the auth-server Redis cache instance.
+- name: jsonPayload_err_code
+  description: The error code string of the top-level error object (e.g., ECONNREFUSED), identifying the type of error.
+- name: jsonPayload_config_redis_refreshtokens_prefix
+  description: The key prefix used for refresh token records stored in Redis.
+- name: jsonPayload_config_redis_metrics_host
+  description: The hostname of the Redis instance used for FxA metrics storage.
+- name: jsonPayload_config_redis_recoveryphone_prefix
+  description: The key prefix used for recovery phone records stored in Redis.
+- name: id
+  description: The internal numeric identifier assigned to the issue by the project tracking system.
+- name: jsonPayload_suspect
+  description: Indicates whether the request was flagged as suspicious by the customs service. True means the client is considered suspect but not
+    fully blocked.
+- name: jsonPayload_filesize
+  description: The size in bytes of the IP blocklist or data file referenced in the log event.
+- name: jsonPayload_fields_initiatedat
+  description: The timestamp at which a subscription or account deletion process was initiated.
+- name: jsonPayload_config_redis_authservercache_host
+  description: The hostname of the Redis instance used as an auth-server cache.
+- name: jsonPayload_fields_jse_shortmsg
+  description: A short error message from a JSON-serialized error object, providing a concise description of the failure.
+- name: jsonPayload_config_redis_accesstokens_enabled
+  description: Indicates whether the access tokens Redis store is enabled. True means access tokens are cached in Redis.
+- name: jsonPayload_config_tracing_otel_enabled
+  description: Configuration flag indicating whether OpenTelemetry (OTEL) tracing is enabled for the customs service. True means traces are exported
+    via OTEL.
+- name: jsonPayload_fields_notificationsubtype
+  description: The subtype of a subscription or push notification event, providing finer-grained classification within a notification type.
+- name: jsonPayload_config_userdefinedratelimitrules_recoveryphoneconfirmcoderules_limits_periodms
+  description: The length of the recovery phone confirm-code rate-limit period in milliseconds.
+- name: jsonPayload_config_limits_ipratelimitbandurationseconds
+  description: Configuration value specifying the duration in seconds that an IP address remains in the rate-limited band after exceeding the threshold.
+- name: jsonPayload_config_limits_ipratelimitintervalseconds
+  description: Configuration value specifying the time window in seconds used for per-IP rate limit counting in the customs service.
+- name: jsonPayload_fields_refresh_token
+  description: An OAuth refresh token identifier or hash associated with the event, used to track refresh token operations.
+- name: jsonPayload_config_redis_refreshtokens_enabled
+  description: Indicates whether the refresh tokens Redis store is enabled. True means refresh tokens are cached in Redis.
+- name: jsonPayload_err_cause_code
+  description: The error code string from the underlying cause of the top-level error, used to identify the root failure.
+- name: jsonPayload_fields_from
+  description: The sender email address or identifier for an outbound email or SMS event.
+- name: jsonPayload_config_userdefinedratelimitrules_recoveryphonesendsetupcoderules_limits_ratelimitintervalms
+  description: The block interval in milliseconds applied when the recovery phone send-setup-code rate limit is exceeded.
+- name: jsonPayload_config_statsd_maxbuffersize
+  description: The maximum buffer size in bytes for batching StatsD metric payloads before sending.
+- name: jsonPayload_config_sentry_servername
+  description: The server name tag included in Sentry error reports from the customs service, used to identify the originating host in error tracking.
+- name: jsonPayload_fields_uaformfactor
+  description: The form factor (e.g., mobile, tablet, desktop) extracted from the user-agent string of the requesting client.
+- name: jsonPayload_config_redis_recoveryphone_enabled
+  description: Indicates whether the recovery phone Redis store is enabled. True means recovery phone data is cached in Redis.
+- name: jsonPayload_fields_maxsessionsmaxaccounts
+  description: The configured maximum number of accounts that can have sessions deleted in a single cleanup job run.
+- name: jsonPayload_config_statsd_host
+  description: The hostname of the StatsD server used for FxA service metrics.
+- name: jsonPayload_fields_requestid
+  description: A unique identifier assigned to the HTTP request for tracing and correlation across log entries.
+- name: jsonPayload_config_userdefinedratelimitrules_totpcoderules_actions
+  description: List of FxA account actions to which the user-defined TOTP code rate limit rules apply.
+- name: jsonPayload_config_redis_metrics_prefix
+  description: The key prefix used for metrics records stored in this Redis instance.
+- name: jsonPayload_fields_maxsessions
+  description: The configured maximum number of sessions allowed per account, as used by a cleanup or pruning job.
+- name: jsonPayload_action
+  description: The FxA account action being checked or rate-limited by the customs service (e.g., login, sendVerifyCode, passwordChange).
+- name: jsonPayload_config_statsd_prefix
+  description: The prefix applied to all StatsD metric names emitted by this FxA service instance.
+- name: jsonPayload_config_sentry_samplerate
+  description: The sampling rate (between 0 and 1) at which errors are sent to Sentry from the customs service, controlling error reporting volume.
+- name: jsonPayload_fields__passwordforgottokensdeleted
+  description: The count of expired password-forgot tokens deleted during a cleanup job execution.
+- name: jsonPayload_config_redis_subhub_maxconnections
+  description: The maximum number of connections in the SubHub Redis connection pool.
+- name: jsonPayload_config_limits_passwordresetotplimits_passwordresetotpratelimitintervalseconds
+  description: The rate-limit interval in seconds for password reset OTP email sending.
+- name: jsonPayload_fields_voidedpurchasenotification
+  description: Serialized voided purchase notification data from Google Play for a cancelled or refunded in-app purchase.
+- name: jsonPayload_config_userdefinedratelimitrules_recoveryphoneconfirmcoderules_limits_max
+  description: The maximum number of recovery phone confirm-code attempts allowed within the rate-limit period.
+- name: jsonPayload_config_limits_uidratelimit_bandurationseconds
+  description: Configuration value specifying the ban duration in seconds applied to a user ID after exceeding the UID rate limit threshold.
+- name: jsonPayload_fields_verifyhash
+  description: A hash value used during the account verification process to confirm the legitimacy of a verification request.
+- name: jsonPayload_fields_providerid
+  description: The identifier of the third-party identity provider used for federated sign-in.
+- name: jsonPayload_fields_hasbackupcodes
+  description: Indicates whether the user has backup authentication codes set up for their account. True means backup codes exist.
+- name: jsonPayload_fields_cloudtaskqueueerror
+  description: The error message returned when creating or enqueuing a Google Cloud Task failed.
+- name: jsonPayload_fields_grant_type
+  description: OAuth grant type string for a token request (e.g., 'authorization_code', 'fxa-credentials'); camelCase variant of granttype.
+- name: jsonPayload_config_limits_suspectinterval
+  description: Configuration value specifying the time interval (in seconds) during which a client remains in the suspect state after being flagged.
+- name: jsonPayload_fields_devicecreatedat
+  description: The timestamp when the FxA device record was created.
+- name: jsonPayload_config_limits_maxaccountaccess
+  description: Configuration value defining the maximum number of account access attempts allowed per account within the rate limit interval.
+- name: jsonPayload_err
+  description: Error message string logged when the customs service encounters an exception or unexpected condition during request processing.
+- name: jsonPayload_fields_currentdeletions
+  description: The number of records deleted in the current batch or iteration of a cleanup job.
+- name: jsonPayload_config_sentry_dsn
+  description: The Sentry Data Source Name (DSN) used by the customs service to route error reports to the correct Sentry project.
+- name: jsonPayload_fields_tokenmaxage
+  description: The configured maximum age for authentication tokens before they expire and are deleted by cleanup jobs.
+- name: jsonPayload_fields_maxsessionsbatchsize
+  description: The batch size used when processing accounts during a session cleanup job.
+- name: jsonPayload_fields_doc_url
+  description: URL of the documentation page associated with an error, providing guidance for resolving the issue.
+- name: jsonPayload_config_limits_passwordresetotplimits_maxpasswordresetotpverificationratelimit
+  description: The maximum number of password reset OTP verification attempts allowed within the rate-limit interval.
+- name: jsonPayload_fields_bouncetype
+  description: The type of email bounce (e.g., 'Permanent', 'Transient') associated with a delivery failure event.
+- name: jsonPayload_ip
+  description: SHA-256 hash of the client IP address, anonymized from the original value for privacy. The raw IP is suppressed and replaced with this
+    hash in the sanitized table.
+- name: jsonPayload_config_redis_maxpending
+  description: The maximum number of pending Redis commands allowed before additional commands are rejected.
+- name: jsonPayload_fields_lastaccesstimeenabled
+  description: Boolean indicating whether the device's last-access-time tracking feature is enabled. True means the server is recording the last access
+    time for the session.
+- name: jsonPayload_fields_lastseen
+  description: A string timestamp indicating when the account, device, or session was last seen active.
+- name: jsonPayload_fields_bounced
+  description: Indicates whether the email associated with the account has a recorded bounce. True means a bounce exists on record.
+- name: jsonPayload_fields_iapsubscribedplans
+  description: Serialized list of in-app purchase (IAP) subscription plans the user is currently subscribed to.
+- name: jsonPayload_fields_packagename
+  description: The Android package name of the app associated with a Google Play subscription event.
+- name: resource
+  description: The GCP monitored resource descriptor (type and labels) identifying the cloud resource that generated this stderr log entry.
+- name: jsonPayload_fields_origin
+  description: The HTTP Origin header value from the request, identifying the web origin that initiated this FxA event.
+- name: jsonPayload_foundin
+  description: Numeric identifier indicating which blocklist or data structure the client IP or email was found in during a lookup.
+- name: jsonPayload_config_tracing_filterpii
+  description: Configuration flag indicating whether PII fields are globally filtered from trace spans emitted by the customs service. True means PII
+    is redacted.
+- name: jsonPayload_config_dataflow_ignoreolderthan
+  description: Configuration value (in seconds or milliseconds) specifying the maximum age of dataflow events the customs service will process; older
+    events are discarded.
+- name: jsonPayload_fields_cloudtaskid
+  description: The identifier of the Google Cloud Task created to handle an asynchronous FxA operation.
+- name: jsonPayload_fields_wait
+  description: The wait time or delay in milliseconds configured between iterations of a background job.
+- name: jsonPayload_fields_processingtimemillis
+  description: The time in milliseconds taken to process the request by the FxA customs service.
+- name: jsonPayload_config_log_level
+  description: The configured logging level for the customs service (e.g., info, debug, warn), controlling the verbosity of log output.
+- name: jsonPayload_config_userdefinedratelimitrules_tokencoderules_limits_max
+  description: Configuration value defining the maximum number of token code attempts allowed within the rate limit period under user-defined rules.
+- name: jsonPayload_config_tracing_console_enabled
+  description: Configuration flag indicating whether the customs service emits trace output to the console. True means console tracing is active.
+- name: jsonPayload_listhits
+  description: A string representation of the specific blocklist entries that matched the current request, providing detail on which lists were hit.
+- name: jsonPayload_fields_authat
+  description: The Unix timestamp (in milliseconds) when the session was authenticated.
+- name: jsonPayload_fields_clientname
+  description: The human-readable name of the OAuth client (relying party) associated with the logged event.
+- name: jsonPayload_fields_recordedfuture
+  description: Indicates whether this log event was recorded with a future timestamp, which may indicate a clock skew issue. True means it was recorded
+    in the future.
+- name: jsonPayload_config_limits_passwordresetotplimits_maxpasswordresetotpemails
+  description: The maximum number of password reset OTP emails allowed within the rate-limit interval.
+- name: jsonPayload_config_allowedips
+  description: List of IP addresses explicitly allowed by the customs service, exempting them from rate limiting and blocking rules.
+- name: jsonPayload_config_limits_smsratelimit_maxtwiliorequests
+  description: The maximum number of Twilio API requests allowed within the SMS rate-limit interval.
+- name: jsonPayload_config_redis_sessiontokens_maxconnections
+  description: The maximum number of connections in the session tokens Redis connection pool.
+- name: jsonPayload_config_userdefinedratelimitrules_recoveryphonetotpcoderules_limits_ratelimitintervalms
+  description: The block interval in milliseconds applied when the recovery phone TOTP-code rate limit is exceeded.
+- name: labels_k8s_pod_component
+  description: The component label on the pod, identifying the FxA component (e.g., auth, customs, mailer) running in this pod.
+- name: jsonPayload_config_redis_port
+  description: The port of the default Redis instance used by the FxA service.
+- name: jsonPayload_config_redis_customs_prefix
+  description: The key prefix used for customs rate-limit records stored in Redis.
+- name: jsonPayload_config_reputationservice_blockbelow
+  description: Configuration threshold below which a reputation score causes the customs service to fully block the client request.
+- name: labels
+  description: User-defined or system-assigned GCP log entry labels providing additional metadata about the log source or routing.
+- name: jsonPayload_filename
+  description: The name of the IP blocklist or data file being loaded or processed by the customs service.
+- name: jsonPayload_config_userdefinedratelimitrules_recoveryphonesendsignincoderules_limits_ratelimitintervalms
+  description: The block interval in milliseconds applied when the recovery phone send-sign-in-code rate limit is exceeded.
+- name: jsonPayload_port
+  description: The port number on which the customs service is listening or on which the connection was received.
+- name: jsonPayload_fields_targetplanid
+  description: The identifier of the subscription plan the user is attempting to upgrade or downgrade to.
+- name: jsonPayload_config_listen_port
+  description: The port number on which the customs service HTTP server is configured to listen for incoming connections.
+- name: jsonPayload_config_redis_email_maxconnections
+  description: The maximum number of connections in the email Redis connection pool.
+- name: jsonPayload_config_redis_metrics_enabled
+  description: Indicates whether the metrics Redis store is enabled. True means metrics data is cached in Redis.
+- name: jsonPayload_fields_address
+  description: Serialized address information associated with a user's billing details for a subscription event.
+- name: jsonPayload_config_tracing_batchprocessor
+  description: Configuration flag indicating whether the tracing exporter uses a batch processor for sending spans. True means spans are batched before
+    export.
+- name: jsonPayload_config_cache_recordlifetimeseconds
+  description: The lifetime in seconds for records stored in the FxA in-memory or shared cache.
+- name: jsonPayload_config_redis_customs_port
+  description: The port of the Redis instance used by the FxA customs server.
+- name: jsonPayload_config_redis_metrics_port
+  description: The port of the Redis instance used for FxA metrics storage.
+- name: jsonPayload_config_redis_host
+  description: The hostname of the default Redis instance used by the FxA service.
+- name: jsonPayload_config_redis_accesstokens_recordlimit
+  description: The maximum number of access token records stored per user in this Redis instance.
+- name: jsonPayload_config_userdefinedratelimitrules_recoveryphonecreatecoderules_limits_max
+  description: The maximum number of recovery phone create-code requests allowed within the rate-limit period.
+- name: jsonPayload_reputation
+  description: The reputation score of the client IP or email as returned by the FxA reputation service; lower scores indicate higher suspicion.
+- name: jsonPayload_config_redis_refreshtokens_password
+  description: The password used to authenticate with the Redis instance storing FxA refresh tokens.
+- name: jsonPayload_fields_transactioninfo
+  description: Details about an in-app purchase transaction, typically from Apple's App Store, used for subscription event processing.
+- name: jsonPayload_config_userdefinedratelimitrules_tokencoderules_limits_periodms
+  description: Configuration value specifying the rolling time window in milliseconds for counting token code attempts under user-defined rate limit
+    rules.
+- name: jsonPayload_fields_maxsessionsdeleted
+  description: The configured maximum number of sessions to delete per account during a session cleanup job.
+- name: jsonPayload_config_limits_maxbadloginsperip
+  description: Configuration value defining the maximum number of bad login attempts allowed from a single IP address before rate limiting is applied.
+- name: jsonPayload_fields_isunverifiedaccount
+  description: Indicates whether the FxA account is unverified at the time of the logged event. True means the account has not been verified.
+- name: resource_labels
+  description: Key-value labels associated with the GCP monitored resource, such as project ID, cluster name, namespace, and container name.
+- name: jsonPayload_fields_numberremaining
+  description: The number of remaining items available, such as remaining backup authentication codes or remaining rate-limit slots.
+- name: jsonPayload_config_statsd_port
+  description: The port of the StatsD server used for FxA service metrics.
+- name: jsonPayload_fields_currenttime
+  description: The current server timestamp (in epoch milliseconds or seconds) at the time the log event was generated.
+- name: jsonPayload_config_sentry_tracessamplerate
+  description: The fraction of transactions sampled for Sentry performance tracing (0.0 to 1.0).
+- name: jsonPayload_unblock
+  description: Indicates whether an unblock code flow is being invoked. True means the customs service is permitting the request via an unblock override.
+- name: jsonPayload_config_userdefinedratelimitrules_recoveryphonetotpcoderules_limits_periodms
+  description: The length of the recovery phone TOTP-code rate-limit period in milliseconds.
+- name: jsonPayload_config_userdefinedratelimitrules_recoveryphonecreatecoderules_limits_periodms
+  description: The length of the recovery phone create-code rate-limit period in milliseconds.
+- name: jsonPayload_config_ipblocklist_updatepollinterval
+  description: Configuration value specifying how frequently (in seconds or milliseconds) the customs service polls for updates to the IP blocklist.
+- name: jsonPayload_config_redis_customs_enabled
+  description: Indicates whether the customs-specific Redis store is enabled. True means customs rate-limit data is cached in Redis.
+- name: jsonPayload_fields_maxaccountsprocessed
+  description: The configured maximum number of accounts processed in a single run of a token or session cleanup job.
+- name: jsonPayload_fields_account
+  description: Serialized account data associated with the logged FxA operation, used for debugging account state.
+- name: jsonPayload_config_userdefinedratelimitrules_recoveryphonesendsetupcoderules_limits_max
+  description: The maximum number of recovery phone send-setup-code requests allowed within the rate-limit period.
+- name: jsonPayload_config_tracing_samplerate
+  description: The fraction of requests (between 0 and 1) for which distributed traces are sampled and exported by the customs service.
+- name: jsonPayload_fields_wrapwrapkbversion2
+  description: The version-2 wrapped key bundle (wrapKbVersion2) used in FxA's updated key derivation protocol.
+- name: jsonPayload_fields_enddate
+  description: The end date string for a subscription period or promo window associated with this event.
+- name: jsonPayload_config_userdefinedratelimitrules_getcredentialsstatusrules_limits_periodms
+  description: The length of the get-credentials-status rate-limit period in milliseconds.
+- name: jsonPayload_fields_mustverify
+  description: Indicates whether the session token requires explicit verification before accessing sensitive resources. True means verification is
+    required.
+- name: jsonPayload_config_redis_metrics_password
+  description: The password used to authenticate with the Redis instance for metrics storage.
+- name: jsonPayload_fields_renewalinfo
+  description: Information about the renewal status of a subscription, typically from Apple's App Store subscription notification system.
+- name: jsonPayload_config_redis_email_prefix
+  description: The key prefix used for email-related records stored in Redis.
+- name: jsonPayload_fields_pushcallback
+  description: The push notification callback URL registered for a device, used to deliver push messages to the client.
+- name: jsonPayload_fields_acceptlanguage
+  description: Value of the HTTP Accept-Language header from the client request, used for email and UI localization.
+- name: jsonPayload_fields__signincodesdeleted
+  description: The count of expired sign-in codes deleted during a cleanup job execution.
+- name: jsonPayload_fields_startdate
+  description: The start date string for a subscription period or promo window associated with this event.
+- name: jsonPayload_fields_cutoff
+  description: The cutoff timestamp or threshold value used in a cleanup or pruning operation for expired tokens or sessions.
+- name: jsonPayload_config_tracing_gcp_enabled
+  description: Configuration flag indicating whether GCP Cloud Trace integration is enabled for the customs service. True means traces are exported
+    to GCP.
+- name: jsonPayload_config_limits_passwordresetotplimits_maxpasswordresetotpverificationblocklimit
+  description: The maximum number of failed password reset OTP verification attempts before the account is blocked.
+- name: url
+  description: The URL of the Firefox Accounts web page that was audited by Lighthouse.
+- name: jsonPayload_fields_sid
+  description: The session identifier (SID) associated with this log event.
+- name: jsonPayload_fields_codemaxage
+  description: The configured maximum age for verification codes before they expire and become eligible for cleanup.
+- name: jsonPayload_config_userdefinedratelimitrules_recoveryphonesendsignincoderules_limits_max
+  description: The maximum number of recovery phone send-sign-in-code requests allowed within the rate-limit period.
+- name: jsonPayload_config_userdefinedratelimitrules_tokencoderules_limits_ratelimitintervalms
+  description: Configuration value specifying the rate limit interval in milliseconds applied to token code actions under user-defined rate limit rules.
+- name: jsonPayload_config_redis_recoveryphone_password
+  description: The password used to authenticate with the Redis instance for recovery phone data.
+- name: jsonPayload_fields_mailstatus
+  description: The delivery status of an outbound email message (e.g., sent, bounced, complaint), as reported by the mail provider.
+- name: jsonPayload_config_redis_accesstokens_port
+  description: The port of the Redis instance used to store FxA access tokens.
+- name: jsonPayload_listhitcount
+  description: The number of blocklist entries that matched the current request's IP or email during a lookup.
+- name: jsonPayload_fields_jse_info
+  description: Additional metadata from a JSON-serialized error (VError/WError), containing key-value pairs with debugging context.
+- name: jsonPayload_config_dataflow_gcppubsub_subscriptionname
+  description: The name of the GCP Pub/Sub subscription used by the customs service dataflow integration to consume event messages.
+- name: jsonPayload_fields_created
+  description: The Unix timestamp (in milliseconds or seconds) when the resource or subscription was created in the payment system.
+- name: jsonPayload_block
+  description: Indicates whether the request was blocked by the customs service. True means the action was blocked; false means it was allowed to proceed.
+- name: jsonPayload_fields_messagesid
+  description: The unique message SID assigned by Twilio for an outbound SMS message.
+- name: jsonPayload_config_userdefinedratelimitrules_getcredentialsstatusrules_limits_ratelimitintervalms
+  description: The block interval in milliseconds applied when the get-credentials-status rate limit is exceeded.
+- name: jsonPayload_config_reputationservice_enable
+  description: Configuration flag indicating whether the FxA reputation service integration is enabled. True means reputation lookups are performed
+    for requests.
+- name: jsonPayload_fields_codes
+  description: A serialized list of backup authentication codes associated with the account, used for two-factor authentication recovery.
+- name: jsonPayload_config_reputationservice_timeout
+  description: Configuration value specifying the timeout in milliseconds for requests made to the FxA reputation service before the call is abandoned.
+- name: jsonPayload_config_dataflow_reportonly
+  description: Configuration flag indicating whether the dataflow integration operates in report-only mode. True means dataflow events are logged but
+    do not trigger enforcement.
+- name: jsonPayload_fields_browser
+  description: The browser name parsed from the user agent string of the client making the request.
+- name: jsonPayload_config_limits_maxemails
+  description: Configuration value defining the maximum number of email sends allowed per account or IP within the rate limit interval.
+- name: jsonPayload_fields__sessiontokensdeleted
+  description: The count of expired session tokens deleted during a cleanup job execution.
+- name: jsonPayload_fields_verificationmethod
+  description: The method used to verify the session or account (e.g., email, totp, recovery-code).
+- name: jsonPayload_config_reputationservice_enablecheck
+  description: Configuration flag indicating whether the reputation service check is active. True means reputation scores are evaluated for incoming
+    requests.
+- name: jsonPayload_fields_eligibilitymanagerresult
+  description: The overall eligibility result determined by the FxA eligibility manager for a plan upgrade or downgrade.
+- name: jsonPayload_config_tracing_corsurls
+  description: Comma-separated list of allowed CORS URLs configured for the customs service tracing endpoint.
+- name: jsonPayload_error
+  description: Structured error information logged by the FxA admin-backend when a request or operation fails, containing message, name, and chained
+    cause details.
+- name: jsonPayload_config_userdefinedratelimitrules_getcredentialsstatusrules_limits_max
+  description: The maximum number of get-credentials-status requests allowed within the rate-limit period.
+- name: jsonPayload_config_redis_retrycount
+  description: The number of times a failed Redis operation will be retried before giving up.
+- name: jsonPayload_fields_product
+  description: Human-readable product name associated with a Mozilla subscription event.
+- name: jsonPayload_fields_lastaccesstime
+  description: The Unix timestamp (in milliseconds) when the session or device was last accessed.
+- name: jsonPayload_err_command_name
+  description: The name of the database command that was being executed when the error occurred.
+- name: jsonPayload_fields_isaxioserror
+  description: Indicates whether the error was an Axios HTTP client error. True means the failure originated in an outbound HTTP call.
+- name: jsonPayload_time
+  description: The ISO 8601 timestamp recorded within the JSON payload indicating when the Firefox Accounts service generated this log event.
+- name: jsonPayload_config_reputationservice_hawkid
+  description: The HAWK authentication ID used by the customs service to authenticate requests to the FxA reputation service.
+- name: jsonPayload_config_reputationservice_hawkkey
+  description: The HAWK authentication key used by the customs service to sign requests to the FxA reputation service.
+- name: jsonPayload_fields_maxcodeage
+  description: The configured maximum age allowed for sign-in or verification codes before they are eligible for deletion.
+- name: jsonPayload_err_command_args
+  description: The arguments passed to the database command that was executing when the error occurred.
+- name: jsonPayload_config_userdefinedratelimitrules_totpcoderules_limits_ratelimitintervalms
+  description: Configuration value specifying the rate limit interval in milliseconds applied to TOTP code actions under user-defined rate limit rules.
+- name: jsonPayload_fields_uadevicetype
+  description: The device type extracted from the user-agent string (e.g., mobile, tablet).
+- name: jsonPayload_config_userdefinedratelimitrules_totpcoderules_limits_periodms
+  description: Configuration value specifying the rolling time window in milliseconds for counting TOTP code attempts under user-defined rate limit
+    rules.
+- name: jsonPayload_config_memcache_address
+  description: The network address of the Memcache instance used by the customs service for caching rate limit and block state; suppressed as PII.
+- name: jsonPayload_config_limits_smsratelimit_limitintervalseconds
+  description: Configuration value specifying the time window in seconds over which SMS rate limit attempts are counted.
+- name: jsonPayload_rtime
+  description: The request processing time as reported by the customs service, typically representing the duration taken to handle a request.
+- name: jsonPayload_config_limits_passwordresetotplimits_passwordresetotpemailrequestwindowseconds
+  description: The time window in seconds within which password reset OTP email requests are counted for rate-limiting.
