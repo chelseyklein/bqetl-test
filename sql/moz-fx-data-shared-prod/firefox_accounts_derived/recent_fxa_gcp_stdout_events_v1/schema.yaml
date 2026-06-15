@@ -2,6 +2,8 @@ fields:
 - name: fxa_server
   type: STRING
   mode: NULLABLE
+  description: Identifies which Firefox Accounts server component emitted this log entry (e.g., auth, profile, content). Used to distinguish log sources
+    across the FxA service fleet.
 - name: logName
   type: STRING
   mode: NULLABLE
