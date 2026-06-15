@@ -2,12 +2,18 @@ fields:
   - mode: NULLABLE
     name: date
     type: TIMESTAMP
+  description: The timestamp representing the date for which the health count snapshot was recorded.
   - mode: NULLABLE
     name: type
     type: STRING
+  description: The category or entity type being measured for health, such as a specific account event type or service component within Firefox Accounts
+    (e.g., account creations, logins, devices).
   - mode: NULLABLE
     name: state
     type: STRING
+  description: The health state or status classification for the given type on the given date, representing a condition such as active, inactive, verified,
+    or unverified.
   - mode: NULLABLE
     name: count
     type: INTEGER
+  description: The number of Firefox Accounts entities that fall into the given type and state on the given date.
