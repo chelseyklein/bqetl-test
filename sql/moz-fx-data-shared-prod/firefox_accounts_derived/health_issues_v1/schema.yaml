@@ -2,63 +2,89 @@ fields:
   - mode: NULLABLE
     name: key
     type: STRING
+  description: The unique issue key identifier in the project tracking system (e.g. Jira), typically formatted as a project code followed by a number
+    (e.g. FXA-1234).
   - mode: NULLABLE
     name: permalink
     type: STRING
+  description: A direct URL link to the issue in the project tracking system, allowing navigation to the full issue detail page.
   - mode: NULLABLE
     name: id
     type: INTEGER
+  description: The internal numeric identifier assigned to the issue by the project tracking system.
   - mode: NULLABLE
     name: assignee
     type: STRING
+  description: The username or display name of the person currently assigned to work on the issue.
   - mode: NULLABLE
     name: created
     type: TIMESTAMP
+  description: The timestamp at which the issue was originally created in the project tracking system.
   - mode: NULLABLE
     name: found_in
     type: STRING
+  description: The version, release, or component of Firefox Accounts in which the health issue was discovered or first observed.
   - mode: NULLABLE
     name: issuetype
     type: STRING
+  description: The type or category of the issue as defined in the project tracking system (e.g. Bug, Task, Story, Incident).
   - mode: NULLABLE
     name: reporter
     type: STRING
+  description: The username or display name of the person who originally filed or reported the issue.
   - mode: NULLABLE
     name: resolution
     type: STRING
+  description: The resolution state of the issue when it was closed (e.g. Fixed, Won't Fix, Duplicate, Cannot Reproduce). Null if the issue is still
+    open.
   - mode: NULLABLE
     name: resolutiondate
     type: TIMESTAMP
+  description: The timestamp at which the issue was resolved or closed. Null if the issue has not yet been resolved.
   - mode: NULLABLE
     name: status
     type: STRING
+  description: The current workflow status of the issue in the project tracking system (e.g. Open, In Progress, In Review, Done).
   - mode: NULLABLE
     name: storypoints
     type: INTEGER
+  description: The story point estimate assigned to the issue, representing the relative effort or complexity required to complete it.
   - mode: NULLABLE
     name: summary
     type: STRING
+  description: The short title or summary text describing the issue, as entered by the reporter in the project tracking system.
   - mode: NULLABLE
     name: updated
     type: TIMESTAMP
+  description: The timestamp of the most recent update or modification made to the issue in the project tracking system.
   - mode: NULLABLE
     name: epic
     type: STRING
+  description: The key or name of the parent epic that this issue belongs to, grouping it with related issues under a larger body of work.
   - mode: NULLABLE
     name: originalstorypoints
     type: STRING
+  description: The original story point estimate recorded for the issue before any subsequent re-estimation, preserved for comparison against the current
+    estimate.
   - mode: NULLABLE
     name: timetoresolve
     type: INTEGER
+  description: The number of days (or other time unit) elapsed between the issue creation date and its resolution date, representing how long the issue
+    took to close.
   - mode: NULLABLE
     name: severity
     type: STRING
+  description: The severity level of the health issue, indicating the degree of impact on users or the system (e.g. Critical, Major, Minor, Trivial).
   - mode: NULLABLE
     name: priority
     type: STRING
+  description: The priority level assigned to the issue, indicating the urgency with which it should be addressed (e.g. P1, P2, High, Medium, Low).
   - mode: NULLABLE
     name: labels
     type: STRING
+  description: A set of free-form labels or tags applied to the issue for categorization and filtering purposes in the project tracking system.
   - mode: NULLABLE
     name: workcategory
     type: STRING
+  description: A classification of the type of work the issue represents (e.g. Health, Feature, Tech Debt, Incident), used for workload reporting and
+    team planning.
