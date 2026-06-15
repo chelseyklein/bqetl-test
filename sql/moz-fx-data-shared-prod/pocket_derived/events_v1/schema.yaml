@@ -2,13 +2,18 @@ fields:
 - mode: NULLABLE
   name: submission_timestamp
   type: TIMESTAMP
+  description: The timestamp at which the event payload was submitted and received from Pocket's backend pipeline. Used to partition the table by date.
 - mode: NULLABLE
   name: normalized_app_id
   type: STRING
+  description: The normalized application identifier sourced from the APP_ID field in the raw Pocket event payload, identifying which Pocket application
+    surface generated the event.
 - mode: NULLABLE
   name: metadata
   type: RECORD
   fields:
+  description: Struct containing metadata about the request context, parsed from the METADATA JSON field in the raw Pocket event payload. Includes geographic
+    and user-agent sub-fields.
   - mode: NULLABLE
     name: geo
     type: RECORD
@@ -36,6 +41,8 @@ fields:
   name: client_info
   type: RECORD
   fields:
+  description: Struct containing information about the Pocket client that generated the event, parsed from the CLIENT_INFO JSON field in the raw payload.
+    Includes identifiers, locale, and platform details.
   - mode: NULLABLE
     name: client_id
     type: STRING
@@ -57,9 +64,15 @@ fields:
 - mode: NULLABLE
   name: event
   type: STRING
+  description: The name of the Pocket frontend event that occurred, sourced from the EVENT_NAME field in the raw payload (e.g., a save, open, or dismiss
+    action).
 - mode: NULLABLE
   name: event_timestamp
   type: TIMESTAMP
+  description: The timestamp at which the event occurred on the client side, sourced from the EVENT_TIMESTAMP field in the raw Pocket payload. May differ
+    from submission_timestamp due to network or batching delays.
 - mode: NULLABLE
   name: event_extra
   type: JSON
+  description: A JSON object containing additional event-specific attributes parsed from the EVENT_EXTRAS field in the raw Pocket payload. The keys and
+    values vary by event type and carry contextual details about the action that occurred.
