@@ -2,7 +2,9 @@ fields:
   - mode: NULLABLE
     name: id
     type: INTEGER
-  description: The unique internal GitHub identifier for the pull request.
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+    field: apphub_workload_id
   - mode: NULLABLE
     name: number
     type: INTEGER
@@ -10,7 +12,9 @@ fields:
   - mode: NULLABLE
     name: url
     type: STRING
-  description: The full URL to the pull request on GitHub.
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+    field: jsonPayload_config_tracing_otel_url
   - mode: NULLABLE
     name: title
     type: STRING
@@ -18,7 +22,9 @@ fields:
   - mode: NULLABLE
     name: state
     type: STRING
-  description: The current state of the pull request, such as 'open', 'closed', or 'merged'.
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+    field: state
   - mode: NULLABLE
     name: author
     type: STRING
@@ -26,7 +32,9 @@ fields:
   - mode: NULLABLE
     name: created_at
     type: TIMESTAMP
-  description: The timestamp when the pull request was first opened.
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+    field: jsonPayload_fields_created_at
   - mode: NULLABLE
     name: updated_at
     type: TIMESTAMP
