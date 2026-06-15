@@ -2,21 +2,30 @@ fields:
   - mode: NULLABLE
     name: fetchTime
     type: TIMESTAMP
+  description: The timestamp at which the Lighthouse audit was run and the page was fetched for analysis.
   - mode: NULLABLE
     name: url
     type: STRING
+  description: The URL of the Firefox Accounts web page that was audited by Lighthouse.
   - mode: NULLABLE
     name: category
     type: STRING
+  description: The Lighthouse audit category under which this result falls, such as performance, accessibility, best-practices, or SEO.
   - mode: NULLABLE
     name: audit
     type: STRING
+  description: The identifier of the specific Lighthouse audit rule being reported, such as 'first-contentful-paint' or 'uses-optimized-images'.
   - mode: NULLABLE
     name: score
     type: NUMERIC
+  description: The normalized Lighthouse score for this audit, typically ranging from 0 to 1, where higher values indicate better compliance or performance.
   - mode: NULLABLE
     name: numVal
     type: NUMERIC
+  description: The raw numeric value associated with the audit result, such as a duration in milliseconds or a file size in bytes, providing the underlying
+    measurement before scoring.
   - mode: NULLABLE
     name: formfactor
     type: STRING
+  description: The form factor of the simulated device used during the Lighthouse audit, typically 'mobile' or 'desktop', indicating the emulation context
+    for the measurement.
