@@ -2,7 +2,9 @@ fields:
   - mode: NULLABLE
     name: timestamp
     type: TIMESTAMP
-  description: The timestamp at which the health check data was recorded or collected.
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+    field: jsonPayload_timestamp
   - mode: NULLABLE
     name: server
     type: STRING
@@ -10,7 +12,9 @@ fields:
   - mode: NULLABLE
     name: version
     type: STRING
-  description: The deployed software version of the Firefox Accounts service at the time of the health check.
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+    field: jsonPayload_fields_version
   - mode: NULLABLE
     name: commit
     type: STRING
