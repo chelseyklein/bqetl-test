@@ -353,6 +353,7 @@ fields:
   - name: timestamp
     type: FLOAT
     mode: NULLABLE
+  description: The timestamp at which the log entry was written by the FxA service.
   - name: severity
     type: FLOAT
     mode: NULLABLE
@@ -362,6 +363,7 @@ fields:
 - name: timestamp
   type: TIMESTAMP
   mode: NULLABLE
+  description: The timestamp at which the log entry was written by the FxA service.
 - name: receiveTimestamp
   type: TIMESTAMP
   mode: NULLABLE
