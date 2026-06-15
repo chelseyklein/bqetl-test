@@ -5,7 +5,9 @@ fields:
 - name: user_id
   type: STRING
   mode: NULLABLE
-  description: Hashed user_id
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+    field: jsonPayload_fields_user_id
 - name: hmac_user_id
   type: STRING
   mode: NULLABLE
