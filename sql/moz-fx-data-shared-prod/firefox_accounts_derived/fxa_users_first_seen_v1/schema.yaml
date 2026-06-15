@@ -2,6 +2,9 @@ fields:
 - name: user_id
   type: STRING
   mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/firefox_accounts_derived/firefox_accounts_derived.yaml
+    field: jsonPayload_fields_user_id
 - name: first_seen_date
   type: DATE
   mode: NULLABLE
