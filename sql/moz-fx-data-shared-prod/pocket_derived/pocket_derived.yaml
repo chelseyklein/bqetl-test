@@ -1,0 +1,9 @@
+fields:
+- name: submission_date
+  description: The date on which the data was submitted or recorded. Used as the primary date partition key for the dataset.
+- name: tile_id
+  description: A unique integer identifier representing a specific Pocket content tile or sponsored placement. Each tile corresponds to a distinct
+    piece of content served to users.
+- name: type
+  description: The category or classification of the Pocket content item, indicating how it was sourced or served (e.g., 'spoc' for sponsored
+    content). Used to distinguish between different content delivery types.
