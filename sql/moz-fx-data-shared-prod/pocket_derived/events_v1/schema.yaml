@@ -2,64 +2,100 @@ fields:
 - mode: NULLABLE
   name: submission_timestamp
   type: TIMESTAMP
+  description: The timestamp at which the event data was submitted to Mozilla's ingestion pipeline. Sourced from the SUBMISSION_TIMESTAMP field in the
+    raw Parquet files loaded from GCS.
 - mode: NULLABLE
   name: normalized_app_id
   type: STRING
+  description: The normalized application identifier for the Pocket frontend, sourced from the APP_ID field in the raw event data. Used to distinguish
+    between different Pocket application surfaces or platforms.
 - mode: NULLABLE
   name: metadata
   type: RECORD
   fields:
+  description: A nested record containing server-derived metadata about the request, including geographic location and user agent details. Parsed from
+    the METADATA JSON field in the raw Parquet source.
   - mode: NULLABLE
     name: geo
     type: RECORD
     fields:
+  description: A nested record containing the geographic location of the client as determined by server-side IP geolocation at ingestion time.
     - mode: NULLABLE
       name: city
       type: STRING
+  description: The city associated with the client's IP address as determined by server-side geolocation. May be null or empty if the city cannot be
+    resolved.
     - mode: NULLABLE
       name: country
       type: STRING
+  description: The ISO 3166-1 alpha-2 country code associated with the client's IP address as determined by server-side geolocation (e.g., "US", "DE").
   - mode: NULLABLE
     name: user_agent
     type: RECORD
     fields:
+  description: A nested record containing parsed user agent information derived from the HTTP request headers at ingestion time.
     - mode: NULLABLE
       name: browser
       type: STRING
+  description: The browser name extracted from the HTTP user agent string (e.g., "Firefox", "Chrome"). Identifies the browser application used to access
+    the Pocket frontend.
     - mode: NULLABLE
       name: os
       type: STRING
+  description: The operating system name extracted from the HTTP user agent string (e.g., "Windows", "macOS"). Reflects the OS reported by the client's
+    browser.
     - mode: NULLABLE
       name: version
       type: STRING
+  description: The version string of the browser extracted from the HTTP user agent. Provides finer-grained browser version detail alongside metadata.user_agent.browser.
 - mode: NULLABLE
   name: client_info
   type: RECORD
   fields:
+  description: A nested record containing client-reported information about the Pocket application and device, parsed from the CLIENT_INFO JSON field
+    in the raw Parquet source.
   - mode: NULLABLE
     name: client_id
     type: STRING
+  description: A unique identifier for the Pocket client installation or session, used to associate multiple events from the same client. Distinct from
+    user_id, which ties to an authenticated Pocket account.
   - mode: NULLABLE
     name: user_id
     type: STRING
+  description: The authenticated Pocket user account identifier associated with the event. Allows linkage of events to a specific Pocket account; may
+    differ from client_id, which identifies the device or session.
   - mode: NULLABLE
     name: app_build
     type: STRING
+  description: The build identifier of the Pocket application that generated the event. Used to correlate events with specific Pocket frontend releases
+    or build artifacts.
   - mode: NULLABLE
     name: locale
     type: STRING
+  description: The locale setting of the Pocket client at the time of the event (e.g., "en-US", "fr-FR"). Reflects the language and regional settings
+    configured in the user's application.
   - mode: NULLABLE
     name: os
     type: STRING
+  description: The operating system name reported by the Pocket client (e.g., "iOS", "Android", "Windows"). Sourced from client-side telemetry rather
+    than the server-side user agent parse in metadata.user_agent.os.
   - mode: NULLABLE
     name: os_version
     type: STRING
+  description: The version of the operating system reported by the Pocket client (e.g., "14.0", "11"). Provides finer detail about the OS environment
+    alongside client_info.os.
 - mode: NULLABLE
   name: event
   type: STRING
+  description: The name of the Pocket frontend event that was fired, sourced from the EVENT_NAME field in the raw data. Identifies the specific user
+    action or system occurrence being recorded (e.g., item save, open, delete).
 - mode: NULLABLE
   name: event_timestamp
   type: TIMESTAMP
+  description: The timestamp at which the Pocket frontend event occurred on the client side, sourced from the EVENT_TIMESTAMP field in the raw data.
+    May differ from submission_timestamp due to network latency or batching.
 - mode: NULLABLE
   name: event_extra
   type: JSON
+  description: A JSON object containing additional event-specific metadata and context, parsed from the EVENT_EXTRAS field in the raw Parquet data. The
+    structure and keys vary by event type and may include details such as item URLs, UI surface identifiers, or feature flags.
