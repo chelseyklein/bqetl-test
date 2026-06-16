@@ -1,0 +1,15 @@
+fields:
+- name: submission_date
+  description: The date on which the data was submitted or recorded. Used as the primary date partition key for time-based aggregation and filtering.
+  type: DATE
+  mode: NULLABLE
+- name: tile_id
+  description: A unique integer identifier for a Pocket content tile (e.g. a sponsored or editorial recommendation). Each distinct tile served
+    to users is assigned its own ID.
+  type: INT64
+  mode: NULLABLE
+- name: type
+  description: The category or format type of the Pocket content tile, such as 'spoc' (sponsored content). Indicates the nature of the tile being
+    tracked or reported on.
+  type: STRING
+  mode: NULLABLE
