@@ -2,12 +2,18 @@ fields:
 - mode: NULLABLE
   name: submission_date
   type: DATE
-  description: Date of the tile ID export
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/pocket_derived/pocket_derived.yaml
+    field: submission_date
 - mode: NULLABLE
   name: tile_id
   type: INTEGER
-  description: Numeric ID for the tile
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/pocket_derived/pocket_derived.yaml
+    field: tile_id
 - mode: NULLABLE
   name: type
   type: STRING
-  description: Type of content (should always be 'spoc')
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/pocket_derived/pocket_derived.yaml
+    field: type
