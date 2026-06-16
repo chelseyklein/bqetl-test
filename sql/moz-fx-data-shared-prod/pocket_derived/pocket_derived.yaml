@@ -1,0 +1,9 @@
+fields:
+- name: submission_date
+  description: The date on which the data was submitted or recorded. Used to partition and filter data by day for time-series analysis.
+- name: tile_id
+  description: A unique numeric identifier for a Pocket content tile (e.g. a sponsored or editorial content item). Each value corresponds to a
+    distinct tile served to users.
+- name: type
+  description: The category or classification of the Pocket content item, indicating how it was sourced or served. For example, 'spoc' denotes
+    a Sponsored Pocket Object (i.e. a sponsored content tile).
