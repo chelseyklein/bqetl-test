@@ -3,23 +3,28 @@ fields:
   mode: NULLABLE
   name: submission_date
   type: DATE
-- description: Channel
+description: The Firefox release channel on which the client is running (e.g. release, beta, nightly). Sourced from the normalized_channel field in
+  the fenix baseline ping, filtered to exclude known bots and dirty startup pings.
   mode: NULLABLE
   name: channel
   type: STRING
-- description: Pocket Events
+description: The name of the Pocket-related event fired by the client (e.g. home_recs_shown, home_recs_story_clicked, pocket_top_site_clicked). Derived
+  from the event_name field in fenix.events_unnested, restricted to events in the pocket event category.
   mode: NULLABLE
   name: event_name
   type: STRING
-- description: User Count for Pocket Events
+description: The number of distinct clients that fired the given Pocket event on the submission date for the given channel. Computed as COUNT(DISTINCT
+  client_id) from fenix.events_unnested, filtered to the pocket event category and excluding bot and startup pings.
   mode: NULLABLE
   name: event_client_count
   type: INTEGER
-- description: Count of Total Users
+description: The total number of distinct active clients on the submission date for the given channel, regardless of Pocket activity. Computed as COUNT(DISTINCT
+  client_id) from fenix.baseline, excluding bot and dirty-startup pings.
   mode: NULLABLE
   name: total_client_count
   type: INTEGER
-- description: Percentage of Pocket Event Users
+description: The percentage of total active clients on the submission date that fired the given Pocket event, calculated as (event_client_count / total_client_count)
+  * 100. A higher value indicates broader engagement with that Pocket feature among the active population for the channel.
   mode: NULLABLE
   name: incidence_percentage
   type: FLOAT
