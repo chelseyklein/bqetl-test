@@ -1,0 +1,190 @@
+fields:
+- name: CLICK_COUNT
+  description: The total number of clicks recorded for a content item. A value of 0 indicates the item was not clicked during the reporting period.
+  type: INT64
+- name: DISMISS_COUNT
+  description: The total number of times a content item was dismissed by users. A value of 0 indicates the item was never dismissed during the
+    reporting period.
+  type: INT64
+- name: ER
+  description: The engagement rate for a content item, expressed as a decimal fraction. Reflects the ratio of user interactions relative to total
+    impressions.
+  type: FLOAT64
+- name: HAPPENED_AT
+  description: The date on which the event or activity occurred. Used to partition and filter data by the calendar day of the event.
+  type: DATE
+- name: IMPRESSION_COUNT
+  description: The total number of times a content item was displayed to users. Higher values indicate more frequent exposure during the reporting
+    period.
+  type: INT64
+- name: POSITION
+  description: The zero-based index position at which a content item appeared in a layout or list. Lower values indicate placement closer to the
+    beginning of the list.
+  type: INT64
+- name: SAVE_COUNT
+  description: The total number of times a content item was saved by users. A value of 0 indicates the item was not saved during the reporting
+    period.
+  type: INT64
+- name: TILE_ID
+  description: A unique numeric identifier for a content tile or recommendation item. Used to join and track individual tiles across engagement
+    metrics.
+  type: INT64
+- name: _GS_FILE_DATE
+  description: The date partition string extracted from the source Google Cloud Storage file path, in the format 'date=YYYY-MM-DD'. Indicates
+    the logical date of the data file.
+  type: STRING
+- name: _GS_FILE_NAME
+  description: The full path of the source file in Google Cloud Storage from which the record was loaded. Used for data lineage and auditing purposes.
+  type: STRING
+- name: _GS_FILE_ROW_NUMBER
+  description: The row number of the record within its source Google Cloud Storage file. Used for deduplication and tracing individual records
+    back to their source.
+  type: INT64
+- name: _GS_FILE_TIME
+  description: The time component string extracted from the source Google Cloud Storage file path, representing the time at which the file was
+    generated or written.
+  type: STRING
+- name: _LOADED_AT
+  description: The epoch timestamp in nanoseconds at which the record was loaded into BigQuery. Used to track ingestion time for auditing and
+    pipeline monitoring.
+  type: INT64
+- name: a11y_theme
+  description: A map of accessibility theme settings keyed by theme name, with boolean values indicating whether each theme is enabled. Reflects
+    user-configured accessibility display preferences.
+  type: RECORD
+- name: aborts_content_sum
+  description: The total number of content process abort events recorded for a client. A null value indicates no content process abort data was
+    reported for that period.
+  type: INT64
+- name: aborts_gmplugin_sum
+  description: The total number of GMP (Gecko Media Plugin) process abort events recorded for a client. A null value indicates no GMP plugin abort
+    data was reported for that period.
+  type: INT64
+- name: aborts_plugin_sum
+  description: The total number of plugin process abort events recorded for a client. A null value indicates no plugin abort data was reported
+    for that period.
+  type: INT64
+- name: account_enabled
+  description: Indicates whether the user's account is currently enabled. True means the account is active; false means it has been disabled.
+  type: BOOLEAN
+- name: activated
+  description: Indicates whether a feature or product has been activated for the client. True means activation has occurred; false means it has
+    not.
+  type: BOOLEAN
+- name: active_addon_name
+  description: The display name of an active browser add-on or extension installed by the user. A null value indicates the add-on name could not
+    be determined.
+  type: STRING
+- name: active_addons
+  description: A list of add-ons currently active in the browser, with each entry containing metadata such as addon ID, name, version, type, and
+    installation state. Represents the full set of enabled extensions for a client session.
+- name: active_addons_count_mean
+  description: The mean number of active add-ons across sessions for a client during the reporting period. Reflects the average extension load
+    carried by the browser.
+  type: FLOAT64
+- name: active_clients
+  description: The number of distinct clients that were active during the reporting period. Used to measure the size of an engaged user population.
+  type: INT64
+- name: active_experiment_branch
+  description: The branch of an active experiment to which the client was assigned. A null value indicates the client was not enrolled in any
+    active experiment.
+  type: STRING
+- name: active_experiment_id
+  description: The identifier of the active experiment in which the client was enrolled. A null value indicates the client was not part of any
+    active experiment.
+  type: STRING
+- name: active_hours
+  description: The number of hours the browser was actively in use by the client during the reporting period. A null value indicates active hours
+    data was not available for that period.
+  type: FLOAT64
+- name: active_hours_per_user_ratio
+  description: The ratio of total active hours to the number of users in a cohort or segment. Used to normalize engagement levels across populations
+    of different sizes.
+  type: FLOAT64
+- name: active_hours_sum
+  description: The total sum of active browser hours across all sessions for a client or cohort during the reporting period. A value of 0 indicates
+    the browser was open but no user activity was detected.
+  type: FLOAT64
+- name: active_metric_date
+  description: Indicates whether the record's date qualifies as an active metric date for the client. True means the date meets the activity threshold;
+    false means it does not.
+- name: activity_date_week
+  description: The start date of the ISO week in which user activity occurred. Used to aggregate and compare engagement metrics at a weekly granularity.
+  type: DATE
+- name: activity_segment
+  description: A categorical label describing the client's usage intensity, such as 'core_user', 'regular_user', 'casual_user', 'infrequent_user',
+    or 'other'. Segments are based on active hours or engagement frequency thresholds.
+  type: STRING
+- name: ad_clicks
+  description: The total number of advertisement clicks attributed to a client during the reporting period. A null value indicates no ad click
+    data was reported.
+- name: ad_clicks_count_all
+  description: The aggregate count of all ad click events across all ad providers for a client during the reporting period. A null value indicates
+    no ad click events were recorded.
+  type: INT64
+- name: additive_terms
+  description: The sum of all additive component contributions in a forecasting or decomposition model. Represents the combined effect of trend,
+    seasonality, and other additive factors.
+  type: FLOAT64
+- name: additive_terms_lower
+  description: The lower bound of the uncertainty interval for the sum of additive terms in a forecasting model. Used to express the minimum plausible
+    combined additive contribution.
+  type: FLOAT64
+- name: additive_terms_upper
+  description: The upper bound of the uncertainty interval for the sum of additive terms in a forecasting model. Used to express the maximum plausible
+    combined additive contribution.
+  type: FLOAT64
+- name: addon_compatibility_check_enabled
+  description: Indicates whether the browser's add-on compatibility checking feature is enabled. True means compatibility checks are active; false
+    means they have been disabled by the user.
+  type: BOOLEAN
+- name: addon_id
+  description: The unique identifier for a browser add-on or extension, typically in reverse-domain or UUID format. Used to look up and track
+    individual extensions across datasets.
+  type: STRING
+- name: adjust_ad_group
+  description: The Adjust attribution ad group name associated with a client's install or conversion event. A null value indicates the client
+    was not attributed to a specific ad group.
+  type: STRING
+- name: adjust_campaign
+  description: The Adjust attribution campaign name associated with a client's install or conversion event. Common values include 'Organic' for
+    non-paid installs and specific campaign names for paid channels.
+  type: STRING
+- name: adjust_creative
+  description: The Adjust attribution creative name associated with a client's install or conversion event. Identifies the specific ad creative
+    (e.g., 'Search GoogleSearch', 'Display') that drove the attribution.
+  type: STRING
+- name: adjust_network
+  description: The Adjust attribution network or channel through which a client was acquired, such as 'Organic' or 'Google Ads ACI'. A null value
+    indicates the acquisition channel could not be determined.
+  type: STRING
+- name: agg_type
+  description: The type of aggregation used to produce the metric values in the record. The value 'histogram' indicates that the data is aggregated
+    in histogram form.
+  type: STRING
+- name: aggregates
+  description: A map of aggregated metric values keyed by bucket or category label, with floating-point counts or weights as values. Represents
+    the distribution of a metric across its possible values.
+  type: RECORD
+- name: aggregates_key
+  description: The bucket label or category key within an aggregated metrics structure, such as a histogram bucket index. Used to identify which
+    segment of the distribution a value belongs to.
+- name: aggregates_value
+  description: The numeric weight or count associated with a specific bucket or category key in an aggregated metrics structure. A value of 0
+    indicates no observations fell in that bucket.
+- name: app
+  description: The name or identifier of the Mozilla application associated with the telemetry record. Used to distinguish data originating from
+    different Mozilla products.
+  type: STRING
+- name: app_build_id
+  description: The build identifier of the application, typically formatted as a timestamp string (e.g., '20151029151421'). Uniquely identifies
+    the specific build of the application that submitted telemetry.
+  type: STRING
+- name: app_channel
+  description: The release channel of the application, such as 'release', 'beta', or 'nightly'. Indicates the update and stability track the client
+    is running.
+  type: STRING
+- name: app_display_version
+  description: The human-readable version string of the application as displayed to users (e.g., '151.0.1'). Used to group and filter telemetry
+    by the application version the client was running.
+  type: STRING
