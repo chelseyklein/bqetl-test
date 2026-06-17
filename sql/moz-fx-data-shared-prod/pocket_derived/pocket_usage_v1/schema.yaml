@@ -1,5 +1,7 @@
 fields:
-- description: Submission Date
+- description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/pocket_derived/pocket_derived.yaml
+    field: submission_date
   mode: NULLABLE
   name: submission_date
   type: DATE
