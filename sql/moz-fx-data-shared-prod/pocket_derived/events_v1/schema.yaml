@@ -2,64 +2,104 @@ fields:
 - mode: NULLABLE
   name: submission_timestamp
   type: TIMESTAMP
+  description: The timestamp at which the Pocket backend event was submitted to the ingestion pipeline. Sourced from the raw Parquet field SUBMISSION_TIMESTAMP;
+    rows are filtered to those whose date does not exceed the ETL run date.
 - mode: NULLABLE
   name: normalized_app_id
   type: STRING
+  description: The normalized application identifier for the Pocket frontend that produced the event, sourced from the raw APP_ID field. Used to distinguish
+    between different Pocket application surfaces or platforms.
 - mode: NULLABLE
   name: metadata
   type: RECORD
   fields:
+  description: A struct containing server-side enrichment metadata for the event, parsed from the raw METADATA JSON field. Includes geographic and user-agent
+    information derived at ingestion time.
   - mode: NULLABLE
     name: geo
     type: RECORD
     fields:
+  description: A struct containing geographic location information inferred from the client's IP address at ingestion time. Provides city- and country-level
+    resolution.
     - mode: NULLABLE
       name: city
       type: STRING
+  description: The city inferred from the client's IP address at ingestion time, extracted from the METADATA JSON payload. May be null or imprecise for
+    users behind VPNs or proxies.
     - mode: NULLABLE
       name: country
       type: STRING
+  description: The two-letter ISO 3166-1 country code inferred from the client's IP address at ingestion time, extracted from the METADATA JSON payload.
+    Used for geographic segmentation of Pocket usage.
   - mode: NULLABLE
     name: user_agent
     type: RECORD
     fields:
+  description: A struct containing parsed user-agent information from the HTTP request, extracted from the METADATA JSON payload. Identifies the browser,
+    operating system, and version used to make the request.
     - mode: NULLABLE
       name: browser
       type: STRING
+  description: The browser name parsed from the HTTP user-agent string at ingestion time, extracted from the METADATA JSON payload. Examples include
+    "Firefox", "Chrome", or "Safari".
     - mode: NULLABLE
       name: os
       type: STRING
+  description: The operating system parsed from the HTTP user-agent string at ingestion time, extracted from the METADATA JSON payload. Complements client_info.os
+    with a server-side perspective on the client platform.
     - mode: NULLABLE
       name: version
       type: STRING
+  description: The browser or application version parsed from the HTTP user-agent string at ingestion time, extracted from the METADATA JSON payload.
+    Used alongside metadata.user_agent.browser for version-specific analysis.
 - mode: NULLABLE
   name: client_info
   type: RECORD
   fields:
+  description: A struct containing information about the Pocket client that generated the event, parsed from the raw CLIENT_INFO JSON field. Includes
+    identifiers and environment details for the device and application session.
   - mode: NULLABLE
     name: client_id
     type: STRING
+  description: A unique identifier for the Pocket client instance, extracted from the CLIENT_INFO JSON payload. Used to associate events with a specific
+    installation or session without necessarily identifying the user.
   - mode: NULLABLE
     name: user_id
     type: STRING
+  description: The Pocket user account identifier associated with the event, extracted from the CLIENT_INFO JSON payload. Populated when the user is
+    authenticated; links events to a specific Pocket account.
   - mode: NULLABLE
     name: app_build
     type: STRING
+  description: The build identifier of the Pocket application that generated the event, extracted from the CLIENT_INFO JSON payload. Can be used to correlate
+    events with specific application releases or build variants.
   - mode: NULLABLE
     name: locale
     type: STRING
+  description: The locale setting of the Pocket client at the time of the event, extracted from the CLIENT_INFO JSON payload. Represented as a BCP 47
+    language tag (e.g., "en-US") reflecting the user's language and region preference.
   - mode: NULLABLE
     name: os
     type: STRING
+  description: The operating system of the device running the Pocket client, extracted from the CLIENT_INFO JSON payload. Examples include "Android",
+    "iOS", or "Windows".
   - mode: NULLABLE
     name: os_version
     type: STRING
+  description: The version string of the operating system on the device running the Pocket client, extracted from the CLIENT_INFO JSON payload. Used
+    in conjunction with client_info.os for platform-specific analysis.
 - mode: NULLABLE
   name: event
   type: STRING
+  description: The name of the Pocket frontend event, sourced from the raw EVENT_NAME field. Identifies the specific user action or system occurrence
+    being recorded (e.g., a save, open, or impression event).
 - mode: NULLABLE
   name: event_timestamp
   type: TIMESTAMP
+  description: The timestamp at which the event occurred on the client side, sourced from the raw EVENT_TIMESTAMP field. Represents when the user action
+    took place, as opposed to submission_timestamp which reflects server ingestion time.
 - mode: NULLABLE
   name: event_extra
   type: JSON
+  description: A JSON object containing additional key-value metadata specific to the event, sourced from the raw EVENT_EXTRAS field. The structure varies
+    by event type and may include contextual details such as item IDs, UI positions, or feature flags.
