@@ -2,64 +2,105 @@ fields:
 - mode: NULLABLE
   name: submission_timestamp
   type: TIMESTAMP
+  description: The timestamp at which the event record was submitted to the Pocket backend pipeline and
+    landed in GCS. Used to partition the table by date.
 - mode: NULLABLE
   name: normalized_app_id
   type: STRING
+  description: The normalized application identifier sourced from the APP_ID field in the raw Parquet data,
+    indicating which Pocket application or surface generated the event.
 - mode: NULLABLE
   name: metadata
   type: RECORD
   fields:
+  description: A struct containing server-side metadata about the event submission, parsed from the raw
+    METADATA JSON field, including geographic and user-agent information.
   - mode: NULLABLE
     name: geo
     type: RECORD
     fields:
+  description: A struct containing geographic information derived from the client's IP address at the time
+    of submission, including city and country.
     - mode: NULLABLE
       name: city
       type: STRING
+  description: The city inferred from the client's IP address at submission time, as resolved by server-side
+    geo-IP lookup.
     - mode: NULLABLE
       name: country
       type: STRING
+  description: The two-letter ISO 3166-1 alpha-2 country code inferred from the client's IP address at submission
+    time.
   - mode: NULLABLE
     name: user_agent
     type: RECORD
     fields:
+  description: A struct containing information parsed from the HTTP User-Agent header of the submission
+    request, including browser name, operating system, and version.
     - mode: NULLABLE
       name: browser
       type: STRING
+  description: The name of the browser or HTTP client extracted from the User-Agent header of the event
+    submission request (e.g. "Firefox", "Chrome").
     - mode: NULLABLE
       name: os
       type: STRING
+  description: The operating system string extracted from the User-Agent header of the event submission
+    request, which may differ from client_info.os when events are submitted via a browser.
     - mode: NULLABLE
       name: version
       type: STRING
+  description: The version of the browser or HTTP client extracted from the User-Agent header of the event
+    submission request.
 - mode: NULLABLE
   name: client_info
   type: RECORD
   fields:
+  description: A struct containing client-side information about the device and application from which the
+    event was sent, parsed from the raw CLIENT_INFO JSON field.
   - mode: NULLABLE
     name: client_id
     type: STRING
+  description: A unique identifier for the Pocket client instance, used to associate events from the same
+    installation across sessions without identifying the user.
   - mode: NULLABLE
     name: user_id
     type: STRING
+  description: A unique identifier for the authenticated Pocket user account associated with the event,
+    allowing cross-device user-level analysis.
   - mode: NULLABLE
     name: app_build
     type: STRING
+  description: The build identifier of the Pocket application that submitted the event, typically encoding
+    a version or build number for the client software.
   - mode: NULLABLE
     name: locale
     type: STRING
+  description: The locale setting of the client at the time of the event (e.g. "en-US"), reflecting the
+    language and regional settings configured on the user's device or in the application.
   - mode: NULLABLE
     name: os
     type: STRING
+  description: The operating system of the client device as reported by the Pocket application (e.g. "Android",
+    "iOS", "Windows").
   - mode: NULLABLE
     name: os_version
     type: STRING
+  description: The version string of the operating system running on the client device at the time the event
+    was generated.
 - mode: NULLABLE
   name: event
   type: STRING
+  description: The name of the Pocket frontend event as recorded in the raw EVENT_NAME field, identifying
+    the type of user action or system event that occurred.
 - mode: NULLABLE
   name: event_timestamp
   type: TIMESTAMP
+  description: The timestamp at which the event occurred on the client side, sourced from the raw EVENT_TIMESTAMP
+    field, as opposed to the server-side submission_timestamp.
 - mode: NULLABLE
   name: event_extra
   type: JSON
+  description: A JSON object containing additional key-value metadata associated with the event, parsed
+    from the raw EVENT_EXTRAS field. Contents vary by event type and may include contextual details such
+    as item IDs, UI component names, or feature flags.
