@@ -1,0 +1,12 @@
+fields:
+- name: submission_date
+  description: The date on which the record was submitted or processed. Used as the primary date dimension for partitioning and reporting.
+  type: DATE
+- name: tile_id
+  description: A unique integer identifier for an individual Pocket content tile, such as a sponsored or organic recommendation. Each distinct
+    tile served to users is represented by a unique ID.
+  type: INT64
+- name: type
+  description: The classification or category of a Pocket content tile, indicating how it was sourced or funded (e.g., 'spoc' for Sponsored Pocket
+    Open Content). Used to distinguish between different tile delivery types.
+  type: STRING
