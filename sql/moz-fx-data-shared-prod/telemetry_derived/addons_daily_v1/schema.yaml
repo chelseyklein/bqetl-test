@@ -2,246 +2,297 @@ fields:
 - name: submission_date
   type: DATE
   mode: NULLABLE
-  description: ''
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: submission_date
 - name: addon_id
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: addon_id
 - name: name
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: name
 - name: most_common_default_search_engine
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: The most common default search engine identifier (e.g., 'google-b-d', 'ddg') among clients
+    using this add-on on this date.
 - name: dau
   type: INT64
   mode: NULLABLE
-  description: ''
+  description: Daily Active Users; the number of distinct clients with this add-on installed that were active
+    on the submission date.
 - name: wau
   type: INT64
   mode: NULLABLE
-  description: ''
+  description: Weekly Active Users; the number of distinct clients with this add-on installed that were
+    active within the 7 days up to and including the submission date.
 - name: mau
   type: INT64
   mode: NULLABLE
-  description: ''
+  description: Monthly Active Users; the number of distinct clients with this add-on installed that were
+    active within the 28 days up to and including the submission date.
 - name: is_system
   type: BOOLEAN
   mode: NULLABLE
-  description: ''
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: is_system
 - name: active_hours_sum
   type: FLOAT64
   mode: NULLABLE
-  description: ''
+  description: Total active browsing hours summed across all clients using this add-on on the submission
+    date.
 - name: total_uri_count_sum
   type: INT64
   mode: NULLABLE
-  description: ''
+  description: Total number of URIs visited summed across all clients using this add-on on the submission
+    date.
 - name: tab_open_event_count_sum
   type: INT64
   mode: NULLABLE
-  description: ''
+  description: Total number of tab-open events summed across all clients using this add-on on the submission
+    date. Null if not reported.
 - name: devtools_toolbox_opened_count_sum
   type: INT64
   mode: NULLABLE
-  description: ''
+  description: Total number of times the DevTools toolbox was opened, summed across all clients using this
+    add-on on the submission date. Null if not reported.
 - name: sap_searches
   type: RECORD
   mode: NULLABLE
-  description: ''
+  description: Search access point (SAP) search counts broken down by search engine for clients using this
+    add-on.
   fields:
   - name: amazon
     type: INT64
     mode: NULLABLE
-    description: ''
+    description: Number of SAP searches performed via Amazon by clients using this add-on on the submission
+      date.
   - name: bing
     type: INT64
     mode: NULLABLE
-    description: ''
+    description: Number of SAP searches performed via Bing by clients using this add-on on the submission
+      date.
   - name: ddg
     type: INT64
     mode: NULLABLE
-    description: ''
+    description: Number of SAP searches performed via DuckDuckGo by clients using this add-on on the submission
+      date.
   - name: google
     type: INT64
     mode: NULLABLE
-    description: ''
+    description: Number of SAP searches performed via Google by clients using this add-on on the submission
+      date.
   - name: other
     type: INT64
     mode: NULLABLE
-    description: ''
+    description: Number of SAP searches performed via other search engines by clients using this add-on on
+      the submission date.
   - name: total
     type: INT64
     mode: NULLABLE
-    description: ''
+    description: Total number of SAP searches across all search engines by clients using this add-on on the
+      submission date.
   - name: yandex
     type: INT64
     mode: NULLABLE
-    description: ''
+    description: Number of SAP searches performed via Yandex by clients using this add-on on the submission
+      date.
 - name: tagged_sap_searches
   type: RECORD
   mode: NULLABLE
-  description: ''
+  description: Tagged search access point (SAP) search counts, where the search was tagged by Mozilla's
+    partner agreements, broken down by engine.
   fields:
   - name: amazon
     type: INT64
     mode: NULLABLE
-    description: ''
+    description: Number of tagged SAP searches via Amazon by clients with this add-on on the submission date.
   - name: bing
     type: INT64
     mode: NULLABLE
-    description: ''
+    description: Number of tagged SAP searches via Bing by clients with this add-on on the submission date.
   - name: ddg
     type: INT64
     mode: NULLABLE
-    description: ''
+    description: Number of tagged SAP searches via DuckDuckGo by clients with this add-on on the submission
+      date.
   - name: google
     type: INT64
     mode: NULLABLE
-    description: ''
+    description: Number of tagged SAP searches via Google by clients with this add-on on the submission date.
   - name: other
     type: INT64
     mode: NULLABLE
-    description: ''
+    description: Number of tagged SAP searches via other engines by clients with this add-on on the submission
+      date.
   - name: total
     type: INT64
     mode: NULLABLE
-    description: ''
+    description: Total number of tagged SAP searches across all engines by clients with this add-on on the
+      submission date.
   - name: yandex
     type: INT64
     mode: NULLABLE
-    description: ''
+    description: Number of tagged SAP searches via Yandex by clients with this add-on on the submission date.
 - name: tagged_follow_on_searches
   type: RECORD
   mode: NULLABLE
-  description: ''
+  description: Follow-on search counts where a user's query followed a tagged SAP search, broken down by
+    engine.
   fields:
   - name: amazon
     type: INT64
     mode: NULLABLE
-    description: ''
+    description: Number of tagged follow-on searches via Amazon by clients with this add-on on the submission
+      date.
   - name: bing
     type: INT64
     mode: NULLABLE
-    description: ''
+    description: Number of tagged follow-on searches via Bing by clients with this add-on on the submission
+      date.
   - name: ddg
     type: INT64
     mode: NULLABLE
-    description: ''
+    description: Number of tagged follow-on searches via DuckDuckGo by clients with this add-on on the submission
+      date.
   - name: google
     type: INT64
     mode: NULLABLE
-    description: ''
+    description: Number of tagged follow-on searches via Google by clients with this add-on on the submission
+      date.
   - name: other
     type: INT64
     mode: NULLABLE
-    description: ''
+    description: Number of tagged follow-on searches via other engines by clients with this add-on on the
+      submission date.
   - name: total
     type: INT64
     mode: NULLABLE
-    description: ''
+    description: Total number of tagged follow-on searches across all engines by clients with this add-on
+      on the submission date.
   - name: yandex
     type: INT64
     mode: NULLABLE
-    description: ''
+    description: Number of tagged follow-on searches via Yandex by clients with this add-on on the submission
+      date.
 - name: organic_searches
   type: RECORD
   mode: NULLABLE
-  description: ''
+  description: Organic (non-tagged) search counts broken down by engine for clients using this add-on.
   fields:
   - name: amazon
     type: INT64
     mode: NULLABLE
-    description: ''
+    description: Number of organic searches via Amazon by clients with this add-on on the submission date.
   - name: bing
     type: INT64
     mode: NULLABLE
-    description: ''
+    description: Number of organic searches via Bing by clients with this add-on on the submission date.
   - name: ddg
     type: INT64
     mode: NULLABLE
-    description: ''
+    description: Number of organic searches via DuckDuckGo by clients with this add-on on the submission date.
   - name: google
     type: INT64
     mode: NULLABLE
-    description: ''
+    description: Number of organic searches via Google by clients with this add-on on the submission date.
   - name: other
     type: INT64
     mode: NULLABLE
-    description: ''
+    description: Number of organic searches via other engines by clients with this add-on on the submission
+      date.
   - name: total
     type: INT64
     mode: NULLABLE
-    description: ''
+    description: Total organic searches across all engines by clients with this add-on on the submission date.
   - name: yandex
     type: INT64
     mode: NULLABLE
-    description: ''
+    description: Number of organic searches via Yandex by clients with this add-on on the submission date.
 - name: searches_with_ads
   type: RECORD
   mode: NULLABLE
-  description: ''
+  description: Counts of searches that returned pages containing ads, broken down by engine for clients
+    using this add-on.
   fields:
   - name: amazon
     type: INT64
     mode: NULLABLE
-    description: ''
+    description: Number of Amazon searches that returned ad-containing pages by clients with this add-on on
+      the submission date.
   - name: bing
     type: INT64
     mode: NULLABLE
-    description: ''
+    description: Number of Bing searches that returned ad-containing pages by clients with this add-on on
+      the submission date.
   - name: ddg
     type: INT64
     mode: NULLABLE
-    description: ''
+    description: Number of DuckDuckGo searches that returned ad-containing pages by clients with this add-on
+      on the submission date.
   - name: google
     type: INT64
     mode: NULLABLE
-    description: ''
+    description: Number of Google searches that returned ad-containing pages by clients with this add-on on
+      the submission date.
   - name: other
     type: INT64
     mode: NULLABLE
-    description: ''
+    description: Number of searches on other engines that returned ad-containing pages by clients with this
+      add-on on the submission date.
   - name: total
     type: INT64
     mode: NULLABLE
-    description: ''
+    description: Total searches returning ad-containing pages across all engines by clients with this add-on
+      on the submission date.
   - name: yandex
     type: INT64
     mode: NULLABLE
-    description: ''
+    description: Number of Yandex searches that returned ad-containing pages by clients with this add-on on
+      the submission date.
 - name: ad_clicks
   type: RECORD
   mode: NULLABLE
-  description: ''
+  description: Counts of clicks on search advertisements, broken down by engine for clients using this add-on.
   fields:
   - name: amazon
     type: INT64
     mode: NULLABLE
-    description: ''
+    description: Number of ad clicks on Amazon search results pages by clients with this add-on on the submission
+      date.
   - name: bing
     type: INT64
     mode: NULLABLE
-    description: ''
+    description: Number of ad clicks on Bing search results pages by clients with this add-on on the submission
+      date.
   - name: ddg
     type: INT64
     mode: NULLABLE
-    description: ''
+    description: Number of ad clicks on DuckDuckGo search results pages by clients with this add-on on the
+      submission date.
   - name: google
     type: INT64
     mode: NULLABLE
-    description: ''
+    description: Number of ad clicks on Google search results pages by clients with this add-on on the submission
+      date.
   - name: other
     type: INT64
     mode: NULLABLE
-    description: ''
+    description: Number of ad clicks on other search engine result pages by clients with this add-on on the
+      submission date.
   - name: total
     type: INT64
     mode: NULLABLE
-    description: ''
+    description: Total ad clicks across all search engines by clients with this add-on on the submission date.
   - name: yandex
     type: INT64
     mode: NULLABLE
-    description: ''
+    description: Number of ad clicks on Yandex search results pages by clients with this add-on on the submission
+      date.
