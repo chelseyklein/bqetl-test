@@ -2,20 +2,23 @@ fields:
 - name: date
   type: DATE
   mode: NULLABLE
-  description: ''
+  description: The calendar date for which the anomaly detection deviation was computed.
 - name: metric
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: The name of the telemetry metric being monitored for anomalies (e.g., a crash rate or usage
+    measure).
 - name: deviation
   type: FLOAT64
   mode: NULLABLE
-  description: ''
+  description: The measured deviation of the metric value from its expected baseline, used to assess whether
+    an anomaly is present.
 - name: ci_deviation
   type: FLOAT64
   mode: NULLABLE
-  description: ''
+  description: The confidence interval boundary of the deviation, indicating the range within which the
+    true deviation is expected to fall with statistical confidence.
 - name: geography
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: The geographic region (e.g., country code or global) for which the metric deviation was calculated.
