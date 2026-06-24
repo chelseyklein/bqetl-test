@@ -88,6 +88,8 @@ fields:
     - name: enrollment_id
       type: STRING
       mode: NULLABLE
+  description: The unique enrollment identifier for a client's participation in a specific experiment branch,
+    used to track individual experiment enrollments. Populated only for Nimbus experiments; null otherwise.
     - name: type
       type: STRING
       mode: NULLABLE
