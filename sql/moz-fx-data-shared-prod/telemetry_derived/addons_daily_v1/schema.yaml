@@ -25,18 +25,21 @@ fields:
 - name: dau
   type: INT64
   mode: NULLABLE
-  description: Daily Active Users; the number of distinct clients with this add-on installed that were active
-    on the submission date.
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: dau
 - name: wau
   type: INT64
   mode: NULLABLE
-  description: Weekly Active Users; the number of distinct clients with this add-on installed that were
-    active within the 7 days up to and including the submission date.
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: wau
 - name: mau
   type: INT64
   mode: NULLABLE
-  description: Monthly Active Users; the number of distinct clients with this add-on installed that were
-    active within the 28 days up to and including the submission date.
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: mau
 - name: is_system
   type: BOOLEAN
   mode: NULLABLE
@@ -46,8 +49,9 @@ fields:
 - name: active_hours_sum
   type: FLOAT64
   mode: NULLABLE
-  description: Total active browsing hours summed across all clients using this add-on on the submission
-    date.
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: active_hours_sum
 - name: total_uri_count_sum
   type: INT64
   mode: NULLABLE
@@ -61,8 +65,9 @@ fields:
 - name: devtools_toolbox_opened_count_sum
   type: INT64
   mode: NULLABLE
-  description: Total number of times the DevTools toolbox was opened, summed across all clients using this
-    add-on on the submission date. Null if not reported.
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: devtools_toolbox_opened_count_sum
 - name: sap_searches
   type: RECORD
   mode: NULLABLE
@@ -260,7 +265,9 @@ fields:
 - name: ad_clicks
   type: RECORD
   mode: NULLABLE
-  description: Counts of clicks on search advertisements, broken down by engine for clients using this add-on.
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: ad_clicks
   fields:
   - name: amazon
     type: INT64
