@@ -1,0 +1,21 @@
+fields:
+- name: date
+  type: DATE
+  mode: NULLABLE
+  description: ''
+- name: metric
+  type: STRING
+  mode: NULLABLE
+  description: ''
+- name: deviation
+  type: FLOAT64
+  mode: NULLABLE
+  description: ''
+- name: ci_deviation
+  type: FLOAT64
+  mode: NULLABLE
+  description: ''
+- name: geography
+  type: STRING
+  mode: NULLABLE
+  description: ''
