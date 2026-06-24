@@ -56,3 +56,5 @@ fields:
 - mode: NULLABLE
   name: num_activated
   type: INTEGER
+  description: The count of new Firefox desktop profiles from 6 days ago that were activated, meaning they
+    were seen active for at least 5 of the 7 days following installation.
