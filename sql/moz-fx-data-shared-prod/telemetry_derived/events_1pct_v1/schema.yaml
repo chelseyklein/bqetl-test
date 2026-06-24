@@ -2,97 +2,108 @@ fields:
 - name: submission_date
   type: DATE
   mode: NULLABLE
-  description: ''
+  description: The date on which the event ping was submitted to the ingestion pipeline.
 - name: doc_type
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: The telemetry ping document type from which this event row was derived (e.g., 'event').
 - name: document_id
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: The unique document identifier specified in the URI when the client sent this event ping,
+    used for deduplication.
 - name: client_id
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: The unique pseudonymous identifier for the Firefox client that generated this event.
 - name: normalized_channel
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: The Firefox release channel from which this ping was received. Set to 'Other' if the channel
+    name was not recognized.
 - name: country
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: The ISO 3166-1 alpha-2 country code of the client, derived from their IP address at time
+    of submission.
 - name: locale
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: The Firefox application locale setting (e.g., 'en-US', 'de') at the time of the event.
 - name: app_name
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: The name of the Mozilla application that submitted this ping (e.g., 'Firefox').
 - name: app_version
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: The version string of the Firefox application at the time of the event (e.g., '151.0.4').
 - name: os
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: The operating system name of the client (e.g., 'Windows', 'Mac', 'Linux').
 - name: os_version
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: The operating system version string of the client at the time of the event.
 - name: timestamp
   type: TIMESTAMP
   mode: NULLABLE
-  description: ''
+  description: The ingestion timestamp when the event ping was received by the Mozilla pipeline.
 - name: sample_id
   type: INT64
   mode: NULLABLE
-  description: ''
+  description: A value between 0 and 99 derived from a hash of the client_id, used to create reproducible
+    random samples. This table contains only sample_id = 0 (1% sample).
 - name: event_timestamp
   type: INT64
   mode: NULLABLE
-  description: ''
+  description: The elapsed time in milliseconds since the start of the browser session at which this event
+    occurred.
 - name: event_category
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: The category of the telemetry event, grouping related events under a common namespace (e.g.,
+    'normandy', 'address', 'doh').
 - name: event_method
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: The method component of the event identifier, describing the action that occurred (e.g.,
+    'click', 'detected', 'uptake').
 - name: event_object
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: The object component of the event identifier, describing what the action was performed on
+    (e.g., 'nimbus_experiment', 'address_form').
 - name: event_string_value
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: An optional string value associated with the event, whose meaning depends on the event type.
+    Null when not applicable for the event.
 - name: event_map_values
   type: RECORD
   mode: REPEATED
-  description: ''
+  description: An array of key-value pairs providing additional context for the event (the event 'extra'
+    fields), where each entry has a string key and string value.
   fields:
   - name: key
     type: STRING
     mode: NULLABLE
-    description: ''
+    description: The name of the extra property key for this event (e.g., 'trigger', 'source', 'networkID').
   - name: value
     type: STRING
     mode: NULLABLE
-    description: ''
+    description: The string value of the extra property for this event, corresponding to the associated key.
 - name: experiments
   type: RECORD
   mode: REPEATED
-  description: ''
+  description: Array of Nimbus and Normandy experiments the client was enrolled in at the time of the event,
+    including each experiment's branch and enrollment details.
   fields:
   - name: key
     type: STRING
     mode: NULLABLE
-    description: ''
+    description: The slug or identifier of the experiment the client was enrolled in.
   - name: value
     type: RECORD
     mode: NULLABLE
@@ -101,61 +112,67 @@ fields:
     - name: branch
       type: STRING
       mode: NULLABLE
-      description: ''
+      description: The branch of the experiment the client was assigned to (e.g., 'control', 'treatment-a').
     - name: enrollment_id
       type: STRING
       mode: NULLABLE
-      description: ''
+      description: The unique enrollment identifier for a client's participation in this experiment, populated
+        for Nimbus experiments and null otherwise.
     - name: type
       type: STRING
       mode: NULLABLE
-      description: ''
+      description: The type of experiment enrollment mechanism (e.g., 'nimbus-rollout', 'nimbus-nimbus', 'normandy-exp').
 - name: event_process
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: The Firefox process in which the event was recorded (e.g., 'parent', 'content', 'extension',
+    'dynamic').
 - name: subsession_id
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: The unique identifier for the telemetry subsession within the session in which this event
+    was recorded.
 - name: session_start_time
   type: TIMESTAMP
   mode: NULLABLE
-  description: ''
+  description: The timestamp at which the Firefox session that generated this event began.
 - name: session_id
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: The unique identifier for the Firefox browsing session in which the event occurred.
 - name: build_id
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: The build identifier (YYYYMMDDHHmmss format) for the Firefox build that generated this event.
 - name: browser_version_info
   type: RECORD
   mode: NULLABLE
-  description: ''
+  description: Parsed version components of the Firefox application version string, providing structured
+    access to major, minor, and patch version numbers.
   fields:
   - name: is_major_release
     type: BOOLEAN
     mode: NULLABLE
-    description: ''
+    description: True if this Firefox version is a major release (i.e., the minor and patch components are
+      both zero), false otherwise.
   - name: major_version
     type: NUMERIC
     mode: NULLABLE
-    description: ''
+    description: The major version number component of the Firefox browser version (e.g., 151).
   - name: minor_version
     type: NUMERIC
     mode: NULLABLE
-    description: ''
+    description: The minor version number component of the Firefox browser version (e.g., 0).
   - name: patch_revision
     type: NUMERIC
     mode: NULLABLE
-    description: ''
+    description: The patch revision number component of the Firefox browser version (e.g., 4).
   - name: version
     type: STRING
     mode: NULLABLE
-    description: ''
+    description: The full version string of the Firefox browser (e.g., '151.0.4').
 - name: profile_group_id
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: A UUID identifying the profile group on a single device, enabling user-oriented correlation
+    across multiple Firefox profiles. Null for a subset of clients.
