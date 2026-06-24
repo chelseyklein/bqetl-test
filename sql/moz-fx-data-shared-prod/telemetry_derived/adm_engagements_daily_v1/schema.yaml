@@ -14,8 +14,9 @@ fields:
 - name: placement
   type: STRING
   mode: NULLABLE
-  description: The placement location of the AdM top site or search entry point that was interacted with
-    (e.g., a specific sponsored top site source).
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: placement
 - name: partner
   type: STRING
   mode: NULLABLE
