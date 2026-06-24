@@ -2,7 +2,7 @@ fields:
 - name: submission_date
   type: DATE
   mode: NULLABLE
-  description: ''
+  description: The date on which this hg push record was ingested into the data warehouse.
 - name: metadata
   type: RECORD
   mode: NULLABLE
@@ -11,35 +11,35 @@ fields:
   - name: date
     type: STRING
     mode: NULLABLE
-    description: ''
+    description: The date string from the HTTP Date header at the time the hg push event was recorded.
   - name: document_id
     type: STRING
     mode: NULLABLE
-    description: ''
+    description: A unique identifier for the engineering workflow push document, used for deduplication.
   - name: timestamp
     type: INT64
     mode: NULLABLE
-    description: ''
+    description: Unix epoch timestamp (in seconds) of when the hg push event metadata was recorded.
 - name: changeset_id
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: The Mercurial changeset hash identifier uniquely identifying the commit that was pushed.
 - name: review_system_used
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: The code review system used for the changeset landing (e.g., Phabricator, Lando).
 - name: repository
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: The Mercurial repository to which the changeset was pushed (e.g., mozilla-central, autoland).
 - name: push_date
   type: INT64
   mode: NULLABLE
-  description: ''
+  description: The Unix epoch timestamp of when the Mercurial push occurred.
 - name: landing_system
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: The automated landing system that submitted the push (e.g., Lando, autoland-script).
 - name: diffstat
   type: RECORD
   mode: NULLABLE
@@ -48,12 +48,12 @@ fields:
   - name: additions
     type: INT64
     mode: NULLABLE
-    description: ''
+    description: The number of lines added in the pushed changeset, as reported by the diff statistics.
   - name: changed_files
     type: INT64
     mode: NULLABLE
-    description: ''
+    description: The number of files changed in the pushed changeset, as reported by the diff statistics.
   - name: deletions
     type: INT64
     mode: NULLABLE
-    description: ''
+    description: The number of lines deleted in the pushed changeset, as reported by the diff statistics.
