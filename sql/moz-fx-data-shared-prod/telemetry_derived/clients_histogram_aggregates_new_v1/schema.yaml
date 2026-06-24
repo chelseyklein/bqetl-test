@@ -38,6 +38,8 @@ fields:
 - name: join_key
   type: STRING
   mode: NULLABLE
+  description: A synthetic join key constructed by concatenating client_id, os, app_version, app_build_id,
+    and channel, used to merge new daily histogram aggregates with the existing rolling aggregate table.
 - name: histogram_aggregates
   type: RECORD
   mode: REPEATED
