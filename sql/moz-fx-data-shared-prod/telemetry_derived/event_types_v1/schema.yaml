@@ -2,36 +2,43 @@ fields:
 - name: category
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: The telemetry event category grouping related events (e.g., 'devtools.main', 'doh'). Null
+    for legacy events that predate the category system.
 - name: event
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: The combined event identifier, typically in the form 'method.object' (e.g., 'cancel.modal'),
+    used to uniquely identify an event type. Null for legacy events.
 - name: first_timestamp
   type: TIMESTAMP
   mode: NULLABLE
-  description: ''
+  description: The earliest timestamp at which this event type was first observed in the telemetry pipeline.
 - name: numeric_index
   type: INT64
   mode: NULLABLE
-  description: ''
+  description: A stable numeric index assigned to each unique event type, used to map event types to compact
+    encoded string indices.
 - name: index
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: A compact encoded string representation of the event type's numeric index, derived by converting
+    the index into Unicode code points for use in compressed event encoding.
 - name: event_properties
   type: RECORD
   mode: REPEATED
-  description: ''
+  description: An array of event property definitions for this event type. Each element describes one property
+    key seen in event extras, its assigned index, and the allowed values with their own indices.
   fields:
   - name: index
     type: INT64
     mode: NULLABLE
-    description: ''
+    description: A numeric index assigned to this event property key within its parent event type, used for
+      compact encoding.
   - name: key
     type: STRING
     mode: NULLABLE
-    description: ''
+    description: The name of the event property key (e.g., 'source', 'reason') as seen in the event extras
+      for this event type.
   - name: value
     type: RECORD
     mode: REPEATED
