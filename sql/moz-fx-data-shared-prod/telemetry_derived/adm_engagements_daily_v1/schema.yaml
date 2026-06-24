@@ -2,36 +2,49 @@ fields:
 - name: submission_date
   type: DATE
   mode: NULLABLE
-  description: ''
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: submission_date
 - name: country
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: country
 - name: placement
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: The placement location of the AdM top site or search entry point that was interacted with
+    (e.g., a specific sponsored top site source).
 - name: partner
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: The advertising partner associated with the interaction, such as 'amazon' for Amazon-powered
+    placements.
 - name: version
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: version
 - name: normalized_channel
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: normalized_channel
 - name: n_engagements
   type: INT64
   mode: NULLABLE
-  description: ''
+  description: The total number of user engagements (clicks for top-site interactions, or SAP search counts
+    for redirect-based interactions) recorded for this combination of dimensions.
 - name: interaction
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: The type of user interaction recorded; 'topsite' for clicks on a sponsored top-site tile,
+    or 'redirect' for search engine redirect engagements.
 - name: phase
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: The AdM experiment or rollout phase that the client was enrolled in (e.g., 'phase2', 'phase3',
+    'rollout'). Null if the client was not part of a known AdM experiment.
