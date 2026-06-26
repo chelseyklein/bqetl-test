@@ -8,8 +8,9 @@ fields:
 - name: product
   type: STRING
   mode: NULLABLE
-  description: The non-desktop Firefox product name (e.g., 'Fenix', 'Firefox iOS', 'Focus Android') that
-    identifies the specific application being counted.
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: product
 - name: app_version
   type: STRING
   mode: NULLABLE
@@ -37,8 +38,9 @@ fields:
 - name: new_profiles
   type: INT64
   mode: NULLABLE
-  description: The number of client profiles that were created on the day exactly 6 days before the submission
-    date, representing new profile installs attributed to that creation day.
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: new_profiles
 - name: day_2_7_activated
   type: INT64
   mode: NULLABLE
