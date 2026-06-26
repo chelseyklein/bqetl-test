@@ -1,0 +1,170 @@
+fields:
+- name: client_id
+  type: STRING
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: client_id
+- name: normalized_channel
+  type: STRING
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: normalized_channel
+- name: build_version
+  type: STRING
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: build_version
+- name: build_id
+  type: STRING
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: build_id
+- name: channel
+  type: STRING
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: channel
+- name: crash_time
+  type: STRING
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: crash_time
+- name: application
+  type: STRING
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: application
+- name: os_name
+  type: STRING
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: os_name
+- name: os_version
+  type: STRING
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: os_version
+- name: architecture
+  type: STRING
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: architecture
+- name: country
+  type: STRING
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: country
+- name: experiment_id
+  type: STRING
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: experiment_id
+- name: experiment_branch
+  type: STRING
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: experiment_branch
+- name: experiments
+  type: RECORD
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: experiments
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: Key-value pairs representing the Normandy experiments the client was enrolled in at the time
+      of the crash, with keys as experiment IDs and values containing branch and enrollment metadata.
+    fields:
+    - name: key
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: STRING
+      mode: NULLABLE
+      description: ''
+- name: e10s_enabled
+  type: BOOLEAN
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: e10s_enabled
+- name: gfx_compositor
+  type: STRING
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: gfx_compositor
+- name: profile_created
+  type: INT64
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: profile_created
+- name: payload
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: crashDate
+    type: STRING
+    mode: NULLABLE
+    description: The date of the crash as an ISO date string, derived from the crash ping payload.
+  - name: crashTime
+    type: STRING
+    mode: NULLABLE
+    description: The time of the crash as an ISO datetime string (per-hour resolution), derived from the crash
+      ping payload.
+  - name: hasCrashEnvironment
+    type: BOOLEAN
+    mode: NULLABLE
+    description: Whether the crash ping included an environment block. True indicates environment data such
+      as system info and settings was captured at crash time.
+  - name: metadata
+    type: RECORD
+    mode: NULLABLE
+    description: ''
+    fields:
+    - name: key_value
+      type: RECORD
+      mode: REPEATED
+      description: Key-value pairs from the crash ping's metadata section, containing additional crash annotations
+        such as startup_crash, ipc_channel_error, and memory usage fields.
+      fields:
+      - name: key
+        type: STRING
+        mode: NULLABLE
+        description: ''
+      - name: value
+        type: STRING
+        mode: NULLABLE
+        description: ''
+  - name: processType
+    type: STRING
+    mode: NULLABLE
+    description: The type of Firefox process that crashed, such as main, content, gpu, or utility.
+  - name: version
+    type: INT64
+    mode: NULLABLE
+    description: The schema version of the crash ping payload.
+- name: submission_date
+  type: DATE
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: submission_date

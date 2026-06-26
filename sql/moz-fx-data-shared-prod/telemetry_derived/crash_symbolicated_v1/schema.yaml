@@ -20,6 +20,9 @@ fields:
 - name: async_shutdown_timeout
   type: STRING
   mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: async_shutdown_timeout
 - name: ipc_channel_error
   type: STRING
   mode: NULLABLE
@@ -47,42 +50,68 @@ fields:
 - name: crashing_thread
   type: INTEGER
   mode: NULLABLE
+  description: The zero-based index of the crashing thread within the threads array, pointing to the last
+    thread entry in the symbolicated thread list. Null when no threads were symbolicated.
 - name: threads
   type: RECORD
   mode: REPEATED
   fields:
+  description: An array of symbolicated thread stack traces retained from the crash, typically including
+    thread 0 and the crashing thread. Each entry contains an array of frames with resolved symbol information.
   - name: frames
     type: RECORD
     mode: REPEATED
     fields:
+  description: An array of symbolicated stack frames for this thread, ordered from the top of the call stack.
+    Each frame contains module, function, file, and line information resolved via Mozilla's symbol server.
     - name: module_offset
       type: STRING
       mode: NULLABLE
+  description: The hex-formatted offset of this frame within its loaded module, used as the key to look
+    up symbols from the Mozilla symbol server.
     - name: module
       type: STRING
       mode: NULLABLE
+  description: The filename of the binary module (e.g. xul.dll or libxul.so) in which this stack frame's
+    code resides.
     - name: function
       type: STRING
       mode: NULLABLE
+  description: The symbolicated function name at this stack frame, resolved from the module's debug symbols.
+    Null when symbolication was not possible for this frame.
     - name: function_offset
       type: STRING
       mode: NULLABLE
+  description: The hex-formatted byte offset of the instruction pointer within the resolved function, indicating
+    how far into the function the crash occurred.
     - name: file
       type: STRING
       mode: NULLABLE
+  description: The source file path associated with this stack frame as resolved from debug symbols. Null
+    when source file information is unavailable.
     - name: line
       type: INTEGER
       mode: NULLABLE
+  description: The source code line number within the file for this stack frame. Null when line information
+    is unavailable or the line is zero.
     - name: inlines
       type: RECORD
       mode: REPEATED
       fields:
+  description: An array of inlined function frames at this stack location, ordered from innermost to outermost
+    inline. Each entry represents a function that was inlined by the compiler into the outer function at
+    this frame.
       - name: function
         type: STRING
         mode: NULLABLE
+  description: The name of the inlined function at this inline stack frame, as resolved from debug symbols.
       - name: file
         type: STRING
         mode: NULLABLE
+  description: The source file path associated with this inlined function frame. Null when source information
+    is unavailable.
       - name: line
         type: INTEGER
         mode: NULLABLE
+  description: The source code line number within the file for this inlined function frame. Null when line
+    information is unavailable.
