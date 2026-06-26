@@ -2,160 +2,191 @@ fields:
 - name: submission_date
   type: DATE
   mode: NULLABLE
-  description: ''
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: submission_date
 - name: normalized_channel
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: normalized_channel
 - name: clients
   type: INT64
   mode: NULLABLE
-  description: ''
+  description: The number of distinct clients (by client_id) that opened the DevTools Accessibility panel
+    at least once on this date and channel.
 - name: panel_opens
   type: INT64
   mode: NULLABLE
-  description: ''
+  description: The total number of times the DevTools Accessibility panel was opened across all clients
+    on this date and channel.
 - name: panel_opens_per_client_day
   type: FLOAT64
   mode: NULLABLE
-  description: ''
+  description: The average number of Accessibility panel opens per client per day, calculated as total panel
+    opens divided by client count.
 - name: context_menu_opened_per_client_day
   type: FLOAT64
   mode: NULLABLE
-  description: ''
+  description: The average number of times the accessibility context menu was opened per client per day.
 - name: print_to_json_context_per_client_day
   type: FLOAT64
   mode: NULLABLE
-  description: ''
+  description: The average number of times the 'Print to JSON' accessibility context menu action was activated
+    per client per day.
 - name: print_to_json_context_users
   type: INT64
   mode: NULLABLE
-  description: ''
+  description: The number of clients who used the 'Print to JSON' accessibility context menu item at least
+    once on this date.
 - name: tabbing_order_activated_per_client_day
   type: FLOAT64
   mode: NULLABLE
-  description: ''
+  description: The average number of times the tabbing order visualization feature was activated per client
+    per day. Null when no activations were recorded.
 - name: tabbing_order_activated_users
   type: INT64
   mode: NULLABLE
-  description: ''
+  description: The number of clients who activated the tabbing order visualization feature at least once
+    on this date.
 - name: node_inspected_per_client_day
   type: FLOAT64
   mode: NULLABLE
-  description: ''
+  description: The average number of times an accessible node was inspected per client per day using the
+    Accessibility inspector.
 - name: node_inspected_users
   type: INT64
   mode: NULLABLE
-  description: ''
+  description: The number of clients who inspected at least one accessible node in the Accessibility panel
+    on this date.
 - name: picker_users
   type: INT64
   mode: NULLABLE
-  description: ''
+  description: The number of clients who used the accessibility node picker at least once on this date.
 - name: picker_users_per_client_day
   type: FLOAT64
   mode: NULLABLE
-  description: ''
+  description: The proportion of clients who used the accessibility node picker at least once, expressed
+    as a ratio of picker users to total clients.
 - name: picker_count_per_client_day
   type: FLOAT64
   mode: NULLABLE
-  description: ''
+  description: The average number of times the accessibility node picker was used per client per day.
 - name: browser_context_per_client_day
   type: FLOAT64
   mode: NULLABLE
-  description: ''
+  description: The average number of times the 'Select accessible for node' action was triggered from the
+    browser context menu per client per day.
 - name: browser_context_users
   type: INT64
   mode: NULLABLE
-  description: ''
+  description: The number of clients who triggered the 'Select accessible for node' action from the browser
+    context menu at least once on this date.
 - name: inspector_context_per_client_day
   type: FLOAT64
   mode: NULLABLE
-  description: ''
+  description: The average number of times the 'Select accessible for node' action was triggered from the
+    Inspector context menu per client per day.
 - name: inspector_context_users
   type: INT64
   mode: NULLABLE
-  description: ''
+  description: The number of clients who triggered the 'Select accessible for node' action from the Inspector
+    context menu at least once on this date.
 - name: service_enabled_users
   type: INT64
   mode: NULLABLE
-  description: ''
+  description: The number of clients who had the accessibility service enabled at least once on this date.
 - name: service_enabled_users_per_client_day
   type: FLOAT64
   mode: NULLABLE
-  description: ''
+  description: The proportion of clients who had the accessibility service enabled, expressed as a ratio
+    of service-enabled users to total clients.
 - name: audit_all_per_client_day
   type: FLOAT64
   mode: NULLABLE
-  description: ''
+  description: The average number of times the 'All Issues' accessibility audit was run per client per day.
 - name: audit_all_users
   type: INT64
   mode: NULLABLE
-  description: ''
+  description: The number of clients who ran the 'All Issues' accessibility audit at least once on this
+    date.
 - name: audit_contrast_per_client_day
   type: FLOAT64
   mode: NULLABLE
-  description: ''
+  description: The average number of times the contrast accessibility audit was run per client per day.
 - name: audit_contrast_users
   type: INT64
   mode: NULLABLE
-  description: ''
+  description: The number of clients who ran the contrast accessibility audit at least once on this date.
 - name: audit_keyboard_per_client_day
   type: FLOAT64
   mode: NULLABLE
-  description: ''
+  description: The average number of times the keyboard accessibility audit was run per client per day.
 - name: audit_keyboard_users
   type: INT64
   mode: NULLABLE
-  description: ''
+  description: The number of clients who ran the keyboard accessibility audit at least once on this date.
 - name: audit_text_label_per_client_day
   type: FLOAT64
   mode: NULLABLE
-  description: ''
+  description: The average number of times the text label accessibility audit was run per client per day.
 - name: audit_text_label_users
   type: INT64
   mode: NULLABLE
-  description: ''
+  description: The number of clients who ran the text label accessibility audit at least once on this date.
 - name: simulation_protanopia_per_client_day
   type: FLOAT64
   mode: NULLABLE
-  description: ''
+  description: The average number of times the protanopia (red-blind) color vision deficiency simulation
+    was activated per client per day.
 - name: simulation_protanopia_users
   type: INT64
   mode: NULLABLE
-  description: ''
+  description: The number of clients who activated the protanopia color vision simulation at least once
+    on this date.
 - name: simulation_deuteranopia_per_client_day
   type: FLOAT64
   mode: NULLABLE
-  description: ''
+  description: The average number of times the deuteranopia (green-blind) color vision deficiency simulation
+    was activated per client per day.
 - name: simulation_deuteranopia_users
   type: INT64
   mode: NULLABLE
-  description: ''
+  description: The number of clients who activated the deuteranopia color vision simulation at least once
+    on this date.
 - name: simulation_tritanopia_per_client_day
   type: FLOAT64
   mode: NULLABLE
-  description: ''
+  description: The average number of times the tritanopia (blue-blind) color vision deficiency simulation
+    was activated per client per day.
 - name: simulation_tritanopia_users
   type: INT64
   mode: NULLABLE
-  description: ''
+  description: The number of clients who activated the tritanopia color vision simulation at least once
+    on this date.
 - name: simulation_achromatopsia_per_client_day
   type: FLOAT64
   mode: NULLABLE
-  description: ''
+  description: The average number of times the achromatopsia (total color blindness) simulation was activated
+    per client per day.
 - name: simulation_achromatopsia_users
   type: INT64
   mode: NULLABLE
-  description: ''
+  description: The number of clients who activated the achromatopsia color vision simulation at least once
+    on this date.
 - name: simulation_contrast_loss_per_client_day
   type: FLOAT64
   mode: NULLABLE
-  description: ''
+  description: The average number of times the contrast loss color vision simulation was activated per client
+    per day.
 - name: simulation_contrast_loss_users
   type: INT64
   mode: NULLABLE
-  description: ''
+  description: The number of clients who activated the contrast loss color vision simulation at least once
+    on this date.
 - name: simulations
   type: INT64
   mode: NULLABLE
-  description: ''
+  description: The total number of color vision deficiency simulations activated across all simulation types
+    (protanopia, deuteranopia, tritanopia, achromatopsia, and contrast loss) on this date and channel.
