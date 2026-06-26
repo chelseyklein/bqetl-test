@@ -139,8 +139,9 @@ fields:
 - name: build_id
   type: STRING
   mode: NULLABLE
-  description: The build ID string of the crashing application (e.g., '20260608154138'), representing the
-    date and time the build was compiled.
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: build_id
 - name: classifications
   type: RECORD
   mode: NULLABLE
@@ -218,7 +219,9 @@ fields:
 - name: date
   type: STRING
   mode: NULLABLE
-  description: ISO 8601 timestamp string of when the crash was received by the Socorro ingestion pipeline.
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: date
 - name: dom_ipc_enabled
   type: STRING
   mode: NULLABLE
@@ -227,13 +230,15 @@ fields:
 - name: e10s_cohort
   type: STRING
   mode: NULLABLE
-  description: Electrolysis (multi-process) experiment cohort assignment. Always null in current data as
-    e10s is no longer experimental.
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: e10s_cohort
 - name: flash_version
   type: STRING
   mode: NULLABLE
-  description: Version of Adobe Flash Player installed at crash time. Always null as Flash support has been
-    removed.
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: flash_version
 - name: gmp_plugin
   type: STRING
   mode: NULLABLE
@@ -261,8 +266,9 @@ fields:
 - name: ipc_channel_error
   type: STRING
   mode: NULLABLE
-  description: Error string describing why the IPC channel between processes was terminated, present only
-    for IPC-related content or GPU process crashes (e.g., 'GPUProcessKill').
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: ipc_channel_error
 - name: ipc_fatal_error_msg
   type: STRING
   mode: NULLABLE
@@ -686,13 +692,15 @@ fields:
 - name: moz_crash_reason
   type: STRING
   mode: NULLABLE
-  description: The string passed to MOZ_CRASH() or abort() at the crash site, providing developer-supplied
-    context about why the crash was triggered (e.g., 'OOM | small', 'Shutdown hanging...').
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: moz_crash_reason
 - name: oom_allocation_size
   type: STRING
   mode: NULLABLE
-  description: Size in bytes of the allocation that triggered an out-of-memory (OOM) condition leading to
-    the crash. Null when the crash was not OOM-related.
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: oom_allocation_size
 - name: platform
   type: STRING
   mode: NULLABLE
@@ -706,8 +714,9 @@ fields:
 - name: platform_version
   type: STRING
   mode: NULLABLE
-  description: The version string of the operating system (e.g., '10.0.19045' for Windows 10, '21' for Android
-    API level 21).
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: platform_version
 - name: plugin_filename
   type: STRING
   mode: NULLABLE
@@ -725,8 +734,9 @@ fields:
 - name: process_type
   type: STRING
   mode: NULLABLE
-  description: The type of Firefox process that crashed (e.g., 'parent', 'content', 'gpu', 'rdd', 'utility',
-    'socket').
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: process_type
 - name: processor_notes
   type: STRING
   mode: NULLABLE
@@ -735,7 +745,9 @@ fields:
 - name: product
   type: STRING
   mode: NULLABLE
-  description: The Mozilla product that crashed (e.g., 'Firefox', 'Fenix', 'Thunderbird', 'Focus').
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: product
 - name: productid
   type: STRING
   mode: NULLABLE
@@ -749,8 +761,9 @@ fields:
 - name: reason
   type: STRING
   mode: NULLABLE
-  description: The crash exception or signal that caused the crash (e.g., 'EXCEPTION_BREAKPOINT', 'SIGSEGV
-    / SEGV_MAPERR', 'SIGABRT / SI_QUEUE').
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: reason
 - name: release_channel
   type: STRING
   mode: NULLABLE
@@ -769,8 +782,9 @@ fields:
 - name: signature
   type: STRING
   mode: NULLABLE
-  description: The crash signature string identifying the location in the code where the crash occurred,
-    computed by Socorro's signature generator.
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: signature
 - name: startup_crash
   type: STRING
   mode: NULLABLE
