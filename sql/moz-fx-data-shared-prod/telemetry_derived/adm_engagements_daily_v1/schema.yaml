@@ -2,36 +2,49 @@ fields:
 - name: submission_date
   type: DATE
   mode: NULLABLE
-  description: ''
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: submission_date
 - name: country
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: country
 - name: placement
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: The location or surface within Firefox where the sponsored top-site or ad partner engagement
+    occurred (e.g., the specific New Tab placement).
 - name: partner
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: The name of the advertising partner associated with the engagement (e.g., 'amazon' for Amazon-sponsored
+    search redirects).
 - name: version
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: version
 - name: normalized_channel
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: normalized_channel
 - name: n_engagements
   type: INT64
   mode: NULLABLE
-  description: ''
+  description: The count of user engagements (clicks or search redirects) with the partner placement for
+    this combination of dimensions on the submission date.
 - name: interaction
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: The type of user interaction with the partner placement, such as 'click' for top-site tiles
+    or 'redirect' for search engine replacements.
 - name: phase
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: The rollout or experiment phase that the engagement belongs to, such as 'phase2', 'phase3',
+    or 'rollout'. Null for engagements not associated with a tracked experiment.
