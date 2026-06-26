@@ -2,56 +2,68 @@ fields:
 - name: cdou
   type: INT64
   mode: NULLABLE
-  description: ''
+  description: Cumulative Days of Use; total client-days of usage within this dimension group up to submission_date
+    in the current year.
 - name: cumulative_new_profiles
   type: INT64
   mode: NULLABLE
-  description: ''
+  description: Cumulative count of new profiles created up to submission_date within the current calendar
+    year for this dimension group.
 - name: submission_date
   type: DATE
   mode: NULLABLE
-  description: ''
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: submission_date
 - name: dau
   type: INT64
   mode: NULLABLE
-  description: ''
+  description: Daily Active Users count within this dimension group for the submission_date.
 - name: mau
   type: INT64
   mode: NULLABLE
-  description: ''
+  description: Monthly Active Users count within this dimension group for the 28-day window ending on submission_date.
 - name: wau
   type: INT64
   mode: NULLABLE
-  description: ''
+  description: Weekly Active Users count within this dimension group for the 7-day window ending on submission_date.
 - name: new_profiles
   type: INT64
   mode: NULLABLE
-  description: ''
+  description: Number of new profiles created within this dimension group on the submission_date.
 - name: submission_year
   type: INT64
   mode: NULLABLE
-  description: ''
+  description: The calendar year of the submission_date, used as a partition dimension.
 - name: id_bucket
   type: INT64
   mode: NULLABLE
-  description: ''
+  description: A value 0-19 derived from the client identifier for deterministic bucketing and approximate
+    counting.
 - name: product
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: The non-desktop Firefox product name (e.g., 'Fenix', 'Firefox iOS', 'Focus Android', 'Lockwise
+    Android').
 - name: normalized_channel
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: normalized_channel
 - name: campaign
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: The attribution campaign identifier; null when no campaign attribution is available.
 - name: country
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: country
 - name: distribution_id
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: distribution_id
