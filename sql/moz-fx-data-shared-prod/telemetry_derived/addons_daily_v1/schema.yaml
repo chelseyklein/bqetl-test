@@ -8,13 +8,15 @@ fields:
 - name: addon_id
   type: STRING
   mode: NULLABLE
-  description: The unique identifier of the Firefox add-on (extension), as reported in the telemetry environment
-    active_addons list.
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: addon_id
 - name: name
   type: STRING
   mode: NULLABLE
-  description: The display name of the add-on, limited to 100 characters. May be null when the add-on name
-    was not available.
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: name
 - name: most_common_default_search_engine
   type: STRING
   mode: NULLABLE
@@ -23,28 +25,33 @@ fields:
 - name: dau
   type: INT64
   mode: NULLABLE
-  description: Daily Active Users; the count of distinct clients with this add-on installed who were active
-    on the submission date.
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: dau
 - name: wau
   type: INT64
   mode: NULLABLE
-  description: Weekly Active Users; the count of distinct clients with this add-on installed who were active
-    within the last 7 days of the submission date.
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: wau
 - name: mau
   type: INT64
   mode: NULLABLE
-  description: Monthly Active Users; the count of distinct clients with this add-on installed who were active
-    within the last 28 days of the submission date.
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: mau
 - name: is_system
   type: BOOLEAN
   mode: NULLABLE
-  description: Whether the add-on is a system (built-in) add-on rather than a user-installed extension.
-    True for system add-ons, false for user add-ons.
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: is_system
 - name: active_hours_sum
   type: FLOAT64
   mode: NULLABLE
-  description: Total active browsing hours summed across all clients with this add-on installed who were
-    active on the submission date.
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: active_hours_sum
 - name: total_uri_count_sum
   type: INT64
   mode: NULLABLE
@@ -58,8 +65,9 @@ fields:
 - name: devtools_toolbox_opened_count_sum
   type: INT64
   mode: NULLABLE
-  description: Sum of DevTools toolbox open events across all active clients with this add-on on the submission
-    date. Null for clients that never opened DevTools.
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: devtools_toolbox_opened_count_sum
 - name: sap_searches
   type: RECORD
   mode: NULLABLE
@@ -234,7 +242,9 @@ fields:
 - name: ad_clicks
   type: RECORD
   mode: NULLABLE
-  description: Clicks on search advertisements broken down by engine, for clients with this add-on.
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: ad_clicks
   fields:
   - name: amazon
     type: INT64
