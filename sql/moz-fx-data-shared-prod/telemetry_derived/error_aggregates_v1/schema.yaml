@@ -8,8 +8,9 @@ fields:
 - name: window_start
   type: TIMESTAMP
   mode: NULLABLE
-  description: The start of the 5-minute aggregation window within the submission date, used for near-real-time
-    anomaly detection and error monitoring.
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: window_start
 - name: channel
   type: STRING
   mode: NULLABLE
@@ -37,8 +38,9 @@ fields:
 - name: application
   type: STRING
   mode: NULLABLE
-  description: The name of the Mozilla application that sent the pings (e.g., Firefox, FirefoxForFireTV,
-    Focus).
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: application
 - name: os_name
   type: STRING
   mode: NULLABLE
@@ -66,8 +68,9 @@ fields:
 - name: count
   type: INT64
   mode: NULLABLE
-  description: The total number of pings (crash + main + core) included in this aggregation window and dimension
-    combination.
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: count
 - name: main_crashes
   type: INT64
   mode: NULLABLE
