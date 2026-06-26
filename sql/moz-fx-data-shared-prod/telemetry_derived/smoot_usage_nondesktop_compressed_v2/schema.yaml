@@ -1,0 +1,119 @@
+fields:
+- name: submission_date
+  type: DATE
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: submission_date
+- name: usage
+  type: STRING
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: usage
+- name: id_bucket
+  type: INT64
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: id_bucket
+- name: country
+  type: STRING
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: country
+- name: locale
+  type: STRING
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: locale
+- name: os
+  type: STRING
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: os
+- name: channel
+  type: STRING
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: channel
+- name: attributed
+  type: BOOLEAN
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: attributed
+- name: metrics
+  type: RECORD
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: metrics
+  fields:
+  - name: day_0
+    type: RECORD
+    mode: NULLABLE
+    description: ''
+    fields:
+    - name: active_days_in_week
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: dau
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: mau
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: wau
+      type: INT64
+      mode: NULLABLE
+      description: ''
+  - name: day_13
+    type: RECORD
+    mode: NULLABLE
+    description: ''
+    fields:
+    - name: active_in_week_0
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: active_in_week_1
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: active_in_weeks_0_and_1
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: new_profile_active_in_week_0
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: new_profile_active_in_week_1
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: new_profile_active_in_weeks_0_and_1
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: new_profiles
+      type: INT64
+      mode: NULLABLE
+      description: ''
+  - name: day_6
+    type: RECORD
+    mode: NULLABLE
+    description: ''
+    fields:
+    - name: new_profiles
+      type: INT64
+      mode: NULLABLE
+      description: ''

@@ -5,80 +5,133 @@ fields:
   description: !include-field-description
     file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
     field: submission_date
-- name: country
+- name: usage
   type: STRING
   mode: NULLABLE
   description: !include-field-description
     file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
-    field: country
+    field: usage
+- name: metrics
+  type: RECORD
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: metrics
+  fields:
+  - name: day_0
+    type: RECORD
+    mode: NULLABLE
+    description: ''
+    fields:
+    - name: active_days_in_week
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: dau
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: mau
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: wau
+      type: INT64
+      mode: NULLABLE
+      description: ''
+  - name: day_13
+    type: RECORD
+    mode: NULLABLE
+    description: ''
+    fields:
+    - name: active_in_week_0
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: active_in_week_1
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: active_in_weeks_0_and_1
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: new_profile_active_in_week_0
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: new_profile_active_in_week_1
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: new_profile_active_in_weeks_0_and_1
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: new_profiles
+      type: INT64
+      mode: NULLABLE
+      description: ''
+  - name: day_6
+    type: RECORD
+    mode: NULLABLE
+    description: ''
+    fields:
+    - name: new_profiles
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: id_bucket
+  type: INT64
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: id_bucket
 - name: app_name
   type: STRING
   mode: NULLABLE
   description: !include-field-description
     file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
     field: app_name
-- name: adjust_network
+- name: app_version
   type: STRING
   mode: NULLABLE
   description: !include-field-description
     file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
-    field: adjust_network
-- name: attribution_medium
+    field: app_version
+- name: country
   type: STRING
   mode: NULLABLE
   description: !include-field-description
     file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
-    field: attribution_medium
-- name: attribution_source
+    field: country
+- name: locale
   type: STRING
   mode: NULLABLE
   description: !include-field-description
     file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
-    field: attribution_source
-- name: first_seen_year
-  type: INTEGER
+    field: locale
+- name: os
+  type: STRING
   mode: NULLABLE
   description: !include-field-description
     file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
-    field: first_seen_year
+    field: os
+- name: os_version
+  type: STRING
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: os_version
 - name: channel
   type: STRING
   mode: NULLABLE
   description: !include-field-description
     file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
     field: channel
-- name: install_source
-  type: STRING
-  mode: NULLABLE
-  description: !include-field-description
-    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
-    field: install_source
-- name: is_default_browser
+- name: attributed
   type: BOOLEAN
   mode: NULLABLE
   description: !include-field-description
     file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
-    field: is_default_browser
-- name: os_grouped
-  type: STRING
-  mode: NULLABLE
-  description: !include-field-description
-    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
-    field: os_grouped
-- name: segment
-  type: STRING
-  mode: NULLABLE
-  description: !include-field-description
-    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
-    field: segment
-- name: dau
-  type: INTEGER
-  mode: NULLABLE
-  description: !include-field-description
-    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
-    field: dau
-- name: ma_28_dau
-  type: FLOAT
-  mode: NULLABLE
-  description: 28-day rolling average of daily active users for this segment combination, computed by averaging
-    DAU across the prior 28 days.
+    field: attributed

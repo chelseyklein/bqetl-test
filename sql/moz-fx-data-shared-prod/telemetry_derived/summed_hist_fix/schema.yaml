@@ -1,0 +1,93 @@
+fields:
+- name: sample_id
+  type: INT64
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: sample_id
+- name: client_id
+  type: STRING
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: client_id
+- name: os
+  type: STRING
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: os
+- name: app_version
+  type: INT64
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: app_version
+- name: app_build_id
+  type: STRING
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: app_build_id
+- name: channel
+  type: STRING
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: channel
+- name: histogram_aggregates
+  type: RECORD
+  mode: REPEATED
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: histogram_aggregates
+  fields:
+  - name: agg_type
+    type: STRING
+    mode: NULLABLE
+    description: ''
+  - name: aggregates
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+  - name: first_bucket
+    type: INT64
+    mode: NULLABLE
+    description: ''
+  - name: key
+    type: STRING
+    mode: NULLABLE
+    description: ''
+  - name: last_bucket
+    type: INT64
+    mode: NULLABLE
+    description: ''
+  - name: latest_version
+    type: INT64
+    mode: NULLABLE
+    description: ''
+  - name: metric
+    type: STRING
+    mode: NULLABLE
+    description: ''
+  - name: metric_type
+    type: STRING
+    mode: NULLABLE
+    description: ''
+  - name: num_buckets
+    type: INT64
+    mode: NULLABLE
+    description: ''
+  - name: process
+    type: STRING
+    mode: NULLABLE
+    description: ''

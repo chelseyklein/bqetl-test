@@ -44,30 +44,48 @@ fields:
 - mode: NULLABLE
   name: search_region
   type: STRING
+  description: The geographic region code used to determine search engine configuration for this client,
+    typically the user's country code (e.g., 'US', 'DE').
 - mode: NULLABLE
   name: suggest_enabled
   type: BOOLEAN
+  description: Whether the Firefox Suggest feature was enabled for this client on this submission date.
+    Null when the preference was not recorded.
 - mode: NULLABLE
   name: in_navbar
   type: BOOLEAN
+  description: Whether the Firefox Suggest results were displayed inline in the URL bar (navbar) rather
+    than in a separate suggestions panel. Null when not recorded.
 - mode: NULLABLE
   name: suggest_searches
   type: BOOLEAN
+  description: Whether search suggestions from the configured search engine were enabled in the URL bar
+    for this client. Null when not recorded.
 - mode: NULLABLE
   name: show_search_suggestions_first
   type: BOOLEAN
+  description: Whether search suggestions were configured to appear before history and bookmarks results
+    in the URL bar dropdown. Null when not recorded.
 - mode: NULLABLE
   name: suggest_quicksuggest
   type: BOOLEAN
+  description: Deprecated; Whether Firefox Suggest (Quick Suggest) results were enabled. Superseded by suggest_quicksuggest_sponsored
+    and suggest_quicksuggest_nonsponsored.
 - mode: NULLABLE
   name: suggest_quicksuggest_sponsored
   type: BOOLEAN
+  description: Whether sponsored Firefox Suggest recommendations were enabled for this client on this submission
+    date.
 - mode: NULLABLE
   name: quicksuggest_onboarding_dialog_choice
   type: STRING
+  description: The button or action chosen by the user in the Firefox Suggest onboarding dialog (e.g., 'close_1',
+    'not_now_2', 'reject_2', 'accept_2'). Null when no dialog was shown.
 - mode: NULLABLE
   name: count_picked_total
   type: INTEGER
+  description: Total number of URL bar results selected by the client across all result types on this submission
+    date. Null when no selections were recorded.
 - fields:
   - mode: NULLABLE
     name: key
@@ -120,9 +138,13 @@ fields:
 - mode: NULLABLE
   name: suggest_quicksuggest_nonsponsored
   type: BOOLEAN
+  description: Whether non-sponsored (organic) Firefox Suggest recommendations were enabled for this client
+    on this submission date. Null when not recorded.
 - mode: NULLABLE
   name: quicksuggest_data_collection_enabled
   type: STRING
+  description: Whether the user had Firefox Suggest data collection (telemetry) enabled ('true') or disabled
+    ('false'). Null when not recorded.
 - fields:
   - mode: NULLABLE
     name: key
