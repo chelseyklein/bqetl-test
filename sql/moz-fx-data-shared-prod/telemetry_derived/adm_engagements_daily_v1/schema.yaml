@@ -2,18 +2,21 @@ fields:
 - name: submission_date
   type: DATE
   mode: NULLABLE
-  description: ''
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: submission_date
 - name: country
   type: STRING
   mode: NULLABLE
-  description: The two-letter ISO country code of the client as detected at submission time. Only clients
-    from the targeted sponsored top sites markets (US, DE, GB, FR, CA, AU) are included in this table.
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: country
 - name: placement
   type: STRING
   mode: NULLABLE
-  description: The surface or source placement where the engagement occurred, such as the specific top site
-    position or search access point. Derived from the event object for later phases or from the 'source'
-    key in event map values for phase 2 experiments.
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: placement
 - name: partner
   type: STRING
   mode: NULLABLE
@@ -22,13 +25,15 @@ fields:
 - name: version
   type: STRING
   mode: NULLABLE
-  description: The major version of the Firefox application, extracted as the first component of the full
-    app version string (e.g., '80' from '80.0.1').
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: payload_version
 - name: normalized_channel
   type: STRING
   mode: NULLABLE
-  description: The normalized Firefox release channel of the client (e.g., 'release', 'beta', 'nightly').
-    Sourced from the events or search table and standardized to a common channel name.
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: normalized_channel
 - name: n_engagements
   type: INT64
   mode: NULLABLE
