@@ -2,18 +2,21 @@ fields:
 - name: submission_date
   type: DATE
   mode: NULLABLE
-  description: ''
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: submission_date
 - name: addon_id
   type: STRING
   mode: NULLABLE
-  description: The unique identifier of the Firefox addon, as reported in the active addons environment.
-    Used as the primary key for aggregating per-addon daily metrics.
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: addon_id
 - name: name
   type: STRING
   mode: NULLABLE
-  description: The display name of the addon, limited to 100 characters, as reported in the telemetry environment.
-    The most frequently occurring name among active users is chosen when multiple names are observed for
-    the same addon_id.
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: metadata_isp_name
 - name: most_common_default_search_engine
   type: STRING
   mode: NULLABLE
@@ -23,28 +26,33 @@ fields:
 - name: dau
   type: INT64
   mode: NULLABLE
-  description: Daily Active Users; the count of distinct clients that had this addon active and were seen
-    on the submission date (days_since_seen = 0).
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: dau
 - name: wau
   type: INT64
   mode: NULLABLE
-  description: Weekly Active Users; the count of distinct clients that had this addon active and were seen
-    within the past 7 days of the submission date.
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: wau
 - name: mau
   type: INT64
   mode: NULLABLE
-  description: Monthly Active Users; the count of distinct clients that had this addon active and were seen
-    within the past 28 days of the submission date.
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: mau
 - name: is_system
   type: BOOLEAN
   mode: NULLABLE
-  description: Indicates whether the addon is a system addon built into Firefox. True means the addon is
-    a system addon; false means it is a user-installed addon.
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: is_system
 - name: active_hours_sum
   type: FLOAT64
   mode: NULLABLE
-  description: The sum of active browsing hours across all clients that had this addon active on the submission
-    date. Derived from the client-level active_hours_sum field in clients_last_seen.
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: active_hours_sum
 - name: total_uri_count_sum
   type: INT64
   mode: NULLABLE
@@ -60,12 +68,15 @@ fields:
 - name: devtools_toolbox_opened_count_sum
   type: INT64
   mode: NULLABLE
-  description: The total number of times the DevTools toolbox was opened across all clients that had this
-    addon active. Null when the devtools scalar was not reported by any client for this addon.
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: devtools_toolbox_opened_count_sum
 - name: sap_searches
   type: RECORD
   mode: NULLABLE
-  description: ''
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: sap_searches
   fields:
   - name: amazon
     type: INT64
@@ -105,7 +116,9 @@ fields:
 - name: tagged_sap_searches
   type: RECORD
   mode: NULLABLE
-  description: ''
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: tagged_sap_searches
   fields:
   - name: amazon
     type: INT64
@@ -145,7 +158,9 @@ fields:
 - name: tagged_follow_on_searches
   type: RECORD
   mode: NULLABLE
-  description: ''
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: tagged_follow_on_searches
   fields:
   - name: amazon
     type: INT64
@@ -190,7 +205,9 @@ fields:
 - name: organic_searches
   type: RECORD
   mode: NULLABLE
-  description: ''
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: organic_searches
   fields:
   - name: amazon
     type: INT64
@@ -231,7 +248,9 @@ fields:
 - name: searches_with_ads
   type: RECORD
   mode: NULLABLE
-  description: ''
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: searches_with_ads
   fields:
   - name: amazon
     type: INT64
@@ -268,7 +287,9 @@ fields:
 - name: ad_clicks
   type: RECORD
   mode: NULLABLE
-  description: ''
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: ad_clicks
   fields:
   - name: amazon
     type: INT64
