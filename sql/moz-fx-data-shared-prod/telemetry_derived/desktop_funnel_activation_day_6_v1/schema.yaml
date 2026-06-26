@@ -56,3 +56,5 @@ fields:
 - mode: NULLABLE
   name: num_activated
   type: INTEGER
+  description: The count of clients that were activated, defined as having been seen on at least 5 of their
+    first 6 days since profile creation.

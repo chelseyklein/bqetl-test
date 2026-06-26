@@ -1,0 +1,67 @@
+fields:
+- name: submission_date
+  type: DATE
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: submission_date
+- name: metadata
+  type: RECORD
+  mode: NULLABLE
+  description: Metadata about the push event ingestion, including the document identifier, event timestamp,
+    and date.
+  fields:
+  - name: date
+    type: STRING
+    mode: NULLABLE
+    description: The formatted date string corresponding to when this push event was ingested.
+  - name: document_id
+    type: STRING
+    mode: NULLABLE
+    description: A unique identifier for this push event document, used to deduplicate ingested records.
+  - name: timestamp
+    type: INT64
+    mode: NULLABLE
+    description: The Unix epoch timestamp (in milliseconds or seconds) at which this push event was ingested
+      by the pipeline.
+- name: changeset_id
+  type: STRING
+  mode: NULLABLE
+  description: The unique Mercurial changeset identifier (hash) for the pushed commit.
+- name: review_system_used
+  type: STRING
+  mode: NULLABLE
+  description: The code review system used for the changeset (e.g., phabricator, bmo), indicating which
+    review workflow the developer used.
+- name: repository
+  type: STRING
+  mode: NULLABLE
+  description: The name of the Mercurial repository to which the changeset was pushed (e.g., mozilla-central,
+    autoland).
+- name: push_date
+  type: INT64
+  mode: NULLABLE
+  description: The Unix epoch timestamp (in seconds) of when the commit was pushed to the Mercurial repository.
+- name: landing_system
+  type: STRING
+  mode: NULLABLE
+  description: The system used to land the changeset (e.g., lando, manual), indicating how the code was
+    merged into the target repository.
+- name: diffstat
+  type: RECORD
+  mode: NULLABLE
+  description: Aggregate statistics about the changes introduced by the changeset, including lines added,
+    deleted, and files changed.
+  fields:
+  - name: additions
+    type: INT64
+    mode: NULLABLE
+    description: The number of lines added by the changeset.
+  - name: changed_files
+    type: INT64
+    mode: NULLABLE
+    description: The number of files modified by the changeset.
+  - name: deletions
+    type: INT64
+    mode: NULLABLE
+    description: The number of lines deleted by the changeset.

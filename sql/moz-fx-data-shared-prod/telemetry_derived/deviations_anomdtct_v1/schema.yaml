@@ -1,0 +1,28 @@
+fields:
+- name: date
+  type: DATE
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: date
+- name: metric
+  type: STRING
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: metric
+- name: deviation
+  type: FLOAT64
+  mode: NULLABLE
+  description: The magnitude of the detected deviation for the metric, representing how far the observed
+    value is from the expected baseline.
+- name: ci_deviation
+  type: FLOAT64
+  mode: NULLABLE
+  description: The confidence-interval-adjusted deviation value, representing the deviation normalized or
+    bounded by the confidence interval of the anomaly detection model.
+- name: geography
+  type: STRING
+  mode: NULLABLE
+  description: The geographic region or country code associated with the deviation measurement, used to
+    segment anomaly detection results by location.
