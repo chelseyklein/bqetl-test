@@ -2,48 +2,61 @@ fields:
 - name: os
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: os
 - name: app_version
   type: INT64
   mode: NULLABLE
-  description: ''
+  description: The integer major version of Firefox from which this scalar measurement was collected, e.g.
+    76 or 77.
 - name: app_build_id
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: app_build_id
 - name: channel
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: channel
 - name: metric
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: The name of the scalar probe or metric being measured, such as telemetry_event_counts or
+    networking_data_transferred_v3_kb.
 - name: metric_type
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: The type of the metric being aggregated, such as scalar, keyed-scalar, boolean, or keyed-scalar-boolean.
 - name: key
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: The key for keyed scalars, identifying the specific sub-dimension of the metric. Empty string
+    for non-keyed scalars.
 - name: process
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: The Firefox process type in which the scalar was recorded, such as parent, content, or gpu.
 - name: client_agg_type
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: The per-client aggregation function applied before bucketing, such as sum, max, avg, min,
+    or count.
 - name: agg_type
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: The aggregation type applied across clients for this row; currently always histogram, indicating
+    values are stored in histogram buckets.
 - name: bucket
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: The histogram bucket label representing the range of values into which client-aggregated
+    scalar values fall.
 - name: count
   type: INT64
   mode: NULLABLE
-  description: ''
+  description: The number of clients whose aggregated scalar value falls into this bucket for the given
+    metric, key, process, and dimension combination.
