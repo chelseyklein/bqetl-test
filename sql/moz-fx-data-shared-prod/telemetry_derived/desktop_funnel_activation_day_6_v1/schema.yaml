@@ -56,3 +56,5 @@ fields:
 - mode: NULLABLE
   name: num_activated
   type: INTEGER
+  description: The number of clients in this cohort who were considered 'activated' (returned to use Firefox)
+    by day 6 after their first-seen date.
