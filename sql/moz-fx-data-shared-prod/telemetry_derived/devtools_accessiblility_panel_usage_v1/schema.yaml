@@ -14,8 +14,9 @@ fields:
 - name: clients
   type: INT64
   mode: NULLABLE
-  description: The number of distinct clients (by client_id) that opened the DevTools Accessibility panel
-    at least once on this date and channel.
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: clients
 - name: panel_opens
   type: INT64
   mode: NULLABLE
