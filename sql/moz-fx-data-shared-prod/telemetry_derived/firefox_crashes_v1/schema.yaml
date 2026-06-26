@@ -1,0 +1,886 @@
+fields:
+- name: additional_properties
+  type: STRING
+  mode: NULLABLE
+  description: A JSON string containing any payload properties not present in the schema
+- name: client_info
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: android_sdk_version
+    type: STRING
+    mode: NULLABLE
+    description: ''
+  - name: app_build
+    type: STRING
+    mode: NULLABLE
+    description: ''
+  - name: app_channel
+    type: STRING
+    mode: NULLABLE
+    description: ''
+  - name: app_display_version
+    type: STRING
+    mode: NULLABLE
+    description: ''
+  - name: architecture
+    type: STRING
+    mode: NULLABLE
+    description: ''
+  - name: attribution
+    type: RECORD
+    mode: NULLABLE
+    description: ''
+    fields:
+    - name: campaign
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: content
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: ext
+      type: JSON
+      mode: NULLABLE
+      description: ''
+    - name: medium
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: source
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: term
+      type: STRING
+      mode: NULLABLE
+      description: ''
+  - name: build_date
+    type: STRING
+    mode: NULLABLE
+    description: ''
+  - name: client_id
+    type: STRING
+    mode: NULLABLE
+    description: ''
+  - name: device_manufacturer
+    type: STRING
+    mode: NULLABLE
+    description: ''
+  - name: device_model
+    type: STRING
+    mode: NULLABLE
+    description: ''
+  - name: distribution
+    type: RECORD
+    mode: NULLABLE
+    description: ''
+    fields:
+    - name: ext
+      type: JSON
+      mode: NULLABLE
+      description: ''
+    - name: name
+      type: STRING
+      mode: NULLABLE
+      description: ''
+  - name: first_run_date
+    type: STRING
+    mode: NULLABLE
+    description: ''
+  - name: locale
+    type: STRING
+    mode: NULLABLE
+    description: ''
+  - name: os
+    type: STRING
+    mode: NULLABLE
+    description: ''
+  - name: os_version
+    type: STRING
+    mode: NULLABLE
+    description: ''
+  - name: session_count
+    type: INT64
+    mode: NULLABLE
+    description: ''
+  - name: session_id
+    type: STRING
+    mode: NULLABLE
+    description: ''
+  - name: telemetry_sdk_build
+    type: STRING
+    mode: NULLABLE
+    description: ''
+  - name: windows_build_number
+    type: INT64
+    mode: NULLABLE
+    description: ''
+- name: document_id
+  type: STRING
+  mode: NULLABLE
+  description: The document ID specified in the URI when the client sent this message
+- name: events
+  type: RECORD
+  mode: REPEATED
+  description: ''
+  fields:
+  - name: category
+    type: STRING
+    mode: NULLABLE
+    description: ''
+  - name: extra
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: STRING
+      mode: NULLABLE
+      description: ''
+  - name: name
+    type: STRING
+    mode: NULLABLE
+    description: ''
+  - name: session
+    type: RECORD
+    mode: NULLABLE
+    description: ''
+    fields:
+    - name: event_seq
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: session_id
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: session_sample_rate
+      type: FLOAT64
+      mode: NULLABLE
+      description: ''
+    - name: session_seq
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: session_start_time
+      type: STRING
+      mode: NULLABLE
+      description: ''
+  - name: timestamp
+    type: INT64
+    mode: NULLABLE
+    description: ''
+- name: metadata
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: geo
+    type: RECORD
+    mode: NULLABLE
+    description: ''
+    fields:
+    - name: city
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: country
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: db_version
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: subdivision1
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: subdivision2
+      type: STRING
+      mode: NULLABLE
+      description: ''
+  - name: header
+    type: RECORD
+    mode: NULLABLE
+    description: ''
+    fields:
+    - name: date
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: dnt
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: parsed_date
+      type: TIMESTAMP
+      mode: NULLABLE
+      description: ''
+    - name: parsed_x_lb_tags
+      type: RECORD
+      mode: NULLABLE
+      description: ''
+      fields:
+      - name: tls_cipher_hex
+        type: STRING
+        mode: NULLABLE
+        description: ''
+      - name: tls_version
+        type: STRING
+        mode: NULLABLE
+        description: ''
+    - name: parsed_x_source_tags
+      type: STRING
+      mode: REPEATED
+      description: ''
+    - name: x_debug_id
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: x_foxsec_ip_reputation
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: x_lb_tags
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: x_pingsender_version
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: x_source_tags
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: x_telemetry_agent
+      type: STRING
+      mode: NULLABLE
+      description: ''
+  - name: isp
+    type: RECORD
+    mode: NULLABLE
+    description: ''
+    fields:
+    - name: db_version
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: name
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: organization
+      type: STRING
+      mode: NULLABLE
+      description: ''
+  - name: user_agent
+    type: RECORD
+    mode: NULLABLE
+    description: ''
+    fields:
+    - name: browser
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: os
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: version
+      type: STRING
+      mode: NULLABLE
+      description: ''
+- name: metrics
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: boolean
+    type: RECORD
+    mode: NULLABLE
+    description: ''
+    fields:
+    - name: crash_dom_fission_enabled
+      type: BOOLEAN
+      mode: NULLABLE
+      description: ''
+    - name: crash_is_garbage_collecting
+      type: BOOLEAN
+      mode: NULLABLE
+      description: ''
+    - name: crash_startup
+      type: BOOLEAN
+      mode: NULLABLE
+      description: ''
+    - name: crash_windows_error_reporting
+      type: BOOLEAN
+      mode: NULLABLE
+      description: ''
+    - name: dll_blocklist_init_failed
+      type: BOOLEAN
+      mode: NULLABLE
+      description: ''
+    - name: dll_blocklist_user32_loaded_before
+      type: BOOLEAN
+      mode: NULLABLE
+      description: ''
+    - name: environment_headless_mode
+      type: BOOLEAN
+      mode: NULLABLE
+      description: ''
+  - name: datetime
+    type: RECORD
+    mode: NULLABLE
+    description: ''
+    fields:
+    - name: crash_time
+      type: TIMESTAMP
+      mode: NULLABLE
+      description: ''
+    - name: raw_crash_time
+      type: STRING
+      mode: NULLABLE
+      description: ''
+  - name: labeled_counter
+    type: RECORD
+    mode: NULLABLE
+    description: ''
+    fields:
+    - name: glean_error_invalid_label
+      type: RECORD
+      mode: REPEATED
+      description: 'Counts the number of times a metric was set with an invalid label.
+
+        The labels are the `category.name` identifier of the metric.
+
+        '
+      fields:
+      - name: key
+        type: STRING
+        mode: NULLABLE
+        description: ''
+      - name: value
+        type: INT64
+        mode: NULLABLE
+        description: ''
+    - name: glean_error_invalid_overflow
+      type: RECORD
+      mode: REPEATED
+      description: 'Counts the number of times a metric was set a value that overflowed.
+
+        The labels are the `category.name` identifier of the metric.
+
+        '
+      fields:
+      - name: key
+        type: STRING
+        mode: NULLABLE
+        description: ''
+      - name: value
+        type: INT64
+        mode: NULLABLE
+        description: ''
+    - name: glean_error_invalid_state
+      type: RECORD
+      mode: REPEATED
+      description: 'Counts the number of times a timing metric was used incorrectly.
+
+        The labels are the `category.name` identifier of the metric.
+
+        '
+      fields:
+      - name: key
+        type: STRING
+        mode: NULLABLE
+        description: ''
+      - name: value
+        type: INT64
+        mode: NULLABLE
+        description: ''
+    - name: glean_error_invalid_value
+      type: RECORD
+      mode: REPEATED
+      description: 'Counts the number of times a metric was set to an invalid value.
+
+        The labels are the `category.name` identifier of the metric.
+
+        '
+      fields:
+      - name: key
+        type: STRING
+        mode: NULLABLE
+        description: ''
+      - name: value
+        type: INT64
+        mode: NULLABLE
+        description: ''
+  - name: object
+    type: RECORD
+    mode: NULLABLE
+    description: ''
+    fields:
+    - name: crash_async_shutdown_timeout
+      type: JSON
+      mode: NULLABLE
+      description: ''
+    - name: crash_breadcrumbs
+      type: JSON
+      mode: NULLABLE
+      description: 'Crash breadcrumb information.
+
+        '
+    - name: crash_java_exception
+      type: JSON
+      mode: NULLABLE
+      description: ''
+    - name: crash_quota_manager_shutdown_timeout
+      type: JSON
+      mode: NULLABLE
+      description: ''
+    - name: crash_stack_traces
+      type: JSON
+      mode: NULLABLE
+      description: ''
+  - name: quantity
+    type: RECORD
+    mode: NULLABLE
+    description: ''
+    fields:
+    - name: crash_event_loop_nesting_level
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: crash_gpu_process_launch
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: memory_available_commit
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: memory_available_physical
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: memory_available_swap
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: memory_available_virtual
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: memory_low_physical
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: memory_oom_allocation_size
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: memory_purgeable_physical
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: memory_system_use_percentage
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: memory_texture
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: memory_total_page_file
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: memory_total_physical
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: memory_total_virtual
+      type: INT64
+      mode: NULLABLE
+      description: ''
+  - name: string
+    type: RECORD
+    mode: NULLABLE
+    description: ''
+    fields:
+    - name: crash_app_build
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: crash_app_channel
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: crash_app_display_version
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: crash_application_build_id
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: crash_background_task_name
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: crash_build_id
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: crash_cause
+      type: STRING
+      mode: NULLABLE
+      description: 'The cause of the crash. May be one of `os_fault` or `java_exception`.
+
+        '
+    - name: crash_crash_type
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: crash_event_id
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: crash_file_system_access_request_path
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: crash_font_name
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: crash_hang
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: crash_id
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: crash_ipc_channel_error
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: crash_linux_memory_psi
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: crash_main_thread_runnable_name
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: crash_minidump_sha256_hash
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: crash_minidump_sha_256_hash
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: crash_moz_crash_reason
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: crash_process_type
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: crash_product_id
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: crash_product_name
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: crash_profiler_child_shutdown_phase
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: crash_remote_type
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: crash_shutdown_progress
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: crash_shutdown_reason
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: crash_windows_file_dialog_error_code
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: glean_client_annotation_experimentation_id
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: memory_js_large_allocation_failure
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: memory_js_out_of_memory
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: windows_package_family_name
+      type: STRING
+      mode: NULLABLE
+      description: ''
+  - name: string_list
+    type: RECORD
+    mode: NULLABLE
+    description: ''
+    fields:
+    - name: crash_utility_actors_name
+      type: STRING
+      mode: REPEATED
+      description: Comma-separated list of IPC actors name running on this Utility process instance
+    - name: dll_blocklist_list
+      type: STRING
+      mode: REPEATED
+      description: Semicolon-separated list of blocked DLLS, Windows-only
+    - name: environment_experimental_features
+      type: STRING
+      mode: REPEATED
+      description: 'Specifies the enabled experimental features from about:preferences#experimental.
+
+        '
+    - name: environment_nimbus_enrollments
+      type: STRING
+      mode: REPEATED
+      description: A comma-separated string that specifies the active Nimbus experiments and rollouts, as well as their branches.
+    - name: glean_ping_uploader_capabilities
+      type: STRING
+      mode: REPEATED
+      description: 'The list of requested uploader capabilities for the ping this is sent in.
+
+        Should be the same as the ones defined for that particular ping.
+
+
+        This metric is only attached to a ping if it already contains other data.
+
+        '
+  - name: timespan
+    type: RECORD
+    mode: NULLABLE
+    description: ''
+    fields:
+    - name: crash_last_interaction_duration
+      type: RECORD
+      mode: NULLABLE
+      description: ''
+      fields:
+      - name: time_unit
+        type: STRING
+        mode: NULLABLE
+        description: ''
+      - name: value
+        type: INT64
+        mode: NULLABLE
+        description: ''
+    - name: crash_time_since_last_crash
+      type: RECORD
+      mode: NULLABLE
+      description: ''
+      fields:
+      - name: time_unit
+        type: STRING
+        mode: NULLABLE
+        description: ''
+      - name: value
+        type: INT64
+        mode: NULLABLE
+        description: ''
+    - name: crash_uptime
+      type: RECORD
+      mode: NULLABLE
+      description: ''
+      fields:
+      - name: time_unit
+        type: STRING
+        mode: NULLABLE
+        description: ''
+      - name: value
+        type: INT64
+        mode: NULLABLE
+        description: ''
+    - name: environment_uptime
+      type: RECORD
+      mode: NULLABLE
+      description: ''
+      fields:
+      - name: time_unit
+        type: STRING
+        mode: NULLABLE
+        description: ''
+      - name: value
+        type: INT64
+        mode: NULLABLE
+        description: ''
+- name: normalized_app_name
+  type: STRING
+  mode: NULLABLE
+  description: Set to "Other" if this message contained an unrecognized app name
+- name: normalized_channel
+  type: STRING
+  mode: NULLABLE
+  description: Normalized channel name
+- name: normalized_country_code
+  type: STRING
+  mode: NULLABLE
+  description: An ISO 3166-1 alpha-2 country code
+- name: normalized_os
+  type: STRING
+  mode: NULLABLE
+  description: Set to "Other" if this message contained an unrecognized OS name
+- name: normalized_os_version
+  type: STRING
+  mode: NULLABLE
+  description: ''
+- name: ping_info
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: end_time
+    type: STRING
+    mode: NULLABLE
+    description: ''
+  - name: experiments
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: RECORD
+      mode: NULLABLE
+      description: ''
+      fields:
+      - name: branch
+        type: STRING
+        mode: NULLABLE
+        description: ''
+      - name: extra
+        type: RECORD
+        mode: NULLABLE
+        description: ''
+        fields:
+        - name: enrollment_id
+          type: STRING
+          mode: NULLABLE
+          description: ''
+        - name: type
+          type: STRING
+          mode: NULLABLE
+          description: ''
+  - name: parsed_end_time
+    type: TIMESTAMP
+    mode: NULLABLE
+    description: ''
+  - name: parsed_start_time
+    type: TIMESTAMP
+    mode: NULLABLE
+    description: ''
+  - name: ping_type
+    type: STRING
+    mode: NULLABLE
+    description: ''
+  - name: reason
+    type: STRING
+    mode: NULLABLE
+    description: ''
+  - name: seq
+    type: INT64
+    mode: NULLABLE
+    description: ''
+  - name: server_knobs_config
+    type: RECORD
+    mode: NULLABLE
+    description: ''
+    fields:
+    - name: event_threshold
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: metrics_enabled
+      type: RECORD
+      mode: REPEATED
+      description: Map of metric identifiers (category.name) to boolean values indicating whether the metric is enabled
+      fields:
+      - name: key
+        type: STRING
+        mode: NULLABLE
+        description: ''
+      - name: value
+        type: BOOLEAN
+        mode: NULLABLE
+        description: ''
+    - name: pings_enabled
+      type: RECORD
+      mode: REPEATED
+      description: Map of ping names to boolean values indicating whether the ping is enabled
+      fields:
+      - name: key
+        type: STRING
+        mode: NULLABLE
+        description: ''
+      - name: value
+        type: BOOLEAN
+        mode: NULLABLE
+        description: ''
+    - name: session_sample_rate
+      type: FLOAT64
+      mode: NULLABLE
+      description: ''
+  - name: start_time
+    type: STRING
+    mode: NULLABLE
+    description: ''
+- name: sample_id
+  type: INT64
+  mode: NULLABLE
+  description: Hashed version of client_id (if present) useful for partitioning; ranges from 0 to 99
+- name: submission_timestamp
+  type: TIMESTAMP
+  mode: NULLABLE
+  description: Time when the ingestion edge server accepted this message
+- name: app_version_major
+  type: NUMERIC
+  mode: NULLABLE
+  description: ''
+- name: app_version_minor
+  type: NUMERIC
+  mode: NULLABLE
+  description: ''
+- name: app_version_patch
+  type: NUMERIC
+  mode: NULLABLE
+  description: ''
+- name: is_bot_generated
+  type: BOOLEAN
+  mode: NULLABLE
+  description: ''
+- name: normalized_app_id
+  type: STRING
+  mode: NULLABLE
+  description: App ID of the channel data was received from
