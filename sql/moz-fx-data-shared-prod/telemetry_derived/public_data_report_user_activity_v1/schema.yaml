@@ -1,0 +1,59 @@
+fields:
+- name: submission_date
+  type: DATE
+  mode: NULLABLE
+  description: ''
+- name: country_name
+  type: STRING
+  mode: NULLABLE
+  description: ''
+- name: mau
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: avg_hours_usage_daily
+  type: NUMERIC
+  mode: NULLABLE
+  description: ''
+- name: intensity
+  type: FLOAT64
+  mode: NULLABLE
+  description: ''
+- name: new_profile_rate
+  type: FLOAT64
+  mode: NULLABLE
+  description: ''
+- name: latest_version_ratio
+  type: FLOAT64
+  mode: NULLABLE
+  description: ''
+- name: top_addons
+  type: RECORD
+  mode: REPEATED
+  description: ''
+  fields:
+  - name: addon_name
+    type: STRING
+    mode: NULLABLE
+    description: ''
+  - name: ratio
+    type: FLOAT64
+    mode: NULLABLE
+    description: ''
+- name: has_addon_ratio
+  type: FLOAT64
+  mode: NULLABLE
+  description: ''
+- name: top_locales
+  type: RECORD
+  mode: REPEATED
+  description: ''
+  fields:
+  - name: locale
+    type: STRING
+    mode: NULLABLE
+    description: ''
+  - name: ratio
+    type: FLOAT64
+    mode: NULLABLE
+    description: ''
