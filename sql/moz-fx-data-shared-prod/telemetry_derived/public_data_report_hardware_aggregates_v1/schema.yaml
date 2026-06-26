@@ -38,9 +38,13 @@ fields:
 - name: gfx0_vendor_id
   type: STRING
   mode: NULLABLE
+  description: PCI vendor ID of the primary graphics adapter (e.g., '0x8086' for Intel, '0x10de' for NVIDIA),
+    used to identify GPU manufacturer in hardware aggregation.
 - name: gfx0_device_id
   type: STRING
   mode: NULLABLE
+  description: PCI device ID of the primary graphics adapter, identifying the specific GPU model within
+    the vendor's product line.
 - name: resolution
   type: STRING
   mode: NULLABLE
