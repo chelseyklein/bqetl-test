@@ -8,23 +8,27 @@ fields:
 - name: mau
   type: INT64
   mode: NULLABLE
-  description: Monthly Active Users count; number of distinct clients active in the 28-day window ending
-    on submission_date.
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: mau
 - name: wau
   type: INT64
   mode: NULLABLE
-  description: Weekly Active Users count; number of distinct clients active in the 7-day window ending on
-    submission_date.
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: wau
 - name: dau
   type: INT64
   mode: NULLABLE
-  description: Daily Active Users count; number of distinct clients active on the submission_date within
-    this dimension group.
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: dau
 - name: app_name
   type: STRING
   mode: NULLABLE
-  description: The non-desktop application name as reported in telemetry (e.g., 'Fennec', 'Focus', 'Zerda',
-    'FirefoxForFireTV').
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: app_name
 - name: app_version
   type: STRING
   mode: NULLABLE
@@ -34,7 +38,9 @@ fields:
 - name: arch
   type: STRING
   mode: NULLABLE
-  description: The CPU architecture of the client device (e.g., 'arm64', 'arm64-v8a', 'armeabi-v7a', 'x86_64').
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: arch
 - name: normalized_channel
   type: STRING
   mode: NULLABLE
@@ -74,9 +80,12 @@ fields:
 - name: osversion
   type: STRING
   mode: NULLABLE
-  description: The operating system version string reported by the client (e.g., '28' for Android API level
-    28).
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: osversion
 - name: country_name
   type: STRING
   mode: NULLABLE
-  description: The full country name corresponding to the country code (e.g., 'United States', 'Germany').
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: country_name
