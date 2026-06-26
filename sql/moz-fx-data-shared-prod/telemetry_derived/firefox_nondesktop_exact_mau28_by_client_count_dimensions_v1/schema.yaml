@@ -2,60 +2,84 @@ fields:
 - name: submission_date
   type: DATE
   mode: NULLABLE
-  description: ''
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: submission_date
 - name: mau
   type: INT64
   mode: NULLABLE
-  description: ''
+  description: The count of distinct clients active at least once in the 28-day window ending on the submission
+    date (monthly active users).
 - name: wau
   type: INT64
   mode: NULLABLE
-  description: ''
+  description: The count of distinct clients active at least once in the 7-day window ending on the submission
+    date (weekly active users).
 - name: dau
   type: INT64
   mode: NULLABLE
-  description: ''
+  description: The count of distinct clients active on the submission date itself (daily active users).
 - name: app_name
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: The non-desktop Firefox application name as reported by the client (e.g., 'Fennec', 'Focus',
+    'FirefoxForFireTV', 'Zerda').
 - name: app_version
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: app_version
 - name: arch
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: arch
 - name: normalized_channel
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: normalized_channel
 - name: default_search
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: default_search
 - name: distribution_id
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: distribution_id
 - name: country
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: country
 - name: locale
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: locale
 - name: os
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: os
 - name: osversion
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: osversion
 - name: country_name
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: The full country name corresponding to the country code (e.g., 'United States', 'Germany'),
+    joined from a static country codes reference table.
