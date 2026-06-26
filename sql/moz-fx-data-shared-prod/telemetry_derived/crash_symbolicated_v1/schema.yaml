@@ -20,6 +20,9 @@ fields:
 - name: async_shutdown_timeout
   type: STRING
   mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: async_shutdown_timeout
 - name: ipc_channel_error
   type: STRING
   mode: NULLABLE
