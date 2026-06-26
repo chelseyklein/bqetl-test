@@ -358,7 +358,9 @@ fields:
 - name: metrics
   type: RECORD
   mode: NULLABLE
-  description: ''
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: metrics
   fields:
   - name: boolean
     type: RECORD
@@ -945,18 +947,21 @@ fields:
 - name: app_version_major
   type: NUMERIC
   mode: NULLABLE
-  description: The major version component of the Firefox application version (e.g., 144 for version 144.0).
-    For mobile builds using a build ID string as version, this may be non-numeric.
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: app_version_major
 - name: app_version_minor
   type: NUMERIC
   mode: NULLABLE
-  description: The minor version component of the Firefox application version (e.g., 0 for version 144.0,
-    37 for version 115.37.0).
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: app_version_minor
 - name: app_version_patch
   type: NUMERIC
   mode: NULLABLE
-  description: The patch version component of the Firefox application version (e.g., 0 for version 115.0,
-    4 for version 151.0.4). Null when no patch component is present.
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: app_version_patch
 - name: is_bot_generated
   type: BOOLEAN
   mode: NULLABLE
