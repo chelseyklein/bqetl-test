@@ -2,48 +2,51 @@ fields:
 - name: HAPPENED_AT
   type: DATE
   mode: NULLABLE
-  description: ''
+  description: The date on which the newtab tile interactions occurred, derived from the GCS file partitioning.
 - name: TILE_ID
   type: INT64
   mode: NULLABLE
-  description: ''
+  description: Unique numeric identifier for the sponsored or organic topsite tile that was displayed on
+    the new tab page.
 - name: POSITION
   type: INT64
   mode: NULLABLE
-  description: ''
+  description: Zero-based index of the tile's display position on the new tab page grid, where 0 is the
+    first (top-left) slot.
 - name: IMPRESSION_COUNT
   type: INT64
   mode: NULLABLE
-  description: ''
+  description: Total number of times the tile was shown to users on the given date and position.
 - name: CLICK_COUNT
   type: INT64
   mode: NULLABLE
-  description: ''
+  description: Total number of times users clicked on the tile on the given date and position.
 - name: SAVE_COUNT
   type: INT64
   mode: NULLABLE
-  description: ''
+  description: Total number of times users saved the tile to Pocket on the given date and position.
 - name: DISMISS_COUNT
   type: INT64
   mode: NULLABLE
-  description: ''
+  description: Total number of times users dismissed (blocked) the tile on the given date and position.
 - name: _GS_FILE_NAME
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: Full path of the source Parquet file in Google Cloud Storage from which this record was loaded.
 - name: _GS_FILE_ROW_NUMBER
   type: INT64
   mode: NULLABLE
-  description: ''
+  description: Row number of this record within the source GCS Parquet file, used for lineage and deduplication.
 - name: _GS_FILE_DATE
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: Date partition extracted from the GCS file path, representing the data date (e.g., 'date=2023-08-29').
 - name: _GS_FILE_TIME
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: Time component extracted from the GCS file path, representing when the file was generated
+    (e.g., 'time=23-01-38-621').
 - name: _LOADED_AT
   type: INT64
   mode: NULLABLE
-  description: ''
+  description: Unix nanosecond timestamp indicating when the record was loaded from GCS into BigQuery.
