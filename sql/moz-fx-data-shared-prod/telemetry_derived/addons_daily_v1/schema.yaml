@@ -6,47 +6,62 @@ fields:
 - name: addon_id
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: The unique identifier of the Firefox addon, as reported in the active addons environment.
+    Used as the primary key for aggregating per-addon daily metrics.
 - name: name
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: The display name of the addon, limited to 100 characters, as reported in the telemetry environment.
+    The most frequently occurring name among active users is chosen when multiple names are observed for
+    the same addon_id.
 - name: most_common_default_search_engine
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: The most frequently observed default search engine identifier among clients that had this
+    addon active on the submission date. Derived by picking the modal value of the client-level default
+    search engine across all users of the addon.
 - name: dau
   type: INT64
   mode: NULLABLE
-  description: ''
+  description: Daily Active Users; the count of distinct clients that had this addon active and were seen
+    on the submission date (days_since_seen = 0).
 - name: wau
   type: INT64
   mode: NULLABLE
-  description: ''
+  description: Weekly Active Users; the count of distinct clients that had this addon active and were seen
+    within the past 7 days of the submission date.
 - name: mau
   type: INT64
   mode: NULLABLE
-  description: ''
+  description: Monthly Active Users; the count of distinct clients that had this addon active and were seen
+    within the past 28 days of the submission date.
 - name: is_system
   type: BOOLEAN
   mode: NULLABLE
-  description: ''
+  description: Indicates whether the addon is a system addon built into Firefox. True means the addon is
+    a system addon; false means it is a user-installed addon.
 - name: active_hours_sum
   type: FLOAT64
   mode: NULLABLE
-  description: ''
+  description: The sum of active browsing hours across all clients that had this addon active on the submission
+    date. Derived from the client-level active_hours_sum field in clients_last_seen.
 - name: total_uri_count_sum
   type: INT64
   mode: NULLABLE
-  description: ''
+  description: The total number of URIs loaded across all clients that had this addon active, summed from
+    the scalar_parent_browser_engagement_total_uri_count_sum probe. Null when the underlying engagement
+    scalar is unavailable.
 - name: tab_open_event_count_sum
   type: INT64
   mode: NULLABLE
-  description: ''
+  description: The total number of tab-open events across all clients that had this addon active, summed
+    from the scalar_parent_browser_engagement_tab_open_event_count_sum probe. Null when the underlying engagement
+    scalar is unavailable.
 - name: devtools_toolbox_opened_count_sum
   type: INT64
   mode: NULLABLE
-  description: ''
+  description: The total number of times the DevTools toolbox was opened across all clients that had this
+    addon active. Null when the devtools scalar was not reported by any client for this addon.
 - name: sap_searches
   type: RECORD
   mode: NULLABLE
@@ -55,31 +70,38 @@ fields:
   - name: amazon
     type: INT64
     mode: NULLABLE
-    description: ''
+    description: Total SAP searches performed on Amazon by clients that had this addon active. SAP searches
+      are searches initiated directly from a Firefox UI entry point.
   - name: bing
     type: INT64
     mode: NULLABLE
-    description: ''
+    description: Total SAP searches performed on Bing by clients that had this addon active. SAP searches
+      are searches initiated directly from a Firefox UI entry point.
   - name: ddg
     type: INT64
     mode: NULLABLE
-    description: ''
+    description: Total SAP searches performed on DuckDuckGo by clients that had this addon active. SAP searches
+      are searches initiated directly from a Firefox UI entry point.
   - name: google
     type: INT64
     mode: NULLABLE
-    description: ''
+    description: Total search access point (SAP) searches performed on Google by clients that had this addon
+      active. SAP searches are searches initiated directly from a Firefox UI entry point.
   - name: other
     type: INT64
     mode: NULLABLE
-    description: ''
+    description: Total SAP searches performed on search engines other than Google, Bing, DuckDuckGo, Amazon,
+      or Yandex, by clients that had this addon active.
   - name: total
     type: INT64
     mode: NULLABLE
-    description: ''
+    description: Total SAP searches across all search engines performed by clients that had this addon active.
+      This is the sum across all engine-specific SAP search fields.
   - name: yandex
     type: INT64
     mode: NULLABLE
-    description: ''
+    description: Total SAP searches performed on Yandex by clients that had this addon active. SAP searches
+      are searches initiated directly from a Firefox UI entry point.
 - name: tagged_sap_searches
   type: RECORD
   mode: NULLABLE
@@ -88,31 +110,38 @@ fields:
   - name: amazon
     type: INT64
     mode: NULLABLE
-    description: ''
+    description: Total tagged SAP searches on Amazon by clients with this addon active. Tagged SAP searches
+      include a partner attribution tag recognized by the search engine.
   - name: bing
     type: INT64
     mode: NULLABLE
-    description: ''
+    description: Total tagged SAP searches on Bing by clients with this addon active. Tagged SAP searches
+      include a partner attribution tag recognized by the search engine.
   - name: ddg
     type: INT64
     mode: NULLABLE
-    description: ''
+    description: Total tagged SAP searches on DuckDuckGo by clients with this addon active. Tagged SAP searches
+      include a partner attribution tag recognized by the search engine.
   - name: google
     type: INT64
     mode: NULLABLE
-    description: ''
+    description: Total tagged SAP searches on Google by clients with this addon active. Tagged SAP searches
+      are SAP searches that include a partner attribution tag recognized by the search engine.
   - name: other
     type: INT64
     mode: NULLABLE
-    description: ''
+    description: Total tagged SAP searches on engines other than Google, Bing, DuckDuckGo, Amazon, or Yandex,
+      by clients with this addon active.
   - name: total
     type: INT64
     mode: NULLABLE
-    description: ''
+    description: Total tagged SAP searches across all search engines by clients with this addon active. This
+      is the sum across all engine-specific tagged SAP search fields.
   - name: yandex
     type: INT64
     mode: NULLABLE
-    description: ''
+    description: Total tagged SAP searches on Yandex by clients with this addon active. Tagged SAP searches
+      include a partner attribution tag recognized by the search engine.
 - name: tagged_follow_on_searches
   type: RECORD
   mode: NULLABLE
@@ -121,31 +150,43 @@ fields:
   - name: amazon
     type: INT64
     mode: NULLABLE
-    description: ''
+    description: Total tagged follow-on searches on Amazon by clients with this addon active. Follow-on searches
+      are subsequent searches made from a search results page that preserve the original partner attribution
+      tag.
   - name: bing
     type: INT64
     mode: NULLABLE
-    description: ''
+    description: Total tagged follow-on searches on Bing by clients with this addon active. Follow-on searches
+      are subsequent searches made from a search results page that preserve the original partner attribution
+      tag.
   - name: ddg
     type: INT64
     mode: NULLABLE
-    description: ''
+    description: Total tagged follow-on searches on DuckDuckGo by clients with this addon active. Follow-on
+      searches are subsequent searches made from a search results page that preserve the original partner
+      attribution tag.
   - name: google
     type: INT64
     mode: NULLABLE
-    description: ''
+    description: Total tagged follow-on searches on Google by clients with this addon active. Follow-on searches
+      are subsequent searches made from a search results page that preserve the original partner attribution
+      tag.
   - name: other
     type: INT64
     mode: NULLABLE
-    description: ''
+    description: Total tagged follow-on searches on engines other than Google, Bing, DuckDuckGo, Amazon, or
+      Yandex, by clients with this addon active.
   - name: total
     type: INT64
     mode: NULLABLE
-    description: ''
+    description: Total tagged follow-on searches across all search engines by clients with this addon active.
+      This is the sum across all engine-specific tagged follow-on search fields.
   - name: yandex
     type: INT64
     mode: NULLABLE
-    description: ''
+    description: Total tagged follow-on searches on Yandex by clients with this addon active. Follow-on searches
+      are subsequent searches made from a search results page that preserve the original partner attribution
+      tag.
 - name: organic_searches
   type: RECORD
   mode: NULLABLE
@@ -154,31 +195,39 @@ fields:
   - name: amazon
     type: INT64
     mode: NULLABLE
-    description: ''
+    description: Total organic searches on Amazon by clients with this addon active. Organic searches are
+      not attributed to a Firefox SAP entry point.
   - name: bing
     type: INT64
     mode: NULLABLE
-    description: ''
+    description: Total organic searches on Bing by clients with this addon active. Organic searches are not
+      attributed to a Firefox SAP entry point.
   - name: ddg
     type: INT64
     mode: NULLABLE
-    description: ''
+    description: Total organic searches on DuckDuckGo by clients with this addon active. Organic searches
+      are not attributed to a Firefox SAP entry point.
   - name: google
     type: INT64
     mode: NULLABLE
-    description: ''
+    description: Total organic searches on Google by clients with this addon active. Organic searches are
+      those not attributed to a Firefox SAP entry point, i.e., typed directly into the browser address bar
+      or search engine site.
   - name: other
     type: INT64
     mode: NULLABLE
-    description: ''
+    description: Total organic searches on engines other than Google, Bing, DuckDuckGo, Amazon, or Yandex,
+      by clients with this addon active.
   - name: total
     type: INT64
     mode: NULLABLE
-    description: ''
+    description: Total organic searches across all search engines by clients with this addon active. This
+      is the sum across all engine-specific organic search fields.
   - name: yandex
     type: INT64
     mode: NULLABLE
-    description: ''
+    description: Total organic searches on Yandex by clients with this addon active. Organic searches are
+      not attributed to a Firefox SAP entry point.
 - name: searches_with_ads
   type: RECORD
   mode: NULLABLE
@@ -187,31 +236,35 @@ fields:
   - name: amazon
     type: INT64
     mode: NULLABLE
-    description: ''
+    description: Total searches on Amazon that returned pages containing ads, by clients with this addon active.
   - name: bing
     type: INT64
     mode: NULLABLE
-    description: ''
+    description: Total searches on Bing that returned pages containing ads, by clients with this addon active.
   - name: ddg
     type: INT64
     mode: NULLABLE
-    description: ''
+    description: Total searches on DuckDuckGo that returned pages containing ads, by clients with this addon
+      active.
   - name: google
     type: INT64
     mode: NULLABLE
-    description: ''
+    description: Total searches on Google that returned pages containing ads, by clients with this addon active.
+      A search is counted here when the search results page included at least one ad impression.
   - name: other
     type: INT64
     mode: NULLABLE
-    description: ''
+    description: Total searches on engines other than Google, Bing, DuckDuckGo, Amazon, or Yandex that returned
+      pages containing ads, by clients with this addon active.
   - name: total
     type: INT64
     mode: NULLABLE
-    description: ''
+    description: Total searches across all engines that returned pages containing ads, by clients with this
+      addon active. This is the sum across all engine-specific searches_with_ads fields.
   - name: yandex
     type: INT64
     mode: NULLABLE
-    description: ''
+    description: Total searches on Yandex that returned pages containing ads, by clients with this addon active.
 - name: ad_clicks
   type: RECORD
   mode: NULLABLE
@@ -220,28 +273,30 @@ fields:
   - name: amazon
     type: INT64
     mode: NULLABLE
-    description: ''
+    description: Total clicks on ads within Amazon search result pages by clients with this addon active.
   - name: bing
     type: INT64
     mode: NULLABLE
-    description: ''
+    description: Total clicks on ads within Bing search result pages by clients with this addon active.
   - name: ddg
     type: INT64
     mode: NULLABLE
-    description: ''
+    description: Total clicks on ads within DuckDuckGo search result pages by clients with this addon active.
   - name: google
     type: INT64
     mode: NULLABLE
-    description: ''
+    description: Total clicks on ads within Google search result pages by clients with this addon active.
   - name: other
     type: INT64
     mode: NULLABLE
-    description: ''
+    description: Total clicks on ads within search result pages for engines other than Google, Bing, DuckDuckGo,
+      Amazon, or Yandex, by clients with this addon active.
   - name: total
     type: INT64
     mode: NULLABLE
-    description: ''
+    description: Total clicks on ads across all search engines by clients with this addon active. This is
+      the sum across all engine-specific ad_clicks fields.
   - name: yandex
     type: INT64
     mode: NULLABLE
-    description: ''
+    description: Total clicks on ads within Yandex search result pages by clients with this addon active.
