@@ -1,0 +1,161 @@
+fields:
+- name: submission_date
+  type: DATE
+  mode: NULLABLE
+  description: ''
+- name: doc_type
+  type: STRING
+  mode: NULLABLE
+  description: ''
+- name: document_id
+  type: STRING
+  mode: NULLABLE
+  description: ''
+- name: client_id
+  type: STRING
+  mode: NULLABLE
+  description: ''
+- name: normalized_channel
+  type: STRING
+  mode: NULLABLE
+  description: ''
+- name: country
+  type: STRING
+  mode: NULLABLE
+  description: ''
+- name: locale
+  type: STRING
+  mode: NULLABLE
+  description: ''
+- name: app_name
+  type: STRING
+  mode: NULLABLE
+  description: ''
+- name: app_version
+  type: STRING
+  mode: NULLABLE
+  description: ''
+- name: os
+  type: STRING
+  mode: NULLABLE
+  description: ''
+- name: os_version
+  type: STRING
+  mode: NULLABLE
+  description: ''
+- name: timestamp
+  type: TIMESTAMP
+  mode: NULLABLE
+  description: ''
+- name: sample_id
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: event_timestamp
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: event_category
+  type: STRING
+  mode: NULLABLE
+  description: ''
+- name: event_method
+  type: STRING
+  mode: NULLABLE
+  description: ''
+- name: event_object
+  type: STRING
+  mode: NULLABLE
+  description: ''
+- name: event_string_value
+  type: STRING
+  mode: NULLABLE
+  description: ''
+- name: event_map_values
+  type: RECORD
+  mode: REPEATED
+  description: ''
+  fields:
+  - name: key
+    type: STRING
+    mode: NULLABLE
+    description: ''
+  - name: value
+    type: STRING
+    mode: NULLABLE
+    description: ''
+- name: experiments
+  type: RECORD
+  mode: REPEATED
+  description: ''
+  fields:
+  - name: key
+    type: STRING
+    mode: NULLABLE
+    description: ''
+  - name: value
+    type: RECORD
+    mode: NULLABLE
+    description: ''
+    fields:
+    - name: branch
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: enrollment_id
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: type
+      type: STRING
+      mode: NULLABLE
+      description: ''
+- name: event_process
+  type: STRING
+  mode: NULLABLE
+  description: ''
+- name: subsession_id
+  type: STRING
+  mode: NULLABLE
+  description: ''
+- name: session_start_time
+  type: TIMESTAMP
+  mode: NULLABLE
+  description: ''
+- name: session_id
+  type: STRING
+  mode: NULLABLE
+  description: ''
+- name: build_id
+  type: STRING
+  mode: NULLABLE
+  description: ''
+- name: browser_version_info
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: is_major_release
+    type: BOOLEAN
+    mode: NULLABLE
+    description: ''
+  - name: major_version
+    type: NUMERIC
+    mode: NULLABLE
+    description: ''
+  - name: minor_version
+    type: NUMERIC
+    mode: NULLABLE
+    description: ''
+  - name: patch_revision
+    type: NUMERIC
+    mode: NULLABLE
+    description: ''
+  - name: version
+    type: STRING
+    mode: NULLABLE
+    description: ''
+- name: profile_group_id
+  type: STRING
+  mode: NULLABLE
+  description: ''
