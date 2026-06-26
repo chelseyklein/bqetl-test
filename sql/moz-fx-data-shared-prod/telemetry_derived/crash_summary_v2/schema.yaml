@@ -14,7 +14,9 @@ fields:
 - name: build_version
   type: STRING
   mode: NULLABLE
-  description: The version string of the Firefox build that generated this crash report, such as 89.0.
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: build_version
 - name: build_id
   type: STRING
   mode: NULLABLE
@@ -30,17 +32,21 @@ fields:
 - name: crash_time
   type: STRING
   mode: NULLABLE
-  description: The Unix timestamp (seconds since epoch) at which the crash occurred, as reported in the
-    crash payload metadata.
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: crash_time
 - name: application
   type: STRING
   mode: NULLABLE
-  description: The name of the Mozilla application that crashed, such as Firefox or Fennec.
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: application
 - name: os_name
   type: STRING
   mode: NULLABLE
-  description: The name of the operating system on which the crash occurred, such as Windows_NT, Darwin,
-    or Linux.
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: os_name
 - name: os_version
   type: STRING
   mode: NULLABLE
@@ -50,7 +56,9 @@ fields:
 - name: architecture
   type: STRING
   mode: NULLABLE
-  description: The CPU architecture of the Firefox build that crashed, such as x86 or x86-64.
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: architecture
 - name: country
   type: STRING
   mode: NULLABLE
@@ -60,17 +68,21 @@ fields:
 - name: experiment_id
   type: STRING
   mode: NULLABLE
-  description: The identifier of the Normandy experiment that the client was enrolled in at the time of
-    the crash, if any.
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: experiment_id
 - name: experiment_branch
   type: STRING
   mode: NULLABLE
-  description: The branch of the Normandy experiment that the client was assigned to at the time of the
-    crash, if any.
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: experiment_branch
 - name: experiments
   type: RECORD
   mode: NULLABLE
-  description: ''
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: experiments
   fields:
   - name: key_value
     type: RECORD
@@ -89,17 +101,21 @@ fields:
 - name: e10s_enabled
   type: BOOLEAN
   mode: NULLABLE
-  description: Whether Electrolysis (multi-process Firefox) was enabled in the session that crashed. True
-    indicates e10s was active.
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: e10s_enabled
 - name: gfx_compositor
   type: STRING
   mode: NULLABLE
-  description: The name of the graphics compositor in use at the time of the crash, such as d3d11, opengl,
-    or basic.
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: gfx_compositor
 - name: profile_created
   type: INT64
   mode: NULLABLE
-  description: The date the user profile was created, expressed as the number of days since the Unix epoch.
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: profile_created
 - name: payload
   type: RECORD
   mode: NULLABLE
