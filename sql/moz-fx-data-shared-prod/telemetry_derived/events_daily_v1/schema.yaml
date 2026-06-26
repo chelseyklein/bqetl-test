@@ -20,8 +20,9 @@ fields:
 - name: events
   type: STRING
   mode: NULLABLE
-  description: A packed, comma-separated string encoding all events emitted by this client on the submission
-    date, using compact numeric indices from event_types_v1 to represent event types and property values.
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: events
 - name: build_id
   type: STRING
   mode: NULLABLE
