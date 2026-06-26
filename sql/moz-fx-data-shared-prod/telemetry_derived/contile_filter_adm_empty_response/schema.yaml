@@ -2,48 +2,54 @@ fields:
 - name: time
   type: TIMESTAMP
   mode: NULLABLE
-  description: ''
+  description: The timestamp of the 5-minute aggregation window for this metric observation.
 - name: app
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: The application or service name making the Contile tile request (e.g., 'contile').
 - name: endpoint
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: The specific Contile API endpoint that was called (e.g., '/v1/tiles').
 - name: environment
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: The deployment environment of the Contile service (e.g., 'production', 'staging').
 - name: geo_country_code
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: The ISO country code of the client making the Contile tile request, used for geographic segmentation.
 - name: metric_type
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: The type of metric being recorded (e.g., counter, gauge) for the number of filtered empty
+    ADM responses.
 - name: realm
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: The Contile service realm or deployment identifier distinguishing different service instances.
 - name: ua_form_factor
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: The form factor of the user agent making the request (e.g., 'desktop', 'phone'), derived
+    from the User-Agent header.
 - name: ua_os_family
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: The operating system family of the user agent making the request (e.g., 'Windows', 'Mac OS
+    X'), derived from the User-Agent header.
 - name: uri_method
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: The HTTP method used in the Contile tile request (e.g., 'GET').
 - name: value
   type: INT64
   mode: NULLABLE
-  description: ''
+  description: The count of Contile tile requests that returned an empty response from the ADM (advertising
+    decision maker) after filtering.
 - name: submission_date
   type: DATE
   mode: NULLABLE
-  description: ''
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: submission_date
