@@ -2,12 +2,15 @@ fields:
 - name: date
   type: DATE
   mode: NULLABLE
-  description: The calendar date on which the anomaly or deviation was detected.
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: date
 - name: metric
   type: STRING
   mode: NULLABLE
-  description: The name of the metric being monitored for anomalies, identifying which telemetry signal
-    the deviation applies to.
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: metric
 - name: deviation
   type: FLOAT64
   mode: NULLABLE
