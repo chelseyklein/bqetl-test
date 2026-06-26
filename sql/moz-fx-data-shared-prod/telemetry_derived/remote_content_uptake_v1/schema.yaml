@@ -8,8 +8,9 @@ fields:
 - name: source
   type: STRING
   mode: NULLABLE
-  description: The Remote Settings collection or source identifier that was checked for updates (e.g., 'blocklists/addons',
-    'main/cfr-fxa-bookmark').
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: source
 - name: min_timestamp
   type: FLOAT64
   mode: NULLABLE
@@ -28,8 +29,9 @@ fields:
 - name: success
   type: INT64
   mode: NULLABLE
-  description: Count of clients that successfully downloaded and applied an update to this Remote Settings
-    collection.
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: success
 - name: backoff
   type: INT64
   mode: NULLABLE
