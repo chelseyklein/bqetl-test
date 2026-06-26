@@ -8,14 +8,15 @@ fields:
 - name: usage
   type: STRING
   mode: NULLABLE
-  description: Human-readable label describing the product activity type being measured (always 'Any Firefox
-    Account Activity' in this table).
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: usage
 - name: metrics
   type: RECORD
   mode: NULLABLE
-  description: Nested struct containing Smoothed Usage (Smoot) engagement metrics computed over a 28-day
-    window; day_0 fields (DAU, WAU, MAU, active_days_in_week), day_6 fields (new_profiles), and day_13 fields
-    (retention cohort metrics comparing activity in week 0 vs. week 1 after first seen).
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: metrics
   fields:
   - name: day_0
     type: RECORD
