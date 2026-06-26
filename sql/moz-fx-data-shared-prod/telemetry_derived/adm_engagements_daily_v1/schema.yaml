@@ -6,32 +6,44 @@ fields:
 - name: country
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: The two-letter ISO country code of the client as detected at submission time. Only clients
+    from the targeted sponsored top sites markets (US, DE, GB, FR, CA, AU) are included in this table.
 - name: placement
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: The surface or source placement where the engagement occurred, such as the specific top site
+    position or search access point. Derived from the event object for later phases or from the 'source'
+    key in event map values for phase 2 experiments.
 - name: partner
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: The advertising partner associated with the engagement, such as 'amazon'. Derived from the
+    event map values for phase 2 experiments or from the event string value for later phases.
 - name: version
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: The major version of the Firefox application, extracted as the first component of the full
+    app version string (e.g., '80' from '80.0.1').
 - name: normalized_channel
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: The normalized Firefox release channel of the client (e.g., 'release', 'beta', 'nightly').
+    Sourced from the events or search table and standardized to a common channel name.
 - name: n_engagements
   type: INT64
   mode: NULLABLE
-  description: ''
+  description: The total count of user engagements for the given combination of dimensions on the submission
+    date. For 'topsite' interactions this is a count of click events; for 'redirect' interactions this is
+    the sum of search access point (SAP) counts.
 - name: interaction
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: The type of user engagement recorded. Set to 'topsite' for clicks on sponsored top site tiles
+    (from partner_link events) and 'redirect' for search access points that triggered an ADM search engine
+    (from search SAP counts).
 - name: phase
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: The rollout phase of the sponsored top sites experiment that the client was enrolled in.
+    Possible values are 'phase2', 'phase3', or 'rollout', corresponding to specific Nimbus/pref-flip experiments;
+    null if the client was not enrolled in any tracked experiment.
