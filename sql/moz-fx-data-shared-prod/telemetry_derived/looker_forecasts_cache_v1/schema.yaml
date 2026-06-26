@@ -2,12 +2,15 @@ fields:
 - name: key
   type: STRING
   mode: NULLABLE
-  description: A unique identifier key for this forecast cache entry; null when the cache is empty.
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: key
 - name: submission_date
   type: TIMESTAMP
   mode: NULLABLE
-  description: The date for which this forecast cache row applies; null indicates the cache has not been
-    populated.
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: submission_date
 - name: dau_forecast
   type: FLOAT64
   mode: NULLABLE
