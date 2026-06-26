@@ -1,0 +1,976 @@
+fields:
+- name: additional_properties
+  type: STRING
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: additional_properties
+- name: client_info
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: android_sdk_version
+    type: STRING
+    mode: NULLABLE
+    description: The Android SDK API level of the device (e.g., '33' for Android 13). Null for non-Android
+      clients.
+  - name: app_build
+    type: STRING
+    mode: NULLABLE
+    description: The build identifier string for the Firefox application (e.g., '20260608154138'), uniquely
+      identifying the specific build that crashed.
+  - name: app_channel
+    type: STRING
+    mode: NULLABLE
+    description: The release channel of the Firefox build as reported by the Glean SDK (e.g., 'release', 'esr',
+      'beta'); null for desktop Firefox builds that report via other mechanisms.
+  - name: app_display_version
+    type: STRING
+    mode: NULLABLE
+    description: The human-readable version string of the Firefox application (e.g., '144.0', '115.37.0')
+      as reported by the client at the time of the crash.
+  - name: architecture
+    type: STRING
+    mode: NULLABLE
+    description: The CPU architecture of the client device as reported by the Glean SDK (e.g., 'x86_64', 'aarch64',
+      'arm64-v8a').
+  - name: attribution
+    type: RECORD
+    mode: NULLABLE
+    description: ''
+    fields:
+    - name: campaign
+      type: STRING
+      mode: NULLABLE
+      description: The attribution campaign name associated with the Firefox install (e.g., a marketing campaign
+        identifier). Null for non-attributed installs.
+    - name: content
+      type: STRING
+      mode: NULLABLE
+      description: The attribution content parameter providing additional detail about the install source (e.g.,
+        a button or ad variant). Null for non-attributed installs.
+    - name: ext
+      type: JSON
+      mode: NULLABLE
+      description: A JSON object containing additional attribution extension fields beyond the standard parameters.
+        Always null in this table.
+    - name: medium
+      type: STRING
+      mode: NULLABLE
+      description: The attribution medium describing the type of channel that led to the Firefox install (e.g.,
+        'referral', 'direct'). Null for non-attributed installs.
+    - name: source
+      type: STRING
+      mode: NULLABLE
+      description: The attribution source indicating where the user came from before installing Firefox (e.g.,
+        a referring website). Null for non-attributed installs.
+    - name: term
+      type: STRING
+      mode: NULLABLE
+      description: The attribution search term associated with the Firefox install (e.g., the keyword used in
+        a paid search ad). Always null in this table.
+  - name: build_date
+    type: STRING
+    mode: NULLABLE
+    description: The UTC timestamp at which the Firefox application binary was compiled, as reported by the
+      Glean SDK. Most mobile builds report '1970-01-01T00:00:00+00:00' as a placeholder.
+  - name: client_id
+    type: STRING
+    mode: NULLABLE
+    description: The UUID that uniquely identifies the Firefox client profile that sent this crash ping.
+  - name: device_manufacturer
+    type: STRING
+    mode: NULLABLE
+    description: The manufacturer of the Android device (e.g., 'samsung', 'Xiaomi'). Null for non-Android
+      clients.
+  - name: device_model
+    type: STRING
+    mode: NULLABLE
+    description: The hardware model identifier of the Android device (e.g., 'SM-M127F'). Null for non-Android
+      clients.
+  - name: distribution
+    type: RECORD
+    mode: NULLABLE
+    description: ''
+    fields:
+    - name: ext
+      type: JSON
+      mode: NULLABLE
+      description: A JSON object containing additional distribution extension fields. Always null in this table.
+    - name: name
+      type: STRING
+      mode: NULLABLE
+      description: The identifier of the Firefox distribution (e.g., 'mozilla-win-eol-esr115', 'portableapps')
+        when the client was distributed via a partner or special channel. Null for standard Mozilla distributions.
+  - name: first_run_date
+    type: STRING
+    mode: NULLABLE
+    description: The date on which Firefox was first run on this device, as reported by the Glean SDK, in
+      ISO 8601 format with timezone offset.
+  - name: locale
+    type: STRING
+    mode: NULLABLE
+    description: The locale string of the Firefox application (e.g., 'en-US', 'de') representing the language
+      and region settings. Null when not reported.
+  - name: os
+    type: STRING
+    mode: NULLABLE
+    description: The operating system name as reported by the Glean SDK (e.g., 'Windows', 'Linux', 'Darwin',
+      'Android').
+  - name: os_version
+    type: STRING
+    mode: NULLABLE
+    description: The operating system version string as reported by the Glean SDK (e.g., '10.0' for Windows
+      10, '6.1' for Windows 7).
+  - name: session_count
+    type: INT64
+    mode: NULLABLE
+    description: The number of sessions the client has had since installation, as tracked by the Glean SDK.
+      Always null in this table.
+  - name: session_id
+    type: STRING
+    mode: NULLABLE
+    description: A UUID identifying the current application session as tracked by the Glean SDK. Always null
+      in this table.
+  - name: telemetry_sdk_build
+    type: STRING
+    mode: NULLABLE
+    description: The version of the Glean telemetry SDK used by the Firefox client that submitted this crash
+      ping.
+  - name: windows_build_number
+    type: INT64
+    mode: NULLABLE
+    description: The Windows build number of the operating system (e.g., 19045 for Windows 10 22H2). Null
+      for non-Windows clients.
+- name: document_id
+  type: STRING
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: document_id
+- name: events
+  type: RECORD
+  mode: REPEATED
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: events
+  fields:
+  - name: category
+    type: STRING
+    mode: NULLABLE
+    description: The category name of the Glean event within the events array, grouping related events by
+      functional area (e.g., 'crash').
+  - name: extra
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: STRING
+      mode: NULLABLE
+      description: ''
+  - name: name
+    type: STRING
+    mode: NULLABLE
+    description: The name of the individual Glean event within the events array, identifying the specific
+      action that occurred.
+  - name: session
+    type: RECORD
+    mode: NULLABLE
+    description: ''
+    fields:
+    - name: event_seq
+      type: INT64
+      mode: NULLABLE
+      description: Within the events array, the sequential position of this event within the originating session,
+        used to reconstruct event order.
+    - name: session_id
+      type: STRING
+      mode: NULLABLE
+      description: Within the events array, the UUID identifying the application session during which this event
+        occurred.
+    - name: session_sample_rate
+      type: FLOAT64
+      mode: NULLABLE
+      description: Within the events array, the sampling rate applied to events in this session; a value of
+        1.0 means all events were recorded without sampling.
+    - name: session_seq
+      type: INT64
+      mode: NULLABLE
+      description: Within the events array, the sequence number of the session itself, used to order sessions
+        within a client's history.
+    - name: session_start_time
+      type: STRING
+      mode: NULLABLE
+      description: Within the events array, the ISO 8601 timestamp at which the application session containing
+        this event was started.
+  - name: timestamp
+    type: INT64
+    mode: NULLABLE
+    description: The millisecond offset from the start of the ping's measurement window at which this event
+      was recorded within the events array.
+- name: metadata
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: geo
+    type: RECORD
+    mode: NULLABLE
+    description: ''
+    fields:
+    - name: city
+      type: STRING
+      mode: NULLABLE
+      description: The city name derived from a GeoIP lookup of the client's IP address. Always null in this
+        table.
+    - name: country
+      type: STRING
+      mode: NULLABLE
+      description: The ISO 3166-1 alpha-2 country code derived from a GeoIP lookup of the client's IP address
+        at ingestion.
+    - name: db_version
+      type: STRING
+      mode: NULLABLE
+      description: The version date of the GeoIP database used to perform the geographic lookup for this ping.
+    - name: subdivision1
+      type: STRING
+      mode: NULLABLE
+      description: The first-level administrative subdivision (e.g., state or province) derived from GeoIP lookup.
+        Always null in this table.
+    - name: subdivision2
+      type: STRING
+      mode: NULLABLE
+      description: The second-level administrative subdivision derived from GeoIP lookup; not applicable for
+        most countries. Always null in this table.
+  - name: header
+    type: RECORD
+    mode: NULLABLE
+    description: ''
+    fields:
+    - name: date
+      type: STRING
+      mode: NULLABLE
+      description: The value of the HTTP Date header sent by the client when submitting this ping, representing
+        the client's local clock time at submission. Null when not sent.
+    - name: dnt
+      type: STRING
+      mode: NULLABLE
+      description: The value of the Do Not Track HTTP header sent by the client ('1' means tracking opt-out
+        was requested). Null when not sent.
+    - name: parsed_date
+      type: TIMESTAMP
+      mode: NULLABLE
+      description: The HTTP Date header value parsed to a UTC TIMESTAMP for easier querying. Null when the Date
+        header was absent or unparseable.
+    - name: parsed_x_lb_tags
+      type: RECORD
+      mode: NULLABLE
+      description: ''
+      fields:
+      - name: tls_cipher_hex
+        type: STRING
+        mode: NULLABLE
+        description: The TLS cipher suite identifier in hexadecimal extracted from the X-LB-Tags header (e.g.,
+          '1301' for TLS_AES_128_GCM_SHA256).
+      - name: tls_version
+        type: STRING
+        mode: NULLABLE
+        description: The TLS protocol version extracted from the X-LB-Tags header (e.g., 'TLSv1.3' or 'TLSv1.2')
+          used for the client's connection.
+    - name: parsed_x_source_tags
+      type: STRING
+      mode: REPEATED
+      description: An array of source tag strings extracted from the X-Source-Tags HTTP header, indicating the
+        origin infrastructure for this submission.
+    - name: x_debug_id
+      type: STRING
+      mode: NULLABLE
+      description: The X-Debug-Id header value used for Glean debug ping routing. Always null in production
+        pings.
+    - name: x_foxsec_ip_reputation
+      type: STRING
+      mode: NULLABLE
+      description: The X-Foxsec-IP-Reputation header value for IP reputation scoring (deprecated). Always null
+        in this table.
+    - name: x_lb_tags
+      type: STRING
+      mode: NULLABLE
+      description: The raw X-LB-Tags HTTP header value from the load balancer, containing TLS version and cipher
+        information (e.g., 'TLSv1.3, 1301').
+    - name: x_pingsender_version
+      type: STRING
+      mode: NULLABLE
+      description: The version of the Firefox ping sender component used to submit this ping. Always null for
+        crash pings, which are sent by the Glean SDK directly.
+    - name: x_source_tags
+      type: STRING
+      mode: NULLABLE
+      description: The raw X-Source-Tags HTTP header string sent by the client. Always null in this table.
+    - name: x_telemetry_agent
+      type: STRING
+      mode: NULLABLE
+      description: The X-Telemetry-Agent HTTP header identifying the Glean SDK version and platform used to
+        submit this ping (e.g., 'Glean/67.2.0 (Rust on Windows)').
+  - name: isp
+    type: RECORD
+    mode: NULLABLE
+    description: ''
+    fields:
+    - name: db_version
+      type: STRING
+      mode: NULLABLE
+      description: The version date of the ISP database used to perform the ISP lookup for this ping.
+    - name: name
+      type: STRING
+      mode: NULLABLE
+      description: The name of the Internet Service Provider associated with the client's IP address.
+    - name: organization
+      type: STRING
+      mode: NULLABLE
+      description: The name of the specific business entity associated with the client's IP address when available;
+        otherwise falls back to the ISP name.
+  - name: user_agent
+    type: RECORD
+    mode: NULLABLE
+    description: ''
+    fields:
+    - name: browser
+      type: STRING
+      mode: NULLABLE
+      description: The browser name parsed from the User-Agent HTTP header (e.g., 'Firefox'). Null when the
+        User-Agent was not recognized.
+    - name: os
+      type: STRING
+      mode: NULLABLE
+      description: The operating system parsed from the User-Agent HTTP header (e.g., 'Windows 10', 'Android').
+        Null when not recognized.
+    - name: version
+      type: STRING
+      mode: NULLABLE
+      description: The browser version parsed from the User-Agent HTTP header (e.g., '115', '144'). Null when
+        not recognized.
+- name: metrics
+  type: RECORD
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: metrics
+  fields:
+  - name: boolean
+    type: RECORD
+    mode: NULLABLE
+    description: ''
+    fields:
+    - name: crash_dom_fission_enabled
+      type: BOOLEAN
+      mode: NULLABLE
+      description: ''
+    - name: crash_is_garbage_collecting
+      type: BOOLEAN
+      mode: NULLABLE
+      description: ''
+    - name: crash_startup
+      type: BOOLEAN
+      mode: NULLABLE
+      description: ''
+    - name: crash_windows_error_reporting
+      type: BOOLEAN
+      mode: NULLABLE
+      description: ''
+    - name: dll_blocklist_init_failed
+      type: BOOLEAN
+      mode: NULLABLE
+      description: ''
+    - name: dll_blocklist_user32_loaded_before
+      type: BOOLEAN
+      mode: NULLABLE
+      description: ''
+    - name: environment_headless_mode
+      type: BOOLEAN
+      mode: NULLABLE
+      description: ''
+  - name: datetime
+    type: RECORD
+    mode: NULLABLE
+    description: ''
+    fields:
+    - name: crash_time
+      type: TIMESTAMP
+      mode: NULLABLE
+      description: ''
+    - name: raw_crash_time
+      type: STRING
+      mode: NULLABLE
+      description: ''
+  - name: labeled_counter
+    type: RECORD
+    mode: NULLABLE
+    description: ''
+    fields:
+    - name: glean_error_invalid_label
+      type: RECORD
+      mode: REPEATED
+      description: 'Counts the number of times a metric was set with an invalid label.
+
+        The labels are the `category.name` identifier of the metric.
+
+        '
+      fields:
+      - name: key
+        type: STRING
+        mode: NULLABLE
+        description: ''
+      - name: value
+        type: INT64
+        mode: NULLABLE
+        description: ''
+    - name: glean_error_invalid_overflow
+      type: RECORD
+      mode: REPEATED
+      description: 'Counts the number of times a metric was set a value that overflowed.
+
+        The labels are the `category.name` identifier of the metric.
+
+        '
+      fields:
+      - name: key
+        type: STRING
+        mode: NULLABLE
+        description: ''
+      - name: value
+        type: INT64
+        mode: NULLABLE
+        description: ''
+    - name: glean_error_invalid_state
+      type: RECORD
+      mode: REPEATED
+      description: 'Counts the number of times a timing metric was used incorrectly.
+
+        The labels are the `category.name` identifier of the metric.
+
+        '
+      fields:
+      - name: key
+        type: STRING
+        mode: NULLABLE
+        description: ''
+      - name: value
+        type: INT64
+        mode: NULLABLE
+        description: ''
+    - name: glean_error_invalid_value
+      type: RECORD
+      mode: REPEATED
+      description: 'Counts the number of times a metric was set to an invalid value.
+
+        The labels are the `category.name` identifier of the metric.
+
+        '
+      fields:
+      - name: key
+        type: STRING
+        mode: NULLABLE
+        description: ''
+      - name: value
+        type: INT64
+        mode: NULLABLE
+        description: ''
+  - name: object
+    type: RECORD
+    mode: NULLABLE
+    description: ''
+    fields:
+    - name: crash_async_shutdown_timeout
+      type: JSON
+      mode: NULLABLE
+      description: ''
+    - name: crash_breadcrumbs
+      type: JSON
+      mode: NULLABLE
+      description: 'Crash breadcrumb information.
+
+        '
+    - name: crash_java_exception
+      type: JSON
+      mode: NULLABLE
+      description: ''
+    - name: crash_quota_manager_shutdown_timeout
+      type: JSON
+      mode: NULLABLE
+      description: ''
+    - name: crash_stack_traces
+      type: JSON
+      mode: NULLABLE
+      description: ''
+  - name: quantity
+    type: RECORD
+    mode: NULLABLE
+    description: ''
+    fields:
+    - name: crash_event_loop_nesting_level
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: crash_gpu_process_launch
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: memory_available_commit
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: memory_available_physical
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: memory_available_swap
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: memory_available_virtual
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: memory_low_physical
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: memory_oom_allocation_size
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: memory_purgeable_physical
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: memory_system_use_percentage
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: memory_texture
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: memory_total_page_file
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: memory_total_physical
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: memory_total_virtual
+      type: INT64
+      mode: NULLABLE
+      description: ''
+  - name: string
+    type: RECORD
+    mode: NULLABLE
+    description: ''
+    fields:
+    - name: crash_app_build
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: crash_app_channel
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: crash_app_display_version
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: crash_application_build_id
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: crash_background_task_name
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: crash_build_id
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: crash_cause
+      type: STRING
+      mode: NULLABLE
+      description: 'The cause of the crash. May be one of `os_fault` or `java_exception`.
+
+        '
+    - name: crash_crash_type
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: crash_event_id
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: crash_file_system_access_request_path
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: crash_font_name
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: crash_hang
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: crash_id
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: crash_ipc_channel_error
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: crash_linux_memory_psi
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: crash_main_thread_runnable_name
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: crash_minidump_sha256_hash
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: crash_minidump_sha_256_hash
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: crash_moz_crash_reason
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: crash_process_type
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: crash_product_id
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: crash_product_name
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: crash_profiler_child_shutdown_phase
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: crash_remote_type
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: crash_shutdown_progress
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: crash_shutdown_reason
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: crash_windows_file_dialog_error_code
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: glean_client_annotation_experimentation_id
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: memory_js_large_allocation_failure
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: memory_js_out_of_memory
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: windows_package_family_name
+      type: STRING
+      mode: NULLABLE
+      description: ''
+  - name: string_list
+    type: RECORD
+    mode: NULLABLE
+    description: ''
+    fields:
+    - name: crash_utility_actors_name
+      type: STRING
+      mode: REPEATED
+      description: Comma-separated list of IPC actors name running on this Utility process instance
+    - name: dll_blocklist_list
+      type: STRING
+      mode: REPEATED
+      description: Semicolon-separated list of blocked DLLS, Windows-only
+    - name: environment_experimental_features
+      type: STRING
+      mode: REPEATED
+      description: 'Specifies the enabled experimental features from about:preferences#experimental.
+
+        '
+    - name: environment_nimbus_enrollments
+      type: STRING
+      mode: REPEATED
+      description: A comma-separated string that specifies the active Nimbus experiments and rollouts, as well as their branches.
+    - name: glean_ping_uploader_capabilities
+      type: STRING
+      mode: REPEATED
+      description: 'The list of requested uploader capabilities for the ping this is sent in.
+
+        Should be the same as the ones defined for that particular ping.
+
+
+        This metric is only attached to a ping if it already contains other data.
+
+        '
+  - name: timespan
+    type: RECORD
+    mode: NULLABLE
+    description: ''
+    fields:
+    - name: crash_last_interaction_duration
+      type: RECORD
+      mode: NULLABLE
+      description: ''
+      fields:
+      - name: time_unit
+        type: STRING
+        mode: NULLABLE
+        description: ''
+      - name: value
+        type: INT64
+        mode: NULLABLE
+        description: ''
+    - name: crash_time_since_last_crash
+      type: RECORD
+      mode: NULLABLE
+      description: ''
+      fields:
+      - name: time_unit
+        type: STRING
+        mode: NULLABLE
+        description: ''
+      - name: value
+        type: INT64
+        mode: NULLABLE
+        description: ''
+    - name: crash_uptime
+      type: RECORD
+      mode: NULLABLE
+      description: ''
+      fields:
+      - name: time_unit
+        type: STRING
+        mode: NULLABLE
+        description: ''
+      - name: value
+        type: INT64
+        mode: NULLABLE
+        description: ''
+    - name: environment_uptime
+      type: RECORD
+      mode: NULLABLE
+      description: ''
+      fields:
+      - name: time_unit
+        type: STRING
+        mode: NULLABLE
+        description: ''
+      - name: value
+        type: INT64
+        mode: NULLABLE
+        description: ''
+- name: normalized_app_name
+  type: STRING
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: normalized_app_name
+- name: normalized_channel
+  type: STRING
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: normalized_channel
+- name: normalized_country_code
+  type: STRING
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: normalized_country_code
+- name: normalized_os
+  type: STRING
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: normalized_os
+- name: normalized_os_version
+  type: STRING
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: normalized_os_version
+- name: ping_info
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: end_time
+    type: STRING
+    mode: NULLABLE
+    description: The local time on the client device at the end of the measurement window for this ping, in
+      ISO 8601 format with timezone offset.
+  - name: experiments
+    type: RECORD
+    mode: REPEATED
+    description: An array of Nimbus experiment enrollments active at the time this crash ping was submitted,
+      each containing the experiment slug, branch, and enrollment ID.
+    fields:
+    - name: key
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: RECORD
+      mode: NULLABLE
+      description: ''
+      fields:
+      - name: branch
+        type: STRING
+        mode: NULLABLE
+        description: ''
+      - name: extra
+        type: RECORD
+        mode: NULLABLE
+        description: ''
+        fields:
+        - name: enrollment_id
+          type: STRING
+          mode: NULLABLE
+          description: ''
+        - name: type
+          type: STRING
+          mode: NULLABLE
+          description: ''
+  - name: parsed_end_time
+    type: TIMESTAMP
+    mode: NULLABLE
+    description: The ping measurement window end time parsed to UTC and stored as a TIMESTAMP for easier querying.
+  - name: parsed_start_time
+    type: TIMESTAMP
+    mode: NULLABLE
+    description: The ping measurement window start time parsed to UTC and stored as a TIMESTAMP for easier
+      querying.
+  - name: ping_type
+    type: STRING
+    mode: NULLABLE
+    description: The type of Glean ping that was submitted. Always null in this table; the crash ping type
+      is inferred from context.
+  - name: reason
+    type: STRING
+    mode: NULLABLE
+    description: The reason this crash ping was submitted; 'crash' indicates a browser crash was detected,
+      and 'event_found' indicates a crash event was discovered after the fact.
+  - name: seq
+    type: INT64
+    mode: NULLABLE
+    description: The sequence number of this ping within the client's session, used to detect missing or out-of-order
+      pings.
+  - name: server_knobs_config
+    type: RECORD
+    mode: NULLABLE
+    description: ''
+    fields:
+    - name: event_threshold
+      type: INT64
+      mode: NULLABLE
+      description: The server-configured threshold for the number of events that triggers an event ping submission.
+        Null when not set by remote configuration.
+    - name: metrics_enabled
+      type: RECORD
+      mode: REPEATED
+      description: Map of metric identifiers (category.name) to boolean values indicating whether the metric is enabled
+      fields:
+      - name: key
+        type: STRING
+        mode: NULLABLE
+        description: ''
+      - name: value
+        type: BOOLEAN
+        mode: NULLABLE
+        description: ''
+    - name: pings_enabled
+      type: RECORD
+      mode: REPEATED
+      description: Map of ping names to boolean values indicating whether the ping is enabled
+      fields:
+      - name: key
+        type: STRING
+        mode: NULLABLE
+        description: ''
+      - name: value
+        type: BOOLEAN
+        mode: NULLABLE
+        description: ''
+    - name: session_sample_rate
+      type: FLOAT64
+      mode: NULLABLE
+      description: ''
+  - name: start_time
+    type: STRING
+    mode: NULLABLE
+    description: The local time on the client device at the start of the measurement window for this ping,
+      in ISO 8601 format with timezone offset.
+- name: sample_id
+  type: INT64
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: sample_id
+- name: submission_timestamp
+  type: TIMESTAMP
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: submission_timestamp
+- name: app_version_major
+  type: NUMERIC
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: app_version_major
+- name: app_version_minor
+  type: NUMERIC
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: app_version_minor
+- name: app_version_patch
+  type: NUMERIC
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: app_version_patch
+- name: is_bot_generated
+  type: BOOLEAN
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: is_bot_generated
+- name: normalized_app_id
+  type: STRING
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: normalized_app_id
