@@ -2,36 +2,45 @@ fields:
 - name: time
   type: TIMESTAMP
   mode: NULLABLE
-  description: The timestamp at which this metric observation was recorded by the Contile server.
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: time
 - name: app
   type: STRING
   mode: NULLABLE
-  description: The name of the application or service component within Contile that generated this metric.
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: app
 - name: endpoint
   type: STRING
   mode: NULLABLE
-  description: The API endpoint path on the Contile server that received the ADM tile request and returned
-    this tile count.
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: endpoint
 - name: environment
   type: STRING
   mode: NULLABLE
-  description: The deployment environment of the Contile service that generated this metric, such as production
-    or staging.
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: environment
 - name: geo_country_code
   type: STRING
   mode: NULLABLE
-  description: The ISO 3166-1 alpha-2 country code of the user's geographic location as determined by the
-    Contile server.
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: geo_country_code
 - name: metric_type
   type: STRING
   mode: NULLABLE
-  description: The type of the metric being recorded, describing how the value should be interpreted (e.g.
-    counter, gauge).
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: metric_type
 - name: realm
   type: STRING
   mode: NULLABLE
-  description: The operational realm or partition of the Contile service responsible for handling this ADM
-    tile response.
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: realm
 - name: srv_hostname
   type: STRING
   mode: NULLABLE
@@ -39,21 +48,27 @@ fields:
 - name: ua_form_factor
   type: STRING
   mode: NULLABLE
-  description: The form factor of the user agent making the Contile tile request, such as desktop or mobile.
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: ua_form_factor
 - name: ua_os_family
   type: STRING
   mode: NULLABLE
-  description: The operating system family of the user agent making the Contile tile request, such as Windows,
-    macOS, or Linux.
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: ua_os_family
 - name: uri_method
   type: STRING
   mode: NULLABLE
-  description: The HTTP method used in the ADM tile request, such as GET or POST.
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: uri_method
 - name: value
   type: INT64
   mode: NULLABLE
-  description: The numeric count of tiles returned in ADM responses by the Contile server for this dimension
-    combination.
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: value
 - name: submission_date
   type: DATE
   mode: NULLABLE
