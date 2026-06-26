@@ -2,11 +2,14 @@ fields:
 - name: submission_date
   type: DATE
   mode: NULLABLE
-  description: ''
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: submission_date
 - name: timestamp
   type: INT64
   mode: NULLABLE
-  description: ''
+  description: Unix epoch timestamp (in nanoseconds or seconds) of the telemetry event associated with the
+    IP privacy record.
 - name: fields
   type: RECORD
   mode: NULLABLE
@@ -15,11 +18,12 @@ fields:
   - name: client_id
     type: STRING
     mode: NULLABLE
-    description: ''
+    description: Unique identifier for the Firefox client associated with this IP privacy telemetry record.
   - name: geo_country
     type: STRING
     mode: NULLABLE
-    description: ''
+    description: ISO 3166-1 alpha-2 country code derived from the client's IP address at ingestion time, used
+      to validate IP-based geolocation for privacy analysis.
   - name: ip
     type: STRING
     mode: NULLABLE
