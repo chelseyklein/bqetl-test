@@ -8,6 +8,9 @@ fields:
 - mode: NULLABLE
   name: ping
   type: STRING
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: ping
 - mode: NULLABLE
   name: channel
   type: STRING
@@ -23,12 +26,24 @@ fields:
 - mode: REPEATED
   name: percentiles
   type: INTEGER
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: percentiles
 - mode: NULLABLE
   name: mean
   type: FLOAT
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: mean
 - mode: NULLABLE
   name: std_dev
   type: FLOAT
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: std_dev
 - mode: NULLABLE
   name: median
   type: INTEGER
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: median
