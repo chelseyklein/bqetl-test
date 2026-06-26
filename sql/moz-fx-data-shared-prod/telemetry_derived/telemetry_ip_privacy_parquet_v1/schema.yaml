@@ -8,8 +8,9 @@ fields:
 - name: timestamp
   type: INT64
   mode: NULLABLE
-  description: Unix epoch timestamp (in nanoseconds or seconds) of the telemetry event associated with the
-    IP privacy record.
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: timestamp
 - name: fields
   type: RECORD
   mode: NULLABLE
