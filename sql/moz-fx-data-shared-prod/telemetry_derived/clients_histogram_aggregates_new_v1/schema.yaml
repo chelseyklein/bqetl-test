@@ -38,6 +38,8 @@ fields:
 - name: join_key
   type: STRING
   mode: NULLABLE
+  description: A composite key concatenating client_id, OS, app_build_id, and channel, used to uniquely
+    identify a client's build-channel context for joining or deduplication.
 - name: histogram_aggregates
   type: RECORD
   mode: REPEATED

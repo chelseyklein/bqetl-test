@@ -1,0 +1,319 @@
+fields:
+- name: submission_date
+  type: DATE
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: submission_date
+- name: addon_id
+  type: STRING
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: addon_id
+- name: name
+  type: STRING
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: name
+- name: most_common_default_search_engine
+  type: STRING
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: most_common_default_search_engine
+- name: dau
+  type: INT64
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: dau
+- name: wau
+  type: INT64
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: wau
+- name: mau
+  type: INT64
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: mau
+- name: is_system
+  type: BOOLEAN
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: is_system
+- name: active_hours_sum
+  type: FLOAT64
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: active_hours_sum
+- name: total_uri_count_sum
+  type: INT64
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: total_uri_count_sum
+- name: tab_open_event_count_sum
+  type: INT64
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: tab_open_event_count_sum
+- name: devtools_toolbox_opened_count_sum
+  type: INT64
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: devtools_toolbox_opened_count_sum
+- name: sap_searches
+  type: RECORD
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: sap_searches
+  fields:
+  - name: amazon
+    type: INT64
+    mode: NULLABLE
+    description: Number of SAP searches using Amazon performed by clients with this add-on on the submission
+      date.
+  - name: bing
+    type: INT64
+    mode: NULLABLE
+    description: Number of SAP searches using Bing performed by clients with this add-on on the submission
+      date.
+  - name: ddg
+    type: INT64
+    mode: NULLABLE
+    description: Number of SAP searches using DuckDuckGo performed by clients with this add-on on the submission
+      date.
+  - name: google
+    type: INT64
+    mode: NULLABLE
+    description: Number of SAP searches using Google performed by clients with this add-on on the submission
+      date.
+  - name: other
+    type: INT64
+    mode: NULLABLE
+    description: Number of SAP searches using search engines other than Google, Bing, DuckDuckGo, Amazon,
+      and Yandex performed by clients with this add-on.
+  - name: total
+    type: INT64
+    mode: NULLABLE
+    description: Total number of SAP searches across all engines performed by clients with this add-on on
+      the submission date.
+  - name: yandex
+    type: INT64
+    mode: NULLABLE
+    description: Number of SAP searches using Yandex performed by clients with this add-on on the submission
+      date.
+- name: tagged_sap_searches
+  type: RECORD
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: tagged_sap_searches
+  fields:
+  - name: amazon
+    type: INT64
+    mode: NULLABLE
+    description: Number of tagged SAP searches using Amazon for clients with this add-on on the submission
+      date.
+  - name: bing
+    type: INT64
+    mode: NULLABLE
+    description: Number of tagged SAP searches using Bing for clients with this add-on on the submission date.
+  - name: ddg
+    type: INT64
+    mode: NULLABLE
+    description: Number of tagged SAP searches using DuckDuckGo for clients with this add-on on the submission
+      date.
+  - name: google
+    type: INT64
+    mode: NULLABLE
+    description: Number of tagged SAP searches using Google for clients with this add-on on the submission
+      date.
+  - name: other
+    type: INT64
+    mode: NULLABLE
+    description: Number of tagged SAP searches using engines other than the named partners for clients with
+      this add-on.
+  - name: total
+    type: INT64
+    mode: NULLABLE
+    description: Total number of tagged SAP searches across all engines for clients with this add-on on the
+      submission date.
+  - name: yandex
+    type: INT64
+    mode: NULLABLE
+    description: Number of tagged SAP searches using Yandex for clients with this add-on on the submission
+      date.
+- name: tagged_follow_on_searches
+  type: RECORD
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: tagged_follow_on_searches
+  fields:
+  - name: amazon
+    type: INT64
+    mode: NULLABLE
+    description: Number of tagged follow-on searches using Amazon for clients with this add-on on the submission
+      date.
+  - name: bing
+    type: INT64
+    mode: NULLABLE
+    description: Number of tagged follow-on searches using Bing for clients with this add-on on the submission
+      date.
+  - name: ddg
+    type: INT64
+    mode: NULLABLE
+    description: Number of tagged follow-on searches using DuckDuckGo for clients with this add-on on the
+      submission date.
+  - name: google
+    type: INT64
+    mode: NULLABLE
+    description: Number of tagged follow-on searches using Google for clients with this add-on on the submission
+      date.
+  - name: other
+    type: INT64
+    mode: NULLABLE
+    description: Number of tagged follow-on searches using engines other than the named partners for clients
+      with this add-on.
+  - name: total
+    type: INT64
+    mode: NULLABLE
+    description: Total number of tagged follow-on searches across all engines for clients with this add-on
+      on the submission date.
+  - name: yandex
+    type: INT64
+    mode: NULLABLE
+    description: Number of tagged follow-on searches using Yandex for clients with this add-on on the submission
+      date.
+- name: organic_searches
+  type: RECORD
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: organic_searches
+  fields:
+  - name: amazon
+    type: INT64
+    mode: NULLABLE
+    description: Number of organic Amazon searches by clients with this add-on on the submission date.
+  - name: bing
+    type: INT64
+    mode: NULLABLE
+    description: Number of organic Bing searches by clients with this add-on on the submission date.
+  - name: ddg
+    type: INT64
+    mode: NULLABLE
+    description: Number of organic DuckDuckGo searches by clients with this add-on on the submission date.
+  - name: google
+    type: INT64
+    mode: NULLABLE
+    description: Number of organic Google searches by clients with this add-on on the submission date.
+  - name: other
+    type: INT64
+    mode: NULLABLE
+    description: Number of organic searches on engines other than named partners by clients with this add-on
+      on the submission date.
+  - name: total
+    type: INT64
+    mode: NULLABLE
+    description: Total number of organic searches across all engines by clients with this add-on on the submission
+      date.
+  - name: yandex
+    type: INT64
+    mode: NULLABLE
+    description: Number of organic Yandex searches by clients with this add-on on the submission date.
+- name: searches_with_ads
+  type: RECORD
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: searches_with_ads
+  fields:
+  - name: amazon
+    type: INT64
+    mode: NULLABLE
+    description: Count of Amazon search result pages containing ads seen by clients with this add-on on the
+      submission date.
+  - name: bing
+    type: INT64
+    mode: NULLABLE
+    description: Count of Bing search result pages containing ads seen by clients with this add-on on the
+      submission date.
+  - name: ddg
+    type: INT64
+    mode: NULLABLE
+    description: Count of DuckDuckGo search result pages containing ads seen by clients with this add-on on
+      the submission date.
+  - name: google
+    type: INT64
+    mode: NULLABLE
+    description: Count of Google search result pages containing ads seen by clients with this add-on on the
+      submission date.
+  - name: other
+    type: INT64
+    mode: NULLABLE
+    description: Count of search result pages containing ads from engines other than named partners seen by
+      clients with this add-on.
+  - name: total
+    type: INT64
+    mode: NULLABLE
+    description: Total count of search result pages containing ads across all engines for clients with this
+      add-on on the submission date.
+  - name: yandex
+    type: INT64
+    mode: NULLABLE
+    description: Count of Yandex search result pages containing ads seen by clients with this add-on on the
+      submission date.
+- name: ad_clicks
+  type: RECORD
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: ad_clicks
+  fields:
+  - name: amazon
+    type: INT64
+    mode: NULLABLE
+    description: Number of ad clicks on Amazon search result pages by clients with this add-on on the submission
+      date.
+  - name: bing
+    type: INT64
+    mode: NULLABLE
+    description: Number of ad clicks on Bing search result pages by clients with this add-on on the submission
+      date.
+  - name: ddg
+    type: INT64
+    mode: NULLABLE
+    description: Number of ad clicks on DuckDuckGo search result pages by clients with this add-on on the
+      submission date.
+  - name: google
+    type: INT64
+    mode: NULLABLE
+    description: Number of ad clicks on Google search result pages by clients with this add-on on the submission
+      date.
+  - name: other
+    type: INT64
+    mode: NULLABLE
+    description: Number of ad clicks on search result pages from engines other than named partners by clients
+      with this add-on.
+  - name: total
+    type: INT64
+    mode: NULLABLE
+    description: Total number of ad clicks across all search engines by clients with this add-on on the submission
+      date.
+  - name: yandex
+    type: INT64
+    mode: NULLABLE
+    description: Number of ad clicks on Yandex search result pages by clients with this add-on on the submission
+      date.
