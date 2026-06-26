@@ -172,6 +172,8 @@ fields:
     name: key_value
     type: RECORD
     fields:
+  description: An array of key-value pairs representing the extra properties attached to this telemetry
+    event.
     - mode: REQUIRED
       name: key
       type: STRING
@@ -195,6 +197,8 @@ fields:
     name: key_value
     type: RECORD
     fields:
+  description: An array of key-value pairs where each key is a Normandy/Nimbus experiment slug and each
+    value is the branch the client was enrolled in.
     - mode: REQUIRED
       name: key
       type: STRING
