@@ -8,7 +8,9 @@ fields:
 - name: window_start
   type: TIMESTAMP
   mode: NULLABLE
-  description: The start timestamp of the 5-minute aggregation window for this row.
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: window_start
 - name: channel
   type: STRING
   mode: NULLABLE
@@ -24,7 +26,9 @@ fields:
 - name: display_version
   type: STRING
   mode: NULLABLE
-  description: The display-friendly Firefox version string (e.g., '151.0.4', '115.31.0esr').
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: display_version
 - name: build_id
   type: STRING
   mode: NULLABLE
@@ -40,7 +44,9 @@ fields:
 - name: os_name
   type: STRING
   mode: NULLABLE
-  description: The operating system name of the reporting clients (e.g., 'Windows', 'Mac', 'Linux', 'Android').
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: os_name
 - name: os_version
   type: STRING
   mode: NULLABLE
@@ -62,7 +68,9 @@ fields:
 - name: count
   type: INT64
   mode: NULLABLE
-  description: The total number of pings received in this aggregation window for this dimension combination.
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: count
 - name: main_crashes
   type: INT64
   mode: NULLABLE
