@@ -8,8 +8,9 @@ fields:
 - name: doc_type
   type: STRING
   mode: NULLABLE
-  description: The telemetry document type of the source ping from which this event was extracted (e.g.,
-    'event', 'main'), identifying which ping type contributed the row.
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: doc_type
 - name: document_id
   type: STRING
   mode: NULLABLE
