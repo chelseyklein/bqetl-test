@@ -20,7 +20,9 @@ fields:
 - name: build_version
   type: STRING
   mode: NULLABLE
-  description: The Firefox application version string at the time of the crash (e.g., '152.0').
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: build_version
 - name: build_id
   type: STRING
   mode: NULLABLE
@@ -42,7 +44,9 @@ fields:
 - name: os_name
   type: STRING
   mode: NULLABLE
-  description: The operating system name of the crashing client (e.g., 'Windows_NT', 'Darwin').
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: os_name
 - name: os_version
   type: STRING
   mode: NULLABLE
@@ -64,28 +68,33 @@ fields:
 - name: experiment_id
   type: STRING
   mode: NULLABLE
-  description: The ID of the Normandy experiment the client was enrolled in at the time of the crash, if
-    any.
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: experiment_id
 - name: experiment_branch
   type: STRING
   mode: NULLABLE
-  description: The experiment branch the client was assigned to at the time of the crash (e.g., 'control',
-    'treatment').
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: experiment_branch
 - name: e10s_enabled
   type: BOOLEAN
   mode: NULLABLE
-  description: Whether Electrolysis (multi-process) mode was enabled in the crashing Firefox session. True
-    if e10s was active.
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: e10s_enabled
 - name: e10s_cohort
   type: STRING
   mode: NULLABLE
-  description: The e10s experiment cohort the client was assigned to at the time of the crash (e.g., 'test',
-    'control').
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: e10s_cohort
 - name: gfx_compositor
   type: STRING
   mode: NULLABLE
-  description: The name of the graphics compositor in use at the time of the crash (e.g., 'd3d11', 'opengl',
-    'basic').
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: gfx_compositor
 - name: payload
   type: RECORD
   mode: NULLABLE
@@ -134,11 +143,15 @@ fields:
 - name: profile_created
   type: INT64
   mode: NULLABLE
-  description: The number of days since the Unix epoch when the Firefox profile was created.
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: profile_created
 - name: experiments
   type: RECORD
   mode: NULLABLE
-  description: ''
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: experiments
   fields:
   - name: key_value
     type: RECORD
@@ -157,4 +170,6 @@ fields:
 - name: crash_time
   type: STRING
   mode: NULLABLE
-  description: The wall-clock time of the crash as seconds since the Unix epoch, from crash metadata.
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: crash_time
