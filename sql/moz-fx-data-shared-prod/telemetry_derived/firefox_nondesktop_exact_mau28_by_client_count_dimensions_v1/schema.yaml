@@ -8,22 +8,27 @@ fields:
 - name: mau
   type: INT64
   mode: NULLABLE
-  description: The count of distinct clients active at least once in the 28-day window ending on the submission
-    date (monthly active users).
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: mau
 - name: wau
   type: INT64
   mode: NULLABLE
-  description: The count of distinct clients active at least once in the 7-day window ending on the submission
-    date (weekly active users).
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: wau
 - name: dau
   type: INT64
   mode: NULLABLE
-  description: The count of distinct clients active on the submission date itself (daily active users).
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: dau
 - name: app_name
   type: STRING
   mode: NULLABLE
-  description: The non-desktop Firefox application name as reported by the client (e.g., 'Fennec', 'Focus',
-    'FirefoxForFireTV', 'Zerda').
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: app_name
 - name: app_version
   type: STRING
   mode: NULLABLE
@@ -81,5 +86,6 @@ fields:
 - name: country_name
   type: STRING
   mode: NULLABLE
-  description: The full country name corresponding to the country code (e.g., 'United States', 'Germany'),
-    joined from a static country codes reference table.
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: country_name
