@@ -1,0 +1,79 @@
+fields:
+- name: sample_id
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: client_id
+  type: STRING
+  mode: NULLABLE
+  description: ''
+- name: os
+  type: STRING
+  mode: NULLABLE
+  description: ''
+- name: app_version
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: app_build_id
+  type: STRING
+  mode: NULLABLE
+  description: ''
+- name: channel
+  type: STRING
+  mode: NULLABLE
+  description: ''
+- name: histogram_aggregates
+  type: RECORD
+  mode: REPEATED
+  description: ''
+  fields:
+  - name: agg_type
+    type: STRING
+    mode: NULLABLE
+    description: ''
+  - name: aggregates
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+  - name: first_bucket
+    type: INT64
+    mode: NULLABLE
+    description: ''
+  - name: key
+    type: STRING
+    mode: NULLABLE
+    description: ''
+  - name: last_bucket
+    type: INT64
+    mode: NULLABLE
+    description: ''
+  - name: latest_version
+    type: INT64
+    mode: NULLABLE
+    description: ''
+  - name: metric
+    type: STRING
+    mode: NULLABLE
+    description: ''
+  - name: metric_type
+    type: STRING
+    mode: NULLABLE
+    description: ''
+  - name: num_buckets
+    type: INT64
+    mode: NULLABLE
+    description: ''
+  - name: process
+    type: STRING
+    mode: NULLABLE
+    description: ''
