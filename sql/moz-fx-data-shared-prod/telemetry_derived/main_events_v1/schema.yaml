@@ -88,6 +88,8 @@ fields:
     - name: enrollment_id
       type: STRING
       mode: NULLABLE
+  description: The UUID identifying the specific enrollment instance for the experiment within the experiments
+    array.
     - name: type
       type: STRING
       mode: NULLABLE
