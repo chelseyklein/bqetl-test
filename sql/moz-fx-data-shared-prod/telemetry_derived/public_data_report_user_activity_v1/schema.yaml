@@ -2,58 +2,71 @@ fields:
 - name: submission_date
   type: DATE
   mode: NULLABLE
-  description: ''
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: submission_date
 - name: country_name
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: Human-readable country name (e.g., 'United States') or 'Worldwide' for global aggregates,
+    derived from the ISO country code.
 - name: mau
   type: INT64
   mode: NULLABLE
-  description: ''
+  description: Monthly active user count for the country and week, sourced from the canonical active_users_aggregates
+    table.
 - name: avg_hours_usage_daily
   type: NUMERIC
   mode: NULLABLE
-  description: ''
+  description: Average number of hours Firefox was actively used per day per user, computed over users who
+    were active on the last day of the report week.
 - name: intensity
   type: FLOAT64
   mode: NULLABLE
-  description: ''
+  description: Average number of active days in the last 7 days among weekly active users, ranging from
+    1 (one active day) to 7 (active every day).
 - name: new_profile_rate
   type: FLOAT64
   mode: NULLABLE
-  description: ''
+  description: Fraction of active profiles whose Firefox profile was created within the past 7 days, indicating
+    the proportion of new users.
 - name: latest_version_ratio
   type: FLOAT64
   mode: NULLABLE
-  description: ''
+  description: Fraction of weekly active users running the latest major release of Firefox at the time of
+    their last seen date.
 - name: top_addons
   type: RECORD
   mode: REPEATED
-  description: ''
+  description: Repeated struct of the top 10 user-installed add-ons by proportion of weekly active users,
+    each containing the add-on name and its usage ratio.
   fields:
   - name: addon_name
     type: STRING
     mode: NULLABLE
-    description: ''
+    description: Within each top_addons entry, the display name of the user-installed Firefox add-on.
   - name: ratio
     type: FLOAT64
     mode: NULLABLE
-    description: ''
+    description: Within each top_addons entry, the fraction of weekly active users who have this add-on installed.
 - name: has_addon_ratio
   type: FLOAT64
   mode: NULLABLE
-  description: ''
+  description: Fraction of weekly active users who have at least one non-system, non-Mozilla, user-installed
+    add-on enabled.
 - name: top_locales
   type: RECORD
   mode: REPEATED
-  description: ''
+  description: Repeated struct of the top 5 application locales by proportion of weekly active users, each
+    containing the locale code and its usage ratio.
   fields:
   - name: locale
     type: STRING
     mode: NULLABLE
-    description: ''
+    description: Within each top_locales entry, the BCP 47 locale code (e.g., 'en-US', 'de') representing
+      the Firefox application locale.
   - name: ratio
     type: FLOAT64
     mode: NULLABLE
-    description: ''
+    description: Within each top_locales entry, the fraction of weekly active users using this application
+      locale.
