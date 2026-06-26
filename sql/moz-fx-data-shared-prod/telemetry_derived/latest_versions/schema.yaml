@@ -2,8 +2,11 @@ fields:
 - name: channel
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: channel
 - name: latest_version
   type: INT64
   mode: NULLABLE
-  description: ''
+  description: The latest known major version number of Firefox for this release channel, used to identify
+    outdated clients.
