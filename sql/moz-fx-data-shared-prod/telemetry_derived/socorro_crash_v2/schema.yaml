@@ -1,0 +1,778 @@
+fields:
+- name: crash_date
+  type: DATE
+  mode: NULLABLE
+  description: ''
+- name: abort_message
+  type: STRING
+  mode: NULLABLE
+  description: ''
+- name: accessibility
+  type: STRING
+  mode: NULLABLE
+  description: ''
+- name: adapter_device_id
+  type: STRING
+  mode: NULLABLE
+  description: ''
+- name: adapter_driver_version
+  type: STRING
+  mode: NULLABLE
+  description: ''
+- name: adapter_subsys_id
+  type: STRING
+  mode: NULLABLE
+  description: ''
+- name: adapter_vendor_id
+  type: STRING
+  mode: NULLABLE
+  description: ''
+- name: additional_minidumps
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: list
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: element
+      type: STRING
+      mode: NULLABLE
+      description: ''
+- name: addons
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: list
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: element
+      type: STRING
+      mode: NULLABLE
+      description: ''
+- name: addons_checked
+  type: BOOLEAN
+  mode: NULLABLE
+  description: ''
+- name: address
+  type: STRING
+  mode: NULLABLE
+  description: ''
+- name: android_board
+  type: STRING
+  mode: NULLABLE
+  description: ''
+- name: android_brand
+  type: STRING
+  mode: NULLABLE
+  description: ''
+- name: android_cpu_abi
+  type: STRING
+  mode: NULLABLE
+  description: ''
+- name: android_cpu_abi2
+  type: STRING
+  mode: NULLABLE
+  description: ''
+- name: android_device
+  type: STRING
+  mode: NULLABLE
+  description: ''
+- name: android_hardware
+  type: STRING
+  mode: NULLABLE
+  description: ''
+- name: android_manufacturer
+  type: STRING
+  mode: NULLABLE
+  description: ''
+- name: android_model
+  type: STRING
+  mode: NULLABLE
+  description: ''
+- name: android_version
+  type: STRING
+  mode: NULLABLE
+  description: ''
+- name: app_init_dlls
+  type: STRING
+  mode: NULLABLE
+  description: ''
+- name: app_notes
+  type: STRING
+  mode: NULLABLE
+  description: ''
+- name: available_physical_memory
+  type: STRING
+  mode: NULLABLE
+  description: ''
+- name: available_virtual_memory
+  type: STRING
+  mode: NULLABLE
+  description: ''
+- name: bios_manufacturer
+  type: STRING
+  mode: NULLABLE
+  description: ''
+- name: build_id
+  type: STRING
+  mode: NULLABLE
+  description: ''
+- name: classifications
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: jit
+    type: RECORD
+    mode: NULLABLE
+    description: ''
+    fields:
+    - name: category
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: category_return_code
+      type: STRING
+      mode: NULLABLE
+      description: ''
+  - name: skunk_works
+    type: RECORD
+    mode: NULLABLE
+    description: ''
+    fields:
+    - name: classification
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: classification_data
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: classification_version
+      type: STRING
+      mode: NULLABLE
+      description: ''
+  - name: support
+    type: RECORD
+    mode: NULLABLE
+    description: ''
+    fields:
+    - name: classification
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: classification_data
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: classification_version
+      type: STRING
+      mode: NULLABLE
+      description: ''
+- name: contains_memory_report
+  type: STRING
+  mode: NULLABLE
+  description: ''
+- name: cpu_arch
+  type: STRING
+  mode: NULLABLE
+  description: ''
+- name: cpu_info
+  type: STRING
+  mode: NULLABLE
+  description: ''
+- name: cpu_microcode_version
+  type: STRING
+  mode: NULLABLE
+  description: ''
+- name: crash_id
+  type: STRING
+  mode: NULLABLE
+  description: ''
+- name: date
+  type: STRING
+  mode: NULLABLE
+  description: ''
+- name: dom_ipc_enabled
+  type: STRING
+  mode: NULLABLE
+  description: ''
+- name: e10s_cohort
+  type: STRING
+  mode: NULLABLE
+  description: ''
+- name: flash_version
+  type: STRING
+  mode: NULLABLE
+  description: ''
+- name: gmp_plugin
+  type: STRING
+  mode: NULLABLE
+  description: ''
+- name: graphics_critical_error
+  type: STRING
+  mode: NULLABLE
+  description: ''
+- name: graphics_startup_test
+  type: STRING
+  mode: NULLABLE
+  description: ''
+- name: hang_type
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: install_age
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: ipc_channel_error
+  type: STRING
+  mode: NULLABLE
+  description: ''
+- name: ipc_fatal_error_msg
+  type: STRING
+  mode: NULLABLE
+  description: ''
+- name: ipc_fatal_error_protocol
+  type: STRING
+  mode: NULLABLE
+  description: ''
+- name: ipc_message_name
+  type: STRING
+  mode: NULLABLE
+  description: ''
+- name: ipc_system_error
+  type: STRING
+  mode: NULLABLE
+  description: ''
+- name: is_garbage_collecting
+  type: STRING
+  mode: NULLABLE
+  description: ''
+- name: java_stack_trace
+  type: STRING
+  mode: NULLABLE
+  description: ''
+- name: jit_category
+  type: STRING
+  mode: NULLABLE
+  description: ''
+- name: json_dump
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: crash_info
+    type: RECORD
+    mode: NULLABLE
+    description: ''
+    fields:
+    - name: address
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: crashing_thread
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: type
+      type: STRING
+      mode: NULLABLE
+      description: ''
+  - name: crashing_thread
+    type: RECORD
+    mode: NULLABLE
+    description: ''
+    fields:
+    - name: frames
+      type: RECORD
+      mode: NULLABLE
+      description: ''
+      fields:
+      - name: list
+        type: RECORD
+        mode: REPEATED
+        description: ''
+        fields:
+        - name: element
+          type: RECORD
+          mode: NULLABLE
+          description: ''
+          fields:
+          - name: file
+            type: STRING
+            mode: NULLABLE
+            description: ''
+          - name: frame
+            type: INT64
+            mode: NULLABLE
+            description: ''
+          - name: function
+            type: STRING
+            mode: NULLABLE
+            description: ''
+          - name: function_offset
+            type: STRING
+            mode: NULLABLE
+            description: ''
+          - name: line
+            type: INT64
+            mode: NULLABLE
+            description: ''
+          - name: module
+            type: STRING
+            mode: NULLABLE
+            description: ''
+          - name: module_offset
+            type: STRING
+            mode: NULLABLE
+            description: ''
+          - name: offset
+            type: STRING
+            mode: NULLABLE
+            description: ''
+    - name: threads_index
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: total_frames
+      type: INT64
+      mode: NULLABLE
+      description: ''
+  - name: largest_free_vm_block
+    type: STRING
+    mode: NULLABLE
+    description: ''
+  - name: main_module
+    type: INT64
+    mode: NULLABLE
+    description: ''
+  - name: modules
+    type: RECORD
+    mode: NULLABLE
+    description: ''
+    fields:
+    - name: list
+      type: RECORD
+      mode: REPEATED
+      description: ''
+      fields:
+      - name: element
+        type: RECORD
+        mode: NULLABLE
+        description: ''
+        fields:
+        - name: base_addr
+          type: STRING
+          mode: NULLABLE
+          description: ''
+        - name: code_id
+          type: STRING
+          mode: NULLABLE
+          description: ''
+        - name: debug_file
+          type: STRING
+          mode: NULLABLE
+          description: ''
+        - name: debug_id
+          type: STRING
+          mode: NULLABLE
+          description: ''
+        - name: end_addr
+          type: STRING
+          mode: NULLABLE
+          description: ''
+        - name: filename
+          type: STRING
+          mode: NULLABLE
+          description: ''
+        - name: loaded_symbols
+          type: BOOLEAN
+          mode: NULLABLE
+          description: ''
+        - name: missing_symbols
+          type: BOOLEAN
+          mode: NULLABLE
+          description: ''
+        - name: symbol_disk_cache_hit
+          type: BOOLEAN
+          mode: NULLABLE
+          description: ''
+        - name: symbol_url
+          type: STRING
+          mode: NULLABLE
+          description: ''
+        - name: version
+          type: STRING
+          mode: NULLABLE
+          description: ''
+  - name: pid
+    type: INT64
+    mode: NULLABLE
+    description: ''
+  - name: status
+    type: STRING
+    mode: NULLABLE
+    description: ''
+  - name: system_info
+    type: RECORD
+    mode: NULLABLE
+    description: ''
+    fields:
+    - name: cpu_arch
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: cpu_count
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: cpu_info
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: os
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: os_ver
+      type: STRING
+      mode: NULLABLE
+      description: ''
+  - name: thread_count
+    type: INT64
+    mode: NULLABLE
+    description: ''
+  - name: threads
+    type: RECORD
+    mode: NULLABLE
+    description: ''
+    fields:
+    - name: list
+      type: RECORD
+      mode: REPEATED
+      description: ''
+      fields:
+      - name: element
+        type: RECORD
+        mode: NULLABLE
+        description: ''
+        fields:
+        - name: frame_count
+          type: INT64
+          mode: NULLABLE
+          description: ''
+        - name: frames
+          type: RECORD
+          mode: NULLABLE
+          description: ''
+          fields:
+          - name: list
+            type: RECORD
+            mode: REPEATED
+            description: ''
+            fields:
+            - name: element
+              type: RECORD
+              mode: NULLABLE
+              description: ''
+              fields:
+              - name: file
+                type: STRING
+                mode: NULLABLE
+                description: ''
+              - name: frame
+                type: INT64
+                mode: NULLABLE
+                description: ''
+              - name: function
+                type: STRING
+                mode: NULLABLE
+                description: ''
+              - name: function_offset
+                type: STRING
+                mode: NULLABLE
+                description: ''
+              - name: line
+                type: INT64
+                mode: NULLABLE
+                description: ''
+              - name: module
+                type: STRING
+                mode: NULLABLE
+                description: ''
+              - name: module_offset
+                type: STRING
+                mode: NULLABLE
+                description: ''
+              - name: offset
+                type: STRING
+                mode: NULLABLE
+                description: ''
+  - name: tiny_block_size
+    type: STRING
+    mode: NULLABLE
+    description: ''
+  - name: write_combine_size
+    type: STRING
+    mode: NULLABLE
+    description: ''
+- name: last_crash
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: memory_measures
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: explicit
+    type: INT64
+    mode: NULLABLE
+    description: ''
+  - name: gfx_textures
+    type: INT64
+    mode: NULLABLE
+    description: ''
+  - name: ghost_windows
+    type: INT64
+    mode: NULLABLE
+    description: ''
+  - name: heap_allocated
+    type: INT64
+    mode: NULLABLE
+    description: ''
+  - name: heap_overhead
+    type: INT64
+    mode: NULLABLE
+    description: ''
+  - name: heap_unclassified
+    type: INT64
+    mode: NULLABLE
+    description: ''
+  - name: host_object_urls
+    type: INT64
+    mode: NULLABLE
+    description: ''
+  - name: images
+    type: INT64
+    mode: NULLABLE
+    description: ''
+  - name: js_main_runtime
+    type: INT64
+    mode: NULLABLE
+    description: ''
+  - name: private
+    type: INT64
+    mode: NULLABLE
+    description: ''
+  - name: resident
+    type: INT64
+    mode: NULLABLE
+    description: ''
+  - name: resident_unique
+    type: INT64
+    mode: NULLABLE
+    description: ''
+  - name: system_heap_allocated
+    type: INT64
+    mode: NULLABLE
+    description: ''
+  - name: top_none_detached
+    type: INT64
+    mode: NULLABLE
+    description: ''
+  - name: vsize
+    type: INT64
+    mode: NULLABLE
+    description: ''
+  - name: vsize_max_contiguous
+    type: INT64
+    mode: NULLABLE
+    description: ''
+- name: memory_report
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: hasMozMallocUsableSize
+    type: BOOLEAN
+    mode: NULLABLE
+    description: ''
+  - name: reports
+    type: RECORD
+    mode: NULLABLE
+    description: ''
+    fields:
+    - name: list
+      type: RECORD
+      mode: REPEATED
+      description: ''
+      fields:
+      - name: element
+        type: RECORD
+        mode: NULLABLE
+        description: ''
+        fields:
+        - name: amount
+          type: INT64
+          mode: NULLABLE
+          description: ''
+        - name: description
+          type: STRING
+          mode: NULLABLE
+          description: ''
+        - name: kind
+          type: INT64
+          mode: NULLABLE
+          description: ''
+        - name: path
+          type: STRING
+          mode: NULLABLE
+          description: ''
+        - name: process
+          type: STRING
+          mode: NULLABLE
+          description: ''
+        - name: units
+          type: INT64
+          mode: NULLABLE
+          description: ''
+  - name: version
+    type: INT64
+    mode: NULLABLE
+    description: ''
+- name: moz_crash_reason
+  type: STRING
+  mode: NULLABLE
+  description: ''
+- name: oom_allocation_size
+  type: STRING
+  mode: NULLABLE
+  description: ''
+- name: platform
+  type: STRING
+  mode: NULLABLE
+  description: ''
+- name: platform_pretty_version
+  type: STRING
+  mode: NULLABLE
+  description: ''
+- name: platform_version
+  type: STRING
+  mode: NULLABLE
+  description: ''
+- name: plugin_filename
+  type: STRING
+  mode: NULLABLE
+  description: ''
+- name: plugin_name
+  type: STRING
+  mode: NULLABLE
+  description: ''
+- name: plugin_version
+  type: STRING
+  mode: NULLABLE
+  description: ''
+- name: process_type
+  type: STRING
+  mode: NULLABLE
+  description: ''
+- name: processor_notes
+  type: STRING
+  mode: NULLABLE
+  description: ''
+- name: product
+  type: STRING
+  mode: NULLABLE
+  description: ''
+- name: productid
+  type: STRING
+  mode: NULLABLE
+  description: ''
+- name: proto_signature
+  type: STRING
+  mode: NULLABLE
+  description: ''
+- name: reason
+  type: STRING
+  mode: NULLABLE
+  description: ''
+- name: release_channel
+  type: STRING
+  mode: NULLABLE
+  description: ''
+- name: safe_mode
+  type: STRING
+  mode: NULLABLE
+  description: ''
+- name: shutdown_progress
+  type: STRING
+  mode: NULLABLE
+  description: ''
+- name: signature
+  type: STRING
+  mode: NULLABLE
+  description: ''
+- name: startup_crash
+  type: STRING
+  mode: NULLABLE
+  description: ''
+- name: submitted_from_infobar
+  type: STRING
+  mode: NULLABLE
+  description: ''
+- name: theme
+  type: STRING
+  mode: NULLABLE
+  description: ''
+- name: topmost_filenames
+  type: STRING
+  mode: NULLABLE
+  description: ''
+- name: total_physical_memory
+  type: STRING
+  mode: NULLABLE
+  description: ''
+- name: total_virtual_memory
+  type: STRING
+  mode: NULLABLE
+  description: ''
+- name: uptime
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: user_comments
+  type: STRING
+  mode: NULLABLE
+  description: ''
+- name: useragent_locale
+  type: STRING
+  mode: NULLABLE
+  description: ''
+- name: uuid
+  type: STRING
+  mode: NULLABLE
+  description: ''
+- name: version
+  type: STRING
+  mode: NULLABLE
+  description: ''
+- name: winsock_lsp
+  type: STRING
+  mode: NULLABLE
+  description: ''
+- name: minidump_sha256_hash
+  type: STRING
+  mode: NULLABLE
+  description: ''
+- name: dom_fission_enabled
+  type: STRING
+  mode: NULLABLE
+  description: ''
