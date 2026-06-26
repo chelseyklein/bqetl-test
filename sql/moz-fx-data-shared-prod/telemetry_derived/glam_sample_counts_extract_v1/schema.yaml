@@ -1,49 +1,55 @@
 fields:
-- mode: NULLABLE
-  name: submission_date
-  type: DATE
-  description: !include-field-description
-    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
-    field: submission_date
-- mode: NULLABLE
-  name: ping
-  type: STRING
-  description: !include-field-description
-    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
-    field: ping
-- mode: NULLABLE
-  name: channel
-  type: STRING
+- name: channel
+  type: INT64
+  mode: NULLABLE
   description: !include-field-description
     file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
     field: channel
-- mode: NULLABLE
-  name: metric_name
+- name: app_version
+  type: INT64
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: app_version
+- name: app_build_id
   type: STRING
+  mode: NULLABLE
   description: !include-field-description
     file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
-    field: metric_name
-- mode: REPEATED
-  name: percentiles
-  type: INTEGER
+    field: app_build_id
+- name: os
+  type: STRING
+  mode: NULLABLE
   description: !include-field-description
     file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
-    field: percentiles
-- mode: NULLABLE
-  name: mean
-  type: FLOAT
+    field: os
+- name: process
+  type: STRING
+  mode: NULLABLE
   description: !include-field-description
     file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
-    field: mean
-- mode: NULLABLE
-  name: std_dev
-  type: FLOAT
+    field: process
+- name: key
+  type: STRING
+  mode: NULLABLE
   description: !include-field-description
     file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
-    field: std_dev
-- mode: NULLABLE
-  name: median
-  type: INTEGER
+    field: key
+- name: metric
+  type: STRING
+  mode: NULLABLE
   description: !include-field-description
     file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
-    field: median
+    field: metric
+- name: client_agg_type
+  type: STRING
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: client_agg_type
+- name: total_sample
+  type: FLOAT64
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: total_sample
