@@ -2,7 +2,9 @@ fields:
 - name: submission_date
   type: DATE
   mode: NULLABLE
-  description: The calendar date for which this row reports either an observed or forecasted metric value.
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: submission_date
 - name: aggregation_period
   type: STRING
   mode: NULLABLE
@@ -11,8 +13,9 @@ fields:
 - name: source
   type: STRING
   mode: NULLABLE
-  description: Whether the value in this row is 'historical' (observed actuals) or 'forecast' (model-generated
-    prediction).
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: source
 - name: measure
   type: STRING
   mode: NULLABLE
@@ -21,8 +24,9 @@ fields:
 - name: value
   type: FLOAT64
   mode: NULLABLE
-  description: The metric value for this submission_date and measure (either an observed count or a forecasted
-    value at the given percentile).
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: value
 - name: metric_alias
   type: STRING
   mode: NULLABLE
@@ -66,5 +70,6 @@ fields:
 - name: forecast_parameters
   type: STRING
   mode: NULLABLE
-  description: A JSON string describing the Prophet model type and hyperparameters used to generate this
-    forecast.
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: forecast_parameters
