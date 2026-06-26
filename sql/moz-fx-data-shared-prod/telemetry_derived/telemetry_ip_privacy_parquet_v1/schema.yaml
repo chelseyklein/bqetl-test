@@ -1,0 +1,26 @@
+fields:
+- name: submission_date
+  type: DATE
+  mode: NULLABLE
+  description: ''
+- name: timestamp
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: fields
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: client_id
+    type: STRING
+    mode: NULLABLE
+    description: ''
+  - name: geo_country
+    type: STRING
+    mode: NULLABLE
+    description: ''
+  - name: ip
+    type: STRING
+    mode: NULLABLE
+    description: ''
