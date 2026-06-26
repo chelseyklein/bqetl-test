@@ -2,7 +2,9 @@ fields:
 - name: additional_properties
   type: STRING
   mode: NULLABLE
-  description: A JSON string containing any payload properties not present in the schema
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: additional_properties
 - name: client_info
   type: RECORD
   mode: NULLABLE
@@ -11,23 +13,28 @@ fields:
   - name: android_sdk_version
     type: STRING
     mode: NULLABLE
-    description: ''
+    description: The Android SDK API level of the device (e.g., '33' for Android 13). Null for non-Android
+      clients.
   - name: app_build
     type: STRING
     mode: NULLABLE
-    description: ''
+    description: The build identifier string for the Firefox application (e.g., '20260608154138'), uniquely
+      identifying the specific build that crashed.
   - name: app_channel
     type: STRING
     mode: NULLABLE
-    description: ''
+    description: The release channel of the Firefox build as reported by the Glean SDK (e.g., 'release', 'esr',
+      'beta'); null for desktop Firefox builds that report via other mechanisms.
   - name: app_display_version
     type: STRING
     mode: NULLABLE
-    description: ''
+    description: The human-readable version string of the Firefox application (e.g., '144.0', '115.37.0')
+      as reported by the client at the time of the crash.
   - name: architecture
     type: STRING
     mode: NULLABLE
-    description: ''
+    description: The CPU architecture of the client device as reported by the Glean SDK (e.g., 'x86_64', 'aarch64',
+      'arm64-v8a').
   - name: attribution
     type: RECORD
     mode: NULLABLE
@@ -36,43 +43,52 @@ fields:
     - name: campaign
       type: STRING
       mode: NULLABLE
-      description: ''
+      description: The attribution campaign name associated with the Firefox install (e.g., a marketing campaign
+        identifier). Null for non-attributed installs.
     - name: content
       type: STRING
       mode: NULLABLE
-      description: ''
+      description: The attribution content parameter providing additional detail about the install source (e.g.,
+        a button or ad variant). Null for non-attributed installs.
     - name: ext
       type: JSON
       mode: NULLABLE
-      description: ''
+      description: A JSON object containing additional attribution extension fields beyond the standard parameters.
+        Always null in this table.
     - name: medium
       type: STRING
       mode: NULLABLE
-      description: ''
+      description: The attribution medium describing the type of channel that led to the Firefox install (e.g.,
+        'referral', 'direct'). Null for non-attributed installs.
     - name: source
       type: STRING
       mode: NULLABLE
-      description: ''
+      description: The attribution source indicating where the user came from before installing Firefox (e.g.,
+        a referring website). Null for non-attributed installs.
     - name: term
       type: STRING
       mode: NULLABLE
-      description: ''
+      description: The attribution search term associated with the Firefox install (e.g., the keyword used in
+        a paid search ad). Always null in this table.
   - name: build_date
     type: STRING
     mode: NULLABLE
-    description: ''
+    description: The UTC timestamp at which the Firefox application binary was compiled, as reported by the
+      Glean SDK. Most mobile builds report '1970-01-01T00:00:00+00:00' as a placeholder.
   - name: client_id
     type: STRING
     mode: NULLABLE
-    description: ''
+    description: The UUID that uniquely identifies the Firefox client profile that sent this crash ping.
   - name: device_manufacturer
     type: STRING
     mode: NULLABLE
-    description: ''
+    description: The manufacturer of the Android device (e.g., 'samsung', 'Xiaomi'). Null for non-Android
+      clients.
   - name: device_model
     type: STRING
     mode: NULLABLE
-    description: ''
+    description: The hardware model identifier of the Android device (e.g., 'SM-M127F'). Null for non-Android
+      clients.
   - name: distribution
     type: RECORD
     mode: NULLABLE
@@ -81,47 +97,58 @@ fields:
     - name: ext
       type: JSON
       mode: NULLABLE
-      description: ''
+      description: A JSON object containing additional distribution extension fields. Always null in this table.
     - name: name
       type: STRING
       mode: NULLABLE
-      description: ''
+      description: The identifier of the Firefox distribution (e.g., 'mozilla-win-eol-esr115', 'portableapps')
+        when the client was distributed via a partner or special channel. Null for standard Mozilla distributions.
   - name: first_run_date
     type: STRING
     mode: NULLABLE
-    description: ''
+    description: The date on which Firefox was first run on this device, as reported by the Glean SDK, in
+      ISO 8601 format with timezone offset.
   - name: locale
     type: STRING
     mode: NULLABLE
-    description: ''
+    description: The locale string of the Firefox application (e.g., 'en-US', 'de') representing the language
+      and region settings. Null when not reported.
   - name: os
     type: STRING
     mode: NULLABLE
-    description: ''
+    description: The operating system name as reported by the Glean SDK (e.g., 'Windows', 'Linux', 'Darwin',
+      'Android').
   - name: os_version
     type: STRING
     mode: NULLABLE
-    description: ''
+    description: The operating system version string as reported by the Glean SDK (e.g., '10.0' for Windows
+      10, '6.1' for Windows 7).
   - name: session_count
     type: INT64
     mode: NULLABLE
-    description: ''
+    description: The number of sessions the client has had since installation, as tracked by the Glean SDK.
+      Always null in this table.
   - name: session_id
     type: STRING
     mode: NULLABLE
-    description: ''
+    description: A UUID identifying the current application session as tracked by the Glean SDK. Always null
+      in this table.
   - name: telemetry_sdk_build
     type: STRING
     mode: NULLABLE
-    description: ''
+    description: The version of the Glean telemetry SDK used by the Firefox client that submitted this crash
+      ping.
   - name: windows_build_number
     type: INT64
     mode: NULLABLE
-    description: ''
+    description: The Windows build number of the operating system (e.g., 19045 for Windows 10 22H2). Null
+      for non-Windows clients.
 - name: document_id
   type: STRING
   mode: NULLABLE
-  description: The document ID specified in the URI when the client sent this message
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: document_id
 - name: events
   type: RECORD
   mode: REPEATED
@@ -736,23 +763,33 @@ fields:
 - name: normalized_app_name
   type: STRING
   mode: NULLABLE
-  description: Set to "Other" if this message contained an unrecognized app name
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: normalized_app_name
 - name: normalized_channel
   type: STRING
   mode: NULLABLE
-  description: Normalized channel name
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: normalized_channel
 - name: normalized_country_code
   type: STRING
   mode: NULLABLE
-  description: An ISO 3166-1 alpha-2 country code
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: normalized_country_code
 - name: normalized_os
   type: STRING
   mode: NULLABLE
-  description: Set to "Other" if this message contained an unrecognized OS name
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: normalized_os
 - name: normalized_os_version
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: normalized_os_version
 - name: ping_info
   type: RECORD
   mode: NULLABLE
@@ -761,11 +798,13 @@ fields:
   - name: end_time
     type: STRING
     mode: NULLABLE
-    description: ''
+    description: The local time on the client device at the end of the measurement window for this ping, in
+      ISO 8601 format with timezone offset.
   - name: experiments
     type: RECORD
     mode: REPEATED
-    description: ''
+    description: An array of Nimbus experiment enrollments active at the time this crash ping was submitted,
+      each containing the experiment slug, branch, and enrollment ID.
     fields:
     - name: key
       type: STRING
@@ -796,23 +835,27 @@ fields:
   - name: parsed_end_time
     type: TIMESTAMP
     mode: NULLABLE
-    description: ''
+    description: The ping measurement window end time parsed to UTC and stored as a TIMESTAMP for easier querying.
   - name: parsed_start_time
     type: TIMESTAMP
     mode: NULLABLE
-    description: ''
+    description: The ping measurement window start time parsed to UTC and stored as a TIMESTAMP for easier
+      querying.
   - name: ping_type
     type: STRING
     mode: NULLABLE
-    description: ''
+    description: The type of Glean ping that was submitted. Always null in this table; the crash ping type
+      is inferred from context.
   - name: reason
     type: STRING
     mode: NULLABLE
-    description: ''
+    description: The reason this crash ping was submitted; 'crash' indicates a browser crash was detected,
+      and 'event_found' indicates a crash event was discovered after the fact.
   - name: seq
     type: INT64
     mode: NULLABLE
-    description: ''
+    description: The sequence number of this ping within the client's session, used to detect missing or out-of-order
+      pings.
   - name: server_knobs_config
     type: RECORD
     mode: NULLABLE
@@ -821,7 +864,8 @@ fields:
     - name: event_threshold
       type: INT64
       mode: NULLABLE
-      description: ''
+      description: The server-configured threshold for the number of events that triggers an event ping submission.
+        Null when not set by remote configuration.
     - name: metrics_enabled
       type: RECORD
       mode: REPEATED
@@ -855,32 +899,44 @@ fields:
   - name: start_time
     type: STRING
     mode: NULLABLE
-    description: ''
+    description: The local time on the client device at the start of the measurement window for this ping,
+      in ISO 8601 format with timezone offset.
 - name: sample_id
   type: INT64
   mode: NULLABLE
-  description: Hashed version of client_id (if present) useful for partitioning; ranges from 0 to 99
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: sample_id
 - name: submission_timestamp
   type: TIMESTAMP
   mode: NULLABLE
-  description: Time when the ingestion edge server accepted this message
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: submission_timestamp
 - name: app_version_major
   type: NUMERIC
   mode: NULLABLE
-  description: ''
+  description: The major version component of the Firefox application version (e.g., 144 for version 144.0).
+    For mobile builds using a build ID string as version, this may be non-numeric.
 - name: app_version_minor
   type: NUMERIC
   mode: NULLABLE
-  description: ''
+  description: The minor version component of the Firefox application version (e.g., 0 for version 144.0,
+    37 for version 115.37.0).
 - name: app_version_patch
   type: NUMERIC
   mode: NULLABLE
-  description: ''
+  description: The patch version component of the Firefox application version (e.g., 0 for version 115.0,
+    4 for version 151.0.4). Null when no patch component is present.
 - name: is_bot_generated
   type: BOOLEAN
   mode: NULLABLE
-  description: ''
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: is_bot_generated
 - name: normalized_app_id
   type: STRING
   mode: NULLABLE
-  description: App ID of the channel data was received from
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: normalized_app_id
