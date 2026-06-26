@@ -2,60 +2,81 @@ fields:
 - name: submission_date
   type: DATE
   mode: NULLABLE
-  description: ''
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: submission_date
 - name: mau
   type: INT64
   mode: NULLABLE
-  description: ''
+  description: Monthly Active Users count; number of distinct clients active in the 28-day window ending
+    on submission_date.
 - name: wau
   type: INT64
   mode: NULLABLE
-  description: ''
+  description: Weekly Active Users count; number of distinct clients active in the 7-day window ending on
+    submission_date.
 - name: dau
   type: INT64
   mode: NULLABLE
-  description: ''
+  description: Daily Active Users count; number of distinct clients active on the submission_date within
+    this dimension group.
 - name: app_name
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: The non-desktop application name as reported in telemetry (e.g., 'Fennec', 'Focus', 'Zerda',
+    'FirefoxForFireTV').
 - name: app_version
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: app_version
 - name: arch
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: The CPU architecture of the client device (e.g., 'arm64', 'arm64-v8a', 'armeabi-v7a', 'x86_64').
 - name: normalized_channel
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: normalized_channel
 - name: default_search
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: default_search
 - name: distribution_id
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: distribution_id
 - name: country
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: country
 - name: locale
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: locale
 - name: os
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: os
 - name: osversion
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: The operating system version string reported by the client (e.g., '28' for Android API level
+    28).
 - name: country_name
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: The full country name corresponding to the country code (e.g., 'United States', 'Germany').
