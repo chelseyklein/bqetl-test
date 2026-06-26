@@ -2,80 +2,109 @@ fields:
 - name: submission_date
   type: DATE
   mode: NULLABLE
-  description: ''
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: submission_date
 - name: window_start
   type: TIMESTAMP
   mode: NULLABLE
-  description: ''
+  description: The start of the 5-minute aggregation window within the submission date, used for near-real-time
+    anomaly detection and error monitoring.
 - name: channel
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: channel
 - name: version
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: version
 - name: display_version
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: display_version
 - name: build_id
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: build_id
 - name: application
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: The name of the Mozilla application that sent the pings (e.g., Firefox, FirefoxForFireTV,
+    Focus).
 - name: os_name
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: os_name
 - name: os_version
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: os_version
 - name: architecture
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: architecture
 - name: country
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: country
 - name: count
   type: INT64
   mode: NULLABLE
-  description: ''
+  description: The total number of pings (crash + main + core) included in this aggregation window and dimension
+    combination.
 - name: main_crashes
   type: INT64
   mode: NULLABLE
-  description: ''
+  description: The number of main-process Firefox crashes recorded in crash pings for this aggregation window
+    and dimension combination.
 - name: content_crashes
   type: INT64
   mode: NULLABLE
-  description: ''
+  description: The number of content-process (tab renderer) crashes recorded in crash pings, excluding content
+    shutdown crashes caused by IPC ShutDownKill.
 - name: startup_crashes
   type: INT64
   mode: NULLABLE
-  description: ''
+  description: The number of crashes that occurred during Firefox startup, as indicated by the startup_crash
+    metadata field in crash pings.
 - name: content_shutdown_crashes
   type: INT64
   mode: NULLABLE
-  description: ''
+  description: The number of content-process crashes that occurred during shutdown, identified by an IPC
+    channel error of 'ShutDownKill'.
 - name: gpu_crashes
   type: INT64
   mode: NULLABLE
-  description: ''
+  description: The number of GPU process crashes recorded from the subprocess_crashes_with_dump keyed histogram
+    in main pings.
 - name: plugin_crashes
   type: INT64
   mode: NULLABLE
-  description: ''
+  description: The number of plugin process crashes recorded from the subprocess_crashes_with_dump keyed
+    histogram in main pings.
 - name: gmplugin_crashes
   type: INT64
   mode: NULLABLE
-  description: ''
+  description: The number of Gecko Media Plugin (GMP) process crashes recorded from the subprocess_crashes_with_dump
+    keyed histogram in main pings.
 - name: usage_hours
   type: FLOAT64
   mode: NULLABLE
-  description: ''
+  description: The total number of browser usage hours aggregated from subsession lengths in main pings
+    and durations in core pings, capped at 24 hours per ping to protect against extreme values.
