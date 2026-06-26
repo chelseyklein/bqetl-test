@@ -14,8 +14,9 @@ fields:
 - name: placement
   type: STRING
   mode: NULLABLE
-  description: The location or surface within Firefox where the sponsored top-site or ad partner engagement
-    occurred (e.g., the specific New Tab placement).
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: placement
 - name: partner
   type: STRING
   mode: NULLABLE
