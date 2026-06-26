@@ -338,6 +338,9 @@ fields:
 - name: metadata
   type: RECORD
   mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: metadata
   fields:
   - name: first_seen_date_source_ping
     type: STRING

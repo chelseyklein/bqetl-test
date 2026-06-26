@@ -1,0 +1,54 @@
+fields:
+- name: submission_date
+  type: DATE
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: submission_date
+- name: country
+  type: STRING
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: country
+- name: placement
+  type: STRING
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: placement
+- name: partner
+  type: STRING
+  mode: NULLABLE
+  description: The advertising partner associated with the engagement, such as 'amazon'. Derived from the
+    event map values for phase 2 experiments or from the event string value for later phases.
+- name: version
+  type: STRING
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: payload_version
+- name: normalized_channel
+  type: STRING
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: normalized_channel
+- name: n_engagements
+  type: INT64
+  mode: NULLABLE
+  description: The total count of user engagements for the given combination of dimensions on the submission
+    date. For 'topsite' interactions this is a count of click events; for 'redirect' interactions this is
+    the sum of search access point (SAP) counts.
+- name: interaction
+  type: STRING
+  mode: NULLABLE
+  description: The type of user engagement recorded. Set to 'topsite' for clicks on sponsored top site tiles
+    (from partner_link events) and 'redirect' for search access points that triggered an ADM search engine
+    (from search SAP counts).
+- name: phase
+  type: STRING
+  mode: NULLABLE
+  description: The rollout phase of the sponsored top sites experiment that the client was enrolled in.
+    Possible values are 'phase2', 'phase3', or 'rollout', corresponding to specific Nimbus/pref-flip experiments;
+    null if the client was not enrolled in any tracked experiment.

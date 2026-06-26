@@ -3492,3 +3492,242 @@ fields:
   description: The 95th percentile of the forecasted value distribution, representing the upper tail of the predicted outcome where 95% of simulated
     values fall below this threshold. This field may be null when percentile-level forecast outputs are not computed for a given row.
   type: FLOAT64
+- name: organic_searches
+  description: Organic searches (not initiated through a Firefox SAP, i.e., typed directly into the search
+    engine site) broken down by engine.
+- name: sap_searches
+  description: Search Access Point (SAP) search counts broken down by search engine for clients with this
+    add-on.
+- name: searches_with_ads
+  description: Search result pages that contained advertising, broken down by search engine, for clients
+    with this add-on.
+- name: tagged_follow_on_searches
+  description: Tagged follow-on searches (searches initiated from a results page rather than directly
+    from Firefox) broken down by engine.
+- name: tagged_sap_searches
+  description: SAP searches that were tagged (i.e., associated with a partner code) broken down by search
+    engine.
+- name: app_id
+  description: The Glean application ID (e.g., 'firefox.desktop', 'org.mozilla.fenix'). Null for legacy
+    telemetry applications.
+- name: histogram_aggregates_bucket_range_first_bucket
+  description: The lower bound of the first bucket in the histogram's bucket range.
+- name: histogram_aggregates_bucket_range_last_bucket
+  description: The upper bound of the last bucket in the histogram's bucket range.
+- name: active_addons_app_disabled
+  description: Whether the add-on is disabled by the application due to version incompatibility, unresolved
+    dependencies, or blocklisting; true means Firefox prevented it from running.
+- name: active_addons_blocklisted
+  description: Whether the add-on appears in the Firefox blocklist; blocklisted add-ons may be disabled
+    for security or stability reasons.
+- name: active_addons_foreign_install
+  description: Whether the add-on was installed by an external application rather than directly by the
+    user through Firefox.
+- name: active_addons_has_binary_components
+  description: Whether the add-on contains native binary components; this is always false since Firefox
+    60.
+- name: active_addons_install_day
+  description: The number of days since the Unix epoch on which the add-on was first installed.
+- name: active_addons_is_web_extension
+  description: Whether the add-on is implemented as a WebExtension, the modern cross-browser extension
+    API standard.
+- name: active_addons_multiprocess_compatible
+  description: Whether the add-on is compatible with Firefox's multi-process (e10s) architecture; since
+    Firefox 61, this is always true.
+- name: active_addons_scope
+  description: Installation scope of the add-on, indicating whether it was installed per-profile, per-user,
+    system-wide, or bundled with the application.
+- name: active_addons_signed_state
+  description: The AMO signing state of the add-on, represented as an integer; unsigned or improperly
+    signed add-ons may be restricted in Firefox.
+- name: active_addons_update_day
+  description: The number of days since the Unix epoch on which the add-on was last updated.
+- name: active_addons_user_disabled
+  description: Whether the user explicitly disabled the add-on; true means the user turned it off intentionally.
+- name: scalar_aggregates
+  description: Repeated record containing one row per scalar metric aggregated for the client on the submission
+    date, capturing the metric name, type, process, key, aggregation function, and resulting value.
+- name: histogram_aggregates_aggregates_value
+  description: The raw summed histogram bucket count (integer) for this bucket key, accumulated across
+    the rolling window of submissions for this client.
+- name: non_norm_record_key
+  description: The histogram bucket boundary identifier within the non_norm_record struct, as a string
+    representation of the bucket value.
+- name: non_norm_record_value
+  description: The raw (non-normalized) summed count for this histogram bucket in the non_norm_record
+    struct. Represents the total raw accumulation across all contributing clients.
+- name: record
+  description: A struct holding the non-normalized (raw summed) histogram bucket counts. The key is the
+    bucket boundary string and the value is the raw aggregated count across clients.
+- name: async_shutdown_timeout
+  description: A JSON string present when a shutdown blocker failed to respond within a reasonable time,
+    describing the phase and components that blocked shutdown. Null when the crash was not related to
+    an async shutdown timeout.
+- name: process_crash_counts_key
+  description: The Firefox process type for which crashes are counted, such as main, content, gpu, rdd,
+    utility, gmplugin, or socket.
+- name: process_crash_counts_value
+  description: The number of non-shutdown-kill crashes of the corresponding process type experienced by
+    the client on the submission date.
+- name: process_shutdown_kill_crash_counts_key
+  description: The Firefox process type for which shutdown-kill crashes are counted; typically 'content'
+    since shutdown kills primarily affect content processes.
+- name: process_shutdown_kill_crash_counts_value
+  description: The number of shutdown-kill crashes of the corresponding process type experienced by the
+    client on the submission date.
+- name: event_map_values_key_value
+  description: An array of key-value pairs representing the extra properties attached to this telemetry
+    event.
+- name: crash_count
+  description: The total number of crashes of the given process type recorded during the aggregation window
+    for the specified experiment and branch.
+- name: crash_process_type
+  description: The Firefox process type that crashed (e.g., 'main', 'content', 'gpu', 'utility', 'socket',
+    'rdd', 'gmplugin').
+- name: subsample_id
+  description: An integer (0–99) derived from client_id used for subsampling; enables querying a consistent
+    random fraction of the population.
+- name: additional_properties
+  description: A JSON string containing any crash ping payload properties not captured by the structured
+    schema, such as overflow timespan metrics.
+- name: client_info_android_sdk_version
+  description: The Android SDK API level of the device (e.g., '33' for Android 13). Null for non-Android
+    clients.
+- name: client_info_app_build
+  description: The build identifier string for the Firefox application (e.g., '20260608154138'), uniquely
+    identifying the specific build that crashed.
+- name: client_info_app_channel
+  description: The release channel of the Firefox build as reported by the Glean SDK (e.g., 'release',
+    'esr', 'beta'); null for desktop Firefox builds that report via other mechanisms.
+- name: client_info_app_display_version
+  description: The human-readable version string of the Firefox application (e.g., '144.0', '115.37.0')
+    as reported by the client at the time of the crash.
+- name: client_info_architecture
+  description: The CPU architecture of the client device as reported by the Glean SDK (e.g., 'x86_64',
+    'aarch64', 'arm64-v8a').
+- name: client_info_attribution_campaign
+  description: The attribution campaign name associated with the Firefox install (e.g., a marketing campaign
+    identifier). Null for non-attributed installs.
+- name: client_info_attribution_content
+  description: The attribution content parameter providing additional detail about the install source
+    (e.g., a button or ad variant). Null for non-attributed installs.
+- name: client_info_attribution_ext
+  description: A JSON object containing additional attribution extension fields beyond the standard parameters.
+    Always null in this table.
+- name: client_info_attribution_medium
+  description: The attribution medium describing the type of channel that led to the Firefox install (e.g.,
+    'referral', 'direct'). Null for non-attributed installs.
+- name: client_info_attribution_source
+  description: The attribution source indicating where the user came from before installing Firefox (e.g.,
+    a referring website). Null for non-attributed installs.
+- name: client_info_attribution_term
+  description: The attribution search term associated with the Firefox install (e.g., the keyword used
+    in a paid search ad). Always null in this table.
+- name: client_info_build_date
+  description: The UTC timestamp at which the Firefox application binary was compiled, as reported by
+    the Glean SDK. Most mobile builds report '1970-01-01T00:00:00+00:00' as a placeholder.
+- name: client_info_client_id
+  description: The UUID that uniquely identifies the Firefox client profile that sent this crash ping.
+- name: client_info_device_manufacturer
+  description: The manufacturer of the Android device (e.g., 'samsung', 'Xiaomi'). Null for non-Android
+    clients.
+- name: client_info_device_model
+  description: The hardware model identifier of the Android device (e.g., 'SM-M127F'). Null for non-Android
+    clients.
+- name: client_info_distribution_ext
+  description: A JSON object containing additional distribution extension fields. Always null in this
+    table.
+- name: client_info_distribution_name
+  description: The identifier of the Firefox distribution (e.g., 'mozilla-win-eol-esr115', 'portableapps')
+    when the client was distributed via a partner or special channel. Null for standard Mozilla distributions.
+- name: client_info_first_run_date
+  description: The date on which Firefox was first run on this device, as reported by the Glean SDK, in
+    ISO 8601 format with timezone offset.
+- name: client_info_locale
+  description: The locale string of the Firefox application (e.g., 'en-US', 'de') representing the language
+    and region settings. Null when not reported.
+- name: client_info_os
+  description: The operating system name as reported by the Glean SDK (e.g., 'Windows', 'Linux', 'Darwin',
+    'Android').
+- name: client_info_os_version
+  description: The operating system version string as reported by the Glean SDK (e.g., '10.0' for Windows
+    10, '6.1' for Windows 7).
+- name: client_info_session_count
+  description: The number of sessions the client has had since installation, as tracked by the Glean SDK.
+    Always null in this table.
+- name: client_info_session_id
+  description: A UUID identifying the current application session as tracked by the Glean SDK. Always
+    null in this table.
+- name: client_info_telemetry_sdk_build
+  description: The version of the Glean telemetry SDK used by the Firefox client that submitted this crash
+    ping.
+- name: client_info_windows_build_number
+  description: The Windows build number of the operating system (e.g., 19045 for Windows 10 22H2). Null
+    for non-Windows clients.
+- name: events_category
+  description: The category name of the Glean event within the events array, grouping related events by
+    functional area (e.g., 'crash').
+- name: events_name
+  description: The name of the individual Glean event within the events array, identifying the specific
+    action that occurred.
+- name: events_session_event_seq
+  description: Within the events array, the sequential position of this event within the originating session,
+    used to reconstruct event order.
+- name: events_session_session_id
+  description: Within the events array, the UUID identifying the application session during which this
+    event occurred.
+- name: events_session_session_sample_rate
+  description: Within the events array, the sampling rate applied to events in this session; a value of
+    1.0 means all events were recorded without sampling.
+- name: events_session_session_seq
+  description: Within the events array, the sequence number of the session itself, used to order sessions
+    within a client's history.
+- name: events_session_session_start_time
+  description: Within the events array, the ISO 8601 timestamp at which the application session containing
+    this event was started.
+- name: events_timestamp
+  description: The millisecond offset from the start of the ping's measurement window at which this event
+    was recorded within the events array.
+- name: is_bot_generated
+  description: Whether this ping is suspected to have been generated by an automated bot rather than a
+    real user. True means bot-generated; false means genuine user activity.
+- name: normalized_app_id
+  description: The normalized application identifier (e.g., 'org_mozilla_firefox') for non-desktop Firefox
+    products. Null for desktop Firefox, which dominates this table.
+- name: ping_info_end_time
+  description: The local time on the client device at the end of the measurement window for this ping,
+    in ISO 8601 format with timezone offset.
+- name: ping_info_experiments
+  description: An array of Nimbus experiment enrollments active at the time this crash ping was submitted,
+    each containing the experiment slug, branch, and enrollment ID.
+- name: ping_info_parsed_end_time
+  description: The ping measurement window end time parsed to UTC and stored as a TIMESTAMP for easier
+    querying.
+- name: ping_info_parsed_start_time
+  description: The ping measurement window start time parsed to UTC and stored as a TIMESTAMP for easier
+    querying.
+- name: ping_info_ping_type
+  description: The type of Glean ping that was submitted. Always null in this table; the crash ping type
+    is inferred from context.
+- name: ping_info_reason
+  description: The reason this crash ping was submitted; 'crash' indicates a browser crash was detected,
+    and 'event_found' indicates a crash event was discovered after the fact.
+- name: ping_info_seq
+  description: The sequence number of this ping within the client's session, used to detect missing or
+    out-of-order pings.
+- name: ping_info_server_knobs_config_event_threshold
+  description: The server-configured threshold for the number of events that triggers an event ping submission.
+    Null when not set by remote configuration.
+- name: ping_info_server_knobs_config_metrics_enabled
+  description: An array of key-value pairs indicating which Glean metrics were enabled or disabled by
+    server-side remote configuration at the time of submission.
+- name: ping_info_server_knobs_config_pings_enabled
+  description: An array of key-value pairs indicating which Glean pings were enabled or disabled by server-side
+    remote configuration at the time of submission.
+- name: ping_info_start_time
+  description: The local time on the client device at the start of the measurement window for this ping,
+    in ISO 8601 format with timezone offset.
+- name: metadata
+  type: RECORD
+  description: Metadata about the telemetry pings used to determine this client's first-seen date, indicating
+    which ping types were received.
