@@ -8,5 +8,6 @@ fields:
 - name: latest_version
   type: INT64
   mode: NULLABLE
-  description: The latest known major version number of Firefox for this release channel, used to identify
-    outdated clients.
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: latest_version
