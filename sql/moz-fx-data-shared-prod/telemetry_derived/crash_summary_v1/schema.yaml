@@ -2,67 +2,90 @@ fields:
 - name: submission_date
   type: DATE
   mode: NULLABLE
-  description: ''
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: submission_date
 - name: client_id
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: client_id
 - name: normalized_channel
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: normalized_channel
 - name: build_version
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: The Firefox application version string at the time of the crash (e.g., '152.0').
 - name: build_id
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: build_id
 - name: channel
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: channel
 - name: application
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: application
 - name: os_name
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: The operating system name of the crashing client (e.g., 'Windows_NT', 'Darwin').
 - name: os_version
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: os_version
 - name: architecture
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: architecture
 - name: country
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: country
 - name: experiment_id
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: The ID of the Normandy experiment the client was enrolled in at the time of the crash, if
+    any.
 - name: experiment_branch
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: The experiment branch the client was assigned to at the time of the crash (e.g., 'control',
+    'treatment').
 - name: e10s_enabled
   type: BOOLEAN
   mode: NULLABLE
-  description: ''
+  description: Whether Electrolysis (multi-process) mode was enabled in the crashing Firefox session. True
+    if e10s was active.
 - name: e10s_cohort
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: The e10s experiment cohort the client was assigned to at the time of the crash (e.g., 'test',
+    'control').
 - name: gfx_compositor
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: The name of the graphics compositor in use at the time of the crash (e.g., 'd3d11', 'opengl',
+    'basic').
 - name: payload
   type: RECORD
   mode: NULLABLE
@@ -71,15 +94,16 @@ fields:
   - name: crashDate
     type: STRING
     mode: NULLABLE
-    description: ''
+    description: The calendar date of the crash in ISO 8601 format (YYYY-MM-DD), per-day resolution.
   - name: crashTime
     type: STRING
     mode: NULLABLE
-    description: ''
+    description: The crash time as seconds since the Unix epoch with per-hour resolution, from the crash payload.
   - name: hasCrashEnvironment
     type: BOOLEAN
     mode: NULLABLE
-    description: ''
+    description: Whether the crash report included the full Firefox environment block. True if environment
+      data is present.
   - name: metadata
     type: RECORD
     mode: NULLABLE
@@ -88,7 +112,8 @@ fields:
     - name: key_value
       type: RECORD
       mode: REPEATED
-      description: ''
+      description: Array of key-value pairs from the crash metadata annotation block, containing crash-specific
+        diagnostic information such as startup_crash, moz_crash_reason, and remote_type.
       fields:
       - name: key
         type: STRING
@@ -101,15 +126,15 @@ fields:
   - name: processType
     type: STRING
     mode: NULLABLE
-    description: ''
+    description: The type of Firefox process that crashed (e.g., 'main', 'content', 'gpu', 'rdd').
   - name: version
     type: INT64
     mode: NULLABLE
-    description: ''
+    description: The crash ping payload schema version number.
 - name: profile_created
   type: INT64
   mode: NULLABLE
-  description: ''
+  description: The number of days since the Unix epoch when the Firefox profile was created.
 - name: experiments
   type: RECORD
   mode: NULLABLE
@@ -118,7 +143,8 @@ fields:
   - name: key_value
     type: RECORD
     mode: REPEATED
-    description: ''
+    description: Array of key-value pairs representing the Normandy experiments and branches the client was
+      enrolled in at the time of the crash.
     fields:
     - name: key
       type: STRING
@@ -131,4 +157,4 @@ fields:
 - name: crash_time
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: The wall-clock time of the crash as seconds since the Unix epoch, from crash metadata.
