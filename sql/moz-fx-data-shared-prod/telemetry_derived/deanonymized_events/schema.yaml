@@ -77,7 +77,8 @@ fields:
 - name: additional_properties
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: A JSON string containing any payload properties present in the raw ping that are not mapped to explicit columns in the schema. Useful for
+    accessing fields not yet promoted to top-level columns.
 - name: application
   type: RECORD
   mode: NULLABLE
@@ -122,15 +123,19 @@ fields:
 - name: client_id
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: client_id
 - name: creation_date
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: The ISO 8601 date-time string recorded by the client at the time the ping was created, before it was submitted to the ingestion endpoint.
 - name: document_id
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: document_id
 - name: environment
   type: RECORD
   mode: NULLABLE
@@ -1249,7 +1254,8 @@ fields:
 - name: id
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: The telemetry ping identifier (UUID) assigned by the Firefox client at the time of ping creation. Distinct from document_id, which is the
+    server-side submission identifier.
 - name: metadata
   type: RECORD
   mode: NULLABLE
@@ -1375,23 +1381,33 @@ fields:
 - name: normalized_app_name
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: normalized_app_name
 - name: normalized_channel
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: normalized_channel
 - name: normalized_country_code
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: normalized_country_code
 - name: normalized_os
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: normalized_os
 - name: normalized_os_version
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: normalized_os_version
 - name: payload
   type: RECORD
   mode: NULLABLE
@@ -1653,23 +1669,29 @@ fields:
 - name: sample_id
   type: INT64
   mode: NULLABLE
-  description: ''
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: sample_id
 - name: submission_timestamp
   type: TIMESTAMP
   mode: NULLABLE
-  description: ''
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: submission_timestamp
 - name: type
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: The type of the telemetry ping (e.g., "event"). For this table, all rows derive from the legacy telemetry event ping.
 - name: version
   type: FLOAT64
   mode: NULLABLE
-  description: ''
+  description: The version number of the ping schema used when the ping was submitted by the client.
 - name: profile_group_id
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: profile_group_id
 - name: process
   type: STRING
   mode: NULLABLE
