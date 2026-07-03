@@ -1,0 +1,8383 @@
+fields:
+- name: submission_date
+  type: DATE
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: submission_date
+- name: sample_id
+  type: INT64
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: sample_id
+- name: document_id
+  type: STRING
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: document_id
+- name: client_id
+  type: STRING
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: client_id
+- name: channel
+  type: STRING
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: channel
+- name: normalized_channel
+  type: STRING
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: normalized_channel
+- name: normalized_os_version
+  type: STRING
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: normalized_os_version
+- name: country
+  type: STRING
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: country
+- name: city
+  type: STRING
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: city
+- name: os
+  type: STRING
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: os
+- name: os_version
+  type: STRING
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: os_version
+- name: os_service_pack_major
+  type: INT64
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: os_service_pack_major
+- name: os_service_pack_minor
+  type: INT64
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: os_service_pack_minor
+- name: windows_build_number
+  type: INT64
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: windows_build_number
+- name: windows_ubr
+  type: INT64
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: windows_ubr
+- name: install_year
+  type: INT64
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: install_year
+- name: is_wow64
+  type: BOOLEAN
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: is_wow64
+- name: memory_mb
+  type: INT64
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: memory_mb
+- name: cpu_count
+  type: INT64
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: cpu_count
+- name: cpu_cores
+  type: INT64
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: cpu_cores
+- name: cpu_vendor
+  type: STRING
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: cpu_vendor
+- name: cpu_family
+  type: INT64
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: cpu_family
+- name: cpu_model
+  type: INT64
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: cpu_model
+- name: cpu_stepping
+  type: INT64
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: cpu_stepping
+- name: cpu_l2_cache_kb
+  type: INT64
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: cpu_l2_cache_kb
+- name: cpu_l3_cache_kb
+  type: INT64
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: cpu_l3_cache_kb
+- name: cpu_speed_mhz
+  type: INT64
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: cpu_speed_mhz
+- name: gfx_features_d3d11_status
+  type: STRING
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: gfx_features_d3d11_status
+- name: gfx_features_d2d_status
+  type: STRING
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: gfx_features_d2d_status
+- name: gfx_features_gpu_process_status
+  type: STRING
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: gfx_features_gpu_process_status
+- name: gfx_features_advanced_layers_status
+  type: STRING
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: gfx_features_advanced_layers_status
+- name: apple_model_id
+  type: STRING
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: apple_model_id
+- name: antivirus
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: list
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: element
+      type: STRING
+      mode: NULLABLE
+      description: ''
+- name: antispyware
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: list
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: element
+      type: STRING
+      mode: NULLABLE
+      description: ''
+- name: firewall
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: list
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: element
+      type: STRING
+      mode: NULLABLE
+      description: ''
+- name: profile_creation_date
+  type: INT64
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: profile_creation_date
+- name: profile_reset_date
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: previous_build_id
+  type: STRING
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: previous_build_id
+- name: session_id
+  type: STRING
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: session_id
+- name: subsession_id
+  type: STRING
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: subsession_id
+- name: previous_session_id
+  type: STRING
+  mode: NULLABLE
+  description: ''
+- name: previous_subsession_id
+  type: STRING
+  mode: NULLABLE
+  description: ''
+- name: session_start_date
+  type: STRING
+  mode: NULLABLE
+  description: ''
+- name: subsession_start_date
+  type: STRING
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: subsession_start_date
+- name: session_length
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: subsession_length
+  type: INT64
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: subsession_length
+- name: subsession_counter
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: profile_subsession_counter
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: creation_date
+  type: STRING
+  mode: NULLABLE
+  description: ''
+- name: distribution_id
+  type: STRING
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: distribution_id
+- name: sync_configured
+  type: BOOLEAN
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: sync_configured
+- name: sync_count_desktop
+  type: INT64
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: sync_count_desktop
+- name: sync_count_mobile
+  type: INT64
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: sync_count_mobile
+- name: app_build_id
+  type: STRING
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: app_build_id
+- name: app_display_version
+  type: STRING
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: app_display_version
+- name: app_name
+  type: STRING
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: app_name
+- name: app_version
+  type: STRING
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: app_version
+- name: timestamp
+  type: INT64
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: timestamp
+- name: env_build_id
+  type: STRING
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: env_build_id
+- name: env_build_version
+  type: STRING
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: env_build_version
+- name: env_build_arch
+  type: STRING
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: env_build_arch
+- name: e10s_enabled
+  type: BOOLEAN
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: e10s_enabled
+- name: e10s_multi_processes
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: locale
+  type: STRING
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: locale
+- name: update_channel
+  type: STRING
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: update_channel
+- name: update_enabled
+  type: BOOLEAN
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: update_enabled
+- name: update_auto_download
+  type: BOOLEAN
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: update_auto_download
+- name: attribution
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: campaign
+    type: STRING
+    mode: NULLABLE
+    description: ''
+  - name: content
+    type: STRING
+    mode: NULLABLE
+    description: ''
+  - name: medium
+    type: STRING
+    mode: NULLABLE
+    description: ''
+  - name: source
+    type: STRING
+    mode: NULLABLE
+    description: ''
+- name: sandbox_effective_content_process_level
+  type: INT64
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: sandbox_effective_content_process_level
+- name: active_experiment_id
+  type: STRING
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: active_experiment_id
+- name: active_experiment_branch
+  type: STRING
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: active_experiment_branch
+- name: reason
+  type: STRING
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: reason
+- name: timezone_offset
+  type: INT64
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: timezone_offset
+- name: plugin_hangs
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: aborts_plugin
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: aborts_content
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: aborts_gmplugin
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: crashes_detected_plugin
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: crashes_detected_content
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: crashes_detected_gmplugin
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: crash_submit_attempt_main
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: crash_submit_attempt_content
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: crash_submit_attempt_plugin
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: crash_submit_success_main
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: crash_submit_success_content
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: crash_submit_success_plugin
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: shutdown_kill
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: active_addons_count
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: flash_version
+  type: STRING
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: flash_version
+- name: vendor
+  type: STRING
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: vendor
+- name: is_default_browser
+  type: BOOLEAN
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: is_default_browser
+- name: default_search_engine_data_name
+  type: STRING
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: default_search_engine_data_name
+- name: default_search_engine_data_load_path
+  type: STRING
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: default_search_engine_data_load_path
+- name: default_search_engine_data_origin
+  type: STRING
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: default_search_engine_data_origin
+- name: default_search_engine_data_submission_url
+  type: STRING
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: default_search_engine_data_submission_url
+- name: default_search_engine
+  type: STRING
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: default_search_engine
+- name: devtools_toolbox_opened_count
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: client_submission_date
+  type: STRING
+  mode: NULLABLE
+  description: ''
+- name: client_clock_skew
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: client_submission_latency
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: places_bookmarks_count
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: places_pages_count
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: push_api_notify
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: web_notification_shown
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: popup_notification_stats
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: RECORD
+      mode: NULLABLE
+      description: ''
+      fields:
+      - name: action_1
+        type: INT64
+        mode: NULLABLE
+        description: ''
+      - name: action_2
+        type: INT64
+        mode: NULLABLE
+        description: ''
+      - name: action_3
+        type: INT64
+        mode: NULLABLE
+        description: ''
+      - name: action_last
+        type: INT64
+        mode: NULLABLE
+        description: ''
+      - name: dismissal_click_elsewhere
+        type: INT64
+        mode: NULLABLE
+        description: ''
+      - name: dismissal_close_button
+        type: INT64
+        mode: NULLABLE
+        description: ''
+      - name: dismissal_leave_page
+        type: INT64
+        mode: NULLABLE
+        description: ''
+      - name: dismissal_not_now
+        type: INT64
+        mode: NULLABLE
+        description: ''
+      - name: learn_more
+        type: INT64
+        mode: NULLABLE
+        description: ''
+      - name: offered
+        type: INT64
+        mode: NULLABLE
+        description: ''
+      - name: open_submenu
+        type: INT64
+        mode: NULLABLE
+        description: ''
+      - name: reopen_action_1
+        type: INT64
+        mode: NULLABLE
+        description: ''
+      - name: reopen_action_2
+        type: INT64
+        mode: NULLABLE
+        description: ''
+      - name: reopen_action_3
+        type: INT64
+        mode: NULLABLE
+        description: ''
+      - name: reopen_action_last
+        type: INT64
+        mode: NULLABLE
+        description: ''
+      - name: reopen_dismissal_click_elsewhere
+        type: INT64
+        mode: NULLABLE
+        description: ''
+      - name: reopen_dismissal_close_button
+        type: INT64
+        mode: NULLABLE
+        description: ''
+      - name: reopen_dismissal_leave_page
+        type: INT64
+        mode: NULLABLE
+        description: ''
+      - name: reopen_dismissal_not_now
+        type: INT64
+        mode: NULLABLE
+        description: ''
+      - name: reopen_learn_more
+        type: INT64
+        mode: NULLABLE
+        description: ''
+      - name: reopen_offered
+        type: INT64
+        mode: NULLABLE
+        description: ''
+      - name: reopen_open_submenu
+        type: INT64
+        mode: NULLABLE
+        description: ''
+- name: search_counts
+  type: RECORD
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: search_counts
+  fields:
+  - name: list
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: element
+      type: RECORD
+      mode: NULLABLE
+      description: ''
+      fields:
+      - name: count
+        type: INT64
+        mode: NULLABLE
+        description: ''
+      - name: engine
+        type: STRING
+        mode: NULLABLE
+        description: ''
+      - name: source
+        type: STRING
+        mode: NULLABLE
+        description: ''
+- name: active_addons
+  type: RECORD
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: active_addons
+  fields:
+  - name: list
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: element
+      type: RECORD
+      mode: NULLABLE
+      description: ''
+      fields:
+      - name: addon_id
+        type: STRING
+        mode: NULLABLE
+        description: ''
+      - name: app_disabled
+        type: BOOLEAN
+        mode: NULLABLE
+        description: ''
+      - name: blocklisted
+        type: BOOLEAN
+        mode: NULLABLE
+        description: ''
+      - name: foreign_install
+        type: BOOLEAN
+        mode: NULLABLE
+        description: ''
+      - name: has_binary_components
+        type: BOOLEAN
+        mode: NULLABLE
+        description: ''
+      - name: install_day
+        type: INT64
+        mode: NULLABLE
+        description: ''
+      - name: is_system
+        type: BOOLEAN
+        mode: NULLABLE
+        description: ''
+      - name: is_web_extension
+        type: BOOLEAN
+        mode: NULLABLE
+        description: ''
+      - name: multiprocess_compatible
+        type: BOOLEAN
+        mode: NULLABLE
+        description: ''
+      - name: name
+        type: STRING
+        mode: NULLABLE
+        description: ''
+      - name: scope
+        type: INT64
+        mode: NULLABLE
+        description: ''
+      - name: signed_state
+        type: INT64
+        mode: NULLABLE
+        description: ''
+      - name: type
+        type: STRING
+        mode: NULLABLE
+        description: ''
+      - name: update_day
+        type: INT64
+        mode: NULLABLE
+        description: ''
+      - name: user_disabled
+        type: BOOLEAN
+        mode: NULLABLE
+        description: ''
+      - name: version
+        type: STRING
+        mode: NULLABLE
+        description: ''
+- name: disabled_addons_ids
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: list
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: element
+      type: STRING
+      mode: NULLABLE
+      description: ''
+- name: active_theme
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: addon_id
+    type: STRING
+    mode: NULLABLE
+    description: ''
+  - name: app_disabled
+    type: BOOLEAN
+    mode: NULLABLE
+    description: ''
+  - name: blocklisted
+    type: BOOLEAN
+    mode: NULLABLE
+    description: ''
+  - name: foreign_install
+    type: BOOLEAN
+    mode: NULLABLE
+    description: ''
+  - name: has_binary_components
+    type: BOOLEAN
+    mode: NULLABLE
+    description: ''
+  - name: install_day
+    type: INT64
+    mode: NULLABLE
+    description: ''
+  - name: is_system
+    type: BOOLEAN
+    mode: NULLABLE
+    description: ''
+  - name: is_web_extension
+    type: BOOLEAN
+    mode: NULLABLE
+    description: ''
+  - name: multiprocess_compatible
+    type: BOOLEAN
+    mode: NULLABLE
+    description: ''
+  - name: name
+    type: STRING
+    mode: NULLABLE
+    description: ''
+  - name: scope
+    type: INT64
+    mode: NULLABLE
+    description: ''
+  - name: signed_state
+    type: INT64
+    mode: NULLABLE
+    description: ''
+  - name: type
+    type: STRING
+    mode: NULLABLE
+    description: ''
+  - name: update_day
+    type: INT64
+    mode: NULLABLE
+    description: ''
+  - name: user_disabled
+    type: BOOLEAN
+    mode: NULLABLE
+    description: ''
+  - name: version
+    type: STRING
+    mode: NULLABLE
+    description: ''
+- name: blocklist_enabled
+  type: BOOLEAN
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: blocklist_enabled
+- name: addon_compatibility_check_enabled
+  type: BOOLEAN
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: addon_compatibility_check_enabled
+- name: telemetry_enabled
+  type: BOOLEAN
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: telemetry_enabled
+- name: user_prefs
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: dom_ipc_process_count
+    type: INT64
+    mode: NULLABLE
+    description: ''
+  - name: extensions_allow_non_mpc_extensions
+    type: BOOLEAN
+    mode: NULLABLE
+    description: ''
+- name: events
+  type: RECORD
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: events
+  fields:
+  - name: list
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: element
+      type: RECORD
+      mode: NULLABLE
+      description: ''
+      fields:
+      - name: category
+        type: STRING
+        mode: NULLABLE
+        description: ''
+      - name: map_values
+        type: RECORD
+        mode: NULLABLE
+        description: ''
+        fields:
+        - name: key_value
+          type: RECORD
+          mode: REPEATED
+          description: ''
+          fields:
+          - name: key
+            type: STRING
+            mode: NULLABLE
+            description: ''
+          - name: value
+            type: STRING
+            mode: NULLABLE
+            description: ''
+      - name: method
+        type: STRING
+        mode: NULLABLE
+        description: ''
+      - name: object
+        type: STRING
+        mode: NULLABLE
+        description: ''
+      - name: string_value
+        type: STRING
+        mode: NULLABLE
+        description: ''
+      - name: timestamp
+        type: INT64
+        mode: NULLABLE
+        description: ''
+- name: ssl_handshake_result_success
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: ssl_handshake_result_failure
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: ssl_handshake_result
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: active_ticks
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: main
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: first_paint
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: session_restored
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: total_time
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: plugins_notification_shown
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: plugins_notification_user_action
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: allow_always
+    type: INT64
+    mode: NULLABLE
+    description: ''
+  - name: allow_now
+    type: INT64
+    mode: NULLABLE
+    description: ''
+  - name: block
+    type: INT64
+    mode: NULLABLE
+    description: ''
+- name: plugins_infobar_shown
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: plugins_infobar_block
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: plugins_infobar_allow
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: plugins_infobar_dismissed
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: experiments
+  type: RECORD
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: experiments
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: STRING
+      mode: NULLABLE
+      description: ''
+- name: search_cohort
+  type: STRING
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: search_cohort
+- name: gfx_compositor
+  type: STRING
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: gfx_compositor
+- name: quantum_ready
+  type: BOOLEAN
+  mode: NULLABLE
+  description: ''
+- name: gc_max_pause_ms_main_above_150
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: gc_max_pause_ms_main_above_250
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: gc_max_pause_ms_main_above_2500
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: gc_max_pause_ms_content_above_150
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: gc_max_pause_ms_content_above_250
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: gc_max_pause_ms_content_above_2500
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: cycle_collector_max_pause_main_above_150
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: cycle_collector_max_pause_main_above_250
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: cycle_collector_max_pause_main_above_2500
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: cycle_collector_max_pause_content_above_150
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: cycle_collector_max_pause_content_above_250
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: cycle_collector_max_pause_content_above_2500
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: input_event_response_coalesced_ms_main_above_150
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: input_event_response_coalesced_ms_main_above_250
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: input_event_response_coalesced_ms_main_above_2500
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: input_event_response_coalesced_ms_content_above_150
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: input_event_response_coalesced_ms_content_above_250
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: input_event_response_coalesced_ms_content_above_2500
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: ghost_windows_main_above_1
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: ghost_windows_content_above_1
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: user_pref_dom_ipc_processcount
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: user_pref_extensions_allow_non_mpc_extensions
+  type: BOOLEAN
+  mode: NULLABLE
+  description: ''
+- name: user_pref_extensions_legacy_enabled
+  type: BOOLEAN
+  mode: NULLABLE
+  description: ''
+- name: user_pref_browser_search_widget_innavbar
+  type: BOOLEAN
+  mode: NULLABLE
+  description: ''
+- name: user_pref_general_config_filename
+  type: STRING
+  mode: NULLABLE
+  description: ''
+- name: scalar_content_browser_feeds_preview_loaded
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_content_browser_usage_graphite
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_content_browser_usage_plugin_instantiated
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_content_gfx_omtp_paint_wait_ratio
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_content_gfx_small_paint_phase_weight
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: scalar_content_idb_type_persistent_count
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_content_idb_type_temporary_count
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_content_mathml_doc_count
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_content_mediarecorder_recording_count
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_content_navigator_storage_estimate_count
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_content_navigator_storage_persist_count
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_content_sw_alternative_body_used_count
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_content_sw_cors_res_for_so_req_count
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_content_sw_synthesized_res_count
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_content_telemetry_accumulate_unknown_histogram_keys
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: scalar_content_telemetry_discarded_accumulations
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_content_telemetry_discarded_child_events
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_content_telemetry_discarded_keyed_accumulations
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_content_telemetry_discarded_keyed_scalar_actions
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_content_telemetry_discarded_scalar_actions
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_content_webrtc_nicer_stun_retransmits
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_content_webrtc_nicer_turn_401s
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_content_webrtc_nicer_turn_403s
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_content_webrtc_nicer_turn_438s
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_gpu_browser_usage_graphite
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_gpu_telemetry_accumulate_unknown_histogram_keys
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: scalar_gpu_telemetry_discarded_accumulations
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_gpu_telemetry_discarded_child_events
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_gpu_telemetry_discarded_keyed_accumulations
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_gpu_telemetry_discarded_keyed_scalar_actions
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_gpu_telemetry_discarded_scalar_actions
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_a11y_indicator_acted_on
+  type: BOOLEAN
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_a11y_instantiators
+  type: STRING
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_aushelper_websense_reg_version
+  type: STRING
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: scalar_parent_aushelper_websense_reg_version
+- name: scalar_parent_browser_engagement_active_ticks
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_browser_engagement_max_concurrent_tab_count
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_browser_engagement_max_concurrent_window_count
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_browser_engagement_navigation_about_home
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: scalar_parent_browser_engagement_navigation_about_newtab
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: scalar_parent_browser_engagement_navigation_contextmenu
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: scalar_parent_browser_engagement_navigation_searchbar
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: scalar_parent_browser_engagement_navigation_urlbar
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: scalar_parent_browser_engagement_restored_pinned_tabs_count
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_browser_engagement_tab_open_event_count
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_browser_engagement_total_uri_count
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_browser_engagement_unfiltered_uri_count
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_browser_engagement_unique_domains_count
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_browser_engagement_window_open_event_count
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_browser_errors_collected_count
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_browser_errors_collected_count_by_filename
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: scalar_parent_browser_errors_collected_with_stack_count
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_browser_errors_reported_failure_count
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_browser_errors_reported_success_count
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_browser_errors_sample_rate
+  type: STRING
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_browser_feeds_feed_subscribed
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_browser_feeds_livebookmark_count
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_browser_feeds_livebookmark_item_opened
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_browser_feeds_livebookmark_opened
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_browser_feeds_preview_loaded
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_browser_session_restore_browser_startup_page
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_browser_session_restore_browser_tabs_restorebutton
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_browser_session_restore_number_of_tabs
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_browser_session_restore_number_of_win
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_browser_session_restore_tabbar_restore_available
+  type: BOOLEAN
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_browser_session_restore_tabbar_restore_clicked
+  type: BOOLEAN
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_browser_session_restore_worker_restart_count
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_browser_timings_last_shutdown
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_browser_usage_graphite
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_browser_usage_plugin_instantiated
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_devtools_aboutdevtools_installed
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_devtools_aboutdevtools_noinstall_exits
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_devtools_aboutdevtools_opened
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_devtools_copy_full_css_selector_opened
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_devtools_copy_unique_css_selector_opened
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_devtools_copy_xpath_opened
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_devtools_current_theme
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: scalar_parent_devtools_grid_gridinspector_opened
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_devtools_grid_showGridAreasOverlay_checked
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_devtools_grid_showGridLineNumbers_checked
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_devtools_grid_showInfiniteLines_checked
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_devtools_onboarding_is_devtools_user
+  type: BOOLEAN
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_devtools_responsive_open_trigger
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: scalar_parent_devtools_responsive_toolbox_opened_first
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_devtools_rules_gridinspector_opened
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_devtools_toolbar_eyedropper_opened
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_dom_contentprocess_troubled_due_to_memory
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_formautofill_addresses_fill_type_autofill
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_formautofill_addresses_fill_type_autofill_update
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_formautofill_addresses_fill_type_manual
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_formautofill_availability
+  type: BOOLEAN
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_formautofill_creditCards_fill_type_autofill
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_formautofill_creditCards_fill_type_autofill_modified
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_formautofill_creditCards_fill_type_manual
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_gfx_advanced_layers_failure_id
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: scalar_parent_idb_type_persistent_count
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_idb_type_temporary_count
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_mediarecorder_recording_count
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_navigator_storage_estimate_count
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_navigator_storage_persist_count
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_preferences_browser_home_page_change
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: scalar_parent_preferences_browser_home_page_count
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: scalar_parent_preferences_created_new_user_prefs_file
+  type: BOOLEAN
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_preferences_prefs_file_was_invalid
+  type: BOOLEAN
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_preferences_prevent_accessibility_services
+  type: BOOLEAN
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_preferences_read_user_js
+  type: BOOLEAN
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_preferences_search_query
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: scalar_parent_preferences_use_bookmark
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: scalar_parent_preferences_use_current_page
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: scalar_parent_sandbox_no_job
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: BOOLEAN
+      mode: NULLABLE
+      description: ''
+- name: scalar_parent_screenshots_copy
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_screenshots_download
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_screenshots_upload
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_security_pkcs11_modules_loaded
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: BOOLEAN
+      mode: NULLABLE
+      description: ''
+- name: scalar_parent_security_webauthn_used
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: scalar_parent_services_sync_sync_login_state_transitions
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: BOOLEAN
+      mode: NULLABLE
+      description: ''
+- name: scalar_parent_storage_sync_api_usage_extensions_using
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_storage_sync_api_usage_items_stored
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: scalar_parent_storage_sync_api_usage_storage_consumed
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: scalar_parent_sw_alternative_body_used_count
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_sw_cors_res_for_so_req_count
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_sw_synthesized_res_count
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_telemetry_accumulate_clamped_values
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: scalar_parent_telemetry_accumulate_unknown_histogram_keys
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: scalar_parent_timestamps_first_paint
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_webrtc_nicer_stun_retransmits
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_webrtc_nicer_turn_401s
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_webrtc_nicer_turn_403s
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_webrtc_nicer_turn_438s
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: histogram_content_cert_validation_success_by_ca
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_content_cycle_collector_max_pause
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_content_fx_new_window_ms
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_content_fx_searchbar_selected_result_method
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_content_fx_tab_close_time_anim_ms
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_content_fx_urlbar_selected_result_index
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_content_fx_urlbar_selected_result_index_by_type
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: RECORD
+      mode: NULLABLE
+      description: ''
+      fields:
+      - name: key_value
+        type: RECORD
+        mode: REPEATED
+        description: ''
+        fields:
+        - name: key
+          type: INT64
+          mode: NULLABLE
+          description: ''
+        - name: value
+          type: INT64
+          mode: NULLABLE
+          description: ''
+- name: histogram_content_fx_urlbar_selected_result_method
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_content_fx_urlbar_selected_result_type
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_content_gc_max_pause_ms
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_content_gc_max_pause_ms_2
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_content_ghost_windows
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_content_http_channel_disposition
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_content_http_pageload_is_ssl
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_content_http_transaction_is_ssl
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_content_input_event_response_coalesced_ms
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_content_memory_distribution_among_content
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: RECORD
+      mode: NULLABLE
+      description: ''
+      fields:
+      - name: key_value
+        type: RECORD
+        mode: REPEATED
+        description: ''
+        fields:
+        - name: key
+          type: INT64
+          mode: NULLABLE
+          description: ''
+        - name: value
+          type: INT64
+          mode: NULLABLE
+          description: ''
+- name: histogram_content_memory_heap_allocated
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_content_memory_resident_fast
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_content_memory_total
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_content_memory_unique
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_content_memory_vsize
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_content_memory_vsize_max_contiguous
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_content_search_reset_result
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_content_ssl_handshake_result
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_content_ssl_handshake_version
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_content_ssl_tls12_intolerance_reason_pre
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_content_ssl_tls13_intolerance_reason_pre
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_content_time_to_dom_complete_ms
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_content_time_to_dom_content_loaded_end_ms
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_content_time_to_dom_content_loaded_start_ms
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_content_time_to_dom_interactive_ms
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_content_time_to_dom_loading_ms
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_content_time_to_first_click_ms
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_content_time_to_first_interaction_ms
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_content_time_to_first_key_input_ms
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_content_time_to_first_mouse_move_ms
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_content_time_to_first_scroll_ms
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_content_time_to_load_event_end_ms
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_content_time_to_load_event_start_ms
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_content_time_to_non_blank_paint_ms
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_content_time_to_response_start_ms
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_content_tracking_protection_enabled
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_content_uptake_remote_content_result_1
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: RECORD
+      mode: NULLABLE
+      description: ''
+      fields:
+      - name: key_value
+        type: RECORD
+        mode: REPEATED
+        description: ''
+        fields:
+        - name: key
+          type: STRING
+          mode: NULLABLE
+          description: ''
+        - name: value
+          type: INT64
+          mode: NULLABLE
+          description: ''
+- name: histogram_content_webvr_time_spent_viewing_in_2d
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_content_webvr_users_view_in
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_gpu_uptake_remote_content_result_1
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: RECORD
+      mode: NULLABLE
+      description: ''
+      fields:
+      - name: key_value
+        type: RECORD
+        mode: REPEATED
+        description: ''
+        fields:
+        - name: key
+          type: STRING
+          mode: NULLABLE
+          description: ''
+        - name: value
+          type: INT64
+          mode: NULLABLE
+          description: ''
+- name: histogram_gpu_webvr_time_spent_viewing_in_oculus
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_gpu_webvr_time_spent_viewing_in_openvr
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_gpu_webvr_users_view_in
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_parent_a11y_consumers
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_parent_a11y_instantiated_flag
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_parent_cert_validation_success_by_ca
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_parent_cycle_collector_max_pause
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_parent_fx_new_window_ms
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_parent_fx_searchbar_selected_result_method
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_parent_fx_tab_close_time_anim_ms
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_parent_fx_tab_switch_total_e10s_ms
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_parent_fx_urlbar_selected_result_index
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_parent_fx_urlbar_selected_result_index_by_type
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: RECORD
+      mode: NULLABLE
+      description: ''
+      fields:
+      - name: key_value
+        type: RECORD
+        mode: REPEATED
+        description: ''
+        fields:
+        - name: key
+          type: INT64
+          mode: NULLABLE
+          description: ''
+        - name: value
+          type: INT64
+          mode: NULLABLE
+          description: ''
+- name: histogram_parent_fx_urlbar_selected_result_method
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_parent_fx_urlbar_selected_result_type
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_parent_gc_max_pause_ms
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_parent_gc_max_pause_ms_2
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_parent_ghost_windows
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_parent_http_channel_disposition
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_parent_http_pageload_is_ssl
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_parent_http_transaction_is_ssl
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_parent_input_event_response_coalesced_ms
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_parent_memory_distribution_among_content
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: RECORD
+      mode: NULLABLE
+      description: ''
+      fields:
+      - name: key_value
+        type: RECORD
+        mode: REPEATED
+        description: ''
+        fields:
+        - name: key
+          type: INT64
+          mode: NULLABLE
+          description: ''
+        - name: value
+          type: INT64
+          mode: NULLABLE
+          description: ''
+- name: histogram_parent_memory_heap_allocated
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_parent_memory_resident_fast
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_parent_memory_total
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_parent_memory_unique
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_parent_memory_vsize
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_parent_memory_vsize_max_contiguous
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_parent_search_reset_result
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_parent_ssl_handshake_result
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_parent_ssl_handshake_version
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_parent_ssl_tls12_intolerance_reason_pre
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_parent_ssl_tls13_intolerance_reason_pre
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_parent_time_to_first_click_ms
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_parent_time_to_first_interaction_ms
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_parent_time_to_first_key_input_ms
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_parent_time_to_first_mouse_move_ms
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_parent_time_to_first_scroll_ms
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_parent_time_to_non_blank_paint_ms
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_parent_time_to_response_start_ms
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_parent_touch_enabled_device
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_parent_tracking_protection_enabled
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_parent_uptake_remote_content_result_1
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: RECORD
+      mode: NULLABLE
+      description: ''
+      fields:
+      - name: key_value
+        type: RECORD
+        mode: REPEATED
+        description: ''
+        fields:
+        - name: key
+          type: STRING
+          mode: NULLABLE
+          description: ''
+        - name: value
+          type: INT64
+          mode: NULLABLE
+          description: ''
+- name: histogram_parent_webvr_time_spent_viewing_in_2d
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_parent_webvr_time_spent_viewing_in_oculus
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_parent_webvr_time_spent_viewing_in_openvr
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_parent_webvr_users_view_in
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_gpu_time_to_first_mouse_move_ms
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_gpu_fx_urlbar_selected_result_type
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_gpu_a11y_instantiated_flag
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_gpu_touch_enabled_device
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_gpu_gc_max_pause_ms
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_gpu_http_channel_disposition
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_gpu_time_to_non_blank_paint_ms
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: scalar_parent_network_tcp_overlapped_io_canceled_before_finished
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: histogram_gpu_fx_urlbar_selected_result_index
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_gpu_search_reset_result
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_gpu_ssl_tls13_intolerance_reason_pre
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_gpu_ssl_handshake_result
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_gpu_ssl_tls12_intolerance_reason_pre
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_gpu_a11y_consumers
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_gpu_time_to_first_scroll_ms
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_content_touch_enabled_device
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_content_a11y_consumers
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_gpu_ghost_windows
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_gpu_time_to_first_click_ms
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: scalar_parent_services_sync_fxa_verification_method
+  type: STRING
+  mode: NULLABLE
+  description: ''
+- name: histogram_content_a11y_instantiated_flag
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_gpu_http_pageload_is_ssl
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_gpu_time_to_first_key_input_ms
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_gpu_cert_validation_success_by_ca
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_gpu_tracking_protection_enabled
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_gpu_time_to_first_interaction_ms
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_gpu_ssl_handshake_version
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: scalar_parent_network_tcp_overlapped_result_delayed
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: histogram_gpu_cycle_collector_max_pause
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: geo_subdivision1
+  type: STRING
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: geo_subdivision1
+- name: geo_subdivision2
+  type: STRING
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: geo_subdivision2
+- name: scalar_parent_telemetry_event_counts
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: scalar_content_telemetry_event_counts
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: scalar_gpu_telemetry_event_counts
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: keyed_boolean_addon_scalars
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: RECORD
+      mode: NULLABLE
+      description: ''
+      fields:
+      - name: key_value
+        type: RECORD
+        mode: REPEATED
+        description: ''
+        fields:
+        - name: key
+          type: STRING
+          mode: NULLABLE
+          description: ''
+        - name: value
+          type: BOOLEAN
+          mode: NULLABLE
+          description: ''
+- name: scalar_parent_devtools_tool_registered
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: BOOLEAN
+      mode: NULLABLE
+      description: ''
+- name: boolean_addon_scalars
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: BOOLEAN
+      mode: NULLABLE
+      description: ''
+- name: string_addon_scalars
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: STRING
+      mode: NULLABLE
+      description: ''
+- name: keyed_uint_addon_scalars
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: RECORD
+      mode: NULLABLE
+      description: ''
+      fields:
+      - name: key_value
+        type: RECORD
+        mode: REPEATED
+        description: ''
+        fields:
+        - name: key
+          type: STRING
+          mode: NULLABLE
+          description: ''
+        - name: value
+          type: INT64
+          mode: NULLABLE
+          description: ''
+- name: scalar_parent_devtools_accessibility_node_inspected_count
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_devtools_accessibility_service_enabled_count
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: keyed_string_addon_scalars
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: RECORD
+      mode: NULLABLE
+      description: ''
+      fields:
+      - name: key_value
+        type: RECORD
+        mode: REPEATED
+        description: ''
+        fields:
+        - name: key
+          type: STRING
+          mode: NULLABLE
+          description: ''
+        - name: value
+          type: STRING
+          mode: NULLABLE
+          description: ''
+- name: scalar_parent_devtools_accessibility_opened_count
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_devtools_accessibility_picker_used_count
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: uint_addon_scalars
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: scalar_parent_devtools_accessibility_select_accessible_for_node
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: scalar_content_memoryreporter_max_ghost_windows
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_devtools_inspector_three_pane_enabled
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_parent_devtools_entry_point
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_content_devtools_toolbox_time_active_seconds
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_parent_devtools_toolbox_time_active_seconds
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: user_pref_dom_ipc_plugins_sandbox_level_flash
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_devtools_toolbox_tabs_reordered
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: scalar_parent_security_client_cert
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: scalar_parent_dom_contentprocess_buildID_mismatch
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: histogram_content_webext_content_script_injection_ms
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_parent_webext_pageaction_popup_open_ms
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_content_webext_storage_local_set_ms
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_parent_webext_content_script_injection_ms
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_parent_webext_storage_local_set_ms
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_parent_webext_browseraction_popup_open_ms
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_parent_webext_background_page_load_ms
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_content_webext_storage_local_get_ms
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_parent_webext_browseraction_popup_preload_result_count
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_parent_webext_extension_startup_ms
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_parent_webext_storage_local_get_ms
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: scalar_parent_extensions_updates_rdf
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: scalar_content_telemetry_profile_directory_scans
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_telemetry_profile_directory_scans
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_gpu_telemetry_profile_directory_scans
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_telemetry_persistence_timer_hit_count
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_telemetry_pending_operations_highwatermark_reached
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_widget_ime_name_on_windows
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: BOOLEAN
+      mode: NULLABLE
+      description: ''
+- name: scalar_parent_widget_ime_name_on_mac
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: BOOLEAN
+      mode: NULLABLE
+      description: ''
+- name: scalar_parent_devtools_application_opened_count
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_widget_ime_name_on_linux
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: BOOLEAN
+      mode: NULLABLE
+      description: ''
+- name: scalar_parent_devtools_shadowdom_shadow_root_displayed
+  type: BOOLEAN
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_devtools_shadowdom_shadow_root_expanded
+  type: BOOLEAN
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_devtools_shadowdom_reveal_link_clicked
+  type: BOOLEAN
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_telemetry_profile_directory_scan_date
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_content_images_webp_content_observed
+  type: BOOLEAN
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_images_webp_probe_observed
+  type: BOOLEAN
+  mode: NULLABLE
+  description: ''
+- name: scalar_content_images_webp_probe_observed
+  type: BOOLEAN
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_images_webp_content_frequency
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: scalar_parent_images_webp_content_observed
+  type: BOOLEAN
+  mode: NULLABLE
+  description: ''
+- name: scalar_content_images_webp_content_frequency
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: scalar_parent_telemetry_data_upload_optin
+  type: BOOLEAN
+  mode: NULLABLE
+  description: ''
+- name: scalar_content_media_autoplay_would_not_be_allowed_count
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_content_media_autoplay_would_be_allowed_count
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_content_media_page_had_play_revoked_count
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_content_media_page_count
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_media_autoplay_would_be_allowed_count
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_media_page_count
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_media_page_had_media_count
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_media_page_had_play_revoked_count
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_media_autoplay_would_not_be_allowed_count
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_content_media_page_had_media_count
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_content_webrtc_sdp_parser_diff
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: scalar_parent_telemetry_os_shutting_down
+  type: BOOLEAN
+  mode: NULLABLE
+  description: ''
+- name: histogram_content_fx_session_restore_restore_window_ms
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_content_fx_session_restore_startup_onload_initial_window_ms
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_parent_network_cache_metadata_first_read_time_ms
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_parent_network_cache_v2_hit_time_ms
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_content_fx_tab_switch_update_ms
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_content_fx_session_restore_startup_init_session_ms
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_content_network_cache_metadata_first_read_time_ms
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_parent_gc_animation_ms
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_content_ipc_read_main_thread_latency_ms
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: RECORD
+      mode: NULLABLE
+      description: ''
+      fields:
+      - name: key_value
+        type: RECORD
+        mode: REPEATED
+        description: ''
+        fields:
+        - name: key
+          type: INT64
+          mode: NULLABLE
+          description: ''
+        - name: value
+          type: INT64
+          mode: NULLABLE
+          description: ''
+- name: histogram_content_network_cache_v2_miss_time_ms
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_parent_gpu_process_launch_time_ms_2
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_parent_fx_session_restore_startup_onload_initial_window_ms
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_parent_network_cache_v2_miss_time_ms
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_parent_places_autocomplete_6_first_results_time_ms
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_content_network_cache_v2_hit_time_ms
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_parent_search_service_init_ms
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_gpu_ipc_read_main_thread_latency_ms
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: RECORD
+      mode: NULLABLE
+      description: ''
+      fields:
+      - name: key_value
+        type: RECORD
+        mode: REPEATED
+        description: ''
+        fields:
+        - name: key
+          type: INT64
+          mode: NULLABLE
+          description: ''
+        - name: value
+          type: INT64
+          mode: NULLABLE
+          description: ''
+- name: histogram_parent_plugin_shutdown_ms
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: scalar_content_media_blocked_autoplay_no_audio_track_count
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: histogram_content_gc_animation_ms
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_content_places_autocomplete_6_first_results_time_ms
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_parent_fx_tab_switch_update_ms
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_content_gpu_process_initialization_time_ms
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_parent_fx_session_restore_restore_window_ms
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_parent_fx_session_restore_startup_init_session_ms
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: scalar_parent_media_blocked_autoplay_no_audio_track_count
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: histogram_content_gpu_process_launch_time_ms_2
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_content_plugin_shutdown_ms
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_content_search_service_init_ms
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_gpu_gpu_process_initialization_time_ms
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_parent_gpu_process_initialization_time_ms
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_parent_ipc_read_main_thread_latency_ms
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: RECORD
+      mode: NULLABLE
+      description: ''
+      fields:
+      - name: key_value
+        type: RECORD
+        mode: REPEATED
+        description: ''
+        fields:
+        - name: key
+          type: INT64
+          mode: NULLABLE
+          description: ''
+        - name: value
+          type: INT64
+          mode: NULLABLE
+          description: ''
+- name: scalar_content_webrtc_peerconnection_promise_and_callback_stats_used
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_webrtc_peerconnection_promise_stats_used
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_webrtc_peerconnection_connected
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_content_webrtc_peerconnection_legacy_callback_stats_used
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_webrtc_peerconnection_legacy_callback_stats_used
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_content_webrtc_peerconnection_promise_stats_used
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_content_webrtc_peerconnection_connected
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_webrtc_peerconnection_promise_and_callback_stats_used
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_media_blocked_no_metadata
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_content_media_blocked_no_metadata
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_content_media_allowed_autoplay_no_audio_track_count
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_media_allowed_autoplay_no_audio_track_count
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_content_media_blocked_no_metadata_endup_no_audio_track
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_media_blocked_no_metadata_endup_no_audio_track
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: histogram_parent_devtools_canvasdebugger_opened_count
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: histogram_parent_devtools_paintflashing_opened_count
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: histogram_content_devtools_inspector_opened_count
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: histogram_parent_devtools_webaudioeditor_opened_count
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: histogram_parent_devtools_computedview_opened_count
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: histogram_content_devtools_menu_eyedropper_opened_count
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: histogram_parent_devtools_layoutview_opened_count
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: histogram_parent_devtools_scratchpad_opened_count
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: histogram_parent_devtools_about_devtools_opened_reason
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_content_devtools_aboutdebugging_opened_count
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: histogram_parent_devtools_aboutdebugging_opened_count
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: histogram_parent_devtools_fonteditor_n_font_axes
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_content_devtools_computedview_opened_count
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: histogram_parent_devtools_memory_opened_count
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: histogram_parent_devtools_fonteditor_font_type_displayed
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_parent_devtools_jsbrowserdebugger_opened_count
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: histogram_parent_devtools_picker_eyedropper_opened_count
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: histogram_parent_devtools_scratchpad_window_opened_count
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: histogram_content_devtools_jsdebugger_opened_count
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: histogram_parent_devtools_options_opened_count
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: histogram_content_devtools_animationinspector_opened_count
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: histogram_content_devtools_storage_opened_count
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: histogram_content_devtools_responsive_opened_count
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: histogram_parent_devtools_responsive_opened_count
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: histogram_content_devtools_webide_opened_count
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: histogram_content_devtools_dom_opened_count
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: histogram_parent_devtools_developertoolbar_opened_count
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: histogram_parent_devtools_about_devtools_opened_key
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_content_devtools_options_opened_count
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: histogram_content_devtools_webaudioeditor_opened_count
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: histogram_parent_devtools_menu_eyedropper_opened_count
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: histogram_content_devtools_webconsole_opened_count
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: histogram_content_devtools_memory_opened_count
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: histogram_parent_devtools_inspector_opened_count
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: histogram_parent_devtools_custom_opened_count
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: histogram_content_devtools_fontinspector_opened_count
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: histogram_parent_devtools_browserconsole_opened_count
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: histogram_parent_devtools_fonteditor_n_fonts_rendered
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_content_devtools_netmonitor_opened_count
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: histogram_content_devtools_shadereditor_opened_count
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: histogram_parent_devtools_jsprofiler_opened_count
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: histogram_content_devtools_eyedropper_opened_count
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: histogram_content_devtools_jsbrowserdebugger_opened_count
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: histogram_content_devtools_layoutview_opened_count
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: histogram_content_devtools_scratchpad_window_opened_count
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: histogram_content_devtools_styleeditor_opened_count
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: histogram_parent_devtools_eyedropper_opened_count
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: histogram_content_devtools_scratchpad_opened_count
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: histogram_content_devtools_developertoolbar_opened_count
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: histogram_parent_devtools_jsdebugger_opened_count
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: histogram_parent_devtools_dom_opened_count
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: histogram_parent_devtools_ruleview_opened_count
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: histogram_content_devtools_jsprofiler_opened_count
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: histogram_content_devtools_browserconsole_opened_count
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: histogram_parent_devtools_fontinspector_opened_count
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: histogram_parent_devtools_webconsole_opened_count
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: histogram_content_devtools_custom_opened_count
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: histogram_content_devtools_canvasdebugger_opened_count
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: histogram_content_devtools_picker_eyedropper_opened_count
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: histogram_content_devtools_ruleview_opened_count
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: histogram_parent_devtools_styleeditor_opened_count
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: histogram_parent_devtools_webide_opened_count
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: histogram_parent_devtools_shadereditor_opened_count
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: histogram_parent_devtools_animationinspector_opened_count
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: histogram_content_devtools_paintflashing_opened_count
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: histogram_parent_devtools_storage_opened_count
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: histogram_parent_devtools_netmonitor_opened_count
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: histogram_content_devtools_accessibility_picker_time_active_seconds
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_content_devtools_accessibility_service_time_active_seconds
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_parent_devtools_accessibility_picker_time_active_seconds
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_parent_devtools_accessibility_service_time_active_seconds
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_parent_devtools_accessibility_time_active_seconds
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_content_devtools_accessibility_time_active_seconds
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: blank_window_shown
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: histogram_content_content_paint_time
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_parent_content_paint_time
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: scalar_parent_browser_engagement_navigation_webextension
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: scalar_parent_dom_parentprocess_private_window_used
+  type: BOOLEAN
+  mode: NULLABLE
+  description: ''
+- name: histogram_gpu_composite_time
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_parent_pwmgr_login_page_safety
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_content_checkerboard_severity
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_gpu_content_frame_time
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_parent_pwmgr_manage_visibility_toggled
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_parent_pwmgr_form_autofill_result
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_parent_pwmgr_login_last_used_days
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_gpu_checkerboard_severity
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_parent_pwmgr_manage_deleted
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: histogram_parent_pwmgr_manage_copied_password
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: histogram_content_pwmgr_login_page_safety
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_content_pwmgr_manage_deleted
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: histogram_parent_composite_time
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_parent_pwmgr_num_saved_passwords
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_content_pwmgr_manage_copied_password
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: histogram_parent_content_frame_time
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_content_composite_time
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_parent_pwmgr_blocklist_num_sites
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_content_pwmgr_manage_copied_username
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: histogram_content_pwmgr_form_autofill_result
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_parent_checkerboard_severity
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_parent_pwmgr_prompt_update_action
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_parent_pwmgr_num_passwords_per_hostname
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_parent_pwmgr_saving_enabled
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_parent_pwmgr_prompt_remember_action
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_parent_pwmgr_manage_copied_username
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: histogram_parent_pwmgr_manage_opened
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_parent_geolocation_request_granted
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_content_geolocation_request_granted
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: scalar_parent_contentblocking_enabled
+  type: BOOLEAN
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_contentblocking_exceptions
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_contentblocking_fastblock_enabled
+  type: BOOLEAN
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_resistfingerprinting_content_window_size
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: user_pref_marionette_enabled
+  type: BOOLEAN
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_identity_fxaccounts_missed_commands_fetched
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_devtools_webreplay_reload_recording
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_devtools_webreplay_load_recording
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_devtools_webreplay_stop_recording
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_devtools_webreplay_new_recording
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_devtools_webreplay_save_recording
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: histogram_parent_number_of_profiles
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: histogram_content_number_of_profiles
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_telemetry_keyed_scalars_exceed_limit
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_content_memory_unique_content_startup
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: gfx_features_webrender_status
+  type: STRING
+  mode: NULLABLE
+  description: ''
+- name: histogram_content_sandbox_rejected_syscalls
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: gfx_features_wrqualified_status
+  type: STRING
+  mode: NULLABLE
+  description: ''
+- name: histogram_parent_sandbox_rejected_syscalls
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: user_pref_gfx_webrender_all_qualified
+  type: BOOLEAN
+  mode: NULLABLE
+  description: ''
+- name: user_pref_privacy_fuzzyfox_enabled
+  type: BOOLEAN
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_update_binarytransparencyresult
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_content_fx_page_load_ms_2
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_parent_fx_page_load_ms_2
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: scalar_parent_devtools_markup_gridinspector_opened
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_devtools_markup_flexboxhighlighter_opened
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_devtools_layout_flexboxhighlighter_opened
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_devtools_rules_flexboxhighlighter_opened
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_devtools_accessibility_accessible_context_menu_item_activated
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: scalar_parent_devtools_changesview_opened_count
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_devtools_accessibility_accessible_context_menu_opened
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_browser_search_ad_clicks
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: scalar_parent_browser_search_with_ads
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: scalar_parent_encoding_override_used
+  type: BOOLEAN
+  mode: NULLABLE
+  description: ''
+- name: scalar_content_encoding_override_used
+  type: BOOLEAN
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_telemetry_about_telemetry_pageload
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_idb_failure_fileinfo_error
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_content_media_autoplay_default_blocked
+  type: BOOLEAN
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_media_autoplay_default_blocked
+  type: BOOLEAN
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_devtools_changesview_contextmenu
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_devtools_changesview_contextmenu_copy
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_devtools_changesview_copy
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_gfx_hdr_windows_display_colorspace_bitfield
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_startup_profile_selection_reason
+  type: STRING
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_timestamps_about_home_topsites_first_paint
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: environment_settings_intl_regional_prefs_locales
+  type: RECORD
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: environment_settings_intl_regional_prefs_locales
+  fields:
+  - name: list
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: element
+      type: STRING
+      mode: NULLABLE
+      description: ''
+- name: environment_settings_intl_app_locales
+  type: RECORD
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: environment_settings_intl_app_locales
+  fields:
+  - name: list
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: element
+      type: STRING
+      mode: NULLABLE
+      description: ''
+- name: environment_settings_intl_requested_locales
+  type: RECORD
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: environment_settings_intl_requested_locales
+  fields:
+  - name: list
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: element
+      type: STRING
+      mode: NULLABLE
+      description: ''
+- name: environment_settings_intl_accept_languages
+  type: RECORD
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: environment_settings_intl_accept_languages
+  fields:
+  - name: list
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: element
+      type: STRING
+      mode: NULLABLE
+      description: ''
+- name: environment_settings_intl_available_locales
+  type: RECORD
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: environment_settings_intl_available_locales
+  fields:
+  - name: list
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: element
+      type: STRING
+      mode: NULLABLE
+      description: ''
+- name: environment_settings_intl_system_locales
+  type: RECORD
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: environment_settings_intl_system_locales
+  fields:
+  - name: list
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: element
+      type: STRING
+      mode: NULLABLE
+      description: ''
+- name: scalar_parent_security_intermediate_preloading_num_preloaded
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_content_telemetry_process_creation_timestamp_inconsistent
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_security_intermediate_preloading_num_pending
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_telemetry_process_creation_timestamp_inconsistent
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_contentblocking_fingerprinting_blocking_enabled
+  type: BOOLEAN
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_contentblocking_cryptomining_blocking_enabled
+  type: BOOLEAN
+  mode: NULLABLE
+  description: ''
+- name: plugins_notification_shown_false
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_contentblocking_category
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_devtools_changesview_copy_rule
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: user_pref_browser_launcherprocess_enabled
+  type: BOOLEAN
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_devtools_changesview_contextmenu_copy_declaration
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_content_script_preloader_mainthread_recompile
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_script_preloader_mainthread_recompile
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_devtools_changesview_copy_all_changes
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_devtools_changesview_contextmenu_copy_rule
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_normandy_recipe_freshness
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: scalar_parent_devtools_inspector_element_picker_used
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_content_dom_event_confluence_load_count
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: scalar_parent_browser_engagement_max_concurrent_tab_pinned_count
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_browser_engagement_tab_pinned_event_count
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_dom_contentprocess_os_priority_change_considered
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_dom_contentprocess_os_priority_lowered
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_dom_contentprocess_os_priority_raised
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_networking_data_transferred
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: scalar_parent_webrtc_peerconnection_datachannel_max_life_used
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_webrtc_peerconnection_datachannel_max_retx_and_life_used
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_content_webrtc_peerconnection_datachannel_max_retx_and_life_used
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_content_webrtc_peerconnection_datachannel_max_retx_used
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_webrtc_peerconnection_datachannel_max_retx_used
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_content_webrtc_peerconnection_datachannel_max_life_used
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_content_webrtc_peerconnection_datachannel_created
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_webrtc_peerconnection_datachannel_created
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_update_bitshresult
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: scalar_parent_a11y_theme
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: BOOLEAN
+      mode: NULLABLE
+      description: ''
+- name: histogram_parent_dns_failed_lookup_time
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_parent_dns_lookup_time
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: scalar_parent_update_startup_downloads_bits_complete_bytes
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_update_startup_intervals_download_internal_partial
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_update_startup_intervals_download_internal_complete
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_update_session_downloads_bits_complete_seconds
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_update_startup_mar_partial_size_bytes
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_update_session_intervals_check
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_networking_http_connections_captive_portal
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_networking_http_transactions_captive_portal
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_update_startup_intervals_apply_partial
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_update_session_intervals_download_bits_complete
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_update_startup_downloads_internal_complete_bytes
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_networking_data_transferred_captive_portal
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_update_startup_downloads_internal_partial_seconds
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_update_startup_from_app_version
+  type: STRING
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_update_session_mar_partial_size_bytes
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_update_session_intervals_apply_partial
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_update_startup_intervals_stage_complete
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_update_session_from_app_version
+  type: STRING
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_update_session_intervals_stage_partial
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_update_session_mar_complete_size_bytes
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_update_startup_downloads_bits_partial_seconds
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_update_session_intervals_download_internal_complete
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_update_session_intervals_apply_complete
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_update_startup_downloads_bits_partial_bytes
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_update_startup_intervals_download_bits_partial
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_update_session_downloads_internal_partial_seconds
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_update_startup_downloads_bits_complete_seconds
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_update_session_downloads_bits_partial_seconds
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_update_startup_intervals_check
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_update_session_downloads_internal_complete_bytes
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_update_startup_intervals_download_bits_complete
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_update_startup_mar_complete_size_bytes
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_update_startup_downloads_internal_complete_seconds
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_update_session_intervals_download_internal_partial
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_update_session_downloads_internal_partial_bytes
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_update_session_intervals_stage_complete
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_update_session_downloads_bits_complete_bytes
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_update_startup_intervals_stage_partial
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_update_session_downloads_internal_complete_seconds
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_update_session_intervals_download_bits_partial
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_update_startup_intervals_apply_complete
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_update_session_downloads_bits_partial_bytes
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_update_startup_downloads_internal_partial_bytes
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_corroborate_omnijar_corrupted
+  type: BOOLEAN
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_corroborate_system_addons_corrupted
+  type: BOOLEAN
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_networking_data_transferred_kb
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: scalar_parent_telemetry_ecosystem_new_send_time
+  type: STRING
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_telemetry_ecosystem_old_send_time
+  type: STRING
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_startup_is_cold
+  type: BOOLEAN
+  mode: NULLABLE
+  description: ''
+- name: user_pref_browser_search_region
+  type: STRING
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: user_pref_browser_search_region
+- name: environment_system_gfx_headless
+  type: BOOLEAN
+  mode: NULLABLE
+  description: ''
+- name: fxa_configured
+  type: BOOLEAN
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: fxa_configured
+- name: scalar_parent_devtools_accessibility_audit_activated
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: scalar_parent_networking_data_transferred_v3_kb
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: scalar_parent_devtools_inspector_node_selection_count
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: hdd_system_type
+  type: STRING
+  mode: NULLABLE
+  description: ''
+- name: hdd_profile_type
+  type: STRING
+  mode: NULLABLE
+  description: ''
+- name: hdd_binary_type
+  type: STRING
+  mode: NULLABLE
+  description: ''
+- name: histogram_parent_update_status_error_code_complete_startup
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_parent_update_bits_result_partial
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_parent_update_state_code_partial_stage
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_parent_update_status_error_code_partial_startup
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_parent_update_state_code_complete_stage
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_parent_update_bits_result_complete
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_parent_update_status_error_code_complete_stage
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_parent_update_can_use_bits_notify
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_parent_update_state_code_partial_startup
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_parent_update_download_code_partial
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_parent_update_status_error_code_partial_stage
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_parent_update_state_code_complete_startup
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_parent_update_download_code_complete
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: scalar_parent_devtools_tooltip_shown
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: scalar_content_dom_event_office_online_load_count
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: scalar_content_webrtc_video_send_codec_used
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: scalar_content_webrtc_video_recv_codec_used
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: scalar_parent_qm_origin_directory_unexpected_filename
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: histogram_parent_cookie_behavior
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: scalar_parent_pictureinpicture_closed_method
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: scalar_content_pictureinpicture_opened_method
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: user_pref_security_pki_mitm_detected
+  type: BOOLEAN
+  mode: NULLABLE
+  description: ''
+- name: user_pref_security_enterprise_roots_enabled
+  type: BOOLEAN
+  mode: NULLABLE
+  description: ''
+- name: user_pref_security_enterprise_roots_auto_enabled
+  type: BOOLEAN
+  mode: NULLABLE
+  description: ''
+- name: attribution_experiment
+  type: STRING
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: attribution_experiment
+- name: attribution_variation
+  type: STRING
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: attribution_variation
+- name: user_pref_network_trr_mode
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_content_pdf_viewer_print
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_pdf_viewer_used
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_content_pdf_viewer_fallback_shown
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_content_pdf_viewer_used
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_pdf_viewer_print
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_pdf_viewer_fallback_shown
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_blocklist_useXML
+  type: BOOLEAN
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_blocklist_lastModified_xml
+  type: STRING
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_blocklist_lastModified_rs_plugins
+  type: STRING
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_blocklist_lastModified_rs_addons
+  type: STRING
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_os_environment_is_admin_without_uac
+  type: BOOLEAN
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_devtools_accessibility_simulation_activated
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: scalar_parent_firstStartup_statusCode
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_pwmgr_potentially_breached_passwords
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_contentblocking_trackers_blocked_count
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_content_webrtc_hostnameobfuscation_enabled_failed
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_content_webrtc_hostnameobfuscation_disabled_succeeded
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_webrtc_hostnameobfuscation_disabled_failed
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_webrtc_hostnameobfuscation_enabled_succeeded
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_webrtc_hostnameobfuscation_disabled_succeeded
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_webrtc_hostnameobfuscation_enabled_failed
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_content_webrtc_hostnameobfuscation_enabled_succeeded
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_content_webrtc_hostnameobfuscation_disabled_failed
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_browser_searchinit_engines_cache_corrupted
+  type: BOOLEAN
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_update_fix_permissions_attempted
+  type: BOOLEAN
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_firstStartup_elapsed
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_security_contentblocker_permissions
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: INT64
+      mode: NULLABLE
+      description: ''
+- name: scalar_parent_a11y_backplate
+  type: BOOLEAN
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_security_tls_delegated_credentials_txn
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: experiments_details
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: key_value
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: RECORD
+      mode: NULLABLE
+      description: ''
+      fields:
+      - name: key_value
+        type: RECORD
+        mode: REPEATED
+        description: ''
+        fields:
+        - name: key
+          type: STRING
+          mode: NULLABLE
+          description: ''
+        - name: value
+          type: STRING
+          mode: NULLABLE
+          description: ''
+- name: scalar_parent_networking_ftp_opened_channels_listings
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_networking_ftp_opened_channels_files
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: default_private_search_engine_data_name
+  type: STRING
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: default_private_search_engine_data_name
+- name: default_private_search_engine_data_submission_url
+  type: STRING
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: default_private_search_engine_data_submission_url
+- name: default_private_search_engine_data_load_path
+  type: STRING
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: default_private_search_engine_data_load_path
+- name: default_private_search_engine_data_origin
+  type: STRING
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: default_private_search_engine_data_origin
+- name: default_private_search_engine
+  type: STRING
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: default_private_search_engine
+- name: scalar_parent_datasanitization_privacy_sanitize_sanitizeOnShutdown
+  type: BOOLEAN
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_datasanitization_privacy_clearOnShutdown_cache
+  type: BOOLEAN
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_datasanitization_network_cookie_lifetimePolicy
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_datasanitization_privacy_clearOnShutdown_offlineApps
+  type: BOOLEAN
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_datasanitization_privacy_clearOnShutdown_openWindows
+  type: BOOLEAN
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_datasanitization_privacy_clearOnShutdown_downloads
+  type: BOOLEAN
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_datasanitization_privacy_clearOnShutdown_sessions
+  type: BOOLEAN
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_datasanitization_privacy_clearOnShutdown_formdata
+  type: BOOLEAN
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_datasanitization_privacy_clearOnShutdown_history
+  type: BOOLEAN
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_datasanitization_privacy_clearOnShutdown_cookies
+  type: BOOLEAN
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_datasanitization_privacy_clearOnShutdown_siteSettings
+  type: BOOLEAN
+  mode: NULLABLE
+  description: ''
+- name: scalar_parent_datasanitization_session_permission_exceptions
+  type: INT64
+  mode: NULLABLE
+  description: ''
