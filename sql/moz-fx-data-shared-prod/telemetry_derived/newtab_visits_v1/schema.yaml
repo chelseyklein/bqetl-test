@@ -134,6 +134,8 @@ fields:
 - mode: REPEATED
   name: newtab_blocked_sponsors
   type: STRING
+  description: Array of advertiser names that the user has dismissed from the sponsored Top Sites section
+    on the new tab page. Derived from the `newtab.blocked_sponsors` metric.
 - fields:
   - mode: NULLABLE
     name: key
@@ -191,9 +193,13 @@ fields:
 - mode: NULLABLE
   name: had_non_impression_engagement
   type: BOOLEAN
+  description: True if the newtab visit included at least one non-impression engagement event (click, search
+    issued, or save) across any content section. False if the visit only had impression events or no events.
 - mode: NULLABLE
   name: had_non_search_engagement
   type: BOOLEAN
+  description: True if the newtab visit included at least one non-search engagement event (a click or save
+    on Pocket or Top Sites content). False if the visit had only impressions or search events.
 - fields:
   - mode: NULLABLE
     name: search_engine
@@ -470,6 +476,9 @@ fields:
 - mode: NULLABLE
   name: newtab_default_ui
   type: STRING
+  description: Indicates whether the user opened the new tab page through its default Mozilla-provided UI
+    ('default') or a customized/overridden page ('non-default'). Derived from the combination of `newtab_open_source`,
+    `newtab_homepage_category`, and `newtab_newtab_category`.
 - name: newtab_weather_widget_enabled
   type: BOOLEAN
   mode: NULLABLE
@@ -483,6 +492,8 @@ fields:
   - name: wallpaper_selected_wallpaper
     type: STRING
     mode: NULLABLE
+  description: The identifier or name of the wallpaper that was selected by the user during this newtab
+    visit (e.g., 'hot-air-balloons', 'custom'). Null when no wallpaper selection event occurred.
   - name: wallpaper_clicks
     type: INTEGER
     mode: NULLABLE
@@ -492,18 +503,28 @@ fields:
   - name: wallpaper_clicks_had_previous_wallpaper
     type: INTEGER
     mode: NULLABLE
+  description: Count of wallpaper selection clicks during this visit where the user already had a previously
+    set wallpaper (i.e., this is a wallpaper change rather than a first selection).
   - name: wallpaper_clicks_first_selected_wallpaper
     type: INTEGER
     mode: NULLABLE
+  description: Count of wallpaper selection clicks during this visit where the user had no previously set
+    wallpaper (i.e., this is the user's first wallpaper selection).
   - name: wallpaper_category_clicks
     type: INTEGER
     mode: NULLABLE
+  description: Count of times the user clicked on a wallpaper category (e.g., to browse wallpapers within
+    a theme) in the wallpaper picker during this newtab visit.
   - name: wallpaper_highlight_dismissals
     type: INTEGER
     mode: NULLABLE
+  description: Count of times the user dismissed the wallpaper feature highlight (an onboarding prompt promoting
+    the wallpaper feature) during this newtab visit.
   - name: wallpaper_highlight_cta_clicks
     type: INTEGER
     mode: NULLABLE
+  description: Count of times the user clicked the call-to-action button within the wallpaper feature highlight
+    during this newtab visit.
 - name: weather_interactions
   type: RECORD
   mode: REPEATED
@@ -511,9 +532,13 @@ fields:
   - name: weather_widget_impressions
     type: INTEGER
     mode: NULLABLE
+  description: Count of times the weather widget was visible (impressed) to the user during this newtab
+    visit.
   - name: weather_widget_location_selected
     type: INTEGER
     mode: NULLABLE
+  description: Count of times the user selected or changed their location in the weather widget during this
+    newtab visit.
   - name: weather_widget_clicks
     type: INTEGER
     mode: NULLABLE
@@ -523,6 +548,8 @@ fields:
   - name: weather_widget_load_errors
     type: INTEGER
     mode: NULLABLE
+  description: Count of errors encountered while loading weather data in the weather widget during this
+    newtab visit.
   - name: weather_widget_change_display_to_detailed
     type: INTEGER
     mode: NULLABLE
@@ -538,6 +565,8 @@ fields:
 - name: newtab_selected_topics
   type: STRING
   mode: REPEATED
+  description: Array of topic slugs that the user has selected in the Pocket topic selector on the new tab
+    page. Derived from the `newtab.selected_topics` metric.
 - name: topic_selection_interactions
   type: RECORD
   mode: REPEATED
@@ -545,21 +574,32 @@ fields:
   - name: previous_topics
     type: STRING
     mode: NULLABLE
+  description: A comma-separated string of topic slugs that the user had selected before the current topic
+    selection interaction. Empty string if the user had no previously selected topics.
   - name: topics
     type: STRING
     mode: NULLABLE
+  description: A comma-separated string of topic slugs reflecting the user's topic selections at the time
+    of the topic selection interaction. Empty string if the user selected no topics.
   - name: topic_selection_open
     type: INTEGER
     mode: NULLABLE
+  description: Count of times the user opened the topic selection UI during this newtab visit.
   - name: topic_selection_dismiss
     type: INTEGER
     mode: NULLABLE
+  description: Count of times the user dismissed (closed without saving) the topic selection UI during this
+    newtab visit.
   - name: topic_selection_topics_first_saved
     type: INTEGER
     mode: NULLABLE
+  description: Count of times the user saved their topic selections for the first time (initial save) during
+    this newtab visit.
   - name: topic_selection_topics_updated
     type: INTEGER
     mode: NULLABLE
+  description: Count of times the user saved an updated set of topic selections (subsequent saves after
+    the initial save) during this newtab visit.
 - mode: NULLABLE
   name: profile_group_id
   type: STRING
@@ -569,9 +609,13 @@ fields:
 - name: newtab_window_inner_height
   type: INTEGER
   mode: NULLABLE
+  description: The inner height of the browser window in pixels at the time the new tab page was opened.
+    Null when the opened event was not recorded for this visit.
 - name: newtab_window_inner_width
   type: INTEGER
   mode: NULLABLE
+  description: The inner width of the browser window in pixels at the time the new tab page was opened.
+    Null when the opened event was not recorded for this visit.
 - mode: NULLABLE
   name: topsites_sponsored_tiles_configured
   type: INTEGER
