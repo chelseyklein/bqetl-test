@@ -1,0 +1,161 @@
+fields:
+- name: ds
+  type: TIMESTAMP
+  mode: NULLABLE
+  description: The date for which the forecast applies, stored as a timestamp. Covers both historical fitted
+    values and future forecast horizon dates.
+- name: trend
+  type: FLOAT64
+  mode: NULLABLE
+  description: The Prophet model's estimated trend component of the forecast at the given date, representing
+    the underlying long-term direction of the metric excluding seasonality and regressors.
+- name: yhat_lower
+  type: FLOAT64
+  mode: NULLABLE
+  description: The lower bound of the Prophet model's uncertainty interval for the forecasted metric value,
+    representing the lower end of the credible interval around yhat.
+- name: yhat_upper
+  type: FLOAT64
+  mode: NULLABLE
+  description: The upper bound of the Prophet model's uncertainty interval for the forecasted metric value,
+    representing the upper end of the credible interval around yhat.
+- name: trend_lower
+  type: FLOAT64
+  mode: NULLABLE
+  description: The lower bound of the uncertainty interval for the trend component of the Prophet forecast.
+- name: trend_upper
+  type: FLOAT64
+  mode: NULLABLE
+  description: The upper bound of the uncertainty interval for the trend component of the Prophet forecast.
+- name: additive_terms
+  type: FLOAT64
+  mode: NULLABLE
+  description: The sum of all additive seasonal and regressor components in the Prophet model (e.g. weekly,
+    yearly, holidays, extra regressors), representing the total additive adjustment applied on top of the
+    trend.
+- name: additive_terms_lower
+  type: FLOAT64
+  mode: NULLABLE
+  description: The lower bound of the uncertainty interval for the total additive terms component of the
+    Prophet forecast.
+- name: additive_terms_upper
+  type: FLOAT64
+  mode: NULLABLE
+  description: The upper bound of the uncertainty interval for the total additive terms component of the
+    Prophet forecast.
+- name: extra_regressors_additive
+  type: FLOAT64
+  mode: NULLABLE
+  description: The combined contribution of all additional additive external regressors included in the
+    Prophet model (such as regressor_00). Zero when no extra regressors are active for a given row.
+- name: extra_regressors_additive_lower
+  type: FLOAT64
+  mode: NULLABLE
+  description: The lower bound of the uncertainty interval for the combined extra additive regressors component
+    of the Prophet forecast.
+- name: extra_regressors_additive_upper
+  type: FLOAT64
+  mode: NULLABLE
+  description: The upper bound of the uncertainty interval for the combined extra additive regressors component
+    of the Prophet forecast.
+- name: holidays
+  type: FLOAT64
+  mode: NULLABLE
+  description: The Prophet model's estimated holiday effect component for the given date. Non-zero values
+    indicate dates that fall on configured holidays, which typically reduce metric counts.
+- name: holidays_lower
+  type: FLOAT64
+  mode: NULLABLE
+  description: The lower bound of the uncertainty interval for the holiday effect component of the Prophet
+    forecast. Zero when holidays are not configured for the model.
+- name: holidays_upper
+  type: FLOAT64
+  mode: NULLABLE
+  description: The upper bound of the uncertainty interval for the holiday effect component of the Prophet
+    forecast. Zero when holidays are not configured for the model.
+- name: regressor_00
+  type: FLOAT64
+  mode: NULLABLE
+  description: The estimated contribution of the first additional external regressor included in the Prophet
+    model. Zero for rows where no external regressor value was provided.
+- name: regressor_00_lower
+  type: FLOAT64
+  mode: NULLABLE
+  description: The lower bound of the uncertainty interval for the first external regressor component of
+    the Prophet forecast.
+- name: regressor_00_upper
+  type: FLOAT64
+  mode: NULLABLE
+  description: The upper bound of the uncertainty interval for the first external regressor component of
+    the Prophet forecast.
+- name: weekly
+  type: FLOAT64
+  mode: NULLABLE
+  description: The Prophet model's estimated weekly seasonality component for the given date, capturing
+    recurring day-of-week patterns in the metric.
+- name: weekly_lower
+  type: FLOAT64
+  mode: NULLABLE
+  description: The lower bound of the uncertainty interval for the weekly seasonality component of the Prophet
+    forecast.
+- name: weekly_upper
+  type: FLOAT64
+  mode: NULLABLE
+  description: The upper bound of the uncertainty interval for the weekly seasonality component of the Prophet
+    forecast.
+- name: yearly
+  type: FLOAT64
+  mode: NULLABLE
+  description: The Prophet model's estimated yearly seasonality component for the given date, capturing
+    recurring annual patterns in the metric such as seasonal usage changes.
+- name: yearly_lower
+  type: FLOAT64
+  mode: NULLABLE
+  description: The lower bound of the uncertainty interval for the yearly seasonality component of the Prophet
+    forecast.
+- name: yearly_upper
+  type: FLOAT64
+  mode: NULLABLE
+  description: The upper bound of the uncertainty interval for the yearly seasonality component of the Prophet
+    forecast.
+- name: multiplicative_terms
+  type: FLOAT64
+  mode: NULLABLE
+  description: The combined contribution of all multiplicative components in the Prophet model. Always zero
+    in the current data, indicating the model uses only additive seasonality.
+- name: multiplicative_terms_lower
+  type: FLOAT64
+  mode: NULLABLE
+  description: The lower bound of the uncertainty interval for the multiplicative terms component of the
+    Prophet forecast. Always zero as multiplicative seasonality is not used.
+- name: multiplicative_terms_upper
+  type: FLOAT64
+  mode: NULLABLE
+  description: The upper bound of the uncertainty interval for the multiplicative terms component of the
+    Prophet forecast. Always zero as multiplicative seasonality is not used.
+- name: yhat
+  type: FLOAT64
+  mode: NULLABLE
+  description: The Prophet model's point estimate (posterior mean) of the forecasted metric value for the
+    given date.
+- name: target
+  type: STRING
+  mode: NULLABLE
+  description: The product surface being forecasted. Values are 'desktop' or 'mobile', indicating whether
+    the forecast applies to Firefox Desktop or Firefox for mobile platforms.
+- name: forecast_date
+  type: STRING
+  mode: NULLABLE
+  description: The date on which the forecast was generated, stored as a string in YYYY-MM-DD format. Used
+    to distinguish forecasts produced on different runs.
+- name: forecast_parameters
+  type: STRING
+  mode: NULLABLE
+  description: JSON-encoded string containing the hyperparameters used to configure the Prophet model for
+    this forecast run, including settings such as changepoint_prior_scale, seasonality_prior_scale, weekly_seasonality,
+    yearly_seasonality, and holidays.
+- name: metric
+  type: STRING
+  mode: NULLABLE
+  description: The KPI metric being forecasted. Values include 'DAU' (Daily Active Users), 'QDAU' (Qualified
+    DAU), 'CDOU' (Connected Days of Use), and 'QCDOU' (Qualified CDOU).
