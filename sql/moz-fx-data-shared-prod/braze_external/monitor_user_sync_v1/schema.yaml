@@ -2,12 +2,15 @@ fields:
 - name: UPDATED_AT
   type: TIMESTAMP
   mode: NULLABLE
-  description: ''
+  description: Timestamp indicating when this sync record was generated and the Braze user profile was last
+    updated.
 - name: EXTERNAL_ID
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: Unique Braze external identifier for this Monitor user, prefixed by source cohort (e.g. 'monitor-free-users-',
+    'ppp-auto-renewing-', 'ppp-non-renewing-') followed by a truncated hash.
 - name: PAYLOAD
   type: JSON
   mode: NULLABLE
-  description: ''
+  description: JSON object containing the Braze user attribute payload to upsert, including the user's email
+    address, email subscription status, and subscription group memberships for Mozilla Monitor.
