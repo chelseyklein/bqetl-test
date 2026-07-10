@@ -143,3 +143,41 @@ fields:
   description: Phone number of the user. Suppressed due to PII.
 - name: subscription_group_id
   description: UUID of the Braze email subscription group whose state changed for this user.
+- name: EXTERNAL_ID
+  type: STRING
+  description: Unique Braze external identifier for this Monitor Plus user, prefixed by source cohort
+    (e.g. 'monitor-plus_users-', 'ppp-auto-renewing-', 'ppp-non-renewing-') followed by a truncated SHA-256
+    hash to ensure uniqueness.
+- name: PAYLOAD
+  type: JSON
+  description: JSON object containing the Braze user attribute payload to upsert, including the user's
+    email address, email subscription status ('subscribed'), and subscription group memberships for Monitor
+    Plus.
+- name: UPDATED_AT
+  type: TIMESTAMP
+  description: Timestamp indicating when this sync record was generated and the Braze user profile was
+    last updated.
+- name: EMAIL
+  description: Email address of the Pocket user. This field is PII-suppressed.
+- name: create_timestamp
+  description: Timestamp when this user's Braze profile record was first created.
+- name: email
+  type: STRING
+  description: Email address of the Braze user. This field is PII-suppressed.
+- name: email_lang
+  description: Preferred language code for email communications for this user (e.g. 'en', 'es', 'fr'),
+    used to determine the language of Braze email sends.
+- name: email_subscribe
+  description: Braze email subscription status for this user. Values are 'opted_in' (user has explicitly
+    opted in) or 'subscribed' (user is subscribed but has not explicitly opted in).
+- name: external_id
+  type: STRING
+  description: Unique Braze external identifier for this user, typically a UUID matching the user's FxA
+    or Basket identifier.
+- name: mailing_country
+  description: ISO country code representing the user's mailing or geographic country, used for geo-targeting
+    in email campaigns. Null when not available.
+- name: update_timestamp
+  description: Timestamp when this user's Braze profile record was last updated.
+- name: updated_at
+  description: Timestamp when this cleanup sync record was generated.
