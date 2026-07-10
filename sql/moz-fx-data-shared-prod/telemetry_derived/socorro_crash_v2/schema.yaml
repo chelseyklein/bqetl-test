@@ -2,11 +2,13 @@ fields:
 - name: crash_date
   type: DATE
   mode: NULLABLE
-  description: ''
+  description: The calendar date on which the crash was reported to Socorro, used as the primary partition
+    key for this table.
 - name: abort_message
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: The message passed to the abort/MOZ_CRASH call that triggered the crash, including the source
+    file and line number. Null when the crash was not caused by an explicit abort.
 - name: accessibility
   type: STRING
   mode: NULLABLE
@@ -20,11 +22,13 @@ fields:
 - name: adapter_driver_version
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: The driver version string for the primary graphics adapter on the machine that experienced
+    the crash (e.g. '31.0.101.2125').
 - name: adapter_subsys_id
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: The PCI subsystem ID of the primary graphics adapter, identifying the specific board variant
+    from the card manufacturer. Expressed as a hexadecimal string.
 - name: adapter_vendor_id
   type: STRING
   mode: NULLABLE
@@ -52,7 +56,8 @@ fields:
   - name: list
     type: RECORD
     mode: REPEATED
-    description: ''
+    description: The list of browser add-on identifiers and versions installed at the time of the crash. Each
+      element is a string in the format 'id:version'.
     fields:
     - name: element
       type: STRING
@@ -61,11 +66,12 @@ fields:
 - name: addons_checked
   type: BOOLEAN
   mode: NULLABLE
-  description: ''
+  description: Indicates whether the list of installed add-ons was successfully checked and recorded by
+    the crash reporter. True when the add-on list was verified; false or null otherwise.
 - name: address
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: The memory address at which the crash occurred. Suppressed due to potential PII.
 - name: android_board
   type: STRING
   mode: NULLABLE
@@ -83,15 +89,18 @@ fields:
 - name: android_cpu_abi2
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: The secondary CPU ABI supported by the Android device on which the crash occurred (e.g. 'armeabi-v7a'
+    on an arm64 device). Null for non-Android crashes or when no secondary ABI is reported.
 - name: android_device
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: The internal device codename or model identifier of the Android device on which the crash
+    occurred (e.g. 'beyond1q', 'r9s'). Null for non-Android crashes.
 - name: android_hardware
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: The hardware platform identifier of the Android device on which the crash occurred (e.g.
+    'qcom' for Qualcomm, 'mt6765' for MediaTek). Null for non-Android crashes.
 - name: android_manufacturer
   type: STRING
   mode: NULLABLE
@@ -109,7 +118,8 @@ fields:
 - name: app_init_dlls
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: A list of DLLs injected into the Firefox process via the Windows AppInit_DLLs registry key
+    at the time of the crash. Null when no such DLLs were present.
 - name: app_notes
   type: STRING
   mode: NULLABLE
@@ -119,7 +129,8 @@ fields:
 - name: available_physical_memory
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: The amount of physical RAM (in bytes) available (free) on the machine at the time of the
+    crash.
 - name: available_virtual_memory
   type: STRING
   mode: NULLABLE
@@ -133,7 +144,8 @@ fields:
 - name: build_id
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: The build identifier of the Mozilla product that crashed, expressed as a timestamp string
+    in YYYYMMDDHHmmSS format (e.g. '20260624221428').
 - name: classifications
   type: RECORD
   mode: NULLABLE
@@ -147,7 +159,8 @@ fields:
     - name: category
       type: STRING
       mode: NULLABLE
-      description: ''
+      description: The JIT crash category label assigned by the Socorro JIT classifier (e.g. 'oom', 'unknown').
+        Currently always null.
     - name: category_return_code
       type: STRING
       mode: NULLABLE
@@ -189,7 +202,8 @@ fields:
     - name: classification_version
       type: STRING
       mode: NULLABLE
-      description: ''
+      description: The version of the Socorro support classifier that produced the classification for this crash.
+        Currently always null.
 - name: contains_memory_report
   type: STRING
   mode: NULLABLE
@@ -225,15 +239,18 @@ fields:
 - name: e10s_cohort
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: The electrolysis (multi-process) experiment cohort the user was assigned to. Currently always
+    null as e10s is now universally enabled.
 - name: flash_version
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: The version of Adobe Flash Player installed at the time of the crash. Currently always null
+    as Flash is no longer supported.
 - name: gmp_plugin
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: Indicates whether the crash occurred in a Gecko Media Plugin (GMP) process. A value of '1'
+    means the crash was in a GMP process; null means it was not.
 - name: graphics_critical_error
   type: STRING
   mode: NULLABLE
@@ -256,7 +273,8 @@ fields:
 - name: ipc_channel_error
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: The error string describing why an IPC channel was terminated, such as 'GPUProcessKill' or
+    'ShutDownKill'. Null when the crash was not caused by an IPC channel error.
 - name: ipc_fatal_error_msg
   type: STRING
   mode: NULLABLE
@@ -266,7 +284,7 @@ fields:
 - name: ipc_fatal_error_protocol
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: The name of the IPC protocol actor in which the fatal error occurred. Currently always null.
 - name: ipc_message_name
   type: STRING
   mode: NULLABLE
@@ -275,11 +293,13 @@ fields:
 - name: ipc_system_error
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: The numeric system error code (errno or Windows error code) associated with an IPC channel
+    failure. Null when the crash was not caused by an IPC system error.
 - name: is_garbage_collecting
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: Indicates whether the JavaScript garbage collector was running at the time of the crash.
+    Currently always null.
 - name: java_stack_trace
   type: STRING
   mode: NULLABLE
@@ -287,7 +307,8 @@ fields:
 - name: jit_category
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: The JIT (Just-In-Time compiler) crash category assigned by the Socorro JIT classifier. Currently
+    always null.
 - name: json_dump
   type: RECORD
   mode: NULLABLE
@@ -309,7 +330,8 @@ fields:
     - name: type
       type: STRING
       mode: NULLABLE
-      description: ''
+      description: The type of exception or signal that caused the crash as extracted from the minidump (e.g.
+        'EXCEPTION_BREAKPOINT', 'SIGSEGV / SEGV_MAPERR', 'EXCEPTION_ACCESS_VIOLATION_READ').
   - name: crashing_thread
     type: RECORD
     mode: NULLABLE
@@ -366,11 +388,13 @@ fields:
     - name: threads_index
       type: INT64
       mode: NULLABLE
-      description: ''
+      description: The zero-based index of the crashing thread within the list of all threads in the minidump.
+        Corresponds to json_dump.crash_info.crashing_thread.
     - name: total_frames
       type: INT64
       mode: NULLABLE
-      description: ''
+      description: The total number of stack frames in the crashing thread, including frames beyond the truncated
+        list. Currently always null.
   - name: largest_free_vm_block
     type: STRING
     mode: NULLABLE
@@ -379,7 +403,8 @@ fields:
   - name: main_module
     type: INT64
     mode: NULLABLE
-    description: ''
+    description: The index into json_dump.modules.list of the main executable module of the crashed process.
+      Typically 0 (the first module).
   - name: modules
     type: RECORD
     mode: NULLABLE
@@ -388,7 +413,8 @@ fields:
     - name: list
       type: RECORD
       mode: REPEATED
-      description: ''
+      description: The list of loaded modules (DLLs/shared libraries) in the crashed process as extracted from
+        the minidump, each with its base address, filename, debug identifier, version, and symbol loading status.
       fields:
       - name: element
         type: RECORD
@@ -466,7 +492,8 @@ fields:
     - name: cpu_info
       type: STRING
       mode: NULLABLE
-      description: ''
+      description: A detailed CPU identifier string from the minidump system information, typically including
+        the vendor and the family/model/stepping (e.g. 'GenuineIntel family 6 model 158 stepping 10').
     - name: os
       type: STRING
       mode: NULLABLE
@@ -550,7 +577,7 @@ fields:
   - name: tiny_block_size
     type: STRING
     mode: NULLABLE
-    description: ''
+    description: The size of tiny memory blocks reported in the minidump JSON. Currently always null.
   - name: write_combine_size
     type: STRING
     mode: NULLABLE
@@ -581,11 +608,13 @@ fields:
   - name: heap_allocated
     type: INT64
     mode: NULLABLE
-    description: ''
+    description: The total amount of memory (in bytes) allocated on the heap by the crashed process at the
+      time of the crash, as reported in the attached memory snapshot.
   - name: heap_overhead
     type: INT64
     mode: NULLABLE
-    description: ''
+    description: The memory overhead (in bytes) of the heap allocator itself in the crashed process, as reported
+      in the attached memory snapshot.
   - name: heap_unclassified
     type: INT64
     mode: NULLABLE
@@ -598,15 +627,18 @@ fields:
   - name: images
     type: INT64
     mode: NULLABLE
-    description: ''
+    description: Memory (in bytes) used by decoded image data in the crashed process, as reported in the attached
+      memory snapshot.
   - name: js_main_runtime
     type: INT64
     mode: NULLABLE
-    description: ''
+    description: Memory (in bytes) used by the main JavaScript runtime in the crashed process, as reported
+      in the attached memory snapshot.
   - name: private
     type: INT64
     mode: NULLABLE
-    description: ''
+    description: The amount of private (non-shared) memory in bytes used by the crashed process, as reported
+      in the attached memory snapshot.
   - name: resident
     type: INT64
     mode: NULLABLE
@@ -690,27 +722,34 @@ fields:
   - name: version
     type: INT64
     mode: NULLABLE
-    description: ''
+    description: The schema version of the memory report attached to the crash submission. Null when no memory
+      report was included.
 - name: moz_crash_reason
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: The reason string passed to MOZ_CRASH() or a similar assertion macro that triggered the crash
+    (e.g. 'MOZ_CRASH(OOM)' or a shutdown hang message). Null when the crash was not caused by an explicit
+    MOZ_CRASH call.
 - name: oom_allocation_size
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: The size (in bytes) of the memory allocation that failed and triggered an out-of-memory crash.
+    Null when the crash was not caused by an OOM condition.
 - name: platform
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: The operating system platform on which the crash occurred (e.g. 'Windows NT', 'Android',
+    'Linux', 'Mac OS X'). 'Unknown' is reported when the platform could not be determined.
 - name: platform_pretty_version
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: A human-readable description of the operating system version on which the crash occurred
+    (e.g. 'Windows 11', 'Windows 10', 'Android 36').
 - name: platform_version
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: The detailed OS version string of the platform on which the crash occurred (e.g. '10.0.26200'
+    for Windows, '6.1.7601 Service Pack 1'). Empty string for platforms where the version is unknown.
 - name: plugin_filename
   type: STRING
   mode: NULLABLE
@@ -719,7 +758,8 @@ fields:
 - name: plugin_name
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: The display name of the browser plugin involved in the crash (e.g. 'WidevineCdm', 'clearkey').
+    Null or empty when no plugin was involved.
 - name: plugin_version
   type: STRING
   mode: NULLABLE
@@ -728,11 +768,13 @@ fields:
 - name: process_type
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: The type of Firefox process that crashed (e.g. 'parent' for the main browser process, 'content'
+    for a content process, 'gpu' for the GPU process, 'plugin' for a plugin process).
 - name: processor_notes
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: Free-form log output from the Socorro processor describing the steps taken and any warnings
+    or errors encountered while processing this crash report, including the processing timestamp and host.
 - name: product
   type: STRING
   mode: NULLABLE
@@ -752,7 +794,8 @@ fields:
 - name: release_channel
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: The Firefox release channel of the product that experienced the crash (e.g. 'release', 'esr',
+    'nightly', 'beta').
 - name: safe_mode
   type: STRING
   mode: NULLABLE
@@ -784,7 +827,9 @@ fields:
 - name: topmost_filenames
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: The source file path of the topmost non-system frame in the crashing thread's stack, typically
+    expressed as a VCS-anchored path (e.g. 'git:github.com/mozilla-firefox/firefox:...'). Used to attribute
+    crashes to specific source files.
 - name: total_physical_memory
   type: STRING
   mode: NULLABLE
@@ -806,7 +851,8 @@ fields:
 - name: useragent_locale
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: The locale of the browser's user agent string at the time of the crash (e.g. 'en-US', 'de',
+    'fr').
 - name: uuid
   type: STRING
   mode: NULLABLE
@@ -815,15 +861,18 @@ fields:
 - name: version
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: The version string of the Mozilla product (Firefox, Thunderbird, Fenix, etc.) that experienced
+    the crash (e.g. '152.0.3', '140.12.0esr').
 - name: winsock_lsp
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: A list of Windows Layered Service Providers (LSPs) installed in the Winsock stack on the
+    crashed machine. Currently always null.
 - name: minidump_sha256_hash
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: The SHA-256 hash of the minidump file submitted with this crash report. An empty string or
+    the hash of an empty file indicates that no minidump content was uploaded.
 - name: dom_fission_enabled
   type: STRING
   mode: NULLABLE
