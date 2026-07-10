@@ -10,11 +10,13 @@ fields:
 - name: accessibility
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: Indicates whether an accessibility service or assistive technology was active at the time
+    of the crash. A value of '1' means accessibility was enabled; '0' means it was not.
 - name: adapter_device_id
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: The PCI device ID of the primary graphics adapter on the crashed machine, typically expressed
+    as a hexadecimal string (e.g. '0x9a49').
 - name: adapter_driver_version
   type: STRING
   mode: NULLABLE
@@ -26,7 +28,8 @@ fields:
 - name: adapter_vendor_id
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: The PCI vendor ID of the primary graphics adapter on the crashed machine, typically expressed
+    as a hexadecimal string (e.g. '0x8086' for Intel, '0x10de' for NVIDIA, '0x1002' for AMD).
 - name: additional_minidumps
   type: RECORD
   mode: NULLABLE
@@ -70,11 +73,13 @@ fields:
 - name: android_brand
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: The consumer brand name of the Android device on which the crash occurred (e.g. 'samsung',
+    'google'). May differ from the manufacturer. Null for non-Android crashes.
 - name: android_cpu_abi
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: The primary CPU ABI of the Android device on which the crash occurred (e.g. 'arm64-v8a',
+    'armeabi-v7a'). Null for non-Android crashes.
 - name: android_cpu_abi2
   type: STRING
   mode: NULLABLE
@@ -90,7 +95,8 @@ fields:
 - name: android_manufacturer
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: The manufacturer of the Android device on which the crash occurred (e.g. 'samsung', 'Xiaomi').
+    Null for non-Android crashes.
 - name: android_model
   type: STRING
   mode: NULLABLE
@@ -98,7 +104,8 @@ fields:
 - name: android_version
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: The Android OS version and release type on the device where the crash occurred (e.g. '36
+    (REL)'). Null for non-Android crashes.
 - name: app_init_dlls
   type: STRING
   mode: NULLABLE
@@ -106,7 +113,9 @@ fields:
 - name: app_notes
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: Free-form notes appended by the crash reporter and Socorro processor describing graphics
+    subsystem state, feature flags (e.g. DirectWrite, WebRender), and other application-level annotations
+    at the time of the crash.
 - name: available_physical_memory
   type: STRING
   mode: NULLABLE
@@ -114,11 +123,13 @@ fields:
 - name: available_virtual_memory
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: The amount of virtual memory (in bytes) still available to the crashed process at the time
+    of the crash.
 - name: bios_manufacturer
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: The manufacturer name reported in the system BIOS of the machine that experienced the crash.
+    Currently always null.
 - name: build_id
   type: STRING
   mode: NULLABLE
@@ -140,7 +151,8 @@ fields:
     - name: category_return_code
       type: STRING
       mode: NULLABLE
-      description: ''
+      description: The return code from the JIT crash classifier indicating the outcome of the classification
+        attempt. Currently always null.
   - name: skunk_works
     type: RECORD
     mode: NULLABLE
@@ -157,7 +169,8 @@ fields:
     - name: classification_version
       type: STRING
       mode: NULLABLE
-      description: ''
+      description: The version of the Socorro skunk_works classifier that produced the classification for this
+        crash. Currently always null.
   - name: support
     type: RECORD
     mode: NULLABLE
@@ -166,11 +179,13 @@ fields:
     - name: classification
       type: STRING
       mode: NULLABLE
-      description: ''
+      description: The support classification label assigned to this crash by the Socorro support classifier.
+        Currently always null.
     - name: classification_data
       type: STRING
       mode: NULLABLE
-      description: ''
+      description: Additional data associated with the Socorro support classification for this crash. Currently
+        always null.
     - name: classification_version
       type: STRING
       mode: NULLABLE
@@ -178,7 +193,8 @@ fields:
 - name: contains_memory_report
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: Indicates whether a full memory report was attached to this crash submission. Currently always
+    null.
 - name: cpu_arch
   type: STRING
   mode: NULLABLE
@@ -186,15 +202,18 @@ fields:
 - name: cpu_info
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: A human-readable description of the CPU on the crashed machine, including family, model,
+    and stepping information (e.g. 'family 6 model 183 stepping 1').
 - name: cpu_microcode_version
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: The microcode version of the CPU on the machine that experienced the crash, expressed as
+    a hexadecimal string (e.g. '0xb4').
 - name: crash_id
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: The unique identifier assigned to this crash report by the Socorro crash ingestion system.
+    Used to look up the report in crash-stats.mozilla.org.
 - name: date
   type: STRING
   mode: NULLABLE
@@ -218,11 +237,14 @@ fields:
 - name: graphics_critical_error
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: A log of critical graphics subsystem errors (GFX1- messages) recorded before the crash, capturing
+    events such as GPU process failures, device resets, or compositor errors. Null when no graphics critical
+    errors were logged.
 - name: graphics_startup_test
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: Indicates that the crash occurred during a graphics startup test. A value of '1' means the
+    test was active; null means it was not.
 - name: hang_type
   type: INT64
   mode: NULLABLE
@@ -238,7 +260,9 @@ fields:
 - name: ipc_fatal_error_msg
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: The error message associated with a fatal IPC (Inter-Process Communication) error that triggered
+    the crash. Populated only when the crash was caused by a fatal IPC protocol violation or serialization
+    failure.
 - name: ipc_fatal_error_protocol
   type: STRING
   mode: NULLABLE
@@ -246,7 +270,8 @@ fields:
 - name: ipc_message_name
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: The name of the IPC message that was being processed when the crash occurred (e.g. 'PContent::Msg_FOGData').
+    Null when the crash was not triggered by IPC message handling.
 - name: ipc_system_error
   type: STRING
   mode: NULLABLE
@@ -298,7 +323,8 @@ fields:
       - name: list
         type: RECORD
         mode: REPEATED
-        description: ''
+        description: The list of stack frames from the crashing thread as extracted from the minidump, each containing
+          file, function, line, module, and offset information. Null when minidump processing was skipped.
         fields:
         - name: element
           type: RECORD
@@ -348,7 +374,8 @@ fields:
   - name: largest_free_vm_block
     type: STRING
     mode: NULLABLE
-    description: ''
+    description: The size of the largest free contiguous block of virtual memory at the time of the crash,
+      as extracted from the minidump. Currently always null.
   - name: main_module
     type: INT64
     mode: NULLABLE
@@ -419,7 +446,8 @@ fields:
   - name: status
     type: STRING
     mode: NULLABLE
-    description: ''
+    description: The overall processing status of the minidump as reported by the minidump stackwalk tool
+      (e.g. 'OK'). Null when minidump processing was skipped or failed.
   - name: system_info
     type: RECORD
     mode: NULLABLE
@@ -428,11 +456,13 @@ fields:
     - name: cpu_arch
       type: STRING
       mode: NULLABLE
-      description: ''
+      description: The CPU architecture of the machine that experienced the crash, as extracted from the minidump
+        system information (e.g. 'amd64', 'x86', 'arm64', 'arm').
     - name: cpu_count
       type: INT64
       mode: NULLABLE
-      description: ''
+      description: The number of logical CPU cores on the machine that experienced the crash, as extracted from
+        the minidump system information.
     - name: cpu_info
       type: STRING
       mode: NULLABLE
@@ -444,11 +474,13 @@ fields:
     - name: os_ver
       type: STRING
       mode: NULLABLE
-      description: ''
+      description: The operating system version string of the machine that experienced the crash, as extracted
+        from the minidump system information (e.g. '10.0.19045', '6.1.7601 Service Pack 1').
   - name: thread_count
     type: INT64
     mode: NULLABLE
-    description: ''
+    description: The total number of threads in the crashed process at the time of the crash, as reported
+      in the minidump.
   - name: threads
     type: RECORD
     mode: NULLABLE
@@ -522,7 +554,8 @@ fields:
   - name: write_combine_size
     type: STRING
     mode: NULLABLE
-    description: ''
+    description: The size of write-combined memory regions reported in the minidump JSON. Currently unused
+      and always null.
 - name: last_crash
   type: INT64
   mode: NULLABLE
@@ -539,7 +572,8 @@ fields:
   - name: gfx_textures
     type: INT64
     mode: NULLABLE
-    description: ''
+    description: Memory (in bytes) used by graphics textures in the crashed process, as reported in the attached
+      memory snapshot.
   - name: ghost_windows
     type: INT64
     mode: NULLABLE
@@ -559,7 +593,8 @@ fields:
   - name: host_object_urls
     type: INT64
     mode: NULLABLE
-    description: ''
+    description: Memory (in bytes) used by host object URLs (e.g. blob; URLs) in the crashed process, as reported
+      in the attached memory snapshot.
   - name: images
     type: INT64
     mode: NULLABLE
@@ -575,11 +610,13 @@ fields:
   - name: resident
     type: INT64
     mode: NULLABLE
-    description: ''
+    description: The resident set size (RSS) of the crashed process in bytes — the amount of physical memory
+      actively used — as reported in the attached memory snapshot.
   - name: resident_unique
     type: INT64
     mode: NULLABLE
-    description: ''
+    description: The unique set size (USS) of the crashed process in bytes — the amount of physical memory
+      not shared with any other process — as reported in the attached memory snapshot.
   - name: system_heap_allocated
     type: INT64
     mode: NULLABLE
@@ -587,15 +624,19 @@ fields:
   - name: top_none_detached
     type: INT64
     mode: NULLABLE
-    description: ''
+    description: Memory (in bytes) used by detached DOM nodes under the top-level none category, as reported
+      in the memory snapshot attached to the crash. Part of the structured memory measures extracted from
+      the crash report.
   - name: vsize
     type: INT64
     mode: NULLABLE
-    description: ''
+    description: Total virtual address space size (in bytes) of the crashed process at the time of the crash,
+      as reported in the attached memory snapshot.
   - name: vsize_max_contiguous
     type: INT64
     mode: NULLABLE
-    description: ''
+    description: The size (in bytes) of the largest contiguous block of virtual address space available in
+      the crashed process, as reported in the attached memory snapshot.
 - name: memory_report
   type: RECORD
   mode: NULLABLE
@@ -613,7 +654,9 @@ fields:
     - name: list
       type: RECORD
       mode: REPEATED
-      description: ''
+      description: A list of individual memory reporter entries from the full memory report attached to the
+        crash, each containing a path, process, amount, kind, units, and description. Null when no memory report
+        was submitted.
       fields:
       - name: element
         type: RECORD
@@ -671,7 +714,8 @@ fields:
 - name: plugin_filename
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: The filename or internal identifier of the browser plugin involved in the crash (e.g. 'widevinecdm',
+    'clearkey'). Null or empty when no plugin is involved.
 - name: plugin_name
   type: STRING
   mode: NULLABLE
@@ -679,7 +723,8 @@ fields:
 - name: plugin_version
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: The version string of the browser plugin (e.g. GMP/CDM plugin) involved in the crash, if
+    the crash occurred in a plugin process. Null when no plugin is involved.
 - name: process_type
   type: STRING
   mode: NULLABLE
@@ -711,11 +756,13 @@ fields:
 - name: safe_mode
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: Indicates whether the browser was running in Safe Mode at the time of the crash. A value
+    of '1' means Safe Mode was active; '0' means it was not.
 - name: shutdown_progress
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: The XPCOM shutdown phase that was in progress when the crash occurred, such as 'xpcom-shutdown-threads'
+    or 'profile-before-change'. Null when the crash did not occur during shutdown.
 - name: signature
   type: STRING
   mode: NULLABLE
@@ -723,15 +770,17 @@ fields:
 - name: startup_crash
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: Indicates whether the crash occurred during startup. A value of '1' means the crash happened
+    during application startup; '0' means it did not.
 - name: submitted_from_infobar
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: Indicates whether the crash report was submitted via the browser's crash notification infobar.
+    Currently always null.
 - name: theme
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: The browser theme active at the time of the crash. Currently always null.
 - name: topmost_filenames
   type: STRING
   mode: NULLABLE
@@ -739,15 +788,17 @@ fields:
 - name: total_physical_memory
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: The total amount of physical RAM (in bytes) installed on the machine that experienced the
+    crash.
 - name: total_virtual_memory
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: The total size of the virtual address space (in bytes) available to the crashed process on
+    the machine.
 - name: uptime
   type: INT64
   mode: NULLABLE
-  description: ''
+  description: The number of seconds the application had been running before the crash occurred.
 - name: user_comments
   type: STRING
   mode: NULLABLE
@@ -759,7 +810,8 @@ fields:
 - name: uuid
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: The unique identifier (UUID) assigned to this crash report by the Socorro crash ingestion
+    system. Matches the crash_id field.
 - name: version
   type: STRING
   mode: NULLABLE
@@ -775,4 +827,5 @@ fields:
 - name: dom_fission_enabled
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: Indicates whether DOM Fission (site isolation) was enabled in the browser at the time of
+    the crash. A value of '1' means Fission was enabled; '0' means it was disabled.
