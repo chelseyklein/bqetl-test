@@ -42,7 +42,8 @@ fields:
   - name: list
     type: RECORD
     mode: REPEATED
-    description: ''
+    description: A list of names of additional minidump files submitted alongside the main minidump for this
+      crash report (e.g. dumps from child processes).
     fields:
     - name: element
       type: STRING
@@ -75,7 +76,8 @@ fields:
 - name: android_board
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: The board platform identifier of the Android device on which the crash occurred (e.g. 'msmnile',
+    'exynos2100'). Null for non-Android crashes.
 - name: android_brand
   type: STRING
   mode: NULLABLE
@@ -109,7 +111,8 @@ fields:
 - name: android_model
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: The model name of the Android device on which the crash occurred (e.g. 'SM-T530', 'SM-G990E').
+    Null for non-Android crashes.
 - name: android_version
   type: STRING
   mode: NULLABLE
@@ -174,11 +177,13 @@ fields:
     - name: classification
       type: STRING
       mode: NULLABLE
-      description: ''
+      description: The classification label assigned to this crash by the Socorro skunk_works classifier. Currently
+        always null.
     - name: classification_data
       type: STRING
       mode: NULLABLE
-      description: ''
+      description: Additional data associated with the Socorro skunk_works classification for this crash. Currently
+        always null.
     - name: classification_version
       type: STRING
       mode: NULLABLE
@@ -212,7 +217,8 @@ fields:
 - name: cpu_arch
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: The CPU architecture of the machine that experienced the crash, as reported by the crash
+    reporter (e.g. 'amd64', 'x86', 'arm64', 'arm').
 - name: cpu_info
   type: STRING
   mode: NULLABLE
@@ -231,11 +237,13 @@ fields:
 - name: date
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: The ISO 8601 timestamp of when the crash report was received and processed by Socorro, including
+    timezone offset.
 - name: dom_ipc_enabled
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: Indicates whether DOM IPC (multi-process) mode was enabled in the browser at the time of
+    the crash. A value of '1' means DOM IPC was enabled; '0' means it was disabled.
 - name: e10s_cohort
   type: STRING
   mode: NULLABLE
@@ -265,11 +273,13 @@ fields:
 - name: hang_type
   type: INT64
   mode: NULLABLE
-  description: ''
+  description: An integer code classifying the type of hang that triggered this crash report. Currently
+    always null.
 - name: install_age
   type: INT64
   mode: NULLABLE
-  description: ''
+  description: The number of seconds elapsed since the product was first installed on this machine, as reported
+    by the crash reporter at the time of the crash.
 - name: ipc_channel_error
   type: STRING
   mode: NULLABLE
@@ -303,7 +313,8 @@ fields:
 - name: java_stack_trace
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: The Java exception stack trace captured when the crash originated in Java code on Android.
+    Null for non-Android crashes or when no Java exception was involved.
 - name: jit_category
   type: STRING
   mode: NULLABLE
@@ -322,11 +333,13 @@ fields:
     - name: address
       type: STRING
       mode: NULLABLE
-      description: ''
+      description: The memory address at which the crash occurred, as extracted from the minidump crash info.
+        Suppressed due to potential PII.
     - name: crashing_thread
       type: INT64
       mode: NULLABLE
-      description: ''
+      description: The zero-based index of the crashing thread within the minidump's thread list, as reported
+        in the crash info block. Corresponds to json_dump.crashing_thread.threads_index.
     - name: type
       type: STRING
       mode: NULLABLE
@@ -468,7 +481,8 @@ fields:
   - name: pid
     type: INT64
     mode: NULLABLE
-    description: ''
+    description: The process ID (PID) of the crashed process at the time of the crash, as extracted from the
+      minidump.
   - name: status
     type: STRING
     mode: NULLABLE
@@ -497,7 +511,8 @@ fields:
     - name: os
       type: STRING
       mode: NULLABLE
-      description: ''
+      description: The operating system name of the machine that experienced the crash, as extracted from the
+        minidump system information (e.g. 'Windows NT', 'Linux', 'Android', 'Mac OS X').
     - name: os_ver
       type: STRING
       mode: NULLABLE
@@ -516,7 +531,8 @@ fields:
     - name: list
       type: RECORD
       mode: REPEATED
-      description: ''
+      description: The list of all threads in the crashed process as extracted from the minidump, each with
+        a frame count and a list of stack frames containing file, function, module, and offset information.
       fields:
       - name: element
         type: RECORD
@@ -586,7 +602,8 @@ fields:
 - name: last_crash
   type: INT64
   mode: NULLABLE
-  description: ''
+  description: The number of seconds since the previous crash of this browser installation, as reported
+    by the crash reporter. Null when no previous crash was recorded.
 - name: memory_measures
   type: RECORD
   mode: NULLABLE
@@ -595,7 +612,8 @@ fields:
   - name: explicit
     type: INT64
     mode: NULLABLE
-    description: ''
+    description: The total explicit memory (in bytes) used by the crashed process, representing all memory
+      tracked by named memory reporters, as reported in the attached memory snapshot.
   - name: gfx_textures
     type: INT64
     mode: NULLABLE
@@ -604,7 +622,8 @@ fields:
   - name: ghost_windows
     type: INT64
     mode: NULLABLE
-    description: ''
+    description: The count of ghost (leaked) browser windows detected in the crashed process, as reported
+      in the attached memory snapshot.
   - name: heap_allocated
     type: INT64
     mode: NULLABLE
@@ -618,7 +637,8 @@ fields:
   - name: heap_unclassified
     type: INT64
     mode: NULLABLE
-    description: ''
+    description: Memory (in bytes) allocated on the heap that could not be attributed to any specific memory
+      reporter category in the crashed process, as reported in the attached memory snapshot.
   - name: host_object_urls
     type: INT64
     mode: NULLABLE
@@ -652,7 +672,8 @@ fields:
   - name: system_heap_allocated
     type: INT64
     mode: NULLABLE
-    description: ''
+    description: Memory (in bytes) allocated from the system heap (outside of jemalloc) in the crashed process,
+      as reported in the attached memory snapshot.
   - name: top_none_detached
     type: INT64
     mode: NULLABLE
@@ -677,7 +698,8 @@ fields:
   - name: hasMozMallocUsableSize
     type: BOOLEAN
     mode: NULLABLE
-    description: ''
+    description: Indicates whether the memory report was collected using moz_malloc_usable_size for heap measurement
+      accuracy. Null when no memory report was attached.
   - name: reports
     type: RECORD
     mode: NULLABLE
@@ -778,19 +800,24 @@ fields:
 - name: product
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: The name of the Mozilla product that experienced the crash (e.g. 'Firefox', 'Fenix', 'Thunderbird',
+    'Focus').
 - name: productid
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: The GUID identifying the Mozilla product that crashed (e.g. '{ec8030f7-c20a-464f-9b0e-13a3a9e97384}'
+    for Firefox, '{eeb82917-e434-4870-8148-5c03d4caa81b}' for Fenix, '{3550f703-e582-4d05-9a08-453d09bdfdc6}'
+    for Thunderbird).
 - name: proto_signature
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: The full prototype crash signature string showing the raw unsimplified call stack, before
+    signature generation rules have been applied. Used for debugging and signature refinement.
 - name: reason
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: The exception type or signal that caused the crash, as reported by the crash reporter (e.g.
+    'EXCEPTION_BREAKPOINT', 'SIGSEGV / SEGV_MAPERR'). Mirrors json_dump.crash_info.type.
 - name: release_channel
   type: STRING
   mode: NULLABLE
@@ -809,7 +836,8 @@ fields:
 - name: signature
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: The Socorro-generated crash signature string summarizing the crash, derived from the crashing
+    thread's call stack (e.g. 'OOM | small', 'shutdownhang | ...'). Used to group related crashes together.
 - name: startup_crash
   type: STRING
   mode: NULLABLE
@@ -847,7 +875,8 @@ fields:
 - name: user_comments
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: Free-text comments entered by the user when submitting the crash report. Suppressed in this
+    table and always null.
 - name: useragent_locale
   type: STRING
   mode: NULLABLE
