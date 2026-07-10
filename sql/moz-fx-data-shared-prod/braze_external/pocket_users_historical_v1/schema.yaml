@@ -1,0 +1,21 @@
+fields:
+- name: EXTERNAL_ID
+  type: STRING
+  mode: NULLABLE
+  description: ''
+- name: EMAIL
+  type: STRING
+  mode: NULLABLE
+  description: ''
+- name: VALIDATED_DEVICE_COUNTRY
+  type: STRING
+  mode: NULLABLE
+  description: ''
+- name: VALIDATED_DEVICE_LANGUAGE
+  type: STRING
+  mode: NULLABLE
+  description: ''
+- name: LOCALE
+  type: STRING
+  mode: NULLABLE
+  description: ''
