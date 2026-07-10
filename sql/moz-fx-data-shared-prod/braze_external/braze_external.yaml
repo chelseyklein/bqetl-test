@@ -128,3 +128,18 @@ fields:
 - name: conversion_behavior_index
   type: INT64
   description: Zero-based index identifying which configured conversion goal (primary, secondary, etc.) was achieved for this campaign.
+- name: email_address
+  type: STRING
+  description: Email address of the recipient. Suppressed due to PII.
+- name: is_drop
+  type: BOOLEAN
+  description: Whether this hard bounce was silently dropped by Braze (true) rather than resulting in
+    a delivery attempt. Always null in the current dataset.
+- name: machine_open
+  description: Indicates whether the open was triggered automatically by a mail scanning or privacy proxy
+    (e.g., Apple Mail Privacy Protection) rather than by a human. 'true' when a machine open is detected;
+    null otherwise.
+- name: phone_number
+  description: Phone number of the user. Suppressed due to PII.
+- name: subscription_group_id
+  description: UUID of the Braze email subscription group whose state changed for this user.
