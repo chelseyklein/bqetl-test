@@ -46,7 +46,8 @@ fields:
     - name: ext
       type: JSON
       mode: NULLABLE
-      description: ''
+      description: Extended JSON metadata for the Firefox installation attribution record. Null when no extra
+        attribution data is present.
     - name: medium
       type: STRING
       mode: NULLABLE
@@ -84,7 +85,8 @@ fields:
     - name: ext
       type: JSON
       mode: NULLABLE
-      description: ''
+      description: Extended JSON metadata associated with the Firefox distribution. Null when no extra distribution
+        data is present.
     - name: name
       type: STRING
       mode: NULLABLE
@@ -134,7 +136,8 @@ fields:
   - name: category
     type: STRING
     mode: NULLABLE
-    description: ''
+    description: The Glean event category for a recorded event in this crash ping, grouping related events
+      (e.g. crash-related event categories).
   - name: extra
     type: RECORD
     mode: REPEATED
@@ -151,7 +154,8 @@ fields:
   - name: name
     type: STRING
     mode: NULLABLE
-    description: ''
+    description: The name of the Glean event within its category, identifying the specific crash-related action
+      or occurrence recorded.
   - name: session
     type: RECORD
     mode: NULLABLE
@@ -180,7 +184,8 @@ fields:
   - name: timestamp
     type: INT64
     mode: NULLABLE
-    description: ''
+    description: The millisecond offset from ping_info.start_time at which this event was recorded, used to
+      reconstruct the absolute event time.
 - name: metadata
   type: RECORD
   mode: NULLABLE
@@ -194,7 +199,8 @@ fields:
     - name: city
       type: STRING
       mode: NULLABLE
-      description: ''
+      description: The city name determined from the client's IP address at ingestion time. Not populated for
+        this table.
     - name: country
       type: STRING
       mode: NULLABLE
@@ -227,7 +233,8 @@ fields:
     - name: parsed_date
       type: TIMESTAMP
       mode: NULLABLE
-      description: ''
+      description: The HTTP Date header parsed to a UTC TIMESTAMP for querying, derived from metadata.header.date.
+        Null when the Date header was absent.
     - name: parsed_x_lb_tags
       type: RECORD
       mode: NULLABLE
@@ -236,15 +243,18 @@ fields:
       - name: tls_cipher_hex
         type: STRING
         mode: NULLABLE
-        description: ''
+        description: The hexadecimal TLS cipher suite code extracted from the load-balancer tags (e.g. "1301"
+          for TLS_AES_128_GCM_SHA256), indicating the cipher negotiated for the ping submission.
       - name: tls_version
         type: STRING
         mode: NULLABLE
-        description: ''
+        description: The TLS protocol version extracted from the load-balancer tags (e.g. TLSv1.3, TLSv1.2), indicating
+          the security protocol used for the ping submission.
     - name: parsed_x_source_tags
       type: STRING
       mode: REPEATED
-      description: ''
+      description: Array of source tags parsed from the X-Source-Tags HTTP header, used to identify the submission
+        path or automation source.
     - name: x_debug_id
       type: STRING
       mode: NULLABLE
@@ -294,15 +304,18 @@ fields:
     - name: browser
       type: STRING
       mode: NULLABLE
-      description: ''
+      description: The browser name parsed from the HTTP User-Agent header (e.g. "Firefox"). Null when the user
+        agent is not a recognized browser or is absent.
     - name: os
       type: STRING
       mode: NULLABLE
-      description: ''
+      description: The operating system parsed from the HTTP User-Agent header (e.g. "Windows 10", "Linux",
+        "Android"). Null when the user agent header is absent or unparseable.
     - name: version
       type: STRING
       mode: NULLABLE
-      description: ''
+      description: The browser version parsed from the HTTP User-Agent header (e.g. "115", "140"). Null when
+        the user agent header is absent or unparseable.
 - name: metrics
   type: RECORD
   mode: NULLABLE
@@ -794,7 +807,8 @@ fields:
 - name: normalized_os_version
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: The normalized operating system version string (e.g. "10.0", "6.1") derived from the client-reported
+    OS version.
 - name: ping_info
   type: RECORD
   mode: NULLABLE
@@ -803,11 +817,13 @@ fields:
   - name: end_time
     type: STRING
     mode: NULLABLE
-    description: ''
+    description: The client-local timestamp (with timezone offset) marking the end of the period covered by
+      this ping, as reported by the client.
   - name: experiments
     type: RECORD
     mode: REPEATED
-    description: ''
+    description: Array of active Nimbus/experiments at the time of the ping, including the experiment slug,
+      branch, and enrollment ID for each active experiment.
     fields:
     - name: key
       type: STRING
@@ -838,23 +854,25 @@ fields:
   - name: parsed_end_time
     type: TIMESTAMP
     mode: NULLABLE
-    description: ''
+    description: The ping end time parsed and normalized to a UTC TIMESTAMP for querying, derived from ping_info.end_time.
   - name: parsed_start_time
     type: TIMESTAMP
     mode: NULLABLE
-    description: ''
+    description: The ping start time parsed and normalized to a UTC TIMESTAMP for querying, derived from ping_info.start_time.
   - name: ping_type
     type: STRING
     mode: NULLABLE
-    description: ''
+    description: The Glean ping type identifier. Not populated for this crash ping table.
   - name: reason
     type: STRING
     mode: NULLABLE
-    description: ''
+    description: The reason this crash ping was sent. "crash" indicates a direct crash event; "event_found"
+      indicates the ping was triggered because a crash event was recorded in the event stream.
   - name: seq
     type: INT64
     mode: NULLABLE
-    description: ''
+    description: The monotonically increasing sequence number for this ping from the client, used to detect
+      missing or out-of-order pings.
   - name: server_knobs_config
     type: RECORD
     mode: NULLABLE
@@ -898,7 +916,8 @@ fields:
   - name: start_time
     type: STRING
     mode: NULLABLE
-    description: ''
+    description: The client-local timestamp (with timezone offset) marking the start of the period covered
+      by this ping, as reported by the client.
 - name: sample_id
   type: INT64
   mode: NULLABLE
@@ -910,19 +929,22 @@ fields:
 - name: app_version_major
   type: NUMERIC
   mode: NULLABLE
-  description: ''
+  description: The major version component of the Firefox application version (e.g. 148 for version 148.0.1).
 - name: app_version_minor
   type: NUMERIC
   mode: NULLABLE
-  description: ''
+  description: The minor version component of the Firefox application version (e.g. 37 for version 115.37.0).
+    Null when the version string cannot be parsed.
 - name: app_version_patch
   type: NUMERIC
   mode: NULLABLE
-  description: ''
+  description: The patch version component of the Firefox application version (e.g. 1 for version 136.0.1).
+    Null when the version string cannot be parsed.
 - name: is_bot_generated
   type: BOOLEAN
   mode: NULLABLE
-  description: ''
+  description: Indicates whether this ping was identified as bot-generated traffic. True means the submission
+    is likely automated/non-human; false means it is treated as a genuine client submission.
 - name: normalized_app_id
   type: STRING
   mode: NULLABLE
