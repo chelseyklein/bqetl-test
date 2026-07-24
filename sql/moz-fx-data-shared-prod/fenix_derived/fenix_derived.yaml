@@ -1,0 +1,197 @@
+fields:
+- name: activated
+  description: Indicates whether the client has been activated. A value of true means the client has completed activation; false means it has
+    not.
+- name: ad_clicks
+  description: The total number of ad clicks attributed to the client over the relevant period. Null indicates no ad click data is available for
+    that record.
+  type: INT64
+- name: ad_clicks_on_date
+  description: The number of ad clicks recorded for the client on a specific date. Null indicates no ad click activity was observed on that date.
+  type: INT64
+- name: adjust_ad_group
+  description: The ad group name from the Adjust mobile attribution platform associated with the client's install. Empty or null values indicate
+    the install was not attributed to a specific ad group.
+  type: STRING
+- name: adjust_adgroup
+  description: The ad group name reported by the Adjust attribution platform for the client's acquisition campaign. An empty string indicates
+    the install was organic or unattributed to a specific ad group.
+  type: STRING
+- name: adjust_attribution_timestamp
+  description: The timestamp at which the Adjust attribution event was recorded for the client. Null indicates the install was not attributed
+    through Adjust.
+  type: TIMESTAMP
+- name: adjust_campaign
+  description: The campaign name from the Adjust mobile attribution platform associated with the client's install. Empty or null values indicate
+    no campaign attribution was recorded.
+  type: STRING
+- name: adjust_creative
+  description: The creative name or identifier from the Adjust attribution platform associated with the client's install. Empty or null values
+    indicate no creative-level attribution was recorded.
+  type: STRING
+- name: adjust_network
+  description: The advertising network reported by Adjust for the client's install attribution, such as 'Google Ads ACI', 'Organic', or 'Unknown'.
+    Null indicates attribution data was not available.
+  type: STRING
+- name: android_sdk_version
+  description: The Android SDK (API) version level running on the client's device, represented as a numeric string (e.g., '33' for Android 13).
+    Higher values correspond to newer Android versions.
+  type: STRING
+- name: app_build
+  description: The internal build identifier for the Firefox for Android (Fenix) application installed on the client's device. This is a numeric
+    string that uniquely identifies a specific build.
+  type: STRING
+- name: app_channel
+  description: The release channel of the Firefox for Android app installed on the client's device, such as 'release', 'beta', or 'nightly'. This
+    indicates the update track the client is enrolled in.
+  type: STRING
+- name: app_display_version
+  description: The human-readable version string of the Firefox for Android app as displayed to users (e.g., '152.0.6'). This may include nightly
+    build identifiers for pre-release versions.
+  type: STRING
+- name: app_name
+  description: The name of the Firefox for Android application variant being used, such as 'Fenix' for the standard release or 'Fenix MozillaOnline'
+    for the China-market variant.
+  type: STRING
+- name: app_version
+  description: The version string of the Firefox for Android app reported by the client (e.g., '152.0.5'). This reflects the installed application
+    version at the time of data collection.
+- name: architecture
+  description: The CPU architecture of the client's Android device, such as 'arm64-v8a', 'armeabi-v7a', or 'x86_64'. This indicates which native
+    binary the app is running on.
+  type: STRING
+- name: campaign_id
+  description: The unique numeric identifier for the advertising campaign attributed to the client's install. Null indicates the install was not
+    linked to a tracked paid campaign.
+  type: STRING
+- name: campaign_name
+  description: The name of the advertising or acquisition campaign associated with the client, such as 'Organic' for non-paid installs. Null indicates
+    no campaign attribution is available.
+  type: STRING
+- name: category
+  description: The category grouping for a Glean metric or event, used to namespace related telemetry signals (e.g., 'onboarding', 'tabs_tray').
+    This reflects the organizational taxonomy of the instrumentation.
+  type: STRING
+- name: channel
+  description: The Firefox for Android release channel the client is using, one of 'release', 'beta', or 'nightly'. This indicates the update
+    track and stability tier of the installed application.
+  type: STRING
+- name: city
+  description: The city-level geographic location of the client, derived from IP address geolocation. Null indicates the city could not be determined
+    or was not available.
+  type: STRING
+- name: client_id
+  description: A unique identifier assigned to each Firefox for Android client installation, formatted as a UUID. This is used to track and aggregate
+    activity for a single app installation over time.
+  type: STRING
+- name: consecutive_days_seen
+  description: The number of consecutive days the client has been observed as active up to and including the current date. A value of 0 indicates
+    the client was not seen on the immediately preceding day.
+  type: INT64
+- name: country
+  description: The two-letter ISO 3166-1 alpha-2 country code for the client's location, derived from IP address geolocation (e.g., 'DE', 'US',
+    'IN').
+  type: STRING
+- name: daily_users
+  description: The count of unique daily active users associated with a given dimension or cohort on a specific day. A value of 0 indicates no
+    active users were observed for that grouping.
+  type: INT64
+- name: dau
+  description: The count of Daily Active Users (DAU) for a given dimension or segment on a specific date. A value of 0 indicates no activity was
+    recorded for that grouping on that day.
+  type: INT64
+- name: days_seen_bytes
+  description: A compact bitfield (stored as BYTES) representing which days within a lookback window the client was observed as active. Each bit
+    corresponds to a specific day in the window.
+  type: BYTES
+- name: days_seen_session_end_bits
+  description: A bitmask representing the days within a lookback window on which a session end event was recorded for the client. Each bit corresponds
+    to a single day in the window.
+  type: INT64
+- name: days_seen_session_start_bits
+  description: A bitmask representing the days within a lookback window on which a session start event was recorded for the client. Each bit corresponds
+    to a single day in the window.
+  type: INT64
+- name: days_sent_metrics_ping_bits
+  description: A bitmask representing the days within a lookback window on which the client sent a Glean metrics ping. This field is currently
+    fully null, indicating it is not yet populated.
+  type: INT64
+- name: days_since_first_seen
+  description: The number of days elapsed between the client's first seen date and the current record date. Larger values indicate longer-tenured
+    clients.
+  type: INT64
+- name: days_since_seen
+  description: The number of days elapsed since the client was last observed as active. A value of 0 indicates the client was active on the current
+    record date.
+  type: INT64
+- name: device
+  description: The device platform type for the client, indicating the operating system family. For this dataset, this field consistently reflects
+    Android devices.
+  type: STRING
+- name: device_manufacturer
+  description: The manufacturer of the client's Android device as reported by the device (e.g., 'samsung', 'Xiaomi', 'OPPO'). Null indicates the
+    manufacturer was not available or reported.
+  type: STRING
+- name: device_model
+  description: The model identifier of the client's Android device as reported by the device (e.g., 'SM-S938B'). Null indicates the model was
+    not available or reported.
+  type: STRING
+- name: device_type
+  description: The high-level device type category for the client's hardware. For this dataset, this field consistently identifies the device
+    as 'Android'.
+  type: STRING
+- name: distribution_id
+  description: An identifier for the distribution channel or partner through which Firefox for Android was delivered (e.g., 'Mozilla' for the
+    standard build, 'MozillaOnline' for the China variant, 'aura-001' for OEM partners). Null indicates an unknown distribution source.
+  type: STRING
+- name: durations
+  description: The total session duration (in seconds) recorded for the client over the relevant period. A value of 0 indicates sessions with
+    no measurable duration were recorded.
+  type: INT64
+- name: first_reported_country
+  description: The two-letter ISO 3166-1 alpha-2 country code from the first time the client was observed, based on IP geolocation. This reflects
+    the country associated with the client's initial appearance in the data.
+  type: STRING
+- name: first_reported_isp
+  description: The Internet Service Provider (ISP) name from the first time the client was observed. This reflects the network provider associated
+    with the client's initial appearance in the data.
+  type: STRING
+- name: first_run_date
+  description: The date on which the Firefox for Android app was first run on the client's device. This corresponds to the initial launch after
+    installation.
+- name: first_seen_date
+  description: The date on which the client was first observed in Mozilla's data pipeline. This is used to identify new users and calculate client
+    tenure.
+  type: DATE
+- name: first_seen_year
+  description: The calendar year in which the client was first observed in Mozilla's data pipeline. This is derived from the first_seen_date and
+    is used for cohort-level analysis.
+  type: INT64
+- name: geo_subdivision
+  description: A sub-national geographic subdivision code (such as a state or region code) for the client's location, derived from IP address
+    geolocation. Null indicates the subdivision could not be determined.
+  type: STRING
+- name: install_source
+  description: The package name of the app store or installer that delivered Firefox for Android to the client's device (e.g., 'com.android.vending'
+    for the Google Play Store). Null or empty values indicate the source could not be determined.
+  type: STRING
+- name: is_default_browser
+  description: Indicates whether Firefox for Android is set as the client's default browser. True means it is set as default, false means it is
+    not, and null means the status could not be determined.
+  type: BOOLEAN
+- name: is_large_device
+  description: Indicates whether the client's device is classified as a large-screen device (e.g., a tablet). This field is currently fully null,
+    indicating it is not yet populated.
+  type: BOOLEAN
+- name: is_mobile
+  description: Indicates whether the client is using a mobile device. True means the client is on a mobile device, false means it is on a non-mobile
+    device such as a desktop or tablet.
+  type: BOOLEAN
+- name: is_new_profile
+  description: Indicates whether the client's Firefox profile was newly created. True means the profile was created recently (i.e., this is a
+    new install or profile), false means it is an existing profile.
+  type: BOOLEAN
+- name: isp
+  description: The name of the Internet Service Provider (ISP) for the client's network connection, derived from IP address. This reflects the
+    network provider at the time of data collection.
+  type: STRING
