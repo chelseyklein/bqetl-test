@@ -196,3 +196,95 @@ fields:
   description: The third path segment of the page URL, representing a more specific page within a section hierarchy (e.g. 'whatsnew', 'download',
     'desktop-esr'). Null when the URL does not have a third path segment.
   type: STRING
+- name: page_level_4
+  description: The fourth hierarchical segment of the page URL path, representing a deeper subdivision of site content below the top three path
+    levels. May be empty or null when the page URL does not have a fourth path segment.
+  type: STRING
+- name: page_level_5
+  description: The fifth hierarchical segment of the page URL path, capturing the most granular URL path subdivision tracked. Frequently null
+    or empty, as most pages do not have five or more path segments.
+  type: STRING
+- name: page_name
+  description: The locale-agnostic canonical path of the page visited on mozilla.org, excluding locale prefixes (e.g. '/products/vpn/'). Used
+    to aggregate metrics across all language variants of the same page.
+  type: STRING
+- name: page_path
+  description: The full URL path of the page visited on mozilla.org, including the locale prefix (e.g. '/en-US/products/vpn/'). Uniquely identifies
+    a specific localized page within the site.
+  type: STRING
+- name: pageviews
+  description: The total number of times a page was viewed, including repeated views of the same page within a session. A value of 0 indicates
+    the page was not viewed in the given context.
+  type: INT64
+- name: region
+  description: The geographic region (e.g. state, province, or city-level administrative area) associated with the user's session, as determined
+    by IP geolocation. May be empty when the region cannot be determined.
+  type: STRING
+- name: session_date
+  description: The calendar date on which the user session occurred. Used as the primary date dimension for partitioning and filtering session-level
+    data.
+  type: DATE
+- name: session_number
+  description: A sequential counter indicating which session this is for a given user, starting at 1 for the first session. Higher values indicate
+    returning visitors on subsequent visits.
+  type: INT64
+- name: sessions
+  description: The total number of distinct user sessions recorded in the given context or grouping. Each session represents a single continuous
+    visit to the site by a user.
+  type: INT64
+- name: single_page_sessions
+  description: The count of sessions during which the user viewed only a single page before leaving the site (i.e. bounced). A value of 0 indicates
+    the user navigated to at least one additional page during the session.
+  type: INT64
+- name: social_share
+  description: An integer flag indicating whether a social sharing action occurred, where 1 means a social share event was recorded and 0 means
+    no social share took place.
+  type: INT64
+- name: source
+  description: The referring source that brought the user to the site, such as a search engine name or a referring domain (e.g. 'google', 'www.mozilla.org').
+    Null when the traffic source cannot be attributed.
+  type: STRING
+- name: standardized_country_name
+  description: The standardized English name of the country associated with the user's session, as determined by IP geolocation. Used to ensure
+    consistent country naming across datasets.
+  type: STRING
+- name: subblog
+  description: The blog or sub-section of the Mozilla blog where the content was published, such as 'Main' for the primary blog or locale-specific
+    press blogs (e.g. 'press-fr', 'press-de'). Distinguishes content by editorial channel.
+  type: STRING
+- name: time_on_site
+  description: The total time in seconds a user spent on the site during a session. A value of 0 typically indicates a single-page session where
+    no subsequent page load was available to calculate elapsed time.
+  type: INT64
+- name: total_events
+  description: The total count of all tracked interaction events fired during a session or in a given context, including repeated firings of the
+    same event type. Reflects overall user engagement activity.
+  type: INT64
+- name: traffic_source_medium
+  description: The marketing medium through which the user arrived at the site, such as 'organic', 'referral', or 'firefox-desktop'. A value of
+    '(none)' indicates direct traffic with no attributed medium.
+  type: STRING
+- name: traffic_source_name
+  description: The name of the traffic source campaign or entry point that directed the user to the site, such as a campaign identifier or '(direct)'
+    for unattributed direct traffic.
+  type: STRING
+- name: traffic_source_source
+  description: The specific originating source of the traffic, such as a search engine ('google'), a Mozilla product entry point ('update', 'toolbar'),
+    or '(direct)' for sessions with no referring source.
+  type: STRING
+- name: unique_events
+  description: The number of unique interaction events recorded, deduplicated so that repeated firings of the same event within a session are
+    counted only once. Provides a measure of distinct engagement actions.
+  type: INT64
+- name: unique_pageviews
+  description: The number of unique page views, where multiple views of the same page within a single session are counted only once. A value of
+    0 indicates the page was not uniquely viewed in the given context.
+  type: INT64
+- name: visit_identifier
+  description: A unique string identifier for an individual site visit, typically composed of a client ID and timestamps (e.g. '686264402.1785773656-1785773656').
+    Used to distinguish and join session-level records across tables.
+  type: STRING
+- name: visits
+  description: The total number of site visits (sessions) recorded for a given user or grouping. Reflects how frequently users or segments accessed
+    the site within the reporting period.
+  type: INT64
