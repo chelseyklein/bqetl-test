@@ -1,0 +1,198 @@
+fields:
+- name: ad_content
+  description: The UTM ad content parameter associated with the traffic source, used to differentiate ads or links pointing to the same URL. Null
+    when no ad content parameter was present in the referring URL.
+  type: STRING
+- name: all_reported_install_targets
+  description: An array of all install target event names (e.g. product_download, firefox_download) reported across events within a session or
+    record. Captures the full history of download intent signals.
+  type: STRING
+- name: all_reported_stub_session_ids
+  description: An array of all stub installer session IDs reported across events within a session or record. Used to associate web analytics sessions
+    with Firefox stub installer telemetry sessions.
+  type: STRING
+- name: blog
+  description: The name or slug of the Mozilla blog section associated with the content, such as 'security', 'addons', or 'community'. A value
+    of 'other' indicates content that does not map to a named blog category.
+  type: STRING
+- name: bounces
+  description: The number of single-page sessions in which the user left without interacting further. A value of 0 indicates no bounces occurred
+    within the aggregation period.
+  type: INT64
+- name: browser
+  description: The name of the web browser used by the visitor, such as Firefox, Chrome, or Safari. Null values indicate cases where the browser
+    could not be determined.
+  type: STRING
+- name: browser_version
+  description: The major version number of the web browser used by the visitor. Null when the browser version could not be determined from the
+    user agent string.
+  type: STRING
+- name: campaign
+  description: The UTM campaign parameter identifying the marketing campaign that drove the traffic, such as '(organic)' or '(referral)' for non-campaign
+    traffic. Null when no campaign parameter was present.
+  type: STRING
+- name: city
+  description: The city associated with the visitor's IP address as resolved by geo-IP lookup. An empty string indicates the city could not be
+    determined.
+  type: STRING
+- name: content
+  description: The UTM content parameter used to identify which specific link or creative within a campaign was clicked. Null when no content
+    parameter was present in the referring URL.
+  type: STRING
+- name: country
+  description: The country associated with the visitor's IP address as resolved by geo-IP lookup. An empty string indicates the country could
+    not be determined.
+  type: STRING
+- name: date
+  description: The calendar date of the recorded activity or aggregation period. Used as the primary date partition key across tables.
+  type: DATE
+- name: device_category
+  description: The general category of the device used by the visitor, such as 'desktop', 'mobile', 'tablet', or 'smart tv'. Derived from the
+    user agent string.
+  type: STRING
+- name: distinct_campaigns_from_event_params
+  description: An array of distinct campaign values extracted from GA4 event parameters within a session or record. Captures all campaigns observed
+    across multiple events.
+  type: STRING
+- name: downloads
+  description: The total count of product download events attributed to a session or page. A value of 0 indicates no downloads occurred.
+  type: INT64
+- name: entrances
+  description: The number of times a page or screen served as the entry point to a session. A value of 0 indicates the page was not a session
+    landing page.
+  type: INT64
+- name: event_action
+  description: The action component of an analytics event, describing what interaction occurred, such as 'cta_click', 'firefox_download', or 'form_submit'.
+    Mirrors the GA4 event name for Universal Analytics compatibility.
+  type: STRING
+- name: event_category
+  description: The category component of an analytics event, grouping related interactions together, such as 'product_download', 'scroll', or
+    'newsletter_subscribe'. Mirrors the GA4 event name for Universal Analytics compatibility.
+  type: STRING
+- name: event_date
+  description: The calendar date on which the analytics event was recorded. Used to partition and filter event-level data by day.
+  type: DATE
+- name: event_label
+  description: The label component of an analytics event providing additional context about the interaction, such as the specific element or product
+    involved. Mirrors the GA4 event name for Universal Analytics compatibility.
+  type: STRING
+- name: event_name
+  description: The GA4 event name describing the type of user interaction recorded, such as 'page_view', 'session_start', 'cta_click', or 'product_download'.
+    This is the primary identifier for event classification.
+  type: STRING
+- name: exits
+  description: The number of times a session ended on a given page or screen. A value of 0 indicates the page was never the last page viewed in
+    a session.
+  type: INT64
+- name: firefox_desktop_downloads
+  description: The count of Firefox desktop product download events attributed to a session or record. A null value indicates no desktop Firefox
+    download data was available for the record.
+  type: INT64
+- name: first_campaign_from_event_params
+  description: The first campaign value observed in GA4 event parameters for a session or user, representing the initial marketing campaign that
+    drove the visit. Null when no campaign parameter was recorded.
+  type: STRING
+- name: ga_client_id
+  description: The Google Analytics client identifier that pseudonymously identifies a browser or device across sessions. Used to stitch together
+    sessions and events belonging to the same visitor.
+  type: STRING
+- name: ga_session_id
+  description: The Google Analytics session identifier that uniquely identifies a single visit or session for a given client. Combined with ga_client_id
+    it uniquely scopes a session.
+  type: STRING
+- name: gclid
+  description: The Google Click Identifier (gclid) passed in the URL when a visitor arrives via a Google Ads click. Null when the visit was not
+    attributed to a Google Ads click.
+  type: STRING
+- name: gclid_array
+  description: An array of all Google Click Identifiers (gclids) observed across events within a session or record. Captures cases where multiple
+    paid Google Ads clicks are associated with a single session.
+  type: STRING
+- name: had_download_event
+  description: Indicates whether at least one product download event was recorded in the session or record. True means a download event occurred;
+    false means no download event was observed.
+  type: BOOLEAN
+- name: is_first_session
+  description: Indicates whether the session is the user's first recorded session. True means this is the user's first visit; false means the
+    user has visited before.
+  type: BOOLEAN
+- name: landing_page
+  description: The path component of the URL where the visitor first landed when entering the site. Represents the entry page without the domain
+    prefix.
+  type: STRING
+- name: landing_screen
+  description: The full URL of the page where the visitor first landed when entering the site, including the domain. Null when the landing page
+    URL could not be determined.
+  type: STRING
+- name: language
+  description: The browser's preferred language setting as reported in the user agent or Accept-Language header, formatted as a language or locale
+    code (e.g. 'en-us', 'fr-fr'). Reflects the visitor's configured language preference.
+  type: STRING
+- name: last_reported_install_target
+  description: The most recently reported install target event name within a session, such as 'product_download' or 'firefox_download'. Null when
+    no install target event was recorded.
+  type: STRING
+- name: last_reported_stub_session_id
+  description: The most recently reported stub installer session ID within a session or record. Null when no stub session ID was reported, which
+    is the case for the vast majority of sessions.
+  type: STRING
+- name: locale
+  description: The locale of the mozilla.org page visited, representing the language and regional variant served to the user (e.g. 'en-US', 'fr',
+    'es-ES'). Derived from the URL path prefix.
+  type: STRING
+- name: manual_campaign_id
+  description: The manually specified campaign identifier passed via UTM or custom parameters, used to track specific marketing campaigns. Null
+    when no manual campaign ID was provided in the URL.
+  type: STRING
+- name: manual_term
+  description: The UTM term parameter capturing the search keyword or phrase that drove the visit, typically from paid or organic search. Null
+    when no term parameter was present.
+  type: STRING
+- name: medium
+  description: The UTM medium parameter describing the marketing channel that drove the traffic, such as 'organic', 'referral', 'email', or 'social'.
+    Null when no medium parameter was recorded.
+  type: STRING
+- name: mobile_device_model
+  description: The model name of the mobile device used by the visitor, such as 'iPhone' or 'Firefox for Android'. Null for desktop visits or
+    when the device model could not be determined.
+  type: STRING
+- name: mobile_device_string
+  description: The marketing or commercial name of the mobile device, such as 'Galaxy A54' or 'Galaxy S24 Ultra'. Null for desktop visits or when
+    the specific device name could not be resolved.
+  type: STRING
+- name: newsletter_subscription
+  description: The count of newsletter subscription events attributed to a session or record. A value of 0 indicates no newsletter subscriptions
+    occurred.
+  type: INT64
+- name: non_fx_downloads
+  description: The count of non-Firefox product download events (e.g. VPN, Relay) attributed to a session or record. A value of 0 indicates no
+    non-Firefox downloads occurred.
+  type: INT64
+- name: non_fx_sessions
+  description: The number of sessions attributed to visitors using a non-Firefox browser. A value of 0 indicates no non-Firefox sessions were
+    recorded in the aggregation period.
+  type: INT64
+- name: operating_system
+  description: The name of the operating system used by the visitor, such as 'Windows', 'Android', 'Macintosh', or 'iOS'. Null when the operating
+    system could not be determined from the user agent.
+  type: STRING
+- name: os
+  description: The name of the operating system used by the visitor, such as 'Windows', 'Linux', 'Android', or 'iOS'. Null when the operating
+    system could not be determined from the user agent.
+  type: STRING
+- name: os_version
+  description: The name and version of the operating system used by the visitor, such as 'Windows 10' or 'iOS 13'. Null when the OS version could
+    not be determined.
+  type: STRING
+- name: page_level_1
+  description: The first path segment of the page URL after the locale prefix, representing the top-level site section (e.g. 'firefox', 'products',
+    'about'). An empty string indicates the root or home page of a locale.
+  type: STRING
+- name: page_level_2
+  description: The second path segment of the page URL, representing a sub-section or version number within a top-level section (e.g. '127.0',
+    'vpn'). Used alongside page_level_1 to describe page hierarchy.
+  type: STRING
+- name: page_level_3
+  description: The third path segment of the page URL, representing a more specific page within a section hierarchy (e.g. 'whatsnew', 'download',
+    'desktop-esr'). Null when the URL does not have a third path segment.
+  type: STRING
