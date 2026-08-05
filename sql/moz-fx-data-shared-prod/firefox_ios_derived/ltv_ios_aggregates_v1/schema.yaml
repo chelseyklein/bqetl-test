@@ -31,6 +31,8 @@ fields:
 - mode: NULLABLE
   name: profile_creation_month
   type: DATE
+  description: The calendar month in which the client profile was first created, truncated to the first
+    day of the month. Used to group clients by cohort age for lifetime value analysis.
 - mode: NULLABLE
   name: sponsored_tiles_enabled
   type: BOOLEAN
@@ -42,102 +44,172 @@ fields:
 - mode: NULLABLE
   name: client_count
   type: INTEGER
+  description: The number of distinct Firefox iOS clients that contributed data for the given grouping on
+    this submission date.
 - mode: NULLABLE
   name: clients_with_ad_engagement
   type: INTEGER
+  description: Count of clients that had at least one ad engagement (either a search ad click or a sponsored
+    tile click) on the submission date.
 - mode: NULLABLE
   name: clients_with_homepage_ad_engagement
   type: INTEGER
+  description: Count of clients that clicked at least one sponsored tile on the Firefox homepage on the
+    submission date.
 - mode: NULLABLE
   name: clients_with_search_ad_engagement
   type: INTEGER
+  description: Count of clients that clicked at least one search result advertisement (ad_click) on the
+    submission date.
 - mode: NULLABLE
   name: total_uri_count_avg
   type: FLOAT
+  description: Average number of URIs visited per client within the grouping on the submission date, sourced
+    from mobile search client daily data. Null when no search data is available for the segment.
 - mode: NULLABLE
   name: total_uri_count_stddev
   type: FLOAT
+  description: Standard deviation of URI counts across clients within the grouping on the submission date.
+    Null when fewer than two clients contributed data.
 - mode: NULLABLE
   name: organic_avg
   type: FLOAT
+  description: Average number of organic (non-paid, non-tagged) searches performed per client within the
+    grouping on the submission date.
 - mode: NULLABLE
   name: organic_stddev
   type: FLOAT
+  description: Standard deviation of organic search counts across clients within the grouping on the submission
+    date. Null when fewer than two clients contributed data.
 - mode: NULLABLE
   name: tagged_sap_avg
   type: FLOAT
+  description: Average number of tagged Search Access Point (SAP) searches per client — searches initiated
+    from the Firefox UI that are attributed to a search partner — within the grouping on the submission
+    date.
 - mode: NULLABLE
   name: tagged_sap_stddev
   type: FLOAT
+  description: Standard deviation of tagged SAP search counts across clients within the grouping on the
+    submission date. Null when fewer than two clients contributed data.
 - mode: NULLABLE
   name: tagged_follow_on_avg
   type: FLOAT
+  description: Average number of tagged follow-on searches per client — searches arising from a prior tagged
+    SAP search (e.g. refining a query on a SERP) — within the grouping on the submission date.
 - mode: NULLABLE
   name: tagged_follow_on_stddev
   type: FLOAT
+  description: Standard deviation of tagged follow-on search counts across clients within the grouping on
+    the submission date. Null when fewer than two clients contributed data.
 - mode: NULLABLE
   name: sap_avg
   type: FLOAT
+  description: Average total Search Access Point (SAP) search count per client (tagged and untagged combined)
+    within the grouping on the submission date.
 - mode: NULLABLE
   name: sap_stddev
   type: FLOAT
+  description: Standard deviation of total SAP search counts across clients within the grouping on the submission
+    date. Null when fewer than two clients contributed data.
 - mode: NULLABLE
   name: ad_click_avg
   type: FLOAT
+  description: Average number of search advertisement clicks (clicks on ads shown on a SERP) per client
+    within the grouping on the submission date.
 - mode: NULLABLE
   name: ad_click_stddev
   type: FLOAT
+  description: Standard deviation of search ad click counts across clients within the grouping on the submission
+    date. Null when fewer than two clients contributed data.
 - mode: NULLABLE
   name: ad_click_organic_avg
   type: FLOAT
+  description: Average number of organic ad clicks per client (ad clicks on SERP pages reached via organic
+    search) within the grouping on the submission date. This metric is consistently zero in the current
+    data.
 - mode: NULLABLE
   name: ad_click_organic_stddev
   type: FLOAT
+  description: Standard deviation of organic ad click counts across clients within the grouping on the submission
+    date. Null when fewer than two clients contributed data.
 - mode: NULLABLE
   name: search_with_ads_avg
   type: FLOAT
+  description: Average number of SERP page views with advertisements displayed per client within the grouping
+    on the submission date.
 - mode: NULLABLE
   name: search_with_ads_stddev
   type: FLOAT
+  description: Standard deviation of SERP-with-ads page view counts across clients within the grouping on
+    the submission date. Null when fewer than two clients contributed data.
 - mode: NULLABLE
   name: search_with_ads_organic_avg
   type: FLOAT
+  description: Average number of organic SERP page views with advertisements displayed per client within
+    the grouping on the submission date. This metric is consistently zero in the current data.
 - mode: NULLABLE
   name: search_with_ads_organic_stddev
   type: FLOAT
+  description: Standard deviation of organic SERP-with-ads page view counts across clients within the grouping
+    on the submission date. Null when fewer than two clients contributed data.
 - mode: NULLABLE
   name: homepage_visits_avg
   type: FLOAT
+  description: Average number of Firefox homepage visits per client within the grouping on the submission
+    date, derived from the labeled counter firefox_home_page_firefox_homepage_origin in the metrics ping.
 - mode: NULLABLE
   name: homepage_visits_stddev
   type: FLOAT
+  description: Standard deviation of homepage visit counts across clients within the grouping on the submission
+    date. Null when fewer than two clients contributed data.
 - mode: NULLABLE
   name: pocket_story_clicks_avg
   type: FLOAT
+  description: Average number of Pocket story clicks (pocket_open_story counter) per client within the grouping
+    on the submission date.
 - mode: NULLABLE
   name: pocket_story_clicks_stddev
   type: FLOAT
+  description: Standard deviation of Pocket story click counts across clients within the grouping on the
+    submission date. Null when fewer than two clients contributed data.
 - mode: NULLABLE
   name: pocket_section_impressions_avg
   type: FLOAT
+  description: Average number of Pocket section impressions (pocket_section_impressions counter) per client
+    within the grouping on the submission date.
 - mode: NULLABLE
   name: pocket_section_impressions_stddev
   type: FLOAT
+  description: Standard deviation of Pocket section impression counts across clients within the grouping
+    on the submission date. Null when fewer than two clients contributed data.
 - mode: NULLABLE
   name: sponsored_tile_clicks_avg
   type: FLOAT
+  description: Average number of sponsored (Contile) top-site tile clicks per client within the grouping
+    on the submission date, sourced from the top_sites.contile_click event.
 - mode: NULLABLE
   name: sponsored_tile_clicks_stddev
   type: FLOAT
+  description: Standard deviation of sponsored tile click counts across clients within the grouping on the
+    submission date. Null when fewer than two clients contributed data.
 - mode: NULLABLE
   name: sponsored_tile_impressions_avg
   type: FLOAT
+  description: Average number of sponsored (Contile) top-site tile impressions per client within the grouping
+    on the submission date, sourced from the top_sites.contile_impression event.
 - mode: NULLABLE
   name: sponsored_tile_impressions_stddev
   type: FLOAT
+  description: Standard deviation of sponsored tile impression counts across clients within the grouping
+    on the submission date. Null when fewer than two clients contributed data.
 - mode: NULLABLE
   name: organic_tile_clicks_avg
   type: FLOAT
+  description: Average number of organic (non-sponsored) top-site tile clicks per client within the grouping
+    on the submission date, sourced from the top_sites.tile_pressed event.
 - mode: NULLABLE
   name: organic_tile_clicks_stddev
   type: FLOAT
+  description: Standard deviation of organic tile click counts across clients within the grouping on the
+    submission date. Null when fewer than two clients contributed data.
