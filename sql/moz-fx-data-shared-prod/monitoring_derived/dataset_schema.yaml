@@ -1,0 +1,184 @@
+fields:
+- name: Explore
+  description: The name of the Looker Explore associated with a query or resource. This is a high-cardinality identifier referencing a specific
+    data exploration view within a LookML model.
+  type: STRING
+- name: Model
+  description: The name of the LookML model associated with a query or resource. Examples include product-level models such as 'firefox_desktop'
+    or 'fenix', as well as infrastructure models like 'operational_monitoring'.
+  type: STRING
+- name: Query Count
+  description: The number of queries executed in a given context or time window. A value of zero indicates no queries were run.
+  type: INT64
+- name: acceleration_mode
+  description: The BigQuery BI Engine acceleration mode applied to a query, indicating how much of the query was accelerated. Possible values
+    include 'FULL_QUERY', 'FULL_INPUT', 'PARTIAL_INPUT', and 'BI_ENGINE_DISABLED'; null indicates BI Engine was not involved.
+  type: STRING
+- name: active_logical_bytes
+  description: The number of logical (uncompressed) bytes in active storage for a BigQuery table or partition, representing data modified within
+    the last 90 days. A value of zero indicates no actively stored data.
+  type: INT64
+- name: active_physical_bytes
+  description: The number of physical (compressed, on-disk) bytes in active storage for a BigQuery table or partition, reflecting data modified
+    within the last 90 days. A value of zero indicates no actively stored physical data.
+  type: INT64
+- name: app_id
+  description: The unique application identifier associated with a telemetry source or data pipeline resource, using dot-separated naming (e.g.,
+    'firefox.desktop'). This distinguishes data originating from different Mozilla products and services.
+  type: STRING
+- name: app_name
+  description: The human-readable name of the Mozilla application associated with a record, using underscore-separated naming (e.g., 'firefox_desktop',
+    'fenix'). This identifies the product that generated or is related to the data.
+  type: STRING
+- name: bi_engine_mode
+  description: The overall BI Engine acceleration mode reported for a query, summarizing the level of acceleration applied. Values include 'FULL',
+    'PARTIAL', and 'DISABLED'; null indicates BI Engine was not applicable.
+  type: STRING
+- name: bi_engine_reasons
+  description: An array of structured reason objects explaining why BI Engine acceleration was limited or disabled for a query. Each element contains
+    a code and a human-readable message.
+  type: RECORD
+- name: bi_engine_reasons_code
+  description: A short code categorizing the reason why BI Engine acceleration was not fully applied to a query. Common values include 'TABLE_EXCLUDED',
+    'UNSUPPORTED_SQL_TEXT', 'INPUT_TOO_LARGE', 'INSUFFICIENT_RESERVATION', and 'OTHER_REASON'.
+- name: bi_engine_reasons_message
+  description: A detailed human-readable message explaining why BI Engine acceleration was limited or disabled for a query. Messages often specify
+    which tables were excluded from the preferred-tables list or describe unsupported SQL constructs.
+- name: byte_size
+  description: The size in bytes of a resource such as a query result, table, or file. A value of zero indicates an empty or non-existent resource.
+  type: INT64
+- name: cache_hit
+  description: Indicates whether a BigQuery query result was served from the query cache rather than executing against the underlying tables.
+    True means the result was cached; false means a full query execution occurred; null indicates the field is not applicable.
+  type: BOOLEAN
+- name: channel
+  description: The Mozilla release channel from which data originates, such as 'release', 'beta', 'nightly', 'aurora', or 'esr'. This reflects
+    the update channel configured on the client or associated with the data source.
+  type: STRING
+- name: content
+  description: Free-text content associated with a record, such as a comment, note, or message describing a manual action, trigger reason, or
+    operational annotation. The format and meaning vary by context.
+  type: STRING
+- name: created_at
+  description: The timestamp at which a record or resource was created, stored with microsecond precision in UTC. This reflects the moment the
+    entity was first inserted or registered in the system.
+  type: TIMESTAMP
+- name: creation_date
+  description: The date on which a resource or record was created, represented as a calendar date without time. This provides a day-level granularity
+    complement to creation timestamps.
+  type: DATE
+- name: creation_time
+  description: The precise UTC timestamp at which a BigQuery resource (such as a table or job) was created. This is typically populated from BigQuery
+    INFORMATION_SCHEMA metadata.
+  type: TIMESTAMP
+- name: current_sources
+  description: An array of structured objects identifying the current, authoritative source tables and fields from which user or client identifiers
+    are derived for a given pipeline or dataset. Each element contains a table name, field name, and project.
+  type: RECORD
+- name: current_sources_field
+  description: The specific field name within a source table that supplies a user or client identifier in the current data pipeline configuration.
+    Common values include 'client_info.client_id', 'client_id', and 'user_id'.
+- name: current_sources_project
+  description: The GCP project identifier for the source table contributing a user or client identifier in the current pipeline configuration.
+    This is consistently 'moz-fx-data-shared-prod' across known records.
+- name: current_sources_table
+  description: The fully-qualified BigQuery table (in dataset.table format) that currently serves as the source of a user or client identifier
+    for a given pipeline. Examples follow the pattern 'namespace_stable.document_type_v1'.
+- name: dag_id
+  description: The identifier of the Apache Airflow DAG (Directed Acyclic Graph) associated with a workflow or task execution. This links a record
+    to the specific pipeline or scheduled job that produced or triggered it.
+  type: STRING
+- name: dataset_id
+  description: The BigQuery dataset identifier in which a table, job, or resource resides. This is used to scope resources within a GCP project.
+  type: STRING
+- name: deleted
+  description: Indicates whether a record or resource has been marked as deleted. True means the entity has been deleted; false means it is still
+    active.
+  type: BOOLEAN
+- name: deleted_row_count
+  description: The number of rows deleted from a table during a shredding or deletion operation. A value of zero indicates no rows were removed;
+    null indicates the count is unavailable for that operation.
+  type: INT64
+- name: deprecated
+  description: Indicates whether a resource or entity has been marked as deprecated and is no longer recommended for use. True means the resource
+    is deprecated; null (the vast majority of records) means it is not deprecated.
+  type: BOOLEAN
+- name: description
+  description: A free-text description providing additional context or documentation for a resource or entity. This field is currently unpopulated
+    across all known records.
+  type: STRING
+- name: detected_sources
+  description: An array of structured objects identifying source tables and fields where user or client identifiers were automatically detected
+    during pipeline analysis. Each element contains a table name, field name, and project.
+  type: RECORD
+- name: detected_sources_field
+  description: The specific field name within a source table where a user or client identifier was automatically detected. Common values include
+    'client_info.client_id', 'client_id', and 'metrics.uuid.legacy_ids_client_id'.
+- name: detected_sources_project
+  description: The GCP project identifier for the source table in which a user or client identifier was automatically detected. This is consistently
+    'moz-fx-data-shared-prod' across all known records.
+- name: detected_sources_table
+  description: The fully-qualified BigQuery table (in dataset.table format) where a user or client identifier was automatically detected during
+    pipeline analysis. Examples follow the pattern 'namespace_stable.document_type_v1'.
+- name: document_namespace
+  description: The Mozilla telemetry document namespace identifying the application or service that produced the document, using hyphen-separated
+    naming (e.g., 'firefox-desktop'). This corresponds to the ingestion schema namespace.
+  type: STRING
+- name: document_type
+  description: The type of Mozilla telemetry document, indicating the schema and content category of the submission. Common values include 'metrics',
+    'events', 'baseline', 'main', and 'crash'.
+  type: STRING
+- name: document_version
+  description: The version identifier of the telemetry document schema, typically a numeric string such as '1' or '4'. This indicates which version
+    of the document type schema the record conforms to.
+  type: STRING
+- name: duration
+  description: The duration of a job, task, or operation, expressed in seconds. A null value indicates the duration was not recorded or the operation
+    did not complete normally.
+- name: end_date
+  description: The timestamp marking the end of a time range, interval, or event. This field uses full UTC timestamp precision and may be null
+    in rare cases where an end time has not yet been determined.
+- name: end_time
+  description: The UTC timestamp at which a job, query, or operation completed. This is used alongside a corresponding start or creation time
+    to compute elapsed duration.
+  type: TIMESTAMP
+- name: error_count
+  description: The number of errors encountered during a job, task run, or operational period. Higher values indicate repeated or multiple failure
+    events within the same context.
+  type: INT64
+- name: error_message
+  description: The full error message text returned when a job or query fails. This is null when no error occurred, and contains descriptive text
+    such as cancellation notices, quota violations, or invalid query details when present.
+  type: STRING
+- name: error_reason
+  description: A short, machine-readable error code categorizing the type of failure encountered by a job or query. Common values include 'stopped',
+    'invalidQuery', 'rateLimitExceeded', 'notFound', and 'accessDenied'; null indicates no error occurred.
+  type: STRING
+- name: hostname
+  description: The hostname or IP address of the machine or worker node that executed a task or job. This is used to identify specific infrastructure
+    instances involved in a pipeline run.
+  type: STRING
+- name: id
+  description: A unique numeric identifier for a record within a table. This serves as the primary key for referencing individual entities.
+  type: INT64
+- name: job_id
+  description: A numeric identifier linking a record to a specific job execution in the scheduling or orchestration system. Null values indicate
+    the record is not associated with a particular job instance.
+- name: job_type
+  description: The type of Airflow job process associated with a heartbeat or log record. Common values include 'LocalTaskJob' for task workers,
+    'SchedulerJob' for the Airflow scheduler, 'TriggererJob' for the triggerer process, and 'BackfillJob' for backfill runs.
+  type: STRING
+- name: labels
+  description: An array of key-value label pairs attached to a BigQuery job or resource, used to categorize and attribute queries to tools, users,
+    or workflows. Common keys include 'type', 'looker-context-user_id', and 'requestor'.
+  type: RECORD
+- name: labels_key
+  description: The key portion of a BigQuery job or resource label, identifying the label category such as 'type', 'looker-context-user_id', or
+    'requestor'. Labels are used to attribute queries to specific tools, users, or scheduled workflows.
+- name: labels_value
+  description: The value portion of a BigQuery job or resource label, paired with a corresponding label key. Values may identify specific users,
+    tools (e.g., 'grafana-bigquery-datasource'), job types (e.g., 'shredder'), or workflow slugs.
+- name: long_term_logical_bytes
+  description: The number of logical (uncompressed) bytes in long-term storage for a BigQuery table or partition, representing data that has not
+    been modified for 90 or more days. A value of zero indicates no long-term stored data.
+  type: INT64
