@@ -8,9 +8,14 @@ fields:
 - mode: NULLABLE
   name: Unused Joins
   type: STRING
+  description: A comma-separated list of join names within the explore that were not used in any Looker
+    queries during the reporting period. Null when all joins in the explore were used or no joins exist.
 - mode: NULLABLE
   name: Unused Fields
   type: STRING
+  description: A comma-separated list of fully-qualified field names (in the format view_name.field_name)
+    within the explore that were not queried in Looker during the reporting period. Null when all fields
+    in the explore were used.
 - mode: NULLABLE
   name: submission_date
   type: DATE
