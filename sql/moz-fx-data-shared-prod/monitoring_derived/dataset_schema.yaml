@@ -182,3 +182,176 @@ fields:
   description: The number of logical (uncompressed) bytes in long-term storage for a BigQuery table or partition, representing data that has not
     been modified for 90 or more days. A value of zero indicates no long-term stored data.
   type: INT64
+- name: long_term_physical_bytes
+  description: The number of physical bytes stored in long-term storage for a BigQuery table or partition, i.e., data that has not been modified
+    for 90 or more days. A value of 0 indicates no long-term storage is in use.
+  type: INT64
+- name: map_index
+  description: An internal index used to identify a position within a map structure. A value of -1 typically indicates that no valid map position
+    is assigned.
+  type: INT64
+- name: matching_sources
+  description: Indicates whether the data sources being compared or reconciled are matching. A value of true means the sources are consistent,
+    while false indicates a discrepancy.
+  type: BOOLEAN
+- name: normalized_app_name
+  description: A human-readable, standardized name for the Mozilla application associated with the record, such as 'Firefox for Desktop', 'Firefox
+    for Android', or 'Thunderbird'. This value is normalized across products to enable consistent cross-application reporting.
+  type: STRING
+- name: owners
+  description: The email address(es) of the Mozilla team member(s) responsible for owning or maintaining the associated resource, such as a pipeline
+    task or dataset. Typically contains one or more mozilla.com email addresses.
+- name: partition_id
+  description: The identifier for the BigQuery table partition associated with the record, formatted as a date string (e.g., '20250916'). Null
+    values indicate unpartitioned tables or rows not associated with a specific partition.
+  type: STRING
+- name: path
+  description: A JSON-pointer-style path string that identifies a specific field or location within a schema or data structure, such as '#/client_info/architecture'.
+    Used to reference a particular nested element within a document or schema hierarchy.
+  type: STRING
+- name: path_count
+  description: The number of times a specific schema path appears or is referenced across the dataset. Higher values indicate more frequently
+    referenced schema paths.
+  type: INT64
+- name: pool
+  description: The Airflow resource pool assigned to a task, which controls concurrency and resource allocation during execution. Common values
+    include 'default_pool' for standard tasks and 'DATA_ENG_EXTERNALTASKSENSOR' for external task sensors.
+  type: STRING
+- name: project_id
+  description: The Google Cloud Platform project identifier where the associated BigQuery resource resides, such as 'moz-fx-data-shared-prod',
+    'moz-fx-data-marketing-prod', or 'mozdata'. Used to scope resources to a specific GCP project.
+  type: STRING
+- name: query_count_last_30d
+  description: The number of times a resource, such as a table or view, was queried in the last 30 days. A value of 0 indicates the resource was
+    not queried during that period.
+  type: INT64
+- name: reservation_id
+  description: The BigQuery slot reservation identifier associated with a job, indicating which reservation pool's capacity was used for execution.
+    Null values indicate jobs that ran using on-demand pricing rather than a committed reservation.
+  type: STRING
+- name: run_date
+  description: The calendar date on which a monitoring or ETL run was executed. Used to identify the specific day a snapshot or pipeline run was
+    captured.
+  type: DATE
+- name: run_id
+  description: A unique identifier for a specific pipeline or DAG run, typically following the format 'scheduled__<ISO-8601-datetime>' to indicate
+    scheduled execution time. Used to correlate all tasks and records belonging to the same pipeline execution.
+  type: STRING
+- name: run_timestamp
+  description: The exact UTC timestamp at which a monitoring or pipeline run was executed. Used to record the precise moment a snapshot or process
+    was captured.
+  type: TIMESTAMP
+- name: start_date
+  description: The UTC timestamp when a job, task, or process was scheduled or expected to start. Null values indicate that a start date was not
+    recorded or is not applicable.
+- name: start_time
+  description: The UTC timestamp at which a job or task actually began execution. Unlike start_date, this reflects the real wall-clock time execution
+    commenced rather than a scheduled time.
+  type: TIMESTAMP
+- name: state
+  description: The current or final execution state of a task or job. Common values include 'success' for completed runs, 'failed' for errored
+    runs, 'running' for in-progress tasks, and 'queued' for tasks awaiting execution.
+  type: STRING
+- name: statement_type
+  description: The type of SQL statement executed in a BigQuery job, such as 'SELECT', 'INSERT', 'DELETE', 'CREATE_VIEW', or 'MERGE'. Null values
+    indicate jobs where the statement type was not captured or is not applicable.
+  type: STRING
+- name: submission_date
+  description: The date on which data was submitted or recorded for a given monitoring snapshot. Used as the primary date partition key for daily
+    aggregations.
+  type: DATE
+- name: table_catalog
+  description: The name of the GCP project (BigQuery catalog) that contains the table, such as 'moz-fx-data-shared-prod' or 'mozdata'. Corresponds
+    to the top-level namespace in the BigQuery resource hierarchy.
+  type: STRING
+- name: table_creation_date
+  description: The date on which the BigQuery table was originally created. Used to track table age and lifecycle across the data warehouse.
+  type: DATE
+- name: table_id
+  description: The identifier for a specific BigQuery table within a dataset, typically representing the versioned table name such as 'events_v1'
+    or 'baseline_v1'. Used to uniquely identify a table within its parent dataset.
+  type: STRING
+- name: table_name
+  description: The name of a BigQuery table within a dataset, which may or may not include a version suffix. Used to identify the logical table
+    across datasets and projects.
+  type: STRING
+- name: table_schema
+  description: The name of the BigQuery dataset (schema) that contains the table, such as 'operational_monitoring', 'analysis', or 'tmp'. Corresponds
+    to the middle tier of the BigQuery resource hierarchy between project and table.
+  type: STRING
+- name: table_size_tib
+  description: The total size of a BigQuery table expressed in tebibytes (TiB). A value of 0 indicates an empty or near-empty table.
+  type: FLOAT64
+- name: table_type
+  description: The type of BigQuery table object, indicating how data is stored or derived. Common values include 'BASE TABLE' for standard tables,
+    'VIEW' for virtual views, 'MATERIALIZED VIEW' for precomputed views, 'EXTERNAL' for externally referenced data, 'CLONE' for table clones,
+    and 'SNAPSHOT' for point-in-time snapshots.
+  type: STRING
+- name: task_id
+  description: The unique identifier for an Airflow task within a DAG, typically following the naming convention of the ETL job it represents
+    (e.g., 'dataset__table__v1'). Used to track the execution and status of individual pipeline steps.
+  type: STRING
+- name: task_instance
+  description: A unique identifier for a specific Airflow task instance, combining the DAG ID, task ID, and execution date to identify a single
+    run of a task. Used to distinguish individual task executions within a pipeline run.
+  type: STRING
+- name: time_travel_physical_bytes
+  description: The number of physical bytes retained for BigQuery time travel, which enables querying historical versions of table data within
+    the configured retention window. A value of 0 indicates no time travel data is currently stored.
+  type: INT64
+- name: total_bytes_processed
+  description: The total number of bytes scanned or processed by a BigQuery job during execution. Used to assess query cost and efficiency; a
+    value of 0 indicates the query processed no data, often due to caching or metadata-only operations.
+  type: INT64
+- name: total_columns
+  description: The total number of columns (fields) present in a BigQuery table's schema. Used to measure schema complexity across tables in the
+    data warehouse.
+  type: INT64
+- name: total_logical_bytes
+  description: The total uncompressed logical size of data stored in a BigQuery table, measured in bytes. This reflects the amount of data before
+    physical compression is applied.
+  type: INT64
+- name: total_partitions
+  description: The total number of partitions that exist within a BigQuery table. A value of 0 indicates an unpartitioned table or a table with
+    no data.
+  type: INT64
+- name: total_physical_bytes
+  description: The total number of compressed physical bytes used to store data in a BigQuery table, including active storage, time travel, and
+    long-term storage. This reflects actual storage consumption on disk.
+  type: INT64
+- name: total_row_count
+  description: The total number of rows present in a BigQuery table or partition. Used to monitor data volume and validate that expected record
+    counts are met.
+  type: INT64
+- name: total_rows
+  description: The total number of rows in a table or result set at the time of the snapshot. Similar to total_row_count, but may be sourced from
+    a different metadata context such as information schema or query results.
+  type: INT64
+- name: total_slot_ms
+  description: The total number of slot-milliseconds consumed by a BigQuery job, representing the aggregate compute resources used across all
+    parallel workers. Null values indicate jobs where slot usage was not tracked, such as on-demand queries without reservation.
+  type: INT64
+- name: try_number
+  description: The attempt number for an Airflow task execution, starting at 1 for the first try. Values greater than 1 indicate the task was
+    retried due to a previous failure, and 0 may represent a pre-execution or queued state.
+  type: INT64
+- name: unixname
+  description: The Unix system username under which a process or task was executed. In this dataset, this value is consistently 'airflow', identifying
+    the Airflow service account as the executor.
+  type: STRING
+- name: updated_at
+  description: The UTC timestamp at which a record or resource was last updated or modified. Used to track the recency of changes to pipeline
+    metadata or configuration.
+  type: TIMESTAMP
+- name: user_email
+  description: The email address of the user associated with a job or action. This field contains personally identifiable information (PII) and
+    is suppressed in standard access contexts.
+  type: STRING
+- name: user_id
+  description: A numeric identifier for the user associated with a record or action within the monitoring system. Maps to a specific internal
+    user account and can be used to link activity across tables.
+  type: INT64
+- name: write_count_last_30d
+  description: The number of write operations performed on a resource, such as a table, in the last 30 days. A value of 0 indicates the resource
+    was not written to during that period.
+  type: INT64
