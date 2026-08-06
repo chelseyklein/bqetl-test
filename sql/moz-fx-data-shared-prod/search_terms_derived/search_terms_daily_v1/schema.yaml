@@ -8,3 +8,6 @@ fields:
   - mode: NULLABLE
     name: search_sessions
     type: INTEGER
+  description: The number of distinct search sessions that ended with this query on the given submission
+    date. Only queries whose rolling 7-day session count exceeds 1 are included, to satisfy a minimum-frequency
+    privacy threshold.
