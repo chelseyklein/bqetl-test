@@ -18,4 +18,6 @@ fields:
 - name: row_count
   type: INT64
   mode: NULLABLE
-  description: ''
+  description: The number of rows in the table partition for the given submission date. This value is retrieved
+    directly from partition metadata when available, or may be null if the partition size was estimated
+    via a dry-run query rather than from actual partition info.
