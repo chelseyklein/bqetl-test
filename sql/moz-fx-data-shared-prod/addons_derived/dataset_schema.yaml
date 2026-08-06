@@ -1,0 +1,161 @@
+fields:
+- name: addon_id
+  description: The unique identifier for a Firefox add-on, typically formatted as a UUID or email-style string (e.g., '{4a30e8a8-dc1a-48b1-bae3-3d832aa406d5}').
+    Used to distinguish individual add-ons across the add-on ecosystem.
+  type: STRING
+- name: addons
+  description: An array of structs representing the set of add-ons associated with a record, where each element contains the add-on's identifier
+    and version string. Used to capture the full list of installed or relevant add-ons in a single field.
+  type: RECORD
+- name: addons_id
+  description: The identifier of a specific add-on within a nested add-ons array, typically formatted as an email-style or UUID string (e.g.,
+    'uBlock0@raymondhill.net'). Identifies which add-on a nested record refers to.
+- name: addons_version
+  description: The version string of a specific add-on within a nested add-ons array, following standard semantic versioning conventions (e.g.,
+    '1.0.0'). Indicates the exact release of the add-on associated with a nested record.
+- name: app_os
+  description: The operating system on which the Firefox application is running (e.g., 'Android', 'Windows'). Used to segment data by the client's
+    platform.
+  type: STRING
+- name: app_version
+  description: The version string of the Firefox application installed on the client (e.g., '153.0.2'). Used to track which browser release is
+    associated with a given record.
+  type: STRING
+- name: client_id
+  description: A UUID that uniquely identifies a Firefox client installation. This identifier persists across sessions and is used to attribute
+    activity to a single browser profile.
+  type: STRING
+- name: country
+  description: The two-letter ISO 3166-1 alpha-2 country code representing the user's country as derived from their IP address (e.g., 'US', 'DE').
+    Used to segment data by geographic region.
+  type: STRING
+- name: dau
+  description: The count of daily active users (DAU) for a given dimension or add-on on the submission date. A user is counted once per day regardless
+    of how many sessions they have.
+  type: INT64
+- name: dau_by_addon_version
+  description: An array of key-value structs representing the daily active user count broken down by add-on version, where each key is a version
+    string and each value is the corresponding DAU count. Allows analysis of user activity across different add-on releases.
+  type: RECORD
+- name: dau_by_addon_version_key
+  description: The add-on version string used as the key in the dau_by_addon_version breakdown (e.g., '2.0', '1.0.0'). May be null when the add-on
+    version is unknown or not reported.
+- name: dau_by_addon_version_value
+  description: The daily active user count associated with a specific add-on version in the dau_by_addon_version breakdown. Represents the number
+    of distinct active users running that particular version on a given day.
+- name: dau_by_app_os
+  description: An array of key-value structs representing the daily active user count broken down by operating system, where each key is an OS
+    name and each value is the corresponding DAU count. Enables comparison of user activity across platforms such as Windows, Mac, Linux, and
+    Android.
+  type: RECORD
+- name: dau_by_app_os_key
+  description: The operating system name used as the key in the dau_by_app_os breakdown (e.g., 'Windows', 'Linux', 'Mac', 'Android'). Identifies
+    the platform segment for the associated DAU value.
+- name: dau_by_app_os_value
+  description: The daily active user count associated with a specific operating system in the dau_by_app_os breakdown. Represents the number of
+    distinct active users on that platform for a given day.
+- name: dau_by_app_version
+  description: An array of key-value structs representing the daily active user count broken down by Firefox application version, where each key
+    is a version string and each value is the corresponding DAU count. Useful for understanding adoption and activity across browser releases.
+  type: RECORD
+- name: dau_by_app_version_key
+  description: The Firefox application version string used as the key in the dau_by_app_version breakdown (e.g., '153.0.1'). Identifies which
+    browser version the associated DAU value applies to.
+- name: dau_by_app_version_value
+  description: The daily active user count associated with a specific Firefox application version in the dau_by_app_version breakdown. Represents
+    the number of distinct active users on that browser version for a given day.
+- name: dau_by_country
+  description: An array of key-value structs representing the daily active user count broken down by country, where each key is a two-letter ISO
+    country code and each value is the corresponding DAU count. Enables geographic segmentation of daily user activity.
+  type: RECORD
+- name: dau_by_country_key
+  description: The two-letter ISO 3166-1 alpha-2 country code used as the key in the dau_by_country breakdown (e.g., 'US', 'DE'). Identifies the
+    country segment for the associated DAU value.
+- name: dau_by_country_value
+  description: The daily active user count associated with a specific country in the dau_by_country breakdown. Represents the number of distinct
+    active users in that country for a given day.
+- name: dau_by_fenix_build
+  description: An array of key-value structs representing the daily active user count broken down by Fenix (Firefox for Android) build version,
+    where each key is a build version string and each value is the corresponding DAU count. Useful for tracking DAU across specific Android browser
+    builds.
+  type: RECORD
+- name: dau_by_fenix_build_key
+  description: The Fenix (Firefox for Android) build version string used as the key in the dau_by_fenix_build breakdown (e.g., '153.0.2'). Identifies
+    the specific Android browser build the associated DAU value applies to.
+- name: dau_by_fenix_build_value
+  description: The daily active user count associated with a specific Fenix build version in the dau_by_fenix_build breakdown. Represents the
+    number of distinct active Android users on that build for a given day.
+- name: dau_by_locale
+  description: An array of key-value structs representing the daily active user count broken down by browser locale, where each key is a locale
+    code and each value is the corresponding DAU count. Enables analysis of user activity by language and regional locale settings.
+  type: RECORD
+- name: dau_by_locale_key
+  description: The locale code used as the key in the dau_by_locale breakdown (e.g., 'en-US', 'de', 'fr'). Identifies the browser language and
+    regional setting for the associated DAU value.
+- name: dau_by_locale_value
+  description: The daily active user count associated with a specific locale in the dau_by_locale breakdown. Represents the number of distinct
+    active users with that locale setting for a given day.
+- name: downloads_per_campaign
+  description: An array of key-value structs representing add-on download counts broken down by marketing campaign identifier, where each key
+    is a campaign name and each value is the number of downloads attributed to it. Supports attribution analysis across promotional campaigns.
+  type: RECORD
+- name: downloads_per_campaign_key
+  description: The marketing campaign identifier used as the key in the downloads_per_campaign breakdown (e.g., 'web_top_banner', 'extension-lp').
+    May be null or empty when no campaign attribution is available for a download.
+- name: downloads_per_campaign_value
+  description: The number of add-on downloads attributed to a specific marketing campaign in the downloads_per_campaign breakdown. Represents
+    the total download count for that campaign within the aggregation period.
+- name: downloads_per_content
+  description: An array of key-value structs representing add-on download counts broken down by content placement or discovery surface, where
+    each key is a content label and each value is the corresponding download count. Helps identify which content placements drive add-on installs.
+  type: RECORD
+- name: downloads_per_content_key
+  description: The content placement label used as the key in the downloads_per_content breakdown (e.g., 'search', 'featured', 'collection').
+    May be null when no content attribution is recorded for a download.
+- name: downloads_per_content_value
+  description: The number of add-on downloads attributed to a specific content placement in the downloads_per_content breakdown. Represents the
+    total download count for that content surface within the aggregation period.
+- name: downloads_per_medium
+  description: An array of key-value structs representing add-on download counts broken down by acquisition medium, where each key is a medium
+    label and each value is the corresponding download count. Supports channel-level attribution of add-on installs.
+  type: RECORD
+- name: downloads_per_medium_key
+  description: The acquisition medium label used as the key in the downloads_per_medium breakdown (e.g., 'referral', 'firefox-browser'). May be
+    null when no medium attribution is recorded for a download.
+- name: downloads_per_medium_value
+  description: The number of add-on downloads attributed to a specific acquisition medium in the downloads_per_medium breakdown. Represents the
+    total download count for that medium within the aggregation period.
+- name: downloads_per_source
+  description: An array of key-value structs representing add-on download counts broken down by referral source, where each key is a source identifier
+    and each value is the corresponding download count. Enables tracking of which websites or surfaces drive add-on downloads.
+  type: RECORD
+- name: downloads_per_source_key
+  description: The referral source identifier used as the key in the downloads_per_source breakdown (e.g., 'addons.mozilla.org', 'chatgpt.com').
+    May be null when no source attribution is recorded for a download.
+- name: downloads_per_source_value
+  description: The number of add-on downloads attributed to a specific referral source in the downloads_per_source breakdown. Represents the total
+    download count for that source within the aggregation period.
+- name: hashed_addon_id
+  description: A SHA-256 hex-encoded hash of the add-on's identifier, used to reference add-ons in a privacy-preserving manner without exposing
+    the raw add-on ID. Can be used to join or group records while protecting potentially sensitive identifier values.
+  type: STRING
+- name: locale
+  description: The browser locale code representing the user's language and regional setting (e.g., 'en-US', 'de-DE'). Used to segment data by
+    the language configuration of the Firefox client.
+  type: STRING
+- name: normalized_channel
+  description: The normalized Firefox release channel of the client, with values such as 'release', 'beta', 'nightly', or 'Other'. Used to segment
+    data by the update channel of the browser installation.
+  type: STRING
+- name: sample_id
+  description: A bucketing identifier derived from the client_id, ranging from 0 to 99, used to facilitate reproducible random sampling of the
+    client population. Records with a specific sample_id represent approximately 1% of the total client population.
+  type: INT64
+- name: submission_date
+  description: The date on which the ping or aggregated record was submitted or applies to, in YYYY-MM-DD format. Used as the primary date dimension
+    for partitioning and filtering data.
+  type: DATE
+- name: total_downloads
+  description: The total number of times an add-on was downloaded within the aggregation period. Counts all download events regardless of the
+    referral source, medium, content, or campaign attribution.
+  type: INT64

@@ -2,19 +2,27 @@ fields:
 - name: submission_date
   type: DATE
   mode: NULLABLE
-  description: The date when the telemetry ping is received on the server side.
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/addons_derived/dataset_schema.yaml
+    field: submission_date
 - name: hashed_addon_id
   type: STRING
   mode: NULLABLE
-  description: Hashed Addon id (`TO_HEX(SHA256(addon_id))`).
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/addons_derived/dataset_schema.yaml
+    field: hashed_addon_id
 - name: total_downloads
   type: INTEGER
   mode: NULLABLE
-  description: Number of distinct clients that triggered an install_stats event.
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/addons_derived/dataset_schema.yaml
+    field: total_downloads
 - name: downloads_per_source
   type: RECORD
   mode: REPEATED
-  description: Source info.
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/addons_derived/dataset_schema.yaml
+    field: downloads_per_source
   fields:
   - name: key
     type: STRING
@@ -27,7 +35,9 @@ fields:
 - name: downloads_per_content
   type: RECORD
   mode: REPEATED
-  description: Content info.
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/addons_derived/dataset_schema.yaml
+    field: downloads_per_content
   fields:
   - name: key
     type: STRING
@@ -40,7 +50,9 @@ fields:
 - name: downloads_per_medium
   type: RECORD
   mode: REPEATED
-  description: Medium info.
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/addons_derived/dataset_schema.yaml
+    field: downloads_per_medium
   fields:
   - name: key
     type: STRING
@@ -53,7 +65,9 @@ fields:
 - name: downloads_per_campaign
   type: RECORD
   mode: REPEATED
-  description: Campaign info.
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/addons_derived/dataset_schema.yaml
+    field: downloads_per_campaign
   fields:
   - name: key
     type: STRING

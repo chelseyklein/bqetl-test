@@ -17,9 +17,13 @@ fields:
   - mode: NULLABLE
     name: project_id
     type: STRING
+  description: The GCP project ID of the destination table where job results are written. Null when the
+    job has no destination table.
   - mode: NULLABLE
     name: dataset_id
     type: STRING
+  description: The BigQuery dataset ID of the destination table where job results are written. Null when
+    the job has no destination table.
   - mode: NULLABLE
     name: table_id
     type: STRING
@@ -37,12 +41,18 @@ fields:
   - mode: NULLABLE
     name: reason
     type: STRING
+  description: A short machine-readable error code categorizing the failure, such as 'invalidQuery', 'rateLimitExceeded',
+    or 'timeout'. Null when the job completed successfully.
   - mode: NULLABLE
     name: location
     type: STRING
+  description: The location within the job (e.g., 'query', 'table.write') where the error occurred. Null
+    when the job completed successfully or the error location is unspecified.
   - mode: NULLABLE
     name: debug_info
     type: STRING
+  description: Internal debug information associated with the job error, intended for troubleshooting. Currently
+    always null in this table.
   - mode: NULLABLE
     name: message
     type: STRING
@@ -85,9 +95,11 @@ fields:
   - mode: NULLABLE
     name: project_id
     type: STRING
+  description: The GCP project ID of a table referenced by this query job.
   - mode: NULLABLE
     name: dataset_id
     type: STRING
+  description: The BigQuery dataset ID of a table referenced by this query job.
   - mode: NULLABLE
     name: table_id
     type: STRING
@@ -120,18 +132,24 @@ fields:
   - mode: NULLABLE
     name: elapsed_ms
     type: INTEGER
+  description: Milliseconds elapsed since the start of query execution at the time of this timeline snapshot.
   - mode: NULLABLE
     name: total_slot_ms
     type: INTEGER
+  description: Cumulative slot-milliseconds consumed by the query up to the time of this timeline snapshot.
   - mode: NULLABLE
     name: pending_units
     type: INTEGER
+  description: Number of work units that were scheduled but not yet started at the time of this timeline
+    snapshot.
   - mode: NULLABLE
     name: completed_units
     type: INTEGER
+  description: Number of work units that had finished execution at the time of this timeline snapshot.
   - mode: NULLABLE
     name: active_units
     type: INTEGER
+  description: Number of work units actively being executed at the time of this timeline snapshot.
   - mode: NULLABLE
     name: estimated_runnable_units
     type: INTEGER
@@ -151,6 +169,8 @@ fields:
   name: total_modified_partitions
   type: INTEGER
 
+  description: The total number of partitions modified by the job. Populated for LOAD and QUERY jobs that
+    write to partitioned tables; null for jobs that do not modify partitions.
 - mode: NULLABLE
   name: total_slot_ms
   type: INTEGER
@@ -199,12 +219,15 @@ fields:
       - mode: NULLABLE
         name: project_id
         type: STRING
+  description: The GCP project ID of the candidate materialized view table considered for query optimization.
       - mode: NULLABLE
         name: dataset_id
         type: STRING
+  description: The BigQuery dataset ID of the candidate materialized view table considered for query optimization.
       - mode: NULLABLE
         name: table_id
         type: STRING
+  description: The table ID of the candidate materialized view table considered for query optimization.
     - mode: NULLABLE
       name: chosen
       type: BOOLEAN

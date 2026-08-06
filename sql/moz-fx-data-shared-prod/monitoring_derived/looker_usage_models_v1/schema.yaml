@@ -2,15 +2,20 @@ fields:
 - mode: NULLABLE
   name: Project
   type: STRING
+  description: The name of the Looker project associated with the model, identifying which LookML project
+    (e.g. "spoke-default", "looker-hub", "people-data") the model belongs to.
 - mode: NULLABLE
   name: Model
   type: STRING
 - mode: NULLABLE
   name: '# Explores'
   type: INTEGER
+  description: The total number of Explores defined within the Looker model for the given submission date.
 - mode: NULLABLE
   name: '# Unused Explores'
   type: INTEGER
+  description: The number of Explores within the Looker model that received no queries on the given submission
+    date, indicating which Explores are potentially inactive or underutilised.
 - mode: NULLABLE
   name: Query Count
   type: INTEGER
