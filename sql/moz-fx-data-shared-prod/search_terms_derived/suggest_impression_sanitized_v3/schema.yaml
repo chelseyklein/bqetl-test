@@ -5,9 +5,13 @@ fields:
 - mode: NULLABLE
   name: submission_timestamp
   type: TIMESTAMP
+  description: The UTC timestamp at which the impression ping was received by the ingestion pipeline, truncated
+    to second precision.
 - mode: NULLABLE
   name: telemetry_query
   type: STRING
+  description: The search query string as reported by the legacy Firefox telemetry ping, lowercased and
+    left-trimmed. Always null for Glean-sourced rows; use the joined `query` field from the Merino log instead.
 - mode: NULLABLE
   name: advertiser
   type: STRING
@@ -17,15 +21,23 @@ fields:
 - mode: NULLABLE
   name: context_id
   type: STRING
+  description: A UUID used to identify users for Contextual Services interaction pings. This identifier
+    is used to link impressions and clicks within the Firefox Suggest feature.
 - mode: NULLABLE
   name: sample_id
   type: INTEGER
+  description: A bucketing identifier derived from the client ID, used for sampling. Currently always null
+    in this table.
 - mode: NULLABLE
   name: is_clicked
   type: BOOLEAN
+  description: Whether the Firefox Suggest impression resulted in the user clicking the suggestion. True
+    indicates a click occurred; false indicates the suggestion was shown but not clicked.
 - mode: NULLABLE
   name: locale
   type: STRING
+  description: The locale of the Firefox application at initialization time (e.g. "en-US", "en-GB"). Sourced
+    from client info for Glean pings or from the legacy telemetry ping.
 - mode: NULLABLE
   name: country
   type: STRING
@@ -35,24 +47,38 @@ fields:
 - mode: NULLABLE
   name: normalized_os
   type: STRING
+  description: The normalized name of the operating system on which Firefox is running (e.g. "Windows",
+    "Mac", "Linux").
 - mode: NULLABLE
   name: normalized_os_version
   type: STRING
+  description: The normalized, user-visible version string of the operating system (e.g. "10.0" for Windows
+    10). If version detection fails, the value may be "Unknown".
 - mode: NULLABLE
   name: normalized_channel
   type: STRING
+  description: The normalized Firefox release channel on which the impression occurred (e.g. "release",
+    "beta", "nightly", "esr").
 - mode: NULLABLE
   name: position
   type: INTEGER
+  description: The 1-based position of the Firefox Suggest item within the address bar results list at the
+    time of the impression.
 - mode: NULLABLE
   name: reporting_url
   type: STRING
+  description: The URL used to report this impression interaction to the Contextual Services ad reporting
+    endpoint. Each unique URL encodes parameters identifying the specific impression event.
 - mode: NULLABLE
   name: scenario
   type: STRING
+  description: The Firefox Suggest scenario associated with the impression, distinguishing different suggestion
+    delivery configurations. Currently always null in this table.
 - mode: NULLABLE
   name: version
   type: STRING
+  description: The major version number of the Firefox application that generated the impression (e.g. "153"),
+    extracted from the full app display version string.
 - mode: NULLABLE
   name: timestamp
   type: TIMESTAMP
