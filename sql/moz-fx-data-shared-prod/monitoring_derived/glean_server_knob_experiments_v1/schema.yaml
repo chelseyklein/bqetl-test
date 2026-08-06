@@ -2,7 +2,9 @@ fields:
 - name: slug
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: The unique identifier (slug) for the Nimbus experiment or rollout, sourced from the Experimenter
+    platform. This human-readable string identifies a specific server knob experiment that configures Glean
+    metric settings.
 - name: app_name
   type: STRING
   mode: NULLABLE
@@ -22,16 +24,22 @@ fields:
 - name: status
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: The current lifecycle status of the experiment as recorded in Experimenter. Values include
+    'Live' for experiments currently running and 'Complete' for experiments that have ended.
 - name: targeted_percent
   type: FLOAT64
   mode: NULLABLE
-  description: ''
+  description: The fraction of the eligible population targeted by this experiment or rollout, expressed
+    as a value between 0 and 1 (e.g., 1.0 means 100% of eligible clients, 0.1 means 10%).
 - name: targeting
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: The JEXL targeting expression that determines which clients are eligible for this experiment.
+    Conditions typically restrict by browser update channel, app version, locale, and/or region.
 - name: glean_metric_config
   type: JSON
   mode: NULLABLE
-  description: ''
+  description: A JSON object containing the Glean metric configuration applied by the server knob feature
+    branch, sourced from the experiment branch's `gleanMetricConfiguration` value. Typically specifies which
+    Glean metrics are enabled or disabled for the targeted population (e.g., `{"metrics_enabled"; {"some.metric";
+    false}}`).
