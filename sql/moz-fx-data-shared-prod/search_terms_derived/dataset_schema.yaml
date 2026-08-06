@@ -1,0 +1,77 @@
+fields:
+- name: advertiser
+  description: The name of the advertiser whose sponsored content was served in response to a search query (e.g., 'Best Buy', 'Amazon', 'adidas').
+    Each value represents a distinct brand or merchant participating in the sponsored search program.
+  type: STRING
+- name: block_id
+  description: A numeric identifier for the ad block or placement unit associated with a sponsored search result. Different block IDs distinguish
+    between distinct inventory slots or configuration groups.
+  type: INT64
+- name: browser
+  description: The name and version of the browser used to make the search request (e.g., 'Firefox(115.0)', 'Chrome', 'Safari'). A value of 'Go-http-client'
+    indicates a programmatic or automated HTTP client rather than an end-user browser.
+  type: STRING
+- name: clicks
+  description: The number of times a user clicked on a sponsored search result during a given interaction or aggregation period. A value of 0
+    indicates the result was shown but not clicked.
+  type: INT64
+- name: country
+  description: The ISO 3166-1 alpha-2 country code representing the geographic location of the user at the time of the search request (e.g., 'US',
+    'CA', 'GB'). This is used to attribute search activity to a specific country.
+  type: STRING
+- name: dma
+  description: The Nielsen Designated Market Area (DMA) code representing the regional television market of the user (e.g., '501' for New York).
+    This field is frequently null when DMA-level geolocation is unavailable or not applicable.
+  type: STRING
+- name: form_factor
+  description: The form factor of the device used to submit the search request, with known values of 'desktop' or 'other'. A value of 'other'
+    typically indicates a non-desktop client such as a programmatic or unrecognized device type.
+  type: STRING
+- name: iab_category
+  description: The Interactive Advertising Bureau (IAB) content category associated with the sponsored result (e.g., '22 - Shopping'). This field
+    may be null when no IAB category has been assigned to the advertiser or placement.
+  type: STRING
+- name: impressions
+  description: The number of times a sponsored search result was displayed to a user during a given interaction or aggregation period. Higher
+    values indicate the same result was shown multiple times across repeated queries or page loads.
+  type: INT64
+- name: os_family
+  description: The operating system family of the device used to submit the search request, with known values of 'windows', 'macos', 'linux',
+    or 'other'. A value of 'other' typically indicates an unrecognized or programmatic client.
+  type: STRING
+- name: query
+  description: The raw search query string entered by the user that triggered a sponsored search result. This field captures the actual user-typed
+    terms and may contain brand names, product descriptions, or general interest terms.
+  type: STRING
+- name: region
+  description: The ISO 3166-2 subdivision code (e.g., a US state abbreviation such as 'CA' or 'TX') representing the user's sub-national geographic
+    region at the time of the search request. This field is frequently null when region-level geolocation is unavailable.
+  type: STRING
+- name: request_id
+  description: A unique hexadecimal identifier assigned to an individual search ad request. This ID can be used to trace a specific request across
+    tables and deduplicate records.
+  type: STRING
+- name: sequence_no
+  description: A numeric value indicating the position or ordering of an event within a session, used to reconstruct the sequence of search interactions.
+    This field may be null when session-level sequencing information is not available.
+  type: INT64
+- name: session_id
+  description: A UUID that groups multiple search events belonging to the same user session. This field may be null when session tracking information
+    is unavailable or not applicable.
+  type: STRING
+- name: started_at
+  description: The UTC timestamp indicating when a reporting period, job, or aggregation window began. This field is used to anchor time-bounded
+    records to a specific start point.
+  type: TIMESTAMP
+- name: submission_date
+  description: The UTC date on which the record was submitted or the reporting period it belongs to, used as the primary date partition key for
+    the table. This field enables date-based filtering and incremental processing.
+  type: DATE
+- name: timestamp
+  description: The precise UTC timestamp at which a search ad event was recorded, captured at microsecond resolution. This field reflects the
+    exact moment the request or interaction was logged by the server.
+  type: TIMESTAMP
+- name: title
+  description: The display title of the sponsored search result shown to the user (e.g., 'Shop Now & Save At Best Buy®'). This text is typically
+    the headline of the ad creative as provided by the advertiser.
+  type: STRING
