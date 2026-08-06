@@ -1,0 +1,151 @@
+fields:
+- name: active_hours
+  description: The number of hours the client was actively using the browser during the reporting period. A null value indicates no active usage
+    was recorded.
+- name: adjust_network
+  description: The ad network attributed as the source of the install, as reported by the Adjust mobile measurement platform. Null when no Adjust
+    attribution is available.
+  type: STRING
+- name: app_name
+  description: The name of the Firefox Focus Android application, distinguishing between the legacy telemetry pipeline (e.g., 'Focus Android Legacy')
+    and the current Glean-based pipeline (e.g., 'Focus Android').
+  type: STRING
+- name: app_version
+  description: The version string of the Focus Android application installed on the client's device, such as '125.0b9'. High cardinality reflects
+    the wide range of versions in active use.
+  type: STRING
+- name: attributed
+  description: Indicates whether the client's install has been attributed to a marketing source. A value of false means no attribution data was
+    associated with the install.
+  type: BOOLEAN
+- name: attribution_medium
+  description: The marketing medium (e.g., paid search, organic) associated with the install attribution. Null when attribution data is unavailable.
+  type: STRING
+- name: attribution_source
+  description: The source campaign or referrer associated with the install attribution. Null when attribution data is unavailable.
+  type: STRING
+- name: channel
+  description: The release channel of the Focus Android application on the client's device, such as 'release', 'beta', or 'nightly'.
+  type: STRING
+- name: city
+  description: The city derived from the client's IP address at the time of submission. May be null when geolocation cannot be resolved to a city
+    level.
+  type: STRING
+- name: client_id
+  description: A unique UUID identifying an individual Focus Android client installation. This identifier persists across sessions for the same
+    install.
+  type: STRING
+- name: country
+  description: The two-letter ISO 3166-1 alpha-2 country code derived from the client's IP address at the time of submission (e.g., 'US', 'ID').
+  type: STRING
+- name: daily_users
+  description: The count of unique clients considered active on a given day within the reporting period. A value of zero indicates no active users
+    for that day.
+  type: INT64
+- name: dau
+  description: Daily Active Users — the number of unique clients that were active on the reporting date. A value of zero means no clients were
+    active.
+  type: INT64
+- name: days_sent_metrics_ping_bits
+  description: A bitmask representing which days in the past 28-day window the client sent a metrics ping, where each bit corresponds to one day.
+    Used to track recent ping activity patterns.
+  type: INT64
+- name: device_manufacturer
+  description: The manufacturer of the Android device on which Focus is installed, as reported by the device (e.g., 'samsung', 'xiaomi', 'huawei').
+  type: STRING
+- name: device_model
+  description: The model identifier of the Android device on which Focus is installed, as reported by the operating system (e.g., 'SM-A546E').
+    May be null when the model cannot be determined.
+  type: STRING
+- name: device_type
+  description: The category of device running Focus Android. This field consistently reflects 'Android' for all records in this dataset.
+  type: STRING
+- name: distribution_id
+  description: An identifier for the distribution channel or partner through which Focus Android was distributed. Null when the install is not
+    associated with a specific distribution partner.
+  type: STRING
+- name: first_seen_date
+  description: The date on which the client was first observed sending telemetry, representing the approximate install or first-use date.
+  type: DATE
+- name: first_seen_year
+  description: The calendar year in which the client was first observed sending telemetry, derived from the first_seen_date.
+  type: INT64
+- name: geo_subdivision
+  description: The geographic subdivision (e.g., state or province) derived from the client's IP address. Null when subdivision-level geolocation
+    is unavailable.
+  type: STRING
+- name: install_source
+  description: The source through which Focus Android was installed on the device (e.g., Google Play Store). Null when the install source cannot
+    be determined.
+  type: STRING
+- name: is_default_browser
+  description: Indicates whether Focus Android is set as the device's default browser. True means it is the default, false means it is not, and
+    null means the status is unknown or unreported.
+  type: BOOLEAN
+- name: is_mobile
+  description: Indicates whether the client device is a mobile device. This is always true for Focus Android, as it is exclusively a mobile application.
+  type: BOOLEAN
+- name: isp
+  description: The Internet Service Provider associated with the client's IP address at the time of submission (e.g., 'Jio', 'Comcast Cable').
+  type: STRING
+- name: locale
+  description: The language locale set on the client's device or within the application (e.g., 'en' for English, 'zh' for Chinese). May be null
+    in rare cases where the locale cannot be determined.
+  type: STRING
+- name: mau
+  description: Monthly Active Users — the number of unique clients that were active at least once in the 28-day window ending on the reporting
+    date.
+  type: INT64
+- name: monthly_users
+  description: The count of unique clients considered active within the current calendar month up to the reporting date. A value of zero indicates
+    no active users for that month.
+  type: INT64
+- name: n_metrics_ping
+  description: The number of metrics pings sent by the client during the reporting period. Null indicates no metrics pings were recorded.
+  type: INT64
+- name: normalized_channel
+  description: The release channel of the application after normalization to a standard set of values (e.g., 'release'). Used to ensure consistent
+    channel labeling across pipelines.
+  type: STRING
+- name: os
+  description: The operating system on which Focus is running. This field consistently reflects 'Android' for all records in this dataset.
+  type: STRING
+- name: os_version
+  description: The version of the Android operating system on the client's device, represented as a string (e.g., '13'). Corresponds to the Android
+    API level or human-readable version.
+  type: STRING
+- name: os_version_major
+  description: The major version number of the Android operating system on the client's device, extracted from os_version. Represents the primary
+    Android API level (e.g., 29, 33).
+  type: INT64
+- name: os_version_minor
+  description: The minor version number of the Android operating system on the client's device, extracted from os_version. Typically 0 or 1 for
+    Android releases.
+  type: INT64
+- name: paid_vs_organic_gclid
+  description: A Google Click Identifier (GCLID) used to distinguish paid search installs from organic installs. Null indicates no paid attribution
+    was detected via GCLID.
+  type: STRING
+- name: sample_id
+  description: A bucketing identifier derived from the client_id, used to create reproducible sample subsets of the client population for analysis.
+    Values range from 0 to 99.
+  type: INT64
+- name: segment
+  description: A behavioral engagement segment assigned to the client based on usage frequency, such as 'core_user', 'regular_user', 'casual_user',
+    'infrequent_user', or 'other'. Null when no segment has been assigned.
+  type: STRING
+- name: submission_date
+  description: The date on which the telemetry ping was received by Mozilla's data pipeline. Used as the primary partitioning and filtering date
+    for most queries.
+  type: DATE
+- name: uri_count
+  description: The number of URIs (web pages) loaded by the client during the reporting period. Null indicates no URI activity was recorded, typically
+    for inactive clients.
+  type: INT64
+- name: wau
+  description: Weekly Active Users — the number of unique clients that were active at least once in the 7-day window ending on the reporting date.
+  type: INT64
+- name: weekly_users
+  description: The count of unique clients considered active within the current calendar week up to the reporting date. A value of zero indicates
+    no active users for that week.
+  type: INT64
