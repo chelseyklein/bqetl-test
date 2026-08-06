@@ -2,19 +2,27 @@ fields:
 - mode: NULLABLE
   name: submission_date
   type: DATE
-  description: The date when the telemetry ping is received on the server side.
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/addons_derived/dataset_schema.yaml
+    field: submission_date
 - name: addon_id
   type: STRING
   mode: NULLABLE
-  description: Unique identifier of an addon.
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/addons_derived/dataset_schema.yaml
+    field: addon_id
 - name: dau
   type: INTEGER
   mode: NULLABLE
-  description: The number of daily active users.
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/addons_derived/dataset_schema.yaml
+    field: dau
 - name: dau_by_addon_version
   type: RECORD
   mode: REPEATED
-  description: Record containing addon version and the corresponding DAU count.
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/addons_derived/dataset_schema.yaml
+    field: dau_by_addon_version
   fields:
   - name: key
     type: STRING
@@ -27,7 +35,9 @@ fields:
 - name: dau_by_app_version
   type: RECORD
   mode: REPEATED
-  description: Record containing app version and the corresponding DAU count.
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/addons_derived/dataset_schema.yaml
+    field: dau_by_app_version
   fields:
   - name: key
     type: STRING
@@ -40,7 +50,9 @@ fields:
 - name: dau_by_fenix_build
   type: RECORD
   mode: REPEATED
-  description: Record containing fenix build and the corresponding DAU count.
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/addons_derived/dataset_schema.yaml
+    field: dau_by_fenix_build
   fields:
   - name: key
     type: STRING
@@ -53,7 +65,9 @@ fields:
 - name: dau_by_locale
   type: RECORD
   mode: REPEATED
-  description: Record containing locale and the corresponding DAU count.
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/addons_derived/dataset_schema.yaml
+    field: dau_by_locale
   fields:
   - name: key
     type: STRING
@@ -66,7 +80,9 @@ fields:
 - name: dau_by_country
   type: RECORD
   mode: REPEATED
-  description: Record containing country and the corresponding DAU count.
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/addons_derived/dataset_schema.yaml
+    field: dau_by_country
   fields:
   - name: key
     type: STRING
@@ -79,7 +95,9 @@ fields:
 - name: dau_by_app_os
   type: RECORD
   mode: REPEATED
-  description: Record containing os and the corresponding DAU count.
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/addons_derived/dataset_schema.yaml
+    field: dau_by_app_os
   fields:
   - name: key
     type: STRING
