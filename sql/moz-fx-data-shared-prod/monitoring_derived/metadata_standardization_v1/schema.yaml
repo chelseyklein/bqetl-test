@@ -39,6 +39,11 @@ fields:
   - name: column_name
     type: STRING
     mode: NULLABLE
+  description: The leaf-level column name (without its parent path) that has more than one distinct non-null
+    description across different tables in the dataset. This is the key used to group conflicting descriptions.
   - name: descriptions
     type: STRING
     mode: REPEATED
+  description: Array of all distinct non-null descriptions found for the corresponding column_name across
+    tables in the dataset. Each element represents a unique description text, enabling identification of
+    inconsistent or conflicting documentation.
