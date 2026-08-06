@@ -2,6 +2,11 @@ fields:
   - mode: NULLABLE
     name: flow_name
     type: STRING
+  description: The name of the Outerbounds (Metaflow) pipeline flow, as registered in the flow definition
+    (e.g. "TrainingFlowBQ", "HelloFlow"). Serves as the unique identifier for a given flow.
   - mode: NULLABLE
     name: flow_description
     type: STRING
+  description: A human-readable description of the Outerbounds (Metaflow) pipeline flow, explaining its
+    purpose, usage instructions, and any special requirements (e.g. hardware dependencies or local execution
+    commands). Imported from a curated Google Sheet maintained by the ML platform team.
