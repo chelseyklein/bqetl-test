@@ -288,3 +288,15 @@ fields:
   description: The total number of site visits attributed to a given dimension combination. Each visit corresponds to a user arriving at the site
     and is used as a core engagement volume metric.
   type: INT64
+- name: manual_campaign_name
+  description: The manual campaign name from collected_traffic_source during the session_start event,
+    sourced from utm_campaign (e.g., '127', '143', '(organic)').
+- name: manual_content
+  description: The manual ad content from collected_traffic_source during the session_start event, used
+    to distinguish between ads within the same campaign.
+- name: manual_medium
+  description: The manual traffic medium from collected_traffic_source during the session_start event
+    (e.g., 'firefox-desktop', 'organic', 'referral', 'cpc').
+- name: manual_source
+  description: The manual traffic source from collected_traffic_source during the session_start event
+    (e.g., 'update', 'google', 'toolbar').
