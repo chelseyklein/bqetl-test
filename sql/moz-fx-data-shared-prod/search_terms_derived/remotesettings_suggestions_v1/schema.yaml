@@ -1,0 +1,91 @@
+fields:
+- name: submission_date
+  type: DATE
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/search_terms_derived/dataset_schema.yaml
+    field: submission_date
+- name: advertiser
+  type: STRING
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/search_terms_derived/dataset_schema.yaml
+    field: advertiser
+- name: click_url
+  type: STRING
+  mode: NULLABLE
+  description: The click-tracking URL fired when a user clicks on the sponsored suggestion, used to record
+    click events for billing and attribution purposes. Often routes through an ad marketplace intermediary
+    before reaching the final destination.
+- name: iab_category
+  type: STRING
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/search_terms_derived/dataset_schema.yaml
+    field: iab_category
+- name: icon
+  type: STRING
+  mode: NULLABLE
+  description: An identifier or hash referencing the icon image associated with the sponsored suggestion.
+    Used to retrieve and display the advertiser's logo or favicon alongside the suggestion.
+- name: impression_url
+  type: STRING
+  mode: NULLABLE
+  description: The impression-tracking URL fired when the sponsored suggestion is displayed to a user, used
+    to record ad impression events for reporting and billing. Routes through an ad marketplace or tracking
+    service.
+- name: id
+  type: INT64
+  mode: NULLABLE
+  description: Unique numeric identifier for the sponsored suggestion record sourced from Remote Settings.
+    Each suggestion entry corresponds to a distinct advertiser campaign or keyword set.
+- name: keywords
+  type: STRING
+  mode: REPEATED
+  description: Array of keyword strings that trigger this sponsored suggestion when matched against a user's
+    search query in the Firefox address bar.
+- name: full_keywords
+  type: RECORD
+  mode: REPEATED
+  description: Array of structs pairing a complete keyword phrase with the number of times it appears across
+    suggestion records. Represents the full, non-truncated keyword strings associated with the suggestion
+    alongside their occurrence counts.
+  fields:
+  - name: count
+    type: INT64
+    mode: NULLABLE
+    description: The number of times the associated full keyword appears across suggestion records on the
+      same submission date. Used to understand keyword frequency within the suggestion dataset.
+  - name: keyword
+    type: STRING
+    mode: NULLABLE
+    description: A complete keyword phrase (e.g. a full search query string) that is associated with the sponsored
+      suggestion. Unlike the abbreviated entries in the `keywords` array, this represents the unabbreviated
+      keyword text.
+- name: title
+  type: STRING
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/search_terms_derived/dataset_schema.yaml
+    field: title
+- name: url
+  type: STRING
+  mode: NULLABLE
+  description: The destination URL that the user is directed to when they click on the sponsored suggestion.
+    Typically includes advertiser-specific tracking parameters.
+- name: score
+  type: FLOAT64
+  mode: NULLABLE
+  description: A relevance score assigned to the sponsored suggestion that influences its ranking when displayed
+    in Firefox search results. Higher scores indicate higher priority for surfacing the suggestion.
+- name: serp_categories
+  type: RECORD
+  mode: REPEATED
+  description: Array of structs representing IAB-aligned category classifications assigned to this suggestion
+    for search engine results page (SERP) targeting. Each element holds a single category code.
+  fields:
+  - name: category
+    type: INT64
+    mode: NULLABLE
+    description: An integer code identifying a SERP content category associated with the suggestion, used
+      to classify and target sponsored suggestions by topic on search engine results pages.
