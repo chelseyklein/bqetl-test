@@ -14,9 +14,13 @@ fields:
 - mode: NULLABLE
   name: hour
   type: TIMESTAMP
+  description: The UTC hour in which the schema validation errors were recorded, truncated from the submission
+    timestamp. Used to break down error counts at hourly granularity within a submission date.
 - mode: NULLABLE
   name: job_name
   type: STRING
+  description: The name of the Dataflow decoder job that processed the payload and produced the schema validation
+    error (e.g., the telemetry or structured raw decoder job).
 - mode: NULLABLE
   name: path
   type: STRING
