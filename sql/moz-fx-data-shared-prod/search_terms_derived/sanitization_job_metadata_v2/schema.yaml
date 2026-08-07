@@ -2,54 +2,86 @@ fields:
 - mode: NULLABLE
   name: status
   type: STRING
+  description: The outcome of the sanitization job run. Possible values are "SUCCESS" or "FAILURE".
 - mode: NULLABLE
   name: started_at
   type: TIMESTAMP
 - mode: NULLABLE
   name: finished_at
   type: TIMESTAMP
+  description: The timestamp at which the sanitization job completed, whether successfully or with a failure.
 - mode: NULLABLE
   name: contained_at
   type: INTEGER
+  description: The count of search terms that contained an "@" character (e.g., email-like queries), as
+    identified during the sanitization job.
 - mode: NULLABLE
   name: contained_numbers
   type: INTEGER
+  description: The count of search terms that contained numeric characters, as identified during the sanitization
+    job.
 - mode: NULLABLE
   name: contained_name
   type: INTEGER
+  description: The count of search terms that were identified as containing a name (e.g., via NLP named-entity
+    recognition), as flagged during the sanitization job.
 - mode: NULLABLE
   name: total_search_terms_removed_by_sanitization_job
   type: INTEGER
+  description: The total number of search terms removed (filtered out) by the sanitization job across all
+    removal reasons.
 - mode: NULLABLE
   name: total_search_terms_analyzed
   type: INTEGER
+  description: The total number of search terms that were processed and analyzed during the sanitization
+    job run.
 - mode: NULLABLE
   name: sum_chars_all_search_terms
   type: INTEGER
+  description: The total number of characters summed across all search terms analyzed by the sanitization
+    job.
 - mode: NULLABLE
   name: sum_words_all_search_terms
   type: INTEGER
+  description: The total number of words summed across all search terms analyzed by the sanitization job.
 - mode: NULLABLE
   name: sum_uppercase_chars_all_search_terms
   type: INTEGER
+  description: The total count of uppercase characters summed across all search terms analyzed, which may
+    be used as a signal for identifying potentially sensitive or anomalous queries.
 - mode: NULLABLE
   name: sum_terms_containing_us_census_surname
   type: INTEGER
+  description: The total number of search terms that contained a surname appearing in the US Census surname
+    list, used as a signal for identifying potentially personally identifiable queries.
 - mode: NULLABLE
   name: approximate_language_proportions_json
   type: STRING
+  description: A JSON-encoded mapping of detected language codes to the approximate count of search terms
+    identified as belonging to that language. Stored as a string; may be "null" or "{}" when language detection
+    did not produce results.
 - mode: NULLABLE
   name: failure_reason
   type: STRING
+  description: The error message or exception describing why the sanitization job failed. Populated only
+    when the job status is "FAILURE"; null for successful runs.
 - mode: NULLABLE
   name: implementation_notes
   type: STRING
+  description: Free-text notes describing implementation details of the sanitization job run, such as the
+    page size configuration used when processing search terms in batches. Null when no notes were recorded.
 - mode: NULLABLE
   name: total_search_terms_appearing_in_allow_list
   type: INTEGER
+  description: The number of search terms that matched entries in the sanitization allow list, meaning they
+    were explicitly permitted to pass through. Null when the job did not report this metric.
 - mode: NULLABLE
   name: contained_blank
   type: INTEGER
+  description: The count of search terms that were blank or empty strings, as identified during the sanitization
+    job. Null when the job did not report this metric.
 - mode: NULLABLE
   name: total_search_terms
   type: INTEGER
+  description: The total number of search terms present in the input dataset before sanitization analysis.
+    Null when the job did not report this metric.
