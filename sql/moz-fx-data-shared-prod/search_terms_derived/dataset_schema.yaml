@@ -1,0 +1,106 @@
+fields:
+- name: advertiser
+  description: The name of the advertiser associated with a sponsored search suggestion or ad placement (e.g., 'Amazon', 'adidas'). This identifies
+    the brand or merchant whose content was surfaced to the user.
+  type: STRING
+- name: block_id
+  description: A numeric identifier for the specific ad block or sponsored content unit that was served. Each unique block_id corresponds to a
+    distinct advertisement or suggestion configuration.
+  type: INT64
+- name: browser
+  description: The browser and version string of the client that made the request (e.g., 'Firefox(115.0)', 'Chrome'). The value 'Go-http-client'
+    indicates a programmatic or non-browser client.
+  type: STRING
+- name: clicks
+  description: The number of times a user clicked on a search suggestion or sponsored result during a given period. A value of 0 indicates the
+    suggestion was shown but not clicked.
+  type: INT64
+- name: country
+  description: The ISO 3166-1 alpha-2 country code representing the geographic country of the user or request (e.g., 'US', 'GB', 'MX'). This is
+    derived from the request's IP address or locale.
+  type: STRING
+- name: dma
+  description: The Designated Market Area (DMA) code representing the regional TV and media market of the user (e.g., '501' for New York). This
+    field is typically only populated for US-based requests and is null otherwise.
+  type: STRING
+- name: experiments
+  description: An array of Nimbus experiment enrollment records associated with the request, where each entry contains a slug identifying the
+    experiment and a branch indicating which variant the user was enrolled in.
+  type: RECORD
+- name: experiments_branch
+  description: The branch name of a Nimbus experiment the user was enrolled in at the time of the request (e.g., 'control', 'treatment-a'). This
+    is a nested leaf field within the experiments array.
+- name: experiments_slug
+  description: The unique slug identifier of a Nimbus experiment the user was enrolled in at the time of the request (e.g., 'smart-shortcuts-v5').
+    This is a nested leaf field within the experiments array.
+- name: form_factor
+  description: The form factor of the device used to make the request, indicating whether it is a 'desktop' or 'other' type of device. This helps
+    distinguish desktop browser sessions from other client types.
+  type: STRING
+- name: iab_category
+  description: The Interactive Advertising Bureau (IAB) content category assigned to the advertiser or suggestion (e.g., '22 - Shopping'). This
+    field may be null when no IAB category has been assigned.
+  type: STRING
+- name: impressions
+  description: The number of times a search suggestion or sponsored result was displayed to a user during a given period. Higher values indicate
+    a suggestion was shown repeatedly across multiple search interactions.
+  type: INT64
+- name: is_clicked
+  description: A boolean flag indicating whether a search suggestion or sponsored result was clicked by the user. A value of true means the user
+    clicked the result; false means it was shown but not acted upon.
+  type: BOOLEAN
+- name: match_type
+  description: The type of match used to surface a search suggestion, such as 'firefox-suggest' for standard suggestions or 'best-match' for prominently
+    ranked results. This field describes how the suggestion was ranked and presented.
+  type: STRING
+- name: os_family
+  description: The operating system family of the client device making the request (e.g., 'windows', 'macos', 'linux'). The value 'other' is used
+    for unrecognized or non-desktop operating systems.
+  type: STRING
+- name: partial
+  description: A partial search query string representing an incomplete term typed by the user as they were composing their search (e.g., 'ama'
+    before typing 'amazon'). This captures incremental keystrokes that triggered a suggestion.
+  type: STRING
+- name: position
+  description: The numeric position at which a search suggestion or sponsored result appeared in the list of results shown to the user. Lower
+    positions generally correspond to more prominent placements.
+  type: INT64
+- name: query
+  description: The full search query string submitted by the user that triggered a suggestion or sponsored result (e.g., 'polo ralph'). This represents
+    the complete search term at the time of the event.
+  type: STRING
+- name: region
+  description: The ISO 3166-2 subdivision code representing the state or region of the user (e.g., 'CA' for California, 'TX' for Texas). This
+    field is typically only populated for US-based requests and is null otherwise.
+  type: STRING
+- name: request_id
+  description: A unique identifier for an individual search suggestion request, represented as a hexadecimal string. This can be used to trace
+    a specific request through the system.
+  type: STRING
+- name: sequence_no
+  description: A sequential number indicating the order of a search event within a session, used to reconstruct the progression of queries a user
+    made. Null values indicate the sequence could not be determined.
+  type: INT64
+- name: session_id
+  description: A UUID that uniquely identifies a user's search session, grouping together all search interactions that occurred within a single
+    session. Null values indicate that session tracking was unavailable for the event.
+  type: STRING
+- name: started_at
+  description: The UTC timestamp indicating when a reporting or aggregation period started. This is used to define the beginning of a time window
+    for metrics aggregation.
+  type: TIMESTAMP
+- name: submission_date
+  description: The UTC date on which the data was submitted or recorded, used as the primary partitioning key for daily data ingestion and processing.
+  type: DATE
+- name: timestamp
+  description: The precise UTC timestamp at which the search event or request occurred. This provides sub-second resolution for ordering and analyzing
+    individual events.
+  type: TIMESTAMP
+- name: title
+  description: The display title of the sponsored suggestion or search result shown to the user (e.g., 'Shop Now & Save At Best Buy®'). This is
+    the human-readable label associated with the advertiser's content.
+  type: STRING
+- name: version
+  description: The version number of the Firefox browser used by the client at the time of the request. This corresponds to the Firefox major
+    version and is used to segment behavior by browser release.
+  type: STRING
