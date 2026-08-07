@@ -2,54 +2,89 @@ fields:
 - mode: NULLABLE
   name: status
   type: STRING
+  description: Outcome of the sanitization job run, either 'SUCCESS' or 'FAILURE'. A failure indicates the
+    job encountered an error before completing its sanitization work.
 - mode: NULLABLE
   name: started_at
   type: TIMESTAMP
 - mode: NULLABLE
   name: finished_at
   type: TIMESTAMP
+  description: Timestamp indicating when the sanitization job completed, whether successfully or with a
+    failure.
 - mode: NULLABLE
   name: contained_at
   type: INTEGER
+  description: Count of search terms that contained an '@' character, which may indicate an email address
+    or other personally identifiable information.
 - mode: NULLABLE
   name: contained_numbers
   type: INTEGER
+  description: Count of search terms that contained numeric characters, used as a signal for potentially
+    identifying information such as phone numbers or account numbers.
 - mode: NULLABLE
   name: contained_name
   type: INTEGER
+  description: Count of search terms that were detected as containing a person's name, as identified by
+    the sanitization job's name-detection logic.
 - mode: NULLABLE
   name: total_search_terms_removed_by_sanitization_job
   type: INTEGER
+  description: Total number of search terms removed (suppressed or deleted) by the sanitization job during
+    the run, across all removal criteria.
 - mode: NULLABLE
   name: total_search_terms_analyzed
   type: INTEGER
+  description: Total number of search terms that were evaluated by the sanitization job during the run,
+    regardless of whether they were subsequently removed or retained.
 - mode: NULLABLE
   name: sum_chars_all_search_terms
   type: INTEGER
+  description: Sum of the total character counts across all search terms analyzed during the job run, providing
+    a measure of overall query volume by character length.
 - mode: NULLABLE
   name: sum_words_all_search_terms
   type: INTEGER
+  description: Sum of the total word counts across all search terms analyzed during the job run, providing
+    a measure of overall query verbosity.
 - mode: NULLABLE
   name: sum_uppercase_chars_all_search_terms
   type: INTEGER
+  description: Sum of the number of uppercase characters across all search terms analyzed during the job
+    run, used as a signal for identifying unusual or potentially sensitive queries.
 - mode: NULLABLE
   name: sum_terms_containing_us_census_surname
   type: INTEGER
+  description: Count of search terms that contained a surname appearing in the US Census surname list, used
+    as a heuristic for detecting searches that may include personally identifiable name information.
 - mode: NULLABLE
   name: approximate_language_proportions_json
   type: STRING
+  description: JSON-encoded mapping of detected language codes (e.g., 'en', 'fr') to the approximate count
+    of search terms identified as belonging to that language. Stored as a string; null or empty object when
+    language detection did not produce results.
 - mode: NULLABLE
   name: failure_reason
   type: STRING
+  description: Error message or exception string describing why the sanitization job failed. Populated only
+    when status is 'FAILURE'; null for successful runs.
 - mode: NULLABLE
   name: implementation_notes
   type: STRING
+  description: Free-text notes describing configuration details of the job run, such as the page size used
+    for batch processing. Null when no special configuration notes were recorded.
 - mode: NULLABLE
   name: total_search_terms_appearing_in_allow_list
   type: INTEGER
+  description: Count of search terms that matched an explicit allow list and were therefore exempt from
+    removal by the sanitization job. Null when allow-list matching was not applied during the run.
 - mode: NULLABLE
   name: contained_blank
   type: INTEGER
+  description: Count of search terms that were blank or empty. Null for older job runs where this metric
+    was not yet collected.
 - mode: NULLABLE
   name: total_search_terms
   type: INTEGER
+  description: Total number of search terms present in the input dataset before the sanitization job began
+    processing. Null for older job runs where this pre-processing count was not yet recorded.
