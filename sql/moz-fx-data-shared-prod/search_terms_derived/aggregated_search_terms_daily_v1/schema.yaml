@@ -2,7 +2,9 @@ fields:
 - name: search_terms
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: The sanitized search query string entered by the user, sourced from the `sanitized_query`
+    field in the suggest impressions table. Null when the search term does not match any keyword in the
+    Remote Settings suggestions catalog.
 - name: submission_date
   type: DATE
   mode: NULLABLE
@@ -18,7 +20,9 @@ fields:
 - name: client_days
   type: INT64
   mode: NULLABLE
-  description: ''
+  description: The number of distinct clients (identified by `context_id`) that received at least one suggest
+    impression for this search term on the given submission date. Computed as `COUNT(DISTINCT context_id)`
+    over the sanitized impressions data.
 - name: advertiser
   type: STRING
   mode: NULLABLE
