@@ -8,3 +8,6 @@ fields:
   - mode: NULLABLE
     name: search_sessions
     type: INTEGER
+  description: The number of distinct search sessions that submitted this query on the given submission
+    date. Only queries with more than one session in the prior 7 days are retained, as a privacy threshold
+    to suppress rare or unique queries.

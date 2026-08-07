@@ -1,0 +1,49 @@
+fields:
+- name: search_terms
+  type: STRING
+  mode: NULLABLE
+  description: The sanitized search query string entered by the user that triggered a Suggest impression.
+    Null when the sanitized query could not be matched to a known keyword from the Remote Settings suggestions
+    catalog.
+- name: submission_date
+  type: DATE
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/search_terms_derived/dataset_schema.yaml
+    field: submission_date
+- name: impressions
+  type: INT64
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/search_terms_derived/dataset_schema.yaml
+    field: impressions
+- name: clicks
+  type: INT64
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/search_terms_derived/dataset_schema.yaml
+    field: clicks
+- name: client_days
+  type: INT64
+  mode: NULLABLE
+  description: The number of distinct clients (identified by `context_id`) that triggered impressions for
+    this search term on the given submission date. Aggregated as `COUNT(DISTINCT context_id)` from the sanitized
+    suggest impressions data.
+- name: advertiser
+  type: STRING
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/search_terms_derived/dataset_schema.yaml
+    field: advertiser
+- name: iab_category
+  type: STRING
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/search_terms_derived/dataset_schema.yaml
+    field: iab_category
+- name: title
+  type: STRING
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/search_terms_derived/dataset_schema.yaml
+    field: title

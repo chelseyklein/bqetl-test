@@ -2,81 +2,146 @@ fields:
 - mode: NULLABLE
   name: request_id
   type: STRING
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/search_terms_derived/dataset_schema.yaml
+    field: request_id
 - mode: NULLABLE
   name: submission_timestamp
   type: TIMESTAMP
+  description: The UTC timestamp at which the impression ping was received by the ingestion pipeline, truncated
+    to second-level precision.
 - mode: NULLABLE
   name: telemetry_query
   type: STRING
+  description: The lowercased, left-trimmed search query string as recorded in the legacy quicksuggest impression
+    telemetry ping. Not populated for Glean-sourced impressions and is currently null for all rows.
 - mode: NULLABLE
   name: advertiser
   type: STRING
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/search_terms_derived/dataset_schema.yaml
+    field: advertiser
 - mode: NULLABLE
   name: block_id
   type: INTEGER
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/search_terms_derived/dataset_schema.yaml
+    field: block_id
 - mode: NULLABLE
   name: context_id
   type: STRING
+  description: A UUID that identifies users for Contextual Services user interaction pings. Used to associate
+    impression and click events to the same user context without exposing a persistent user identifier.
 - mode: NULLABLE
   name: sample_id
   type: INTEGER
+  description: A sample identifier used for subsampling client populations. Not populated for the current
+    sources feeding this table and is currently null for all rows.
 - mode: NULLABLE
   name: is_clicked
   type: BOOLEAN
+  description: Whether the Firefox Suggest impression ping corresponds to a suggestion item that was clicked
+    by the user. True indicates a click occurred; false indicates a non-click impression.
 - mode: NULLABLE
   name: locale
   type: STRING
+  description: The locale of the Firefox application at initialization time (e.g. "en-US", "en-GB"). Reflects
+    the user's language setting.
 - mode: NULLABLE
   name: country
   type: STRING
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/search_terms_derived/dataset_schema.yaml
+    field: country
 - mode: NULLABLE
   name: region
   type: STRING
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/search_terms_derived/dataset_schema.yaml
+    field: region
 - mode: NULLABLE
   name: normalized_os
   type: STRING
+  description: The normalized name of the operating system on which Firefox is running (e.g. "Windows",
+    "Mac", "Linux").
 - mode: NULLABLE
   name: normalized_os_version
   type: STRING
+  description: The user-visible version string of the operating system (e.g. "10.0", "25.3.0"). If version
+    detection fails this may be set to "Unknown".
 - mode: NULLABLE
   name: normalized_channel
   type: STRING
+  description: The Firefox release channel from which the impression ping was submitted (e.g. "release",
+    "beta", "nightly", "esr").
 - mode: NULLABLE
   name: position
   type: INTEGER
+  description: The 1-based position of the Firefox Suggest item in the address bar suggestion list at the
+    time of the impression or click.
 - mode: NULLABLE
   name: reporting_url
   type: STRING
+  description: The URL used to report this impression or click interaction to the Contextual Services backend.
+    Contains encoded interaction metadata.
 - mode: NULLABLE
   name: scenario
   type: STRING
+  description: The suggestion scenario associated with the legacy quicksuggest impression ping. This field
+    is not populated for Glean-sourced impressions and is currently null for all rows.
 - mode: NULLABLE
   name: version
   type: STRING
+  description: The major version number of the Firefox application (e.g. "153"), truncated from the full
+    display version string.
 - mode: NULLABLE
   name: timestamp
   type: TIMESTAMP
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/search_terms_derived/dataset_schema.yaml
+    field: timestamp
 - mode: NULLABLE
   name: query
   type: STRING
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/search_terms_derived/dataset_schema.yaml
+    field: query
 - mode: NULLABLE
   name: dma
   type: STRING
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/search_terms_derived/dataset_schema.yaml
+    field: dma
 - mode: NULLABLE
   name: form_factor
   type: STRING
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/search_terms_derived/dataset_schema.yaml
+    field: form_factor
 - mode: NULLABLE
   name: browser
   type: STRING
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/search_terms_derived/dataset_schema.yaml
+    field: browser
 - mode: NULLABLE
   name: os_family
   type: STRING
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/search_terms_derived/dataset_schema.yaml
+    field: os_family
 - mode: NULLABLE
   name: session_id
   type: STRING
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/search_terms_derived/dataset_schema.yaml
+    field: session_id
 - mode: NULLABLE
   name: sequence_no
   type: INTEGER
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/search_terms_derived/dataset_schema.yaml
+    field: sequence_no
 - fields:
   - mode: NULLABLE
     name: slug

@@ -1,0 +1,77 @@
+fields:
+- name: advertiser
+  description: The name of the advertiser associated with a sponsored search result or ad placement (e.g., 'Amazon', 'adidas'). Identifies the
+    brand or company whose advertisement was served in response to a search query.
+  type: STRING
+- name: block_id
+  description: A numeric identifier for the ad block or placement unit associated with a sponsored search result. Used to distinguish individual
+    ad inventory blocks served across search requests.
+  type: INT64
+- name: browser
+  description: The browser and version used by the client making the search request (e.g., 'Firefox(115.0)', 'Chrome'). May also reflect automated
+    or non-browser clients such as 'Go-http-client' or 'curl'.
+  type: STRING
+- name: clicks
+  description: The number of times a user clicked on a sponsored search result or ad within a given context. A value of zero indicates the ad
+    was served but received no clicks.
+  type: INT64
+- name: country
+  description: The ISO 3166-1 alpha-2 country code representing the geographic location of the user at the time of the search request (e.g., 'US',
+    'GB', 'CA').
+  type: STRING
+- name: dma
+  description: The Designated Market Area (DMA) code representing the regional television and advertising market of the user (e.g., '501' for
+    New York). This field is frequently null when DMA-level geolocation is unavailable.
+  type: STRING
+- name: form_factor
+  description: The form factor of the device used to make the search request, indicating whether it is a 'desktop' or 'other' device type. Helps
+    distinguish traditional desktop interactions from other environments.
+  type: STRING
+- name: iab_category
+  description: The Interactive Advertising Bureau (IAB) content category associated with the ad or search context (e.g., '22 - Shopping'). Used
+    to classify the subject matter of advertisements according to the IAB taxonomy.
+  type: STRING
+- name: impressions
+  description: The number of times a sponsored search result or ad was displayed to a user within a given context. Represents the count of ad
+    views regardless of whether any click occurred.
+  type: INT64
+- name: os_family
+  description: The operating system family of the device used to make the search request (e.g., 'windows', 'macos', 'linux'). A value of 'other'
+    indicates the OS could not be identified or does not fall into a known category.
+  type: STRING
+- name: query
+  description: The search term or query string entered by the user that triggered the search request. Represents the raw or lightly processed
+    text used to retrieve sponsored or organic search results.
+  type: STRING
+- name: region
+  description: The ISO 3166-2 subdivision code (e.g., US state abbreviation) representing the sub-national geographic region of the user at the
+    time of the search request. This field is frequently null when region-level geolocation is unavailable.
+  type: STRING
+- name: request_id
+  description: A unique identifier (UUID or hex string) assigned to an individual search ad request. Used to deduplicate and trace specific requests
+    across pipeline stages.
+  type: STRING
+- name: sequence_no
+  description: A sequential integer indicating the position or order of an event within a session or series of related requests. Null values indicate
+    the sequence could not be determined.
+  type: INT64
+- name: session_id
+  description: A unique identifier (UUID) grouping a series of related search requests belonging to the same user session. Null values indicate
+    the session could not be attributed.
+  type: STRING
+- name: started_at
+  description: The UTC timestamp indicating when a session, job, or processing interval began. Used to mark the start boundary of a time-bounded
+    activity or batch.
+  type: TIMESTAMP
+- name: submission_date
+  description: The UTC date on which the data record was submitted or ingested into the pipeline. Used as the primary partition key for date-based
+    data processing and querying.
+  type: DATE
+- name: timestamp
+  description: The precise UTC timestamp at which the search request or event was recorded. Provides fine-grained temporal ordering of individual
+    events within a submission date.
+  type: TIMESTAMP
+- name: title
+  description: The display title of the sponsored search result or advertisement shown to the user (e.g., 'Shop Now & Save At Best Buy®'). Reflects
+    the ad creative text associated with the advertiser's listing.
+  type: STRING
