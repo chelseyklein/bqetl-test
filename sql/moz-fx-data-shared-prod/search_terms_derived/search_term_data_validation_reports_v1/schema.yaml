@@ -2,63 +2,112 @@ fields:
 - mode: NULLABLE
   name: from_sanitization_job_finished_at
   type: TIMESTAMP
+  description: Timestamp indicating when the upstream search term sanitization job completed, marking the
+    point up to which data is included in this validation report.
 - mode: NULLABLE
   name: started_at
   type: TIMESTAMP
 - mode: NULLABLE
   name: range_alarm
   type: BOOLEAN
+  description: Indicates whether the range-based validation test triggered an alarm. True means one or more
+    recent metric values fell outside the historical percentile bounds; false means all values were within
+    the acceptable range.
 - mode: NULLABLE
   name: range_low
   type: FLOAT
+  description: The computed lower bound value for the range-based test, derived from the historical percentile
+    specified by range_percentile_lower_bound; metric values below this threshold are considered anomalous.
 - mode: NULLABLE
   name: range_high
   type: FLOAT
+  description: The computed upper bound value for the range-based test, derived from the historical percentile
+    specified by range_percentile_upper_bound; metric values above this threshold are considered anomalous.
 - mode: NULLABLE
   name: num_ranges_compared
   type: INTEGER
+  description: The number of historical daily metric values that were used to compute the percentile-based
+    range bounds for the range validation test.
 - mode: NULLABLE
   name: range_test_vals
   type: STRING
+  description: A serialized list of the recent raw metric values (one per day within the range test window)
+    that were compared against the range bounds to determine whether an alarm should be raised.
 - mode: NULLABLE
   name: mean_alarm
   type: BOOLEAN
+  description: Indicates whether the mean-based validation test triggered an alarm. True means one or more
+    recent moving-average metric values fell outside the historical percentile bounds; false means all values
+    were within the acceptable range.
 - mode: NULLABLE
   name: mean_low
   type: FLOAT
+  description: The computed lower bound value for the mean-based test, derived from the historical percentile
+    specified by mean_percentile_lower_bound; moving-average values below this threshold are considered
+    anomalous.
 - mode: NULLABLE
   name: mean_high
   type: FLOAT
+  description: The computed upper bound value for the mean-based test, derived from the historical percentile
+    specified by mean_percentile_upper_bound; moving-average values above this threshold are considered
+    anomalous.
 - mode: NULLABLE
   name: num_moving_averages_compared
   type: INTEGER
+  description: The number of historical moving-average values that were used to compute the percentile-based
+    bounds for the mean validation test.
 - mode: NULLABLE
   name: mean_test_vals
   type: STRING
+  description: A serialized list of the recent rolling moving-average metric values (one per day within
+    the mean test window) that were compared against the mean bounds to determine whether an alarm should
+    be raised.
 - mode: NULLABLE
   name: metric
   type: STRING
+  description: The name of the search term quality metric being validated, such as the percentage of sanitized
+    terms, percentage of non-English terms, or average word count across all search terms.
 - mode: NULLABLE
   name: full_lookback_window_num_days
   type: INTEGER
+  description: The total number of days of historical data used as the lookback window for computing baseline
+    statistics against which the current metric values are validated.
 - mode: NULLABLE
   name: moving_average_window_num_days
   type: INTEGER
+  description: The number of days used to compute each rolling moving average of the metric, which is then
+    compared against historical moving averages in the mean-based validation test.
 - mode: NULLABLE
   name: range_percentile_lower_bound
   type: FLOAT
+  description: The lower percentile threshold (e.g. 0.025, 0.075, 0.125) used to define the acceptable range
+    floor for the metric in the range-based test; raw values falling below this percentile of the historical
+    distribution trigger an alarm.
 - mode: NULLABLE
   name: range_percentile_upper_bound
   type: FLOAT
+  description: The upper percentile threshold (e.g. 0.875, 0.925, 0.975) used to define the acceptable range
+    ceiling for the metric in the range-based test; raw values exceeding this percentile of the historical
+    distribution trigger an alarm.
 - mode: NULLABLE
   name: mean_percentile_lower_bound
   type: FLOAT
+  description: The lower percentile threshold (e.g. 0.025, 0.075, 0.125) used to define the acceptable floor
+    for moving-average values in the mean-based test; averages falling below this percentile of the historical
+    distribution trigger an alarm.
 - mode: NULLABLE
   name: mean_percentile_upper_bound
   type: FLOAT
+  description: The upper percentile threshold (e.g. 0.875, 0.925, 0.975) used to define the acceptable ceiling
+    for moving-average values in the mean-based test; averages exceeding this percentile of the historical
+    distribution trigger an alarm.
 - mode: NULLABLE
   name: range_test_window_num_days
   type: INTEGER
+  description: The number of recent days whose raw metric values are collected and compared against the
+    historical percentile bounds in the range-based validation test.
 - mode: NULLABLE
   name: mean_test_window_num_days
   type: INTEGER
+  description: The number of recent days whose moving-average values are collected and compared against
+    the historical percentile bounds in the mean-based validation test.
