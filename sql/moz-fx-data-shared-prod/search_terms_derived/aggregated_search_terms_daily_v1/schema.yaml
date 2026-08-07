@@ -2,7 +2,9 @@ fields:
 - name: search_terms
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: The sanitized search query string entered by users that triggered a Firefox Suggest impression,
+    sourced from `sanitized_query` in the impression log. Null when the search term does not match any keyword
+    in the Remote Settings suggestions catalog used in the left join.
 - name: submission_date
   type: DATE
   mode: NULLABLE
@@ -18,7 +20,9 @@ fields:
 - name: client_days
   type: INT64
   mode: NULLABLE
-  description: ''
+  description: The number of distinct clients (identified by `context_id`) that were shown a Firefox Suggest
+    impression for this search term on the given submission date. Computed as `COUNT(DISTINCT context_id)`
+    over sanitized impression records.
 - name: advertiser
   type: STRING
   mode: NULLABLE
