@@ -2,63 +2,107 @@ fields:
 - mode: NULLABLE
   name: from_sanitization_job_finished_at
   type: TIMESTAMP
+  description: Timestamp indicating when the upstream search term sanitization job completed, identifying
+    which sanitization run produced the data being validated in this report.
 - mode: NULLABLE
   name: started_at
   type: TIMESTAMP
 - mode: NULLABLE
   name: range_alarm
   type: BOOLEAN
+  description: Boolean flag indicating whether the range-based validation test triggered an alarm (true)
+    because the recent metric values fell outside the expected historical range, or passed without issue
+    (false).
 - mode: NULLABLE
   name: range_low
   type: FLOAT
+  description: The lower bound of the expected range for the metric, computed from the historical lookback
+    window using the configured lower percentile. Values below this threshold contribute to a range alarm.
 - mode: NULLABLE
   name: range_high
   type: FLOAT
+  description: The upper bound of the expected range for the metric, computed from the historical lookback
+    window using the configured upper percentile. Values above this threshold contribute to a range alarm.
 - mode: NULLABLE
   name: num_ranges_compared
   type: INTEGER
+  description: The number of historical daily values from the lookback window that were used to construct
+    the expected range bounds for the range-based validation test.
 - mode: NULLABLE
   name: range_test_vals
   type: STRING
+  description: A JSON-serialized array of the metric values observed during the range test window, representing
+    the recent daily values compared against the historical expected range.
 - mode: NULLABLE
   name: mean_alarm
   type: BOOLEAN
+  description: Boolean flag indicating whether the mean-based validation test triggered an alarm (true)
+    because recent moving averages of the metric fell outside the expected historical distribution, or passed
+    without issue (false).
 - mode: NULLABLE
   name: mean_low
   type: FLOAT
+  description: The lower bound of the expected mean range for the metric, derived from the historical distribution
+    of moving averages at the configured lower percentile. Moving averages below this value contribute to
+    a mean alarm.
 - mode: NULLABLE
   name: mean_high
   type: FLOAT
+  description: The upper bound of the expected mean range for the metric, derived from the historical distribution
+    of moving averages at the configured upper percentile. Moving averages above this value contribute to
+    a mean alarm.
 - mode: NULLABLE
   name: num_moving_averages_compared
   type: INTEGER
+  description: The number of historical moving average values from the lookback window that were used to
+    construct the expected mean range bounds for the mean-based validation test.
 - mode: NULLABLE
   name: mean_test_vals
   type: STRING
+  description: A JSON-serialized array of the moving average values observed during the mean test window,
+    representing the smoothed metric values compared against the historical expected mean range.
 - mode: NULLABLE
   name: metric
   type: STRING
+  description: The name of the search term quality or sanitization metric being validated, such as the percentage
+    of sanitized terms, terms containing names or email addresses, non-English terms, or average word counts.
 - mode: NULLABLE
   name: full_lookback_window_num_days
   type: INTEGER
+  description: The total number of historical days used as the lookback window for computing expected range
+    and mean bounds against which recent metric values are validated.
 - mode: NULLABLE
   name: moving_average_window_num_days
   type: INTEGER
+  description: The number of days used to compute each rolling moving average of the metric, smoothing short-term
+    fluctuations before comparison against the historical expected mean range.
 - mode: NULLABLE
   name: range_percentile_lower_bound
   type: FLOAT
+  description: The percentile used to compute the lower bound of the expected range from the historical
+    lookback data, expressed as a fraction between 0 and 1 (e.g., 0.125 represents the 12.5th percentile).
 - mode: NULLABLE
   name: range_percentile_upper_bound
   type: FLOAT
+  description: The percentile used to compute the upper bound of the expected range from the historical
+    lookback data, expressed as a fraction between 0 and 1 (e.g., 0.875 represents the 87.5th percentile).
 - mode: NULLABLE
   name: mean_percentile_lower_bound
   type: FLOAT
+  description: The percentile used to compute the lower bound of the expected mean range from the historical
+    lookback data, expressed as a fraction between 0 and 1 (e.g., 0.125 represents the 12.5th percentile).
 - mode: NULLABLE
   name: mean_percentile_upper_bound
   type: FLOAT
+  description: The percentile used to compute the upper bound of the expected mean range from the historical
+    lookback data, expressed as a fraction between 0 and 1 (e.g., 0.875 represents the 87.5th percentile).
 - mode: NULLABLE
   name: range_test_window_num_days
   type: INTEGER
+  description: The number of recent days included in the range test window whose metric values are compared
+    against the historical expected range to determine if a range alarm should be triggered.
 - mode: NULLABLE
   name: mean_test_window_num_days
   type: INTEGER
+  description: The number of recent days included in the mean test window whose moving average values are
+    compared against the historical expected mean range to determine if a mean alarm should be triggered.
