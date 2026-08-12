@@ -1,0 +1,48 @@
+fields:
+- name: search_terms
+  type: STRING
+  mode: NULLABLE
+  description: The sanitized search query string entered by users that triggered a Firefox Suggest impression.
+    Null when the search term does not match any keyword in the remote settings suggestions catalog.
+- name: submission_date
+  type: DATE
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/search_terms_derived/dataset_schema.yaml
+    field: submission_date
+- name: impressions
+  type: INT64
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/search_terms_derived/dataset_schema.yaml
+    field: impressions
+- name: clicks
+  type: INT64
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/search_terms_derived/dataset_schema.yaml
+    field: clicks
+- name: client_days
+  type: INT64
+  mode: NULLABLE
+  description: The number of distinct clients (identified by context_id) that triggered at least one Suggest
+    impression for this search term on the submission date. Computed as COUNT(DISTINCT context_id) over
+    the sanitized impression log.
+- name: advertiser
+  type: STRING
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/search_terms_derived/dataset_schema.yaml
+    field: advertiser
+- name: iab_category
+  type: STRING
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/search_terms_derived/dataset_schema.yaml
+    field: iab_category
+- name: title
+  type: STRING
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/search_terms_derived/dataset_schema.yaml
+    field: title
