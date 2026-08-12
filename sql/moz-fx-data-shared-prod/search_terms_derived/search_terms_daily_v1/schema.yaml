@@ -8,3 +8,6 @@ fields:
   - mode: NULLABLE
     name: search_sessions
     type: INTEGER
+  description: The number of search sessions on the given submission date that ended with this query as
+    the terminal (last) search term. Only queries with more than one session in the preceding 7-day rolling
+    window are included, acting as a privacy threshold to suppress rare queries.
