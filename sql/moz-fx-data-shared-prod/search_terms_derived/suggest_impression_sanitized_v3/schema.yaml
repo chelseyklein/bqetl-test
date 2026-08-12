@@ -5,9 +5,14 @@ fields:
 - mode: NULLABLE
   name: submission_timestamp
   type: TIMESTAMP
+  description: The timestamp at which the impression ping was received by the ingestion pipeline, truncated
+    to second-level granularity.
 - mode: NULLABLE
   name: telemetry_query
   type: STRING
+  description: The search query string as recorded in the legacy quicksuggest impression ping, lowercased
+    and left-trimmed. Always null for Glean-sourced impressions; the sanitized query from Merino logs is
+    provided in the `query` field instead.
 - mode: NULLABLE
   name: advertiser
   type: STRING
@@ -17,15 +22,21 @@ fields:
 - mode: NULLABLE
   name: context_id
   type: STRING
+  description: A UUID that identifies a user for Contextual Services interaction pings. Used to link impression
+    and click events for the same user across Quick Suggest telemetry.
 - mode: NULLABLE
   name: sample_id
   type: INTEGER
+  description: A bucketing identifier used to sample a subset of clients for analysis. Always null for Glean-sourced
+    impressions; may be populated for legacy impressions.
 - mode: NULLABLE
   name: is_clicked
   type: BOOLEAN
 - mode: NULLABLE
   name: locale
   type: STRING
+  description: The locale of the Firefox application at initialization time (e.g. "en-US", "en-GB"). Indicates
+    the language and region settings of the browser when the impression occurred.
 - mode: NULLABLE
   name: country
   type: STRING
@@ -35,21 +46,34 @@ fields:
 - mode: NULLABLE
   name: normalized_os
   type: STRING
+  description: The normalized name of the client's operating system (e.g. "Windows", "Mac", "Linux"). Derived
+    from the OS reported in the impression ping.
 - mode: NULLABLE
   name: normalized_os_version
   type: STRING
+  description: The user-visible version string of the client's operating system (e.g. "10.0" for Windows
+    10). Set to `Unknown` if version detection fails.
 - mode: NULLABLE
   name: normalized_channel
   type: STRING
+  description: The normalized Firefox release channel on which the impression occurred (e.g. "release",
+    "beta", "nightly", "esr"). Sourced from `release_channel` in the legacy ping or `normalized_channel`
+    in the Glean ping.
 - mode: NULLABLE
   name: position
   type: INTEGER
 - mode: NULLABLE
   name: reporting_url
   type: STRING
+  description: The URL used to report this Quick Suggest interaction to Contextual Services. Sourced from
+    the `quick_suggest.reporting_url` metric for Glean impressions and from the `reporting_url` field for
+    legacy impressions.
 - mode: NULLABLE
   name: scenario
   type: STRING
+  description: The suggest scenario associated with the impression, as recorded in the legacy quicksuggest
+    impression ping. Always null for Glean-sourced impressions; populated only for legacy impressions when
+    a scenario is available.
 - mode: NULLABLE
   name: version
   type: STRING
