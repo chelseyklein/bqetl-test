@@ -2,63 +2,105 @@ fields:
 - mode: NULLABLE
   name: from_sanitization_job_finished_at
   type: TIMESTAMP
+  description: The timestamp at which the upstream search term sanitization job finished, indicating which
+    sanitization run's output this validation report is based on.
 - mode: NULLABLE
   name: started_at
   type: TIMESTAMP
 - mode: NULLABLE
   name: range_alarm
   type: BOOLEAN
+  description: Indicates whether the range-based anomaly test triggered an alarm. True means the current
+    metric value fell outside the expected percentile range derived from the historical lookback window.
 - mode: NULLABLE
   name: range_low
   type: FLOAT
+  description: The lower bound of the acceptable range for the metric as determined by the range test, computed
+    from the specified lower percentile of historical values over the lookback window.
 - mode: NULLABLE
   name: range_high
   type: FLOAT
+  description: The upper bound of the acceptable range for the metric as determined by the range test, computed
+    from the specified upper percentile of historical values over the lookback window.
 - mode: NULLABLE
   name: num_ranges_compared
   type: INTEGER
+  description: The number of historical metric observations used to construct the range test bounds, drawn
+    from the full lookback window.
 - mode: NULLABLE
   name: range_test_vals
   type: STRING
+  description: A JSON-encoded list of the recent metric values that were tested in the range test, covering
+    the most recent days as defined by range_test_window_num_days.
 - mode: NULLABLE
   name: mean_alarm
   type: BOOLEAN
+  description: Indicates whether the moving-average anomaly test triggered an alarm. True means the recent
+    moving averages of the metric fell outside the expected percentile bounds derived from the historical
+    distribution.
 - mode: NULLABLE
   name: mean_low
   type: FLOAT
+  description: The lower bound of the acceptable range for the moving-average test, computed from the specified
+    lower percentile of historical moving averages over the lookback window.
 - mode: NULLABLE
   name: mean_high
   type: FLOAT
+  description: The upper bound of the acceptable range for the moving-average test, computed from the specified
+    upper percentile of historical moving averages over the lookback window.
 - mode: NULLABLE
   name: num_moving_averages_compared
   type: INTEGER
+  description: The number of historical moving-average observations used to construct the mean test bounds,
+    drawn from the full lookback window.
 - mode: NULLABLE
   name: mean_test_vals
   type: STRING
+  description: A JSON-encoded list of the recent moving-average values of the metric that were tested, covering
+    the most recent days as defined by mean_test_window_num_days.
 - mode: NULLABLE
   name: metric
   type: STRING
+  description: The name of the search term quality metric being validated, such as the percentage of sanitized
+    terms, terms containing names or numbers, non-English terms, or average word count across all search
+    terms.
 - mode: NULLABLE
   name: full_lookback_window_num_days
   type: INTEGER
+  description: The total number of historical days used as the lookback window when computing the statistical
+    bounds for both the range test and the moving-average test.
 - mode: NULLABLE
   name: moving_average_window_num_days
   type: INTEGER
+  description: The number of days over which the moving average of the metric is computed for use in the
+    mean anomaly test.
 - mode: NULLABLE
   name: range_percentile_lower_bound
   type: FLOAT
+  description: The lower percentile threshold (e.g. 0.125) used to compute the acceptable lower bound for
+    the range test against the historical distribution of the metric.
 - mode: NULLABLE
   name: range_percentile_upper_bound
   type: FLOAT
+  description: The upper percentile threshold (e.g. 0.875) used to compute the acceptable upper bound for
+    the range test against the historical distribution of the metric.
 - mode: NULLABLE
   name: mean_percentile_lower_bound
   type: FLOAT
+  description: The lower percentile threshold (e.g. 0.125) used to compute the acceptable lower bound for
+    the moving-average test against the historical distribution of moving averages.
 - mode: NULLABLE
   name: mean_percentile_upper_bound
   type: FLOAT
+  description: The upper percentile threshold (e.g. 0.875) used to compute the acceptable upper bound for
+    the moving-average test against the historical distribution of moving averages.
 - mode: NULLABLE
   name: range_test_window_num_days
   type: INTEGER
+  description: The number of most-recent days of metric values included in the range test window; these
+    are the values checked against the historical range bounds.
 - mode: NULLABLE
   name: mean_test_window_num_days
   type: INTEGER
+  description: The number of most-recent days of moving-average values included in the mean test window;
+    these are the values checked against the historical moving-average bounds.
