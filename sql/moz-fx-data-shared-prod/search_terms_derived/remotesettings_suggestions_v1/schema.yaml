@@ -10,7 +10,8 @@ fields:
 - name: click_url
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: The click-tracking URL used to record when a user clicks on the suggestion, typically routed
+    through an ad marketplace bridge endpoint before redirecting to the final destination.
 - name: iab_category
   type: STRING
   mode: NULLABLE
@@ -18,36 +19,45 @@ fields:
 - name: icon
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: A hash or identifier referencing the advertiser's icon image associated with the suggestion,
+    used to render the favicon or logo in the suggestion UI.
 - name: impression_url
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: The impression-tracking URL fired when the suggestion is displayed to the user, used to record
+    ad impressions via a third-party tracking endpoint.
 - name: id
   type: INT64
   mode: NULLABLE
-  description: ''
+  description: Numeric identifier for the Remote Settings suggestion record. This ID groups related suggestion
+    rows (e.g., across different keyword variants) that belong to the same advertiser suggestion entry.
 - name: suggestion_id
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: Unique UUID identifying a single suggestion instance within Remote Settings. Each suggestion
+    URL and keyword combination receives a distinct UUID.
 - name: keywords
   type: STRING
   mode: REPEATED
-  description: ''
+  description: Array of keyword strings that trigger this suggestion when typed by the user in the Firefox
+    address bar. Each entry is a short prefix or full keyword associated with the suggestion.
 - name: full_keywords
   type: RECORD
   mode: REPEATED
-  description: ''
+  description: Array of structs representing complete keyword phrases associated with this suggestion along
+    with an occurrence count. Each entry pairs a full keyword string with the number of times it is associated
+    with the suggestion.
   fields:
   - name: count
     type: INT64
     mode: NULLABLE
-    description: ''
+    description: The number of prefix keywords associated with this full keyword, indicating how many shorter
+      keyword variants map to this full keyword phrase.
   - name: keyword
     type: STRING
     mode: NULLABLE
-    description: ''
+    description: A complete keyword phrase (as opposed to a prefix) that can trigger this suggestion, representing
+      the full search term the advertiser wants to match.
 - name: title
   type: STRING
   mode: NULLABLE
@@ -55,17 +65,21 @@ fields:
 - name: url
   type: STRING
   mode: NULLABLE
-  description: ''
+  description: The destination URL that the user would be directed to if they clicked the sponsored suggestion.
+    Includes advertiser-specific tracking parameters.
 - name: score
   type: FLOAT64
   mode: NULLABLE
-  description: ''
+  description: A relevance score assigned to the suggestion that influences its ranking and likelihood of
+    being surfaced in Firefox Suggest results. Higher values indicate higher priority.
 - name: serp_categories
   type: RECORD
   mode: REPEATED
-  description: ''
+  description: Array of structs representing IAB-style category codes assigned to the suggestion for use
+    in search engine results page (SERP) categorization. Each entry contains a single integer category code.
   fields:
   - name: category
     type: INT64
     mode: NULLABLE
-    description: ''
+    description: An integer category code classifying the suggestion's SERP context, used to determine which
+      category of search results this suggestion is eligible to appear alongside.
