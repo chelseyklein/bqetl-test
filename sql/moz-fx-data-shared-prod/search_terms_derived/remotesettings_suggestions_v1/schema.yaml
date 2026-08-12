@@ -1,0 +1,92 @@
+fields:
+- name: submission_date
+  type: DATE
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/search_terms_derived/dataset_schema.yaml
+    field: submission_date
+- name: advertiser
+  type: STRING
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/search_terms_derived/dataset_schema.yaml
+    field: advertiser
+- name: click_url
+  type: STRING
+  mode: NULLABLE
+  description: Tracking URL fired when a user clicks on this suggestion. Encodes impression and click attribution
+    metadata for the ad network.
+- name: iab_category
+  type: STRING
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/search_terms_derived/dataset_schema.yaml
+    field: iab_category
+- name: icon
+  type: STRING
+  mode: NULLABLE
+  description: Identifier or hash of the icon image associated with this suggestion, used by Firefox Suggest
+    to display the advertiser's favicon or logo alongside the suggestion.
+- name: impression_url
+  type: STRING
+  mode: NULLABLE
+  description: Tracking URL fired when this suggestion is displayed to the user in Firefox Suggest. Used
+    by the ad network to record impression events for reporting and billing.
+- name: id
+  type: INT64
+  mode: NULLABLE
+  description: Numeric identifier for the suggestion record as sourced from Remote Settings. Multiple rows
+    may share the same id across different snapshot dates.
+- name: suggestion_id
+  type: STRING
+  mode: NULLABLE
+  description: UUID that uniquely identifies a single suggestion entry within Remote Settings. Each suggestion
+    variant or keyword expansion has its own distinct UUID.
+- name: keywords
+  type: STRING
+  mode: REPEATED
+  description: Array of keyword strings (partial or full) that trigger this suggestion to appear in Firefox
+    Suggest. Each entry is a search term that maps to this suggestion.
+- name: full_keywords
+  type: RECORD
+  mode: REPEATED
+  description: Array of full keyword strings paired with their associated occurrence counts for this suggestion.
+    Each entry captures a complete search phrase and how many times it maps to this suggestion.
+  fields:
+  - name: count
+    type: INT64
+    mode: NULLABLE
+    description: The number of keywords in the suggestion's keyword list that share this full keyword phrase,
+      indicating how many keyword variants map to the same full-keyword representation.
+  - name: keyword
+    type: STRING
+    mode: NULLABLE
+    description: A complete search keyword phrase (as opposed to a prefix) associated with this suggestion.
+      Used to match user queries to this suggestion when the full term is typed.
+- name: title
+  type: STRING
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/search_terms_derived/dataset_schema.yaml
+    field: title
+- name: url
+  type: STRING
+  mode: NULLABLE
+  description: The destination URL that the user is directed to when they select this suggestion. Typically
+    points to the advertiser's landing page.
+- name: score
+  type: FLOAT64
+  mode: NULLABLE
+  description: Relevance or ranking score assigned to this suggestion, used by Firefox Suggest to rank it
+    relative to other suggestions. Higher values indicate higher priority.
+- name: serp_categories
+  type: RECORD
+  mode: REPEATED
+  description: Array of SERP (Search Engine Results Page) category codes associated with this suggestion.
+    Each entry holds a single integer category code representing a content classification.
+  fields:
+  - name: category
+    type: INT64
+    mode: NULLABLE
+    description: An integer code representing the SERP content category assigned to this suggestion, used
+      to classify the suggestion's topic area for targeting and reporting purposes.
