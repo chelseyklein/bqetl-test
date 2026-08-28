@@ -1,0 +1,1801 @@
+fields:
+- name: submission_date
+  type: DATE
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: submission_date
+- name: category
+  type: STRING
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: category
+- name: event
+  type: STRING
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: event
+- name: extra
+  type: RECORD
+  mode: REPEATED
+  description: ''
+  fields:
+  - name: key
+    type: STRING
+    mode: NULLABLE
+    description: ''
+  - name: value
+    type: STRING
+    mode: NULLABLE
+    description: ''
+- name: timestamp
+  type: TIMESTAMP
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: timestamp
+- name: experiments
+  type: RECORD
+  mode: REPEATED
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: experiments
+  fields:
+  - name: key
+    type: STRING
+    mode: NULLABLE
+    description: ''
+  - name: value
+    type: STRING
+    mode: NULLABLE
+    description: ''
+- name: event_timestamp
+  type: INT64
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: event_timestamp
+- name: event_category
+  type: STRING
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: event_category
+- name: event_method
+  type: STRING
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: event_method
+- name: event_object
+  type: STRING
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: event_object
+- name: event_string_value
+  type: STRING
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: event_string_value
+- name: event_map_values
+  type: RECORD
+  mode: REPEATED
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: event_map_values
+  fields:
+  - name: key
+    type: STRING
+    mode: NULLABLE
+    description: ''
+  - name: value
+    type: STRING
+    mode: NULLABLE
+    description: ''
+- name: additional_properties
+  type: STRING
+  mode: NULLABLE
+  description: A JSON string containing any payload properties present in the raw ping that are not mapped to explicit columns in the schema. Useful for
+    accessing fields not yet promoted to top-level columns.
+- name: application
+  type: RECORD
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: application
+  fields:
+  - name: architecture
+    type: STRING
+    mode: NULLABLE
+    description: ''
+  - name: build_id
+    type: STRING
+    mode: NULLABLE
+    description: ''
+  - name: channel
+    type: STRING
+    mode: NULLABLE
+    description: ''
+  - name: display_version
+    type: STRING
+    mode: NULLABLE
+    description: ''
+  - name: name
+    type: STRING
+    mode: NULLABLE
+    description: ''
+  - name: platform_version
+    type: STRING
+    mode: NULLABLE
+    description: ''
+  - name: vendor
+    type: STRING
+    mode: NULLABLE
+    description: ''
+  - name: version
+    type: STRING
+    mode: NULLABLE
+    description: ''
+  - name: xpcom_abi
+    type: STRING
+    mode: NULLABLE
+    description: ''
+- name: client_id
+  type: STRING
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: client_id
+- name: creation_date
+  type: STRING
+  mode: NULLABLE
+  description: The ISO 8601 date-time string recorded by the client at the time the ping was created, before it was submitted to the ingestion endpoint.
+- name: document_id
+  type: STRING
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: document_id
+- name: environment
+  type: RECORD
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: environment
+  fields:
+  - name: addons
+    type: RECORD
+    mode: NULLABLE
+    description: ''
+    fields:
+    - name: active_addons
+      type: RECORD
+      mode: REPEATED
+      description: ''
+      fields:
+      - name: key
+        type: STRING
+        mode: NULLABLE
+        description: ''
+      - name: value
+        type: RECORD
+        mode: NULLABLE
+        description: ''
+        fields:
+        - name: app_disabled
+          type: BOOLEAN
+          mode: NULLABLE
+          description: ''
+        - name: blocklisted
+          type: BOOLEAN
+          mode: NULLABLE
+          description: ''
+        - name: description
+          type: STRING
+          mode: NULLABLE
+          description: ''
+        - name: foreign_install
+          type: INT64
+          mode: NULLABLE
+          description: ''
+        - name: has_binary_components
+          type: BOOLEAN
+          mode: NULLABLE
+          description: ''
+        - name: install_day
+          type: INT64
+          mode: NULLABLE
+          description: ''
+        - name: is_system
+          type: BOOLEAN
+          mode: NULLABLE
+          description: ''
+        - name: is_web_extension
+          type: BOOLEAN
+          mode: NULLABLE
+          description: ''
+        - name: multiprocess_compatible
+          type: BOOLEAN
+          mode: NULLABLE
+          description: ''
+        - name: name
+          type: STRING
+          mode: NULLABLE
+          description: ''
+        - name: quarantine_ignored_by_app
+          type: BOOLEAN
+          mode: NULLABLE
+          description: ''
+        - name: quarantine_ignored_by_user
+          type: BOOLEAN
+          mode: NULLABLE
+          description: ''
+        - name: scope
+          type: INT64
+          mode: NULLABLE
+          description: ''
+        - name: signed_state
+          type: INT64
+          mode: NULLABLE
+          description: ''
+        - name: signed_types
+          type: STRING
+          mode: NULLABLE
+          description: ''
+        - name: type
+          type: STRING
+          mode: NULLABLE
+          description: ''
+        - name: update_day
+          type: INT64
+          mode: NULLABLE
+          description: ''
+        - name: user_disabled
+          type: INT64
+          mode: NULLABLE
+          description: ''
+        - name: version
+          type: STRING
+          mode: NULLABLE
+          description: ''
+    - name: active_experiment
+      type: RECORD
+      mode: NULLABLE
+      description: ''
+      fields:
+      - name: branch
+        type: STRING
+        mode: NULLABLE
+        description: ''
+      - name: id
+        type: STRING
+        mode: NULLABLE
+        description: ''
+    - name: active_gm_plugins
+      type: RECORD
+      mode: REPEATED
+      description: ''
+      fields:
+      - name: key
+        type: STRING
+        mode: NULLABLE
+        description: ''
+      - name: value
+        type: RECORD
+        mode: NULLABLE
+        description: ''
+        fields:
+        - name: apply_background_updates
+          type: INT64
+          mode: NULLABLE
+          description: ''
+        - name: user_disabled
+          type: BOOLEAN
+          mode: NULLABLE
+          description: ''
+        - name: version
+          type: STRING
+          mode: NULLABLE
+          description: ''
+    - name: active_plugins
+      type: RECORD
+      mode: REPEATED
+      description: ''
+      fields:
+      - name: blocklisted
+        type: BOOLEAN
+        mode: NULLABLE
+        description: ''
+      - name: clicktoplay
+        type: BOOLEAN
+        mode: NULLABLE
+        description: ''
+      - name: description
+        type: STRING
+        mode: NULLABLE
+        description: ''
+      - name: disabled
+        type: BOOLEAN
+        mode: NULLABLE
+        description: ''
+      - name: mime_types
+        type: STRING
+        mode: REPEATED
+        description: ''
+      - name: name
+        type: STRING
+        mode: NULLABLE
+        description: ''
+      - name: update_day
+        type: INT64
+        mode: NULLABLE
+        description: ''
+      - name: version
+        type: STRING
+        mode: NULLABLE
+        description: ''
+    - name: persona
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: theme
+      type: RECORD
+      mode: NULLABLE
+      description: ''
+      fields:
+      - name: app_disabled
+        type: BOOLEAN
+        mode: NULLABLE
+        description: ''
+      - name: blocklisted
+        type: BOOLEAN
+        mode: NULLABLE
+        description: ''
+      - name: description
+        type: STRING
+        mode: NULLABLE
+        description: ''
+      - name: foreign_install
+        type: INT64
+        mode: NULLABLE
+        description: ''
+      - name: has_binary_components
+        type: BOOLEAN
+        mode: NULLABLE
+        description: ''
+      - name: id
+        type: STRING
+        mode: NULLABLE
+        description: ''
+      - name: install_day
+        type: INT64
+        mode: NULLABLE
+        description: ''
+      - name: name
+        type: STRING
+        mode: NULLABLE
+        description: ''
+      - name: scope
+        type: INT64
+        mode: NULLABLE
+        description: ''
+      - name: signed_state
+        type: INT64
+        mode: NULLABLE
+        description: ''
+      - name: signed_types
+        type: STRING
+        mode: NULLABLE
+        description: ''
+      - name: update_day
+        type: INT64
+        mode: NULLABLE
+        description: ''
+      - name: user_disabled
+        type: BOOLEAN
+        mode: NULLABLE
+        description: ''
+      - name: version
+        type: STRING
+        mode: NULLABLE
+        description: ''
+  - name: build
+    type: RECORD
+    mode: NULLABLE
+    description: ''
+    fields:
+    - name: application_id
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: application_name
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: architecture
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: architectures_in_binary
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: build_id
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: display_version
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: hotfix_version
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: platform_version
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: updater_available
+      type: BOOLEAN
+      mode: NULLABLE
+      description: ''
+    - name: vendor
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: version
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: xpcom_abi
+      type: STRING
+      mode: NULLABLE
+      description: ''
+  - name: experiments
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: RECORD
+      mode: NULLABLE
+      description: ''
+      fields:
+      - name: branch
+        type: STRING
+        mode: NULLABLE
+        description: ''
+      - name: enrollment_id
+        type: STRING
+        mode: NULLABLE
+        description: ''
+      - name: type
+        type: STRING
+        mode: NULLABLE
+        description: ''
+  - name: partner
+    type: RECORD
+    mode: NULLABLE
+    description: ''
+    fields:
+    - name: distribution_id
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: distribution_version
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: distributor
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: distributor_channel
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: partner_id
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: partner_names
+      type: STRING
+      mode: REPEATED
+      description: ''
+  - name: profile
+    type: RECORD
+    mode: NULLABLE
+    description: ''
+    fields:
+    - name: creation_date
+      type: FLOAT64
+      mode: NULLABLE
+      description: ''
+    - name: first_use_date
+      type: FLOAT64
+      mode: NULLABLE
+      description: ''
+    - name: is_stub_profile
+      type: BOOLEAN
+      mode: NULLABLE
+      description: ''
+    - name: recovered_from_backup
+      type: FLOAT64
+      mode: NULLABLE
+      description: ''
+    - name: reset_date
+      type: FLOAT64
+      mode: NULLABLE
+      description: ''
+  - name: services
+    type: RECORD
+    mode: NULLABLE
+    description: ''
+    fields:
+    - name: account_enabled
+      type: BOOLEAN
+      mode: NULLABLE
+      description: ''
+    - name: sync_enabled
+      type: BOOLEAN
+      mode: NULLABLE
+      description: ''
+  - name: settings
+    type: RECORD
+    mode: NULLABLE
+    description: ''
+    fields:
+    - name: addon_compatibility_check_enabled
+      type: BOOLEAN
+      mode: NULLABLE
+      description: ''
+    - name: attribution
+      type: RECORD
+      mode: NULLABLE
+      description: ''
+      fields:
+      - name: campaign
+        type: STRING
+        mode: NULLABLE
+        description: ''
+      - name: content
+        type: STRING
+        mode: NULLABLE
+        description: ''
+      - name: dlsource
+        type: STRING
+        mode: NULLABLE
+        description: ''
+      - name: dltoken
+        type: STRING
+        mode: NULLABLE
+        description: ''
+      - name: experiment
+        type: STRING
+        mode: NULLABLE
+        description: ''
+      - name: medium
+        type: STRING
+        mode: NULLABLE
+        description: ''
+      - name: msstoresignedin
+        type: BOOLEAN
+        mode: NULLABLE
+        description: ''
+      - name: source
+        type: STRING
+        mode: NULLABLE
+        description: ''
+      - name: ua
+        type: STRING
+        mode: NULLABLE
+        description: ''
+      - name: variation
+        type: STRING
+        mode: NULLABLE
+        description: ''
+    - name: blocklist_enabled
+      type: BOOLEAN
+      mode: NULLABLE
+      description: ''
+    - name: default_private_search_engine
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: default_private_search_engine_data
+      type: RECORD
+      mode: NULLABLE
+      description: ''
+      fields:
+      - name: load_path
+        type: STRING
+        mode: NULLABLE
+        description: ''
+      - name: name
+        type: STRING
+        mode: NULLABLE
+        description: ''
+      - name: origin
+        type: STRING
+        mode: NULLABLE
+        description: ''
+      - name: submission_url
+        type: STRING
+        mode: NULLABLE
+        description: ''
+    - name: default_search_engine
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: default_search_engine_data
+      type: RECORD
+      mode: NULLABLE
+      description: ''
+      fields:
+      - name: load_path
+        type: STRING
+        mode: NULLABLE
+        description: ''
+      - name: name
+        type: STRING
+        mode: NULLABLE
+        description: ''
+      - name: origin
+        type: STRING
+        mode: NULLABLE
+        description: ''
+      - name: submission_url
+        type: STRING
+        mode: NULLABLE
+        description: ''
+    - name: e10s_cohort
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: e10s_enabled
+      type: BOOLEAN
+      mode: NULLABLE
+      description: ''
+    - name: e10s_multi_processes
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: fission_enabled
+      type: BOOLEAN
+      mode: NULLABLE
+      description: ''
+    - name: intl
+      type: RECORD
+      mode: NULLABLE
+      description: ''
+      fields:
+      - name: accept_languages
+        type: STRING
+        mode: REPEATED
+        description: ''
+      - name: app_locales
+        type: STRING
+        mode: REPEATED
+        description: ''
+      - name: available_locales
+        type: STRING
+        mode: REPEATED
+        description: ''
+      - name: regional_prefs_locales
+        type: STRING
+        mode: REPEATED
+        description: ''
+      - name: requested_locales
+        type: STRING
+        mode: REPEATED
+        description: ''
+      - name: system_locales
+        type: STRING
+        mode: REPEATED
+        description: ''
+    - name: is_default_browser
+      type: BOOLEAN
+      mode: NULLABLE
+      description: ''
+    - name: is_in_optout_sample
+      type: BOOLEAN
+      mode: NULLABLE
+      description: ''
+    - name: launcher_process_state
+      type: INT64
+      mode: NULLABLE
+      description: ''
+    - name: locale
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: sandbox
+      type: RECORD
+      mode: NULLABLE
+      description: ''
+      fields:
+      - name: content_win32k_lockdown_state
+        type: INT64
+        mode: NULLABLE
+        description: ''
+      - name: effective_content_process_level
+        type: INT64
+        mode: NULLABLE
+        description: ''
+    - name: search_cohort
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: telemetry_enabled
+      type: BOOLEAN
+      mode: NULLABLE
+      description: ''
+    - name: update
+      type: RECORD
+      mode: NULLABLE
+      description: ''
+      fields:
+      - name: auto_download
+        type: BOOLEAN
+        mode: NULLABLE
+        description: ''
+      - name: background
+        type: BOOLEAN
+        mode: NULLABLE
+        description: ''
+      - name: channel
+        type: STRING
+        mode: NULLABLE
+        description: ''
+      - name: enabled
+        type: BOOLEAN
+        mode: NULLABLE
+        description: ''
+    - name: user_prefs
+      type: RECORD
+      mode: REPEATED
+      description: ''
+      fields:
+      - name: key
+        type: STRING
+        mode: NULLABLE
+        description: ''
+      - name: value
+        type: STRING
+        mode: NULLABLE
+        description: ''
+  - name: system
+    type: RECORD
+    mode: NULLABLE
+    description: ''
+    fields:
+    - name: apple_model_id
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: cpu
+      type: RECORD
+      mode: NULLABLE
+      description: ''
+      fields:
+      - name: cores
+        type: INT64
+        mode: NULLABLE
+        description: ''
+      - name: count
+        type: INT64
+        mode: NULLABLE
+        description: ''
+      - name: ecount
+        type: INT64
+        mode: NULLABLE
+        description: ''
+      - name: extensions
+        type: STRING
+        mode: REPEATED
+        description: ''
+      - name: family
+        type: INT64
+        mode: NULLABLE
+        description: ''
+      - name: is_windows_s_mode
+        type: BOOLEAN
+        mode: NULLABLE
+        description: ''
+      - name: l2cache_kb
+        type: FLOAT64
+        mode: NULLABLE
+        description: ''
+      - name: l3cache_kb
+        type: FLOAT64
+        mode: NULLABLE
+        description: ''
+      - name: mcount
+        type: INT64
+        mode: NULLABLE
+        description: ''
+      - name: model
+        type: INT64
+        mode: NULLABLE
+        description: ''
+      - name: name
+        type: STRING
+        mode: NULLABLE
+        description: ''
+      - name: pcount
+        type: INT64
+        mode: NULLABLE
+        description: ''
+      - name: speed_m_hz
+        type: FLOAT64
+        mode: NULLABLE
+        description: ''
+      - name: stepping
+        type: INT64
+        mode: NULLABLE
+        description: ''
+      - name: vendor
+        type: STRING
+        mode: NULLABLE
+        description: ''
+    - name: device
+      type: RECORD
+      mode: NULLABLE
+      description: ''
+      fields:
+      - name: hardware
+        type: STRING
+        mode: NULLABLE
+        description: ''
+      - name: is_tablet
+        type: BOOLEAN
+        mode: NULLABLE
+        description: ''
+      - name: manufacturer
+        type: STRING
+        mode: NULLABLE
+        description: ''
+      - name: model
+        type: STRING
+        mode: NULLABLE
+        description: ''
+    - name: gfx
+      type: RECORD
+      mode: NULLABLE
+      description: ''
+      fields:
+      - name: adapters
+        type: RECORD
+        mode: REPEATED
+        description: ''
+        fields:
+        - name: description
+          type: STRING
+          mode: NULLABLE
+          description: ''
+        - name: device_id
+          type: STRING
+          mode: NULLABLE
+          description: ''
+        - name: driver
+          type: STRING
+          mode: NULLABLE
+          description: ''
+        - name: driver_date
+          type: STRING
+          mode: NULLABLE
+          description: ''
+        - name: driver_vendor
+          type: STRING
+          mode: NULLABLE
+          description: ''
+        - name: driver_version
+          type: STRING
+          mode: NULLABLE
+          description: ''
+        - name: gpu_active
+          type: BOOLEAN
+          mode: NULLABLE
+          description: ''
+        - name: ram
+          type: INT64
+          mode: NULLABLE
+          description: ''
+        - name: subsys_id
+          type: STRING
+          mode: NULLABLE
+          description: ''
+        - name: vendor_id
+          type: STRING
+          mode: NULLABLE
+          description: ''
+      - name: content_backend
+        type: STRING
+        mode: NULLABLE
+        description: ''
+      - name: d2d_enabled
+        type: BOOLEAN
+        mode: NULLABLE
+        description: ''
+      - name: d_write_enabled
+        type: BOOLEAN
+        mode: NULLABLE
+        description: ''
+      - name: embedded_in_firefox_reality
+        type: BOOLEAN
+        mode: NULLABLE
+        description: ''
+      - name: features
+        type: RECORD
+        mode: NULLABLE
+        description: ''
+        fields:
+        - name: advanced_layers
+          type: RECORD
+          mode: NULLABLE
+          description: ''
+          fields:
+          - name: no_constant_buffer_offsetting
+            type: BOOLEAN
+            mode: NULLABLE
+            description: ''
+          - name: status
+            type: STRING
+            mode: NULLABLE
+            description: ''
+        - name: compositor
+          type: STRING
+          mode: NULLABLE
+          description: ''
+        - name: d2d
+          type: RECORD
+          mode: NULLABLE
+          description: ''
+          fields:
+          - name: status
+            type: STRING
+            mode: NULLABLE
+            description: ''
+          - name: version
+            type: STRING
+            mode: NULLABLE
+            description: ''
+        - name: d3d11
+          type: RECORD
+          mode: NULLABLE
+          description: ''
+          fields:
+          - name: blacklisted
+            type: BOOLEAN
+            mode: NULLABLE
+            description: ''
+          - name: blocklisted
+            type: BOOLEAN
+            mode: NULLABLE
+            description: ''
+          - name: status
+            type: STRING
+            mode: NULLABLE
+            description: ''
+          - name: texture_sharing
+            type: BOOLEAN
+            mode: NULLABLE
+            description: ''
+          - name: version
+            type: FLOAT64
+            mode: NULLABLE
+            description: ''
+          - name: warp
+            type: BOOLEAN
+            mode: NULLABLE
+            description: ''
+        - name: gpu_process
+          type: RECORD
+          mode: NULLABLE
+          description: ''
+          fields:
+          - name: status
+            type: STRING
+            mode: NULLABLE
+            description: ''
+        - name: hw_compositing
+          type: RECORD
+          mode: NULLABLE
+          description: ''
+          fields:
+          - name: status
+            type: STRING
+            mode: NULLABLE
+            description: ''
+        - name: omtp
+          type: RECORD
+          mode: NULLABLE
+          description: ''
+          fields:
+          - name: status
+            type: STRING
+            mode: NULLABLE
+            description: ''
+        - name: opengl_compositing
+          type: RECORD
+          mode: NULLABLE
+          description: ''
+          fields:
+          - name: status
+            type: STRING
+            mode: NULLABLE
+            description: ''
+        - name: webrender
+          type: RECORD
+          mode: NULLABLE
+          description: ''
+          fields:
+          - name: status
+            type: STRING
+            mode: NULLABLE
+            description: ''
+        - name: wr_compositor
+          type: RECORD
+          mode: NULLABLE
+          description: ''
+          fields:
+          - name: status
+            type: STRING
+            mode: NULLABLE
+            description: ''
+        - name: wr_qualified
+          type: RECORD
+          mode: NULLABLE
+          description: ''
+          fields:
+          - name: status
+            type: STRING
+            mode: NULLABLE
+            description: ''
+        - name: wr_software
+          type: RECORD
+          mode: NULLABLE
+          description: ''
+          fields:
+          - name: status
+            type: STRING
+            mode: NULLABLE
+            description: ''
+      - name: headless
+        type: BOOLEAN
+        mode: NULLABLE
+        description: ''
+      - name: low_end_machine
+        type: BOOLEAN
+        mode: NULLABLE
+        description: ''
+      - name: monitors
+        type: RECORD
+        mode: REPEATED
+        description: ''
+        fields:
+        - name: contents_scale_factor
+          type: FLOAT64
+          mode: NULLABLE
+          description: ''
+        - name: default_css_scale_factor
+          type: FLOAT64
+          mode: NULLABLE
+          description: ''
+        - name: pseudo_display
+          type: BOOLEAN
+          mode: NULLABLE
+          description: ''
+        - name: refresh_rate
+          type: FLOAT64
+          mode: NULLABLE
+          description: ''
+        - name: scale
+          type: FLOAT64
+          mode: NULLABLE
+          description: ''
+        - name: screen_height
+          type: INT64
+          mode: NULLABLE
+          description: ''
+        - name: screen_width
+          type: INT64
+          mode: NULLABLE
+          description: ''
+      - name: target_frame_rate
+        type: INT64
+        mode: NULLABLE
+        description: ''
+      - name: text_scale_factor
+        type: FLOAT64
+        mode: NULLABLE
+        description: ''
+    - name: has_win_package_id
+      type: BOOLEAN
+      mode: NULLABLE
+      description: ''
+    - name: hdd
+      type: RECORD
+      mode: NULLABLE
+      description: ''
+      fields:
+      - name: binary
+        type: RECORD
+        mode: NULLABLE
+        description: ''
+        fields:
+        - name: model
+          type: STRING
+          mode: NULLABLE
+          description: ''
+        - name: revision
+          type: STRING
+          mode: NULLABLE
+          description: ''
+        - name: type
+          type: STRING
+          mode: NULLABLE
+          description: ''
+      - name: profile
+        type: RECORD
+        mode: NULLABLE
+        description: ''
+        fields:
+        - name: model
+          type: STRING
+          mode: NULLABLE
+          description: ''
+        - name: revision
+          type: STRING
+          mode: NULLABLE
+          description: ''
+        - name: type
+          type: STRING
+          mode: NULLABLE
+          description: ''
+      - name: system
+        type: RECORD
+        mode: NULLABLE
+        description: ''
+        fields:
+        - name: model
+          type: STRING
+          mode: NULLABLE
+          description: ''
+        - name: revision
+          type: STRING
+          mode: NULLABLE
+          description: ''
+        - name: type
+          type: STRING
+          mode: NULLABLE
+          description: ''
+    - name: is_wow64
+      type: BOOLEAN
+      mode: NULLABLE
+      description: ''
+    - name: is_wow_arm64
+      type: BOOLEAN
+      mode: NULLABLE
+      description: ''
+    - name: memory_mb
+      type: FLOAT64
+      mode: NULLABLE
+      description: ''
+    - name: os
+      type: RECORD
+      mode: NULLABLE
+      description: ''
+      fields:
+      - name: distro
+        type: STRING
+        mode: NULLABLE
+        description: ''
+      - name: distro_version
+        type: STRING
+        mode: NULLABLE
+        description: ''
+      - name: has_prefetch
+        type: BOOLEAN
+        mode: NULLABLE
+        description: ''
+      - name: has_superfetch
+        type: BOOLEAN
+        mode: NULLABLE
+        description: ''
+      - name: install_year
+        type: FLOAT64
+        mode: NULLABLE
+        description: ''
+      - name: kernel_version
+        type: STRING
+        mode: NULLABLE
+        description: ''
+      - name: libstdcxx_version
+        type: STRING
+        mode: NULLABLE
+        description: ''
+      - name: locale
+        type: STRING
+        mode: NULLABLE
+        description: ''
+      - name: name
+        type: STRING
+        mode: NULLABLE
+        description: ''
+      - name: service_pack_major
+        type: FLOAT64
+        mode: NULLABLE
+        description: ''
+      - name: service_pack_minor
+        type: FLOAT64
+        mode: NULLABLE
+        description: ''
+      - name: version
+        type: STRING
+        mode: NULLABLE
+        description: ''
+      - name: windows_build_number
+        type: FLOAT64
+        mode: NULLABLE
+        description: ''
+      - name: windows_ubr
+        type: FLOAT64
+        mode: NULLABLE
+        description: ''
+    - name: sec
+      type: RECORD
+      mode: NULLABLE
+      description: ''
+      fields:
+      - name: antispyware
+        type: STRING
+        mode: REPEATED
+        description: ''
+      - name: antivirus
+        type: STRING
+        mode: REPEATED
+        description: ''
+      - name: firewall
+        type: STRING
+        mode: REPEATED
+        description: ''
+    - name: virtual_max_mb
+      type: FLOAT64
+      mode: NULLABLE
+      description: ''
+    - name: win_package_family_name
+      type: STRING
+      mode: NULLABLE
+      description: ''
+- name: id
+  type: STRING
+  mode: NULLABLE
+  description: The telemetry ping identifier (UUID) assigned by the Firefox client at the time of ping creation. Distinct from document_id, which is the
+    server-side submission identifier.
+- name: metadata
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: geo
+    type: RECORD
+    mode: NULLABLE
+    description: ''
+    fields:
+    - name: city
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: country
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: db_version
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: subdivision1
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: subdivision2
+      type: STRING
+      mode: NULLABLE
+      description: ''
+  - name: header
+    type: RECORD
+    mode: NULLABLE
+    description: ''
+    fields:
+    - name: date
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: dnt
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: x_debug_id
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: x_foxsec_ip_reputation
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: x_lb_tags
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: x_pingsender_version
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: x_source_tags
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: x_telemetry_agent
+      type: STRING
+      mode: NULLABLE
+      description: ''
+  - name: isp
+    type: RECORD
+    mode: NULLABLE
+    description: ''
+    fields:
+    - name: db_version
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: name
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: organization
+      type: STRING
+      mode: NULLABLE
+      description: ''
+  - name: uri
+    type: RECORD
+    mode: NULLABLE
+    description: ''
+    fields:
+    - name: app_build_id
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: app_name
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: app_update_channel
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: app_version
+      type: STRING
+      mode: NULLABLE
+      description: ''
+  - name: user_agent
+    type: RECORD
+    mode: NULLABLE
+    description: ''
+    fields:
+    - name: browser
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: os
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: version
+      type: STRING
+      mode: NULLABLE
+      description: ''
+- name: normalized_app_name
+  type: STRING
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: normalized_app_name
+- name: normalized_channel
+  type: STRING
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: normalized_channel
+- name: normalized_country_code
+  type: STRING
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: normalized_country_code
+- name: normalized_os
+  type: STRING
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: normalized_os
+- name: normalized_os_version
+  type: STRING
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: normalized_os_version
+- name: payload
+  type: RECORD
+  mode: NULLABLE
+  description: ''
+  fields:
+  - name: events
+    type: RECORD
+    mode: NULLABLE
+    description: ''
+    fields:
+    - name: content
+      type: RECORD
+      mode: REPEATED
+      description: ''
+      fields:
+      - name: f0_
+        type: INT64
+        mode: NULLABLE
+        description: ''
+      - name: f1_
+        type: STRING
+        mode: NULLABLE
+        description: ''
+      - name: f2_
+        type: STRING
+        mode: NULLABLE
+        description: ''
+      - name: f3_
+        type: STRING
+        mode: NULLABLE
+        description: ''
+      - name: f4_
+        type: STRING
+        mode: NULLABLE
+        description: ''
+      - name: f5_
+        type: RECORD
+        mode: REPEATED
+        description: ''
+        fields:
+        - name: key
+          type: STRING
+          mode: NULLABLE
+          description: ''
+        - name: value
+          type: STRING
+          mode: NULLABLE
+          description: ''
+    - name: dynamic
+      type: RECORD
+      mode: REPEATED
+      description: ''
+      fields:
+      - name: f0_
+        type: INT64
+        mode: NULLABLE
+        description: ''
+      - name: f1_
+        type: STRING
+        mode: NULLABLE
+        description: ''
+      - name: f2_
+        type: STRING
+        mode: NULLABLE
+        description: ''
+      - name: f3_
+        type: STRING
+        mode: NULLABLE
+        description: ''
+      - name: f4_
+        type: STRING
+        mode: NULLABLE
+        description: ''
+      - name: f5_
+        type: RECORD
+        mode: REPEATED
+        description: ''
+        fields:
+        - name: key
+          type: STRING
+          mode: NULLABLE
+          description: ''
+        - name: value
+          type: STRING
+          mode: NULLABLE
+          description: ''
+    - name: extension
+      type: RECORD
+      mode: REPEATED
+      description: ''
+      fields:
+      - name: f0_
+        type: INT64
+        mode: NULLABLE
+        description: ''
+      - name: f1_
+        type: STRING
+        mode: NULLABLE
+        description: ''
+      - name: f2_
+        type: STRING
+        mode: NULLABLE
+        description: ''
+      - name: f3_
+        type: STRING
+        mode: NULLABLE
+        description: ''
+      - name: f4_
+        type: STRING
+        mode: NULLABLE
+        description: ''
+      - name: f5_
+        type: RECORD
+        mode: REPEATED
+        description: ''
+        fields:
+        - name: key
+          type: STRING
+          mode: NULLABLE
+          description: ''
+        - name: value
+          type: STRING
+          mode: NULLABLE
+          description: ''
+    - name: gpu
+      type: RECORD
+      mode: REPEATED
+      description: ''
+      fields:
+      - name: f0_
+        type: INT64
+        mode: NULLABLE
+        description: ''
+      - name: f1_
+        type: STRING
+        mode: NULLABLE
+        description: ''
+      - name: f2_
+        type: STRING
+        mode: NULLABLE
+        description: ''
+      - name: f3_
+        type: STRING
+        mode: NULLABLE
+        description: ''
+      - name: f4_
+        type: STRING
+        mode: NULLABLE
+        description: ''
+      - name: f5_
+        type: RECORD
+        mode: REPEATED
+        description: ''
+        fields:
+        - name: key
+          type: STRING
+          mode: NULLABLE
+          description: ''
+        - name: value
+          type: STRING
+          mode: NULLABLE
+          description: ''
+    - name: parent
+      type: RECORD
+      mode: REPEATED
+      description: ''
+      fields:
+      - name: f0_
+        type: INT64
+        mode: NULLABLE
+        description: ''
+      - name: f1_
+        type: STRING
+        mode: NULLABLE
+        description: ''
+      - name: f2_
+        type: STRING
+        mode: NULLABLE
+        description: ''
+      - name: f3_
+        type: STRING
+        mode: NULLABLE
+        description: ''
+      - name: f4_
+        type: STRING
+        mode: NULLABLE
+        description: ''
+      - name: f5_
+        type: RECORD
+        mode: REPEATED
+        description: ''
+        fields:
+        - name: key
+          type: STRING
+          mode: NULLABLE
+          description: ''
+        - name: value
+          type: STRING
+          mode: NULLABLE
+          description: ''
+    - name: socket
+      type: RECORD
+      mode: REPEATED
+      description: ''
+      fields:
+      - name: f0_
+        type: INT64
+        mode: NULLABLE
+        description: ''
+      - name: f1_
+        type: STRING
+        mode: NULLABLE
+        description: ''
+      - name: f2_
+        type: STRING
+        mode: NULLABLE
+        description: ''
+      - name: f3_
+        type: STRING
+        mode: NULLABLE
+        description: ''
+      - name: f4_
+        type: STRING
+        mode: NULLABLE
+        description: ''
+      - name: f5_
+        type: RECORD
+        mode: REPEATED
+        description: ''
+        fields:
+        - name: key
+          type: STRING
+          mode: NULLABLE
+          description: ''
+        - name: value
+          type: STRING
+          mode: NULLABLE
+          description: ''
+  - name: lost_events_count
+    type: INT64
+    mode: NULLABLE
+    description: ''
+  - name: process_start_timestamp
+    type: INT64
+    mode: NULLABLE
+    description: ''
+  - name: reason
+    type: STRING
+    mode: NULLABLE
+    description: ''
+  - name: session_id
+    type: STRING
+    mode: NULLABLE
+    description: ''
+  - name: subsession_id
+    type: STRING
+    mode: NULLABLE
+    description: ''
+- name: sample_id
+  type: INT64
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: sample_id
+- name: submission_timestamp
+  type: TIMESTAMP
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: submission_timestamp
+- name: type
+  type: STRING
+  mode: NULLABLE
+  description: The type of the telemetry ping (e.g., "event"). For this table, all rows derive from the legacy telemetry event ping.
+- name: version
+  type: FLOAT64
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: version
+- name: profile_group_id
+  type: STRING
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: profile_group_id
+- name: process
+  type: STRING
+  mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: process
+- name: events
+  type: RECORD
+  mode: REPEATED
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/telemetry_derived/telemetry_derived.yaml
+    field: events
+  fields:
+  - name: f0_
+    type: INT64
+    mode: NULLABLE
+    description: ''
+  - name: f1_
+    type: STRING
+    mode: NULLABLE
+    description: ''
+  - name: f2_
+    type: STRING
+    mode: NULLABLE
+    description: ''
+  - name: f3_
+    type: STRING
+    mode: NULLABLE
+    description: ''
+  - name: f4_
+    type: STRING
+    mode: NULLABLE
+    description: ''
+  - name: f5_
+    type: RECORD
+    mode: REPEATED
+    description: ''
+    fields:
+    - name: key
+      type: STRING
+      mode: NULLABLE
+      description: ''
+    - name: value
+      type: STRING
+      mode: NULLABLE
+      description: ''
+- name: f0_
+  type: INT64
+  mode: NULLABLE
+  description: ''
+- name: f1_
+  type: STRING
+  mode: NULLABLE
+  description: ''
+- name: f2_
+  type: STRING
+  mode: NULLABLE
+  description: ''
+- name: f3_
+  type: STRING
+  mode: NULLABLE
+  description: ''
+- name: f4_
+  type: STRING
+  mode: NULLABLE
+  description: ''
+- name: f5_
+  type: RECORD
+  mode: REPEATED
+  description: ''
+  fields:
+  - name: key
+    type: STRING
+    mode: NULLABLE
+    description: ''
+  - name: value
+    type: STRING
+    mode: NULLABLE
+    description: ''
