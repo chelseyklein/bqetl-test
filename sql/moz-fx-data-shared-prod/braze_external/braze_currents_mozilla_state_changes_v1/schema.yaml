@@ -1,0 +1,105 @@
+fields:
+- name: id
+  type: STRING
+  mode: NULLABLE
+  description: Globally unique ID for this event
+- name: user_id
+  type: STRING
+  mode: NULLABLE
+  description: Braze user ID of the user who performed this event
+- name: external_user_id
+  type: STRING
+  mode: NULLABLE
+  description: '[PII] External ID of the user'
+- name: email_address
+  type: STRING
+  mode: NULLABLE
+  description: '[PII] Email address of the user'
+- name: phone_number
+  type: STRING
+  mode: NULLABLE
+  description: '[PII] Phone number of the user in e.164 format (for example +14155552671)'
+- name: app_id
+  type: STRING
+  mode: NULLABLE
+  description: API ID of the app on which this event occurred
+- name: campaign_id
+  type: STRING
+  mode: NULLABLE
+  description: API ID of the campaign this event belongs to
+- name: campaign_name
+  type: STRING
+  mode: NULLABLE
+  description: Name of the campaign
+- name: message_variation_id
+  type: STRING
+  mode: NULLABLE
+  description: API ID of the message variation this user received
+- name: message_variation_name
+  type: STRING
+  mode: NULLABLE
+  description: Name of the message variation
+- name: canvas_id
+  type: STRING
+  mode: NULLABLE
+  description: API ID of the Canvas this event belongs to
+- name: canvas_name
+  type: STRING
+  mode: NULLABLE
+  description: Name of the Canvas
+- name: canvas_variation_id
+  type: STRING
+  mode: NULLABLE
+  description: API ID of the Canvas variation this event belongs to
+- name: canvas_variation_name
+  type: STRING
+  mode: NULLABLE
+  description: Name of the Canvas variation this user received
+- name: canvas_step_id
+  type: STRING
+  mode: NULLABLE
+  description: API ID of the Canvas step this event belongs to
+- name: canvas_step_name
+  type: STRING
+  mode: NULLABLE
+  description: Name of the Canvas step
+- name: subscription_group_id
+  type: STRING
+  mode: NULLABLE
+  description: Subscription group API ID
+- name: subscription_status
+  type: STRING
+  mode: NULLABLE
+  description: 'Subscription status: ''Subscribed'' or ''Unsubscribed'''
+- name: channel
+  type: STRING
+  mode: NULLABLE
+  description: Channel this event belongs to
+- name: time
+  type: INT64
+  mode: NULLABLE
+  description: UNIX timestamp at which the event happened
+- name: timezone
+  type: STRING
+  mode: NULLABLE
+  description: Time zone of the user
+- name: send_id
+  type: STRING
+  mode: NULLABLE
+  description: Message send ID this message belongs to
+- name: state_change_source
+  type: STRING
+  mode: NULLABLE
+  description: 'Source of the state change, e.g: REST API, SDK, Dashboard, etc.'
+- name: app_group_id
+  type: STRING
+  mode: NULLABLE
+  description: API ID of the app group this user belongs to
+- name: dispatch_id
+  type: STRING
+  mode: NULLABLE
+  description: ID of the dispatch this message belongs to
+- name: channel_identifier
+  type: STRING
+  mode: NULLABLE
+  description: '[PII] The user''s identifier on the channel the event is for.'

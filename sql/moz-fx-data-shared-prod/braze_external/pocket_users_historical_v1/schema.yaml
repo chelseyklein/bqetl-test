@@ -1,0 +1,25 @@
+fields:
+- name: EXTERNAL_ID
+  type: STRING
+  mode: NULLABLE
+  description: Unique Braze external identifier for the Pocket user, derived from a Pocket-specific hashed
+    token. Null when an external ID could not be assigned.
+- name: EMAIL
+  type: STRING
+  mode: NULLABLE
+  description: Email address of the Pocket user. This field is PII-suppressed.
+- name: VALIDATED_DEVICE_COUNTRY
+  type: STRING
+  mode: NULLABLE
+  description: ISO 3166-1 alpha-2 country code derived from validated device signals for the Pocket user
+    (e.g. 'US', 'GB'). Null when the country could not be determined.
+- name: VALIDATED_DEVICE_LANGUAGE
+  type: STRING
+  mode: NULLABLE
+  description: ISO 639-1 language code derived from validated device signals for the Pocket user (e.g. 'en',
+    'ar'). Null when the language could not be determined.
+- name: LOCALE
+  type: STRING
+  mode: NULLABLE
+  description: Locale string of the Pocket user (e.g. 'en-US', 'ja-JP'), representing the user's preferred
+    language and region. Null when the locale was not recorded.
