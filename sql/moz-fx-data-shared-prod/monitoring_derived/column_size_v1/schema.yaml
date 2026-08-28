@@ -1,0 +1,21 @@
+fields:
+- name: submission_date
+  type: DATE
+  mode: NULLABLE
+  description: ''
+- name: dataset_id
+  type: STRING
+  mode: NULLABLE
+  description: ''
+- name: table_id
+  type: STRING
+  mode: NULLABLE
+  description: ''
+- name: column_name
+  type: STRING
+  mode: NULLABLE
+  description: ''
+- name: byte_size
+  type: INT64
+  mode: NULLABLE
+  description: ''

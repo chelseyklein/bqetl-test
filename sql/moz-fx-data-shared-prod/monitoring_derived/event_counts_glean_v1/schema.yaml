@@ -5,9 +5,14 @@ fields:
 - name: event_category
   type: STRING
   mode: NULLABLE
+  description: The Glean event category grouping the event, corresponding to the namespace or feature area
+    (e.g. "browser_menu", "nimbus_events"). Together with `event_name`, this uniquely identifies the type
+    of event being counted.
 - name: event_name
   type: STRING
   mode: NULLABLE
+  description: The name of the Glean event within its category (e.g. "impression", "engagement", "opened").
+    Together with `event_category`, this identifies the specific user action or system event being aggregated.
 - name: normalized_app_name
   type: STRING
   mode: NULLABLE
@@ -18,9 +23,13 @@ fields:
 - name: country
   type: STRING
   mode: NULLABLE
+  description: The two-letter ISO 3166-1 alpha-2 country code of the client that submitted the events, as
+    determined by GeoIP lookup. Null when the country cannot be determined.
 - name: version
   type: STRING
   mode: NULLABLE
+  description: The application version string from which events were submitted (e.g. "153.0.1"). Used to
+    segment event counts by release version.
 - name: total_events
   type: INTEGER
   mode: NULLABLE

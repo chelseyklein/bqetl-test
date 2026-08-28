@@ -3,20 +3,23 @@ fields:
 - mode: NULLABLE
   name: submission_date
   type: DATE
-  description: |
-    Processing date.
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/addons_derived/dataset_schema.yaml
+    field: submission_date
 
 - mode: NULLABLE
   name: normalized_channel
   type: STRING
-  description: |
-    Normalized channel name of the Firefox app (for example: releaes, beta, nightly).
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/addons_derived/dataset_schema.yaml
+    field: normalized_channel
 
 - mode: NULLABLE
   name: country
   type: STRING
-  description: |
-    An ISO 3166-1 alpha-2 country code.
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/addons_derived/dataset_schema.yaml
+    field: country
 
 - mode: NULLABLE
   name: app_name
@@ -27,8 +30,9 @@ fields:
 - mode: NULLABLE
   name: app_version
   type: STRING
-  description: |
-    Version of the Firefox app.
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/addons_derived/dataset_schema.yaml
+    field: app_version
 
 - mode: NULLABLE
   name: os_name
@@ -45,8 +49,9 @@ fields:
 - mode: NULLABLE
   name: addon_id
   type: STRING
-  description:
-    The id of the addon, if available.
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/addons_derived/dataset_schema.yaml
+    field: addon_id
 
 - mode: NULLABLE
   name: addon_version
@@ -69,8 +74,9 @@ fields:
 - mode: NULLABLE
   name: value
   type: STRING
-  description: |
-    This is a user defined value, providing context for the event (Optional).
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/addons_derived/dataset_schema.yaml
+    field: downloads_per_source_value
 
 - mode: NULLABLE
   name: from_etld

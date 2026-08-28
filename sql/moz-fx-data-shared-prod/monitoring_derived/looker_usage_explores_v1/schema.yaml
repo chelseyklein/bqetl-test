@@ -8,21 +8,33 @@ fields:
 - mode: NULLABLE
   name: Is Hidden
   type: BOOLEAN
+  description: Indicates whether the Looker explore is hidden from the navigation menu. When true, the explore
+    is not visible to end users browsing available explores.
 - mode: NULLABLE
   name: Has Description
   type: BOOLEAN
+  description: Indicates whether the Looker explore has a description defined in its LookML definition.
+    When false, no description has been provided for the explore.
 - mode: NULLABLE
   name: '# Joins'
   type: INTEGER
+  description: The total number of joins defined in the Looker explore, connecting the base view to additional
+    views.
 - mode: NULLABLE
   name: '# Unused Joins'
   type: INTEGER
+  description: The number of joins defined in the Looker explore that were not used in any queries during
+    the reporting period. High values may indicate opportunities to simplify the explore.
 - mode: NULLABLE
   name: '# Fields'
   type: INTEGER
+  description: The total number of fields (dimensions, measures, and other field types) available in the
+    Looker explore.
 - mode: NULLABLE
   name: '# Unused Fields'
   type: INTEGER
+  description: The number of fields defined in the Looker explore that were not referenced in any queries
+    during the reporting period. High values may indicate fields that are candidates for removal or consolidation.
 - mode: NULLABLE
   name: Query Count
   type: INTEGER
