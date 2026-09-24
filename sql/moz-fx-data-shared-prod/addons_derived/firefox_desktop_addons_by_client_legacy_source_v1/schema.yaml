@@ -2,35 +2,51 @@ fields:
 - mode: NULLABLE
   name: submission_date
   type: DATE
-  description: The date when the telemetry ping is received on the server side.
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/addons_derived/dataset_schema.yaml
+    field: submission_date
 - name: client_id
   type: STRING
   mode: NULLABLE
-  description: A unique identifier (UUID) for the client.
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/addons_derived/dataset_schema.yaml
+    field: client_id
 - name: sample_id
   type: INTEGER
   mode: NULLABLE
-  description: A number, 0-99, that samples by client_id and allows filtering data
-    for analysis. It is a pipeline-generated artifact that should match between pings.
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/addons_derived/dataset_schema.yaml
+    field: sample_id
 - name: app_version
   type: STRING
   mode: NULLABLE
-  description: User visible version string (e.g. "1.0.3") for the browser.
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/addons_derived/dataset_schema.yaml
+    field: app_version
 - name: country
   type: STRING
   mode: NULLABLE
-  description: Name of the country in which the activity took place, as determined
-    by the IP geolocation.
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/addons_derived/dataset_schema.yaml
+    field: country
 - name: locale
   type: STRING
   mode: NULLABLE
-  description: Set of language- and/or country-based preferences for a user interface.
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/addons_derived/dataset_schema.yaml
+    field: locale
 - name: app_os
   type: STRING
   mode: NULLABLE
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/addons_derived/dataset_schema.yaml
+    field: app_os
 - name: addons
   type: RECORD
   mode: REPEATED
+  description: !include-field-description
+    file: sql/moz-fx-data-shared-prod/addons_derived/dataset_schema.yaml
+    field: addons
   fields:
   - name: id
     type: STRING
