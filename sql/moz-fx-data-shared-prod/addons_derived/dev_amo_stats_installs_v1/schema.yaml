@@ -10,6 +10,7 @@ fields:
 - name: total_downloads
   type: INTEGER
   mode: NULLABLE
+  description: The total number of downloads for the addon on the given submission date.
 - name: downloads_per_source
   type: RECORD
   mode: REPEATED
