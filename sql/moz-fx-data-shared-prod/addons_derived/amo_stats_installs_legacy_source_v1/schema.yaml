@@ -10,6 +10,8 @@ fields:
 - name: total_downloads
   type: INTEGER
   mode: NULLABLE
+  description: The total number of distinct clients that installed the add-on on the given submission date,
+    as counted from `addonsManager` install_stats events.
 - name: downloads_per_source
   type: RECORD
   mode: REPEATED
