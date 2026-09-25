@@ -28,13 +28,22 @@ fields:
 - name: app_os
   type: STRING
   mode: NULLABLE
+  description: The operating system of the client (e.g. "Windows", "Mac", "Linux"), derived from the normalized
+    OS field. The most frequently observed value across all pings submitted on the given day is used.
 - name: addons
   type: RECORD
   mode: REPEATED
   fields:
+  description: A repeated record of add-ons installed on the client, parsed from the legacy `payload.info.addons`
+    string in the telemetry main ping. Each entry represents a distinct add-on seen across all pings for
+    the client on the submission date.
   - name: id
     type: STRING
     mode: NULLABLE
+  description: The identifier of the installed add-on (e.g. "webcompat@mozilla.org"), URI-decoded and extracted
+    from the legacy addons payload string.
   - name: version
     type: STRING
     mode: NULLABLE
+  description: The most recent version of the add-on observed for the client on the submission date, selected
+    by descending minor-truncated version ordering across all pings.

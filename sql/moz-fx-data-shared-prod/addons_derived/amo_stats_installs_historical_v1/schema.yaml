@@ -10,6 +10,8 @@ fields:
 - name: total_downloads
   type: INTEGER
   mode: NULLABLE
+  description: The total number of distinct clients that installed the addon on the given submission date,
+    across all UTM attribution dimensions (source, content, medium, and campaign).
 - name: downloads_per_source
   type: RECORD
   mode: REPEATED
