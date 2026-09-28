@@ -218,22 +218,41 @@ fields:
   type: RECORD
   mode: REPEATED
   fields:
+  description: Repeated record of key-value pairs carrying additional GA4 event parameters for each hit,
+    passed through directly from the source analytics event data. Each entry represents one named parameter
+    attached to the event.
   - name: key
     type: STRING
     mode: NULLABLE
+  description: The name of the GA4 event parameter (e.g. 'page_location', 'ga_session_id', 'campaign', 'engagement_time_msec').
+    Each key identifies what type of data the accompanying value fields contain.
   - name: value
     type: RECORD
     mode: NULLABLE
     fields:
+  description: A struct holding the value for the corresponding event parameter key, stored in one of four
+    typed sub-fields (string_value, int_value, float_value, double_value) depending on the parameter's data
+    type; only the relevant sub-field is populated.
     - name: string_value
       type: STRING
       mode: NULLABLE
+  description: The string representation of the event parameter value, populated when the parameter holds
+    text data such as a URL, campaign name, or session flag. Null when the parameter's value is numeric.
     - name: int_value
       type: INTEGER
       mode: NULLABLE
+  description: The integer representation of the event parameter value, populated when the parameter holds
+    a whole-number value such as a session ID, hit count, or engagement flag. Null when the parameter's
+    value is a string or floating-point number.
     - name: float_value
       type: FLOAT
       mode: NULLABLE
+  description: The single-precision float representation of the event parameter value, populated when the
+    parameter holds a floating-point number stored as a float. Always null in practice for this table; numeric
+    event parameters use int_value or double_value instead.
     - name: double_value
       type: FLOAT
       mode: NULLABLE
+  description: The double-precision float representation of the event parameter value, populated when the
+    parameter holds a high-precision floating-point number. Rarely populated; null for virtually all records
+    in this table.
