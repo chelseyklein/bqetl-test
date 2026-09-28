@@ -6,7 +6,9 @@ fields:
 - mode: NULLABLE
   name: cohort_date
   type: DATE
-  description: Cohort Date - First Seen Date
+  description: The date the client was first seen by Mozilla's data pipeline, used as the cohort assignment
+    date for retention and growth analyses. Each row in this table corresponds to clients whose first-seen
+    date matches the partition date.
 - mode: NULLABLE
   name: activity_segment
   type: STRING
@@ -19,11 +21,14 @@ fields:
 - mode: NULLABLE
   name: attribution_campaign
   type: STRING
-  description: Attribution Campaign
+  description: The optional attribution campaign associated with the Firefox installation, analogous to
+    UTM campaign. Sourced from the clients_last_seen_joined table for Desktop; always null for Mobile rows.
 - mode: NULLABLE
   name: attribution_content
   type: STRING
-  description: Attribution Content
+  description: The optional attribution content parameter associated with the Firefox installation, analogous
+    to UTM content. Sourced from the clients_last_seen_joined table for Desktop; always null for Mobile
+    rows.
 - mode: NULLABLE
   name: attribution_experiment
   type: STRING
@@ -69,75 +74,105 @@ fields:
 - mode: NULLABLE
   name: normalized_app_name
   type: STRING
-  description: Normalized app Name
+  description: The normalized name of the Firefox application (e.g., 'Firefox Desktop', 'Fenix', 'Firefox
+    iOS'). Derived from the app_name field in the source active users tables.
 - mode: NULLABLE
   name: normalized_channel
   type: STRING
-  description: The normalized channel the application is being distributed on.
+  description: The normalized release channel on which the application is distributed (e.g., 'release',
+    'beta', 'nightly', 'esr'). Sourced from the baseline_clients_last_seen table for Desktop and from mobile_active_users
+    for Mobile.
 - mode: NULLABLE
   name: normalized_os
   type: STRING
-  description: The normalized name of the operating system running at the client.
+  description: The normalized name of the operating system running on the client (e.g., 'Windows', 'Mac',
+    'Linux', 'Android', 'iOS'). Derived from the Glean 'os' metric reported in the baseline ping.
 - mode: NULLABLE
   name: normalized_os_version
   type: STRING
-  description: Normalized Operating System Version
+  description: The user-visible version string of the operating system (e.g., '10.0', '16'). Sourced from
+    baseline_clients_last_seen for Desktop and normalized_os_version from mobile_active_users for Mobile;
+    set to 'Unknown' if version detection fails.
 - mode: NULLABLE
   name: os_version_major
   type: INTEGER
-  description: Major or first part of the operating system version running at the
+  description: The major (first) component of the normalized OS version string, extracted by splitting on
+    '.' and casting to integer. For example, OS version '10.15.7' yields major version 10; defaults to 0
+    if the component cannot be parsed.
     client. E.g. for version "100.9.11", the major is 100.
 - mode: NULLABLE
   name: os_version_minor
   type: INTEGER
-  description: Minor part of the operating system version running at the client. E.g.
+  description: The minor (second) component of the normalized OS version string, extracted by splitting
+    on '.' and casting to integer. For example, OS version '10.15.7' yields minor version 15; defaults to
+    0 if the component cannot be parsed.
     for version "100.9.11", the minor is 9.
 - name: adjust_ad_group
   type: STRING
   mode: NULLABLE
-  description: Adjust Ad Group - Available for Mobile Only
+  description: The Adjust-attributed ad group within an advertising campaign that drove the mobile client's
+    acquisition. Only populated for Mobile rows sourced from mobile_new_profile_clients; null for Desktop
+    rows.
 - name: adjust_campaign
   type: STRING
   mode: NULLABLE
-  description: Adjust Campaign - Available for Mobile Only
+  description: The Adjust-attributed campaign name associated with the mobile client's acquisition. Only
+    populated for Mobile rows sourced from mobile_new_profile_clients; null for Desktop rows.
 - name: adjust_creative
   type: STRING
   mode: NULLABLE
-  description: Adjust Creative - Available for Mobile Only
+  description: The Adjust-attributed creative (ad creative name or identifier) associated with the mobile
+    client's acquisition. Only populated for Mobile rows sourced from mobile_new_profile_clients; null for
+    Desktop rows.
 - name: adjust_network
   type: STRING
   mode: NULLABLE
-  description: Adjust Network - Available for Mobile Only
+  description: The Adjust-attributed advertising network through which the mobile client was acquired (e.g.,
+    'Google Ads ACI', 'Organic'). Only populated for Mobile rows; null for Desktop rows.
 - name: play_store_attribution_campaign
   type: STRING
   mode: NULLABLE
-  description: Play Store Attribution Campaign - Available for Mobile Only
+  description: The campaign parameter from the Google Play Store referrer string at the time of the mobile
+    client's install. Only populated for Mobile rows sourced from mobile_new_profile_clients; null for Desktop
+    rows.
 - name: play_store_attribution_medium
   type: STRING
   mode: NULLABLE
-  description: Play Store Attribution Medium - Available for Mobile Only
+  description: The medium parameter from the Google Play Store referrer string at the time of the mobile
+    client's install (e.g., 'organic', 'preload', 'referral'). Only populated for Mobile rows; null for
+    Desktop rows.
 - name: play_store_attribution_source
   type: STRING
   mode: NULLABLE
-  description: Play Store Attribution Source - Available for Mobile Only
+  description: The source parameter from the Google Play Store referrer string at the time of the mobile
+    client's install (e.g., 'google-play', 'apps.facebook.com'). Only populated for Mobile rows; null for
+    Desktop rows.
 - name: play_store_attribution_content
   type: STRING
   mode: NULLABLE
-  description: Play Store Attribution Content - Available for Mobile Only
+  description: The content parameter from the Google Play Store referrer string at the time of the mobile
+    client's install, often used to identify a specific ad or creative. Only populated for Mobile rows;
+    null for Desktop rows.
 - name: play_store_attribution_term
   type: STRING
   mode: NULLABLE
-  description: Play Store Attribution Term - Available for Mobile Only
+  description: The search term (keyword) parameter from the Google Play Store referrer string at the time
+    of the mobile client's install. Only populated for Mobile rows; null for Desktop rows.
 - name: row_source
   type: STRING
   mode: NULLABLE
-  description: Flag indicating source - i.e. Desktop or Mobile
+  description: Indicates whether the row originates from a Desktop or Mobile client pipeline. Values are
+    'Desktop' (sourced from firefox_desktop.baseline_active_users) or 'Mobile' (sourced from telemetry.mobile_active_users).
 - name: play_store_attribution_install_referrer_response
   type: STRING
   mode: NULLABLE
-  description: Play Store Attribution Install Referrer Response
+  description: The full raw install referrer response string returned by the Google Play Store at install
+    time, containing encoded UTM parameters (e.g., 'utm_source=google-play&utm_medium=organic'). Only populated
+    for Mobile rows; null for Desktop rows.
 - name: install_source
   type: STRING
   mode: NULLABLE
-  description: The source through which the application was installed, such as 'com.android.vending' for the Google Play Store. A null value indicates
+  description: The package name of the app store or installer that delivered the Firefox application on
+    mobile (e.g., 'com.android.vending' for Google Play Store, 'com.sec.android.app.samsungapps' for Samsung
+    Galaxy Store). Only populated for Mobile rows; null for Desktop rows.
     the install source could not be determined.
