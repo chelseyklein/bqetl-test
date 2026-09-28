@@ -2,21 +2,34 @@ fields:
 - name: submission_date
   type: DATE
   mode: NULLABLE
+  description: The date for which this daily record is computed, corresponding to the submission date of
+    the source Firefox Accounts backend events.
 - name: user_id_sha256
   type: STRING
   mode: NULLABLE
+  description: A SHA-256 hex-encoded hash of the Firefox Accounts user UID, used to identify a user without
+    exposing the raw account identifier.
 - name: service
   type: STRING
   mode: NULLABLE
+  description: The relying-party service identifier for the day's activity; populated with the OAuth client
+    ID when available, otherwise the service name string (e.g. "sync", "vpn", "relay").
 - name: country
   type: STRING
   mode: NULLABLE
+  description: The most recent country associated with the user's activity for this service on the given
+    day, derived from geo metadata. Null for events where geo data is unavailable (e.g. access_token_checked
+    events triggered by relying-party backend services).
 - name: seen_in_tier1_country
   type: BOOLEAN
   mode: NULLABLE
+  description: True if any event for this user and service on the given day was associated with a Tier 1
+    country (United States, France, Germany, United Kingdom, or Canada); false otherwise.
 - name: registered
   type: BOOLEAN
   mode: NULLABLE
+  description: True if a reg_complete event (new account registration) was observed for this user and service
+    on the given day; false if only login or token events were seen.
 - name: user_agent_device_count
   type: INTEGER
   mode: NULLABLE
