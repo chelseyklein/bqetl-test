@@ -2,24 +2,38 @@ fields:
 - name: days_since_desktop_active
   type: INTEGER
   mode: NULLABLE
+  description: Number of days since the client was last active on Firefox Desktop, derived from days_desktop_active_bits.
+    Null when the client has not been active on Desktop in the past 28 days.
 - name: days_since_seen
   type: INTEGER
   mode: NULLABLE
+  description: Number of days since the client was last seen (i.e. sent any ping), derived from days_seen_bits.
+    A value of 0 means the client was seen on the submission date.
 - name: days_since_active
   type: INTEGER
   mode: NULLABLE
+  description: Number of days since the client was last active (had any activity via days_active_bits),
+    derived from the bits field. Null when the client has not been active in the past 28 days.
 - name: days_since_created_profile
   type: INTEGER
   mode: NULLABLE
+  description: Number of days since the client first created their profile, derived from days_created_profile_bits.
+    Null when no profile creation event is recorded in the past 28 days.
 - name: days_since_seen_session_start
   type: INTEGER
   mode: NULLABLE
+  description: Number of days since the client last had a session start event, derived from days_seen_session_start_bits.
+    Null when no session start has been recorded in the past 28 days.
 - name: days_since_seen_session_end
   type: INTEGER
   mode: NULLABLE
+  description: Number of days since the client last had a session end event, derived from days_seen_session_end_bits.
+    Null when no session end has been recorded in the past 28 days.
 - name: days_since_visited_1_uri
   type: INTEGER
   mode: NULLABLE
+  description: Number of days since the client last visited at least one URI, derived from days_visited_1_uri_bits.
+    Null when no URI visit has been recorded in the past 28 days.
 - name: days_seen_bits
   type: INTEGER
   mode: NULLABLE
@@ -28,6 +42,8 @@ fields:
 - name: days_created_profile_bits
   type: INTEGER
   mode: NULLABLE
+  description: A 28-bit integer where each bit represents whether the client created a new profile on a
+    given day in the past 28 days, with the most-significant bit representing the most recent day.
 - name: submission_date
   type: DATE
   mode: NULLABLE
@@ -273,9 +289,13 @@ fields:
 - name: app_version_patch_revision
   type: NUMERIC
   mode: NULLABLE
+  description: The patch revision component of the user-visible app version string (e.g. for "152.0.6",
+    the patch revision is 6). Null when no patch revision is present.
 - name: app_version_is_major_release
   type: BOOLEAN
   mode: NULLABLE
+  description: True when the app version represents a major release (i.e. the minor and patch components
+    are both zero), false otherwise.
 - name: channel
   type: STRING
   mode: NULLABLE
@@ -287,6 +307,8 @@ fields:
 - name: distribution_id_source
   type: STRING
   mode: NULLABLE
+  description: Indicates whether the distribution_id was sourced from 'glean' or 'legacy' telemetry. Null
+    when no distribution ID is available from either source.
 - name: os
   type: STRING
   mode: NULLABLE
@@ -296,6 +318,8 @@ fields:
 - name: os_grouped
   type: STRING
   mode: NULLABLE
+  description: A grouping of the operating system name, identical to the `os` column. Retained for compatibility
+    with legacy data sources.
 - name: os_version
   type: STRING
   mode: NULLABLE
@@ -305,12 +329,19 @@ fields:
 - name: os_version_build
   type: STRING
   mode: NULLABLE
+  description: A human-readable OS version label combining the OS version and Windows build number when
+    available (e.g. 'Windows 11', 'Windows 10'). Falls back to the raw normalized_os_version for non-Windows
+    platforms.
 - name: os_version_major
   type: INTEGER
   mode: NULLABLE
+  description: The major component of the OS version string, extracted as an integer (e.g. 10 for Windows
+    10).
 - name: os_version_minor
   type: INTEGER
   mode: NULLABLE
+  description: The minor component of the OS version string, extracted as an integer (e.g. 0 for Windows
+    10.0).
 - name: activity_segment
   type: STRING
   mode: NULLABLE
@@ -347,9 +378,13 @@ fields:
 - name: attribution_campaign
   type: STRING
   mode: NULLABLE
+  description: The optional attribution campaign at the time of the most recent install, similar to UTM
+    'campaign'. Null when attribution data is not available.
 - name: attribution_content
   type: STRING
   mode: NULLABLE
+  description: The optional attribution content at the time of the most recent install, similar to UTM 'content'.
+    Null when attribution data is not available.
 - name: attribution_medium
   type: STRING
   mode: NULLABLE
@@ -365,27 +400,43 @@ fields:
 - name: attribution_term
   type: STRING
   mode: NULLABLE
+  description: The optional attribution term at the time of the most recent install, similar to UTM 'term'.
+    Always null in this table.
 - name: distribution_name
   type: STRING
   mode: NULLABLE
+  description: The optional distribution name associated with the most recent Firefox install (e.g. 'canonical-002',
+    'mint-001'). Can be a partner name or a distribution configuration preset.
 - name: first_seen_attribution_campaign
   type: STRING
   mode: NULLABLE
+  description: The attribution campaign at the time the client was first seen, similar to UTM 'campaign'.
+    Null when first-seen attribution data is not available.
 - name: first_seen_attribution_content
   type: STRING
   mode: NULLABLE
+  description: The attribution content at the time the client was first seen, similar to UTM 'content'.
+    Null when first-seen attribution data is not available.
 - name: first_seen_attribution_medium
   type: STRING
   mode: NULLABLE
+  description: The attribution medium at the time the client was first seen, similar to UTM 'medium' (e.g.
+    'referral', 'paidsearch'). Null when first-seen attribution data is not available.
 - name: first_seen_attribution_source
   type: STRING
   mode: NULLABLE
+  description: The attribution source at the time the client was first seen, similar to UTM 'source' (e.g.
+    'www.google.com', 'www.bing.com'). Null when first-seen attribution data is not available.
 - name: first_seen_attribution_term
   type: STRING
   mode: NULLABLE
+  description: The attribution term at the time the client was first seen, similar to UTM 'term'. Always
+    null in this table.
 - name: first_seen_distribution_name
   type: STRING
   mode: NULLABLE
+  description: The distribution name at the time the client was first seen. Null when first-seen distribution
+    data is not available.
 - name: is_desktop
   type: BOOLEAN
   mode: NULLABLE
