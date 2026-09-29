@@ -2,30 +2,48 @@ fields:
 - name: days_since_desktop_active
   type: INTEGER
   mode: NULLABLE
+  description: Number of days since the client last had desktop browser activity, derived from days_desktop_active_bits.
+    Null if no desktop activity was recorded in the past 28 days.
 - name: days_since_seen
   type: INTEGER
   mode: NULLABLE
+  description: Number of days since the client last submitted a ping, as derived from days_seen_bits. A
+    value of 0 means the client was seen on the submission date.
 - name: days_since_active
   type: INTEGER
   mode: NULLABLE
+  description: Number of days since the client was last considered active (had keyboard/mouse interaction),
+    derived from days_active_bits. Null if no activity was recorded in the past 28 days.
 - name: days_since_created_profile
   type: INTEGER
   mode: NULLABLE
+  description: Number of days since a profile was created for this client, derived from days_created_profile_bits.
+    Null if no profile creation event was recorded in the past 28 days.
 - name: days_since_seen_session_start
   type: INTEGER
   mode: NULLABLE
+  description: Number of days since the client last had a session start event, derived from days_seen_session_start_bits.
+    Null if no session start was recorded in the past 28 days.
 - name: days_since_seen_session_end
   type: INTEGER
   mode: NULLABLE
+  description: Number of days since the client last had a session end event, derived from days_seen_session_end_bits.
+    Null if no session end was recorded in the past 28 days.
 - name: days_since_visited_1_uri
   type: INTEGER
   mode: NULLABLE
+  description: Number of days since the client last visited at least one URI, derived from days_visited_1_uri_bits.
+    Null if no URI visit was recorded in the past 28 days.
 - name: days_seen_bits
   type: INTEGER
   mode: NULLABLE
+  description: A 28-bit integer where each bit represents one day in the past 28 days, with the most recent
+    day as the least significant bit. A set bit indicates the client submitted a ping on that day.
 - name: days_created_profile_bits
   type: INTEGER
   mode: NULLABLE
+  description: A 28-bit integer where each bit indicates whether the client created a profile on that day
+    in the past 28 days. A set bit on day 0 indicates a new profile was created on the submission date.
 - name: submission_date
   type: DATE
   mode: NULLABLE
@@ -49,9 +67,13 @@ fields:
 - name: days_seen_session_start_bits
   type: INTEGER
   mode: NULLABLE
+  description: A 28-bit integer where each bit indicates whether the client had a session start event on
+    that day in the past 28 days, with the most recent day as the least significant bit.
 - name: days_seen_session_end_bits
   type: INTEGER
   mode: NULLABLE
+  description: A 28-bit integer where each bit indicates whether the client had a session end event on that
+    day in the past 28 days, with the most recent day as the least significant bit.
 - name: android_sdk_version
   type: STRING
   mode: NULLABLE
@@ -108,6 +130,8 @@ fields:
 - name: days_active_bits
   type: INTEGER
   mode: NULLABLE
+  description: A 28-bit integer where each bit indicates whether the client was active (had keyboard/mouse
+    interaction) on that day in the past 28 days, with the most recent day as the least significant bit.
 - name: geo_subdivision
   type: STRING
   mode: NULLABLE
@@ -122,6 +146,8 @@ fields:
 - name: days_desktop_active_bits
   type: INTEGER
   mode: NULLABLE
+  description: A 28-bit integer where each bit indicates whether the client had desktop browser activity
+    on that day in the past 28 days. Used to compute DAU/WAU/MAU and activity_segment.
 - name: windows_build_number
   type: INTEGER
   mode: NULLABLE
@@ -131,9 +157,13 @@ fields:
 - name: browser_engagement_uri_count
   type: INTEGER
   mode: NULLABLE
+  description: The total number of non-unique http(s) URIs visited on the submission date, including page
+    reloads and private browsing. Migrated from Telemetry's browser.engagement.total_uri_count_normal_and_private_mode.
 - name: browser_engagement_active_ticks
   type: INTEGER
   mode: NULLABLE
+  description: The number of five-second intervals ('ticks') the user was considered active via keyboard
+    or mouse interaction on the submission date. Migrated from Telemetry's browser.engagement.active_ticks.
 - name: legacy_telemetry_client_id
   type: STRING
   mode: NULLABLE
@@ -147,6 +177,8 @@ fields:
 - name: attribution_dltoken
   type: STRING
   mode: NULLABLE
+  description: A unique token (UUID) created at Firefox download time, used to tie a download event to a
+    specific install. Null if not captured.
 - name: attribution_dlsource
   type: STRING
   mode: NULLABLE
@@ -181,6 +213,7 @@ fields:
   - name: key
     type: STRING
     mode: NULLABLE
+  description: The slug identifier of the Nimbus experiment or rollout the client is enrolled in (e.g. 'firefox-suggest-enhanced-exposure-phase-1').
   - name: value
     type: RECORD
     mode: NULLABLE
@@ -188,6 +221,8 @@ fields:
     - name: branch
       type: STRING
       mode: NULLABLE
+  description: The branch of the Nimbus experiment the client is assigned to (e.g. 'control', 'treatment-a',
+    'rollout-branch').
     - name: extra
       type: RECORD
       mode: NULLABLE
@@ -195,18 +230,27 @@ fields:
       - name: type
         type: STRING
         mode: NULLABLE
+  description: The type of the Nimbus enrollment, indicating whether it is a rollout or an experiment (e.g.
+    'nimbus-rollout', 'nimbus-nimbus', 'nimbus-undefined').
       - name: enrollment_id
         type: STRING
         mode: NULLABLE
+  description: A UUID that uniquely identifies the client's enrollment into the Nimbus experiment. Null
+    for most rows; the sentinel value '__NO_ENROLLMENT_ID__' may appear for legacy enrollments.
 - name: days_visited_1_uri_bits
   type: INTEGER
   mode: NULLABLE
+  description: A 28-bit integer where each bit indicates whether the client visited at least one URI on
+    that day in the past 28 days, with the most recent day as the least significant bit.
 - name: active_hours_sum
   type: FLOAT
   mode: NULLABLE
 - name: days_interacted_bits
   type: INTEGER
   mode: NULLABLE
+  description: A 28-bit integer where each bit indicates whether the client interacted with the browser
+    (had active ticks > 0) on that day in the past 28 days, with the most recent day as the least significant
+    bit.
 - name: startup_profile_selection_reason_first
   type: STRING
   mode: NULLABLE
@@ -305,9 +349,13 @@ fields:
 - name: attribution_campaign
   type: STRING
   mode: NULLABLE
+  description: The attribution campaign associated with the Firefox download, similar to UTM campaign (e.g.
+    'SET_DEFAULT_BROWSER', 'non-fx-button'). Null if not set.
 - name: attribution_content
   type: STRING
   mode: NULLABLE
+  description: The attribution content parameter associated with the Firefox download, similar to UTM content
+    (e.g. 'body-download-button'). Null if not set.
 - name: attribution_medium
   type: STRING
   mode: NULLABLE
@@ -323,27 +371,41 @@ fields:
 - name: attribution_term
   type: STRING
   mode: NULLABLE
+  description: The attribution term parameter associated with the Firefox download, similar to UTM term.
+    Always null in this table.
 - name: distribution_name
   type: STRING
   mode: NULLABLE
 - name: first_seen_attribution_campaign
   type: STRING
   mode: NULLABLE
+  description: The attribution campaign recorded at the time of the client's first seen date, similar to
+    UTM campaign. Null if not set at first seen.
 - name: first_seen_attribution_content
   type: STRING
   mode: NULLABLE
+  description: The attribution content parameter recorded at the time of the client's first seen date, similar
+    to UTM content. Null if not set at first seen.
 - name: first_seen_attribution_medium
   type: STRING
   mode: NULLABLE
+  description: The attribution medium recorded at the time of the client's first seen date, similar to UTM
+    medium. Null if not set at first seen.
 - name: first_seen_attribution_source
   type: STRING
   mode: NULLABLE
+  description: The attribution source recorded at the time of the client's first seen date, similar to UTM
+    source. Null if not set at first seen.
 - name: first_seen_attribution_term
   type: STRING
   mode: NULLABLE
+  description: The attribution term parameter recorded at the time of the client's first seen date, similar
+    to UTM term. Always null in this table.
 - name: first_seen_distribution_name
   type: STRING
   mode: NULLABLE
+  description: The distribution name recorded at the time of the client's first seen date (e.g. 'canonical-002',
+    'mozilla-MSIX'). Null if not set at first seen.
 - name: is_desktop
   type: BOOLEAN
   mode: NULLABLE
