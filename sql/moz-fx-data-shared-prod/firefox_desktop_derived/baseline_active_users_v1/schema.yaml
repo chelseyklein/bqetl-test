@@ -181,6 +181,7 @@ fields:
   - name: key
     type: STRING
     mode: NULLABLE
+    description: The experiment or rollout slug identifying the Nimbus experiment the client is enrolled in.
   - name: value
     type: RECORD
     mode: NULLABLE
@@ -188,6 +189,7 @@ fields:
     - name: branch
       type: STRING
       mode: NULLABLE
+      description: The branch of the experiment the client is assigned to (e.g. 'control', 'treatment-a', 'rollout-branch').
     - name: extra
       type: RECORD
       mode: NULLABLE
@@ -195,21 +197,29 @@ fields:
       - name: type
         type: STRING
         mode: NULLABLE
+        description: The type of Nimbus enrollment for this experiment record (e.g. 'nimbus-rollout', 'nimbus-nimbus').
       - name: enrollment_id
         type: STRING
         mode: NULLABLE
+        description: A UUID uniquely identifying the client's enrollment event in the experiment. Null in most
+          records; populated when a specific enrollment ID is available.
 - name: days_visited_1_uri_bits
   type: INTEGER
   mode: NULLABLE
 - name: active_hours_sum
   type: FLOAT
   mode: NULLABLE
+  description: Total hours the user was considered active (keyboard or mouse interaction) on the submission
+    date, calculated as browser_engagement_active_ticks multiplied by 5 seconds and converted to hours.
 - name: days_interacted_bits
   type: INTEGER
   mode: NULLABLE
 - name: startup_profile_selection_reason_first
   type: STRING
   mode: NULLABLE
+  description: How the Firefox profile was selected during startup on the first recorded ping of the submission
+    date. Values include 'default', 'firstrun-created-default', 'argument-profile', 'profile-selector',
+    'restart', etc. Null when not available.
 - name: app_name
   type: STRING
   mode: NULLABLE
@@ -231,9 +241,13 @@ fields:
 - name: app_version_patch_revision
   type: NUMERIC
   mode: NULLABLE
+  description: The patch revision component of the browser version string (e.g. 6 for '152.0.6'), parsed
+    using mozfun.norm.browser_version_info. Null for major releases with no patch component.
 - name: app_version_is_major_release
   type: BOOLEAN
   mode: NULLABLE
+  description: True if the browser version is a major release (e.g. '153.0' with no patch), false if it
+    is a point release (e.g. '152.0.6').
 - name: channel
   type: STRING
   mode: NULLABLE
@@ -245,6 +259,8 @@ fields:
 - name: distribution_id_source
   type: STRING
   mode: NULLABLE
+  description: Indicates whether the distribution_id was sourced from 'glean' (Glean baseline ping) or 'legacy'
+    (legacy telemetry distribution mapping). Null when distribution_id is not set.
 - name: os
   type: STRING
   mode: NULLABLE
@@ -254,6 +270,8 @@ fields:
 - name: os_grouped
   type: STRING
   mode: NULLABLE
+  description: A grouping of the operating system name, identical to the `os` field. Included for compatibility
+    with legacy reporting surfaces.
 - name: os_version
   type: STRING
   mode: NULLABLE
@@ -263,12 +281,19 @@ fields:
 - name: os_version_build
   type: STRING
   mode: NULLABLE
+  description: A human-readable OS version build string derived using mozfun.norm.glean_windows_version_info
+    (e.g. 'Windows 11', 'Windows 10'). Falls back to normalized_os_version when the Windows version lookup
+    is unavailable.
 - name: os_version_major
   type: INTEGER
   mode: NULLABLE
+  description: The major version component of the operating system version (e.g. 10 for Windows 10.0), extracted
+    from normalized_os_version.
 - name: os_version_minor
   type: INTEGER
   mode: NULLABLE
+  description: The minor version component of the operating system version (e.g. 0 for Windows 10.0), extracted
+    from normalized_os_version.
 - name: activity_segment
   type: STRING
   mode: NULLABLE
@@ -326,24 +351,38 @@ fields:
 - name: distribution_name
   type: STRING
   mode: NULLABLE
+  description: The optional distribution name for the current ping (e.g. 'canonical-002', 'mozilla-MSIX').
+    Can be a partner name or distribution configuration preset. Null when not set.
 - name: first_seen_attribution_campaign
   type: STRING
   mode: NULLABLE
+  description: The attribution campaign recorded at the time the client was first seen, analogous to UTM
+    campaign. Null when not available.
 - name: first_seen_attribution_content
   type: STRING
   mode: NULLABLE
+  description: The attribution content parameter recorded at the time the client was first seen, analogous
+    to UTM content. Null when not available.
 - name: first_seen_attribution_medium
   type: STRING
   mode: NULLABLE
+  description: The attribution medium recorded at the time the client was first seen, analogous to UTM medium
+    (e.g. 'referral', 'paidsearch'). Null when not available.
 - name: first_seen_attribution_source
   type: STRING
   mode: NULLABLE
+  description: The attribution source recorded at the time the client was first seen, analogous to UTM source
+    (e.g. 'www.google.com'). Null when not available.
 - name: first_seen_attribution_term
   type: STRING
   mode: NULLABLE
+  description: The attribution search term recorded at the time the client was first seen, analogous to
+    UTM term. Always null for this table.
 - name: first_seen_distribution_name
   type: STRING
   mode: NULLABLE
+  description: The distribution name recorded at the time the client was first seen (e.g. 'canonical-002',
+    'mozilla-MSIX'). Null when not available.
 - name: is_desktop
   type: BOOLEAN
   mode: NULLABLE
