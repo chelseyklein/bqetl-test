@@ -2,30 +2,48 @@ fields:
 - name: days_since_desktop_active
   type: INTEGER
   mode: NULLABLE
+  description: Number of days since the client was last desktop-active (via days_desktop_active_bits), within
+    the 28-day rolling window. Null when the client has had no desktop-active days in the window.
 - name: days_since_seen
   type: INTEGER
   mode: NULLABLE
+  description: Number of days since the client was last seen (submitted any ping), calculated from the days_seen_bits
+    field using a 28-day rolling window.
 - name: days_since_active
   type: INTEGER
   mode: NULLABLE
+  description: Number of days since the client was last active (via days_active_bits), within the 28-day
+    rolling window. Null when the client has had no active days in the window.
 - name: days_since_created_profile
   type: INTEGER
   mode: NULLABLE
+  description: Number of days since the client's profile was first created, within the 28-day rolling window.
+    Null when no profile creation event is recorded in the window.
 - name: days_since_seen_session_start
   type: INTEGER
   mode: NULLABLE
+  description: Number of days since the client last started a session (via days_seen_session_start_bits),
+    within the 28-day rolling window. Null when no session start has occurred in the window.
 - name: days_since_seen_session_end
   type: INTEGER
   mode: NULLABLE
+  description: Number of days since the client last ended a session (via days_seen_session_end_bits), within
+    the 28-day rolling window. Null when no session end has occurred in the window.
 - name: days_since_visited_1_uri
   type: INTEGER
   mode: NULLABLE
+  description: Number of days since the client last visited at least one URI (via days_visited_1_uri_bits),
+    within the 28-day rolling window. Null when no URI visit is recorded in the window.
 - name: days_seen_bits
   type: INTEGER
   mode: NULLABLE
+  description: A 28-bit integer bitmask representing which of the last 28 days the client submitted a ping,
+    with the most significant bit corresponding to the most recent day.
 - name: days_created_profile_bits
   type: INTEGER
   mode: NULLABLE
+  description: A 28-bit integer bitmask representing which of the last 28 days the client's profile was
+    first created, with the most significant bit corresponding to the most recent day.
 - name: submission_date
   type: DATE
   mode: NULLABLE
@@ -49,9 +67,13 @@ fields:
 - name: days_seen_session_start_bits
   type: INTEGER
   mode: NULLABLE
+  description: A 28-bit integer bitmask representing which of the last 28 days a session start was observed
+    for this client, with the most significant bit corresponding to the most recent day.
 - name: days_seen_session_end_bits
   type: INTEGER
   mode: NULLABLE
+  description: A 28-bit integer bitmask representing which of the last 28 days a session end was observed
+    for this client, with the most significant bit corresponding to the most recent day.
 - name: android_sdk_version
   type: STRING
   mode: NULLABLE
@@ -108,6 +130,8 @@ fields:
 - name: days_active_bits
   type: INTEGER
   mode: NULLABLE
+  description: A 28-bit integer bitmask representing which of the last 28 days the client was active (sent
+    any baseline ping with activity), with the most significant bit corresponding to the most recent day.
 - name: geo_subdivision
   type: STRING
   mode: NULLABLE
@@ -122,6 +146,9 @@ fields:
 - name: days_desktop_active_bits
   type: INTEGER
   mode: NULLABLE
+  description: A 28-bit integer bitmask representing which of the last 28 days the client was active specifically
+    on Firefox Desktop, with the most significant bit corresponding to the most recent day. Used to compute
+    DAU/WAU/MAU and activity_segment.
 - name: windows_build_number
   type: INTEGER
   mode: NULLABLE
@@ -147,6 +174,8 @@ fields:
 - name: attribution_dltoken
   type: STRING
   mode: NULLABLE
+  description: A unique token created at Firefox download time, used to match a specific download event
+    to a Firefox install. Null when no download token is recorded.
 - name: attribution_dlsource
   type: STRING
   mode: NULLABLE
@@ -181,6 +210,7 @@ fields:
   - name: key
     type: STRING
     mode: NULLABLE
+  description: The slug identifier of the Nimbus experiment or rollout the client is enrolled in (e.g. "long-term-holdback-2026-growth-desktop").
   - name: value
     type: RECORD
     mode: NULLABLE
@@ -188,6 +218,8 @@ fields:
     - name: branch
       type: STRING
       mode: NULLABLE
+  description: The branch of the Nimbus experiment or rollout the client is assigned to (e.g. "control",
+    "treatment-a", "rollout-branch").
     - name: extra
       type: RECORD
       mode: NULLABLE
@@ -195,18 +227,27 @@ fields:
       - name: type
         type: STRING
         mode: NULLABLE
+  description: The type of Nimbus enrollment for this experiment entry, indicating whether it is a rollout
+    or a standard experiment (e.g. "nimbus-rollout", "nimbus-nimbus").
       - name: enrollment_id
         type: STRING
         mode: NULLABLE
+  description: A unique UUID identifying the specific enrollment event for this client in the experiment.
+    Null when no enrollment ID was recorded.
 - name: days_visited_1_uri_bits
   type: INTEGER
   mode: NULLABLE
+  description: A 28-bit integer bitmask representing which of the last 28 days the client visited at least
+    one URI, with the most significant bit corresponding to the most recent day.
 - name: active_hours_sum
   type: FLOAT
   mode: NULLABLE
 - name: days_interacted_bits
   type: INTEGER
   mode: NULLABLE
+  description: A 28-bit integer bitmask representing which of the last 28 days the client had any keyboard
+    or mouse interaction with the browser, with the most significant bit corresponding to the most recent
+    day.
 - name: startup_profile_selection_reason_first
   type: STRING
   mode: NULLABLE
@@ -305,9 +346,13 @@ fields:
 - name: attribution_campaign
   type: STRING
   mode: NULLABLE
+  description: The attribution campaign associated with the Firefox Desktop download, analogous to the UTM
+    campaign parameter (e.g. "SET_DEFAULT_BROWSER", "non-fx-button"). Null when attribution data is unavailable.
 - name: attribution_content
   type: STRING
   mode: NULLABLE
+  description: The attribution content field associated with the Firefox Desktop download, analogous to
+    the UTM content parameter. Null when attribution data is unavailable.
 - name: attribution_medium
   type: STRING
   mode: NULLABLE
@@ -323,27 +368,43 @@ fields:
 - name: attribution_term
   type: STRING
   mode: NULLABLE
+  description: The attribution term associated with the Firefox Desktop download, analogous to the UTM term
+    parameter. Always null in this table.
 - name: distribution_name
   type: STRING
   mode: NULLABLE
 - name: first_seen_attribution_campaign
   type: STRING
   mode: NULLABLE
+  description: The attribution campaign value from the client's very first seen ping, capturing the campaign
+    at the time of initial install. Null when attribution data was not recorded at first seen.
 - name: first_seen_attribution_content
   type: STRING
   mode: NULLABLE
+  description: The attribution content value from the client's very first seen ping, capturing the UTM content
+    at the time of initial install. Null when attribution data was not recorded at first seen.
 - name: first_seen_attribution_medium
   type: STRING
   mode: NULLABLE
+  description: The attribution medium value from the client's very first seen ping, capturing the UTM medium
+    at the time of initial install. Null when attribution data was not recorded at first seen.
 - name: first_seen_attribution_source
   type: STRING
   mode: NULLABLE
+  description: The attribution source value from the client's very first seen ping, capturing the UTM source
+    at the time of initial install (e.g. "www.google.com", "www.bing.com"). Null when attribution data was
+    not recorded at first seen.
 - name: first_seen_attribution_term
   type: STRING
   mode: NULLABLE
+  description: The attribution term value from the client's very first seen ping, capturing the UTM term
+    at the time of initial install. Always null in this table.
 - name: first_seen_distribution_name
   type: STRING
   mode: NULLABLE
+  description: The distribution name from the client's very first seen ping, capturing the partner or distribution
+    preset at initial install time (e.g. "canonical-002", "mint-001"). Null when no distribution name was
+    recorded at first seen.
 - name: is_desktop
   type: BOOLEAN
   mode: NULLABLE
