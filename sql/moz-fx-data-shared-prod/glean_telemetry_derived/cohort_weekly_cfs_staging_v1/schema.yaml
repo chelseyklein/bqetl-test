@@ -89,7 +89,9 @@ fields:
 - name: cohort_date_week
   type: DATE
   mode: NULLABLE
-  description: The week of this client's first_seen_date.
+  description: The ISO week start date (Sunday) of the client's first-seen date, derived by truncating `cohort_date`
+    to the week boundary. Used to group clients into weekly acquisition cohorts for retention and funnel
+    analysis.
 - name: client_id
   type: STRING
   mode: NULLABLE
